@@ -13,10 +13,15 @@ const LoginV3 = () => {
           {/* <img className="element1" src={Logo} alt="Logo" /> */}
           <div className="element1" />
           <div className="element2">
-            <TextField required outlined label="Usuario..." />
+            <TextField className="input" required outlined label="Usuario..." />
           </div>
           <div className="element3">
-            <TextField required outlined label="Contraseña..." />
+            <TextField
+              className="input"
+              required
+              outlined
+              label="Contraseña..."
+            />
           </div>
           <div className="element4">
             Olvidaste tu contraseña?
@@ -27,7 +32,7 @@ const LoginV3 = () => {
             </Router> */}
           </div>
           <div className="element5">
-            <Button className="Boton" label="ingresar" raised />
+            <Button className="boton" label="ingresar" raised />
           </div>
         </div>
       </div>

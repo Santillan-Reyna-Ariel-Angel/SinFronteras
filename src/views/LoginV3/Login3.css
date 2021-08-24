@@ -23,21 +23,26 @@ Secundarios: #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
 
 .container {
   display: grid;
-  /* background-color: green; */
-  padding: 20px;
-  grid-gap: 5px;
+  padding: 15px 30px;
+  /* grid-gap: 5px; */
+  /* grid-column-gap: 5px;
+  grid-row-gap: 3px; */
   grid-template-columns: 200px 200px auto;
   grid-template-rows: auto auto auto;
   border-radius: 20px;
-  background: radial-gradient(circle, #9ca3af, #00bdb2, black);
-  /* background: radial-gradient(circle,  0%,  100%); */
+
+  /* background: #00bdb440;
+  backdrop-filter: blur(22px); */
+  background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%);
+
+  box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.7);
 }
 
 .container > div {
   background-color: transparent;
   justify-content: space-evenly;
   text-align: start;
-  padding: 10px;
+  /* padding: 10px; */
 }
 
 .element1 {
@@ -59,3 +64,10 @@ Secundarios: #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
   font-weight: bold;
   text-align: center;
 }
+.input {
+  width: 100%;
+}
+
+/* .boton {
+  background-color: green;
+} */
