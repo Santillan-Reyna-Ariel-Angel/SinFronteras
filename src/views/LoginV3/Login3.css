@@ -1,3 +1,6 @@
+/* Colores:
+Primarios: #00bdb2 (1ra opcion) - #14c7dd (2da opcion)
+Secundarios: #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
 .background {
   display: grid;
   position: absolute;
@@ -26,12 +29,12 @@
   grid-template-columns: 200px 200px auto;
   grid-template-rows: auto auto auto;
   border-radius: 20px;
-  background: radial-gradient(circle, #dbdef1, #14c7dd, black);
+  background: radial-gradient(circle, #9ca3af, #00bdb2, black);
   /* background: radial-gradient(circle,  0%,  100%); */
 }
 
 .container > div {
-  /* background-color: #ffff00; */
+  background-color: transparent;
   justify-content: space-evenly;
   text-align: start;
   padding: 10px;

@@ -3,7 +3,7 @@ import "rmwc/dist/styles";
 import "../LoginV3/Login3.css";
 import { Button, TextField } from "rmwc";
 import Logo from "../../sources/img/LogoSF.png";
-import { Link, Route } from "react-router-dom";
+import { BrowserRouter, Router, Link } from "react-router-dom";
 
 const LoginV3 = () => {
   return (
@@ -19,9 +19,12 @@ const LoginV3 = () => {
             <TextField required outlined label="Contraseña..." />
           </div>
           <div className="element4">
-            {/* <Link  to="/recueperar-cuenta"> */}
             Olvidaste tu contraseña?
-            {/* </Link> */}
+            {/* <Router>
+              <Link to="/recuperar">
+                <p>Olvidaste tu contraseña?</p>
+              </Link>
+            </Router> */}
           </div>
           <div className="element5">
             <Button className="Boton" label="ingresar" raised />
