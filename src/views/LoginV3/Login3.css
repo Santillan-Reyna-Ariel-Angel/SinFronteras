@@ -23,10 +23,9 @@ Secundarios: #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
 
 .container {
   display: grid;
-  padding: 15px 30px;
-  /* grid-gap: 5px; */
-  /* grid-column-gap: 5px;
-  grid-row-gap: 3px; */
+  padding: 10px 30px;
+  grid-column-gap: 15px;
+  grid-row-gap: 17px;
   grid-template-columns: 200px 200px auto;
   grid-template-rows: auto auto auto;
   border-radius: 20px;
@@ -40,9 +39,9 @@ Secundarios: #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
 
 .container > div {
   background-color: transparent;
-  justify-content: space-evenly;
-  text-align: start;
-  /* padding: 10px; */
+  text-align: center;
+  /* Lo siguiwente deberia quitarse; pero la imagen se llega a cortar al hacerlo  */
+  padding: 10px 0px;
 }
 
 .element1 {
@@ -59,11 +58,21 @@ Secundarios: #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
 .element3 {
   grid-column: span 2;
 }
+
 .element4 {
+  /* Alinear horizontal y verticalmente */
+  align-self: center;
+  justify-self: center;
+}
+.link {
   color: red;
   font-weight: bold;
-  text-align: center;
+  text-decoration: none;
 }
+.link:hover {
+  color: #c2510b;
+}
+
 .input {
   width: 100%;
 }
