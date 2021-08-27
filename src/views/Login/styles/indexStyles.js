@@ -81,6 +81,7 @@ export const ContainerButtonSubmit = styled.div`
   }
 
   @media screen and (max-width: 600px) {
+    
     grid-template-columns: auto;
     grid-template-rows: repeat(2, auto);
 
