@@ -6,7 +6,7 @@ import { Login } from "./views/Login/index";
 import LoginMUI from "./views/LoginMUI/LoginMUI";
 import Home from "./views/Home/Home";
 import RecoverPassword from "./views/RecoverPassword/RecoverPassword";
-
+import Contenedor from "./views/NavBar/Contenedor";
 const App = () => {
   return (
     <div>
@@ -16,8 +16,9 @@ const App = () => {
           {/* <Route exact path="/login" component={Login} />{" "} */}
           {/* <Route exact path="/login" component={LoginV3} /> */}
           <Route exact path="/login" component={LoginMUI} />
-          <Route exact path="/home" component={Home} />
+          {/* <Route exact path="/home" component={Home} /> */}
           <Route exact path="/recover-password" component={RecoverPassword} />
+          <Route exact path="/home" component={Contenedor} />
         </Switch>
       </BrowserRouter>
     </div>
