@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import "rmwc/dist/styles";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   Background,
   ButtonEnter,
@@ -12,7 +12,26 @@ import {
 } from "./LoginMUIStyles";
 import { TextField, Button } from "@material-ui/core";
 
+//firebase;
+// import { useFirebaseApp, useUser } from "reactfire";
+import { firebase } from "firebase/app";
+// import "firebase/auth";
+import fire from "./../../firebase-config";
+
 const LoginMUI = () => {
+  // const firebase = useFirebaseApp();
+  // const history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const sendLogin = async () => {
+    console.log(email, password);
+    // await firebase.auth().createUserWithEmailAndPassword(email, password);
+    // history.push("/home");
+
+    // await firebase.auth().createUserWithEmailAndPassword(email, password);
+    // fire.auth().signInWithEmailAndPassword(email, password);
+  };
   return (
     <>
       <Background>
@@ -20,10 +39,12 @@ const LoginMUI = () => {
           <ContainerLogo />
           <InputUser>
             <TextField
+              type="email"
               className="input"
               required
-              label="Usuario..."
+              label="Corrreo..."
               variant="outlined"
+              onChange={(event) => setEmail(event.target.value)}
             />
           </InputUser>
           <InputPassword>
@@ -33,6 +54,7 @@ const LoginMUI = () => {
               required
               label="Contraseña..."
               variant="outlined"
+              onChange={(event) => setPassword(event.target.value)}
             />
           </InputPassword>
           <TextRecoverPassword>
@@ -41,16 +63,17 @@ const LoginMUI = () => {
             </Link>
           </TextRecoverPassword>
           <ButtonEnter>
-            <Link className="link" to="/home">
-              <Button
-                className="buttonEnter"
-                variant="contained"
-                size="medium"
-                color="primary"
-              >
-                ingresar
-              </Button>
-            </Link>
+            {/* <Link className="link" to="/home"> */}
+            <Button
+              className="buttonEnter"
+              variant="contained"
+              size="medium"
+              color="primary"
+              onClick={() => sendLogin()}
+            >
+              ingresar
+            </Button>
+            {/* </Link> */}
           </ButtonEnter>
         </Container>
       </Background>

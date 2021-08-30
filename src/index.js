@@ -1,15 +1,18 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
+//Archivo de rutas
 import App from "./App";
-
-//////
-import { Login } from "./views/Login";
-//////
+//Firebase
+import { FirebaseAppProvider } from "reactfire";
+import firebaseConfig from "./firebase-config";
 
 ReactDOM.render(
   <React.StrictMode>
-    {/* <Login /> */}
-    <App />
+    <Suspense fallback={"Cargamdo datos..."}>
+      <FirebaseAppProvider firebaseConfig={firebaseConfig}>
+        <App />
+      </FirebaseAppProvider>
+    </Suspense>
   </React.StrictMode>,
   document.getElementById("root")
 );
