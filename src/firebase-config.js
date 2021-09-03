@@ -1,5 +1,7 @@
-import firebase from "firebase";
-var firebaseConfig = {
+import app from "firebase/compat/app";
+import "firebase/compat/auth";
+
+const firebaseConfig = {
   apiKey: "AIzaSyCcz8n1QlSY3pPEUFE6xfg3Uj57s1IUou0",
   authDomain: "pruebasf-cbdd1.firebaseapp.com",
   projectId: "pruebasf-cbdd1",
@@ -8,5 +10,10 @@ var firebaseConfig = {
   appId: "1:714613680681:web:b4f148232bcd7ac7944a38",
 };
 
-const fire = firebase.initializeApp(firebaseConfig);
-export default fire;
+const fire = app.initializeApp(firebaseConfig);
+// const auth = fire.auth();
+const modulesFirebase = {
+  fire,
+  app,
+};
+export default modulesFirebase;

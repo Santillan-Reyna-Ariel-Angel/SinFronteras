@@ -9,28 +9,20 @@ import {
   InputPassword,
   InputUser,
   TextRecoverPassword,
-} from "./LoginMUIStyles";
+} from "./loginMUIStyles";
 import { TextField, Button } from "@material-ui/core";
 
-//firebase;
-// import { useFirebaseApp, useUser } from "reactfire";
-import { firebase } from "firebase/app";
-// import "firebase/auth";
-import fire from "./../../firebase-config";
-
+//EventosFirebase;
+import { Auth } from "../../events/firebaseEvents";
 const LoginMUI = () => {
-  // const firebase = useFirebaseApp();
-  // const history = useHistory();
+  const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const sendLogin = async () => {
     console.log(email, password);
-    // await firebase.auth().createUserWithEmailAndPassword(email, password);
-    // history.push("/home");
-
-    // await firebase.auth().createUserWithEmailAndPassword(email, password);
-    // fire.auth().signInWithEmailAndPassword(email, password);
+    Auth(email, password);
+    history.push("/notes");
   };
   return (
     <>
@@ -63,7 +55,6 @@ const LoginMUI = () => {
             </Link>
           </TextRecoverPassword>
           <ButtonEnter>
-            {/* <Link className="link" to="/home"> */}
             <Button
               className="buttonEnter"
               variant="contained"
@@ -73,7 +64,6 @@ const LoginMUI = () => {
             >
               ingresar
             </Button>
-            {/* </Link> */}
           </ButtonEnter>
         </Container>
       </Background>
