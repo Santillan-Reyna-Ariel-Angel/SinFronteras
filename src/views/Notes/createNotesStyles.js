@@ -21,13 +21,14 @@ export const Form = styled.form`
 
   grid-template-areas: "HeaderTitle" "Title" "BodyNote" "ButtonSave";
 
-  background-color: orange;
+  background-color: #00bdb2;
   border-radius: 15px;
 `;
 
 export const HeaderTitle = styled.div`
   grid-area: HeaderTitle;
   text-align: center;
+  font-size: x-large;
 `;
 
 export const Title = styled.div`
@@ -37,10 +38,10 @@ export const Title = styled.div`
 
 export const BodyNote = styled.div`
   grid-area: BodyNote;
-  background-color: yellow;
+  /* background-color: yellow; */
+  background-color: #9ca3af;
 `;
 
 export const ButtonSave = styled.div`
   grid-area: ButtonSave;
-  background-color: gray;
 `;
