@@ -25,7 +25,7 @@ export const Background = styled.div`
   grid-template-columns: auto;
 `;
 
-export const Container = styled.div`
+export const Container = styled.form`
   display: grid;
   padding: 25px 30px;
   grid-column-gap: 15px;
