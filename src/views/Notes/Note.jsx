@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 // import TextField from "@material-ui/core/TextField";
 import { IconButton, TextField } from "@material-ui/core";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
@@ -11,12 +11,23 @@ import {
   ButtonEdit,
   ButtonDelete,
 } from "./NoteStyles";
+
+import { Context } from "../../Context/ContextListNotes";
+
 const Note = () => {
+  const { listAllNotes } = useContext(Context);
+  console.log(listAllNotes, "Hola");
+
   return (
     <>
+      <ul>
+        {Object.keys(listAllNotes).map((key) => {
+          return <li key={key}>{listAllNotes[key].title}</li>;
+        })}
+      </ul>
       <NoteContainer>
         <NoteContent>
-          <Title>Titulo</Title>
+          <Title>Title</Title>
           <BodyNote>
             <TextField
               id="outlined-multiline-static"

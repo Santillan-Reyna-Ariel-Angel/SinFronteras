@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import {
@@ -15,18 +15,16 @@ import {
   updateNote,
   deleteNote,
   readAllNotes,
+  readAllNotes2,
   readSpecificNote,
 } from "./../../events/firebaseEvents";
 
-import { useNotesLists } from "./../../Hooks/NoteLists";
+import { useNotesLists } from "../../Hooks/useNotesLists";
 
 const CreateNote = () => {
   const [title, setTitle] = useState("");
   const [bodyNote, setBodyNote] = useState("");
   const [id, setId] = useState(1);
-
-  //hook listar
-  const Notes = useNotesLists();
 
   const saveNewNote = async () => {
     if (title !== "" && bodyNote !== "") {
@@ -43,7 +41,8 @@ const CreateNote = () => {
   };
 
   const readAllNotesBD = () => {
-    readAllNotes();
+    // readAllNotes();
+    readAllNotes2(2);
   };
 
   const updateNoteBD = () => {
@@ -97,12 +96,11 @@ const CreateNote = () => {
             <Button
               variant="contained"
               color="primary"
-              onClick={() => saveNewNote()}
+              // onClick={() => saveNewNote()}
               // onClick={() => readNoteBD()}
               // onClick={() => updateNoteBD()}
               // onClick={() => deleteNoteBD()}
-              // onClick={() => readAllNotesBD()}
-              // onClick={() => console.log(Notes)}
+              onClick={() => readAllNotesBD()}
             >
               Guardar
             </Button>

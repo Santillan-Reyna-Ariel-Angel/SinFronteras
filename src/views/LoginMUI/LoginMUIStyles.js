@@ -2,10 +2,6 @@ import styled from "styled-components";
 import backgroundImage from "./../../sources/img/Flota2.jpg";
 import Logo from "./../../sources/img/LogoSF.png";
 
-/* Colores:
-Primarios: #00bdb2 (1ra opcion) - #14c7dd (2da opcion)
-Secundarios: #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
-
 export const Background = styled.div`
   display: grid;
   position: absolute;
@@ -18,7 +14,7 @@ export const Background = styled.div`
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-
+  /* object-fit: contain; */
   justify-content: center;
   align-content: center;
 
@@ -44,8 +40,9 @@ export const Container = styled.form`
 
   @media screen and (max-width: 768px) {
     grid-column-gap: 20px;
-    grid-template-columns: 1fr 100px;
-    grid-template-rows: repeat(4, 1fr);
+    grid-template-columns: 180px 100px;
+    grid-template-rows: 160px 1fr 1fr auto;
+    padding: 10px 15px;
 
     grid-template-areas:
       "Logo Logo"
@@ -62,9 +59,6 @@ export const ContainerLogo = styled.div`
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
-  @media screen and (max-width: 768px) {
-    /* background-size: cover; */
-  }
 `;
 
 export const InputUser = styled.div`
@@ -83,10 +77,7 @@ export const InputPassword = styled.div`
 `;
 export const TextRecoverPassword = styled.div`
   grid-area: RecoverPassword;
-  /* Alinear al centro verticalmente */
   align-self: center;
-  /* Alinear al centro horizontal  */
-  /* justify-self: center; */
 
   .link {
     color: red;
@@ -104,10 +95,10 @@ export const ButtonEnter = styled.div`
   .link {
     text-decoration: none;
   }
-  .buttonEnter {
-    /* background-color: #9ca3af; */
-  }
-
+  //Color del Boton:
+  /* .buttonEnter {
+    background-color: #9ca3af;
+  } */
   @media screen and (max-width: 768px) {
     align-self: center;
     justify-self: center;

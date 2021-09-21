@@ -1,0 +1,8 @@
+>Colores:
+    Primarios: #00bdb2 (1ra opcion) - #14c7dd (2da opcion)
+    Secundarios: #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
+
+>Alinear al centro verticalmente
+    align-self: center;
+>Alinear al centro horizontal
+    justify-self: center;

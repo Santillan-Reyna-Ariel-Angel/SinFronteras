@@ -1,4 +1,5 @@
 import EventFirebase from "../firebase-config";
+import Note from "../views/Notes/Note";
 const { app } = EventFirebase;
 
 export const Auth = async (email, password) => {
@@ -6,12 +7,13 @@ export const Auth = async (email, password) => {
     const userCredential = await app
       .auth()
       .signInWithEmailAndPassword(email, password);
-    console.log(userCredential);
+    console.log("userCredential:", userCredential);
     const accessToken = await userCredential.user.getIdToken();
-    console.log(accessToken);
-    return userCredential;
+    console.log("accessToken:", accessToken);
+    // return userCredential;
+    return accessToken;
   } catch (error) {
-    console.error(error.messsage);
+    console.error("Error", error.message);
     return null;
   }
 };
@@ -36,37 +38,35 @@ export const saveNote = (noteId, title, bodyNote) => {
     );
 };
 
-// export const readNote = (noteId) => {
+// export const readAllNotes = () => {
 //   try {
-//     const note = app.database().ref("notes/" + noteId);
-//     note.on("bodyNote", (element) => {
-//       const data = element.val();
-//       console.log("La nota es:", data);
+//     const note = app.database().ref("notes/");
+//     console.log("Las notas son: ");
+//     note.on("value", (element) => {
+//       console.log(element.val());
+//       // window.AllNotes = element.val();
+//       callback(element.val());
 //     });
 //   } catch (error) {
 //     console.log("Lectura erronea!!!", error);
 //   }
 // };
 
-export const readAllNotes = () => {
+export const readAllNotes2 = (noteId) => {
   try {
-    const note = app.database().ref("notes/");
-    console.log("Las notas son: ");
-    note.on("value", (element) => {
-      console.log(element.val());
-    });
-  } catch (error) {
-    console.log("Lectura erronea!!!", error);
-  }
-};
-
-export const readAllNotes2 = () => {
-  try {
-    const note = app.database().ref("notes/");
-    console.log("Las notas son: ");
-    note.on("value", (element) => {
-      element.val();
-    });
+    const note = app.database().ref();
+    note
+      .child("notes")
+      .child(noteId)
+      .get()
+      .then((element) => {
+        if (element.exists()) {
+          console.log(element.val());
+          // <Note element={element.val()} />;
+        } else {
+          console.log("Datos no dispinobles!!");
+        }
+      });
   } catch (error) {
     console.log("Lectura erronea!!!", error);
   }
@@ -82,6 +82,20 @@ export const readSpecificNote = (noteId) => {
   } catch (error) {
     console.log("Lectura erronea!!!", error);
   }
+
+  const note = app.database().ref();
+  note
+    .child("notes")
+    .child(noteId)
+    .get()
+    .then((element) => {
+      if (element.exists()) {
+        console.log(element.val());
+        // <Note element={element.val()} />;
+      } else {
+        console.log("Datos no dispinobles!!");
+      }
+    });
 };
 
 export const updateNote = (noteId, title, bodyNote) => {
@@ -112,21 +126,3 @@ export const deleteNote = (noteId) => {
     .remove();
   console.log("Datos eliminados");
 };
-
-//Escribir y acrulizar:
-// export const writeAndUpdateNote = (noteId, title, bodyNote) => {
-//   const noteData = {
-//     noteId: noteId,
-//     title: title,
-//     bodyNote: bodyNote,
-//   };
-
-//   const newNote = app.database().ref().child("notes").push().key;
-
-//   const updates = {};
-
-//   updates["notes/" + newNote] = noteData;
-//   updates["notes/" + noteId + "/" + newNote] = noteData;
-
-//   return app.database().ref().update(updates);
-// };

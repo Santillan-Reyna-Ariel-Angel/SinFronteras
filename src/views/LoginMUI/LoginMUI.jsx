@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import "rmwc/dist/styles";
 import { Link, useHistory } from "react-router-dom";
+//Estilos:
 import {
   Background,
   ButtonEnter,
@@ -14,15 +14,22 @@ import { TextField, Button } from "@material-ui/core";
 
 //EventosFirebase;
 import { Auth } from "../../events/firebaseEvents";
+
 const LoginMUI = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [credentialError, setCredentialError] = useState(false);
 
   const sendLogin = async () => {
-    console.log(email, password);
-    Auth(email, password);
-    history.push("/notes");
+    console.log("sendLogin:", email, password);
+    const accessToken = await Auth(email, password);
+    if (accessToken !== null) {
+      history.push("/notes");
+      setCredentialError(false);
+    } else {
+      setCredentialError(true);
+    }
   };
   return (
     <>
@@ -31,7 +38,9 @@ const LoginMUI = () => {
           <ContainerLogo />
           <InputUser>
             <TextField
+              error={credentialError}
               type="email"
+              id="user"
               className="input"
               required
               label="Corrreo..."
@@ -41,8 +50,10 @@ const LoginMUI = () => {
           </InputUser>
           <InputPassword>
             <TextField
+              error={credentialError}
               type="password"
               className="input"
+              id="password"
               required
               label="Contraseña..."
               variant="outlined"
@@ -51,7 +62,7 @@ const LoginMUI = () => {
           </InputPassword>
           <TextRecoverPassword>
             <Link className="link" to="/recover-password">
-              Olvidaste tu contraseña?
+              {credentialError ? "Olvidaste tu contraseña?" : ""}
             </Link>
           </TextRecoverPassword>
           <ButtonEnter>
