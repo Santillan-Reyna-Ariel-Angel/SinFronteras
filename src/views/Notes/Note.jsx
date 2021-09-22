@@ -32,14 +32,14 @@ const Note = () => {
       <ContextoUsuario.Consumer>
         {(value) => {
           return value.map((usuario) => {
-            return <p>{usuario.direccion}</p>;
+            return <p>{usuario.firtsname}</p>;
           });
         }}
       </ContextoUsuario.Consumer>
 
       {/* Uso de Context ejemplo 3  */}
       {U.map((element) => {
-        return <p>{element.celular}</p>;
+        return <p>{element.lastname}</p>;
       })}
       <NoteContainer>
         <NoteContent>
