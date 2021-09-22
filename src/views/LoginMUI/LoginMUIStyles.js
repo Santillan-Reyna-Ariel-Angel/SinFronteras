@@ -97,7 +97,7 @@ export const ButtonEnter = styled.div`
   }
   //Color del Boton:
   /* .buttonEnter {
-    background-color: #9ca3af;
+    background-color: #ef3e2e;
   } */
   @media screen and (max-width: 768px) {
     align-self: center;

@@ -5,9 +5,14 @@ import LoginMUI from "./views/LoginMUI/LoginMUI";
 import Home from "./views/Home/Home";
 import RecoverPassword from "./views/RecoverPassword/RecoverPassword";
 import Notes from "./views/Notes/Notes";
+
+//Contexts
+//import { ProvaiderContextoUsusario } from "./Context/ContextUsers";
+// import UsersProvaider from "./Context/UsersProvaider";
 const App = () => {
   return (
     <div>
+      {/* <ProvaiderContextoUsusario> */}
       <BrowserRouter>
         <Switch>
           <Route exact path="/" component={() => <Redirect to="/login" />} />
@@ -17,6 +22,7 @@ const App = () => {
           <Route exact path="/notes" component={Notes} />
         </Switch>
       </BrowserRouter>
+      {/* </ProvaiderContextoUsusario> */}
     </div>
   );
 };

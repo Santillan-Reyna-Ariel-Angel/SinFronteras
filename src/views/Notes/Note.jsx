@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-// import TextField from "@material-ui/core/TextField";
 import { IconButton, TextField } from "@material-ui/core";
 import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
 import DeleteForeverRoundedIcon from "@material-ui/icons/DeleteForeverRounded";
@@ -12,11 +11,15 @@ import {
   ButtonDelete,
 } from "./NoteStyles";
 
+//contexts
 import { Context } from "../../Context/ContextListNotes";
+import { ContextoUsuario } from "../../Context/ContextUsers";
 
 const Note = () => {
   const { listAllNotes } = useContext(Context);
   console.log(listAllNotes, "Hola");
+
+  const U = useContext(ContextoUsuario);
 
   return (
     <>
@@ -25,6 +28,19 @@ const Note = () => {
           return <li key={key}>{listAllNotes[key].title}</li>;
         })}
       </ul>
+      {/* Uso de Context ejemplo 2 */}
+      <ContextoUsuario.Consumer>
+        {(value) => {
+          return value.map((usuario) => {
+            return <p>{usuario.direccion}</p>;
+          });
+        }}
+      </ContextoUsuario.Consumer>
+
+      {/* Uso de Context ejemplo 3  */}
+      {U.map((element) => {
+        return <p>{element.celular}</p>;
+      })}
       <NoteContainer>
         <NoteContent>
           <Title>Title</Title>

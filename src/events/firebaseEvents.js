@@ -1,5 +1,5 @@
 import EventFirebase from "../firebase-config";
-import Note from "../views/Notes/Note";
+//import Note from "../views/Notes/Note";
 const { app } = EventFirebase;
 
 export const Auth = async (email, password) => {
