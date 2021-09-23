@@ -1,6 +1,6 @@
 import React, { createContext } from "react";
 
-import { useNotesLists } from "../Hooks/useNotesLists";
+import { useNotesLists } from "./hooks/useNotesLists";
 
 export const Context = createContext([]);
 

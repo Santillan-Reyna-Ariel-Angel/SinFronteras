@@ -1,4 +1,4 @@
-import EventFirebase from "../firebase-config";
+import EventFirebase from "../../firebase-config";
 const { app } = EventFirebase;
 
 export const readAllNotesBD = () => {
@@ -9,8 +9,8 @@ export const readAllNotesBD = () => {
       .get()
       .then((element) => {
         if (element.exists()) {
-          //   console.log(element.val());
-          element.val();
+          console.log(element.val());
+          // element.val();
         } else {
           console.log("Datos no dispinobles!!");
         }

@@ -1,13 +1,13 @@
 import React from "react";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 //views
-import LoginMUI from "./views/LoginMUI/LoginMUI";
-import Home from "./views/Home/Home";
-import RecoverPassword from "./views/RecoverPassword/RecoverPassword";
-import Notes from "./views/Notes/Notes";
+import LoginMUI from "./components/LoginMUI/LoginMUI";
+import Home from "./components/Home/Home";
+import RecoverPassword from "./components/RecoverPassword/RecoverPassword";
+import Notes from "./components/Notes/Notes";
 
 //Contexts
-import { ContextoUsuario, users } from "./Context/ContextUsers";
+import { ContextoUsuario, users } from "./contexts/ContextUsers";
 const App = () => {
   return (
     <div>

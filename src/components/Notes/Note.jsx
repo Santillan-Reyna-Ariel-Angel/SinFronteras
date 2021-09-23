@@ -12,8 +12,8 @@ import {
 } from "./NoteStyles";
 
 //contexts
-import { Context } from "../../Context/ContextListNotes";
-import { ContextoUsuario } from "../../Context/ContextUsers";
+import { Context } from "../../contexts/ContextListNotes";
+import { ContextoUsuario } from "../../contexts/ContextUsers";
 
 const Note = () => {
   const { listAllNotes } = useContext(Context);
@@ -32,14 +32,14 @@ const Note = () => {
       <ContextoUsuario.Consumer>
         {(value) => {
           return value.map((usuario) => {
-            return <p>{usuario.firtsname}</p>;
+            return <p>{usuario.correo}</p>;
           });
         }}
       </ContextoUsuario.Consumer>
 
       {/* Uso de Context ejemplo 3  */}
       {U.map((element) => {
-        return <p>{element.lastname}</p>;
+        return <p>{element.firtsname}</p>;
       })}
       <NoteContainer>
         <NoteContent>

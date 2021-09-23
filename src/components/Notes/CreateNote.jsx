@@ -17,9 +17,9 @@ import {
   readAllNotes,
   readAllNotes2,
   readSpecificNote,
-} from "./../../events/firebaseEvents";
+} from "../../events/firebaseEvents";
 
-import { useNotesLists } from "../../Hooks/useNotesLists";
+import { useNotesLists } from "../../contexts/hooks/useNotesLists";
 
 const CreateNote = () => {
   const [title, setTitle] = useState("");

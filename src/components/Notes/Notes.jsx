@@ -1,7 +1,7 @@
 import React from "react";
 import CreateNote from "./CreateNote";
 import Note from "./Note";
-import { ContextListsNotes } from "./../../Context/ContextListNotes";
+import { ContextListsNotes } from "../../contexts/ContextListNotes";
 
 const Notes = () => {
   return (

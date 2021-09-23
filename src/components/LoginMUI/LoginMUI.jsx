@@ -25,7 +25,7 @@ const LoginMUI = () => {
     console.log("sendLogin:", email, password);
     const accessToken = await Auth(email, password);
     if (accessToken !== null) {
-      history.push("/notes");
+      history.push("/home");
       setCredentialError(false);
     } else {
       setCredentialError(true);
