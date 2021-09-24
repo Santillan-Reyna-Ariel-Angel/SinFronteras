@@ -63,136 +63,99 @@ const { app } = EventFirebase;
 //   return notas;
 // };
 
-// export const ListarNotasBD5 = () => {
-//   const [notes, setNotes] = useState();
-//   const notas = app
+// export const ListarNotasBD_B1 = () => {
+//   const notas = app.database().ref();
+//   notas
+//     .child("notes")
+//     .get()
+//     .then((snapshot) => {
+//       if (snapshot.exists()) {
+//         console.log(snapshot.val());
+//       } else {
+//         console.log("Datos no dispinobles!!");
+//       }
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+//   return notas;
+// };
+
+// export const ListarNotasBD_B2 = () => {
+//   const notas = app.database().ref();
+//   return notas
+//     .child("notes")
+//     .get()
+//     .then((snapshot) => {
+//       if (snapshot.exists()) {
+//         console.log(snapshot.val());
+//       } else {
+//         console.log("Datos no dispinobles!!");
+//       }
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+// };
+
+// export const data = app.database().ref().child("notes").get();
+
+// export const ListarNotasBD_B3 = () => {
+//   let not = [];
+//   const notas = app.database().ref();
+//   notas
+//     .child("notes")
+//     .get()
+//     .then((snapshot) => {
+//       if (snapshot.exists()) {
+//         console.log(snapshot.val()[0].id);
+//         not[snapshot.val()[0].id] = snapshot.val();
+//       } else {
+//         console.log("Datos no dispinobles!!");
+//       }
+//     })
+//     .catch((error) => {
+//       console.error(error);
+//     });
+//   return not;
+// };
+
+// export const ListarNotasBD_B4 = () => {
+//   const notas = app.database().ref();
+//   const not = [
+//     {
+//       ...notas
+//         .child("notes")
+//         .get()
+//         .then((snapshot) => {
+//           return snapshot.val();
+//         }),
+//     },
+//   ];
+//   return not;
+// };
+
+// export const ListarNotasBD_C1 = () => {
+//   const algo = app
 //     .database()
-//     .ref("notes/")
-//     .on("value", (snapshot) => {
+//     .ref("notes")
+//     .once("value")
+//     .then((snapshot) => {
+//       console.log(snapshot.val());
 //       return snapshot.val();
 //     });
-//   setNotes(notas);
-//   return notes;
+//   return algo;
 // };
-
-// export const ListarNotasBD6 = () => {
-//   const [notes, setNotes] = useState();
-//   setNotes(
-//     app
-//       .database()
-//       .ref("notes/")
-//       .on("value", (snapshot) => {
-//         return snapshot.val();
-//       })
-//   );
-//   return notes;
-// };
-
-// export const ListarNotasBD7 = () => {
-//   let notes, setNotes;
-//   [notes, setNotes] = useState();
-//   const note = app
+// const datas = [];
+// export const ListarNotasBD_C2 = () => {
+//   app
 //     .database()
-//     .ref("notes/")
-//     .on("value", (snapshot) => {
-//       return setNotes(snapshot.val());
+//     .ref("notes")
+//     .once("value")
+//     .then((snapshot) => {
+//       console.log(snapshot.val());
+//       datas[0] = snapshot.val();
 //     });
-//   return notes;
+
+//   return datas;
 // };
-
-export const ListarNotasBD_B1 = () => {
-  const notas = app.database().ref();
-  notas
-    .child("notes")
-    .get()
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-      } else {
-        console.log("Datos no dispinobles!!");
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  return notas;
-};
-
-export const ListarNotasBD_B2 = () => {
-  const notas = app.database().ref();
-  return notas
-    .child("notes")
-    .get()
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val());
-      } else {
-        console.log("Datos no dispinobles!!");
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-};
-
-export const data = app.database().ref().child("notes").get();
-
-export const ListarNotasBD_B3 = () => {
-  let not = [];
-  const notas = app.database().ref();
-  notas
-    .child("notes")
-    .get()
-    .then((snapshot) => {
-      if (snapshot.exists()) {
-        console.log(snapshot.val()[0].id);
-        not[snapshot.val()[0].id] = snapshot.val();
-      } else {
-        console.log("Datos no dispinobles!!");
-      }
-    })
-    .catch((error) => {
-      console.error(error);
-    });
-  return not;
-};
-
-export const ListarNotasBD_B4 = () => {
-  const notas = app.database().ref();
-  const not = [
-    {
-      ...notas
-        .child("notes")
-        .get()
-        .then((snapshot) => {
-          return snapshot.val();
-        }),
-    },
-  ];
-  return not;
-};
-
-export const ListarNotasBD_C1 = () => {
-  const algo = app
-    .database()
-    .ref("notes")
-    .once("value")
-    .then((snapshot) => {
-      console.log(snapshot.val());
-      return snapshot.val();
-    });
-  return algo;
-};
-const datas = [];
-export const ListarNotasBD_C2 = () => {
-  app
-    .database()
-    .ref("notes")
-    .once("value")
-    .then((snapshot) => {
-      console.log(snapshot.val());
-      datas[0] = snapshot.val();
-    });
-
-  return datas;
-};

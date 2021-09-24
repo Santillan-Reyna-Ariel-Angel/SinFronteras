@@ -7,32 +7,30 @@ import {
   ListarNotasBD_B4,
   ListarNotasBD_C1,
   ListarNotasBD_C2,
+  ListarNotasBD_D1,
 } from "./../../contexts/hooks/useListarNotas";
 const Home = () => {
   // ListarNotasBD1,
   // ListarNotasBD2,
   // ListarNotasBD3,
   // ListarNotasBD4,
-  // ListarNotasBD5,
-  // ListarNotasBD6,
-  // ListarNotasBD7,
+
   // const Notas1 = ListarNotasBD1();
   // const Notas2 = ListarNotasBD2();
   // const Notas3 = ListarNotasBD3();
   // const Notas4 = ListarNotasBD4();
-  // // de 5 a 7 con error de compilacion
-  // const Notas5 = ListarNotasBD5();
-  // const Notas6 = ListarNotasBD6();
-  // const Notas7 = ListarNotasBD7();
+
   // const Notas_B1 = ListarNotasBD_B1();
   // const Notas_B2 = ListarNotasBD_B2();
   // const Notas_B3 = ListarNotasBD_B3();
   // const Notas_B4 = ListarNotasBD_B4();
   // const Notas_C1 = ListarNotasBD_C1();
-  const Notas_C2 = ListarNotasBD_C2();
+  // const Notas_C2 = ListarNotasBD_C2();
+
   return (
     <div>
       <h2>Bienvenido</h2>
+
       {/* {Object.keys(Notas1).map((key) => {
         return <p key={key}>{Notas1[key].title}</p>;
       })} */}
@@ -47,18 +45,6 @@ const Home = () => {
 
       {/* {Object.keys(Notas4).map((key) => {
         return <p key={key}>{Notas4[key].title}</p>;
-      })} */}
-
-      {/* {Notas5.map((element) => {
-        return <p>{element.title}</p>;
-      })} */}
-
-      {/* {Notas6.map((element) => {
-        return <p>{element.title}</p>;
-      })} */}
-
-      {/* {Notas7.map((element) => {
-        return <p>{element.title}</p>;
       })} */}
 
       {/* {Object.keys(Notas_B1).map((key) => {
@@ -101,9 +87,9 @@ const Home = () => {
         return <p key={key}>{Notas_C2[key].title}</p>;
       })} */}
 
-      {Notas_C2.map((element) => {
+      {/* {Notas_C2.map((element) => {
         return <p>{element}</p>;
-      })}
+      })} */}
 
       {/* <ul>
         {Object.keys(listAllNotes).map((key) => {
