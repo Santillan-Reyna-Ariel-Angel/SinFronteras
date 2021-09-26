@@ -8,19 +8,33 @@ import Notes from "./components/Notes/Notes";
 
 //Contexts
 import { ContextoUsuario, users } from "./contexts/ContextUsers";
+import {
+  ContextListarNotas,
+  useListarNotas,
+} from "./contexts/ContextListarNotas";
 const App = () => {
   return (
     <div>
       <ContextoUsuario.Provider value={users}>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/" component={() => <Redirect to="/login" />} />
-            <Route exact path="/login" component={LoginMUI} />
-            <Route exact path="/home" component={Home} />
-            <Route exact path="/recover-password" component={RecoverPassword} />
-            <Route exact path="/notes" component={Notes} />
-          </Switch>
-        </BrowserRouter>
+        <ContextListarNotas.Provider value={useListarNotas}>
+          <BrowserRouter>
+            <Switch>
+              <Route
+                exact
+                path="/"
+                component={() => <Redirect to="/login" />}
+              />
+              <Route exact path="/login" component={LoginMUI} />
+              <Route exact path="/home" component={Home} />
+              <Route
+                exact
+                path="/recover-password"
+                component={RecoverPassword}
+              />
+              <Route exact path="/notes" component={Notes} />
+            </Switch>
+          </BrowserRouter>
+        </ContextListarNotas.Provider>
       </ContextoUsuario.Provider>
     </div>
   );

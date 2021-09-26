@@ -12,7 +12,7 @@ const noteaux = () => {
       setNotes(snapshot.val());
     });
 };
-export const ListarConOn2 = () => {
+export const useListarConOn = () => {
   [notes, setNotes] = useState();
   useEffect(() => {
     noteaux();
