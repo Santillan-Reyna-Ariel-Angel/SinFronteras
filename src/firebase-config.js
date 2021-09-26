@@ -1,4 +1,4 @@
-import app from "firebase/compat/app";
+import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/database";
 // Antes: authDomain: "pruebasf-cbdd1.firebaseapp.com",
@@ -11,11 +11,11 @@ const firebaseConfig = {
   messagingSenderId: "714613680681",
   appId: "1:714613680681:web:b4f148232bcd7ac7944a38",
 };
-const fire = app.initializeApp(firebaseConfig);
+const fire = firebase.initializeApp(firebaseConfig);
 // const auth = fire.auth();
 // var database = firebase.database();
 const modulesFirebase = {
   fire,
-  app,
+  firebase,
 };
 export default modulesFirebase;

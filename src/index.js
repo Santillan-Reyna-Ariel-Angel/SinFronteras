@@ -1,12 +1,12 @@
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom";
 //Archivo de rutas
-import App from "./App";
+import AppRoutes from "./AppRoutes";
 
 ReactDOM.render(
   <React.StrictMode>
     <Suspense fallback={"Cargando datos..."}>
-      <App />
+      <AppRoutes />
     </Suspense>
   </React.StrictMode>,
   document.getElementById("root")

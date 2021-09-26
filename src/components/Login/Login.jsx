@@ -9,13 +9,13 @@ import {
   InputPassword,
   InputUser,
   TextRecoverPassword,
-} from "./loginMUIStyles";
+} from "./loginStyles";
 import { TextField, Button } from "@material-ui/core";
 
 //EventosFirebase;
 import { Auth } from "../../events/firebaseEvents";
 
-const LoginMUI = () => {
+const Login = () => {
   const history = useHistory();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -82,4 +82,4 @@ const LoginMUI = () => {
   );
 };
 
-export default LoginMUI;
+export default Login;

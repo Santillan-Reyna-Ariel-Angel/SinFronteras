@@ -1,10 +1,10 @@
 import EventFirebase from "../firebase-config";
 //import Note from "../views/Notes/Note";
-const { app } = EventFirebase;
+const { firebase } = EventFirebase;
 
 export const Auth = async (email, password) => {
   try {
-    const userCredential = await app
+    const userCredential = await firebase
       .auth()
       .signInWithEmailAndPassword(email, password);
     console.log("userCredential:", userCredential);
@@ -19,7 +19,7 @@ export const Auth = async (email, password) => {
 };
 
 export const saveNote = (noteId, title, bodyNote) => {
-  app
+  firebase
     .database()
     .ref("notes/" + noteId)
     .set(
@@ -40,7 +40,7 @@ export const saveNote = (noteId, title, bodyNote) => {
 
 // export const readAllNotes = () => {
 //   try {
-//     const note = app.database().ref("notes/");
+//     const note = firebase.database().ref("notes/");
 //     console.log("Las notas son: ");
 //     note.on("value", (element) => {
 //       console.log(element.val());
@@ -54,7 +54,7 @@ export const saveNote = (noteId, title, bodyNote) => {
 
 export const readAllNotes2 = (noteId) => {
   try {
-    const note = app.database().ref();
+    const note = firebase.database().ref();
     note
       .child("notes")
       .child(noteId)
@@ -74,7 +74,7 @@ export const readAllNotes2 = (noteId) => {
 
 export const readSpecificNote = (noteId) => {
   try {
-    const note = app.database().ref("notes/" + noteId);
+    const note = firebase.database().ref("notes/" + noteId);
     note.on("value", (element) => {
       const data = element.val();
       console.log("La nota es:", data);
@@ -83,7 +83,7 @@ export const readSpecificNote = (noteId) => {
     console.log("Lectura erronea!!!", error);
   }
 
-  const note = app.database().ref();
+  const note = firebase.database().ref();
   note
     .child("notes")
     .child(noteId)
@@ -104,10 +104,10 @@ export const updateNote = (noteId, title, bodyNote) => {
     title: title,
     bodyNote: bodyNote,
   };
-  // const newNote = app.database().ref().child("notes").push().key;
+  // const newNote = firebase.database().ref().child("notes").push().key;
   const updates = {};
   updates["notes/" + noteId] = noteData;
-  app
+  firebase
     .database()
     .ref()
     .update(updates, (error) => {
@@ -120,7 +120,7 @@ export const updateNote = (noteId, title, bodyNote) => {
 };
 
 export const deleteNote = (noteId) => {
-  app
+  firebase
     .database()
     .ref("notes/" + noteId)
     .remove();

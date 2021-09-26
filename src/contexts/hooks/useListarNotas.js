@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import EventFirebase from "../../firebase-config";
-const { app } = EventFirebase;
+const { firebase } = EventFirebase;
 
 let notes, setNotes;
 const noteaux = () => {
-  app
+  firebase
     .database()
     .ref("notes")
     .on("value", (snapshot) => {
