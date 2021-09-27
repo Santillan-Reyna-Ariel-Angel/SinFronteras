@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 import { ContextListarNotas } from "./../../contexts/ContextListarNotas";
 
 const Home = () => {
@@ -6,12 +7,13 @@ const Home = () => {
   const { id, title, body_note } = notes ? notes : { title: "" };
 
   return (
-    <div>
+    <>
       <h2>Bienvenido</h2>
       <p>{title || ""}</p>
       <p>{id || ""}</p>
       <p>{body_note || ""}</p>
-    </div>
+      <Link to="/registro-usuarios">Registro de ususarios</Link>
+    </>
   );
 };
 

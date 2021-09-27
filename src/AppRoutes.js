@@ -5,7 +5,7 @@ import Login from "./components/Login/Login";
 import Home from "./components/Home/Home";
 import RecoverPassword from "./components/RecoverPassword/RecoverPassword";
 import Notes from "./components/Notes/Notes";
-
+import UserRegistration from "./components/UserRegistration/UserRegistration";
 //Contexts
 import { ContextoUsuario, users } from "./contexts/ContextUsers";
 import { ProviderListarNotas } from "./contexts/ContextListarNotas";
@@ -20,16 +20,21 @@ const AppRoutes = () => {
               <Route
                 exact
                 path="/"
-                component={() => <Redirect to="/login" />}
+                component={() => <Redirect to="/acceso" />}
               />
-              <Route exact path="/login" component={Login} />
-              <Route exact path="/home" component={Home} />
+              <Route exact path="/acceso" component={Login} />
+              <Route exact path="/principal" component={Home} />
               <Route
                 exact
-                path="/recover-password"
+                path="/recuperar-contraseña"
                 component={RecoverPassword}
               />
-              <Route exact path="/notes" component={Notes} />
+              <Route exact path="/notas" component={Notes} />
+              <Route
+                exact
+                path="/registro-usuarios"
+                component={UserRegistration}
+              />
             </Switch>
           </BrowserRouter>
         </ProviderListarNotas>

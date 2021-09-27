@@ -25,7 +25,7 @@ const Login = () => {
     console.log("sendLogin:", email, password);
     const accessToken = await Auth(email, password);
     if (accessToken !== null) {
-      history.push("/home");
+      history.push("/principal");
       setCredentialError(false);
     } else {
       setCredentialError(true);
@@ -61,7 +61,7 @@ const Login = () => {
             />
           </InputPassword>
           <TextRecoverPassword>
-            <Link className="link" to="/recover-password">
+            <Link className="link" to="/recuperar-contraseña">
               {credentialError ? "Olvidaste tu contraseña?" : ""}
             </Link>
           </TextRecoverPassword>
