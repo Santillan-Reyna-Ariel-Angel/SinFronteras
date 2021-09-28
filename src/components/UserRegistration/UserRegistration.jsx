@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-//MUI
-import { TextField } from "@mui/material";
+//MUI-general
+import { TextField, Button } from "@mui/material";
 //MUI-fecha de nacimiento
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -13,14 +13,14 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 //MUI-Sucursal/Cargos
-// import TextField from '@mui/material/TextField';
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogActions from "@mui/material/DialogActions";
-import Button from "@mui/material/Button";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
+// MUI-Boton enviar
+import SaveIcon from "@mui/icons-material/Save";
 
 const filter = createFilterOptions();
 
@@ -69,6 +69,7 @@ const branchList = [
 ];
 // Lista de cargos
 const listOfCharges = [
+  // { name: "The Shawshank Redemption", year: 1994 },
   { name: "Dueño", licenciaImg: "licencia.png" },
   { name: "Administrador-General", licenciaImg: "licencia.png" },
   { name: "Administrador-Sucursal", licenciaImg: "licencia.png" },
@@ -76,7 +77,9 @@ const listOfCharges = [
   { name: "Secretaria(o)", licenciaImg: "licencia.png" },
   { name: "Boletero(a)", licenciaImg: "licencia.png" },
 ];
-let ChargeDriver = false;
+
+// Lsi de estados:
+const stateList = [{ status: "Activo" }, { status: "Inactivo" }];
 const UserRegistration = () => {
   // Fecha de nacimiento
   const [date, setDate] = useState(new Date());
@@ -131,10 +134,10 @@ const UserRegistration = () => {
 
     handleCloseBranchOffices();
   };
-
-  //Cargos
-  const [charges, setCharges] = useState({ name: "" });
+  // Cargos
+  const [charges, setCharges] = useState(null);
   const [openCharges, toggleOpenCharges] = useState(false);
+
   const handleCloseCharges = () => {
     setDialogValueCharges({
       name: "",
@@ -158,7 +161,32 @@ const UserRegistration = () => {
 
     handleCloseCharges();
   };
-  console.log("cargo", charges);
+
+  // Estado
+
+  const [status, setStatus] = useState(null);
+  const [openStatus, toggleOpenStatus] = useState(false);
+
+  const handleCloseStatus = () => {
+    setDialogValueStatus({
+      status: "",
+    });
+
+    toggleOpenStatus(false);
+  };
+
+  const [dialogValueStatus, setDialogValueStatus] = React.useState({
+    status: "",
+  });
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setStatus({
+      status: dialogValueStatus.status,
+    });
+
+    handleCloseStatus();
+  };
   return (
     <>
       <p>Registro de ususarios</p>
@@ -176,7 +204,7 @@ const UserRegistration = () => {
           label="Fecha de nacimiento"
           openTo="year"
           views={["year", "month", "day"]}
-          value={date}
+          status={date}
           onChange={(newValue) => {
             setDate(newValue);
           }}
@@ -364,6 +392,7 @@ const UserRegistration = () => {
       </Dialog>
 
       {/* Cargos */}
+
       <Autocomplete
         value={charges}
         onChange={(event, newValue) => {
@@ -438,6 +467,20 @@ const UserRegistration = () => {
               type="text"
               variant="standard"
             />
+            {/* <TextField
+              margin="dense"
+              id="licenciaImg"
+              value={dialogValueCharges.licenciaImg}
+              onChange={(event) =>
+                setDialogValueCharges({
+                  ...dialogValueCharges,
+                  licenciaImg: event.target.value,
+                })
+              }
+              label="Licencia(Foto)"
+              type="text"
+              variant="standard"
+            /> */}
           </DialogContent>
           <DialogActions>
             <Button onClick={handleCloseCharges}>Cancelar</Button>
@@ -445,8 +488,10 @@ const UserRegistration = () => {
           </DialogActions>
         </form>
       </Dialog>
-
-      {charges.name === "Chofer" ? (
+      {/* Si es chofer */}
+      {/* {charges.name === "Chofer" ||
+      charges.name === "chofer" ||
+      charges === null ? (
         <TextField
           margin="dense"
           id="licenciaImg"
@@ -461,9 +506,96 @@ const UserRegistration = () => {
           variant="standard"
         />
       ) : (
-        ""
-      )}
-      {console.log("ChargeDriver", ChargeDriver)}
+        console.log("nada")
+      )} */}
+
+      {/* Esado: */}
+      <Autocomplete
+        value={status}
+        onChange={(event, newValue) => {
+          if (typeof newValue === "string") {
+            // timeout to avoid instant validation of the dialog's form.
+            setTimeout(() => {
+              toggleOpenStatus(true);
+              setDialogValueStatus({
+                status: newValue,
+              });
+            });
+          } else if (newValue && newValue.inputValue) {
+            toggleOpenStatus(true);
+            setDialogValueStatus({
+              status: newValue.inputValue,
+            });
+          } else {
+            setStatus(newValue);
+          }
+        }}
+        filterOptions={(options, params) => {
+          const filtered = filter(options, params);
+
+          if (params.inputValue !== "") {
+            filtered.push({
+              inputValue: params.inputValue,
+              status: `Añadir "${params.inputValue}"`,
+            });
+          }
+
+          return filtered;
+        }}
+        id="free-solo-dialog-demo"
+        options={stateList}
+        getOptionLabel={(option) => {
+          if (typeof option === "string") {
+            return option;
+          }
+          if (option.inputValue) {
+            return option.inputValue;
+          }
+          return option.status;
+        }}
+        selectOnFocus
+        clearOnBlur
+        handleHomeEndKeys
+        renderOption={(props, option) => <li {...props}>{option.status}</li>}
+        sx={{ width: 300 }}
+        freeSolo
+        renderInput={(params) => <TextField {...params} label="Estado" />}
+      />
+      <Dialog open={openStatus} onClose={handleCloseStatus}>
+        <form onSubmit={handleSubmit}>
+          <DialogTitle>AÑADIR UN NUEVO ESTADO</DialogTitle>
+          <DialogContent>
+            <DialogContentText>
+              Por favor ingresa los datos correspondientes
+            </DialogContentText>
+            <TextField
+              autoFocus
+              margin="dense"
+              id="name"
+              value={dialogValueStatus.status}
+              onChange={(event) =>
+                setDialogValueStatus({
+                  ...dialogValueStatus,
+                  status: event.target.value,
+                })
+              }
+              label="Estado"
+              type="text"
+              variant="standard"
+            />
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseStatus}>Cancelar</Button>
+            <Button type="submit">Añadir</Button>
+          </DialogActions>
+        </form>
+      </Dialog>
+
+      {/* Boton enviar: */}
+
+      <Button variant="contained" startIcon={<SaveIcon />}>
+        Registrar
+      </Button>
     </>
   );
 };
