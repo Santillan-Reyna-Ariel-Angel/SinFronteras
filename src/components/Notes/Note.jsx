@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
-import { IconButton, TextField } from "@material-ui/core";
-import CreateRoundedIcon from "@material-ui/icons/CreateRounded";
-import DeleteForeverRoundedIcon from "@material-ui/icons/DeleteForeverRounded";
+import { IconButton, TextField } from "@mui/material";
+import CreateRoundedIcon from "@mui/icons-material/CreateRounded";
+import DeleteForeverRoundedIcon from "@mui/icons-material/DeleteForeverRounded";
 import {
   NoteContainer,
   NoteContent,
@@ -32,14 +32,14 @@ const Note = () => {
       <ContextoUsuario.Consumer>
         {(value) => {
           return value.map((usuario) => {
-            return <p>{usuario.correo}</p>;
+            return <p key={usuario.id}>{usuario.correo}</p>;
           });
         }}
       </ContextoUsuario.Consumer>
 
       {/* Uso de Context ejemplo 3  */}
       {U.map((element) => {
-        return <p>{element.firtsname}</p>;
+        return <p key={element.id}>{element.firtsname}</p>;
       })}
       <NoteContainer>
         <NoteContent>

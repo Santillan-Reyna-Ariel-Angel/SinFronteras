@@ -10,7 +10,7 @@ import {
   InputUser,
   TextRecoverPassword,
 } from "./loginStyles";
-import { TextField, Button } from "@material-ui/core";
+import { TextField, Button } from "@mui/material";
 
 //EventosFirebase;
 import { Auth } from "../../events/firebaseEvents";
