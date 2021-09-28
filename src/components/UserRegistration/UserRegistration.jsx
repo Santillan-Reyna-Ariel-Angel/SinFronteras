@@ -414,64 +414,16 @@ const UserRegistration = () => {
         renderOption={(props, option) => <li {...props}>{option.name}</li>}
         sx={{ width: 300 }}
         freeSolo
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            label="Cargo"
-            onChange={(event) =>
-              event.target.value === "Chofer"
-                ? (ChargeDriver = true)
-                : (ChargeDriver = false)
-            }
-          />
-        )}
+        renderInput={(params) => <TextField {...params} label="Cargo" />}
       />
-      {listOfCharges.map((element) => {
-        if (element.name !== charges.name || ChargeDriver === true) {
-          return (
-            <>
-              <Dialog open={openCharges} onClose={handleCloseCharges}>
-                <form onSubmit={handleSubmitCharges}>
-                  <DialogTitle>AÑADIR UN NUEVO CARGO</DialogTitle>
-                  <DialogContent>
-                    <DialogContentText>
-                      Por favor ingresa los datos correspondientes
-                    </DialogContentText>
-                    <TextField
-                      autoFocus
-                      margin="dense"
-                      id="name"
-                      value={dialogValueCharges.name}
-                      onChange={(event) =>
-                        setDialogValueCharges({
-                          ...dialogValueCharges,
-                          name: event.target.value,
-                        })
-                      }
-                      label="Cargo"
-                      type="text"
-                      variant="standard"
-                    />
-                  </DialogContent>
-                  <DialogActions>
-                    <Button onClick={handleCloseCharges}>Cancelar</Button>
-                    <Button type="submit">Añadir</Button>
-                  </DialogActions>
-                </form>
-              </Dialog>
-            </>
-          );
-        } else {
-        }
-      })}
-      {/* <Dialog open={openCharges} onClose={handleCloseCharges}>
+      <Dialog open={openCharges} onClose={handleCloseCharges}>
         <form onSubmit={handleSubmitCharges}>
           <DialogTitle>AÑADIR UN NUEVO CARGO</DialogTitle>
           <DialogContent>
             <DialogContentText>
               Por favor ingresa los datos correspondientes
-            </DialogContentText> */}
-      {/* <TextField
+            </DialogContentText>
+            <TextField
               autoFocus
               margin="dense"
               id="name"
@@ -485,31 +437,16 @@ const UserRegistration = () => {
               label="Cargo"
               type="text"
               variant="standard"
-            /> */}
-
-      {/* <TextField
-              margin="dense"
-              id="licenciaImg"
-              value={dialogValueCharges.licenciaImg}
-              onChange={(event) =>
-                setDialogValueCharges({
-                  ...dialogValueCharges,
-                  licenciaImg: event.target.value,
-                })
-              }
-              label="Licencia(Foto)"
-              type="text"
-              variant="standard"
-            /> */}
-      {/* </DialogContent>
+            />
+          </DialogContent>
           <DialogActions>
             <Button onClick={handleCloseCharges}>Cancelar</Button>
             <Button type="submit">Añadir</Button>
           </DialogActions>
         </form>
-      </Dialog> */}
+      </Dialog>
 
-      {ChargeDriver ? (
+      {charges.name === "Chofer" ? (
         <TextField
           margin="dense"
           id="licenciaImg"
