@@ -29,7 +29,7 @@ const filter = createFilterOptions();
 //Lista de Sucursales=>branch list
 const branchList = [
   {
-    name: "Sucursal 1",
+    branchOfficeName: "Sucursal 1",
     location: "Sucre",
     department: "Chuquisaca",
     branchOfficeImg: "foto.png",
@@ -37,7 +37,7 @@ const branchList = [
     terminal: "Interdepartamnetal",
   },
   {
-    name: "Sucursal 2",
+    branchOfficeName: "Sucursal 2",
     location: "Sucre",
     department: "Chuquisaca",
     branchOfficeImg: "foto.png",
@@ -45,7 +45,7 @@ const branchList = [
     terminal: "Interdepartamnetal",
   },
   {
-    name: "Sucursal 3",
+    branchOfficeName: "Sucursal 3",
     location: "Sucre",
     department: "Chuquisaca",
     branchOfficeImg: "foto.png",
@@ -53,7 +53,7 @@ const branchList = [
     terminal: "Interdepartamnetal",
   },
   {
-    name: "Sucursal 4",
+    branchOfficeName: "Sucursal 4",
     location: "Sucre",
     department: "Chuquisaca",
     branchOfficeImg: "foto.png",
@@ -61,7 +61,7 @@ const branchList = [
     terminal: "Interdepartamnetal",
   },
   {
-    name: "Sucursal 5",
+    branchOfficeName: "Sucursal 5",
     location: "Sucre",
     department: "Chuquisaca",
     branchOfficeImg: "foto.png",
@@ -71,16 +71,15 @@ const branchList = [
 ];
 // Lista de cargos
 const listOfCharges = [
-  // { name: "The Shawshank Redemption", year: 1994 },
-  { name: "Dueño", licenciaImg: "licencia.png" },
-  { name: "Administrador-General", licenciaImg: "licencia.png" },
-  { name: "Administrador-Sucursal", licenciaImg: "licencia.png" },
-  { name: "Chofer", licenciaImg: "licencia.png" },
-  { name: "Secretaria(o)", licenciaImg: "licencia.png" },
-  { name: "Boletero(a)", licenciaImg: "licencia.png" },
+  { chargeOfType: "Dueño", licenciaImg: "licencia.png" },
+  { chargeOfType: "Administrador-General", licenciaImg: "licencia.png" },
+  { chargeOfType: "Administrador-Sucursal", licenciaImg: "licencia.png" },
+  { chargeOfType: "Chofer", licenciaImg: "licencia.png" },
+  { chargeOfType: "Secretaria(o)", licenciaImg: "licencia.png" },
+  { chargeOfType: "Boletero(a)", licenciaImg: "licencia.png" },
 ];
 // Lista de estados:
-const stateList = [{ status: "Activo" }, { status: "Inactivo" }];
+const stateList = [{ statusType: "Activo" }, { statusType: "Inactivo" }];
 
 // COMPOENTE:
 const UserRegistration = () => {
@@ -93,7 +92,7 @@ const UserRegistration = () => {
     mobile: "",
     email: "",
   });
-  // basicInformatioon
+  // basicInformation
   const handleInputChange = (event) => {
     //toLowerCase() para convertir las entradas en minuscula
     setBasicInformation({
@@ -101,7 +100,7 @@ const UserRegistration = () => {
       [event.target.name]: event.target.value.toLowerCase(),
     });
   };
-  console.log(basicInformation);
+  console.log("basicInformation: ", basicInformation);
   // Fecha de nacimiento
   const [date, setDate] = useState(new Date());
   const day = date.getDate(),
@@ -117,12 +116,12 @@ const UserRegistration = () => {
   };
 
   // Sucursal
-  const [branchOffices, setBranchOffices] = useState(null);
-  const [openBranchOffices, toggleOpenBranchOffices] = useState(false);
-
-  const handleCloseBranchOffices = () => {
-    setDialogValueBranchOffices({
-      name: "",
+  const [branchOffice, setBranchOffice] = useState(null);
+  const [openBranchOffice, toggleOpenBranchOffice] = useState(false);
+  console.log("branchOffice: ", branchOffice);
+  const handleCloseBranchOffice = () => {
+    setDialogValueBranchOffice({
+      branchOfficeName: "",
       location: "",
       department: "",
       branchOfficeImg: "",
@@ -130,11 +129,11 @@ const UserRegistration = () => {
       terminal: "",
     });
 
-    toggleOpenBranchOffices(false);
+    toggleOpenBranchOffice(false);
   };
 
-  const [dialogValueBranchOffices, setDialogValueBranchOffices] = useState({
-    name: "",
+  const [dialogValueBranchOffice, setDialogValueBranchOffice] = useState({
+    branchOfficeName: "",
     location: "",
     department: "",
     branchOfficeImg: "",
@@ -142,45 +141,45 @@ const UserRegistration = () => {
     terminal: "",
   });
 
-  const handleSubmitBranchOffices = (event) => {
+  const handleSubmitBranchOffice = (event) => {
     event.preventDefault();
-    setBranchOffices({
-      name: dialogValueBranchOffices.name,
-      location: dialogValueBranchOffices.location,
-      department: dialogValueBranchOffices.department,
-      branchOfficeImg: dialogValueBranchOffices.branchOfficeImg,
-      address: dialogValueBranchOffices.address,
-      terminal: dialogValueBranchOffices.terminal,
+    setBranchOffice({
+      branchOfficeName: dialogValueBranchOffice.branchOfficeName,
+      location: dialogValueBranchOffice.location,
+      department: dialogValueBranchOffice.department,
+      branchOfficeImg: dialogValueBranchOffice.branchOfficeImg,
+      address: dialogValueBranchOffice.address,
+      terminal: dialogValueBranchOffice.terminal,
     });
 
-    handleCloseBranchOffices();
+    handleCloseBranchOffice();
   };
   // Cargos
-  const [charges, setCharges] = useState(null);
-  const [openCharges, toggleOpenCharges] = useState(false);
-
-  const handleCloseCharges = () => {
-    setDialogValueCharges({
-      name: "",
+  const [charge, setCharge] = useState(null);
+  const [openCharge, toggleOpenCharge] = useState(false);
+  console.log("charge:", charge);
+  const handleCloseCharge = () => {
+    setDialogValueCharge({
+      chargeOfType: "",
       licenciaImg: "",
     });
 
-    toggleOpenCharges(false);
+    toggleOpenCharge(false);
   };
 
-  const [dialogValueCharges, setDialogValueCharges] = useState({
-    name: "",
+  const [dialogValueCharge, setDialogValueCharge] = useState({
+    chargeOfType: "",
     licenciaImg: "",
   });
 
-  const handleSubmitCharges = (event) => {
+  const handleSubmitCharge = (event) => {
     event.preventDefault();
-    setCharges({
-      name: dialogValueCharges.name,
-      licenciaImg: dialogValueCharges.licenciaImg,
+    setCharge({
+      chargeOfType: dialogValueCharge.chargeOfType,
+      licenciaImg: dialogValueCharge.licenciaImg,
     });
 
-    handleCloseCharges();
+    handleCloseCharge();
   };
 
   // Estado
@@ -190,33 +189,33 @@ const UserRegistration = () => {
 
   const handleCloseStatus = () => {
     setDialogValueStatus({
-      status: "",
+      statusType: "",
     });
 
     toggleOpenStatus(false);
   };
 
   const [dialogValueStatus, setDialogValueStatus] = useState({
-    status: "",
+    statusType: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     setStatus({
-      status: dialogValueStatus.status,
+      statusType: dialogValueStatus.statusType,
     });
 
     handleCloseStatus();
   };
 
-  const sendLogin = async () => {
+  const registerUser = async () => {
     // console.log(basicInformation);
     let response = await saveUser(
       basicInformation,
       formattedDate,
       sexo,
-      branchOffices,
-      charges,
+      branchOffice,
+      charge,
       status
     );
 
@@ -311,13 +310,13 @@ const UserRegistration = () => {
       </FormControl>
       {/* Sucursal */}
       <Autocomplete
-        value={branchOffices}
+        value={branchOffice}
         onChange={(event, newValue) => {
           if (typeof newValue === "string") {
             setTimeout(() => {
-              toggleOpenBranchOffices(true);
-              setDialogValueBranchOffices({
-                name: newValue,
+              toggleOpenBranchOffice(true);
+              setDialogValueBranchOffice({
+                branchOfficeName: newValue,
                 location: "",
                 department: "",
                 branchOfficeImg: "",
@@ -326,9 +325,9 @@ const UserRegistration = () => {
               });
             });
           } else if (newValue && newValue.inputValue) {
-            toggleOpenBranchOffices(true);
-            setDialogValueBranchOffices({
-              name: newValue.inputValue,
+            toggleOpenBranchOffice(true);
+            setDialogValueBranchOffice({
+              branchOfficeName: newValue.inputValue.toLowerCase(),
               location: "",
               department: "",
               branchOfficeImg: "",
@@ -336,7 +335,7 @@ const UserRegistration = () => {
               terminal: "",
             });
           } else {
-            setBranchOffices(newValue);
+            setBranchOffice(newValue);
           }
         }}
         filterOptions={(options, params) => {
@@ -345,7 +344,7 @@ const UserRegistration = () => {
           if (params.inputValue !== "") {
             filtered.push({
               inputValue: params.inputValue,
-              name: `Añadir "${params.inputValue}"`,
+              branchOfficeName: `Añadir "${params.inputValue}"`,
             });
           }
 
@@ -360,18 +359,20 @@ const UserRegistration = () => {
           if (option.inputValue) {
             return option.inputValue;
           }
-          return option.name;
+          return option.branchOfficeName;
         }}
         selectOnFocus
         clearOnBlur
         handleHomeEndKeys
-        renderOption={(props, option) => <li {...props}>{option.name}</li>}
+        renderOption={(props, option) => (
+          <li {...props}>{option.branchOfficeName}</li>
+        )}
         sx={{ width: 300 }}
         freeSolo
         renderInput={(params) => <TextField {...params} label="Sucursal" />}
       />
-      <Dialog open={openBranchOffices} onClose={handleCloseBranchOffices}>
-        <form onSubmit={handleSubmitBranchOffices}>
+      <Dialog open={openBranchOffice} onClose={handleCloseBranchOffice}>
+        <form onSubmit={handleSubmitBranchOffice}>
           <DialogTitle>AÑADIR UNA NUEVA SUCURSAL</DialogTitle>
           <DialogContent>
             <DialogContentText>
@@ -380,12 +381,12 @@ const UserRegistration = () => {
             <TextField
               autoFocus
               margin="dense"
-              id="name"
-              value={dialogValueBranchOffices.name}
+              id="branchOfficeName"
+              value={dialogValueBranchOffice.branchOfficeName.toLowerCase()}
               onChange={(event) =>
-                setDialogValueBranchOffices({
-                  ...dialogValueBranchOffices,
-                  name: event.target.value,
+                setDialogValueBranchOffice({
+                  ...dialogValueBranchOffice,
+                  branchOfficeName: event.target.value.toLowerCase(),
                 })
               }
               label="Sucursal"
@@ -396,11 +397,11 @@ const UserRegistration = () => {
               autoFocus
               margin="dense"
               id="location"
-              value={dialogValueBranchOffices.location}
+              value={dialogValueBranchOffice.location}
               onChange={(event) =>
-                setDialogValueBranchOffices({
-                  ...dialogValueBranchOffices,
-                  location: event.target.value,
+                setDialogValueBranchOffice({
+                  ...dialogValueBranchOffice,
+                  location: event.target.value.toLowerCase(),
                 })
               }
               label="Localidad"
@@ -411,11 +412,11 @@ const UserRegistration = () => {
               autoFocus
               margin="dense"
               id="department"
-              value={dialogValueBranchOffices.department}
+              value={dialogValueBranchOffice.department}
               onChange={(event) =>
-                setDialogValueBranchOffices({
-                  ...dialogValueBranchOffices,
-                  department: event.target.value,
+                setDialogValueBranchOffice({
+                  ...dialogValueBranchOffice,
+                  department: event.target.value.toLowerCase(),
                 })
               }
               label="Departamento"
@@ -426,11 +427,11 @@ const UserRegistration = () => {
               autoFocus
               margin="dense"
               id="branchOfficeImg"
-              value={dialogValueBranchOffices.branchOfficeImg}
+              value={dialogValueBranchOffice.branchOfficeImg}
               onChange={(event) =>
-                setDialogValueBranchOffices({
-                  ...dialogValueBranchOffices,
-                  branchOfficeImg: event.target.value,
+                setDialogValueBranchOffice({
+                  ...dialogValueBranchOffice,
+                  branchOfficeImg: event.target.value.toLowerCase(),
                 })
               }
               label="Sucursal(Foto)"
@@ -441,11 +442,11 @@ const UserRegistration = () => {
               autoFocus
               margin="dense"
               id="address"
-              value={dialogValueBranchOffices.address}
+              value={dialogValueBranchOffice.address}
               onChange={(event) =>
-                setDialogValueBranchOffices({
-                  ...dialogValueBranchOffices,
-                  address: event.target.value,
+                setDialogValueBranchOffice({
+                  ...dialogValueBranchOffice,
+                  address: event.target.value.toLowerCase(),
                 })
               }
               label="Direccion"
@@ -455,11 +456,11 @@ const UserRegistration = () => {
             <TextField
               margin="dense"
               id="terminal"
-              value={dialogValueBranchOffices.terminal}
+              value={dialogValueBranchOffice.terminal}
               onChange={(event) =>
-                setDialogValueBranchOffices({
-                  ...dialogValueBranchOffices,
-                  terminal: event.target.value,
+                setDialogValueBranchOffice({
+                  ...dialogValueBranchOffice,
+                  terminal: event.target.value.toLowerCase(),
                 })
               }
               label="Terminal"
@@ -468,7 +469,7 @@ const UserRegistration = () => {
             />
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleCloseBranchOffices}>Cancelar</Button>
+            <Button onClick={handleCloseBranchOffice}>Cancelar</Button>
             <Button type="submit">Añadir</Button>
           </DialogActions>
         </form>
@@ -477,24 +478,24 @@ const UserRegistration = () => {
       {/* Cargos */}
 
       <Autocomplete
-        value={charges}
+        value={charge}
         onChange={(event, newValue) => {
           if (typeof newValue === "string") {
             setTimeout(() => {
-              toggleOpenCharges(true);
-              setDialogValueCharges({
-                name: newValue,
+              toggleOpenCharge(true);
+              setDialogValueCharge({
+                chargeOfType: newValue,
                 licenciaImg: "",
               });
             });
           } else if (newValue && newValue.inputValue) {
-            toggleOpenCharges(true);
-            setDialogValueCharges({
-              name: newValue.inputValue,
+            toggleOpenCharge(true);
+            setDialogValueCharge({
+              chargeOfType: newValue.inputValue,
               licenciaImg: "",
             });
           } else {
-            setCharges(newValue);
+            setCharge(newValue);
           }
         }}
         filterOptions={(options, params) => {
@@ -503,7 +504,7 @@ const UserRegistration = () => {
           if (params.inputValue !== "") {
             filtered.push({
               inputValue: params.inputValue,
-              name: `Añadir "${params.inputValue}"`,
+              chargeOfType: `Añadir "${params.inputValue}"`,
             });
           }
 
@@ -518,18 +519,20 @@ const UserRegistration = () => {
           if (option.inputValue) {
             return option.inputValue;
           }
-          return option.name;
+          return option.chargeOfType;
         }}
         selectOnFocus
         clearOnBlur
         handleHomeEndKeys
-        renderOption={(props, option) => <li {...props}>{option.name}</li>}
+        renderOption={(props, option) => (
+          <li {...props}>{option.chargeOfType}</li>
+        )}
         sx={{ width: 300 }}
         freeSolo
         renderInput={(params) => <TextField {...params} label="Cargo" />}
       />
-      <Dialog open={openCharges} onClose={handleCloseCharges}>
-        <form onSubmit={handleSubmitCharges}>
+      <Dialog open={openCharge} onClose={handleCloseCharge}>
+        <form onSubmit={handleSubmitCharge}>
           <DialogTitle>AÑADIR UN NUEVO CARGO</DialogTitle>
           <DialogContent>
             <DialogContentText>
@@ -538,12 +541,12 @@ const UserRegistration = () => {
             <TextField
               autoFocus
               margin="dense"
-              id="name"
-              value={dialogValueCharges.name}
+              id="chargeOfType"
+              value={dialogValueCharge.chargeOfType}
               onChange={(event) =>
-                setDialogValueCharges({
-                  ...dialogValueCharges,
-                  name: event.target.value,
+                setDialogValueCharge({
+                  ...dialogValueCharge,
+                  chargeOfType: event.target.value,
                 })
               }
               label="Cargo"
@@ -553,10 +556,10 @@ const UserRegistration = () => {
             {/* <TextField
               margin="dense"
               id="licenciaImg"
-              value={dialogValueCharges.licenciaImg}
+              value={dialogValueCharge.licenciaImg}
               onChange={(event) =>
-                setDialogValueCharges({
-                  ...dialogValueCharges,
+                setDialogValueCharge({
+                  ...dialogValueCharge,
                   licenciaImg: event.target.value,
                 })
               }
@@ -566,21 +569,21 @@ const UserRegistration = () => {
             /> */}
           </DialogContent>
           <DialogActions>
-            <Button onClick={handleCloseCharges}>Cancelar</Button>
+            <Button onClick={handleCloseCharge}>Cancelar</Button>
             <Button type="submit">Añadir</Button>
           </DialogActions>
         </form>
       </Dialog>
       {/* Si es chofer */}
-      {/* {charges.name === "Chofer" ||
-      charges.name === "chofer" ||
-      charges === null ? (
+      {/* {charge.chargeOfType === "Chofer" ||
+      charge.chargeOfType === "chofer" ||
+      charge === null ? (
         <TextField
           margin="dense"
           id="licenciaImg"
           onChange={(event) =>
-            setCharges({
-              ...charges,
+            setCharge({
+              ...charge,
               licenciaImg: event.target.value,
             })
           }
@@ -601,13 +604,13 @@ const UserRegistration = () => {
             setTimeout(() => {
               toggleOpenStatus(true);
               setDialogValueStatus({
-                status: newValue,
+                statusType: newValue,
               });
             });
           } else if (newValue && newValue.inputValue) {
             toggleOpenStatus(true);
             setDialogValueStatus({
-              status: newValue.inputValue,
+              statusType: newValue.inputValue,
             });
           } else {
             setStatus(newValue);
@@ -619,7 +622,7 @@ const UserRegistration = () => {
           if (params.inputValue !== "") {
             filtered.push({
               inputValue: params.inputValue,
-              status: `Añadir "${params.inputValue}"`,
+              statusType: `Añadir "${params.inputValue}"`,
             });
           }
 
@@ -634,12 +637,14 @@ const UserRegistration = () => {
           if (option.inputValue) {
             return option.inputValue;
           }
-          return option.status;
+          return option.statusType;
         }}
         selectOnFocus
         clearOnBlur
         handleHomeEndKeys
-        renderOption={(props, option) => <li {...props}>{option.status}</li>}
+        renderOption={(props, option) => (
+          <li {...props}>{option.statusType}</li>
+        )}
         sx={{ width: 300 }}
         freeSolo
         renderInput={(params) => <TextField {...params} label="Estado" />}
@@ -655,11 +660,11 @@ const UserRegistration = () => {
               autoFocus
               margin="dense"
               id="name"
-              value={dialogValueStatus.status}
+              value={dialogValueStatus.statusType}
               onChange={(event) =>
                 setDialogValueStatus({
                   ...dialogValueStatus,
-                  status: event.target.value,
+                  statusType: event.target.value,
                 })
               }
               label="Estado"
@@ -679,7 +684,7 @@ const UserRegistration = () => {
       <Button
         variant="contained"
         startIcon={<SaveIcon />}
-        onClick={() => sendLogin()}
+        onClick={() => registerUser()}
       >
         Registrar
       </Button>

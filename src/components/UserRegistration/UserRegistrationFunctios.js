@@ -5,10 +5,15 @@ export const saveUser = (
   { names, surnames, ci, address, mobile, email },
   formattedDate,
   sexo,
-  { name: branchOffice },
-  { name: charge },
-  { status }
+  branchOffice,
+  charge,
+  status
 ) => {
+  // basicInformation-branchOffice
+  const { branchOfficeName } = branchOffice;
+  const { chargeOfType } = charge;
+  // basicInformation-status
+  const { statusType } = status;
   firebase
     .database()
     .ref("users/" + ci)
@@ -22,9 +27,9 @@ export const saveUser = (
         email,
         formattedDate,
         sexo,
-        branchOffice,
-        charge,
-        status,
+        branchOfficeName,
+        chargeOfType,
+        statusType,
       },
       (error) => {
         if (error) {
