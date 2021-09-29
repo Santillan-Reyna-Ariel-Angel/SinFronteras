@@ -5,7 +5,7 @@ import { TextField, Button } from "@mui/material";
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
-import Stack from "@mui/material/Stack";
+// import Stack from "@mui/material/Stack";
 //MUI-Sexo
 import Radio from "@mui/material/Radio";
 import RadioGroup from "@mui/material/RadioGroup";
@@ -21,6 +21,8 @@ import DialogActions from "@mui/material/DialogActions";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 // MUI-Boton enviar
 import SaveIcon from "@mui/icons-material/Save";
+// firebase
+import { saveUser } from "./UserRegistrationFunctios";
 
 const filter = createFilterOptions();
 
@@ -78,9 +80,27 @@ const listOfCharges = [
   { name: "Boletero(a)", licenciaImg: "licencia.png" },
 ];
 
-// Lsi de estados:
+// Lista de estados:
 const stateList = [{ status: "Activo" }, { status: "Inactivo" }];
 const UserRegistration = () => {
+  //basicInformation
+  const [basicInformation, setBasicInformation] = useState({
+    names: "",
+    surnames: "",
+    ci: "",
+    address: "",
+    mobile: "",
+    email: "",
+  });
+  // basicInformatioon
+  const handleInputChange = (event) => {
+    //toLowerCase() para convertir las entradas en minuscula
+    setBasicInformation({
+      ...basicInformation,
+      [event.target.name]: event.target.value.toLowerCase(),
+    });
+  };
+  console.log(basicInformation);
   // Fecha de nacimiento
   const [date, setDate] = useState(new Date());
   const day = date.getDate(),
@@ -175,7 +195,7 @@ const UserRegistration = () => {
     toggleOpenStatus(false);
   };
 
-  const [dialogValueStatus, setDialogValueStatus] = React.useState({
+  const [dialogValueStatus, setDialogValueStatus] = useState({
     status: "",
   });
 
@@ -187,15 +207,77 @@ const UserRegistration = () => {
 
     handleCloseStatus();
   };
+
+  const sendLogin = async () => {
+    // console.log(basicInformation);
+    let response = await saveUser(
+      basicInformation,
+      formattedDate,
+      sexo,
+      branchOffices,
+      charges,
+      status
+    );
+
+    // let response = await saveUser(basicInformation);
+    if (response === "exitoso") {
+      console.log(response);
+    } else {
+      console.log(response);
+    }
+  };
+  // saveUser(basicInformation);
   return (
     <>
       <p>Registro de ususarios</p>
-      <TextField label="Nombres" variant="outlined" />
-      <TextField label="Apellidos" variant="outlined" />
-      <TextField label="Carnet de identidad" variant="outlined" />
-      <TextField label="Domicilio" variant="outlined" />
-      <TextField label="Celular" variant="outlined" />
-      <TextField label="Correo" variant="outlined" type="email" />
+      <TextField
+        label="Nombres"
+        variant="outlined"
+        type="text"
+        name="names"
+        value={basicInformation.names}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Apellidos"
+        variant="outlined"
+        type="text"
+        name="surnames"
+        value={basicInformation.surnames}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Carnet de identidad"
+        variant="outlined"
+        type="number"
+        name="ci"
+        value={basicInformation.ci}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Domicilio"
+        variant="outlined"
+        type="text"
+        name="address"
+        value={basicInformation.address}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Celular"
+        variant="outlined"
+        type="number"
+        name="mobile"
+        value={basicInformation.mobile}
+        onChange={handleInputChange}
+      />
+      <TextField
+        label="Correo"
+        variant="outlined"
+        type="email"
+        name="email"
+        value={basicInformation.email}
+        onChange={handleInputChange}
+      />
       {/* Fecha de nacimiento: */}
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         {/* <Stack spacing={3}> */}
@@ -593,7 +675,11 @@ const UserRegistration = () => {
 
       {/* Boton enviar: */}
 
-      <Button variant="contained" startIcon={<SaveIcon />}>
+      <Button
+        variant="contained"
+        startIcon={<SaveIcon />}
+        onClick={() => sendLogin()}
+      >
         Registrar
       </Button>
     </>
