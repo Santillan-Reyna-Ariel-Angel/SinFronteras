@@ -79,9 +79,10 @@ const listOfCharges = [
   { name: "Secretaria(o)", licenciaImg: "licencia.png" },
   { name: "Boletero(a)", licenciaImg: "licencia.png" },
 ];
-
 // Lista de estados:
 const stateList = [{ status: "Activo" }, { status: "Inactivo" }];
+
+// COMPOENTE:
 const UserRegistration = () => {
   //basicInformation
   const [basicInformation, setBasicInformation] = useState({

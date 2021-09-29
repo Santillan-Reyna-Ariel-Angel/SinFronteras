@@ -5,9 +5,9 @@ export const saveUser = (
   { names, surnames, ci, address, mobile, email },
   formattedDate,
   sexo,
-  branchOffices,
-  charges,
-  status
+  { name: branchOffice },
+  { name: charge },
+  { status }
 ) => {
   firebase
     .database()
@@ -22,8 +22,8 @@ export const saveUser = (
         email,
         formattedDate,
         sexo,
-        branchOffices,
-        charges,
+        branchOffice,
+        charge,
         status,
       },
       (error) => {
