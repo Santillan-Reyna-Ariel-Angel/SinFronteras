@@ -36,6 +36,18 @@ export const saveUser = (
           console.log("Error. Datos no guardados!!!", error);
           return "error";
         } else {
+          firebase
+            .database()
+            .ref("branchOffices/" + branchOfficeName)
+            .set(branchOffice);
+          firebase
+            .database()
+            .ref("charges/" + chargeOfType)
+            .set(charge);
+          firebase
+            .database()
+            .ref("status/" + statusType)
+            .set(status);
           console.log("Datos guardados exitosamente");
           return "exitoso";
         }

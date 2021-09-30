@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 //MUI-general
 import { TextField, Button } from "@mui/material";
-//MUI-fecha de nacimiento
+//MUI-Fecha de nacimiento
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
 import DatePicker from "@mui/lab/DatePicker";
@@ -71,12 +71,12 @@ const branchList = [
 ];
 // Lista de cargos
 const listOfCharges = [
-  { chargeOfType: "Dueño", licenciaImg: "licencia.png" },
-  { chargeOfType: "Administrador-General", licenciaImg: "licencia.png" },
-  { chargeOfType: "Administrador-Sucursal", licenciaImg: "licencia.png" },
+  { chargeOfType: "Dueño", licenciaImg: "" },
+  { chargeOfType: "Administrador-General", licenciaImg: "" },
+  { chargeOfType: "Administrador-Sucursal", licenciaImg: "" },
   { chargeOfType: "Chofer", licenciaImg: "licencia.png" },
-  { chargeOfType: "Secretaria(o)", licenciaImg: "licencia.png" },
-  { chargeOfType: "Boletero(a)", licenciaImg: "licencia.png" },
+  { chargeOfType: "Secretaria(o)", licenciaImg: "" },
+  { chargeOfType: "Boletero(a)", licenciaImg: "" },
 ];
 // Lista de estados:
 const stateList = [{ statusType: "Activo" }, { statusType: "Inactivo" }];
@@ -95,26 +95,37 @@ const UserRegistration = () => {
   // basicInformation
   const handleInputChange = (event) => {
     //toLowerCase() para convertir las entradas en minuscula
-    setBasicInformation({
-      ...basicInformation,
-      [event.target.name]: event.target.value.toLowerCase(),
-    });
+    const property = event.target.name;
+    if (property === "email") {
+      setBasicInformation({
+        ...basicInformation,
+        [event.target.name]: event.target.value,
+      });
+    } else {
+      setBasicInformation({
+        ...basicInformation,
+        [event.target.name]: event.target.value.toLowerCase(),
+      });
+    }
   };
   console.log("basicInformation: ", basicInformation);
+
   // Fecha de nacimiento
   const [date, setDate] = useState(new Date());
   const day = date.getDate(),
     month = date.getMonth() + 1,
     year = date.getFullYear();
   const formattedDate = day + "/" + month + "/" + year;
+  //console.log("date: ", date);
+  //console.log("formattedDate: ", formattedDate);
 
   // Sexo
-  const [sexo, setSexo] = useState("Hombre");
+  const [sexo, setSexo] = useState("hombre");
 
   const handleChange = (event) => {
     setSexo(event.target.value);
   };
-
+  // console.log("sexo:", sexo);
   // Sucursal
   const [branchOffice, setBranchOffice] = useState(null);
   const [openBranchOffice, toggleOpenBranchOffice] = useState(false);
@@ -286,7 +297,7 @@ const UserRegistration = () => {
           label="Fecha de nacimiento"
           openTo="year"
           views={["year", "month", "day"]}
-          status={date}
+          value={date}
           onChange={(newValue) => {
             setDate(newValue);
           }}
@@ -304,8 +315,8 @@ const UserRegistration = () => {
           value={sexo}
           onChange={handleChange}
         >
-          <FormControlLabel value="Hombre" control={<Radio />} label="Hombre" />
-          <FormControlLabel value="Mujer" control={<Radio />} label="Mujer" />
+          <FormControlLabel value="hombre" control={<Radio />} label="Hombre" />
+          <FormControlLabel value="mujer" control={<Radio />} label="Mujer" />
         </RadioGroup>
       </FormControl>
       {/* Sucursal */}
@@ -491,7 +502,7 @@ const UserRegistration = () => {
           } else if (newValue && newValue.inputValue) {
             toggleOpenCharge(true);
             setDialogValueCharge({
-              chargeOfType: newValue.inputValue,
+              chargeOfType: newValue.inputValue.toLowerCase(),
               licenciaImg: "",
             });
           } else {
@@ -542,7 +553,7 @@ const UserRegistration = () => {
               autoFocus
               margin="dense"
               id="chargeOfType"
-              value={dialogValueCharge.chargeOfType}
+              value={dialogValueCharge.chargeOfType.toLowerCase()}
               onChange={(event) =>
                 setDialogValueCharge({
                   ...dialogValueCharge,
@@ -600,7 +611,6 @@ const UserRegistration = () => {
         value={status}
         onChange={(event, newValue) => {
           if (typeof newValue === "string") {
-            // timeout to avoid instant validation of the dialog's form.
             setTimeout(() => {
               toggleOpenStatus(true);
               setDialogValueStatus({
@@ -610,7 +620,7 @@ const UserRegistration = () => {
           } else if (newValue && newValue.inputValue) {
             toggleOpenStatus(true);
             setDialogValueStatus({
-              statusType: newValue.inputValue,
+              statusType: newValue.inputValue.toLowerCase(),
             });
           } else {
             setStatus(newValue);
