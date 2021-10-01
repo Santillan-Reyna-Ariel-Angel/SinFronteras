@@ -3,24 +3,31 @@ import React, { useState } from "react";
 import { TextField, Button } from "@mui/material";
 //MUI-Fecha de nacimiento
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+import { LocalizationProvider, DatePicker } from "@mui/lab/";
 // import Stack from "@mui/material/Stack";
 //MUI-Sexo
-import Radio from "@mui/material/Radio";
-import RadioGroup from "@mui/material/RadioGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import FormControl from "@mui/material/FormControl";
-import FormLabel from "@mui/material/FormLabel";
+import {
+  Radio,
+  RadioGroup,
+  FormControlLabel,
+  FormControl,
+  FormLabel,
+} from "@mui/material/";
 //MUI-Sucursal/Cargos
-import Dialog from "@mui/material/Dialog";
-import DialogTitle from "@mui/material/DialogTitle";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogActions from "@mui/material/DialogActions";
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogContentText,
+  DialogActions,
+} from "@mui/material/";
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 // MUI-Boton enviar
 import SaveIcon from "@mui/icons-material/Save";
+//MUI-ALert
+import { Box, Alert, IconButton, Collapse, AlertTitle } from "@mui/material/";
+import CloseIcon from "@mui/icons-material/Close";
+
 // firebase
 import { saveUser } from "./UserRegistrationFunctios";
 
@@ -92,7 +99,7 @@ const UserRegistration = () => {
     mobile: "",
     email: "",
   });
-  // basicInformation
+  console.log("basicInformation: ", basicInformation);
   const handleInputChange = (event) => {
     //toLowerCase() para convertir las entradas en minuscula
     const property = event.target.name;
@@ -108,7 +115,6 @@ const UserRegistration = () => {
       });
     }
   };
-  console.log("basicInformation: ", basicInformation);
 
   // Fecha de nacimiento
   const [date, setDate] = useState(new Date());
@@ -121,15 +127,23 @@ const UserRegistration = () => {
 
   // Sexo
   const [sexo, setSexo] = useState("hombre");
-
+  // console.log("sexo:", sexo);
   const handleChange = (event) => {
     setSexo(event.target.value);
   };
-  // console.log("sexo:", sexo);
+
   // Sucursal
-  const [branchOffice, setBranchOffice] = useState(null);
-  const [openBranchOffice, toggleOpenBranchOffice] = useState(false);
+  const [branchOffice, setBranchOffice] = useState({
+    branchOfficeName: "",
+    location: "",
+    department: "",
+    branchOfficeImg: "",
+    address: "",
+    terminal: "",
+  });
   console.log("branchOffice: ", branchOffice);
+
+  const [openBranchOffice, toggleOpenBranchOffice] = useState(false);
   const handleCloseBranchOffice = () => {
     setDialogValueBranchOffice({
       branchOfficeName: "",
@@ -166,9 +180,12 @@ const UserRegistration = () => {
     handleCloseBranchOffice();
   };
   // Cargos
-  const [charge, setCharge] = useState(null);
-  const [openCharge, toggleOpenCharge] = useState(false);
+  const [charge, setCharge] = useState({
+    chargeOfType: "",
+    licenciaImg: "",
+  });
   console.log("charge:", charge);
+  const [openCharge, toggleOpenCharge] = useState(false);
   const handleCloseCharge = () => {
     setDialogValueCharge({
       chargeOfType: "",
@@ -194,10 +211,9 @@ const UserRegistration = () => {
   };
 
   // Estado
-
-  const [status, setStatus] = useState(null);
+  const [status, setStatus] = useState({ statusType: "" });
+  console.log("status:", status);
   const [openStatus, toggleOpenStatus] = useState(false);
-
   const handleCloseStatus = () => {
     setDialogValueStatus({
       statusType: "",
@@ -219,6 +235,30 @@ const UserRegistration = () => {
     handleCloseStatus();
   };
 
+  //Boton Registrar
+  // const disabledB = () => {
+  //   if (
+  //     basicInformation.names === "" ||
+  //     basicInformation.surnames === "" ||
+  //     basicInformation.ci === "" ||
+  //     basicInformation.address === "" ||
+  //     basicInformation.mobile === "" ||
+  //     basicInformation.email === "" ||
+  //     branchOffice.branchOfficeName === "" ||
+  //     branchOffice.location === "" ||
+  //     branchOffice.department === "" ||
+  //     // branchOffice.branchOfficeImg !== "" ||
+  //     branchOffice.address === "" ||
+  //     branchOffice.terminal === "" ||
+  //     charge.chargeOfType === "" ||
+  //     // charge.licenciaImg !== "" ||
+  //     status.statusType === ""
+  //   ) {
+  //     return true;
+  //   } else {
+  //     return false;
+  //   }
+  // };
   const registerUser = async () => {
     // console.log(basicInformation);
     let response = await saveUser(
@@ -237,7 +277,8 @@ const UserRegistration = () => {
       console.log(response);
     }
   };
-  // saveUser(basicInformation);
+  // Alert
+  const [open, setOpen] = useState(true);
   return (
     <>
       <p>Registro de ususarios</p>
@@ -690,14 +731,47 @@ const UserRegistration = () => {
       </Dialog>
 
       {/* Boton enviar: */}
-
       <Button
+        disabled={false}
         variant="contained"
         startIcon={<SaveIcon />}
         onClick={() => registerUser()}
       >
         Registrar
       </Button>
+      {/* Alert */}
+      <Box sx={{ width: "100%" }}>
+        <Collapse in={open}>
+          <Alert
+            variant="filled"
+            action={
+              <IconButton
+                aria-label="close"
+                color="inherit"
+                size="small"
+                onClick={() => {
+                  setOpen(false);
+                }}
+              >
+                <CloseIcon fontSize="inherit" />
+              </IconButton>
+            }
+            sx={{ mb: 2 }}
+          >
+            <AlertTitle>Genial</AlertTitle>
+            El usuario se registro exitosamente
+          </Alert>
+        </Collapse>
+        <Button
+          disabled={open}
+          variant="outlined"
+          onClick={() => {
+            setOpen(true);
+          }}
+        >
+          Mostrar Alerta
+        </Button>
+      </Box>
     </>
   );
 };
