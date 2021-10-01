@@ -24,7 +24,7 @@ import {
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 // MUI-Boton enviar
 import SaveIcon from "@mui/icons-material/Save";
-//MUI-ALert
+//MUI-ALert//AlertDialog
 import { Box, Alert, IconButton, Collapse, AlertTitle } from "@mui/material/";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -118,6 +118,7 @@ const UserRegistration = () => {
 
   // Fecha de nacimiento
   const [date, setDate] = useState(new Date());
+
   const day = date.getDate(),
     month = date.getMonth() + 1,
     year = date.getFullYear();
@@ -278,7 +279,43 @@ const UserRegistration = () => {
     }
   };
   // Alert
-  const [open, setOpen] = useState(true);
+  const [openAlert, setOpenAlert] = useState(true);
+  //Alet-Dialog
+  const [openAlertDialog, setOpenAlertDialog] = useState(false);
+  const handleClickOpenDialog = () => {
+    setOpenAlertDialog(true);
+  };
+
+  const handleCloseDialogBack = () => {
+    setOpenAlertDialog(false);
+  };
+  const handleCloseDialogYes = () => {
+    setOpenAlertDialog(false);
+    setBasicInformation({
+      names: "",
+      surnames: "",
+      ci: "",
+      address: "",
+      mobile: "",
+      email: "",
+    });
+    setDate(new Date());
+    setSexo("hombre");
+    setBranchOffice({
+      branchOfficeName: "",
+      location: "",
+      department: "",
+      branchOfficeImg: "",
+      address: "",
+      terminal: "",
+    });
+    setCharge({
+      chargeOfType: "",
+      licenciaImg: "",
+    });
+    setStatus({ statusType: "" });
+  };
+
   return (
     <>
       <p>Registro de ususarios</p>
@@ -729,19 +766,48 @@ const UserRegistration = () => {
           </DialogActions>
         </form>
       </Dialog>
+      {/*Boton y alerta registrar */}
+      <div>
+        <Button
+          onClick={handleClickOpenDialog}
+          disabled={false}
+          variant="contained"
+          startIcon={<SaveIcon />}
+        >
+          Registrar
+        </Button>
+        <Dialog
+          open={openAlertDialog}
+          onClose={handleCloseDialogYes}
+          aria-labelledby="alert-dialog-title"
+          aria-describedby="alert-dialog-description"
+        >
+          <DialogTitle id="alert-dialog-title">
+            {`REGISTRO DE USUSARIOS`}
+          </DialogTitle>
+          <DialogContent>
+            <DialogContentText id="alert-dialog-description">
+              {`Esta seguro de registrar a ${basicInformation.names} ${basicInformation.surnames} ?`}
+            </DialogContentText>
+          </DialogContent>
+          <DialogActions>
+            <Button onClick={handleCloseDialogBack}>Atras</Button>
+            <Button
+              onClick={() => {
+                registerUser();
+                handleCloseDialogYes();
+              }}
+              autoFocus
+            >
+              Si
+            </Button>
+          </DialogActions>
+        </Dialog>
+      </div>
 
-      {/* Boton enviar: */}
-      <Button
-        disabled={false}
-        variant="contained"
-        startIcon={<SaveIcon />}
-        onClick={() => registerUser()}
-      >
-        Registrar
-      </Button>
       {/* Alert */}
       <Box sx={{ width: "100%" }}>
-        <Collapse in={open}>
+        <Collapse in={openAlert}>
           <Alert
             variant="filled"
             action={
@@ -750,7 +816,7 @@ const UserRegistration = () => {
                 color="inherit"
                 size="small"
                 onClick={() => {
-                  setOpen(false);
+                  setOpenAlert(false);
                 }}
               >
                 <CloseIcon fontSize="inherit" />
@@ -763,10 +829,10 @@ const UserRegistration = () => {
           </Alert>
         </Collapse>
         <Button
-          disabled={open}
+          disabled={openAlert}
           variant="outlined"
           onClick={() => {
-            setOpen(true);
+            setOpenAlert(true);
           }}
         >
           Mostrar Alerta
