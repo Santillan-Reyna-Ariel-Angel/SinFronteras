@@ -70,7 +70,7 @@ const Login = () => {
               className="buttonEnter"
               variant="contained"
               size="medium"
-              color="primary"
+              color="success"
               onClick={() => sendLogin()}
             >
               ingresar

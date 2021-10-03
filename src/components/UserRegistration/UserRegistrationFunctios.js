@@ -4,7 +4,7 @@ const { firebase } = EventFirebase;
 export const saveUser = (
   { names, surnames, ci, address, mobile, email },
   formattedDate,
-  sexo,
+  sex,
   branchOffice,
   charge,
   status
@@ -26,7 +26,7 @@ export const saveUser = (
         mobile,
         email,
         formattedDate,
-        sexo,
+        sex,
         branchOfficeName,
         chargeOfType,
         statusType,

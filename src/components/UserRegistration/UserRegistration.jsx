@@ -134,20 +134,20 @@ const UserRegistration = () => {
   };
 
   // Fecha de nacimiento
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(null);
 
-  const day = date.getDate(),
-    month = date.getMonth() + 1,
-    year = date.getFullYear();
+  const day = date ? date.getDate() : "dia",
+    month = date ? date.getMonth() + 1 : "mes",
+    year = date ? date.getFullYear() : "año";
   const formattedDate = day + "/" + month + "/" + year;
-  //console.log("date: ", date);
-  //console.log("formattedDate: ", formattedDate);
+  console.log("date: ", date);
+  console.log("formattedDate: ", formattedDate);
 
   // Sexo
-  const [sexo, setSexo] = useState("hombre");
-  // console.log("sexo:", sexo);
+  const [sex, setSex] = useState("hombre");
+  // console.log("sex:", sex);
   const handleChange = (event) => {
-    setSexo(event.target.value);
+    setSex(event.target.value);
   };
 
   // Sucursal
@@ -282,7 +282,7 @@ const UserRegistration = () => {
     let response = await saveUser(
       basicInformation,
       formattedDate,
-      sexo,
+      sex,
       branchOffice,
       charge,
       status
@@ -317,7 +317,7 @@ const UserRegistration = () => {
       email: "",
     });
     setDate(new Date());
-    setSexo("hombre");
+    setSex("hombre");
     setBranchOffice({
       branchOfficeName: "",
       location: "",
@@ -410,9 +410,11 @@ const UserRegistration = () => {
               <DatePicker
                 disableFuture
                 label="Fecha de nacimiento"
+                minDate={new Date("1921-01-01")}
                 openTo="year"
                 views={["year", "month", "day"]}
                 value={date}
+                // mask="mes/dia/año"
                 onChange={(newValue) => {
                   setDate(newValue);
                 }}
@@ -428,9 +430,9 @@ const UserRegistration = () => {
               <FormLabel component="legend">Sexo:</FormLabel>
               <RadioGroup
                 row
-                aria-label="sexo"
+                aria-label="sex"
                 name="controlled-radio-buttons-group"
-                value={sexo}
+                value={sex}
                 onChange={handleChange}
               >
                 <FormControlLabel
@@ -828,6 +830,7 @@ const UserRegistration = () => {
             {/*Boton y alerta registrar */}
             <div>
               <Button
+                color="success"
                 onClick={handleClickOpenDialog}
                 disabled={false}
                 variant="contained"
@@ -866,7 +869,7 @@ const UserRegistration = () => {
           </BtnToRegistrer>
         </Container>
       </Background>
-
+      <br />
       {/* Alert */}
       <Box sx={{ width: "100%" }}>
         <Collapse in={openAlert}>

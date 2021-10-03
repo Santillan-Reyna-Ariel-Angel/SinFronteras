@@ -15,7 +15,8 @@ export const Background = styled.div`
 
 export const Container = styled.form`
   display: grid;
-  background-color: gray;
+  background-color: #00bdb2;
+  /* background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%); */
   grid-template-columns: 250px 250px;
   grid-template-rows: auto;
   grid-row-gap: 15px;
