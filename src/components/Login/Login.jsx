@@ -25,7 +25,7 @@ const Login = () => {
     console.log("sendLogin:", email, password);
     const accessToken = await Auth(email, password);
     if (accessToken !== null) {
-      history.push("/registro-usuarios");
+      history.push("/principal");
       setCredentialError(false);
     } else {
       setCredentialError(true);
