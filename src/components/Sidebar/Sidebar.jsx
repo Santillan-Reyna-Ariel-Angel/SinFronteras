@@ -34,7 +34,7 @@ const data = [
   { icon: <Public />, label: "Hosting" },
 ];
 
-const data2 = [
+const SidebarMenu = [
   {
     path: "/personal",
     icon: <People />,
@@ -97,7 +97,7 @@ const FireNav = styled(List)({
   "& .MuiListItemIcon-root": {
     //   padding de todos los iconos
     minWidth: 0,
-    marginRight: 16,
+    marginRight: 8,
   },
   "& .MuiSvgIcon-root": {
     // tamaño de todos los iconos
@@ -190,68 +190,97 @@ export default function CustomizedList() {
                   py: open ? 2 : 0,
                 }}
               >
-                <ListItemButton
-                  alignItems="flex-start"
-                  onClick={() => setOpen(!open)}
-                  sx={{
-                    // Estilos de la caja que contiene al padre
-                    px: 3,
-                    pt: 1.5,
-                    pb: open ? 0 : 1.5,
-                    "&:hover, &:focus": { "& svg": { opacity: open ? 1 : 0 } },
-                  }}
-                >
-                  <ListItemText
-                    // Item padre
-                    primary="Personal"
-                    primaryTypographyProps={{
-                      fontSize: 15,
-                      fontWeight: "medium",
-                      lineHeight: "10px",
-                      mb: "5px",
-                    }}
-                    secondary="Authentication, Firestore Database, Realtime Database, Storage, Hosting, Functions, and Machine Learning"
-                    secondaryTypographyProps={{
-                      noWrap: true,
-                      fontSize: 12,
-                      lineHeight: "12px",
-                      color: open ? "rgba(0,0,0,0)" : "rgba(255,255,255,0.5)",
-                    }}
-                    //   Estilos del texto padre(titulo)
-                    sx={{ my: 0 }}
-                  />
-                  <KeyboardArrowDown
-                    sx={{
-                      mr: -1,
-                      opacity: 0,
-                      transform: open ? "rotate(-180deg)" : "rotate(0)",
-                      transition: "0.2s",
-                    }}
-                  />
-                </ListItemButton>
-                {/* Items */}
-                {open &&
-                  data.map((item) => (
-                    <ListItemButton
-                      key={item.label}
-                      sx={{
-                        py: 0,
-                        minHeight: 32,
-                        color: "rgba(255,255,255,.8)",
-                      }}
-                    >
-                      <ListItemIcon sx={{ color: "inherit" }}>
-                        {item.icon}
-                      </ListItemIcon>
-                      <ListItemText
-                        primary={item.label}
-                        primaryTypographyProps={{
-                          fontSize: 13,
-                          fontWeight: "medium",
+                {SidebarMenu.map((dad) => {
+                  return (
+                    <>
+                      <ListItemButton
+                        alignItems="flex-start"
+                        onClick={() => setOpen(!open)}
+                        sx={{
+                          // Estilos de la caja que contiene al padre
+                          px: 3,
+                          pt: 1.5,
+                          pb: open ? 0 : 1.5,
+                          "&:hover, &:focus": {
+                            color: "rgb(102, 157, 246)",
+                            "& svg": {
+                              opacity: 1,
+                            },
+                          },
                         }}
-                      />
-                    </ListItemButton>
-                  ))}
+                      >
+                        <ListItemIcon
+                          sx={{
+                            color: "inherit",
+                            mt: "-7px",
+                            ml: "-14px",
+                          }}
+                        >
+                          {dad.icon}
+                        </ListItemIcon>
+                        <ListItemText
+                          // Item padre
+                          primary={dad.title}
+                          primaryTypographyProps={{
+                            fontSize: 15,
+                            fontWeight: "medium",
+                            lineHeight: "10px",
+                            mb: "5px",
+                          }}
+                          secondary={dad.children.map((child) => {
+                            return "*" + child.title + " ";
+                          })}
+                          secondaryTypographyProps={{
+                            noWrap: true,
+                            fontSize: 12,
+                            lineHeight: "12px",
+                            color: open
+                              ? "rgba(0,0,0,0)"
+                              : "rgba(255,255,255,0.5)",
+                          }}
+                          //   Estilos del texto padre(titulo)
+                          sx={{
+                            my: 0,
+                            "&:hover, &:focus": {
+                              color: "rgb(102, 157, 246)",
+                            },
+                          }}
+                        />
+                        <KeyboardArrowDown
+                          sx={{
+                            mr: -1,
+                            opacity: 0,
+                            transform: open ? "rotate(-180deg)" : "rotate(0)",
+                            transition: "0.2s",
+                          }}
+                        />
+                      </ListItemButton>
+                      {/* Items */}
+                      {open &&
+                        dad.children.map((child) => (
+                          <ListItemButton
+                            key={child.title}
+                            sx={{
+                              py: 0,
+                              minHeight: 32,
+                              color: "rgba(255,255,255,.8)",
+                            }}
+                          >
+                            <ListItemIcon sx={{ color: "inherit", pl: "12px" }}>
+                              {child.icon}
+                            </ListItemIcon>
+                            <ListItemText
+                              primary={child.title}
+                              primaryTypographyProps={{
+                                fontSize: 13,
+                                fontWeight: "medium",
+                              }}
+                            />
+                          </ListItemButton>
+                        ))}
+                    </>
+                  );
+                })}
               </Box>
             </FireNav>
           </Paper>
