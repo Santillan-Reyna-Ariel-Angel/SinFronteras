@@ -24,18 +24,17 @@ import {
   Home,
   Settings,
   People,
-  PermMedia,
-  Dns,
-  Public,
 } from "@mui/icons-material";
+// Otros iconos
+import PersonAddRoundedIcon from "@mui/icons-material/PersonAddRounded";
+import FactCheckRoundedIcon from "@mui/icons-material/FactCheckRounded";
+import DirectionsBusRoundedIcon from "@mui/icons-material/DirectionsBusRounded";
+import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
+import FormatListNumberedRoundedIcon from "@mui/icons-material/FormatListNumberedRounded";
+import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
+import HomeWorkRoundedIcon from "@mui/icons-material/HomeWorkRounded";
+// Estilos propios
 import { LinksStyles } from "./SidebarStyles";
-
-const data = [
-  { icon: <People />, label: "Authentication" },
-  { icon: <Dns />, label: "Database" },
-  { icon: <PermMedia />, label: "Storage" },
-  { icon: <Public />, label: "Hosting" },
-];
 
 const SidebarMenu = [
   {
@@ -45,47 +44,47 @@ const SidebarMenu = [
     children: [
       {
         path: "/personal/registro-de-cargos",
-        title: "Registro de Cargos",
-        icon: <People />,
+        title: "Registro de Usuarios",
+        icon: <PersonAddRoundedIcon />,
       },
       {
         path: "/personal/roles-y-permisos",
         title: "Roles y permisos",
-        icon: <People />,
+        icon: <FactCheckRoundedIcon />,
       },
     ],
   },
   {
     path: "/Buses",
-    icon: <People />,
+    icon: <DirectionsBusRoundedIcon />,
     title: "Bueses",
     children: [
       {
         path: "/buses/registro-de-buses",
         title: "Registro de Buses",
-        icon: <People />,
+        icon: <AddCircleRoundedIcon />,
       },
       {
         path: "/buses/lista-de-buses",
         title: "Lista de buses",
-        icon: <People />,
+        icon: <FormatListNumberedRoundedIcon />,
       },
     ],
   },
   {
     path: "/sucursales",
-    icon: <People />,
+    icon: <HomeWorkRoundedIcon />,
     title: "Sucursales",
     children: [
       {
         path: "/sucursales/registro-de-sucursales",
         title: "Registro de sucursales",
-        icon: <People />,
+        icon: <MapsHomeWorkRoundedIcon />,
       },
       {
         path: "/sucursales/lista-de-sucursales",
         title: "Lista de Sucursales",
-        icon: <People />,
+        icon: <FormatListNumberedRoundedIcon />,
       },
     ],
   },

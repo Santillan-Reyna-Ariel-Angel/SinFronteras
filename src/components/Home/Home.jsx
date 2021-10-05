@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ContextListarNotas } from "./../../contexts/ContextListarNotas";
 import CustomizedList from "./../Sidebar/Sidebar";
-import NestedList from "./../Sidebar2/Sidebar2";
 const Home = () => {
   const notes = useContext(ContextListarNotas);
   const { id, title, body_note } = notes ? notes : { title: "" };
