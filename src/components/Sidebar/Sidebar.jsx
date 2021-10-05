@@ -28,6 +28,7 @@ import {
   Dns,
   Public,
 } from "@mui/icons-material";
+import { LinksStyles } from "./SidebarStyles";
 
 const data = [
   { icon: <People />, label: "Authentication" },
@@ -268,9 +269,17 @@ export default function CustomizedList() {
                               py: 0,
                               minHeight: 32,
                               color: "rgba(255,255,255,.8)",
+                              "&:hover, &:focus": {
+                                color: "primary.main",
+                              },
                             }}
                           >
-                            <ListItemIcon sx={{ color: "inherit", pl: "12px" }}>
+                            <ListItemIcon
+                              sx={{
+                                color: "inherit",
+                                pl: "12px",
+                              }}
+                            >
                               {child.icon}
                             </ListItemIcon>
                             <ListItemText
@@ -280,9 +289,11 @@ export default function CustomizedList() {
                                 fontWeight: "medium",
                               }}
                             >
-                              <Link to={child.path} className="link">
-                                {child.title}
-                              </Link>
+                              <LinksStyles>
+                                <Link to={child.path} className="linksStyles">
+                                  {child.title}
+                                </Link>
+                              </LinksStyles>
                             </ListItemText>
                           </ListItemButton>
                         ))}
