@@ -32,7 +32,7 @@ const AppRoutes = () => {
               <Route exact path="/notas" component={Notes} />
               <Route
                 exact
-                path="/registro-usuarios"
+                path="/personal/registro-de-cargos"
                 component={UserRegistration}
               />
             </Switch>

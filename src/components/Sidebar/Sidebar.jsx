@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 // material-styles
+import "./SidebarStyles.css";
 import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
 //material
 import {
@@ -123,7 +125,9 @@ export default function CustomizedList() {
             },
             palette: {
               mode: "dark",
-              primary: { main: "rgb(102, 157, 246)" },
+              primary: {
+                main: "rgb(102, 157, 246)",
+              },
               background: { paper: "rgb(5, 30, 52)" },
             },
           })}
@@ -202,7 +206,7 @@ export default function CustomizedList() {
                           pt: 1.5,
                           pb: open ? 0 : 1.5,
                           "&:hover, &:focus": {
-                            color: "rgb(102, 157, 246)",
+                            color: "primary.main",
                             "& svg": {
                               opacity: 1,
                             },
@@ -242,7 +246,7 @@ export default function CustomizedList() {
                           sx={{
                             my: 0,
                             "&:hover, &:focus": {
-                              color: "rgb(102, 157, 246)",
+                              color: "primary.main",
                             },
                           }}
                         />
@@ -270,12 +274,16 @@ export default function CustomizedList() {
                               {child.icon}
                             </ListItemIcon>
                             <ListItemText
-                              primary={child.title}
+                              // primary={child.title}
                               primaryTypographyProps={{
                                 fontSize: 13,
                                 fontWeight: "medium",
                               }}
-                            />
+                            >
+                              <Link to={child.path} className="link">
+                                {child.title}
+                              </Link>
+                            </ListItemText>
                           </ListItemButton>
                         ))}
                     </>
