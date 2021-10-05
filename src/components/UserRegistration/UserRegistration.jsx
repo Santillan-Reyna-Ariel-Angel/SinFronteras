@@ -24,9 +24,6 @@ import {
 import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
 // MUI-Boton enviar
 import SaveIcon from "@mui/icons-material/Save";
-//MUI-ALert//AlertDialog
-import { Box, Alert, IconButton, Collapse, AlertTitle } from "@mui/material/";
-import CloseIcon from "@mui/icons-material/Close";
 
 //Estilos
 import {
@@ -295,8 +292,7 @@ const UserRegistration = () => {
       console.log(response);
     }
   };
-  // Alert
-  const [openAlert, setOpenAlert] = useState(true);
+
   //Alet-Dialog
   const [openAlertDialog, setOpenAlertDialog] = useState(false);
   const handleClickOpenDialog = () => {
@@ -611,8 +607,16 @@ const UserRegistration = () => {
                   />
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={handleCloseBranchOffice}>Cancelar</Button>
-                  <Button type="submit">Añadir</Button>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={handleCloseBranchOffice}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button variant="contained" color="success" type="submit">
+                    Añadir
+                  </Button>
                 </DialogActions>
               </form>
             </Dialog>
@@ -714,8 +718,16 @@ const UserRegistration = () => {
             /> */}
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={handleCloseCharge}>Cancelar</Button>
-                  <Button type="submit">Añadir</Button>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={handleCloseCharge}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button variant="contained" color="success" type="submit">
+                    Añadir
+                  </Button>
                 </DialogActions>
               </form>
             </Dialog>
@@ -820,8 +832,16 @@ const UserRegistration = () => {
                   />
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={handleCloseStatus}>Cancelar</Button>
-                  <Button type="submit">Añadir</Button>
+                  <Button
+                    variant="contained"
+                    color="error"
+                    onClick={handleCloseStatus}
+                  >
+                    Cancelar
+                  </Button>
+                  <Button variant="contained" color="success" type="submit">
+                    Añadir
+                  </Button>
                 </DialogActions>
               </form>
             </Dialog>
@@ -853,8 +873,16 @@ const UserRegistration = () => {
                   </DialogContentText>
                 </DialogContent>
                 <DialogActions>
-                  <Button onClick={handleCloseDialogBack}>Atras</Button>
                   <Button
+                    variant="contained"
+                    color="error"
+                    onClick={handleCloseDialogBack}
+                  >
+                    Atras
+                  </Button>
+                  <Button
+                    variant="contained"
+                    color="success"
                     onClick={() => {
                       registerUser();
                       handleCloseDialogYes();
@@ -869,40 +897,6 @@ const UserRegistration = () => {
           </BtnToRegistrer>
         </Container>
       </Background>
-      <br />
-      {/* Alert */}
-      <Box sx={{ width: "100%" }}>
-        <Collapse in={openAlert}>
-          <Alert
-            variant="filled"
-            action={
-              <IconButton
-                aria-label="close"
-                color="inherit"
-                size="small"
-                onClick={() => {
-                  setOpenAlert(false);
-                }}
-              >
-                <CloseIcon fontSize="inherit" />
-              </IconButton>
-            }
-            sx={{ mb: 2 }}
-          >
-            <AlertTitle>Genial</AlertTitle>
-            El usuario se registro exitosamente
-          </Alert>
-        </Collapse>
-        <Button
-          disabled={openAlert}
-          variant="outlined"
-          onClick={() => {
-            setOpenAlert(true);
-          }}
-        >
-          Mostrar Alerta
-        </Button>
-      </Box>
     </>
   );
 };

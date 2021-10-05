@@ -1,12 +1,23 @@
 import React from "react";
-import PrimarySearchAppBar from "./../AppBar/AppBar";
+import PrimarySearchAppBar from "./../AppBar/AppBar.jsx";
 import CustomizedList from "./../Sidebar/Sidebar";
+import Box from "@mui/material/Box";
 const Layout = (props) => {
   return (
     <>
       {PrimarySearchAppBar()}
-      {CustomizedList()}
-      {props.children}
+
+      <Box
+        sx={{
+          display: "flex",
+          //   justifyContent: "center",
+          //   alignItems: "center",
+          bgcolor: "background.paper",
+        }}
+      >
+        {CustomizedList()}
+        {props.children}
+      </Box>
     </>
   );
 };

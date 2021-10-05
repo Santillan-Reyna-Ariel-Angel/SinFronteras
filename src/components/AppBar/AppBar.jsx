@@ -15,7 +15,7 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import AlertDialog from "./../Dialog/Dialog";
 //Estilos propios
-import { LogoAppBar } from "./AppBar";
+import { LogoAppBar } from "./AppBarStyles";
 //src-images
 import ProfilePicture from "../../sources/img/PerfilFake.jpg";
 
