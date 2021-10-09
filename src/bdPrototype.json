@@ -3,7 +3,7 @@
     "sucursalInfo": {
       "name": "",
       "location": "",
-      "localityPhotograpy": "", //para usar en rutas
+      "localityPhotograpy": "",
       "department": "",
       "address": "",
       "terminal": "",
@@ -28,19 +28,19 @@
         "email": "",
         "dateOfBirth": "",
         "sex": "",
-        "charge": "", //se podria colocar directamente el cargo
+        "charge": "",
         "typeOfCharge": {
           "owner": false,
           "generalAdministrator": false,
           "branchAdministrator": false,
           "driver": {
-            "typeOfConductor": "", //principal-ayudante
+            "typeOfConductor": "",
             "licensePhotography": ""
           },
           "secretary": false,
           "ticketHolder": false
         },
-        "status": "", //activo,inactivo,etc
+        "status": "",
         "stateType": {
           "active": false,
           "inactive": false
@@ -49,17 +49,17 @@
     ],
     "buses": [
       {
-        "enrollment": "", //matricula
-        "filing": "", //radicatoria
+        "enrollment": "",
+        "filing": "",
         "typeOfBus": {
           "busTypeName": "",
           "numberOfFloors": "",
-          // "numberOfSeats": "",
+          "numberOfSeats": "",
           "seats": [
             {
               "seatNumber": "",
               "seatType": "",
-              "rowType": "", //pasillo o ventanilla
+              "rowType": "",
               "salePrice": "",
               "maximumPrice": "",
               "minimalPrice": ""
@@ -69,7 +69,7 @@
         },
         "busPhotography": "",
         "status": "",
-        "identificationNumberDriver": "" //es necesario?
+        "identificationNumberDriver": ""
       }
     ],
     "routes": [
