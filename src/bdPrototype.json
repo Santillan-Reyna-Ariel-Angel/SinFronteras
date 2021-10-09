@@ -1,0 +1,106 @@
+{
+  "branchOffices": {
+    "sucursalInfo": {
+      "name": "",
+      "location": "",
+      "localityPhotograpy": "", //para usar en rutas
+      "department": "",
+      "address": "",
+      "terminal": "",
+      "branchPhotography": "",
+      "contactNumbers": ["", ""],
+      "attentionSchedule": [
+        {
+          "day": "",
+          "openingHours": "",
+          "closingTime": ""
+        }
+      ],
+      "emailsWithAccess": ["", ""]
+    },
+    "usuarios": [
+      {
+        "names": "",
+        "surnames": "",
+        "identificationNumber": "",
+        "address": "",
+        "mobile": "",
+        "email": "",
+        "dateOfBirth": "",
+        "sex": "",
+        "charge": "", //se podria colocar directamente el cargo
+        "typeOfCharge": {
+          "owner": false,
+          "generalAdministrator": false,
+          "branchAdministrator": false,
+          "driver": {
+            "typeOfConductor": "", //principal-ayudante
+            "licensePhotography": ""
+          },
+          "secretary": false,
+          "ticketHolder": false
+        },
+        "status": "", //activo,inactivo,etc
+        "stateType": {
+          "active": false,
+          "inactive": false
+        }
+      }
+    ],
+    "buses": [
+      {
+        "enrollment": "", //matricula
+        "filing": "", //radicatoria
+        "typeOfBus": {
+          "busTypeName": "",
+          "numberOfFloors": "",
+          // "numberOfSeats": "",
+          "seats": [
+            {
+              "seatNumber": "",
+              "seatType": "",
+              "rowType": "", //pasillo o ventanilla
+              "salePrice": "",
+              "maximumPrice": "",
+              "minimalPrice": ""
+            }
+          ],
+          "services": ["tv", "baño"]
+        },
+        "busPhotography": "",
+        "status": "",
+        "identificationNumberDriver": "" //es necesario?
+      }
+    ],
+    "routes": [
+      {
+        "localityOfOrigin": "",
+        "destinationLocation": ""
+      }
+    ],
+    "travels": [
+      {
+        "passengers": [
+          {
+            "names": "",
+            "surnames": "",
+            "identificationNumber": "",
+            "documentType": "",
+            "seats": [
+              {
+                "numberOfSeat": ""
+              }
+            ],
+            "invoiceDetails": {
+              "nameOrSocialReason": "",
+              "nitOrCi": "",
+              "email": "",
+              "mobile": "",
+              "amountTotal": ""
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

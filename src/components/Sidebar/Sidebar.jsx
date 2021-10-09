@@ -191,6 +191,7 @@ export default function CustomizedList() {
               <Box
                 sx={{
                   bgcolor: open ? "rgba(71, 98, 130, 0.2)" : null,
+                  // py podemos ponerle 0 para que nuestros elementos esten mas cercanos entre si
                   py: open ? 2 : 0,
                 }}
               >

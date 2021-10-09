@@ -332,6 +332,8 @@ const UserRegistration = () => {
   return (
     <>
       <Background>
+        <br />
+        <br />
         <Container>
           <InputNames>
             <TextField
