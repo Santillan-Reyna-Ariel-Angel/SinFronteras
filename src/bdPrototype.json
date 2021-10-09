@@ -1,106 +1,108 @@
 {
-  "branchOffices": {
-    "sucursalInfo": {
-      "name": "",
-      "location": "",
-      "localityPhotograpy": "",
-      "department": "",
-      "address": "",
-      "terminal": "",
-      "branchPhotography": "",
-      "contactNumbers": ["", ""],
-      "attentionSchedule": [
+  "branchOffices": [
+    {
+      "branchInformation": {
+        "name": "",
+        "location": "",
+        "localityPhotograpy": "",
+        "department": "",
+        "address": "",
+        "terminal": "",
+        "branchPhotography": "",
+        "contactNumbers": ["", ""],
+        "attentionSchedule": [
+          {
+            "day": "",
+            "openingHours": "",
+            "closingTime": ""
+          }
+        ],
+        "emailsWithAccess": ["", ""]
+      },
+      "users": [
         {
-          "day": "",
-          "openingHours": "",
-          "closingTime": ""
+          "names": "",
+          "surnames": "",
+          "identificationNumber": "",
+          "address": "",
+          "mobile": "",
+          "email": "",
+          "dateOfBirth": "",
+          "sex": "",
+          "charge": "",
+          "typeOfCharge": {
+            "owner": false,
+            "generalAdministrator": false,
+            "branchAdministrator": false,
+            "driver": {
+              "typeOfConductor": "",
+              "licensePhotography": ""
+            },
+            "secretary": false,
+            "ticketHolder": false
+          },
+          "status": "",
+          "stateType": {
+            "active": false,
+            "inactive": false
+          }
         }
       ],
-      "emailsWithAccess": ["", ""]
-    },
-    "usuarios": [
-      {
-        "names": "",
-        "surnames": "",
-        "identificationNumber": "",
-        "address": "",
-        "mobile": "",
-        "email": "",
-        "dateOfBirth": "",
-        "sex": "",
-        "charge": "",
-        "typeOfCharge": {
-          "owner": false,
-          "generalAdministrator": false,
-          "branchAdministrator": false,
-          "driver": {
-            "typeOfConductor": "",
-            "licensePhotography": ""
-          },
-          "secretary": false,
-          "ticketHolder": false
-        },
-        "status": "",
-        "stateType": {
-          "active": false,
-          "inactive": false
-        }
-      }
-    ],
-    "buses": [
-      {
-        "enrollment": "",
-        "filing": "",
-        "typeOfBus": {
-          "busTypeName": "",
-          "numberOfFloors": "",
-          "numberOfSeats": "",
-          "seats": [
-            {
-              "seatNumber": "",
-              "seatType": "",
-              "rowType": "",
-              "salePrice": "",
-              "maximumPrice": "",
-              "minimalPrice": ""
-            }
-          ],
-          "services": ["tv", "baño"]
-        },
-        "busPhotography": "",
-        "status": "",
-        "identificationNumberDriver": ""
-      }
-    ],
-    "routes": [
-      {
-        "localityOfOrigin": "",
-        "destinationLocation": ""
-      }
-    ],
-    "travels": [
-      {
-        "passengers": [
-          {
-            "names": "",
-            "surnames": "",
-            "identificationNumber": "",
-            "documentType": "",
+      "buses": [
+        {
+          "enrollment": "",
+          "filing": "",
+          "typeOfBus": {
+            "busTypeName": "",
+            "numberOfFloors": "",
+            "numberOfSeats": "",
             "seats": [
               {
-                "numberOfSeat": ""
+                "seatNumber": "",
+                "seatType": "",
+                "rowType": "",
+                "salePrice": "",
+                "maximumPrice": "",
+                "minimalPrice": ""
               }
             ],
-            "invoiceDetails": {
-              "nameOrSocialReason": "",
-              "nitOrCi": "",
-              "email": "",
-              "mobile": "",
-              "amountTotal": ""
+            "services": ["tv", "baño"]
+          },
+          "busPhotography": "",
+          "status": "",
+          "identificationNumberDriver": ""
+        }
+      ],
+      "routes": [
+        {
+          "localityOfOrigin": "",
+          "destinationLocation": ""
+        }
+      ],
+      "travels": [
+        {
+          "passengers": [
+            {
+              "names": "",
+              "surnames": "",
+              "identificationNumber": "",
+              "documentType": "",
+              "seats": [
+                {
+                  "numberOfSeat": ""
+                }
+              ],
+              "invoiceDetails": {
+                "nameOrSocialReason": "",
+                "nitOrCi": "",
+                "email": "",
+                "mobile": "",
+                "amountTotal": ""
+              }
             }
-          }
-        ]
-      }
-    ]
-  }
+          ]
+        }
+      ]
+    }
+  ]
 }
