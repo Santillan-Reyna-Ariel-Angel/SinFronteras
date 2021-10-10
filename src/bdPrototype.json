@@ -29,7 +29,8 @@
           "email": "",
           "dateOfBirth": "",
           "sex": "",
-          "charge": "",
+          "charge": "coc",
+          "licencia"
           "typeOfCharge": {
             "owner": false,
             "generalAdministrator": false,
@@ -55,7 +56,8 @@
           "typeOfBus": {
             "busTypeName": "",
             "numberOfFloors": "",
-            "numberOfSeats": "",
+            "numberOfSeats_cama": "",
+            "numberOfSeats_normal": "",
             "seats": [
               {
                 "seatNumber": "",
@@ -76,7 +78,8 @@
       "routes": [
         {
           "localityOfOrigin": "",
-          "destinationLocation": ""
+          "destinationLocation": "",
+          "travels"
         }
       ],
       "travels": [
@@ -102,7 +105,8 @@
             }
           ],
           "travelDate": "",
-          "departureTime": ""
+          "departureTime": "",
+          "realizado":true 
         }
       ]
     }
