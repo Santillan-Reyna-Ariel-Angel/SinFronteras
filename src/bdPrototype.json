@@ -1,26 +1,86 @@
 {
-  "branchOffices": [
-    {
+  "companyBuses": {
+    "code1": {
+      "enrollment": "",
+      "filing": "",
+      "typeOfBus": {
+        "busTypeName": "",
+        "numberOfFloors": "",
+        "seats": {
+          "code1": {
+            "seatType": "semi cama",
+            "numberOfSeats": "6",
+            "minimumSeatRange": 10,
+            "maximumSeatRange": 15
+          }
+        },
+        "services": ["tv", "baño"]
+      },
+      "busPhotography": "",
+      "status": "",
+      "identificationNumberDriver": ""
+    }
+  },
+  "branchOffices": {
+    "code1": {
       "branchInformation": {
         "name": "",
         "location": "",
+        "destinations": {
+          "code1": {
+            "destinationLocation": "",
+            "prices": {
+              "typeOfBus": {
+                "code1": {
+                  "busTypeName": "",
+                  "seatType": "",
+                  "maximumPrice": "",
+                  "minimalPrice": ""
+                }
+              }
+            }
+          }
+        },
         "localityPhotograpy": "",
         "department": "",
         "address": "",
         "terminal": "",
         "branchPhotography": "",
         "contactNumbers": ["", ""],
-        "attentionSchedule": [
-          {
-            "day": "",
+        "attentionSchedule": {
+          "monday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "tuesday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "wednesday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "thursday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "fryday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "suturday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "sunday": {
             "openingHours": "",
             "closingTime": ""
           }
-        ],
+        },
         "emailsWithAccess": ["", ""]
       },
-      "users": [
-        {
+      "users": {
+        "code1": {
           "names": "",
           "surnames": "",
           "identificationNumber": "",
@@ -29,72 +89,41 @@
           "email": "",
           "dateOfBirth": "",
           "sex": "",
-          "charge": "coc",
-          "licencia"
-          "typeOfCharge": {
-            "owner": false,
-            "generalAdministrator": false,
-            "branchAdministrator": false,
-            "driver": {
-              "typeOfConductor": "",
-              "licensePhotography": ""
-            },
-            "secretary": false,
-            "ticketHolder": false
+          "charge": "",
+          "driver": {
+            "typeOfConductor": "",
+            "licensePhotography": ""
           },
-          "status": "",
-          "stateType": {
-            "active": false,
-            "inactive": false
-          }
+          "status": ""
         }
-      ],
-      "buses": [
-        {
-          "enrollment": "",
-          "filing": "",
-          "typeOfBus": {
-            "busTypeName": "",
-            "numberOfFloors": "",
-            "numberOfSeats_cama": "",
-            "numberOfSeats_normal": "",
-            "seats": [
-              {
-                "seatNumber": "",
-                "seatType": "",
-                "rowType": "",
-                "salePrice": "",
-                "maximumPrice": "",
-                "minimalPrice": ""
-              }
-            ],
-            "services": ["tv", "baño"]
+      },
+      "busesInBranch": {
+        "proposito": "Aqui se copiaran todos los buses que estan en esta sucursal"
+      },
+      "travels": {
+        "code1": {
+          "bus": {
+            "proposito": "Aqui solo se copiara 1 bus de busesInBranch que estara designado para realizar el viaje"
           },
-          "busPhotography": "",
-          "status": "",
-          "identificationNumberDriver": ""
-        }
-      ],
-      "routes": [
-        {
           "localityOfOrigin": "",
           "destinationLocation": "",
-          "travels"
-        }
-      ],
-      "travels": [
-        {
-          "passengers": [
-            {
+          "travelDate": "",
+          "departureTime": "",
+          "travelStatus": false,
+          "passengers": {
+            "code1": {
               "names": "",
               "surnames": "",
               "identificationNumber": "",
               "documentType": "",
-              "seats": [
-                {
-                  "numberOfSeat": ""
+              "seats": {
+                "code1": {
+                  "seatNumber": "",
+                  "seatType": "",
+                  "rowType": "",
+                  "salePrice": ""
                 }
-              ],
+              },
               "invoiceDetails": {
                 "nameOrSocialReason": "",
                 "nitOrCi": "",
@@ -103,12 +132,9 @@
                 "amountTotal": ""
               }
             }
-          ],
-          "travelDate": "",
-          "departureTime": "",
-          "realizado":true 
+          }
         }
-      ]
+      }
     }
-  ]
+  }
 }
