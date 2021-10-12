@@ -14,7 +14,11 @@
             "maximumSeatRange": 15
           }
         },
-        "services": ["tv", "baño"]
+        "services": {
+          "tv": true,
+          "bathroom": true,
+          "drinks": true
+        }
       },
       "busPhotography": "",
       "status": "",
@@ -46,7 +50,12 @@
         "address": "",
         "terminal": "",
         "branchPhotography": "",
-        "contactNumbers": ["", ""],
+        "contactNumbers": {
+          "code1": {
+            "departmentContact": "informaciones",
+            "number": 67616016
+          }
+        },
         "attentionSchedule": {
           "monday": {
             "openingHours": "",
@@ -77,7 +86,12 @@
             "closingTime": ""
           }
         },
-        "emailsWithAccess": ["", ""]
+        "emailsWithAccess": {
+          "code1": {
+            "identificationNumber": "",
+            "email": ""
+          }
+        }
       },
       "users": {
         "code1": {
@@ -90,10 +104,7 @@
           "dateOfBirth": "",
           "sex": "",
           "charge": "",
-          "driver": {
-            "typeOfConductor": "",
-            "licensePhotography": ""
-          },
+          "licensePhotography": "",
           "status": ""
         }
       },
