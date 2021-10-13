@@ -1,0 +1,151 @@
+{
+  "companyBuses": {
+    "code1": {
+      "enrollment": "",
+      "filing": "",
+      "typeOfBus": {
+        "busTypeName": "",
+        "numberOfFloors": "",
+        "seats": {
+          "code1": {
+            "seatType": "semi cama",
+            "numberOfSeats": 6,
+            "minimumSeatRange": 10,
+            "maximumSeatRange": 15
+          }
+        },
+        "services": {
+          "tv": true,
+          "bathroom": true,
+          "drinks": true
+        }
+      },
+      "busPhotography": "",
+      "status": "",
+      "identificationNumberDriver": ""
+    }
+  },
+  "branchOffices": {
+    "code1": {
+      "branchInformation": {
+        "name": "",
+        "location": "",
+        "destinations": {
+          "code1": {
+            "destinationLocation": "",
+            "prices": {
+              "typeOfBus": {
+                "code1": {
+                  "busTypeName": "",
+                  "seatType": "",
+                  "maximumPrice": "",
+                  "minimalPrice": ""
+                }
+              }
+            }
+          }
+        },
+        "localityPhotograpy": "",
+        "department": "",
+        "address": "",
+        "terminal": "",
+        "branchPhotography": "",
+        "contactNumbers": {
+          "code1": {
+            "departmentContact": "informaciones",
+            "number": 67616016
+          }
+        },
+        "attentionSchedule": {
+          "monday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "tuesday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "wednesday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "thursday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "fryday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "suturday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "sunday": {
+            "openingHours": "",
+            "closingTime": ""
+          }
+        },
+        "emailsWithAccess": {
+          "code1": {
+            "identificationNumber": "",
+            "email": ""
+          }
+        }
+      },
+      "users": {
+        "code1": {
+          "names": "",
+          "surnames": "",
+          "identificationNumber": "",
+          "address": "",
+          "mobile": "",
+          "email": "",
+          "dateOfBirth": "",
+          "sex": "",
+          "charge": "",
+          "licensePhotography": "",
+          "status": ""
+        }
+      },
+      "busesInBranch": {
+        "proposito": "Aqui se copiaran todos los buses que estan en esta sucursal"
+      },
+      "travels": {
+        "code1": {
+          "bus": {
+            "proposito": "Aqui se copiara el bus que viajara, la copia se hara de BusesInBranch"
+          },
+          "localityOfOrigin": "",
+          "destinationLocation": "",
+          "travelDate": "",
+          "departureTime": "",
+          "travelStatus": false,
+          "passengers": {
+            "code1": {
+              "names": "",
+              "surnames": "",
+              "identificationNumber": "",
+              "documentType": "",
+              "seats": {
+                "code1": {
+                  "seatNumber": "",
+                  "seatType": "",
+                  "rowType": "",
+                  "salePrice": ""
+                }
+              },
+              "invoiceDetails": {
+                "nameOrSocialReason": "",
+                "nitOrCi": "",
+                "email": "",
+                "mobile": "",
+                "amountTotal": ""
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
