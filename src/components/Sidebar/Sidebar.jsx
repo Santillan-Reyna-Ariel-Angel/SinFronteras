@@ -33,10 +33,24 @@ import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
 import FormatListNumberedRoundedIcon from "@mui/icons-material/FormatListNumberedRounded";
 import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
 import HomeWorkRoundedIcon from "@mui/icons-material/HomeWorkRounded";
+import PointOfSaleRoundedIcon from "@mui/icons-material/PointOfSaleRounded";
+import ConfirmationNumberRoundedIcon from "@mui/icons-material/ConfirmationNumberRounded";
 // Estilos propios
 import { LinksStyles } from "./SidebarStyles";
 
 const SidebarMenu = [
+  {
+    path: "/ventas",
+    icon: <PointOfSaleRoundedIcon />,
+    title: "Ventas",
+    children: [
+      {
+        path: "/ventas/pasajes",
+        title: "Pasajes",
+        icon: <ConfirmationNumberRoundedIcon />,
+      },
+    ],
+  },
   {
     path: "/personal",
     icon: <People />,

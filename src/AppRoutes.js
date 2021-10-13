@@ -10,37 +10,46 @@ import Layout from "./components/Loyout/Layout";
 //Contexts
 import { ContextoUsuario, users } from "./contexts/ContextUsers";
 import { ProviderListarNotas } from "./contexts/ContextListarNotas";
+import TravelSearch from "./components/Sales/TravelSearch/TravelSearch";
+import { ProviderBranchOffices } from "./contexts/ContextBranchOffices";
 
 const AppRoutes = () => {
   return (
     <div>
       <ContextoUsuario.Provider value={users}>
-        <ProviderListarNotas>
-          <BrowserRouter>
-            <Switch>
-              <Route
-                exact
-                path="/"
-                component={() => <Redirect to="/acceso" />}
-              />
-              <Route exact path="/acceso" component={Login} />
-              <Layout>
-                <Route exact path="/principal" component={Home} />
+        <ProviderBranchOffices>
+          <ProviderListarNotas>
+            <BrowserRouter>
+              <Switch>
                 <Route
                   exact
-                  path="/recuperar-contraseña"
-                  component={RecoverPassword}
+                  path="/"
+                  component={() => <Redirect to="/acceso" />}
                 />
-                <Route exact path="/notas" component={Notes} />
-                <Route
-                  exact
-                  path="/personal/registro-de-cargos"
-                  component={UserRegistration}
-                />
-              </Layout>
-            </Switch>
-          </BrowserRouter>
-        </ProviderListarNotas>
+                <Route exact path="/acceso" component={Login} />
+                <Layout>
+                  <Route exact path="/principal" component={Home} />
+                  <Route
+                    exact
+                    path="/recuperar-contraseña"
+                    component={RecoverPassword}
+                  />
+                  <Route exact path="/notas" component={Notes} />
+                  <Route
+                    exact
+                    path="/personal/registro-de-cargos"
+                    component={UserRegistration}
+                  />
+                  <Route
+                    exact
+                    path="/ventas/pasajes/"
+                    component={TravelSearch}
+                  />
+                </Layout>
+              </Switch>
+            </BrowserRouter>
+          </ProviderListarNotas>
+        </ProviderBranchOffices>
       </ContextoUsuario.Provider>
     </div>
   );

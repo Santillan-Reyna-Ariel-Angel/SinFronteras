@@ -9,7 +9,7 @@
         "seats": {
           "code1": {
             "seatType": "semi cama",
-            "numberOfSeats": "6",
+            "numberOfSeats": 6,
             "minimumSeatRange": 10,
             "maximumSeatRange": 15
           }
@@ -114,7 +114,29 @@
       "travels": {
         "code1": {
           "bus": {
-            "proposito": "Aqui solo se copiara 1 bus de busesInBranch que estara designado para realizar el viaje"
+            "key": "code1",
+            "enrollment": "",
+            "filing": "",
+            "typeOfBus": {
+              "busTypeName": "",
+              "numberOfFloors": "",
+              "seats": {
+                "code1": {
+                  "seatType": "semi cama",
+                  "numberOfSeats": 6,
+                  "minimumSeatRange": 10,
+                  "maximumSeatRange": 15
+                }
+              },
+              "services": {
+                "tv": true,
+                "bathroom": true,
+                "drinks": true
+              }
+            },
+            "busPhotography": "",
+            "status": "",
+            "identificationNumberDriver": ""
           },
           "localityOfOrigin": "",
           "destinationLocation": "",
