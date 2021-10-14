@@ -11,13 +11,13 @@ import Layout from "./components/Loyout/Layout";
 import { ContextoUsuario, users } from "./contexts/ContextUsers";
 import { ProviderListarNotas } from "./contexts/ContextListarNotas";
 import TravelSearch from "./components/Sales/TravelSearch/TravelSearch";
-import { ProviderBranchOffices } from "./contexts/ContextBranchOffices";
+import { ProviderBranchOffice } from "./contexts/ContextBranchOffice";
 
 const AppRoutes = () => {
   return (
     <div>
       <ContextoUsuario.Provider value={users}>
-        <ProviderBranchOffices>
+        <ProviderBranchOffice>
           <ProviderListarNotas>
             <BrowserRouter>
               <Switch>
@@ -49,7 +49,7 @@ const AppRoutes = () => {
               </Switch>
             </BrowserRouter>
           </ProviderListarNotas>
-        </ProviderBranchOffices>
+        </ProviderBranchOffice>
       </ContextoUsuario.Provider>
     </div>
   );

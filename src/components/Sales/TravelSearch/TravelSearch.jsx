@@ -1,63 +1,79 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
+import Button from "@mui/material/Button";
+//fecha
+import AdapterDateFns from "@mui/lab/AdapterDateFns";
+import LocalizationProvider from "@mui/lab/LocalizationProvider";
+import DatePicker from "@mui/lab/DatePicker";
 //Context branchOffice
-import { ContextBranchOffices } from "./../../../contexts/ContextBranchOffices";
+import { ContextBranchOffice } from "../../../contexts/ContextBranchOffice";
+//Estilos
+import {
+  Background,
+  Container,
+  InputOrigin,
+  InputDestination,
+  InputDate,
+  ButtonSearch,
+} from "./TravelSearchStyles";
 
-const top100Films = [
-  { title: "The Dark Knight", year: 2008 },
-  { title: "12 Angry Men", year: 1957 },
-  { title: "Schindler's List", year: 1993 },
-  { title: "Pulp Fiction", year: 1994 },
-];
 const TravelSearch = () => {
-  const branchOffices = useContext(ContextBranchOffices);
-  const { ...newBranchOffices } = branchOffices ? branchOffices : "";
+  const branchOffice = useContext(ContextBranchOffice);
 
-  const branchOfficesArray = Object.keys(newBranchOffices).map((key) => {
-    return newBranchOffices[key];
+  const { destinations, location } = branchOffice.branchInformation;
+  const destinationsArray = Object.keys(destinations).map((key) => {
+    return destinations[key].destinationLocation;
   });
-  console.log(branchOfficesArray);
 
-  const { branchInformation } = branchOfficesArray[2];
-  console.log(branchInformation);
-  // for (const property in branchOfficesArray[2]) {
-  //   console.log(`${property}: ${branchOfficesArray[2][property]}`);
-  // }
-  // console.log(branchOfficesArray[2]);
-
-  // const { branchInformation } = branchOfficesArray[2];
-
-  // console.log(
-  //   branchOfficesArray[2].branchInformation.destinations.code1
-  //     .destinationLocation
-  // );
-
-  // Object.keys(
-  //   Object.keys(branchOfficesArray[2].branchInformation.destinations)
-  // ).map((element) => {
-  //   return console.log(element.destinationLocation);
-  // });
-
-  const options = top100Films.map((option) => {
-    const firstLetter = option.title[0].toUpperCase();
-    return {
-      firstLetter: /[0-9]/.test(firstLetter) ? "0-9" : firstLetter,
-      ...option,
-    };
-  });
+  console.log("destinationsArray", destinationsArray);
+  //fecha
+  const [value, setValue] = useState(new Date());
   return (
     <>
-      <Autocomplete
-        id="grouped-demo"
-        options={options.sort(
-          (a, b) => -b.firstLetter.localeCompare(a.firstLetter)
-        )}
-        groupBy={(option) => option.firstLetter}
-        getOptionLabel={(option) => option.title}
-        sx={{ width: 300 }}
-        renderInput={(params) => <TextField {...params} label="Origen" />}
-      />
+      <Background>
+        <Container>
+          <InputOrigin>
+            <TextField
+              id="outlined-basic"
+              label="Origen"
+              variant="outlined"
+              className="input"
+              defaultValue={location}
+            />
+          </InputOrigin>
+
+          <InputDestination>
+            <Autocomplete
+              options={destinationsArray}
+              // sx={{ width: 225 }}
+              renderInput={(params) => (
+                <TextField className="input" {...params} label="Destino" />
+              )}
+            />
+          </InputDestination>
+          <InputDate>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <DatePicker
+                label="Fecha de viaje"
+                value={value}
+                minDate={new Date()}
+                onChange={(newValue) => {
+                  setValue(newValue);
+                }}
+                renderInput={(params) => (
+                  <TextField className="input" {...params} />
+                )}
+              />
+            </LocalizationProvider>
+          </InputDate>
+          <ButtonSearch>
+            <Button variant="contained" color="primary">
+              Buscar
+            </Button>
+          </ButtonSearch>
+        </Container>
+      </Background>
     </>
   );
 };

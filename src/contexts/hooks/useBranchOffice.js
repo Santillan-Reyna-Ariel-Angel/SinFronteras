@@ -2,23 +2,23 @@ import { useState, useEffect } from "react";
 import EventFirebase from "../../firebase-config";
 const { firebase } = EventFirebase;
 
-let branchOffices, setBranchOffices;
-const branchOfficesAux = () => {
+let branchOffice, setBranchOffice;
+const branchOfficeAux = () => {
   firebase
     .database()
-    .ref("branchOffices")
+    .ref("branchOffices/code1")
     .on("value", (snapshot) => {
       console.log(snapshot.val());
-      setBranchOffices(snapshot.val());
+      setBranchOffice(snapshot.val());
     });
 };
-export const useBranchOfficesBD = () => {
-  [branchOffices, setBranchOffices] = useState();
+export const useBranchOffice = () => {
+  [branchOffice, setBranchOffice] = useState();
   useEffect(() => {
-    branchOfficesAux();
+    branchOfficeAux();
   }, []);
 
   return {
-    branchOffices,
+    branchOffice,
   };
 };
