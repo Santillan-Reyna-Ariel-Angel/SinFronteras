@@ -68,7 +68,7 @@ const TravelSearch = () => {
             </LocalizationProvider>
           </InputDate>
           <ButtonSearch>
-            <Button variant="contained" color="primary">
+            <Button variant="contained" color="success">
               Buscar
             </Button>
           </ButtonSearch>
