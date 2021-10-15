@@ -26,6 +26,7 @@ const Login = () => {
     const accessToken = await Auth(email, password);
     if (accessToken !== null) {
       history.push("/principal");
+      sessionStorage.setItem("userEmail", email);
       setCredentialError(false);
     } else {
       setCredentialError(true);
