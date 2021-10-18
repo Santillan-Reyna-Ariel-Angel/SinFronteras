@@ -124,7 +124,11 @@
         "emailsWithAccess": {
           "code1": {
             "identificationNumber": "",
-            "email": "santillanreynaarielangel@gmail.com"
+            "email": "santillanreynaarielangelsucre@gmail.com"
+          },
+          "code2": {
+            "identificationNumber": "",
+            "email": "duenio@gmail.com"
           }
         }
       },
@@ -272,6 +276,260 @@
             "identificationNumberDriver": ""
           },
           "localityOfOrigin": "sucre",
+          "destinationLocation": "yacuiba",
+          "travelDate": "13-10-2021",
+          "departureTime": "20:30",
+          "travelStatus": false,
+          "passengers": {
+            "code1": {
+              "names": "",
+              "surnames": "",
+              "identificationNumber": "",
+              "documentType": "",
+              "seats": {
+                "code1": {
+                  "seatNumber": "",
+                  "seatType": "",
+                  "rowType": "",
+                  "salePrice": ""
+                }
+              },
+              "invoiceDetails": {
+                "nameOrSocialReason": "",
+                "nitOrCi": "",
+                "email": "",
+                "mobile": "",
+                "amountTotal": ""
+              }
+            }
+          }
+        }
+      }
+    },
+    "code2": {
+      "branchInformation": {
+        "name": "Sin Fronteras sucursal C. Santa Cruz",
+        "location": "c. santa cruz",
+        "destinations": {
+          "code1": {
+            "destinationLocation": "sucre",
+            "prices": {
+              "typeOfBus": {
+                "code1": {
+                  "busTypeName": "leito",
+                  "seatType": "cama",
+                  "maximumPrice": 100,
+                  "minimalPrice": 90
+                }
+              }
+            }
+          },
+          "code2": {
+            "destinationLocation": "yacuiba",
+            "prices": {
+              "typeOfBus": {
+                "code1": {
+                  "busTypeName": "normal",
+                  "seatType": "semicama",
+                  "maximumPrice": 80,
+                  "minimalPrice": 70
+                }
+              }
+            }
+          }
+        },
+        "localityPhotograpy": "c. santa cruz.png",
+        "department": "santa cruz",
+        "address": "av. de los viajes N#300",
+        "terminal": "interprovincial",
+        "branchPhotography": "sucursalsantacruz.png",
+        "contactNumbers": {
+          "code1": {
+            "departmentContact": "informaciones",
+            "number": 67616011
+          }
+        },
+        "attentionSchedule": {
+          "monday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "tuesday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "wednesday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "thursday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "fryday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "suturday": {
+            "openingHours": "",
+            "closingTime": ""
+          },
+          "sunday": {
+            "openingHours": "",
+            "closingTime": ""
+          }
+        },
+        "emailsWithAccess": {
+          "code1": {
+            "identificationNumber": "",
+            "email": "santillanreynaarielangelsantacruz@gmail.com"
+          }
+        }
+      },
+      "users": {
+        "code1": {
+          "names": "ariel angel",
+          "surnames": "santillan reyna",
+          "identificationNumber": "74747474",
+          "address": "calle loa 593",
+          "mobile": 60616061,
+          "email": "santillanreynaarielangel@gmail.com",
+          "dateOfBirth": "",
+          "sex": "hombre",
+          "charge": "dueño",
+          "licensePhotography": "",
+          "status": "activo"
+        }
+      },
+      "busesInBranch": {
+        "code1": {
+          "enrollment": "145-asd",
+          "filing": "H",
+          "typeOfBus": {
+            "busTypeName": "leito",
+            "numberOfFloors": 2,
+            "seats": {
+              "code1": {
+                "seatType": "cama",
+                "minimumSeatRange": 10,
+                "maximumSeatRange": 15
+              }
+            },
+            "services": {
+              "tv": true,
+              "bathroom": true,
+              "drinks": true
+            }
+          },
+          "busPhotography": "busleito.png",
+          "status": "active",
+          "identificationNumberDriver": ""
+        },
+        "code2": {
+          "enrollment": "105-hgf",
+          "filing": "C",
+          "typeOfBus": {
+            "busTypeName": "normal",
+            "numberOfFloors": 1,
+            "seats": {
+              "code1": {
+                "seatType": "semicama",
+                "minimumSeatRange": 10,
+                "maximumSeatRange": 15
+              }
+            },
+            "services": {
+              "tv": true,
+              "bathroom": true,
+              "drinks": true
+            }
+          },
+          "busPhotography": "busnormal.png",
+          "status": "active",
+          "identificationNumberDriver": ""
+        }
+      },
+      "travels": {
+        "code1": {
+          "bus": {
+            "key": "code1",
+            "enrollment": "145-asd",
+            "filing": "H",
+            "typeOfBus": {
+              "busTypeName": "leito",
+              "numberOfFloors": 2,
+              "seats": {
+                "code1": {
+                  "seatType": "cama",
+                  "minimumSeatRange": 10,
+                  "maximumSeatRange": 15
+                }
+              },
+              "services": {
+                "tv": true,
+                "bathroom": true,
+                "drinks": true
+              }
+            },
+            "busPhotography": "busleito.png",
+            "status": "active",
+            "identificationNumberDriver": ""
+          },
+          "localityOfOrigin": "c. santa cruz",
+          "destinationLocation": "sucre",
+          "travelDate": "13-10-2021",
+          "departureTime": "21:30",
+          "travelStatus": false,
+          "passengers": {
+            "code1": {
+              "names": "",
+              "surnames": "",
+              "identificationNumber": "",
+              "documentType": "",
+              "seats": {
+                "code1": {
+                  "seatNumber": "",
+                  "seatType": "",
+                  "rowType": "",
+                  "salePrice": ""
+                }
+              },
+              "invoiceDetails": {
+                "nameOrSocialReason": "",
+                "nitOrCi": "",
+                "email": "",
+                "mobile": "",
+                "amountTotal": ""
+              }
+            }
+          }
+        },
+        "code2": {
+          "bus": {
+            "key": "code2",
+            "enrollment": "105-hgf",
+            "filing": "C",
+            "typeOfBus": {
+              "busTypeName": "normal",
+              "numberOfFloors": 1,
+              "seats": {
+                "code1": {
+                  "seatType": "semicama",
+                  "minimumSeatRange": 10,
+                  "maximumSeatRange": 15
+                }
+              },
+              "services": {
+                "tv": true,
+                "bathroom": true,
+                "drinks": true
+              }
+            },
+            "busPhotography": "busnormal.png",
+            "status": "active",
+            "identificationNumberDriver": ""
+          },
+          "localityOfOrigin": "c. santa cruz",
           "destinationLocation": "yacuiba",
           "travelDate": "13-10-2021",
           "departureTime": "20:30",

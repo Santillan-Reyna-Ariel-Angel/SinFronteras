@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
@@ -19,14 +19,21 @@ import {
 } from "./TravelSearchStyles";
 
 const TravelSearch = () => {
+  // const { id, title, body_note } = notes ? notes : { title: "" };
   const branchOffice = useContext(ContextBranchOffice);
-  console.log("branchOfficeAS", branchOffice);
-  const { destinations, location } = branchOffice.branchInformation;
-  const destinationsArray = Object.keys(destinations).map((key) => {
-    return destinations[key].destinationLocation;
-  });
+  console.log("branchOfficeInTravelSearch", branchOffice);
+  // const { branchInformation } = branchOffice
+  //   ? branchOffice
+  //   : { branchInformation: "" };
+  // const { destinations, location } = branchInformation;
+  // Object.getOwnPropertyNames()
+  // const destinationsArray = Object.keys(destinations).map((key) => {
+  //   return destinations[key].destinationLocation;
+  // });
+  // console.log("destinationsArray", destinationsArray);
 
-  console.log("destinationsArray", destinationsArray);
+  // useEffect(() => {});
+
   //fecha
   const [value, setValue] = useState(new Date());
   return (
@@ -39,13 +46,15 @@ const TravelSearch = () => {
               label="Origen"
               variant="outlined"
               className="input"
-              defaultValue={location}
+              // defaultValue={location || ""}
+              defaultValue={"sucre1"}
             />
           </InputOrigin>
 
           <InputDestination>
             <Autocomplete
-              options={destinationsArray}
+              // options={destinationsArray || []}
+              options={["La Paz1", "La Paz2"]}
               // sx={{ width: 225 }}
               renderInput={(params) => (
                 <TextField className="input" {...params} label="Destino" />
