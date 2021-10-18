@@ -20,7 +20,7 @@ import {
 
 const TravelSearch = () => {
   const branchOffice = useContext(ContextBranchOffice);
-
+  console.log("branchOfficeAS", branchOffice);
   const { destinations, location } = branchOffice.branchInformation;
   const destinationsArray = Object.keys(destinations).map((key) => {
     return destinations[key].destinationLocation;
