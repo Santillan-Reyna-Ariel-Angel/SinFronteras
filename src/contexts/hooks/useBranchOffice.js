@@ -6,87 +6,8 @@ let data = sessionStorage.getItem("userEmail");
 
 let branchOffice, setBranchOffice;
 
-// const referencia = () => {
-//   let ref = firebase
-//     .database()
-//     .ref("brachOffices")
-//     .orderByChild("branchInformation/emailsWithAccess");
-//   return ref;
-// };
 const branchOfficeAux = async () => {
   console.log("sessionStorage:", data);
-  // const referenceBD = firebase
-  //   .database()
-  //   .ref("brachOffices")
-  //   .orderByChild("branchInformation/emailsWithAccess");
-  // referenceBD
-  //   .orderByChild("email")
-  //   .equalTo(data)
-  //   .on("value", (snapshot) => {
-  //     console.log("snapshot.val()", snapshot.val());
-  //     setBranchOffice(snapshot.val());
-  //   });
-
-  // firebase
-  //   .database()
-  //   .ref("branchOffices")
-  //   .on("value", (snapshot) => {
-  //     console.log("snapshot.val()", snapshot.val());
-  //     // console.log(Object.keys(snapshot).length);
-  //     if (
-  //       snapshot
-  //         .val()
-  //         .branchInformation.emailsWithAccess.orderByChild("email") === data
-  //     ) {
-  //       console.log("asd");
-  //     setBranchOffice(snapshot.val());
-  //     }
-  //   });
-
-  // firebase
-  //   .database()
-  //   .ref("branchOffices")
-  //   .child("branchInformation/emailsWithAccess")
-  //   .orderByChild("email")
-  //   .equalTo(data)
-  //   .on("value", (snapshot) => {
-  //     console.log("snapshot.val()", snapshot.val());
-  //     setBranchOffice(snapshot.val());
-  //   });
-
-  // let algo = referencia();
-  // algo.orderByChild("email").equalTo(data);
-  // algo.on("value", (snapshot) => {
-  //   console.log("snapshot.val()", snapshot.val());
-  //   setBranchOffice(snapshot.val());
-  // });
-
-  // firebase
-  //   .database()
-  //   .ref("branchOffices")
-  //   .on("value", (snapshot) => {
-  //     // console.log("snapshot.val()", snapshot.val());
-  //     Object.keys(snapshot.val()).map((key) => {
-  //       Object.keys(
-  //         firebase
-  //           .database()
-  //           .ref(`branchOffices/${key}/branchInformation/emailsWithAccess`)
-  //       ).map((code) => {
-  //         let f = firebase
-  //           .database()
-  //           .ref(
-  //             `branchOffices/${key}/branchInformation/emailsWithAccess/${code}/email`
-  //           )
-  //           // .child("email")
-  //           .equalTo(data);
-  //         console.log("f", f);
-  //       });
-
-  //       // .orderByChild("email")
-  //       // .equalTo(data)
-  //     });
-  //     setBranchOffice(snapshot.val());
-  //   });
 
   let mainRoute, emailPathWithAccess;
   firebase
