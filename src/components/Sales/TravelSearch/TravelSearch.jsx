@@ -22,15 +22,14 @@ const TravelSearch = () => {
   // const { id, title, body_note } = notes ? notes : { title: "" };
   const branchOffice = useContext(ContextBranchOffice);
   console.log("branchOfficeInTravelSearch", branchOffice);
-  // const { branchInformation } = branchOffice
-  //   ? branchOffice
-  //   : { branchInformation: "" };
-  // const { destinations, location } = branchInformation;
-  // Object.getOwnPropertyNames()
-  // const destinationsArray = Object.keys(destinations).map((key) => {
-  //   return destinations[key].destinationLocation;
-  // });
-  // console.log("destinationsArray", destinationsArray);
+  const { branchInformation } = branchOffice
+    ? branchOffice
+    : { branchInformation: {} };
+  let { destinations, location } = branchInformation;
+  const destinationsArray = Object.keys(destinations).map((key) => {
+    return destinations[key].destinationLocation;
+  });
+  console.log("destinationsArray", destinationsArray);
 
   // useEffect(() => {});
 
@@ -46,15 +45,15 @@ const TravelSearch = () => {
               label="Origen"
               variant="outlined"
               className="input"
-              // defaultValue={location || ""}
-              defaultValue={"sucre1"}
+              defaultValue={location || ""}
+              // defaultValue={"sucre1"}
             />
           </InputOrigin>
 
           <InputDestination>
             <Autocomplete
-              // options={destinationsArray || []}
-              options={["La Paz1", "La Paz2"]}
+              options={destinationsArray || []}
+              // options={["La Paz1", "La Paz2"]}
               // sx={{ width: 225 }}
               renderInput={(params) => (
                 <TextField className="input" {...params} label="Destino" />
