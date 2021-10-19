@@ -13,9 +13,11 @@ const Layout = (props) => {
         <Box
           sx={{
             display: "flex",
-            //   justifyContent: "center",
-            //   alignItems: "center",
-            bgcolor: "background.paper",
+            // flexWrap: "no-wrap",
+            // display: "inline-block",
+            // justifyContent: "center",
+            // alignItems: "center",
+            // bgcolor: "background.paper",
           }}
         >
           {CustomizedList()}

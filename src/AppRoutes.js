@@ -7,10 +7,10 @@ import RecoverPassword from "./components/RecoverPassword/RecoverPassword";
 import Notes from "./components/Notes/Notes";
 import UserRegistration from "./components/UserRegistration/UserRegistration";
 import Layout from "./components/Loyout/Layout";
+import Sales from "./components/Sales/Sales";
 //Contexts
 import { ContextoUsuario, users } from "./contexts/ContextUsers";
 import { ProviderListarNotas } from "./contexts/ContextListarNotas";
-import TravelSearch from "./components/Sales/TravelSearch/TravelSearch";
 import { ProviderBranchOffice } from "./contexts/ContextBranchOffice";
 
 const AppRoutes = () => {
@@ -40,11 +40,7 @@ const AppRoutes = () => {
                     path="/personal/registro-de-cargos"
                     component={UserRegistration}
                   />
-                  <Route
-                    exact
-                    path="/ventas/pasajes/"
-                    component={TravelSearch}
-                  />
+                  <Route exact path="/ventas/pasajes/" component={Sales} />
                 </Layout>
               </Switch>
             </BrowserRouter>
