@@ -121,28 +121,45 @@
             "closingTime": ""
           }
         },
-        "emailsWithAccess": {
-          "code1": {
-            "identificationNumber": "",
-            "email": "santillanreynaarielangelsucre@gmail.com"
-          },
-          "code2": {
-            "identificationNumber": "",
-            "email": "duenio@gmail.com"
-          }
-        }
+        "emailsWithAccess": "duenio@gmail.com,administradorgeneral1@gmail.com,s1administrador1@gmail.com,s1secretario1@gmail.com,s1boletero1@gmail.com"
       },
       "users": {
         "code1": {
-          "names": "ariel angel",
-          "surnames": "santillan reyna",
-          "identificationNumber": "74747474",
-          "address": "calle loa 593",
+          "names": "javier angel",
+          "surnames": "santillan quispe",
+          "identificationNumber": "74747471",
+          "address": "calle campero 593",
           "mobile": 60616061,
-          "email": "santillanreynaarielangel@gmail.com",
+          "email": "s1administrador@gmail.com",
           "dateOfBirth": "",
           "sex": "hombre",
-          "charge": "dueño",
+          "charge": "administrador",
+          "licensePhotography": "",
+          "status": "activo"
+        },
+        "code2": {
+          "names": "ariel angel",
+          "surnames": "santillan reyna",
+          "identificationNumber": "74747472",
+          "address": "calle loa 593",
+          "mobile": 60616062,
+          "email": "s1secretario1@gmail.com",
+          "dateOfBirth": "",
+          "sex": "hombre",
+          "charge": "secretario",
+          "licensePhotography": "",
+          "status": "activo"
+        },
+        "code3": {
+          "names": "cristian andres",
+          "surnames": "santillan reyna",
+          "identificationNumber": "74747473",
+          "address": "calle vega 593",
+          "mobile": 60616063,
+          "email": "s1boletero1@gmail.com",
+          "dateOfBirth": "",
+          "sex": "hombre",
+          "charge": "boletero",
           "licensePhotography": "",
           "status": "activo"
         }
@@ -379,24 +396,45 @@
             "closingTime": ""
           }
         },
-        "emailsWithAccess": {
-          "code1": {
-            "identificationNumber": "",
-            "email": "santillanreynaarielangelsantacruz@gmail.com"
-          }
-        }
+        "emailsWithAccess": "duenio@gmail.com,administradorgeneral1@gmail.com,s2administrador1@gmail.com,s2secretario1@gmail.com,s2boletero1@gmail.com"
       },
       "users": {
         "code1": {
-          "names": "ariel angel",
-          "surnames": "santillan reyna",
-          "identificationNumber": "74747474",
-          "address": "calle loa 593",
-          "mobile": 60616061,
-          "email": "santillanreynaarielangel@gmail.com",
+          "names": "juan miguel",
+          "surnames": "quispe rodriguez",
+          "identificationNumber": "74747481",
+          "address": "calle lemoine 593",
+          "mobile": 60616071,
+          "email": "s2administrador@gmail.com",
           "dateOfBirth": "",
           "sex": "hombre",
-          "charge": "dueño",
+          "charge": "administrador",
+          "licensePhotography": "",
+          "status": "activo"
+        },
+        "code2": {
+          "names": "berta angela",
+          "surnames": "ticona perez",
+          "identificationNumber": "74747482",
+          "address": "calle bustamante 593",
+          "mobile": 60616072,
+          "email": "s2secretario1@gmail.com",
+          "dateOfBirth": "",
+          "sex": "mujer",
+          "charge": "secretaria",
+          "licensePhotography": "",
+          "status": "activo"
+        },
+        "code3": {
+          "names": "kevin martin",
+          "surnames": "colque choque",
+          "identificationNumber": "74747483",
+          "address": "calle estudiantes 593",
+          "mobile": 60616073,
+          "email": "s2boletero1@gmail.com",
+          "dateOfBirth": "",
+          "sex": "hombre",
+          "charge": "boletero",
           "licensePhotography": "",
           "status": "activo"
         }
