@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
@@ -20,12 +20,16 @@ import {
 
 const TravelSearch = () => {
   // const { id, title, body_note } = notes ? notes : { title: "" };
+
   const branchOffice = useContext(ContextBranchOffice);
   console.log("branchOfficeInTravelSearch", branchOffice);
   const { branchInformation } = branchOffice
     ? branchOffice
     : { branchInformation: {} };
   let { destinations, location } = branchInformation;
+
+  console.log(destinations);
+
   const destinationsArray = Object.keys(destinations).map((key) => {
     return destinations[key].destinationLocation;
   });
@@ -34,14 +38,14 @@ const TravelSearch = () => {
   const [origin, setOrigin] = useState();
   const [destination, setDestination] = useState();
 
-  //fecha
-  const [value, setValue] = useState(new Date());
+  // //fecha
+  const [travelDate, setTravelDate] = useState(new Date());
 
   const recoverTripData = () => {
     const data = {
       origin: origin,
       destination: destination,
-      travelDate: value,
+      travelDate: travelDate,
     };
     console.log(data);
   };
@@ -55,8 +59,8 @@ const TravelSearch = () => {
               label="Origen"
               variant="outlined"
               className="input"
-              defaultValue={location || ""}
               // defaultValue={"sucre1"}
+              defaultValue={location || ""}
               onChange={(e) => {
                 setOrigin(e.target.value);
               }}
@@ -65,8 +69,8 @@ const TravelSearch = () => {
 
           <InputDestination>
             <Autocomplete
-              options={destinationsArray || []}
               // options={["La Paz1", "La Paz2"]}
+              options={destinationsArray || []}
               // sx={{ width: 225 }}
               renderInput={(params) => (
                 <TextField
@@ -84,10 +88,10 @@ const TravelSearch = () => {
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DatePicker
                 label="Fecha de viaje"
-                value={value}
+                value={travelDate}
                 minDate={new Date()}
                 onChange={(newValue) => {
-                  setValue(newValue);
+                  setTravelDate(newValue);
                 }}
                 renderInput={(params) => (
                   <TextField className="input" {...params} />
