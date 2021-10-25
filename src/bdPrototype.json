@@ -1,90 +1,4 @@
 {
-  "users": {
-    "code1": {
-      "branchOffice": "code1",
-      "address": "calle campero 593",
-      "charge": "administrador",
-      "dateOfBirth": "",
-      "email": "s1administrador@gmail.com",
-      "identificationNumber": "74747471",
-      "licensePhotography": "",
-      "mobile": 60616061,
-      "names": "javier angel",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "santillan quispe"
-    },
-    "code2": {
-      "branchOffice": "code1",
-      "address": "calle loa 593",
-      "charge": "secretario",
-      "dateOfBirth": "",
-      "email": "s1secretario1@gmail.com",
-      "identificationNumber": "74747472",
-      "licensePhotography": "",
-      "mobile": 60616062,
-      "names": "ariel angel",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "santillan reyna"
-    },
-    "code3": {
-      "branchOffice": "code1",
-      "address": "calle vega 593",
-      "charge": "boletero",
-      "dateOfBirth": "",
-      "email": "s1boletero1@gmail.com",
-      "identificationNumber": "74747473",
-      "licensePhotography": "",
-      "mobile": 60616063,
-      "names": "cristian andres",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "santillan reyna"
-    },
-    "code4": {
-      "branchOffice": "code2",
-      "address": "calle lemoine 593",
-      "charge": "administrador",
-      "dateOfBirth": "",
-      "email": "s2administrador@gmail.com",
-      "identificationNumber": "74747481",
-      "licensePhotography": "",
-      "mobile": 60616071,
-      "names": "juan miguel",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "quispe rodriguez"
-    },
-    "code5": {
-      "branchOffice": "code2",
-      "address": "calle bustamante 593",
-      "charge": "secretaria",
-      "dateOfBirth": "",
-      "email": "s2secretario1@gmail.com",
-      "identificationNumber": "74747482",
-      "licensePhotography": "",
-      "mobile": 60616072,
-      "names": "berta angela",
-      "sex": "mujer",
-      "status": "activo",
-      "surnames": "ticona perez"
-    },
-    "code6": {
-      "branchOffice": "code2",
-      "address": "calle estudiantes 593",
-      "charge": "boletero",
-      "dateOfBirth": "",
-      "email": "s2boletero1@gmail.com",
-      "identificationNumber": "74747483",
-      "licensePhotography": "",
-      "mobile": 60616073,
-      "names": "kevin martin",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "colque choque"
-    }
-  },
   "branchOffices": {
     "code1": {
       "branchInformation": {
@@ -601,6 +515,92 @@
           "tv": true
         }
       }
+    }
+  },
+  "users": {
+    "code1": {
+      "address": "calle campero 593",
+      "branchOffice": "code1",
+      "charge": "administrador",
+      "dateOfBirth": "",
+      "email": "s1administrador1@gmail.com",
+      "identificationNumber": "74747471",
+      "licensePhotography": "",
+      "mobile": 60616061,
+      "names": "javier angel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan quispe"
+    },
+    "code2": {
+      "address": "calle loa 593",
+      "branchOffice": "code1",
+      "charge": "secretario",
+      "dateOfBirth": "",
+      "email": "s1secretario1@gmail.com",
+      "identificationNumber": "74747472",
+      "licensePhotography": "",
+      "mobile": 60616062,
+      "names": "ariel angel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan reyna"
+    },
+    "code3": {
+      "address": "calle vega 593",
+      "branchOffice": "code1",
+      "charge": "boletero",
+      "dateOfBirth": "",
+      "email": "s1boletero1@gmail.com",
+      "identificationNumber": "74747473",
+      "licensePhotography": "",
+      "mobile": 60616063,
+      "names": "cristian andres",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan reyna"
+    },
+    "code4": {
+      "address": "calle lemoine 593",
+      "branchOffice": "code2",
+      "charge": "administrador",
+      "dateOfBirth": "",
+      "email": "s2administrador1@gmail.com",
+      "identificationNumber": "74747481",
+      "licensePhotography": "",
+      "mobile": 60616071,
+      "names": "juan miguel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "quispe rodriguez"
+    },
+    "code5": {
+      "address": "calle bustamante 593",
+      "branchOffice": "code2",
+      "charge": "secretaria",
+      "dateOfBirth": "",
+      "email": "s2secretario1@gmail.com",
+      "identificationNumber": "74747482",
+      "licensePhotography": "",
+      "mobile": 60616072,
+      "names": "berta angela",
+      "sex": "mujer",
+      "status": "activo",
+      "surnames": "ticona perez"
+    },
+    "code6": {
+      "address": "calle estudiantes 593",
+      "branchOffice": "code2",
+      "charge": "boletero",
+      "dateOfBirth": "",
+      "email": "s2boletero1@gmail.com",
+      "identificationNumber": "74747483",
+      "licensePhotography": "",
+      "mobile": 60616073,
+      "names": "kevin martin",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "colque choque"
     }
   }
 }

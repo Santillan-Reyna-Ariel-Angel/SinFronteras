@@ -1,11 +1,11 @@
 import React from "react";
 //icons
 import DirectionsBusRoundedIcon from "@mui/icons-material/DirectionsBusRounded";
-import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
+// import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
 import QueryBuilderRoundedIcon from "@mui/icons-material/QueryBuilderRounded";
 import Button from "@mui/material/Button";
 //Usar para los asientos del bus
-import EventSeatRoundedIcon from "@mui/icons-material/EventSeatRounded";
+// import EventSeatRoundedIcon from "@mui/icons-material/EventSeatRounded";
 
 //Estilos
 import {

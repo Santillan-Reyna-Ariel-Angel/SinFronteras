@@ -13,13 +13,10 @@ import {
 
 //contexts
 import { Context } from "../../contexts/ContextListNotes";
-import { ContextoUsuario } from "../../contexts/ContextUsers";
 
 const Note = () => {
   const { listAllNotes } = useContext(Context);
   console.log(listAllNotes, "Hola");
-
-  const U = useContext(ContextoUsuario);
 
   return (
     <>
@@ -28,19 +25,7 @@ const Note = () => {
           return <li key={key}>{listAllNotes[key].title}</li>;
         })}
       </ul>
-      {/* Uso de Context ejemplo 2 */}
-      <ContextoUsuario.Consumer>
-        {(value) => {
-          return value.map((usuario) => {
-            return <p key={usuario.id}>{usuario.correo}</p>;
-          });
-        }}
-      </ContextoUsuario.Consumer>
 
-      {/* Uso de Context ejemplo 3  */}
-      {U.map((element) => {
-        return <p key={element.id}>{element.firtsname}</p>;
-      })}
       <NoteContainer>
         <NoteContent>
           <Title>Title</Title>
