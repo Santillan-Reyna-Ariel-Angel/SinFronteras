@@ -28,7 +28,7 @@ const TravelSearch = () => {
     : { branchInformation: {} };
   let { destinations, location } = branchInformation;
 
-  console.log(destinations);
+  console.log("destinations", destinations);
 
   const destinationsArray = destinations
     ? Object.keys(destinations).map((key) => {

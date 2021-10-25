@@ -7,7 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-export default function AlertDialog() {
+export default function DialogSingOff() {
   const history = useHistory();
   const [open, setOpen] = useState(false);
 
@@ -17,6 +17,7 @@ export default function AlertDialog() {
 
   const handleCloseYes = () => {
     setOpen(false);
+    sessionStorage.removeItem("userEmail");
     history.push("/acceso");
   };
 

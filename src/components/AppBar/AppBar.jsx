@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -13,13 +13,20 @@ import MoreIcon from "@mui/icons-material/MoreVert";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
-import AlertDialog from "./../Dialog/Dialog";
+import DialogSingOff from "./DialogSingOff/DialogSingOff";
 //Estilos propios
 import { LogoAppBar } from "./AppBarStyles";
 //src-images
 import ProfilePicture from "../../sources/img/PerfilFake.jpg";
+//Context UserData
+import { ContextUserData } from "./../../contexts/ContextUserData";
 
 export default function PrimarySearchAppBar() {
+  const userData = useContext(ContextUserData);
+  // console.log("userData", userData);
+  const { names } = userData ? userData : { names: "" };
+  console.log("names", names);
+
   const messagesCant = 25;
   const notificationsCant = 35;
   const [anchorEl, setAnchorEl] = useState(null);
@@ -63,7 +70,7 @@ export default function PrimarySearchAppBar() {
       onClose={handleMenuClose}
     >
       <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
-      <MenuItem onClick={handleMenuClose}>{AlertDialog()}</MenuItem>
+      <MenuItem onClick={handleMenuClose}>{DialogSingOff()}</MenuItem>
     </Menu>
   );
 
@@ -116,7 +123,7 @@ export default function PrimarySearchAppBar() {
             sx={{ ml: "-10px" }}
           />
         </IconButton>
-        <p>{`Ariel Angel`}</p>
+        <p>{names}</p>
       </MenuItem>
     </Menu>
   );
@@ -170,7 +177,7 @@ export default function PrimarySearchAppBar() {
               color="inherit"
             >
               <Typography variant="subtitle2" sx={{ mr: "5px" }}>
-                {`Ariel Angel`}
+                {names}
               </Typography>
               <Avatar alt="Travis Howard" src={ProfilePicture} />
             </IconButton>

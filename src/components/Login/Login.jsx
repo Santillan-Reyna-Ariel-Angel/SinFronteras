@@ -25,8 +25,8 @@ const Login = () => {
     console.log("sendLogin:", email, password);
     const accessToken = await Auth(email, password);
     if (accessToken !== null) {
-      history.push("/principal");
       sessionStorage.setItem("userEmail", email);
+      history.push("/principal");
       setCredentialError(false);
     } else {
       setCredentialError(true);

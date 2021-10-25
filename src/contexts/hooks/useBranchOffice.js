@@ -3,7 +3,7 @@ import EventFirebase from "../../firebase-config";
 const { firebase } = EventFirebase;
 
 let branchOffice, setBranchOffice;
-
+// let userDat, setUserDat;
 const branchOfficeAux = () => {
   let userEmail = sessionStorage.getItem("userEmail");
   console.log("sessionStorage:", userEmail);
@@ -15,15 +15,19 @@ const branchOfficeAux = () => {
       .orderByChild("email")
       .equalTo(userEmail)
       .on("value", (userData) => {
-        console.log("userData", userData.val());
-
+        // console.log("userData", userData.val());
         let userKey = Object.keys(userData.val())[0];
-        console.log("userKey", userKey);
+
+        // let user = userData.child(userKey).val();
+        // console.log("user", user);
+        // setUserDat(user);
+
+        // console.log("userKey", userKey);
         let branchOfficeKey = userData
           .child(userKey)
           .child("branchOffice")
           .val();
-        console.log("branchOfficeKey", branchOfficeKey);
+        // console.log("branchOfficeKey", branchOfficeKey);
 
         firebase
           .database()
@@ -46,3 +50,14 @@ export const useBranchOffice = () => {
     branchOffice,
   };
 };
+
+// export const useUserData = () => {
+//   [userDat, setUserDat] = useState();
+//   useEffect(() => {
+//     branchOfficeAux();
+//   }, []);
+
+//   return {
+//     userDat,
+//   };
+// };
