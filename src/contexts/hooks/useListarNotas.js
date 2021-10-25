@@ -8,7 +8,7 @@ const noteaux = () => {
     .database()
     .ref("notes")
     .on("value", (snapshot) => {
-      console.log(snapshot.val());
+      // console.log(snapshot.val());
       setNotes(snapshot.val());
     });
 };

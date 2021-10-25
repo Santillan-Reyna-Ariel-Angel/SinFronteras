@@ -123,7 +123,7 @@ const FireNav = styled(List)({
 
 export default function CustomizedList() {
   const [open, setOpen] = useState(true);
-  console.log("open:", open);
+  // console.log("open:", open);
 
   return (
     <>

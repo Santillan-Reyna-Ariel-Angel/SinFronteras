@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
@@ -30,9 +30,11 @@ const TravelSearch = () => {
 
   console.log(destinations);
 
-  const destinationsArray = Object.keys(destinations).map((key) => {
-    return destinations[key].destinationLocation;
-  });
+  const destinationsArray = destinations
+    ? Object.keys(destinations).map((key) => {
+        return destinations[key].destinationLocation;
+      })
+    : [];
   console.log("destinationsArray", destinationsArray);
 
   const [origin, setOrigin] = useState();
@@ -60,7 +62,7 @@ const TravelSearch = () => {
               variant="outlined"
               className="input"
               // defaultValue={"sucre1"}
-              defaultValue={location || ""}
+              defaultValue={location}
               onChange={(e) => {
                 setOrigin(e.target.value);
               }}
@@ -70,7 +72,7 @@ const TravelSearch = () => {
           <InputDestination>
             <Autocomplete
               // options={["La Paz1", "La Paz2"]}
-              options={destinationsArray || []}
+              options={destinationsArray}
               // sx={{ width: 225 }}
               renderInput={(params) => (
                 <TextField
