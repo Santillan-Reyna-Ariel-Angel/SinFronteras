@@ -25,7 +25,7 @@ export default function PrimarySearchAppBar() {
   const userData = useContext(ContextUserData);
   // console.log("userData", userData);
   const { names } = userData ? userData : { names: "" };
-  console.log("names", names);
+  // console.log("names", names);
 
   const messagesCant = 25;
   const notificationsCant = 35;

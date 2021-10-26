@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 //icons
 import DirectionsBusRoundedIcon from "@mui/icons-material/DirectionsBusRounded";
 // import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
@@ -19,43 +19,90 @@ import {
   DepartureTimeStyle,
   ContainerCardBody,
 } from "./TravelCardsStyles";
+//Contexto Sucursal
+import { ContextBranchOffice } from "./../../../contexts/ContextBranchOffice";
 
-const TravelCards = () => {
+const TravelCards = ({
+  travelSearchData: { selectedDestination, selectedTravelDate },
+}) => {
+  const branchOffice = useContext(ContextBranchOffice);
+  const { travels } = branchOffice ? branchOffice : { travels: {} };
+  console.log("travels", travels);
+  let travelCardsList = Object.keys(travels).map((travelKey) => {
+    // return console.log(travels[travelKey].destinationLocation);
+    let {
+      localityOfOrigin,
+      destinationLocation,
+      bus: {
+        typeOfBus: { busTypeName },
+      },
+      departureTime,
+      travelDate,
+    } = travels[travelKey];
+
+    if (
+      destinationLocation === selectedDestination &&
+      travelDate === selectedTravelDate
+    ) {
+      let travelData = {
+        localityOfOrigin: localityOfOrigin,
+        destinationLocation: destinationLocation,
+        busTypeName: busTypeName,
+        departureTime: departureTime,
+        travelDate: travelDate,
+      };
+      return travelData;
+    } else {
+      return {};
+    }
+  });
+  console.log("travelCardsList", travelCardsList);
   return (
     <>
-      <Background>
-        <Container>
-          <RouteStyle>
-            <span>{`sucre - c. santa cruz`}</span>
-          </RouteStyle>
-        </Container>
-        <ContainerCardBody>
-          <BusStyle>
-            <DirectionsBusRoundedIcon />
-          </BusStyle>
-          <TextDepartureTimeStyle>
-            <div>
-              <QueryBuilderRoundedIcon sx={{ marginRight: "2px" }} />
-              <span>{`Hr. Salida`}</span>
-            </div>
-          </TextDepartureTimeStyle>
-          <BtnSeeBusStyle>
-            <Button
-              variant="contained"
-              color="success"
-              endIcon={<DirectionsBusRoundedIcon />}
-            >
-              Ver bus
-            </Button>
-          </BtnSeeBusStyle>
-          <BusTypeNameStyle>
-            <span>{`Leito`}</span>
-          </BusTypeNameStyle>
-          <DepartureTimeStyle>
-            <span>{`18:00`}</span>
-          </DepartureTimeStyle>
-        </ContainerCardBody>
-      </Background>
+      {travelCardsList.map((travelItem) => {
+        return (
+          <>
+            {/*Si Object.keys(travelItem).length es !==0, travelItem es un objeto QUE NO ESTA VACIO, por lo tanto formara una card*/}
+            {Object.keys(travelItem).length !== 0 ? (
+              <Background>
+                <Container>
+                  <RouteStyle>
+                    <span>{`${travelItem.localityOfOrigin} => ${travelItem.destinationLocation}`}</span>
+                  </RouteStyle>
+                </Container>
+                <ContainerCardBody>
+                  <BusStyle>
+                    <DirectionsBusRoundedIcon />
+                  </BusStyle>
+                  <TextDepartureTimeStyle>
+                    <div>
+                      <QueryBuilderRoundedIcon sx={{ marginRight: "2px" }} />
+                      <span>{`Hr. Salida`}</span>
+                    </div>
+                  </TextDepartureTimeStyle>
+                  <BtnSeeBusStyle>
+                    <Button
+                      variant="contained"
+                      color="success"
+                      endIcon={<DirectionsBusRoundedIcon />}
+                    >
+                      Ver bus
+                    </Button>
+                  </BtnSeeBusStyle>
+                  <BusTypeNameStyle>
+                    <span>{`${travelItem.busTypeName}`}</span>
+                  </BusTypeNameStyle>
+                  <DepartureTimeStyle>
+                    <span>{`${travelItem.departureTime}`}</span>
+                  </DepartureTimeStyle>
+                </ContainerCardBody>
+              </Background>
+            ) : (
+              console.log("travelItem {vacio}")
+            )}
+          </>
+        );
+      })}
     </>
   );
 };

@@ -6,7 +6,12 @@ const Sales = () => {
   return (
     <>
       <TravelSearch />
-      <TravelCards />
+      <TravelCards
+        travelSearchData={{
+          selectedDestination: "sucre",
+          selectedTravelDate: "13-10-2021",
+        }}
+      />
     </>
   );
 };

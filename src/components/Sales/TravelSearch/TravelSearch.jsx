@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useRef } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
@@ -20,36 +20,44 @@ import {
 
 const TravelSearch = () => {
   // const { id, title, body_note } = notes ? notes : { title: "" };
+  const originLocality = useRef();
+  const destinationLocation = useRef();
 
   const branchOffice = useContext(ContextBranchOffice);
-  console.log("branchOfficeInTravelSearch", branchOffice);
+  // console.log("branchOfficeInTravelSearch", branchOffice);
+
   const { branchInformation } = branchOffice
     ? branchOffice
     : { branchInformation: {} };
   let { destinations, location } = branchInformation;
-
-  console.log("destinations", destinations);
+  // console.log("destinations", destinations);
 
   const destinationsArray = destinations
     ? Object.keys(destinations).map((key) => {
         return destinations[key].destinationLocation;
       })
     : [];
-  console.log("destinationsArray", destinationsArray);
+  // console.log("destinationsArray", destinationsArray);
 
   const [origin, setOrigin] = useState();
   const [destination, setDestination] = useState();
 
   // //fecha
   const [travelDate, setTravelDate] = useState(new Date());
+  const day = travelDate ? travelDate.getDate() : "dia",
+    month = travelDate ? travelDate.getMonth() + 1 : "mes",
+    year = travelDate ? travelDate.getFullYear() : "año";
+  const formattedDate = day + "/" + month + "/" + year;
+  console.log("travelDate: ", travelDate);
+  console.log("formattedDate: ", formattedDate);
 
   const recoverTripData = () => {
     const data = {
-      origin: origin,
-      destination: destination,
-      travelDate: travelDate,
+      origin: originLocality.current.focus(),
+      destination: destinationLocation.current.focus(),
+      travelDate: formattedDate,
     };
-    console.log(data);
+    console.log("data", data);
   };
   return (
     <>
@@ -57,6 +65,7 @@ const TravelSearch = () => {
         <Container>
           <InputOrigin>
             <TextField
+              ref={originLocality}
               id="outlined-basic"
               label="Origen"
               variant="outlined"
@@ -78,6 +87,7 @@ const TravelSearch = () => {
                 <TextField
                   className="input"
                   {...params}
+                  ref={destinationLocation}
                   label="Destino"
                   onChange={(e) => {
                     setDestination(e.target.value);

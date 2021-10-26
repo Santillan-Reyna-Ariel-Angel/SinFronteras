@@ -34,7 +34,7 @@ const branchOfficeAux = () => {
           .ref("branchOffices")
           .child(branchOfficeKey)
           .on("value", (branchOffice) => {
-            console.log("branchOffice.val()", branchOffice.val());
+            // console.log("branchOffice.val()", branchOffice.val());
             setBranchOffice(branchOffice.val());
           });
       });

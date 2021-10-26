@@ -14,7 +14,7 @@ const userDataAux = () => {
       .orderByChild("email")
       .equalTo(userEmail)
       .on("value", (userData) => {
-        console.log("userData_useUserData", userData.val());
+        // console.log("userData_useUserData", userData.val());
         let userKey = Object.keys(userData.val())[0];
         // console.log("userKey_useUserData", userKey);
         // let user = userData.child(userKey).val();
