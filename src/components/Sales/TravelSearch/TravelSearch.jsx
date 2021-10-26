@@ -17,15 +17,9 @@ import {
   InputDate,
   ButtonSearch,
 } from "./TravelSearchStyles";
-
-// const options = ["Option 1", "Option 2"];
-const options = ["c. santa cruz"];
-
+//Compoenetes
+import TravelCards from "./../TravelCards/TravelCards";
 const TravelSearch = () => {
-  const [origin, setOrigin] = useState(options[0]);
-  const [inputValue, setInputValue] = React.useState("");
-
-  console.log(origin, "a");
   // const { id, title, body_note } = notes ? notes : { title: "" };
 
   const branchOffice = useContext(ContextBranchOffice);
@@ -37,56 +31,78 @@ const TravelSearch = () => {
   let { destinations, location } = branchInformation;
   // console.log("destinations", destinations);
 
+  const [origin, setOrigin] = useState(
+    location !== undefined ? location : "recargar pagina"
+  );
+  const originOption = [location];
+  // console.log("origin", origin, "originOption", originOption);
+
   const destinationsArray = destinations
     ? Object.keys(destinations).map((key) => {
         return destinations[key].destinationLocation;
       })
     : [];
   // console.log("destinationsArray", destinationsArray);
-
-  const [destination, setDestination] = useState();
+  const [destination, setDestination] = useState(
+    destinationsArray[0] ? destinationsArray[0] : ""
+  );
+  // console.log("destination", destination);
 
   // //fecha
   const [travelDate, setTravelDate] = useState(new Date());
   const day = travelDate ? travelDate.getDate() : "dia",
     month = travelDate ? travelDate.getMonth() + 1 : "mes",
     year = travelDate ? travelDate.getFullYear() : "año";
-  const formattedDate = day + "/" + month + "/" + year;
-  console.log("travelDate: ", travelDate);
-  console.log("formattedDate: ", formattedDate);
+  const formattedTravelDate = day + "/" + month + "/" + year;
+  // console.log("travelDate: ", travelDate);
+  // console.log("formattedTravelDate: ", formattedTravelDate);
+
+  const [generateCard, setGenerateCard] = useState(false);
+
+  function mostrarCarta() {
+    if (generateCard) {
+      return (
+        <TravelCards
+          travelSearchData={{
+            selectedDestination: destination,
+            selectedTravelDate: formattedTravelDate,
+          }}
+        />
+      );
+    }
+  }
 
   const recoverTripData = () => {
-    let data = {
-      originLocality: "",
-      destinationLocation: "",
-      formattedDate: "",
-    };
-    console.log("data", data);
+    console.log(
+      "origin:",
+      origin,
+      "| destination:",
+      destination,
+      "| formattedTravelDate:",
+      formattedTravelDate
+    );
+    setGenerateCard(true);
   };
   return (
     <>
       <Background>
         <Container>
           <InputOrigin>
-            {/*   // defaultValue={"sucre1"}
-            defaultValue={location}
-            onChange=
-            {(e) => {
-              setOrigin(e.target.value);
-            }}
-            />  */}
-            {/* <Autocomplete
+            {/* <TextField
+              id="outlined-basic"
+              label="Origen"
+              variant="outlined"
+              className="input"
+              defaultValue={origin}
+              value={origin}
+            /> */}
+            <Autocomplete
               value={origin}
               onChange={(event, newValue) => {
                 setOrigin(newValue);
               }}
-              inputValue={inputValue}
-              onInputChange={(event, newInputValue) => {
-                setInputValue(newInputValue);
-              }}
-              id="controllable-states-demo"
-              options={options}
-              // sx={{ width: 300 }}
+              id="inputOrigin"
+              options={originOption}
               renderInput={(params) => (
                 <TextField
                   className="input"
@@ -95,22 +111,23 @@ const TravelSearch = () => {
                   variant="outlined"
                 />
               )}
-            /> */}
+            />
           </InputOrigin>
 
           <InputDestination>
             <Autocomplete
-              // options={["La Paz1", "La Paz2"]}
+              value={destination}
+              onChange={(event, newValue) => {
+                setDestination(newValue);
+              }}
+              id="inputDestination"
               options={destinationsArray}
-              // sx={{ width: 225 }}
               renderInput={(params) => (
                 <TextField
                   className="input"
                   {...params}
                   label="Destino"
-                  onChange={(e) => {
-                    setDestination(e.target.value);
-                  }}
+                  variant="outlined"
                 />
               )}
             />
@@ -144,6 +161,26 @@ const TravelSearch = () => {
           </ButtonSearch>
         </Container>
       </Background>
+
+      {/* {destination !== "" && formattedTravelDate !== "dia/mes/año" ? (
+        <TravelCards
+          travelSearchData={{
+            selectedDestination: destination,
+            selectedTravelDate: formattedTravelDate,
+          }}
+        />
+      ) : (
+        console.log("no view card travel")
+      )} */}
+
+      {/* {mostrarCarta()} */}
+
+      <TravelCards
+        travelSearchData={{
+          selectedDestination: "c. santa cruz",
+          selectedTravelDate: "30-10-2021",
+        }}
+      />
     </>
   );
 };

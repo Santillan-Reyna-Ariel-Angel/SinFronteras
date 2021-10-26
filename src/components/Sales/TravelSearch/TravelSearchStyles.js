@@ -10,7 +10,7 @@ export const Container = styled.form`
   display: grid;
   padding: 15px 15px;
   grid-column-gap: 5px;
-  grid-template-columns: 150px 200px 150px auto;
+  grid-template-columns: 200px 200px 150px auto;
   grid-template-rows: auto;
   border-radius: 10px;
   grid-template-areas: "Origin Destination Date BtnSearch";
