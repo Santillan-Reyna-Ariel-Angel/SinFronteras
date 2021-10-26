@@ -177,7 +177,7 @@ const TravelSearch = () => {
 
       <TravelCards
         travelSearchData={{
-          selectedDestination: "c. santa cruz",
+          selectedDestination: "yacuiba", //cambiar segun la lacacion en que nos logeemos
           selectedTravelDate: "30-10-2021",
         }}
       />

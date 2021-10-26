@@ -9,7 +9,7 @@ const Sales = () => {
       <TravelSearch />
       {/* <TravelCards
         travelSearchData={{
-          selectedDestination: "c. santa cruz",
+          selectedDestination: "sucre",
           selectedTravelDate: "30-10-2021",
         }}
       /> */}

@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import EventSeatRoundedIcon from "@mui/icons-material/EventSeatRounded";
 import Tooltip from "@mui/material/Tooltip";
 import { Background } from "./SeatStyles";
+//check
+import Checkbox from "@mui/material/Checkbox";
+
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 const seatsList = [];
 
@@ -60,7 +64,11 @@ const Seat = () => {
               arrow
               placement="top"
             >
-              <EventSeatRoundedIcon fontSize="large" />
+              <Checkbox
+                {...label}
+                icon={<EventSeatRoundedIcon fontSize="large" />}
+                checkedIcon={<EventSeatRoundedIcon fontSize="large" />}
+              />
             </Tooltip>
           );
         })}
