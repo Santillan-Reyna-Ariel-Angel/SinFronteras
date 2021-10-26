@@ -1,4 +1,4 @@
-import React, { useState, useContext, useRef } from "react";
+import React, { useState, useContext } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
@@ -18,10 +18,15 @@ import {
   ButtonSearch,
 } from "./TravelSearchStyles";
 
+// const options = ["Option 1", "Option 2"];
+const options = ["c. santa cruz"];
+
 const TravelSearch = () => {
+  const [origin, setOrigin] = useState(options[0]);
+  const [inputValue, setInputValue] = React.useState("");
+
+  console.log(origin, "a");
   // const { id, title, body_note } = notes ? notes : { title: "" };
-  const originLocality = useRef();
-  const destinationLocation = useRef();
 
   const branchOffice = useContext(ContextBranchOffice);
   // console.log("branchOfficeInTravelSearch", branchOffice);
@@ -39,7 +44,6 @@ const TravelSearch = () => {
     : [];
   // console.log("destinationsArray", destinationsArray);
 
-  const [origin, setOrigin] = useState();
   const [destination, setDestination] = useState();
 
   // //fecha
@@ -52,10 +56,10 @@ const TravelSearch = () => {
   console.log("formattedDate: ", formattedDate);
 
   const recoverTripData = () => {
-    const data = {
-      origin: originLocality.current.focus(),
-      destination: destinationLocation.current.focus(),
-      travelDate: formattedDate,
+    let data = {
+      originLocality: "",
+      destinationLocation: "",
+      formattedDate: "",
     };
     console.log("data", data);
   };
@@ -64,18 +68,34 @@ const TravelSearch = () => {
       <Background>
         <Container>
           <InputOrigin>
-            <TextField
-              ref={originLocality}
-              id="outlined-basic"
-              label="Origen"
-              variant="outlined"
-              className="input"
-              // defaultValue={"sucre1"}
-              defaultValue={location}
-              onChange={(e) => {
-                setOrigin(e.target.value);
+            {/*   // defaultValue={"sucre1"}
+            defaultValue={location}
+            onChange=
+            {(e) => {
+              setOrigin(e.target.value);
+            }}
+            />  */}
+            {/* <Autocomplete
+              value={origin}
+              onChange={(event, newValue) => {
+                setOrigin(newValue);
               }}
-            />
+              inputValue={inputValue}
+              onInputChange={(event, newInputValue) => {
+                setInputValue(newInputValue);
+              }}
+              id="controllable-states-demo"
+              options={options}
+              // sx={{ width: 300 }}
+              renderInput={(params) => (
+                <TextField
+                  className="input"
+                  {...params}
+                  label="Origen"
+                  variant="outlined"
+                />
+              )}
+            /> */}
           </InputOrigin>
 
           <InputDestination>
@@ -87,7 +107,6 @@ const TravelSearch = () => {
                 <TextField
                   className="input"
                   {...params}
-                  ref={destinationLocation}
                   label="Destino"
                   onChange={(e) => {
                     setDestination(e.target.value);
