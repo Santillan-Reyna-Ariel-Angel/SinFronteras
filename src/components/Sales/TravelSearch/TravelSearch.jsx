@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
 import Button from "@mui/material/Button";
@@ -30,10 +30,15 @@ const TravelSearch = () => {
     : { branchInformation: {} };
   let { destinations, location } = branchInformation;
   // console.log("destinations", destinations);
+  console.log(location, "xd");
 
-  const [origin, setOrigin] = useState(
-    location !== undefined ? location : "recargar pagina"
-  );
+  const [origin, setOrigin] = useState(""); //problema
+  console.log(origin, "origen");
+  useEffect(() => {
+    setOrigin(location);
+    console.log(origin, "<<<---<<");
+  }, [setOrigin, origin]);
+
   const originOption = [location];
   // console.log("origin", origin, "originOption", originOption);
 
@@ -53,7 +58,10 @@ const TravelSearch = () => {
   const day = travelDate ? travelDate.getDate() : "dia",
     month = travelDate ? travelDate.getMonth() + 1 : "mes",
     year = travelDate ? travelDate.getFullYear() : "año";
-  const formattedTravelDate = day + "/" + month + "/" + year;
+  const formattedTravelDate = day + "-" + month + "-" + year;
+  // let x= new Date();
+  // x.toLocaleDateString()
+
   // console.log("travelDate: ", travelDate);
   // console.log("formattedTravelDate: ", formattedTravelDate);
 
@@ -61,6 +69,7 @@ const TravelSearch = () => {
 
   function mostrarCarta() {
     if (generateCard) {
+      console.log("d", destination, "f", formattedTravelDate);
       return (
         <TravelCards
           travelSearchData={{
@@ -69,6 +78,8 @@ const TravelSearch = () => {
           }}
         />
       );
+    } else {
+      return null;
     }
   }
 
@@ -173,14 +184,14 @@ const TravelSearch = () => {
         console.log("no view card travel")
       )} */}
 
-      {/* {mostrarCarta()} */}
+      {mostrarCarta()}
 
-      <TravelCards
+      {/* <TravelCards
         travelSearchData={{
           selectedDestination: "yacuiba", //cambiar segun la lacacion en que nos logeemos
           selectedTravelDate: "30-10-2021",
         }}
-      />
+      /> */}
     </>
   );
 };

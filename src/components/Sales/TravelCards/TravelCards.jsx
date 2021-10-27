@@ -22,12 +22,12 @@ import {
 //Contexto Sucursal
 import { ContextBranchOffice } from "./../../../contexts/ContextBranchOffice";
 
-const TravelCards = ({
-  travelSearchData: { selectedDestination, selectedTravelDate },
-}) => {
+const TravelCards = ({ travelSearchData }) => {
+  const { selectedDestination, selectedTravelDate } = travelSearchData;
   const branchOffice = useContext(ContextBranchOffice);
   const { travels } = branchOffice ? branchOffice : { travels: {} };
-  console.log("travels", travels);
+  // console.log("travels", travels);
+
   let travelCardsList = Object.keys(travels).map((travelKey) => {
     // return console.log(travels[travelKey].destinationLocation);
     let {
@@ -39,17 +39,23 @@ const TravelCards = ({
       departureTime,
       travelDate,
     } = travels[travelKey];
-
+    // console.log(
+    //   destinationLocation === selectedDestination,
+    //   travelDate === selectedTravelDate,
+    //   travelDate,
+    //   selectedTravelDate,
+    //   "<<<<"
+    // );
     if (
       destinationLocation === selectedDestination &&
       travelDate === selectedTravelDate
     ) {
       let travelData = {
-        localityOfOrigin: localityOfOrigin,
-        destinationLocation: destinationLocation,
-        busTypeName: busTypeName,
-        departureTime: departureTime,
-        travelDate: travelDate,
+        localityOfOrigin,
+        destinationLocation,
+        busTypeName,
+        departureTime,
+        travelDate,
       };
       return travelData;
     } else {
