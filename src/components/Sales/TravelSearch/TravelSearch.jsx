@@ -65,22 +65,23 @@ const TravelSearch = () => {
   // console.log("travelDate: ", travelDate);
   // console.log("formattedTravelDate: ", formattedTravelDate);
 
-  const [generateCard, setGenerateCard] = useState(false);
+  // const [generateCard, setGenerateCard] = useState(false);
 
   function mostrarCarta() {
-    if (generateCard) {
-      console.log("d", destination, "f", formattedTravelDate);
-      return (
-        <TravelCards
-          travelSearchData={{
-            selectedDestination: destination,
-            selectedTravelDate: formattedTravelDate,
-          }}
-        />
-      );
-    } else {
-      return null;
-    }
+    // setGenerateCard(true);
+    // if (generateCard) {
+    console.log("d", destination, "f", formattedTravelDate);
+    return (
+      <TravelCards
+        travelSearchData={{
+          selectedDestination: destination,
+          selectedTravelDate: formattedTravelDate,
+        }}
+      />
+    );
+    // } else {
+    //   return null;
+    // }
   }
 
   const recoverTripData = () => {
@@ -92,7 +93,7 @@ const TravelSearch = () => {
       "| formattedTravelDate:",
       formattedTravelDate
     );
-    setGenerateCard(true);
+    // setGenerateCard(true);
   };
   return (
     <>
@@ -158,22 +159,23 @@ const TravelSearch = () => {
               />
             </LocalizationProvider>
           </InputDate>
-          <ButtonSearch>
+          {/* <ButtonSearch>
             <Button
               variant="contained"
               color="success"
               onClick={(e) => {
                 e.preventDefault();
                 recoverTripData();
+                // mostrarCarta();
               }}
             >
               Buscar
             </Button>
-          </ButtonSearch>
+          </ButtonSearch> */}
         </Container>
       </Background>
-
-      {/* {destination !== "" && formattedTravelDate !== "dia/mes/año" ? (
+      {mostrarCarta()}
+      {/* {destination !== "" && formattedTravelDate !== "dia-mes-año" ? (
         <TravelCards
           travelSearchData={{
             selectedDestination: destination,
@@ -183,8 +185,6 @@ const TravelSearch = () => {
       ) : (
         console.log("no view card travel")
       )} */}
-
-      {mostrarCarta()}
 
       {/* <TravelCards
         travelSearchData={{
