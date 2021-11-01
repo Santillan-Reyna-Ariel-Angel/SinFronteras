@@ -20,8 +20,6 @@ import {
 //Compoenetes
 import TravelCards from "./../TravelCards/TravelCards";
 const TravelSearch = () => {
-  // const { id, title, body_note } = notes ? notes : { title: "" };
-
   const branchOffice = useContext(ContextBranchOffice);
   // console.log("branchOfficeInTravelSearch", branchOffice);
 
@@ -30,13 +28,13 @@ const TravelSearch = () => {
     : { branchInformation: {} };
   let { destinations, location } = branchInformation;
   // console.log("destinations", destinations);
-  console.log(location, "xd");
+  // console.log(location, "location");
 
   const [origin, setOrigin] = useState(""); //problema
-  console.log(origin, "origen");
+  // console.log(origin, "origen");
   useEffect(() => {
     setOrigin(location);
-    console.log(origin, "<<<---<<");
+    // console.log(origin, "<<<---<<");
   }, [setOrigin, origin]);
 
   const originOption = [location];
@@ -60,36 +58,41 @@ const TravelSearch = () => {
   // console.log("travelDate: ", travelDate);
   // console.log("formattedTravelDate: ", formattedTravelDate);
 
-  // const [generateCard, setGenerateCard] = useState(false);
+  function recoverTripData() {
+    if (
+      origin !== "" &&
+      destination !== "" &&
+      formattedTravelDate !== "" &&
+      origin !== undefined &&
+      destination !== undefined &&
+      formattedTravelDate !== undefined &&
+      origin !== null &&
+      destination !== null &&
+      formattedTravelDate !== null
+    ) {
+      console.log(
+        "origin:",
+        origin,
+        "| destination:",
+        destination,
+        "| formattedTravelDate:",
+        formattedTravelDate
+      );
 
-  function mostrarCarta() {
-    // setGenerateCard(true);
-    // if (generateCard) {
-    console.log("d", destination, "f", formattedTravelDate);
-    return (
-      <TravelCards
-        travelSearchData={{
-          selectedDestination: destination,
-          selectedTravelDate: formattedTravelDate,
-        }}
-      />
-    );
-    // } else {
-    //   return null;
-    // }
+      return (
+        <TravelCards
+          travelSearchData={{
+            selectedDestination: destination,
+            selectedTravelDate: formattedTravelDate,
+          }}
+        />
+      );
+    } else {
+      console.log("ingrese los campos");
+      return null;
+    }
   }
 
-  const recoverTripData = () => {
-    console.log(
-      "origin:",
-      origin,
-      "| destination:",
-      destination,
-      "| formattedTravelDate:",
-      formattedTravelDate
-    );
-    // setGenerateCard(true);
-  };
   return (
     <>
       <Background>
@@ -161,7 +164,7 @@ const TravelSearch = () => {
               onClick={(e) => {
                 e.preventDefault();
                 recoverTripData();
-                // mostrarCarta();
+                
               }}
             >
               Buscar
@@ -169,24 +172,7 @@ const TravelSearch = () => {
           </ButtonSearch> */}
         </Container>
       </Background>
-      {mostrarCarta()}
-      {/* {destination !== "" && formattedTravelDate !== "dia-mes-año" ? (
-        <TravelCards
-          travelSearchData={{
-            selectedDestination: destination,
-            selectedTravelDate: formattedTravelDate,
-          }}
-        />
-      ) : (
-        console.log("no view card travel")
-      )} */}
-
-      {/* <TravelCards
-        travelSearchData={{
-          selectedDestination: "yacuiba", //cambiar segun la lacacion en que nos logeemos
-          selectedTravelDate: "30-10-2021",
-        }}
-      /> */}
+      {recoverTripData()}
     </>
   );
 };
