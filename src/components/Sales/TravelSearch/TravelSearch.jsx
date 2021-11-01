@@ -55,12 +55,7 @@ const TravelSearch = () => {
 
   // //fecha
   const [travelDate, setTravelDate] = useState(new Date());
-  const day = travelDate ? travelDate.getDate() : "dia",
-    month = travelDate ? travelDate.getMonth() + 1 : "mes",
-    year = travelDate ? travelDate.getFullYear() : "año";
-  const formattedTravelDate = day + "-" + month + "-" + year;
-  // let x= new Date();
-  // x.toLocaleDateString()
+  const formattedTravelDate = travelDate.toLocaleDateString();
 
   // console.log("travelDate: ", travelDate);
   // console.log("formattedTravelDate: ", formattedTravelDate);

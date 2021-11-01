@@ -26,7 +26,7 @@ const TravelCards = ({ travelSearchData }) => {
   const { selectedDestination, selectedTravelDate } = travelSearchData;
   const branchOffice = useContext(ContextBranchOffice);
   const { travels } = branchOffice ? branchOffice : { travels: {} };
-  // console.log("travels", travels);
+  console.log("travels", travels);
 
   let travelCardsList = Object.keys(travels).map((travelKey) => {
     // return console.log(travels[travelKey].destinationLocation);
