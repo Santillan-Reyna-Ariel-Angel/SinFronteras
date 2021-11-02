@@ -82,7 +82,8 @@ const TravelSearch = () => {
       return (
         <TravelCards
           travelSearchData={{
-            selectedDestination: destination,
+            origin,
+            destination,
             selectedTravelDate: formattedTravelDate,
           }}
         />

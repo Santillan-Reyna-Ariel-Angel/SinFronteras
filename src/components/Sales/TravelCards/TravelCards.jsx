@@ -23,7 +23,7 @@ import {
 import { ContextBranchOffice } from "./../../../contexts/ContextBranchOffice";
 
 const TravelCards = ({ travelSearchData }) => {
-  const { selectedDestination, selectedTravelDate } = travelSearchData;
+  const { origin, destination, selectedTravelDate } = travelSearchData;
   const branchOffice = useContext(ContextBranchOffice);
   const { travels } = branchOffice ? branchOffice : { travels: {} };
   console.log("travels", travels);
@@ -39,15 +39,9 @@ const TravelCards = ({ travelSearchData }) => {
       departureTime,
       travelDate,
     } = travels[travelKey];
-    // console.log(
-    //   destinationLocation === selectedDestination,
-    //   travelDate === selectedTravelDate,
-    //   travelDate,
-    //   selectedTravelDate,
-    //   "<<<<"
-    // );
+
     if (
-      destinationLocation === selectedDestination &&
+      destinationLocation === destination &&
       travelDate === selectedTravelDate
     ) {
       let travelData = {
@@ -104,7 +98,21 @@ const TravelCards = ({ travelSearchData }) => {
                 </ContainerCardBody>
               </Background>
             ) : (
-              console.log("travelItem {vacio}")
+              <Background>
+                <Container>
+                  <RouteStyle>
+                    <span>{`${origin} => ${destination}`}</span>
+                  </RouteStyle>
+                </Container>
+                <ContainerCardBody>
+                  <BusTypeNameStyle>
+                    <span>
+                      No se encontraron viajes registrados para hoy, intente con
+                      otra fecha.
+                    </span>
+                  </BusTypeNameStyle>
+                </ContainerCardBody>
+              </Background>
             )}
           </>
         );

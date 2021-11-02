@@ -6,7 +6,7 @@ let branchOffice, setBranchOffice;
 // let userDat, setUserDat;
 const branchOfficeAux = () => {
   let userEmail = sessionStorage.getItem("userEmail");
-  console.log("sessionStorage:", userEmail);
+  // console.log("sessionStorage_useBranchOffice:", userEmail);
 
   if (userEmail !== null) {
     firebase

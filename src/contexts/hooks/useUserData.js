@@ -5,7 +5,7 @@ const { firebase } = EventFirebase;
 let userDat, setUserDat;
 const userDataAux = () => {
   let userEmail = sessionStorage.getItem("userEmail");
-  console.log("sessionStorage_useUserData:", userEmail);
+  // console.log("sessionStorage_useUserData:", userEmail);
 
   if (userEmail !== null) {
     firebase
