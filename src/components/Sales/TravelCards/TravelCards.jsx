@@ -4,8 +4,6 @@ import DirectionsBusRoundedIcon from "@mui/icons-material/DirectionsBusRounded";
 // import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
 import QueryBuilderRoundedIcon from "@mui/icons-material/QueryBuilderRounded";
 import Button from "@mui/material/Button";
-//Usar para los asientos del bus
-// import EventSeatRoundedIcon from "@mui/icons-material/EventSeatRounded";
 
 //Estilos
 import {
@@ -56,14 +54,25 @@ const TravelCards = ({ travelSearchData }) => {
       return {};
     }
   });
-  console.log("travelCardsList", travelCardsList);
+
+  //travelCardsListAux se le copiara solo los jsons({}) que NO esten vacios, es decir se copiaran jsons({}) que contengan datos de viajes.
+  const travelCardsListAux = [];
+  travelCardsList.forEach(function (elemento, indice, array) {
+    if (Object.keys(elemento).length !== 0) {
+      travelCardsListAux.push(elemento);
+    }
+  });
+
+  // console.log("travelCardsList", travelCardsList);
+  // console.log("travelCardsListAux", travelCardsListAux);
+
   return (
     <>
-      {travelCardsList.map((travelItem) => {
-        return (
-          <>
-            {/*Si Object.keys(travelItem).length es !==0, travelItem es un objeto QUE NO ESTA VACIO, por lo tanto formara una card*/}
-            {Object.keys(travelItem).length !== 0 ? (
+      {/* Se verifica si existe 1 o mas viajes en el array travelCardsListAux, de ser asi se genera la tarjeta con los datos, caso contrario se muestra una tarjeta indicando que no se encontraron viajes*/}
+      {travelCardsListAux.length >= 1 ? (
+        travelCardsListAux.map((travelItem) => {
+          return (
+            <>
               <Background>
                 <Container>
                   <RouteStyle>
@@ -97,26 +106,27 @@ const TravelCards = ({ travelSearchData }) => {
                   </DepartureTimeStyle>
                 </ContainerCardBody>
               </Background>
-            ) : (
-              <Background>
-                <Container>
-                  <RouteStyle>
-                    <span>{`${origin} => ${destination}`}</span>
-                  </RouteStyle>
-                </Container>
-                <ContainerCardBody>
-                  <BusTypeNameStyle>
-                    <span>
-                      No se encontraron viajes registrados para hoy, intente con
-                      otra fecha.
-                    </span>
-                  </BusTypeNameStyle>
-                </ContainerCardBody>
-              </Background>
-            )}
-          </>
-        );
-      })}
+            </>
+          );
+        })
+      ) : (
+        // console.log("No se encontraron viajes")
+        <Background>
+          <Container>
+            <RouteStyle>
+              <span>{`${origin} => ${destination}`}</span>
+            </RouteStyle>
+          </Container>
+          <ContainerCardBody>
+            <BusTypeNameStyle>
+              <span>
+                No se encontraron viajes registrados para hoy, intente con otra
+                fecha.
+              </span>
+            </BusTypeNameStyle>
+          </ContainerCardBody>
+        </Background>
+      )}
     </>
   );
 };

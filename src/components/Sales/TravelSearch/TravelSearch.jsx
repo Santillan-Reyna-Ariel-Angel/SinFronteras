@@ -1,7 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import TextField from "@mui/material/TextField";
 import Autocomplete from "@mui/material/Autocomplete";
-import Button from "@mui/material/Button";
 //fecha
 import AdapterDateFns from "@mui/lab/AdapterDateFns";
 import LocalizationProvider from "@mui/lab/LocalizationProvider";
@@ -15,7 +14,7 @@ import {
   InputOrigin,
   InputDestination,
   InputDate,
-  ButtonSearch,
+  // ButtonSearch,
 } from "./TravelSearchStyles";
 //Compoenetes
 import TravelCards from "./../TravelCards/TravelCards";
@@ -27,11 +26,10 @@ const TravelSearch = () => {
     ? branchOffice
     : { branchInformation: {} };
   let { destinations, location } = branchInformation;
-  // console.log("destinations", destinations);
-  // console.log(location, "location");
+  // console.log("destinations", destinations,"location", location);
 
   const [origin, setOrigin] = useState(""); //problema
-  // console.log(origin, "origen");
+  // console.log(origin, "origin");
   useEffect(() => {
     setOrigin(location);
     // console.log(origin, "<<<---<<");
@@ -158,19 +156,6 @@ const TravelSearch = () => {
               />
             </LocalizationProvider>
           </InputDate>
-          {/* <ButtonSearch>
-            <Button
-              variant="contained"
-              color="success"
-              onClick={(e) => {
-                e.preventDefault();
-                recoverTripData();
-                
-              }}
-            >
-              Buscar
-            </Button>
-          </ButtonSearch> */}
         </Container>
       </Background>
       {recoverTripData()}
