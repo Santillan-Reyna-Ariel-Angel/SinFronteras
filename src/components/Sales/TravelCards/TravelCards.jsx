@@ -1,9 +1,9 @@
-import React, { useContext } from "react";
+import React, { useContext } from 'react';
 //icons
-import DirectionsBusRoundedIcon from "@mui/icons-material/DirectionsBusRounded";
+import DirectionsBusRoundedIcon from '@mui/icons-material/DirectionsBusRounded';
 // import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
-import QueryBuilderRoundedIcon from "@mui/icons-material/QueryBuilderRounded";
-import Button from "@mui/material/Button";
+import QueryBuilderRoundedIcon from '@mui/icons-material/QueryBuilderRounded';
+import Button from '@mui/material/Button';
 
 //Estilos
 import {
@@ -16,15 +16,15 @@ import {
   BusTypeNameStyle,
   DepartureTimeStyle,
   ContainerCardBody,
-} from "./TravelCardsStyles";
+} from './TravelCardsStyles';
 //Contexto Sucursal
-import { ContextBranchOffice } from "./../../../contexts/ContextBranchOffice";
+import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 
 const TravelCards = ({ travelSearchData }) => {
   const { origin, destination, selectedTravelDate } = travelSearchData;
   const branchOffice = useContext(ContextBranchOffice);
   const { travels } = branchOffice ? branchOffice : { travels: {} };
-  console.log("travels", travels);
+  console.log('travels', travels);
 
   let travelCardsList = Object.keys(travels).map((travelKey) => {
     // return console.log(travels[travelKey].destinationLocation);
@@ -85,7 +85,7 @@ const TravelCards = ({ travelSearchData }) => {
                   </BusStyle>
                   <TextDepartureTimeStyle>
                     <div>
-                      <QueryBuilderRoundedIcon sx={{ marginRight: "2px" }} />
+                      <QueryBuilderRoundedIcon sx={{ marginRight: '2px' }} />
                       <span>{`Hr. Salida`}</span>
                     </div>
                   </TextDepartureTimeStyle>
