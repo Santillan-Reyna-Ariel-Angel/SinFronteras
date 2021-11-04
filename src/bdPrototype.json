@@ -76,19 +76,19 @@
         "terminal": "interprovincial"
       },
       "busesInBranch": {
-        "code1": {
-          "busPhotography": "busleito.png",
-          "enrollment": "145-asd",
+        "code6": {
+          "busPhotography": "bus-006.png",
+          "enrollment": "bus-006",
           "filing": "H",
           "identificationNumberDriver": "",
           "status": "active",
           "typeOfBus": {
             "busTypeName": "leito",
-            "numberOfFloors": 2,
+            "numberOfFloors": 1,
             "seats": {
               "code1": {
-                "maximumSeatRange": 15,
-                "minimumSeatRange": 10,
+                "maximumSeatRange": 1,
+                "minimumSeatRange": 29,
                 "seatType": "cama"
               }
             },
@@ -99,20 +99,25 @@
             }
           }
         },
-        "code2": {
-          "busPhotography": "busnormal.png",
-          "enrollment": "105-hgf",
-          "filing": "C",
+        "code7": {
+          "busPhotography": "bus-007.png",
+          "enrollment": "bus-007",
+          "filing": "H",
           "identificationNumberDriver": "",
           "status": "active",
           "typeOfBus": {
-            "busTypeName": "normal",
-            "numberOfFloors": 1,
+            "busTypeName": "leito-normal",
+            "numberOfFloors": 2,
             "seats": {
               "code1": {
-                "maximumSeatRange": 15,
-                "minimumSeatRange": 10,
-                "seatType": "semicama"
+                "maximumSeatRange": 1,
+                "minimumSeatRange": 33,
+                "seatType": "cama"
+              },
+              "code2": {
+                "maximumSeatRange": 34,
+                "minimumSeatRange": 45,
+                "seatType": "semi-cama"
               }
             },
             "services": {
@@ -126,19 +131,19 @@
       "travels": {
         "code1": {
           "bus": {
-            "busPhotography": "busleito.png",
-            "enrollment": "145-asd",
+            "busPhotography": "bus-006.png",
+            "enrollment": "bus-006",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "code1",
+            "key": "code6",
             "status": "active",
             "typeOfBus": {
               "busTypeName": "leito",
-              "numberOfFloors": 2,
+              "numberOfFloors": 1,
               "seats": {
                 "code1": {
-                  "maximumSeatRange": 15,
-                  "minimumSeatRange": 10,
+                  "maximumSeatRange": 1,
+                  "minimumSeatRange": 29,
                   "seatType": "cama"
                 }
               },
@@ -175,25 +180,30 @@
               "surnames": ""
             }
           },
-          "travelDate": "13-10-2021",
+          "travelDate": "6/11/2021",
           "travelStatus": false
         },
         "code2": {
           "bus": {
-            "busPhotography": "busnormal.png",
-            "enrollment": "105-hgf",
-            "filing": "C",
+            "busPhotography": "bus-007.png",
+            "enrollment": "bus-007",
+            "filing": "H",
             "identificationNumberDriver": "",
-            "key": "code2",
+            "key": "code7",
             "status": "active",
             "typeOfBus": {
-              "busTypeName": "normal",
-              "numberOfFloors": 1,
+              "busTypeName": "leito-normal",
+              "numberOfFloors": 2,
               "seats": {
                 "code1": {
-                  "maximumSeatRange": 15,
-                  "minimumSeatRange": 10,
-                  "seatType": "semicama"
+                  "maximumSeatRange": 1,
+                  "minimumSeatRange": 33,
+                  "seatType": "cama"
+                },
+                "code2": {
+                  "maximumSeatRange": 34,
+                  "minimumSeatRange": 45,
+                  "seatType": "semi-cama"
                 }
               },
               "services": {
@@ -229,7 +239,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "13-10-2021",
+          "travelDate": "6/11/2021",
           "travelStatus": false
         }
       }
@@ -310,20 +320,20 @@
         "terminal": "interprovincial"
       },
       "busesInBranch": {
-        "code1": {
-          "busPhotography": "busleito.png",
-          "enrollment": "145-asd",
+        "code2": {
+          "busPhotography": "bus-002.png",
+          "enrollment": "bus-002",
           "filing": "H",
           "identificationNumberDriver": "",
           "status": "active",
           "typeOfBus": {
-            "busTypeName": "leito",
-            "numberOfFloors": 2,
+            "busTypeName": "normal",
+            "numberOfFloors": 1,
             "seats": {
               "code1": {
-                "maximumSeatRange": 15,
-                "minimumSeatRange": 10,
-                "seatType": "cama"
+                "maximumSeatRange": 1,
+                "minimumSeatRange": 43,
+                "seatType": "semi-cama"
               }
             },
             "services": {
@@ -333,20 +343,20 @@
             }
           }
         },
-        "code2": {
-          "busPhotography": "busnormal.png",
-          "enrollment": "105-hgf",
-          "filing": "C",
+        "code8": {
+          "busPhotography": "bus-008.png",
+          "enrollment": "bus-008",
+          "filing": "H",
           "identificationNumberDriver": "",
           "status": "active",
           "typeOfBus": {
-            "busTypeName": "normal",
-            "numberOfFloors": 1,
+            "busTypeName": "leito",
+            "numberOfFloors": 2,
             "seats": {
               "code1": {
-                "maximumSeatRange": 15,
-                "minimumSeatRange": 10,
-                "seatType": "semicama"
+                "maximumSeatRange": 1,
+                "minimumSeatRange": 40,
+                "seatType": "cama"
               }
             },
             "services": {
@@ -360,20 +370,20 @@
       "travels": {
         "code1": {
           "bus": {
-            "busPhotography": "busleito.png",
-            "enrollment": "145-asd",
+            "busPhotography": "bus-002.png",
+            "enrollment": "bus-002",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "code1",
+            "key": "code2",
             "status": "active",
             "typeOfBus": {
-              "busTypeName": "leito",
-              "numberOfFloors": 2,
+              "busTypeName": "normal",
+              "numberOfFloors": 1,
               "seats": {
                 "code1": {
-                  "maximumSeatRange": 15,
-                  "minimumSeatRange": 10,
-                  "seatType": "cama"
+                  "maximumSeatRange": 1,
+                  "minimumSeatRange": 43,
+                  "seatType": "semi-cama"
                 }
               },
               "services": {
@@ -409,25 +419,25 @@
               "surnames": ""
             }
           },
-          "travelDate": "13-10-2021",
+          "travelDate": "6/11/2021",
           "travelStatus": false
         },
         "code2": {
           "bus": {
-            "busPhotography": "busnormal.png",
-            "enrollment": "105-hgf",
-            "filing": "C",
+            "busPhotography": "bus-008.png",
+            "enrollment": "bus-008",
+            "filing": "H",
             "identificationNumberDriver": "",
-            "key": "code2",
+            "key": "code8",
             "status": "active",
             "typeOfBus": {
-              "busTypeName": "normal",
-              "numberOfFloors": 1,
+              "busTypeName": "leito",
+              "numberOfFloors": 2,
               "seats": {
                 "code1": {
-                  "maximumSeatRange": 15,
-                  "minimumSeatRange": 10,
-                  "seatType": "semicama"
+                  "maximumSeatRange": 1,
+                  "minimumSeatRange": 40,
+                  "seatType": "cama"
                 }
               },
               "services": {
@@ -463,7 +473,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "13-10-2021",
+          "travelDate": "6/11/2021",
           "travelStatus": false
         }
       }
@@ -471,19 +481,19 @@
   },
   "companyBuses": {
     "code1": {
-      "busPhotography": "busleito.png",
-      "enrollment": "145-asd",
+      "busPhotography": "bus-001.png",
+      "enrollment": "bus-001",
       "filing": "H",
       "identificationNumberDriver": "",
       "status": "active",
       "typeOfBus": {
-        "busTypeName": "leito",
-        "numberOfFloors": 2,
+        "busTypeName": "normal",
+        "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 15,
-            "minimumSeatRange": 10,
-            "seatType": "cama"
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 42,
+            "seatType": "semi-cama"
           }
         },
         "services": {
@@ -494,8 +504,174 @@
       }
     },
     "code2": {
-      "busPhotography": "busnormal.png",
-      "enrollment": "105-hgf",
+      "busPhotography": "bus-002.png",
+      "enrollment": "bus-002",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "status": "active",
+      "typeOfBus": {
+        "busTypeName": "normal",
+        "numberOfFloors": 1,
+        "seats": {
+          "code1": {
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 43,
+            "seatType": "semi-cama"
+          }
+        },
+        "services": {
+          "bathroom": true,
+          "drinks": true,
+          "tv": true
+        }
+      }
+    },
+    "code3": {
+      "busPhotography": "bus-003.png",
+      "enrollment": "bus-003",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "status": "active",
+      "typeOfBus": {
+        "busTypeName": "normal",
+        "numberOfFloors": 1,
+        "seats": {
+          "code1": {
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 36,
+            "seatType": "semi-cama"
+          }
+        },
+        "services": {
+          "bathroom": true,
+          "drinks": true,
+          "tv": true
+        }
+      }
+    },
+    "code4": {
+      "busPhotography": "bus-004.png",
+      "enrollment": "bus-004",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "status": "active",
+      "typeOfBus": {
+        "busTypeName": "leito",
+        "numberOfFloors": 1,
+        "seats": {
+          "code1": {
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 27,
+            "seatType": "cama"
+          }
+        },
+        "services": {
+          "bathroom": true,
+          "drinks": true,
+          "tv": true
+        }
+      }
+    },
+    "code5": {
+      "busPhotography": "bus-005.png",
+      "enrollment": "bus-005",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "status": "active",
+      "typeOfBus": {
+        "busTypeName": "leito",
+        "numberOfFloors": 1,
+        "seats": {
+          "code1": {
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 26,
+            "seatType": "cama"
+          }
+        },
+        "services": {
+          "bathroom": true,
+          "drinks": true,
+          "tv": true
+        }
+      }
+    },
+    "code6": {
+      "busPhotography": "bus-006.png",
+      "enrollment": "bus-006",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "status": "active",
+      "typeOfBus": {
+        "busTypeName": "leito",
+        "numberOfFloors": 1,
+        "seats": {
+          "code1": {
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 29,
+            "seatType": "cama"
+          }
+        },
+        "services": {
+          "bathroom": true,
+          "drinks": true,
+          "tv": true
+        }
+      }
+    },
+    "code7": {
+      "busPhotography": "bus-007.png",
+      "enrollment": "bus-007",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "status": "active",
+      "typeOfBus": {
+        "busTypeName": "leito-normal",
+        "numberOfFloors": 2,
+        "seats": {
+          "code1": {
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 33,
+            "seatType": "cama"
+          },
+          "code2": {
+            "maximumSeatRange": 34,
+            "minimumSeatRange": 45,
+            "seatType": "semi-cama"
+          }
+        },
+        "services": {
+          "bathroom": true,
+          "drinks": true,
+          "tv": true
+        }
+      }
+    },
+    "code8": {
+      "busPhotography": "bus-008.png",
+      "enrollment": "bus-008",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "status": "active",
+      "typeOfBus": {
+        "busTypeName": "leito",
+        "numberOfFloors": 2,
+        "seats": {
+          "code1": {
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 40,
+            "seatType": "cama"
+          }
+        },
+        "services": {
+          "bathroom": true,
+          "drinks": true,
+          "tv": true
+        }
+      }
+    },
+    "codeAux": {
+      "busPhotography": "bus-aux.png",
+      "enrollment": "bus-aux",
       "filing": "C",
       "identificationNumberDriver": "",
       "status": "active",
@@ -504,9 +680,9 @@
         "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 15,
-            "minimumSeatRange": 10,
-            "seatType": "semicama"
+            "maximumSeatRange": 1,
+            "minimumSeatRange": 39,
+            "seatType": "semi-cama"
           }
         },
         "services": {
