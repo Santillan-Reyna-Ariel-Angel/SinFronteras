@@ -20,11 +20,14 @@ import {
 //Contexto Sucursal
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 
+import Seat from './../Bus/Seat/Seat';
+
 const TravelCards = ({ travelSearchData }) => {
   const { origin, destination, selectedTravelDate } = travelSearchData;
   const branchOffice = useContext(ContextBranchOffice);
   const { travels } = branchOffice ? branchOffice : { travels: {} };
   console.log('travels', travels);
+  let dataOfTheSelectedTravelBus = {};
 
   let travelCardsList = Object.keys(travels).map((travelKey) => {
     // return console.log(travels[travelKey].destinationLocation);
@@ -42,6 +45,7 @@ const TravelCards = ({ travelSearchData }) => {
       destinationLocation === destination &&
       travelDate === selectedTravelDate
     ) {
+      dataOfTheSelectedTravelBus = travels[travelKey];
       let travelData = {
         localityOfOrigin,
         destinationLocation,
@@ -64,7 +68,15 @@ const TravelCards = ({ travelSearchData }) => {
   });
 
   // console.log("travelCardsList", travelCardsList);
-  // console.log("travelCardsListAux", travelCardsListAux);
+  // console.log('travelCardsListAux', travelCardsListAux);
+  console.log('dataOfTheSelectedTravelBus: ', dataOfTheSelectedTravelBus);
+  const dataTravelBusSelected = () => {
+    return (
+      <>
+        <Seat dataBusTravel={dataOfTheSelectedTravelBus} />;
+      </>
+    );
+  };
 
   return (
     <>
@@ -127,6 +139,7 @@ const TravelCards = ({ travelSearchData }) => {
           </ContainerCardBody>
         </Background>
       )}
+      {dataTravelBusSelected()}
     </>
   );
 };
