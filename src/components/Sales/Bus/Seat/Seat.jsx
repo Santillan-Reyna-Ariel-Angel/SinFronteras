@@ -8,7 +8,7 @@ import Checkbox from '@mui/material/Checkbox';
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const Seat = () => {
-  const [cant, setCant] = useState(27);
+  const [cant, setCant] = useState(10);
 
   let itemNumber = [];
   const busMap = () => {

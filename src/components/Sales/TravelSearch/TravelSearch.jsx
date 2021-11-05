@@ -1,12 +1,12 @@
-import React, { useState, useContext, useEffect } from "react";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
+import React, { useState, useContext, useEffect } from 'react';
+import TextField from '@mui/material/TextField';
+import Autocomplete from '@mui/material/Autocomplete';
 //fecha
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import LocalizationProvider from "@mui/lab/LocalizationProvider";
-import DatePicker from "@mui/lab/DatePicker";
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import LocalizationProvider from '@mui/lab/LocalizationProvider';
+import DatePicker from '@mui/lab/DatePicker';
 //Context branchOffice
-import { ContextBranchOffice } from "../../../contexts/ContextBranchOffice";
+import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
 //Estilos
 import {
   Background,
@@ -15,9 +15,9 @@ import {
   InputDestination,
   InputDate,
   // ButtonSearch,
-} from "./TravelSearchStyles";
+} from './TravelSearchStyles';
 //Compoenetes
-import TravelCards from "./../TravelCards/TravelCards";
+import TravelCards from './../TravelCards/TravelCards';
 const TravelSearch = () => {
   const branchOffice = useContext(ContextBranchOffice);
   // console.log("branchOfficeInTravelSearch", branchOffice);
@@ -28,12 +28,12 @@ const TravelSearch = () => {
   let { destinations, location } = branchInformation;
   // console.log("destinations", destinations,"location", location);
 
-  const [origin, setOrigin] = useState(""); //problema
+  const [origin, setOrigin] = useState(''); //problema
   // console.log(origin, "origin");
   useEffect(() => {
     setOrigin(location);
     // console.log(origin, "<<<---<<");
-  }, [setOrigin, origin]);
+  }, [setOrigin, origin, location]);
 
   const originOption = [location];
   // console.log("origin", origin, "originOption", originOption);
@@ -45,7 +45,7 @@ const TravelSearch = () => {
     : [];
   // console.log("destinationsArray", destinationsArray);
   const [destination, setDestination] = useState(
-    destinationsArray[0] ? destinationsArray[0] : ""
+    destinationsArray[0] ? destinationsArray[0] : ''
   );
   // console.log("destination", destination);
 
@@ -58,9 +58,9 @@ const TravelSearch = () => {
 
   function recoverTripData() {
     if (
-      origin !== "" &&
-      destination !== "" &&
-      formattedTravelDate !== "" &&
+      origin !== '' &&
+      destination !== '' &&
+      formattedTravelDate !== '' &&
       origin !== undefined &&
       destination !== undefined &&
       formattedTravelDate !== undefined &&
@@ -69,11 +69,11 @@ const TravelSearch = () => {
       formattedTravelDate !== null
     ) {
       console.log(
-        "origin:",
+        'origin:',
         origin,
-        "| destination:",
+        '| destination:',
         destination,
-        "| formattedTravelDate:",
+        '| formattedTravelDate:',
         formattedTravelDate
       );
 
@@ -87,7 +87,7 @@ const TravelSearch = () => {
         />
       );
     } else {
-      console.log("ingrese los campos");
+      console.log('ingrese los campos');
       return null;
     }
   }
