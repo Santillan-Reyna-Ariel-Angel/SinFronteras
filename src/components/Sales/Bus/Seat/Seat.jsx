@@ -1,13 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import EventSeatRoundedIcon from '@mui/icons-material/EventSeatRounded';
 import Tooltip from '@mui/material/Tooltip';
 import { Background } from './SeatStyles';
 //check
 import Checkbox from '@mui/material/Checkbox';
+//Context
+import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-const Seat = ({ dataBusTravel }) => {
+const Seat = ({ dataBusTravel, destination }) => {
+  const branchOffice = useContext(ContextBranchOffice);
+  const { branchInformation } = branchOffice
+    ? branchOffice
+    : { branchInformation: {} };
+  const { destinations } = branchInformation;
+
+  const algo = Object.keys(destinations).map((element) => {
+    if (destinations[element].destinationLocation === destination) {
+      let typeOfBus = destinations[element].prices.typeOfBus;
+      // Object.keys(typeOfBus).map(keyTypeOfBus=>{
+      //   keyTypeOfBus.busTypeName===
+      // })
+      return typeOfBus;
+    } else {
+      return null;
+    }
+  });
+  console.log(algo);
   const {
     bus: {
       typeOfBus: { seats },

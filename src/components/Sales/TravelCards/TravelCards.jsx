@@ -73,7 +73,11 @@ const TravelCards = ({ travelSearchData }) => {
   const dataTravelBusSelected = () => {
     return (
       <>
-        <Seat dataBusTravel={dataOfTheSelectedTravelBus} />;
+        <Seat
+          dataBusTravel={dataOfTheSelectedTravelBus}
+          destination={destination}
+        />
+        ;
       </>
     );
   };
@@ -106,6 +110,7 @@ const TravelCards = ({ travelSearchData }) => {
                       variant="contained"
                       color="success"
                       endIcon={<DirectionsBusRoundedIcon />}
+                      // onClick={() => dataTravelBusSelected()}
                     >
                       Ver bus
                     </Button>
