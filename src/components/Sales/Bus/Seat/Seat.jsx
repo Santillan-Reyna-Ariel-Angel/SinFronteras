@@ -63,10 +63,12 @@ const Seat = ({ dataBusTravel }) => {
     }
   };
   console.log('busMapData()', busMapData());
-  const { maximumSeatRange } = busMapData();
-  console.log('as', maximumSeatRange);
+  const { maximumSeatRange, seatType, minimalPrice, maximumPrice } =
+    busMapData();
 
-  const [cant, setCant] = useState(5);
+  console.log('maximumSeatRange', maximumSeatRange);
+
+  const [cant, setCant] = useState(maximumSeatRange);
 
   let itemNumber = [];
   const busMap = () => {
@@ -85,9 +87,11 @@ const Seat = ({ dataBusTravel }) => {
             <Tooltip
               title={
                 <>
-                  <p>Tipo: {'cama'}</p>
                   <p>N#: {itemId}</p>
-                  <p>Precio Rango: {'80bs-90bs'}</p>
+                  <p>Tipo: {seatType}</p>
+                  <p>
+                    Precio Rango: {minimalPrice + 'bs - ' + maximumPrice + 'bs'}
+                  </p>
                   <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
                 </>
               }

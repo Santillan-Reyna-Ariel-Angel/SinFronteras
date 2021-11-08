@@ -45,26 +45,26 @@
           "code1": {
             "destinationLocation": "c. santa cruz",
             "prices": {
+              "hibrido": {
+                "busTypeName": "hibrido",
+                "seatType": {
+                  "cama": {
+                    "maximumPrice": 85,
+                    "minimalPrice": 80,
+                    "seatTypeName": "cama"
+                  },
+                  "semi-cama": {
+                    "maximumPrice": 75,
+                    "minimalPrice": 70,
+                    "seatTypeName": "semi-cama"
+                  }
+                }
+              },
               "leito": {
                 "busTypeName": "leito",
                 "maximumPrice": 100,
                 "minimalPrice": 90,
                 "seatType": "cama"
-              },
-              "hibrido": {
-                "busTypeName": "hibrido",
-                "seatType": {
-                  "cama": {
-                    "seatTypeName": "cama",
-                    "maximumPrice": 85,
-                    "minimalPrice": 80
-                  },
-                  "semi-cama": {
-                    "seatTypeName": "semi-cama",
-                    "maximumPrice": 75,
-                    "minimalPrice": 70
-                  }
-                }
               },
               "normal": {
                 "busTypeName": "normal",
@@ -77,26 +77,26 @@
           "code2": {
             "destinationLocation": "yacuiba",
             "prices": {
+              "hibrido": {
+                "busTypeName": "hibrido",
+                "seatType": {
+                  "cama": {
+                    "maximumPrice": 85,
+                    "minimalPrice": 80,
+                    "seatTypeName": "cama"
+                  },
+                  "semi-cama": {
+                    "maximumPrice": 75,
+                    "minimalPrice": 70,
+                    "seatTypeName": "semi-cama"
+                  }
+                }
+              },
               "leito": {
                 "busTypeName": "leito",
                 "maximumPrice": 100,
                 "minimalPrice": 90,
                 "seatType": "cama"
-              },
-              "hibrido": {
-                "busTypeName": "hibrido",
-                "seatType": {
-                  "cama": {
-                    "seatTypeName": "cama",
-                    "maximumPrice": 85,
-                    "minimalPrice": 80
-                  },
-                  "semi-cama": {
-                    "seatTypeName": "semi-cama",
-                    "maximumPrice": 75,
-                    "minimalPrice": 70
-                  }
-                }
               },
               "normal": {
                 "busTypeName": "normal",
@@ -125,8 +125,8 @@
             "numberOfFloors": 1,
             "seats": {
               "code1": {
-                "maximumSeatRange": 1,
-                "minimumSeatRange": 29,
+                "maximumSeatRange": 29,
+                "minimumSeatRange": 1,
                 "seatType": "cama"
               }
             },
@@ -148,13 +148,13 @@
             "numberOfFloors": 2,
             "seats": {
               "code1": {
-                "maximumSeatRange": 1,
-                "minimumSeatRange": 33,
+                "maximumSeatRange": 33,
+                "minimumSeatRange": 1,
                 "seatType": "cama"
               },
               "code2": {
-                "maximumSeatRange": 34,
-                "minimumSeatRange": 45,
+                "maximumSeatRange": 45,
+                "minimumSeatRange": 34,
                 "seatType": "semi-cama"
               }
             },
@@ -180,8 +180,8 @@
               "numberOfFloors": 1,
               "seats": {
                 "code1": {
-                  "maximumSeatRange": 1,
-                  "minimumSeatRange": 29,
+                  "maximumSeatRange": 29,
+                  "minimumSeatRange": 1,
                   "seatType": "cama"
                 }
               },
@@ -234,13 +234,13 @@
               "numberOfFloors": 2,
               "seats": {
                 "code1": {
-                  "maximumSeatRange": 1,
-                  "minimumSeatRange": 33,
+                  "maximumSeatRange": 33,
+                  "minimumSeatRange": 1,
                   "seatType": "cama"
                 },
                 "code2": {
-                  "maximumSeatRange": 34,
-                  "minimumSeatRange": 45,
+                  "maximumSeatRange": 45,
+                  "minimumSeatRange": 34,
                   "seatType": "semi-cama"
                 }
               },
@@ -369,8 +369,8 @@
             "numberOfFloors": 1,
             "seats": {
               "code1": {
-                "maximumSeatRange": 1,
-                "minimumSeatRange": 43,
+                "maximumSeatRange": 43,
+                "minimumSeatRange": 1,
                 "seatType": "semi-cama"
               }
             },
@@ -392,8 +392,8 @@
             "numberOfFloors": 2,
             "seats": {
               "code1": {
-                "maximumSeatRange": 1,
-                "minimumSeatRange": 40,
+                "maximumSeatRange": 40,
+                "minimumSeatRange": 1,
                 "seatType": "cama"
               }
             },
@@ -419,8 +419,8 @@
               "numberOfFloors": 1,
               "seats": {
                 "code1": {
-                  "maximumSeatRange": 1,
-                  "minimumSeatRange": 43,
+                  "maximumSeatRange": 43,
+                  "minimumSeatRange": 1,
                   "seatType": "semi-cama"
                 }
               },
@@ -473,8 +473,8 @@
               "numberOfFloors": 2,
               "seats": {
                 "code1": {
-                  "maximumSeatRange": 1,
-                  "minimumSeatRange": 40,
+                  "maximumSeatRange": 40,
+                  "minimumSeatRange": 1,
                   "seatType": "cama"
                 }
               },
@@ -529,8 +529,8 @@
         "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 42,
+            "maximumSeatRange": 42,
+            "minimumSeatRange": 1,
             "seatType": "semi-cama"
           }
         },
@@ -552,8 +552,8 @@
         "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 43,
+            "maximumSeatRange": 43,
+            "minimumSeatRange": 1,
             "seatType": "semi-cama"
           }
         },
@@ -575,8 +575,8 @@
         "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 36,
+            "maximumSeatRange": 36,
+            "minimumSeatRange": 1,
             "seatType": "semi-cama"
           }
         },
@@ -598,8 +598,8 @@
         "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 27,
+            "maximumSeatRange": 27,
+            "minimumSeatRange": 1,
             "seatType": "cama"
           }
         },
@@ -621,8 +621,8 @@
         "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 26,
+            "maximumSeatRange": 26,
+            "minimumSeatRange": 1,
             "seatType": "cama"
           }
         },
@@ -644,8 +644,8 @@
         "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 29,
+            "maximumSeatRange": 29,
+            "minimumSeatRange": 1,
             "seatType": "cama"
           }
         },
@@ -667,13 +667,13 @@
         "numberOfFloors": 2,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 33,
+            "maximumSeatRange": 33,
+            "minimumSeatRange": 1,
             "seatType": "cama"
           },
           "code2": {
-            "maximumSeatRange": 34,
-            "minimumSeatRange": 45,
+            "maximumSeatRange": 45,
+            "minimumSeatRange": 34,
             "seatType": "semi-cama"
           }
         },
@@ -695,8 +695,8 @@
         "numberOfFloors": 2,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 40,
+            "maximumSeatRange": 40,
+            "minimumSeatRange": 1,
             "seatType": "cama"
           }
         },
@@ -718,8 +718,8 @@
         "numberOfFloors": 1,
         "seats": {
           "code1": {
-            "maximumSeatRange": 1,
-            "minimumSeatRange": 39,
+            "maximumSeatRange": 39,
+            "minimumSeatRange": 1,
             "seatType": "semi-cama"
           }
         },
