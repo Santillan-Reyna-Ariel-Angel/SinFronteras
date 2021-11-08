@@ -4,6 +4,8 @@ import Tooltip from '@mui/material/Tooltip';
 import { Background } from './SeatStyles';
 //check
 import Checkbox from '@mui/material/Checkbox';
+//form controls
+import FormControlLabel from '@mui/material/FormControlLabel';
 //Context
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 
@@ -77,6 +79,12 @@ const Seat = ({ dataBusTravel }) => {
     }
   };
 
+  const [checked, setChecked] = React.useState();
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
+  console.log(checked);
   return (
     <>
       {busMap()}
@@ -98,10 +106,18 @@ const Seat = ({ dataBusTravel }) => {
               arrow
               placement="top"
             >
-              <Checkbox
-                {...label}
-                icon={<EventSeatRoundedIcon fontSize="large" />}
-                checkedIcon={<EventSeatRoundedIcon fontSize="large" />}
+              <FormControlLabel
+                // value="top"
+                control={
+                  <Checkbox
+                    {...label}
+                    icon={<EventSeatRoundedIcon fontSize="large" />}
+                    checkedIcon={<EventSeatRoundedIcon fontSize="large" />}
+                    onChange={handleChange}
+                  />
+                }
+                label={itemId}
+                labelPlacement="top"
               />
             </Tooltip>
           );
