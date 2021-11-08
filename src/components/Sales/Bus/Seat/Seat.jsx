@@ -12,20 +12,19 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 const Seat = ({ dataBusTravel }) => {
   //Context
   const branchOffice = useContext(ContextBranchOffice);
-  const { branchInformation, travels } = branchOffice
+  const { branchInformation } = branchOffice
     ? branchOffice
     : { branchInformation: {}, travels: {} };
   const { destinations } = branchInformation;
-  console.log('Context_travels', travels);
+
   //Props
   const {
     bus: {
       typeOfBus: { seats, busTypeName },
     },
     destinationLocation,
-    departureTime,
   } = dataBusTravel ? dataBusTravel : {};
-  console.log('Props_dataBusTravel', dataBusTravel);
+
   const pricesAux = Object.keys(destinations).map((key) => {
     if (destinations[key].destinationLocation === destinationLocation) {
       return destinations[key].prices[busTypeName];
@@ -40,12 +39,32 @@ const Seat = ({ dataBusTravel }) => {
       prices.push(elemento);
     }
   });
-  console.log('Algo', prices);
+  console.log('Context_prices', prices);
 
   const seatsData = Object.keys(seats).map((key) => {
     return seats[key];
   });
-  console.log('seatsData', seatsData);
+  console.log('Props_seatsData', seatsData);
+
+  const busMapData = () => {
+    if (prices[0].seatType === seatsData[0].seatType) {
+      console.log('iguales');
+      const { seatType, minimumSeatRange, maximumSeatRange } = seatsData[0];
+      const { busTypeName, minimalPrice, maximumPrice } = prices[0];
+      let busMapAux = {
+        busTypeName,
+        seatType,
+        minimumSeatRange,
+        maximumSeatRange,
+        minimalPrice,
+        maximumPrice,
+      };
+      return busMapAux;
+    }
+  };
+  console.log('busMapData()', busMapData());
+  const { maximumSeatRange } = busMapData();
+  console.log('as', maximumSeatRange);
 
   const [cant, setCant] = useState(5);
 
