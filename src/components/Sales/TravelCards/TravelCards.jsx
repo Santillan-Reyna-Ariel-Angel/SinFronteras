@@ -73,11 +73,7 @@ const TravelCards = ({ travelSearchData }) => {
   const dataTravelBusSelected = () => {
     return (
       <>
-        <Seat
-          dataBusTravel={dataOfTheSelectedTravelBus}
-          destination={destination}
-        />
-        ;
+        <Seat dataBusTravel={dataOfTheSelectedTravelBus} />;
       </>
     );
   };

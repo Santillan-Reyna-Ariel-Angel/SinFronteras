@@ -45,26 +45,64 @@
           "code1": {
             "destinationLocation": "c. santa cruz",
             "prices": {
-              "typeOfBus": {
-                "code1": {
-                  "busTypeName": "leito",
-                  "maximumPrice": 100,
-                  "minimalPrice": 90,
-                  "seatType": "cama"
+              "leito": {
+                "busTypeName": "leito",
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama"
+              },
+              "hibrido": {
+                "busTypeName": "hibrido",
+                "seatType": {
+                  "cama": {
+                    "seatTypeName": "cama",
+                    "maximumPrice": 85,
+                    "minimalPrice": 80
+                  },
+                  "semi-cama": {
+                    "seatTypeName": "semi-cama",
+                    "maximumPrice": 75,
+                    "minimalPrice": 70
+                  }
                 }
+              },
+              "normal": {
+                "busTypeName": "normal",
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama"
               }
             }
           },
           "code2": {
             "destinationLocation": "yacuiba",
             "prices": {
-              "typeOfBus": {
-                "code1": {
-                  "busTypeName": "normal",
-                  "maximumPrice": 80,
-                  "minimalPrice": 70,
-                  "seatType": "semicama"
+              "leito": {
+                "busTypeName": "leito",
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama"
+              },
+              "hibrido": {
+                "busTypeName": "hibrido",
+                "seatType": {
+                  "cama": {
+                    "seatTypeName": "cama",
+                    "maximumPrice": 85,
+                    "minimalPrice": 80
+                  },
+                  "semi-cama": {
+                    "seatTypeName": "semi-cama",
+                    "maximumPrice": 75,
+                    "minimalPrice": 70
+                  }
                 }
+              },
+              "normal": {
+                "busTypeName": "normal",
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama"
               }
             }
           }
@@ -106,7 +144,7 @@
           "identificationNumberDriver": "",
           "status": "active",
           "typeOfBus": {
-            "busTypeName": "leito-normal",
+            "busTypeName": "hibrido",
             "numberOfFloors": 2,
             "seats": {
               "code1": {
@@ -180,7 +218,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "6/11/2021",
+          "travelDate": "8/11/2021",
           "travelStatus": false
         },
         "code2": {
@@ -192,7 +230,7 @@
             "key": "code7",
             "status": "active",
             "typeOfBus": {
-              "busTypeName": "leito-normal",
+              "busTypeName": "hibrido",
               "numberOfFloors": 2,
               "seats": {
                 "code1": {
@@ -239,7 +277,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "6/11/2021",
+          "travelDate": "8/11/2021",
           "travelStatus": false
         }
       }
@@ -625,7 +663,7 @@
       "identificationNumberDriver": "",
       "status": "active",
       "typeOfBus": {
-        "busTypeName": "leito-normal",
+        "busTypeName": "hibrido",
         "numberOfFloors": 2,
         "seats": {
           "code1": {

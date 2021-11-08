@@ -9,33 +9,41 @@ import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice'
 
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
-const Seat = ({ dataBusTravel, destination }) => {
+const Seat = ({ dataBusTravel }) => {
+  //Context
   const branchOffice = useContext(ContextBranchOffice);
-  const { branchInformation } = branchOffice
+  const { branchInformation, travels } = branchOffice
     ? branchOffice
-    : { branchInformation: {} };
+    : { branchInformation: {}, travels: {} };
   const { destinations } = branchInformation;
-
-  const algo = Object.keys(destinations).map((element) => {
-    if (destinations[element].destinationLocation === destination) {
-      let typeOfBus = destinations[element].prices.typeOfBus;
-      // Object.keys(typeOfBus).map(keyTypeOfBus=>{
-      //   keyTypeOfBus.busTypeName===
-      // })
-      return typeOfBus;
-    } else {
-      return null;
-    }
-  });
-  console.log(algo);
+  console.log('Context_travels', travels);
+  //Props
   const {
     bus: {
-      typeOfBus: { seats },
+      typeOfBus: { seats, busTypeName },
     },
+    destinationLocation,
+    departureTime,
   } = dataBusTravel ? dataBusTravel : {};
+  console.log('Props_dataBusTravel', dataBusTravel);
+  const pricesAux = Object.keys(destinations).map((key) => {
+    if (destinations[key].destinationLocation === destinationLocation) {
+      return destinations[key].prices[busTypeName];
+    } else {
+      return {};
+    }
+  });
 
-  const seatsData = Object.keys(seats).map((seatKey) => {
-    return seats[seatKey];
+  const prices = [];
+  pricesAux.forEach(function (elemento, indice, array) {
+    if (Object.keys(elemento).length !== 0) {
+      prices.push(elemento);
+    }
+  });
+  console.log('Algo', prices);
+
+  const seatsData = Object.keys(seats).map((key) => {
+    return seats[key];
   });
   console.log('seatsData', seatsData);
 

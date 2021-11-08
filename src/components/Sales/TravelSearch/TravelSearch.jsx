@@ -68,14 +68,14 @@ const TravelSearch = () => {
       destination !== null &&
       formattedTravelDate !== null
     ) {
-      console.log(
-        'origin:',
-        origin,
-        '| destination:',
-        destination,
-        '| formattedTravelDate:',
-        formattedTravelDate
-      );
+      // console.log(
+      //   'origin:',
+      //   origin,
+      //   '| destination:',
+      //   destination,
+      //   '| formattedTravelDate:',
+      //   formattedTravelDate
+      // );
 
       return (
         <TravelCards
