@@ -49,8 +49,9 @@ const Seat = ({ dataBusTravel }) => {
   console.log('Props_seatsData', seatsData);
 
   const busMapData = () => {
+    console.log('prices.length', prices.length);
     if (prices[0].seatType === seatsData[0].seatType) {
-      console.log('iguales');
+      console.log('Datos iguales');
       const { seatType, minimumSeatRange, maximumSeatRange } = seatsData[0];
       const { busTypeName, minimalPrice, maximumPrice } = prices[0];
       let busMapAux = {
@@ -84,7 +85,7 @@ const Seat = ({ dataBusTravel }) => {
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
-  console.log(checked);
+  console.log('checked', checked);
   return (
     <>
       {busMap()}
