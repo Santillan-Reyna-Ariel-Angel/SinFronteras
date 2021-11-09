@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Background = styled.div`
   /* height: 100%; */
@@ -12,7 +12,7 @@ export const Container = styled.div`
   padding: 0px 0px;
   grid-template-columns: auto;
   grid-template-rows: auto;
-  grid-template-areas: "Route";
+  grid-template-areas: 'Route';
 
   color: white;
   border-radius: 10px 10px 0px 0px;
@@ -32,7 +32,7 @@ export const RouteStyle = styled.div`
 export const ContainerCardBody = styled.div`
   display: grid;
   padding: 10px 10px;
-  grid-template-areas: "Bus TextDepartureTime BtnSeeBus" "BusTypeName DepartureTime BtnSeeBus";
+  grid-template-areas: 'Bus TextDepartureTime BtnSeeBus' 'TypeOfBus DepartureTime BtnSeeBus';
   grid-template-rows: auto;
 
   border-radius: 0px 0px 10px 10px;
@@ -62,8 +62,8 @@ export const BtnSeeBusStyle = styled.div`
   align-self: center;
   justify-self: center;
 `;
-export const BusTypeNameStyle = styled.div`
-  grid-area: BusTypeName;
+export const TypeOfBusStyle = styled.div`
+  grid-area: TypeOfBus;
   /* align-self: center;
   justify-self: center; */
   text-align: center;

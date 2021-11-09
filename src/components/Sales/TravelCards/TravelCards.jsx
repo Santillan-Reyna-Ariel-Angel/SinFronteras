@@ -13,7 +13,7 @@ import {
   BusStyle,
   TextDepartureTimeStyle,
   BtnSeeBusStyle,
-  BusTypeNameStyle,
+  TypeOfBusStyle,
   DepartureTimeStyle,
   ContainerCardBody,
 } from './TravelCardsStyles';
@@ -34,9 +34,7 @@ const TravelCards = ({ travelSearchData }) => {
     let {
       localityOfOrigin,
       destinationLocation,
-      bus: {
-        typeOfBus: { busTypeName },
-      },
+      bus: { typeOfBus },
       departureTime,
       travelDate,
     } = travels[travelKey];
@@ -49,7 +47,7 @@ const TravelCards = ({ travelSearchData }) => {
       let travelData = {
         localityOfOrigin,
         destinationLocation,
-        busTypeName,
+        typeOfBus,
         departureTime,
         travelDate,
       };
@@ -111,9 +109,9 @@ const TravelCards = ({ travelSearchData }) => {
                       Ver bus
                     </Button>
                   </BtnSeeBusStyle>
-                  <BusTypeNameStyle>
-                    <span>{`${travelItem.busTypeName}`}</span>
-                  </BusTypeNameStyle>
+                  <TypeOfBusStyle>
+                    <span>{`${travelItem.typeOfBus}`}</span>
+                  </TypeOfBusStyle>
                   <DepartureTimeStyle>
                     <span>{`${travelItem.departureTime}`}</span>
                   </DepartureTimeStyle>
@@ -131,12 +129,9 @@ const TravelCards = ({ travelSearchData }) => {
             </RouteStyle>
           </Container>
           <ContainerCardBody>
-            <BusTypeNameStyle>
-              <span>
-                No se encontraron viajes registrados para hoy, intente con otra
-                fecha.
-              </span>
-            </BusTypeNameStyle>
+            <TypeOfBusStyle>
+              <span>No se encontraron viajes, intente con otra fecha.</span>
+            </TypeOfBusStyle>
           </ContainerCardBody>
         </Background>
       )}
