@@ -44,23 +44,22 @@ const Seat = ({ dataBusTravel }) => {
     if (prices[0].seatType === typeOfSeats) {
       console.log('Datos iguales');
       const { minimalPrice, maximumPrice } = prices[0];
-      let busMapAux = {
-        typeOfBus,
-        typeOfSeats,
-        numberOfSeats,
-        minimalPrice,
-        maximumPrice,
-      };
-      return busMapAux;
+      // let busMapAux = {
+      //   typeOfBus,
+      //   typeOfSeats,
+      //   numberOfSeats,
+      //   minimalPrice,
+      //   maximumPrice,
+      // };
+      // return busMapAux;
+      return { minimalPrice, maximumPrice };
     }
   };
   const seatData = busMapData();
 
-  const [cant, setCant] = useState(seatData.numberOfSeats);
-
   let itemNumber = [];
   const busMap = () => {
-    for (let i = 0; i < cant; i++) {
+    for (let i = 0; i < numberOfSeats; i++) {
       itemNumber[i] = i + 1;
     }
   };
@@ -74,7 +73,7 @@ const Seat = ({ dataBusTravel }) => {
   return (
     <>
       {busMap()}
-      {/* {SeatsBus()} */}
+
       <Background>
         {itemNumber.map((itemId) => {
           return (
@@ -82,7 +81,7 @@ const Seat = ({ dataBusTravel }) => {
               title={
                 <>
                   <p>N#: {itemId}</p>
-                  <p>Tipo: {seatData.typeOfSeats}</p>
+                  <p>Tipo: {typeOfSeats}</p>
                   <p>
                     Precio Rango:
                     {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}

@@ -135,7 +135,7 @@ const TravelCards = ({ travelSearchData }) => {
           </ContainerCardBody>
         </Background>
       )}
-      {dataTravelBusSelected()}
+      {travelCardsListAux.length >= 1 ? dataTravelBusSelected() : null}
     </>
   );
 };
