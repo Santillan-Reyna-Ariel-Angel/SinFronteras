@@ -18,60 +18,45 @@ const Seat = ({ dataBusTravel }) => {
     ? branchOffice
     : { branchInformation: {}, travels: {} };
   const { destinations } = branchInformation;
-  console.log('props_dataBusTravel', dataBusTravel);
   //Props
-  // const {
-  //   bus: {
-  //     typeOfBus: { seats, busTypeName },
-  //   },
-  //   destinationLocation,
-  // } = dataBusTravel ? dataBusTravel : {};
+  const {
+    bus: { typeOfBus, numberOfSeats, typeOfSeats, numberOfFloors },
+    destinationLocation,
+  } = dataBusTravel ? dataBusTravel : {};
 
-  // const pricesAux = Object.keys(destinations).map((key) => {
-  //   if (destinations[key].destinationLocation === destinationLocation) {
-  //     return destinations[key].prices[busTypeName];
-  //   } else {
-  //     return {};
-  //   }
-  // });
+  const pricesAux = Object.keys(destinations).map((key) => {
+    if (destinations[key].destinationLocation === destinationLocation) {
+      return destinations[key].prices[typeOfBus];
+    } else {
+      return {};
+    }
+  });
 
-  // const prices = [];
-  // pricesAux.forEach(function (elemento, indice, array) {
-  //   if (Object.keys(elemento).length !== 0) {
-  //     prices.push(elemento);
-  //   }
-  // });
-  // console.log('Context_prices', prices);
+  const prices = [];
+  pricesAux.forEach(function (elemento, indice, array) {
+    if (Object.keys(elemento).length !== 0) {
+      prices.push(elemento);
+    }
+  });
+  console.log('Context_prices', prices);
 
-  // const seatsData = Object.keys(seats).map((key) => {
-  //   return seats[key];
-  // });
-  // console.log('Props_seatsData', seatsData);
+  const busMapData = () => {
+    if (prices[0].seatType === typeOfSeats) {
+      console.log('Datos iguales');
+      const { minimalPrice, maximumPrice } = prices[0];
+      let busMapAux = {
+        typeOfBus,
+        typeOfSeats,
+        numberOfSeats,
+        minimalPrice,
+        maximumPrice,
+      };
+      return busMapAux;
+    }
+  };
+  const seatData = busMapData();
 
-  // const busMapData = () => {
-  //   console.log('prices.length', prices.length);
-  //   if (prices[0].seatType === seatsData[0].seatType) {
-  //     console.log('Datos iguales');
-  //     const { seatType, minimumSeatRange, maximumSeatRange } = seatsData[0];
-  //     const { busTypeName, minimalPrice, maximumPrice } = prices[0];
-  //     let busMapAux = {
-  //       busTypeName,
-  //       seatType,
-  //       minimumSeatRange,
-  //       maximumSeatRange,
-  //       minimalPrice,
-  //       maximumPrice,
-  //     };
-  //     return busMapAux;
-  //   }
-  // };
-  // console.log('busMapData()', busMapData());
-  // const { maximumSeatRange, seatType, minimalPrice, maximumPrice } =
-  //   busMapData();
-
-  // console.log('maximumSeatRange', maximumSeatRange);
-
-  const [cant, setCant] = useState(4);
+  const [cant, setCant] = useState(seatData.numberOfSeats);
 
   let itemNumber = [];
   const busMap = () => {
@@ -80,7 +65,7 @@ const Seat = ({ dataBusTravel }) => {
     }
   };
 
-  const [checked, setChecked] = React.useState();
+  const [checked, setChecked] = useState();
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
@@ -97,8 +82,11 @@ const Seat = ({ dataBusTravel }) => {
               title={
                 <>
                   <p>N#: {itemId}</p>
-                  <p>Tipo: {'normal'}</p>
-                  <p>Precio Rango: {'50 bs - 100 bs'}</p>
+                  <p>Tipo: {seatData.typeOfSeats}</p>
+                  <p>
+                    Precio Rango:
+                    {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
+                  </p>
                   <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
                 </>
               }
