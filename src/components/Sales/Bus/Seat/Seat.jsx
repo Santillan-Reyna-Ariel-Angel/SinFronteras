@@ -73,7 +73,6 @@ const Seat = ({ dataBusTravel }) => {
   return (
     <>
       {busMap()}
-
       <Background>
         {itemNumber.map((itemId) => {
           return (
@@ -100,10 +99,12 @@ const Seat = ({ dataBusTravel }) => {
                     icon={<EventSeatRoundedIcon fontSize="large" />}
                     checkedIcon={<EventSeatRoundedIcon fontSize="large" />}
                     onChange={handleChange}
+                    sx={{ margin: '-12px 0px 0px 0px' }}
                   />
                 }
                 label={itemId}
                 labelPlacement="top"
+                sx={{ margin: '0px -2px' }}
               />
             </Tooltip>
           );
