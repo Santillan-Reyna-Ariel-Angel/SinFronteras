@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import EventSeatRoundedIcon from '@mui/icons-material/EventSeatRounded';
 import Tooltip from '@mui/material/Tooltip';
-import { Background } from './SeatStyles';
+import { Background, Container } from './SeatStyles';
 //check
 import Checkbox from '@mui/material/Checkbox';
 //form controls
@@ -74,41 +74,52 @@ const Seat = ({ dataBusTravel }) => {
     <>
       {busMap()}
       <Background>
-        {itemNumber.map((itemId) => {
-          return (
-            <Tooltip
-              title={
-                <>
-                  <p>N#: {itemId}</p>
-                  <p>Tipo: {typeOfSeats}</p>
-                  <p>
-                    Precio Rango:
-                    {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
-                  </p>
-                  <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
-                </>
-              }
-              arrow
-              placement="top"
-            >
-              <FormControlLabel
-                // value="top"
-                control={
-                  <Checkbox
-                    {...label}
-                    icon={<EventSeatRoundedIcon fontSize="large" />}
-                    checkedIcon={<EventSeatRoundedIcon fontSize="large" />}
-                    onChange={handleChange}
-                    sx={{ margin: '-12px 0px 0px 0px' }}
-                  />
+        <Container>
+          {itemNumber.map((itemId) => {
+            return (
+              <Tooltip
+                title={
+                  <>
+                    <p>N#: {itemId}</p>
+                    <p>Tipo: {typeOfSeats}</p>
+                    <p>
+                      Precio Rango:
+                      {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
+                    </p>
+                    <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
+                  </>
                 }
-                label={itemId}
-                labelPlacement="top"
-                sx={{ margin: '0px -2px' }}
-              />
-            </Tooltip>
-          );
-        })}
+                arrow
+                placement="top"
+              >
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      {...label}
+                      icon={
+                        <EventSeatRoundedIcon
+                          // fontSize="small"
+                          sx={{ transform: 'rotate(90deg)' }}
+                        />
+                      }
+                      checkedIcon={
+                        <EventSeatRoundedIcon
+                          // fontSize="small"
+                          sx={{ transform: 'rotate(90deg)' }}
+                        />
+                      }
+                      onChange={handleChange}
+                      sx={{ margin: '-16px 0px 0px 0px' }}
+                    />
+                  }
+                  label={itemId}
+                  labelPlacement="top"
+                  sx={{ margin: '0px -12px -10px 0px' }}
+                />
+              </Tooltip>
+            );
+          })}
+        </Container>
       </Background>
     </>
   );

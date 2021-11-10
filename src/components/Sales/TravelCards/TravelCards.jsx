@@ -96,7 +96,7 @@ const TravelCards = ({ travelSearchData }) => {
                   <TextDepartureTimeStyle>
                     <div>
                       <QueryBuilderRoundedIcon sx={{ marginRight: '2px' }} />
-                      <span>{`Hr. Salida`}</span>
+                      <span>{`Salida`}</span>
                     </div>
                   </TextDepartureTimeStyle>
                   <BtnSeeBusStyle>
@@ -106,7 +106,7 @@ const TravelCards = ({ travelSearchData }) => {
                       endIcon={<DirectionsBusRoundedIcon />}
                       // onClick={() => dataTravelBusSelected()}
                     >
-                      Ver bus
+                      Ver
                     </Button>
                   </BtnSeeBusStyle>
                   <TypeOfBusStyle>
