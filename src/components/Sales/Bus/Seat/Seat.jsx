@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import EventSeatRoundedIcon from '@mui/icons-material/EventSeatRounded';
 import Tooltip from '@mui/material/Tooltip';
+//Estilos
 import { Background, Container, ContainerTopSeats, ContainerCenterSeats, ContainerButtomSeats,ContainerHall } from './SeatStyles';
 //check
 import Checkbox from '@mui/material/Checkbox';
@@ -9,8 +10,10 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 //Context
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
+//Usado en Check
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
+//Algoritmo que genera 3 filas
 let createSeats = (numSeat) => {
   let seats = [];
   for(let i=1; i<=numSeat; i++){
@@ -57,7 +60,7 @@ const Seat = ({ dataBusTravel }) => {
 
   const busMapData = () => {
     if (prices[0].seatType === typeOfSeats) {
-      console.log('Datos iguales');
+      // console.log('Datos iguales');
       const { minimalPrice, maximumPrice } = prices[0];
       // let busMapAux = {
       //   typeOfBus,
@@ -77,18 +80,17 @@ const Seat = ({ dataBusTravel }) => {
   const handleChange = (event) => {
     setChecked(event.target.checked);
   };
-  console.log('checked', checked);
+  // console.log('checked', checked);
 
-  const BusMap=(cant,indice)=>{
-    return createSeats(cant)[indice].map((seat) => {
-      if(seat!==null){
-        // console.log("seat",seat);
+  const BusMap=(numberOfSeatsParameter,indice)=>{
+    return createSeats(numberOfSeatsParameter)[indice].map((seatNumber) => {
+      if(seatNumber!==null){
         return (
           <Tooltip
-            key={seat}
+            key={seatNumber}
             title={
               <>
-                <p>N#: {seat}</p>
+                <p>N#: {seatNumber}</p>
                 <p>Tipo: {typeOfSeats}</p>
                 <p>
                   Precio Rango:
@@ -120,7 +122,7 @@ const Seat = ({ dataBusTravel }) => {
                   sx={{ margin: '-16px 0px 0px 0px' }}
                 />
               }
-              label={seat}
+              label={seatNumber}
               labelPlacement="top"
               sx={{ margin: '0px -12px -10px 0px' }}
             />
@@ -131,210 +133,15 @@ const Seat = ({ dataBusTravel }) => {
       }
       })
   }
+  
   return (
     <>
       <Background>
         <Container>
-          {/* <ContainerTopSeats>
-        {createSeats(29)[2].map((seat) => {
-          if(seat!==null){
-            // console.log("seat",seat);
-            return (
-              <Tooltip
-                key={seat}
-                title={
-                  <>
-                    <p>N#: {seat}</p>
-                    <p>Tipo: {typeOfSeats}</p>
-                    <p>
-                      Precio Rango:
-                      {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
-                    </p>
-                    <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
-                  </>
-                }
-                arrow
-                placement="top"
-              >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      {...label}
-                      icon={
-                        <EventSeatRoundedIcon
-                          // fontSize="small"
-                          sx={{ transform: 'rotate(90deg)' }}
-                        />
-                      }
-                      checkedIcon={
-                        <EventSeatRoundedIcon
-                          // fontSize="small"
-                          sx={{ transform: 'rotate(90deg)' }}
-                        />
-                      }
-                      onChange={handleChange}
-                      sx={{ margin: '-16px 0px 0px 0px' }}
-                    />
-                  }
-                  label={seat}
-                  labelPlacement="top"
-                  sx={{ margin: '0px -12px -10px 0px' }}
-                />
-              </Tooltip>
-            );
-          }
-          })}
-          </ContainerTopSeats> */}
-
-          {/* <ContainerHall></ContainerHall> */}
-
-          {/* <ContainerCenterSeats>
-          {createSeats(29)[1].map((seat) => {
-          console.log(seat||"");
-            return (
-              <Tooltip
-                key={seat||""}
-                title={
-                  <>
-                    <p>N#: {seat||""}</p>
-                    <p>Tipo: {typeOfSeats}</p>
-                    <p>
-                      Precio Rango:
-                      {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
-                    </p>
-                    <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
-                  </>
-                }
-                arrow
-                placement="top"
-              >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      {...label}
-                      icon={
-                        <EventSeatRoundedIcon
-                          // fontSize="small"
-                          sx={{ transform: 'rotate(90deg)' }}
-                        />
-                      }
-                      checkedIcon={
-                        <EventSeatRoundedIcon
-                          // fontSize="small"
-                          sx={{ transform: 'rotate(90deg)' }}
-                        />
-                      }
-                      onChange={handleChange}
-                      sx={{ margin: '-16px 0px 0px 0px' }}
-                    />
-                  }
-                  label={seat||""}
-                  labelPlacement="top"
-                  sx={{ margin: '0px -12px -10px 0px' }}
-                />
-              </Tooltip>
-            );
-          })}
-          </ContainerCenterSeats> */}
-
-          {/* <ContainerButtomSeats>
-           {createSeats(29)[0].map((seat) => {
-          console.log(seat||"");
-            return (
-              <Tooltip
-                key={seat||""}
-                title={
-                  <>
-                    <p>N#: {seat||""}</p>
-                    <p>Tipo: {typeOfSeats}</p>
-                    <p>
-                      Precio Rango:
-                      {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
-                    </p>
-                    <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
-                  </>
-                }
-                arrow
-                placement="top"
-              >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      {...label}
-                      icon={
-                        <EventSeatRoundedIcon
-                          // fontSize="small"
-                          sx={{ transform: 'rotate(90deg)' }}
-                        />
-                      }
-                      checkedIcon={
-                        <EventSeatRoundedIcon
-                          // fontSize="small"
-                          sx={{ transform: 'rotate(90deg)' }}
-                        />
-                      }
-                      onChange={handleChange}
-                      sx={{ margin: '-16px 0px 0px 0px' }}
-                    />
-                  }
-                  label={seat||""}
-                  labelPlacement="top"
-                  sx={{ margin: '0px -12px -10px 0px' }}
-                />
-              </Tooltip>
-            );
-          })}
-          </ContainerButtomSeats> */}
-
           <ContainerTopSeats>{BusMap(numberOfSeats,2)}</ContainerTopSeats>
           <ContainerHall></ContainerHall>
           <ContainerCenterSeats>{BusMap(numberOfSeats,1)}</ContainerCenterSeats>
           <ContainerButtomSeats>{BusMap(numberOfSeats,0)}</ContainerButtomSeats>
-
-          {/* {itemNumber.map((itemId) => {
-            return (
-              <Tooltip
-                title={
-                  <>
-                    <p>N#: {itemId}</p>
-                    <p>Tipo: {typeOfSeats}</p>
-                    <p>
-                      Precio Rango:
-                      {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
-                    </p>
-                    <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
-                  </>
-                }
-                arrow
-                placement="top"
-              >
-                <FormControlLabel
-                  control={
-                    <Checkbox
-                      {...label}
-                      icon={
-                        <EventSeatRoundedIcon
-                          // fontSize="small"
-                          sx={{ transform: 'rotate(90deg)' }}
-                        />
-                      }
-                      checkedIcon={
-                        <EventSeatRoundedIcon
-                          // fontSize="small"
-                          sx={{ transform: 'rotate(90deg)' }}
-                        />
-                      }
-                      onChange={handleChange}
-                      sx={{ margin: '-16px 0px 0px 0px' }}
-                    />
-                  }
-                  label={itemId}
-                  labelPlacement="top"
-                  sx={{ margin: '0px -12px -10px 0px' }}
-                />
-              </Tooltip>
-            );
-          })} */}
         </Container>
       </Background>
     </>
