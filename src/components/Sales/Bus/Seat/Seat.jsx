@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
 import EventSeatRoundedIcon from '@mui/icons-material/EventSeatRounded';
 import Tooltip from '@mui/material/Tooltip';
-import { Background, Container, ContainerTopSeats, ContainerCenterSeats, ContainerButtomSeats, Empty } from './SeatStyles';
+import { Background, Container, ContainerTopSeats, ContainerCenterSeats, ContainerButtomSeats,ContainerHall } from './SeatStyles';
 //check
 import Checkbox from '@mui/material/Checkbox';
 //form controls
@@ -72,13 +72,6 @@ const Seat = ({ dataBusTravel }) => {
   };
   const seatData = busMapData();
 
-  let itemNumber = [];
-  const busMap = () => {
-    for (let i = 0; i < numberOfSeats; i++) {
-      itemNumber[i] = i + 1;
-    }
-  };
-
   const [checked, setChecked] = useState();
 
   const handleChange = (event) => {
@@ -87,20 +80,18 @@ const Seat = ({ dataBusTravel }) => {
   console.log('checked', checked);
   return (
     <>
-      {busMap()}
       <Background>
         <Container>
         <ContainerTopSeats>
-
         {createSeats(29)[2].map((seat) => {
-          console.log(seat||"");
-          
+          if(seat!==null){
+            // console.log("seat",seat);
             return (
               <Tooltip
-                key={seat||""}
+                key={seat}
                 title={
                   <>
-                    <p>N#: {seat||""}</p>
+                    <p>N#: {seat}</p>
                     <p>Tipo: {typeOfSeats}</p>
                     <p>
                       Precio Rango:
@@ -132,16 +123,17 @@ const Seat = ({ dataBusTravel }) => {
                       sx={{ margin: '-16px 0px 0px 0px' }}
                     />
                   }
-                  label={seat||""}
+                  label={seat}
                   labelPlacement="top"
                   sx={{ margin: '0px -12px -10px 0px' }}
                 />
               </Tooltip>
             );
+          }
           })}
           </ContainerTopSeats>
 
-          <Empty></Empty>
+          <ContainerHall></ContainerHall>
           <ContainerCenterSeats>
           {createSeats(29)[1].map((seat) => {
           console.log(seat||"");

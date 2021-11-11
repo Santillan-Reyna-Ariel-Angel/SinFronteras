@@ -19,23 +19,23 @@ export const Container = styled.div`
   /* grid-template-rows: auto auto auto auto; */
   /* grid-template-areas: 'RightWindowSeat' 'Halls' 'AisleSeat' 'LeftWindowSeat'; */
 
-  grid-template-rows: auto 50px auto auto;
-  grid-template-areas: 'RightWindowSeat' 'empty' 'AisleSeat' 'LeftWindowSeat';
+  grid-template-rows: auto auto auto auto;
+  grid-template-areas: 'TopSeats' 'Hall' 'CenterSeats' 'ButtomSeats';
   grid-template-columns: auto;
 `;
-export const Empty = styled.div`
-  grid-area: empty;
-  height: 50px;
+export const ContainerHall = styled.div`
+  grid-area: Hall;
+  height: 40px;
 `;
 
 export const ContainerTopSeats = styled.div`
-  grid-area: RightWindowSeat;
+  grid-area: TopSeats;
 `
 export const ContainerCenterSeats = styled.div`
-  grid-area: AisleSeat;
+  grid-area: CenterSeats;
 `
 export const ContainerButtomSeats = styled.div`
-  grid-area: LeftWindowSeat;
+  grid-area: ButtomSeats;
 `
 
 // export const HallsStyled = styled.div`
