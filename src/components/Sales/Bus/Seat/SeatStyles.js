@@ -19,18 +19,31 @@ export const Container = styled.div`
   /* grid-template-rows: auto auto auto auto; */
   /* grid-template-areas: 'RightWindowSeat' 'Halls' 'AisleSeat' 'LeftWindowSeat'; */
 
-  grid-template-rows: auto auto auto;
-  grid-template-areas: 'RightWindowSeat' 'AisleSeat' 'LeftWindowSeat';
-
+  grid-template-rows: auto 50px auto auto;
+  grid-template-areas: 'RightWindowSeat' 'empty' 'AisleSeat' 'LeftWindowSeat';
   grid-template-columns: auto;
 `;
+export const Empty = styled.div`
+  grid-area: empty;
+  height: 50px;
+`;
+
+export const ContainerTopSeats = styled.div`
+  grid-area: RightWindowSeat;
+`
+export const ContainerCenterSeats = styled.div`
+  grid-area: AisleSeat;
+`
+export const ContainerButtomSeats = styled.div`
+  grid-area: LeftWindowSeat;
+`
 
 // export const HallsStyled = styled.div`
 //   grid-area: Halls;
 //   margin-bottom: 20px;
 // `;
 
-export const RightWindowSeatStyled = styled.div`
-  grid-area: RightWindowSeat;
-  margin-bottom: 20px;
-`;
+// export const RightWindowSeatStyled = styled.div`
+//   grid-area: RightWindowSeat;
+//   margin-bottom: 20px;
+// `;
