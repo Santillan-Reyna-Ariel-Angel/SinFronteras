@@ -78,11 +78,64 @@ const Seat = ({ dataBusTravel }) => {
     setChecked(event.target.checked);
   };
   console.log('checked', checked);
+
+  const BusMap=(cant,indice)=>{
+    return createSeats(cant)[indice].map((seat) => {
+      if(seat!==null){
+        // console.log("seat",seat);
+        return (
+          <Tooltip
+            key={seat}
+            title={
+              <>
+                <p>N#: {seat}</p>
+                <p>Tipo: {typeOfSeats}</p>
+                <p>
+                  Precio Rango:
+                  {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
+                </p>
+                <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
+              </>
+            }
+            arrow
+            placement="top"
+          >
+            <FormControlLabel
+              control={
+                <Checkbox
+                  {...label}
+                  icon={
+                    <EventSeatRoundedIcon
+                      // fontSize="small"
+                      sx={{ transform: 'rotate(90deg)' }}
+                    />
+                  }
+                  checkedIcon={
+                    <EventSeatRoundedIcon
+                      // fontSize="small"
+                      sx={{ transform: 'rotate(90deg)' }}
+                    />
+                  }
+                  onChange={handleChange}
+                  sx={{ margin: '-16px 0px 0px 0px' }}
+                />
+              }
+              label={seat}
+              labelPlacement="top"
+              sx={{ margin: '0px -12px -10px 0px' }}
+            />
+          </Tooltip>
+        );
+      }else{
+        return null;
+      }
+      })
+  }
   return (
     <>
       <Background>
         <Container>
-        <ContainerTopSeats>
+          {/* <ContainerTopSeats>
         {createSeats(29)[2].map((seat) => {
           if(seat!==null){
             // console.log("seat",seat);
@@ -131,10 +184,11 @@ const Seat = ({ dataBusTravel }) => {
             );
           }
           })}
-          </ContainerTopSeats>
+          </ContainerTopSeats> */}
 
-          <ContainerHall></ContainerHall>
-          <ContainerCenterSeats>
+          {/* <ContainerHall></ContainerHall> */}
+
+          {/* <ContainerCenterSeats>
           {createSeats(29)[1].map((seat) => {
           console.log(seat||"");
             return (
@@ -181,8 +235,9 @@ const Seat = ({ dataBusTravel }) => {
               </Tooltip>
             );
           })}
-          </ContainerCenterSeats>
-          <ContainerButtomSeats>
+          </ContainerCenterSeats> */}
+
+          {/* <ContainerButtomSeats>
            {createSeats(29)[0].map((seat) => {
           console.log(seat||"");
             return (
@@ -229,10 +284,13 @@ const Seat = ({ dataBusTravel }) => {
               </Tooltip>
             );
           })}
-</ContainerButtomSeats>
+          </ContainerButtomSeats> */}
 
+          <ContainerTopSeats>{BusMap(numberOfSeats,2)}</ContainerTopSeats>
+          <ContainerHall></ContainerHall>
+          <ContainerCenterSeats>{BusMap(numberOfSeats,1)}</ContainerCenterSeats>
+          <ContainerButtomSeats>{BusMap(numberOfSeats,0)}</ContainerButtomSeats>
 
-          
           {/* {itemNumber.map((itemId) => {
             return (
               <Tooltip
