@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import Bus from './../ContornosX.png';
 
 export const Background = styled.div`
-  width: 100%;
-  height: 100%;
+  width: max-content; //50px
+  height: max-content; //150px,max-content,fit-content
   left: 0;
   top: 0;
   margin-top: 40px;
@@ -14,7 +14,7 @@ export const Background = styled.div`
 
 export const Container = styled.div`
   width: auto;
-  padding: 2px 0px 2px 60px;
+  padding: 2px 20px 2px 55px;
 
   /* grid-template-rows: auto auto auto auto; */
   /* grid-template-areas: 'RightWindowSeat' 'Halls' 'AisleSeat' 'LeftWindowSeat'; */
@@ -25,18 +25,21 @@ export const Container = styled.div`
 `;
 export const ContainerHall = styled.div`
   grid-area: Hall;
-  height: 40px;
+  height: 25px;
 `;
 
 export const ContainerTopSeats = styled.div`
   grid-area: TopSeats;
-`
+  /* margin: 0px 15px 0px 70px; */
+`;
 export const ContainerCenterSeats = styled.div`
   grid-area: CenterSeats;
-`
+  /* margin: 0px 15px 0px 70px; */
+`;
 export const ContainerButtomSeats = styled.div`
   grid-area: ButtomSeats;
-`
+  /* margin: 0px 15px 0px 70px; */
+`;
 
 // export const HallsStyled = styled.div`
 //   grid-area: Halls;
