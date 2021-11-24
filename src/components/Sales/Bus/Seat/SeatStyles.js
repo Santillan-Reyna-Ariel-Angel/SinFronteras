@@ -4,17 +4,21 @@ import Bus from './../ContornosX.png';
 export const Background = styled.div`
   width: max-content; //50px
   height: max-content; //150px,max-content,fit-content
+  /* height: 200px; */
   left: 0;
   top: 0;
   margin-top: 40px;
-  background: url(${Bus});
+  /* background: url(${Bus}); */
   background-size: contain;
   background-repeat: no-repeat;
+  border: 2px solid red;
+  border-radius: 15px;
+  background-color: gray;
 `;
 
 export const Container = styled.div`
   width: auto;
-  padding: 2px 20px 2px 55px;
+  padding: 2px 17px 12px 55px;
 
   /* grid-template-rows: auto auto auto auto; */
   /* grid-template-areas: 'RightWindowSeat' 'Halls' 'AisleSeat' 'LeftWindowSeat'; */
@@ -30,6 +34,9 @@ export const ContainerHall = styled.div`
 
 export const ContainerTopSeats = styled.div`
   grid-area: TopSeats;
+  .sc-ihmZXn label.MuiFormControlLabel-root:last-child {
+    border-top-right-radius: 15px;
+  }
   /* margin: 0px 15px 0px 70px; */
 `;
 export const ContainerCenterSeats = styled.div`

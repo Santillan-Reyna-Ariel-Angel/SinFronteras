@@ -1,9 +1,9 @@
-import React from "react";
-import PrimarySearchAppBar from "./../AppBar/AppBar.jsx";
-import CustomizedList from "./../Sidebar/Sidebar";
-import Box from "@mui/material/Box";
+import React from 'react';
+import PrimarySearchAppBar from './../AppBar/AppBar.jsx';
+import CustomizedList from './../Sidebar/Sidebar';
+import Box from '@mui/material/Box';
 //Estilos:
-import { Background } from "./LayoutStyles";
+import { Background } from './LayoutStyles';
 const Layout = (props) => {
   return (
     <>
@@ -12,7 +12,7 @@ const Layout = (props) => {
 
         <Box
           sx={{
-            display: "flex",
+            display: 'flex',
             // flexWrap: "no-wrap",
             // display: "inline-block",
             // justifyContent: "center",

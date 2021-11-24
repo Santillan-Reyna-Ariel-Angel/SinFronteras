@@ -151,8 +151,9 @@ const Seat = ({ dataBusTravel }) => {
   // console.log('checked', checked);
 
   const BusMap = (typeOfBusParameter, numberOfSeatsParameter, indice) => {
+    console.log(createSeats(typeOfBusParameter, numberOfSeatsParameter).length);
     return createSeats(typeOfBusParameter, numberOfSeatsParameter)[indice].map(
-      (seatNumber) => {
+      (seatNumber, i, arraySeats) => {
         if (seatNumber !== null) {
           return (
             <Tooltip
@@ -184,7 +185,7 @@ const Seat = ({ dataBusTravel }) => {
                     checkedIcon={
                       <EventSeatRoundedIcon
                         // fontSize="small"
-                        sx={{ transform: 'rotate(90deg)' }}
+                        sx={{ transform: 'rotate(90deg)', color: 'red' }}
                       />
                     }
                     onChange={handleChange}
@@ -193,7 +194,14 @@ const Seat = ({ dataBusTravel }) => {
                 }
                 label={seatNumber}
                 labelPlacement="top"
-                sx={{ margin: '0px -12px -10px 0px' }}
+                sx={{
+                  margin: '0px -12px -10px 0px',
+                  backgroundColor: 'white',
+                  borderTopRightRadius:
+                    i === arraySeats.length - 1 && indice === 2 ? '15px' : '',
+                  borderBottomRightRadius:
+                    i === arraySeats.length - 1 && indice === 0 ? '15px' : '',
+                }}
               />
             </Tooltip>
           );
