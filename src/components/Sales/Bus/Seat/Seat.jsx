@@ -19,7 +19,7 @@ import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice'
 
 //Usado en Check
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-//Algoritmo que genera 3 filas
+//Algoritmo que genera 3 y 4 filas
 let createSeats = (typeOfBus, numSeat) => {
   let seats = [];
   for (let i = 1; i <= numSeat; i++) {
@@ -28,7 +28,7 @@ let createSeats = (typeOfBus, numSeat) => {
         seats.push([i - 3, i - 2, i - 1, i]);
       }
     }
-    if ((typeOfBus = 'leito')) {
+    if (typeOfBus === 'leito') {
       if (i % 3 === 0) {
         seats.push([i - 2, i - 1, i]);
       }
@@ -151,7 +151,10 @@ const Seat = ({ dataBusTravel }) => {
   // console.log('checked', checked);
 
   const BusMap = (typeOfBusParameter, numberOfSeatsParameter, indice) => {
-    console.log(createSeats(typeOfBusParameter, numberOfSeatsParameter).length);
+    console.log(
+      'as: ',
+      createSeats(typeOfBusParameter, numberOfSeatsParameter).length
+    );
     return createSeats(typeOfBusParameter, numberOfSeatsParameter)[indice].map(
       (seatNumber, i, arraySeats) => {
         if (seatNumber !== null) {
@@ -216,7 +219,7 @@ const Seat = ({ dataBusTravel }) => {
     <>
       <Background>
         <Container>
-          {typeOfBus === 'normal' ? (
+          {typeOfBus === 'leito' ? (
             <>
               <ContainerTopSeats>
                 {BusMap(typeOfBus, numberOfSeats, 2)}
