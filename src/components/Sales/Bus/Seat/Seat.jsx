@@ -19,7 +19,8 @@ import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice'
 
 //Usado en Check
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
-//Algoritmo que genera 3 y 4 filas
+
+//Algoritmo para generar filas del bus(4-5)
 let createSeats = (typeOfBus, numSeat) => {
   let seats = [];
   for (let i = 1; i <= numSeat; i++) {
@@ -36,14 +37,14 @@ let createSeats = (typeOfBus, numSeat) => {
   }
 
   if (typeOfBus === 'normal') {
-    if (numSeat % 4 === 0)
+    if (numSeat % 4 === 0) {
       return [
         seats.map((x) => x[0]),
         seats.map((x) => x[1]),
         seats.map((x) => x[2]),
         seats.map((x) => x[3]),
       ];
-    else {
+    } else {
       let f = numSeat - seats.length * 4;
       seats.push(
         f === 1
@@ -62,13 +63,13 @@ let createSeats = (typeOfBus, numSeat) => {
   }
 
   if (typeOfBus === 'leito') {
-    if (numSeat % 3 === 0)
+    if (numSeat % 3 === 0) {
       return [
         seats.map((x) => x[0]),
         seats.map((x) => x[1]),
         seats.map((x) => x[2]),
       ];
-    else {
+    } else {
       let f = numSeat - seats.length * 3;
       seats.push(f < 2 ? [numSeat, null, null] : [numSeat - 1, numSeat, null]);
       return [
@@ -78,23 +79,6 @@ let createSeats = (typeOfBus, numSeat) => {
       ];
     }
   }
-
-  //
-  // if (numSeat % 3 === 0)
-  //   return [
-  //     seats.map((x) => x[0]),
-  //     seats.map((x) => x[1]),
-  //     seats.map((x) => x[2]),
-  //   ];
-  // else {
-  //   let f = numSeat - seats.length * 3;
-  //   seats.push(f < 2 ? [numSeat, null, null] : [numSeat - 1, numSeat, null]);
-  //   return [
-  //     seats.map((x) => x[0]),
-  //     seats.map((x) => x[1]),
-  //     seats.map((x) => x[2]),
-  //   ];
-  // }
 };
 
 const Seat = ({ dataBusTravel }) => {
@@ -130,14 +114,7 @@ const Seat = ({ dataBusTravel }) => {
     if (prices[0].seatType === typeOfSeats) {
       // console.log('Datos iguales');
       const { minimalPrice, maximumPrice } = prices[0];
-      // let busMapAux = {
-      //   typeOfBus,
-      //   typeOfSeats,
-      //   numberOfSeats,
-      //   minimalPrice,
-      //   maximumPrice,
-      // };
-      // return busMapAux;
+
       return { minimalPrice, maximumPrice };
     }
   };
@@ -151,10 +128,6 @@ const Seat = ({ dataBusTravel }) => {
   // console.log('checked', checked);
 
   const BusMap = (typeOfBusParameter, numberOfSeatsParameter, indice) => {
-    console.log(
-      'as: ',
-      createSeats(typeOfBusParameter, numberOfSeatsParameter).length
-    );
     return createSeats(typeOfBusParameter, numberOfSeatsParameter)[indice].map(
       (seatNumber, i, arraySeats) => {
         if (seatNumber !== null) {
@@ -201,7 +174,11 @@ const Seat = ({ dataBusTravel }) => {
                   margin: '0px -12px -10px 0px',
                   backgroundColor: 'white',
                   borderTopRightRadius:
-                    i === arraySeats.length - 1 && indice === 2 ? '15px' : '',
+                    i === arraySeats.length - 1 &&
+                    ((indice === 2 && typeOfBusParameter === 'leito') ||
+                      (indice === 3 && typeOfBusParameter === 'normal'))
+                      ? '15px'
+                      : '',
                   borderBottomRightRadius:
                     i === arraySeats.length - 1 && indice === 0 ? '15px' : '',
                 }}
@@ -249,15 +226,6 @@ const Seat = ({ dataBusTravel }) => {
               </ContainerButtomSeats>
             </>
           )}
-
-          {/* <ContainerTopSeats>{BusMap(numberOfSeats, 2)}</ContainerTopSeats>
-          <ContainerHall></ContainerHall>
-          <ContainerCenterSeats>
-            {BusMap(numberOfSeats, 1)}
-          </ContainerCenterSeats>
-          <ContainerButtomSeats>
-            {BusMap(numberOfSeats, 0)}
-          </ContainerButtomSeats> */}
         </Container>
       </Background>
     </>

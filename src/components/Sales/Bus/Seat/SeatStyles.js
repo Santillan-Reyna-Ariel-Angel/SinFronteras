@@ -18,7 +18,7 @@ export const Background = styled.div`
 
 export const Container = styled.div`
   width: auto;
-  padding: 2px 17px 12px 55px;
+  padding: 0px 12px 10px 50px;
 
   /* grid-template-rows: auto auto auto auto; */
   /* grid-template-areas: 'RightWindowSeat' 'Halls' 'AisleSeat' 'LeftWindowSeat'; */
@@ -34,18 +34,13 @@ export const ContainerHall = styled.div`
 
 export const ContainerTopSeats = styled.div`
   grid-area: TopSeats;
-  .sc-ihmZXn label.MuiFormControlLabel-root:last-child {
-    border-top-right-radius: 15px;
-  }
-  /* margin: 0px 15px 0px 70px; */
+  //:last-child para el ultimo elemento
 `;
 export const ContainerCenterSeats = styled.div`
   grid-area: CenterSeats;
-  /* margin: 0px 15px 0px 70px; */
 `;
 export const ContainerButtomSeats = styled.div`
   grid-area: ButtomSeats;
-  /* margin: 0px 15px 0px 70px; */
 `;
 
 // export const HallsStyled = styled.div`
