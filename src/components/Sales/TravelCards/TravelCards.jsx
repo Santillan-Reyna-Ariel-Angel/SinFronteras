@@ -71,7 +71,7 @@ const TravelCards = ({ travelSearchData }) => {
   console.log('dataOfTheSelectedTravelBus: ', dataOfTheSelectedTravelBus);
 
   const [view, setView] = useState(false);
-  console.log('view', view);
+  // console.log('view', view);
 
   // const dataTravelBusSelected = () => {
   //   return (

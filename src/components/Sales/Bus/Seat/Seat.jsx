@@ -18,7 +18,8 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 //Context
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
-
+//x-data-grid
+import { DataGrid } from '@mui/x-data-grid';
 //Usado en Check
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -122,14 +123,6 @@ const Seat = ({ dataBusTravel }) => {
   };
   const seatData = busMapData();
 
-  const [checked, setChecked] = useState();
-
-  const handleChange = (event) => {
-    setChecked(event.target.checked);
-    console.log('id: ', event.target.id, '.checked', event.target.checked);
-  };
-  console.log('checked', checked);
-
   const BusMap = (typeOfBusParameter, numberOfSeatsParameter, indice) => {
     return createSeats(typeOfBusParameter, numberOfSeatsParameter)[indice].map(
       (seatNumber, i, arraySeats) => {
@@ -196,6 +189,90 @@ const Seat = ({ dataBusTravel }) => {
     );
   };
 
+  //x-data-grid:
+  const columns = [
+    { field: 'id', headerName: 'N# Asiento', width: 100 },
+    { field: 'price', headerName: 'Precio', width: 70 },
+    {
+      field: 'firstName',
+      headerName: 'Nombres',
+      width: 140,
+      editable: true,
+    },
+    {
+      field: 'lastName',
+      headerName: 'Apellidos',
+      width: 140,
+      editable: true,
+    },
+    {
+      field: 'typeOfDocument',
+      headerName: 'Documento',
+      width: 130,
+      editable: true,
+    },
+    {
+      field: 'identificationNumber',
+      headerName: 'N# Identificacion',
+      width: 150,
+      editable: true,
+    },
+  ];
+
+  const rows = [
+    {
+      id: '1',
+      price: '150',
+      firstName: 'Jon',
+      lastName: 'Snow',
+      typeOfDocument: 'Carnet Identidad',
+      identificationNumber: 123456789,
+    },
+    {
+      id: '2',
+      price: '150',
+      firstName: 'Daenerys',
+      lastName: 'Targaryen',
+      typeOfDocument: 'Carnet Identidad',
+      identificationNumber: 123456789,
+    },
+  ];
+
+  const editable = rows.map((data) => {
+    console.log(data);
+    return data;
+  });
+  const [checked, setChecked] = useState(false);
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+    console.log('id: ', event.target.id, '.checked', event.target.checked);
+    // if (event.target.checked === true) {
+    //   editable.push({
+    //     id: event.target.id.toString(),
+    //     price: '150',
+    //     firstName: '',
+    //     lastName: '',
+    //     typeOfDocument: 'Carnet Identidad',
+    //     identificationNumber: '0',
+    //   });
+    // }
+  };
+
+  const DataGridDemo = () => {
+    return (
+      <div style={{ height: 380, width: 800 }}>
+        {/* width: '100%' */}
+        <DataGrid
+          rows={editable}
+          columns={columns}
+          pageSize={5} //cantidad maxima de elementos por pagina
+          rowsPerPageOptions={[5]}
+          checkboxSelection
+          disableSelectionOnClick
+        />
+      </div>
+    );
+  };
   return (
     <>
       <Background>
@@ -234,6 +311,7 @@ const Seat = ({ dataBusTravel }) => {
           )}
         </Container>
       </Background>
+      {DataGridDemo()}
     </>
   );
 };
