@@ -9,6 +9,7 @@ import {
   ContainerCenterSeats,
   ContainerButtomSeats,
   ContainerHall,
+  DriverStyled,
 } from './SeatStyles';
 //check
 import Checkbox from '@mui/material/Checkbox';
@@ -198,6 +199,7 @@ const Seat = ({ dataBusTravel }) => {
         <Container>
           {typeOfBus === 'leito' ? (
             <>
+              <DriverStyled />
               <ContainerTopSeats>
                 {BusMap(typeOfBus, numberOfSeats, 2)}
               </ContainerTopSeats>
@@ -211,6 +213,7 @@ const Seat = ({ dataBusTravel }) => {
             </>
           ) : (
             <>
+              <DriverStyled />
               <ContainerTopSeats>
                 {BusMap(typeOfBus, numberOfSeats, 3)}
               </ContainerTopSeats>

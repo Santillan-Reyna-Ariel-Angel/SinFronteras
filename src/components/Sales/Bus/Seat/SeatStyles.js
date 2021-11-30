@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Bus from './../ContornosX.png';
+import Driver from '../../../../sources/img/bus/driver.png';
+import Driver4 from '../../../../sources/img/bus/driver4.png';
 
 export const Background = styled.div`
   width: max-content; //50px
@@ -23,9 +25,9 @@ export const Container = styled.div`
   /* grid-template-rows: auto auto auto auto; */
   /* grid-template-areas: 'RightWindowSeat' 'Halls' 'AisleSeat' 'LeftWindowSeat'; */
 
+  grid-template-columns: 200px auto;
   grid-template-rows: auto auto auto auto;
-  grid-template-areas: 'TopSeats' 'Hall' 'CenterSeats' 'ButtomSeats';
-  grid-template-columns: auto;
+  grid-template-areas: 'Driver TopSeats' 'Driver Hall' 'Driver CenterSeats' 'Driver ButtomSeats';
 `;
 export const ContainerHall = styled.div`
   grid-area: Hall;
@@ -52,3 +54,15 @@ export const ContainerButtomSeats = styled.div`
 //   grid-area: RightWindowSeat;
 //   margin-bottom: 20px;
 // `;
+
+export const DriverStyled = styled.div`
+  grid-area: Driver;
+  height: '50px';
+  width: '50px';
+  background-size: 'contain'; //cover
+  background-repeat: 'no-repeat';
+  background: url(${Driver4});
+  background-position: 'center';
+  object-fit: 'cover';
+  transform: 'rotate(90deg)';
+`;

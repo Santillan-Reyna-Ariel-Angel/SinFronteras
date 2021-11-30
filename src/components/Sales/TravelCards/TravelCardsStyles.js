@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
-  /* height: 100%; */
   left: 0;
   top: 0;
   margin-top: 40px;
+  max-width: fit-content;
+  min-width: fit-content;
 `;
 
 export const Container = styled.div`
@@ -51,7 +52,9 @@ export const BusStyle = styled.div`
 
 export const TextDepartureTimeStyle = styled.div`
   grid-area: TextDepartureTime;
-  padding: 0px 15px;
+  padding: 0px 8px;
+  align-self: center;
+  justify-self: center;
   div {
     display: flex;
     align-items: center;
