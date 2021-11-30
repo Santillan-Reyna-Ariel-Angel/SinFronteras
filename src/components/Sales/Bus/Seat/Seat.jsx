@@ -110,7 +110,7 @@ const Seat = ({ dataBusTravel }) => {
       prices.push(elemento);
     }
   });
-  console.log('Context_prices', prices);
+  // console.log('Context_prices', prices);
 
   const busMapData = () => {
     if (prices[0].seatType === typeOfSeats) {
@@ -126,8 +126,9 @@ const Seat = ({ dataBusTravel }) => {
 
   const handleChange = (event) => {
     setChecked(event.target.checked);
+    console.log('id: ', event.target.id, '.checked', event.target.checked);
   };
-  // console.log('checked', checked);
+  console.log('checked', checked);
 
   const BusMap = (typeOfBusParameter, numberOfSeatsParameter, indice) => {
     return createSeats(typeOfBusParameter, numberOfSeatsParameter)[indice].map(
@@ -153,6 +154,7 @@ const Seat = ({ dataBusTravel }) => {
               <FormControlLabel
                 control={
                   <Checkbox
+                    id={seatNumber}
                     {...label}
                     icon={
                       <EventSeatRoundedIcon
@@ -163,7 +165,7 @@ const Seat = ({ dataBusTravel }) => {
                     checkedIcon={
                       <EventSeatRoundedIcon
                         // fontSize="small"
-                        sx={{ transform: 'rotate(90deg)', color: 'orange' }}
+                        sx={{ transform: 'rotate(90deg)', color: 'primary' }}
                       />
                     }
                     onChange={handleChange}
@@ -174,15 +176,15 @@ const Seat = ({ dataBusTravel }) => {
                 labelPlacement="top"
                 sx={{
                   margin: '0px -12px -10px 0px',
-                  // backgroundColor: 'white',
-                  borderTopRightRadius:
-                    i === arraySeats.length - 1 &&
-                    ((indice === 2 && typeOfBusParameter === 'leito') ||
-                      (indice === 3 && typeOfBusParameter === 'normal'))
-                      ? '15px'
-                      : '',
-                  borderBottomRightRadius:
-                    i === arraySeats.length - 1 && indice === 0 ? '15px' : '',
+                  // backgroundColor: 'red',
+                  // borderTopRightRadius:
+                  //   i === arraySeats.length - 1 &&
+                  //   ((indice === 2 && typeOfBusParameter === 'leito') ||
+                  //     (indice === 3 && typeOfBusParameter === 'normal'))
+                  //     ? '15px'
+                  //     : '',
+                  // borderBottomRightRadius:
+                  //   i === arraySeats.length - 1 && indice === 0 ? '15px' : '',
                 }}
               />
             </Tooltip>

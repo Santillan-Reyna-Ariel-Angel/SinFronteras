@@ -12,9 +12,11 @@ export const Background = styled.div`
   /* background: url(${Bus}); */
   background-size: contain;
   background-repeat: no-repeat;
-  border: 2px solid #051e34; //contorno del bus
+  border: 4px solid #051e34; //contorno del bus
   border-radius: 15px;
-  background-color: white;
+
+  // *Opciones Claros:rgba(71, 98, 130, 0.2) || rgb(102, 157, 246) || rgba(255,255,255,0.8) || rgba(255,255,255,0.5) || fuertes: rgb(5, 30, 52)
+  background-color: rgba(102, 157, 246, 0.5);
 `;
 
 export const Container = styled.div`
