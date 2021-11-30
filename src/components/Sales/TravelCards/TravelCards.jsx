@@ -1,6 +1,7 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 //icons
 import DirectionsBusRoundedIcon from '@mui/icons-material/DirectionsBusRounded';
+import NoTransferRoundedIcon from '@mui/icons-material/NoTransferRounded';
 // import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
 import QueryBuilderRoundedIcon from '@mui/icons-material/QueryBuilderRounded';
 import Button from '@mui/material/Button';
@@ -68,13 +69,17 @@ const TravelCards = ({ travelSearchData }) => {
   // console.log("travelCardsList", travelCardsList);
   // console.log('travelCardsListAux', travelCardsListAux);
   console.log('dataOfTheSelectedTravelBus: ', dataOfTheSelectedTravelBus);
-  const dataTravelBusSelected = () => {
-    return (
-      <>
-        <Seat dataBusTravel={dataOfTheSelectedTravelBus} />
-      </>
-    );
-  };
+
+  const [view, setView] = useState(false);
+  console.log('view', view);
+
+  // const dataTravelBusSelected = () => {
+  //   return (
+  //     <>
+  //       <Seat dataBusTravel={dataOfTheSelectedTravelBus} />
+  //     </>
+  //   );
+  // };
 
   return (
     <>
@@ -102,11 +107,18 @@ const TravelCards = ({ travelSearchData }) => {
                   <BtnSeeBusStyle>
                     <Button
                       variant="contained"
-                      color="success"
-                      endIcon={<DirectionsBusRoundedIcon />}
+                      color={view ? 'error' : 'success'}
+                      endIcon={
+                        view ? (
+                          <NoTransferRoundedIcon />
+                        ) : (
+                          <DirectionsBusRoundedIcon />
+                        )
+                      }
                       // onClick={() => dataTravelBusSelected()}
+                      onClick={() => setView(!view)}
                     >
-                      Ver
+                      {view ? 'Ocultar' : 'Ver'}
                     </Button>
                   </BtnSeeBusStyle>
                   <TypeOfBusStyle>
@@ -135,7 +147,10 @@ const TravelCards = ({ travelSearchData }) => {
           </ContainerCardBody>
         </Background>
       )}
-      {travelCardsListAux.length >= 1 ? dataTravelBusSelected() : null}
+      {/* {travelCardsListAux.length >= 1 ? dataTravelBusSelected() : null} */}
+      {travelCardsListAux.length >= 1 && view === true ? (
+        <Seat dataBusTravel={dataOfTheSelectedTravelBus} />
+      ) : null}
     </>
   );
 };
