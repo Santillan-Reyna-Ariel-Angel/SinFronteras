@@ -6,7 +6,8 @@ import {
   Background,
   Container,
   ContainerTopSeats,
-  ContainerCenterSeats,
+  ContainerTopSeatsCenter,
+  ContainerButtomSeatsCenter,
   ContainerButtomSeats,
   ContainerHall,
   DriverStyled,
@@ -162,7 +163,7 @@ const Seat = ({ dataBusTravel }) => {
                     checkedIcon={
                       <EventSeatRoundedIcon
                         // fontSize="small"
-                        sx={{ transform: 'rotate(90deg)', color: 'red' }}
+                        sx={{ transform: 'rotate(90deg)', color: 'orange' }}
                       />
                     }
                     onChange={handleChange}
@@ -173,7 +174,7 @@ const Seat = ({ dataBusTravel }) => {
                 labelPlacement="top"
                 sx={{
                   margin: '0px -12px -10px 0px',
-                  backgroundColor: 'white',
+                  // backgroundColor: 'white',
                   borderTopRightRadius:
                     i === arraySeats.length - 1 &&
                     ((indice === 2 && typeOfBusParameter === 'leito') ||
@@ -204,9 +205,9 @@ const Seat = ({ dataBusTravel }) => {
                 {BusMap(typeOfBus, numberOfSeats, 2)}
               </ContainerTopSeats>
               <ContainerHall></ContainerHall>
-              <ContainerCenterSeats>
+              <ContainerButtomSeatsCenter>
                 {BusMap(typeOfBus, numberOfSeats, 1)}
-              </ContainerCenterSeats>
+              </ContainerButtomSeatsCenter>
               <ContainerButtomSeats>
                 {BusMap(typeOfBus, numberOfSeats, 0)}
               </ContainerButtomSeats>
@@ -217,13 +218,13 @@ const Seat = ({ dataBusTravel }) => {
               <ContainerTopSeats>
                 {BusMap(typeOfBus, numberOfSeats, 3)}
               </ContainerTopSeats>
-              <ContainerCenterSeats>
+              <ContainerTopSeatsCenter>
                 {BusMap(typeOfBus, numberOfSeats, 2)}
-              </ContainerCenterSeats>
+              </ContainerTopSeatsCenter>
               <ContainerHall></ContainerHall>
-              <ContainerCenterSeats>
+              <ContainerButtomSeatsCenter>
                 {BusMap(typeOfBus, numberOfSeats, 1)}
-              </ContainerCenterSeats>
+              </ContainerButtomSeatsCenter>
               <ContainerButtomSeats>
                 {BusMap(typeOfBus, numberOfSeats, 0)}
               </ContainerButtomSeats>
