@@ -87,7 +87,7 @@ const TravelSearch = () => {
         />
       );
     } else {
-      console.log('ingrese los campos');
+      // console.log('ingrese los campos');
       return null;
     }
   }

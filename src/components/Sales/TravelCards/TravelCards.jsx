@@ -27,7 +27,7 @@ const TravelCards = ({ travelSearchData }) => {
   const { origin, destination, selectedTravelDate } = travelSearchData;
   const branchOffice = useContext(ContextBranchOffice);
   const { travels } = branchOffice ? branchOffice : { travels: {} };
-  console.log('travels', travels);
+  // console.log('travels', travels);
   let dataOfTheSelectedTravelBus = {};
 
   let travelCardsList = Object.keys(travels).map((travelKey) => {
@@ -68,7 +68,7 @@ const TravelCards = ({ travelSearchData }) => {
 
   // console.log("travelCardsList", travelCardsList);
   // console.log('travelCardsListAux', travelCardsListAux);
-  console.log('dataOfTheSelectedTravelBus: ', dataOfTheSelectedTravelBus);
+  // console.log('dataOfTheSelectedTravelBus: ', dataOfTheSelectedTravelBus);
 
   const [view, setView] = useState(false);
   // console.log('view', view);
