@@ -222,7 +222,7 @@ const Seat = ({ dataBusTravel }) => {
   const [rowsState, setRowsState] = useState([]);
 
   const handleChange = (event) => {
-    console.log('id: ', event.target.id, '.checked: ', event.target.checked);
+    // console.log('id: ', event.target.id, '.checked: ', event.target.checked);
     const ids = rowsState.map((seat) => seat.id);
     let selectedSeat = ids.includes(event.target.id);
     if (selectedSeat !== true && event.target.checked === true) {
@@ -231,10 +231,10 @@ const Seat = ({ dataBusTravel }) => {
         {
           id: event.target.id,
           price: '150',
-          firstName: 'Ariel',
-          lastName: 'Santillan',
+          firstName: '',
+          lastName: '',
           typeOfDocument: 'Carnet Identidad',
-          identificationNumber: '67616016',
+          identificationNumber: '',
         },
       ]);
     } else {
@@ -244,8 +244,22 @@ const Seat = ({ dataBusTravel }) => {
       setRowsState(rowsStateAux);
     }
   };
-  console.log('rowsState', rowsState);
 
+  // const chageValuesRows = (element) => {
+  //   setRowsState([
+  //     ...rowsState,
+  //     {
+  //       id: element.id,
+  //       price: '150',
+  //       firstName: element.firstName,
+  //       lastName: element.lastName,
+  //       typeOfDocument: 'Carnet Identidad',
+  //       identificationNumber: element.identificationNumber.toString(),
+  //     },
+  //   ]);
+  // };
+
+  console.log('rowsState', rowsState);
   const DataGridDemo = () => {
     return (
       <div style={{ height: 380, width: 800 }}>
@@ -255,13 +269,15 @@ const Seat = ({ dataBusTravel }) => {
           columns={columns}
           pageSize={5} //cantidad maxima de elementos por pagina
           rowsPerPageOptions={[5]}
-          checkboxSelection
-          disableSelectionOnClick
+          checkboxSelection //columna check para cada fila
+          disableSelectionOnClick //seleciona la fila al hacer click en un celda
+          hideFooterSelectedRowCount //oculta conteo de filas selecionadas
+          // onCellClick={(element) => chageValuesRows(element.row)}
+          onCellClick={(element) => console.log(element.row)}
         />
       </div>
     );
   };
-
   return (
     <>
       <Background>
