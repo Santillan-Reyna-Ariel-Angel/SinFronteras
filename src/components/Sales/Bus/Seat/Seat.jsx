@@ -219,41 +219,13 @@ const Seat = ({ dataBusTravel }) => {
     },
   ];
 
-  // const rows = [
-  //   {
-  //     id: '1',
-  //     price: '150',
-  //     firstName: 'Jon',
-  //     lastName: 'Snow',
-  //     typeOfDocument: 'Carnet Identidad',
-  //     identificationNumber: '123456789',
-  //   },
-  //   {
-  //     id: '2',
-  //     price: '150',
-  //     firstName: 'Daenerys',
-  //     lastName: 'Targaryen',
-  //     typeOfDocument: 'Carnet Identidad',
-  //     identificationNumber: '123456789',
-  //   },
-  // ];
-
   const [rowsState, setRowsState] = useState([]);
-  // const [checked, setChecked] = useState(false);
+
   const handleChange = (event) => {
-    // setChecked(event.target.checked);
     console.log('id: ', event.target.id, '.checked: ', event.target.checked);
-    if (event.target.checked === true) {
-      // El siguiente codigo da este error: TypeError: Cannot add property 2, object is not extensible
-      // rows.push({
-      //   id: event.target.id,
-      //   price: '150',
-      //   firstName: 'Ariel',
-      //   lastName: 'Santillan',
-      //   typeOfDocument: 'Carnet Identidad',
-      //   identificationNumber: '67616016',
-      // });
-      //hacer que si existe ya el asiento en el estado que no se marque o se sobre escriba, tabien se puede verificar que si los asientos siguen en check para o no ser eliminados
+    const ids = rowsState.map((seat) => seat.id);
+    let selectedSeat = ids.includes(event.target.id);
+    if (selectedSeat !== true && event.target.checked === true) {
       setRowsState([
         ...rowsState,
         {
@@ -265,10 +237,14 @@ const Seat = ({ dataBusTravel }) => {
           identificationNumber: '67616016',
         },
       ]);
-
-      console.log('rowsState', rowsState);
+    } else {
+      const rowsStateAux = rowsState.filter(
+        (seat) => seat.id !== event.target.id
+      );
+      setRowsState(rowsStateAux);
     }
   };
+  console.log('rowsState', rowsState);
 
   const DataGridDemo = () => {
     return (
@@ -286,7 +262,6 @@ const Seat = ({ dataBusTravel }) => {
     );
   };
 
-  //Otra Opcion es rowa convertir en un estado
   return (
     <>
       <Background>
