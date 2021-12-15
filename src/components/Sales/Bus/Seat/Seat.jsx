@@ -245,19 +245,23 @@ const Seat = ({ dataBusTravel }) => {
     }
   };
 
-  // const chageValuesRows = (element) => {
-  //   setRowsState([
-  //     ...rowsState,
-  //     {
-  //       id: element.id,
-  //       price: '150',
-  //       firstName: element.firstName,
-  //       lastName: element.lastName,
-  //       typeOfDocument: 'Carnet Identidad',
-  //       identificationNumber: element.identificationNumber.toString(),
-  //     },
-  //   ]);
-  // };
+  const chageValuesRows = (element) => {
+    const passengerAux = rowsState.map((passenger) => {
+      if (passenger.id === element.id) {
+        return {
+          id: element.id,
+          price: '150',
+          firstName: element.firstName,
+          lastName: element.lastName,
+          typeOfDocument: 'Carnet Identidad',
+          identificationNumber: element.identificationNumber,
+        };
+      } else {
+        return passenger;
+      }
+    });
+    setRowsState(passengerAux);
+  };
 
   console.log('rowsState', rowsState);
   const DataGridDemo = () => {
@@ -272,8 +276,7 @@ const Seat = ({ dataBusTravel }) => {
           checkboxSelection //columna check para cada fila
           disableSelectionOnClick //seleciona la fila al hacer click en un celda
           hideFooterSelectedRowCount //oculta conteo de filas selecionadas
-          // onCellClick={(element) => chageValuesRows(element.row)}
-          onCellClick={(element) => console.log(element.row)}
+          onCellClick={(element) => chageValuesRows(element.row)}
         />
       </div>
     );
