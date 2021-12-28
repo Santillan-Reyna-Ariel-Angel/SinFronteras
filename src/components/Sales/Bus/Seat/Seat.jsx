@@ -1,6 +1,7 @@
 import React, { useState, useContext } from 'react';
 import EventSeatRoundedIcon from '@mui/icons-material/EventSeatRounded';
 import Tooltip from '@mui/material/Tooltip';
+import Button from '@mui/material/Button';
 //Estilos
 import {
   Background,
@@ -246,23 +247,34 @@ const Seat = ({ dataBusTravel }) => {
   };
 
   const chageValuesRows = (element) => {
-    const passengerAux = rowsState.map((passenger) => {
-      if (passenger.id === element.id) {
-        return {
-          id: element.id,
-          price: '150',
-          firstName: element.firstName,
-          lastName: element.lastName,
-          typeOfDocument: 'Carnet Identidad',
-          identificationNumber: element.identificationNumber,
-        };
-      } else {
-        return passenger;
-      }
-    });
-    setRowsState(passengerAux);
+    ////1ra forma/////
+    // const passengerAux = rowsState.map((passenger) => {
+    //   if (passenger.id === element.id) {
+    //     return {
+    //       id: element.id,
+    //       price: '150',
+    //       firstName: element.firstName,
+    //       lastName: element.lastName,
+    //       typeOfDocument: 'Carnet Identidad',
+    //       identificationNumber: element.identificationNumber,
+    //     };
+    //   } else {
+    //     return passenger;
+    //   }
+    // });
+    // setRowsState(passengerAux);
+    ///2da forma////
+    const ids = rowsState.map((seat) => seat.id);
+    let indice = ids.indexOf(element.id);
+    rowsState[indice].id = element.id;
+    rowsState[indice].firstName = element.firstName;
+    rowsState[indice].lastName = element.lastName;
+    rowsState[indice].identificationNumber = element.identificationNumber;
   };
 
+  // const registrar = () => {
+  //   console.log('Hola');
+  // };
   console.log('rowsState', rowsState);
   const DataGridDemo = () => {
     return (
@@ -320,6 +332,15 @@ const Seat = ({ dataBusTravel }) => {
         </Container>
       </Background>
       {DataGridDemo()}
+      {/* <Button
+        variant="contained"
+        color="success"
+        onClick={() => {
+          registrar();
+        }}
+      >
+        Registar
+      </Button> */}
     </>
   );
 };
