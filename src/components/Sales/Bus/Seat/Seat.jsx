@@ -195,18 +195,6 @@ const Seat = ({ dataBusTravel }) => {
     { field: 'id', headerName: 'N# Asiento', width: 100 },
     { field: 'price', headerName: 'Precio', width: 70 },
     {
-      field: 'firstName',
-      headerName: 'Nombres',
-      width: 140,
-      editable: true,
-    },
-    {
-      field: 'lastName',
-      headerName: 'Apellidos',
-      width: 140,
-      editable: true,
-    },
-    {
       field: 'typeOfDocument',
       headerName: 'Documento',
       width: 130,
@@ -216,6 +204,18 @@ const Seat = ({ dataBusTravel }) => {
       field: 'identificationNumber',
       headerName: 'N# Identificacion',
       width: 150,
+      editable: true,
+    },
+    {
+      field: 'firstName',
+      headerName: 'Nombres',
+      width: 140,
+      editable: true,
+    },
+    {
+      field: 'lastName',
+      headerName: 'Apellidos',
+      width: 140,
       editable: true,
     },
   ];
@@ -232,10 +232,10 @@ const Seat = ({ dataBusTravel }) => {
         {
           id: event.target.id,
           price: '150',
-          firstName: '',
-          lastName: '',
           typeOfDocument: 'Carnet Identidad',
           identificationNumber: '',
+          firstName: '',
+          lastName: '',
         },
       ]);
     } else {
@@ -248,28 +248,32 @@ const Seat = ({ dataBusTravel }) => {
 
   const chageValuesRows = (element) => {
     ////1ra forma/////
-    // const passengerAux = rowsState.map((passenger) => {
-    //   if (passenger.id === element.id) {
-    //     return {
-    //       id: element.id,
-    //       price: '150',
-    //       firstName: element.firstName,
-    //       lastName: element.lastName,
-    //       typeOfDocument: 'Carnet Identidad',
-    //       identificationNumber: element.identificationNumber,
-    //     };
-    //   } else {
-    //     return passenger;
-    //   }
-    // });
-    // setRowsState(passengerAux);
+    const passengerAux = rowsState.map((passenger) => {
+      if (passenger.id === element.id) {
+        return {
+          id: element.id,
+          price: '150',
+          typeOfDocument: 'Carnet Identidad',
+          identificationNumber: element.identificationNumber,
+          firstName: element.firstName,
+          lastName: element.lastName,
+        };
+      } else {
+        return passenger;
+      }
+    });
+    setRowsState(passengerAux);
+
     ///2da forma////
-    const ids = rowsState.map((seat) => seat.id);
-    let indice = ids.indexOf(element.id);
-    rowsState[indice].id = element.id;
-    rowsState[indice].firstName = element.firstName;
-    rowsState[indice].lastName = element.lastName;
-    rowsState[indice].identificationNumber = element.identificationNumber;
+    // const ids = rowsState.map((seat) => seat.id);
+    // let indice = ids.indexOf(element.id);
+    // rowsState[indice].id = element.id;
+    // rowsState[indice].identificationNumber = element.identificationNumber;
+    // rowsState[indice].firstName = element.firstName;
+    // rowsState[indice].lastName = element.lastName;
+
+    //3ra forma////
+    //usar el metodo find();
   };
 
   // const registrar = () => {

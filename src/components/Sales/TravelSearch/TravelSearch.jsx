@@ -54,7 +54,7 @@ const TravelSearch = () => {
   const formattedTravelDate = travelDate.toLocaleDateString();
 
   // console.log("travelDate: ", travelDate);
-  // console.log("formattedTravelDate: ", formattedTravelDate);
+  console.log('formattedTravelDate: ', formattedTravelDate);
 
   function recoverTripData() {
     if (
