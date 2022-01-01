@@ -248,22 +248,21 @@ const Seat = ({ dataBusTravel }) => {
 
   const chageValuesRows = (element) => {
     ////1ra forma/////
-    const passengerAux = rowsState.map((passenger) => {
-      if (passenger.id === element.id) {
-        return {
-          id: element.id,
-          price: '150',
-          typeOfDocument: 'Carnet Identidad',
-          identificationNumber: element.identificationNumber,
-          firstName: element.firstName,
-          lastName: element.lastName,
-        };
-      } else {
-        return passenger;
-      }
-    });
-    setRowsState(passengerAux);
-
+    // const passengerAux = rowsState.map((passenger) => {
+    //   if (passenger.id === element.id) {
+    //     return {
+    //       id: element.id,
+    //       price: '150',
+    //       typeOfDocument: 'Carnet Identidad',
+    //       identificationNumber: element.identificationNumber,
+    //       firstName: element.firstName,
+    //       lastName: element.lastName,
+    //     };
+    //   } else {
+    //     return passenger;
+    //   }
+    // });
+    // setRowsState(passengerAux);
     ///2da forma////
     // const ids = rowsState.map((seat) => seat.id);
     // let indice = ids.indexOf(element.id);
@@ -271,7 +270,6 @@ const Seat = ({ dataBusTravel }) => {
     // rowsState[indice].identificationNumber = element.identificationNumber;
     // rowsState[indice].firstName = element.firstName;
     // rowsState[indice].lastName = element.lastName;
-
     //3ra forma////
     //usar el metodo find();
   };
