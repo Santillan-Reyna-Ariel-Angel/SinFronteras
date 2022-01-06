@@ -1,0 +1,25 @@
+>Colores:
+    Primarios: #00bdb2 (1ra opcion verde) - #14c7dd (2da opcion Celeste)
+    Secundarios(Grises): #9ca3af (1ra opcion) - #dbdef1(2da opcion)*/
+Celestes:
+    11bde3 6
+    Naranjas:
+    d64915 7  
+    b9511a 7.5
+Rojos:
+    ef3e2e 6.5
+    ec3c2e 6.5 
+>Alinear al centro verticalmente
+    align-self: center;
+>Alinear al centro horizontal
+    justify-self: center;
+
+
+>color AppBar:
+#051E34
+>color texto child SideBar 
+rgba(255, 255, 255, 0.8);
+primary: {
+    main: "rgb(102, 157, 246)",
+},
+    background: { paper: "rgb(5, 30, 52)" },
