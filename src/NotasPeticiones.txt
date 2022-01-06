@@ -1,0 +1,16 @@
+put:
+patch: 
+> no pude actualizar al mismo tiempo 2 propiedades, que se encuentren en 2 recursos diferentes, pues eliminara lo que no que no se haya especificado(parecido al put). se hizo la prueba de de actualizar un {} y un []
+Post:
+Delete:
+
+*ARRAYS
+put:
+> necesita de todo el recurso(en caso de arrays), para actualizar datos.
+>Es necesario hacer uso de este verbo para crear un nuevo elemento dentro del array(sin que nos genere una propiedad aleatoria dentro de la posision del array creado)
+patch:
+> no funciona en un recursos tipo arrays
+Post:
+> No usar en arrays ya que nos genera una propiedad aleatoria, dentro de la posiison que hayamos indicado en la peticion url.
+Delete:
+> funciona bien con arrays
