@@ -192,8 +192,8 @@ const Seat = ({ dataBusTravel }) => {
 
   //x-data-grid:
   const columns = [
-    { field: 'id', headerName: 'N# Asiento', width: 100 },
-    { field: 'price', headerName: 'Precio', width: 70 },
+    { field: 'id', headerName: 'N# Asiento', width: 102 },
+    { field: 'price', headerName: 'Precio', width: 73 },
     {
       field: 'typeOfDocument',
       headerName: 'Documento',
@@ -203,7 +203,7 @@ const Seat = ({ dataBusTravel }) => {
     {
       field: 'identificationNumber',
       headerName: 'N# Identificacion',
-      width: 150,
+      width: 140,
       editable: true,
     },
     {
@@ -286,11 +286,20 @@ const Seat = ({ dataBusTravel }) => {
           rows={rowsState}
           columns={columns}
           pageSize={5} //cantidad maxima de elementos por pagina
-          rowsPerPageOptions={[5]}
-          checkboxSelection //columna check para cada fila
-          disableSelectionOnClick //seleciona la fila al hacer click en un celda
+          density="compact" //Ancho de filas
+          disableColumnMenu={true} //Menu de columna
+          rowsPerPageOptions={[5]} //la consola lo sugiere
           hideFooterSelectedRowCount //oculta conteo de filas selecionadas
-          onCellClick={(element) => chageValuesRows(element.row)}
+          autoHeight={true} //Altura de la tabla dinamica
+          //
+          // onCellClick={(element) => chageValuesRows(element.row)}
+          // onCellClick={(element) => console.log(element.field)}
+          onCellEditCommit={(params, event) => console.log(params.value)}
+          //
+          //Sin uso
+          // checkboxSelection //columna check para cada fila
+          // disableSelectionOnClick //seleciona la fila al hacer click en un celda
+          // autoPageSize={true}
         />
       </div>
     );
