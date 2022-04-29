@@ -191,6 +191,7 @@ const Seat = ({ dataBusTravel }) => {
   };
 
   //x-data-grid:
+  // Nota: Precio tendria que ser editable?
   const columns = [
     { field: 'id', headerName: 'N# Asiento', width: 102 },
     { field: 'price', headerName: 'Precio', width: 73 },
@@ -246,37 +247,24 @@ const Seat = ({ dataBusTravel }) => {
     }
   };
 
-  const chageValuesRows = (element) => {
-    ////1ra forma/////
-    const passengerAux = rowsState.map((passenger) => {
-      if (passenger.id === element.id) {
-        return {
-          id: element.id,
-          price: '150',
-          typeOfDocument: 'Carnet Identidad',
-          identificationNumber: element.identificationNumber,
-          firstName: element.firstName,
-          lastName: element.lastName,
-        };
+  let passengerAux;
+  const recuperarDatos = (params) => {
+    let { id, field, value } = params;
+    passengerAux = rowsState.map((passenger, index) => {
+      if (passenger.id === id) {
+        passenger[field] = value;
+        return passenger;
       } else {
         return passenger;
       }
     });
-    setRowsState(passengerAux);
-    ///2da forma////
-    // const ids = rowsState.map((seat) => seat.id);
-    // let indice = ids.indexOf(element.id);
-    // rowsState[indice].id = element.id;
-    // rowsState[indice].identificationNumber = element.identificationNumber;
-    // rowsState[indice].firstName = element.firstName;
-    // rowsState[indice].lastName = element.lastName;
-    //3ra forma////
-    //usar el metodo find();
+    console.log(passengerAux);
   };
 
-  // const registrar = () => {
-  //   console.log('Hola');
-  // };
+  const registrarPasajeros = () => {
+    setRowsState(passengerAux);
+  };
+
   console.log('rowsState', rowsState);
   const DataGridDemo = () => {
     return (
@@ -291,11 +279,7 @@ const Seat = ({ dataBusTravel }) => {
           rowsPerPageOptions={[5]} //la consola lo sugiere
           hideFooterSelectedRowCount //oculta conteo de filas selecionadas
           autoHeight={true} //Altura de la tabla dinamica
-          //
-          // onCellClick={(element) => chageValuesRows(element.row)}
-          // onCellClick={(element) => console.log(element.field)}
-          onCellEditCommit={(params, event) => console.log(params.value)}
-          //
+          onCellEditCommit={(params, event) => recuperarDatos(params)} //registrar cada dato de la datagrid
           //Sin uso
           // checkboxSelection //columna check para cada fila
           // disableSelectionOnClick //seleciona la fila al hacer click en un celda
@@ -343,15 +327,15 @@ const Seat = ({ dataBusTravel }) => {
         </Container>
       </Background>
       {DataGridDemo()}
-      {/* <Button
+      <Button
         variant="contained"
         color="success"
         onClick={() => {
-          registrar();
+          registrarPasajeros();
         }}
       >
         Registar
-      </Button> */}
+      </Button>
     </>
   );
 };
