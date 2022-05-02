@@ -21,6 +21,9 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 //x-data-grid
 import { DataGrid } from '@mui/x-data-grid';
+//PassengerRegistrationTable:
+import { PassengerRegistrationTable } from '../../PassengerRegistrationTable/PassengerRegistrationTable';
+
 //Usado en Check
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
@@ -190,6 +193,33 @@ const Seat = ({ dataBusTravel }) => {
     );
   };
 
+  const [rowsState, setRowsState] = useState([]);
+
+  //Funcion para selecionar un asiento y colocarlo al estado:
+  const handleChange = (event) => {
+    // console.log('id: ', event.target.id, '.checked: ', event.target.checked);
+    const ids = rowsState.map((seat) => seat.id);
+    let selectedSeat = ids.includes(event.target.id);
+    if (selectedSeat !== true && event.target.checked === true) {
+      setRowsState([
+        ...rowsState,
+        {
+          id: event.target.id,
+          price: '150',
+          typeOfDocument: 'Carnet Identidad',
+          identificationNumber: '',
+          firstName: '',
+          lastName: '',
+        },
+      ]);
+    } else {
+      const rowsStateAux = rowsState.filter(
+        (seat) => seat.id !== event.target.id
+      );
+      setRowsState(rowsStateAux);
+    }
+  };
+
   //x-data-grid:
   // Nota: Precio tendria que ser editable?
   const columns = [
@@ -221,32 +251,6 @@ const Seat = ({ dataBusTravel }) => {
     },
   ];
 
-  const [rowsState, setRowsState] = useState([]);
-
-  const handleChange = (event) => {
-    // console.log('id: ', event.target.id, '.checked: ', event.target.checked);
-    const ids = rowsState.map((seat) => seat.id);
-    let selectedSeat = ids.includes(event.target.id);
-    if (selectedSeat !== true && event.target.checked === true) {
-      setRowsState([
-        ...rowsState,
-        {
-          id: event.target.id,
-          price: '150',
-          typeOfDocument: 'Carnet Identidad',
-          identificationNumber: '',
-          firstName: '',
-          lastName: '',
-        },
-      ]);
-    } else {
-      const rowsStateAux = rowsState.filter(
-        (seat) => seat.id !== event.target.id
-      );
-      setRowsState(rowsStateAux);
-    }
-  };
-
   let passengerAux;
   const recuperarDatos = (params) => {
     let { id, field, value } = params;
@@ -265,7 +269,8 @@ const Seat = ({ dataBusTravel }) => {
     setRowsState(passengerAux);
   };
 
-  console.log('rowsState', rowsState);
+  // console.log('rowsState', rowsState);
+
   const DataGridDemo = () => {
     return (
       <div style={{ height: 380, width: 800 }}>
@@ -288,6 +293,7 @@ const Seat = ({ dataBusTravel }) => {
       </div>
     );
   };
+
   return (
     <>
       <Background>
@@ -326,7 +332,7 @@ const Seat = ({ dataBusTravel }) => {
           )}
         </Container>
       </Background>
-      {DataGridDemo()}
+      {/* {DataGridDemo()}
       <Button
         variant="contained"
         color="success"
@@ -335,7 +341,11 @@ const Seat = ({ dataBusTravel }) => {
         }}
       >
         Registar
-      </Button>
+      </Button> */}
+      <PassengerRegistrationTable
+        rowsState={rowsState}
+        setRowsState={setRowsState}
+      />
     </>
   );
 };
