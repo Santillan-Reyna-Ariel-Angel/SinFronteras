@@ -1,8 +1,8 @@
 import React, { useState, useContext } from 'react';
 import EventSeatRoundedIcon from '@mui/icons-material/EventSeatRounded';
 import Tooltip from '@mui/material/Tooltip';
-import Button from '@mui/material/Button';
-//Estilos
+
+//Styles
 import {
   Background,
   Container,
@@ -19,8 +19,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 //Context
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
-//x-data-grid
-import { DataGrid } from '@mui/x-data-grid';
+
 //PassengerRegistrationTable:
 import { PassengerRegistrationTable } from '../../PassengerRegistrationTable/PassengerRegistrationTable';
 
@@ -96,8 +95,9 @@ const Seat = ({ dataBusTravel }) => {
     : { branchInformation: {}, travels: {} };
   const { destinations } = branchInformation;
   //Props
+  //Tambien se podria extraer: numberOfFloors
   const {
-    bus: { typeOfBus, numberOfSeats, typeOfSeats, numberOfFloors },
+    bus: { typeOfBus, numberOfSeats, typeOfSeats },
     destinationLocation,
   } = dataBusTravel ? dataBusTravel : {};
 
@@ -220,80 +220,6 @@ const Seat = ({ dataBusTravel }) => {
     }
   };
 
-  //x-data-grid:
-  // Nota: Precio tendria que ser editable?
-  const columns = [
-    { field: 'id', headerName: 'N# Asiento', width: 102 },
-    { field: 'price', headerName: 'Precio', width: 73 },
-    {
-      field: 'typeOfDocument',
-      headerName: 'Documento',
-      width: 130,
-      editable: true,
-    },
-    {
-      field: 'identificationNumber',
-      headerName: 'N# Identificacion',
-      width: 140,
-      editable: true,
-    },
-    {
-      field: 'firstName',
-      headerName: 'Nombres',
-      width: 140,
-      editable: true,
-    },
-    {
-      field: 'lastName',
-      headerName: 'Apellidos',
-      width: 140,
-      editable: true,
-    },
-  ];
-
-  let passengerAux;
-  const recuperarDatos = (params) => {
-    let { id, field, value } = params;
-    passengerAux = rowsState.map((passenger, index) => {
-      if (passenger.id === id) {
-        passenger[field] = value;
-        return passenger;
-      } else {
-        return passenger;
-      }
-    });
-    console.log(passengerAux);
-  };
-
-  const registrarPasajeros = () => {
-    setRowsState(passengerAux);
-  };
-
-  // console.log('rowsState', rowsState);
-
-  const DataGridDemo = () => {
-    return (
-      <div style={{ height: 380, width: 800 }}>
-        {/* width: '100%' */}
-        <DataGrid
-          rows={rowsState}
-          columns={columns}
-          pageSize={5} //cantidad maxima de elementos por pagina
-          density="compact" //Ancho de filas
-          disableColumnMenu={true} //Menu de columna
-          rowsPerPageOptions={[5]} //la consola lo sugiere
-          hideFooterSelectedRowCount //oculta conteo de filas selecionadas
-          autoHeight={true} //Altura de la tabla dinamica
-          onCellEditCommit={(params, event) => recuperarDatos(params)} //registrar cada dato de la datagrid
-          //Sin uso
-          // checkboxSelection //columna check para cada fila
-          // disableSelectionOnClick //seleciona la fila al hacer click en un celda
-          // autoPageSize={true}
-        />
-      </div>
-    );
-  };
-
   return (
     <>
       <Background>
@@ -332,16 +258,7 @@ const Seat = ({ dataBusTravel }) => {
           )}
         </Container>
       </Background>
-      {/* {DataGridDemo()}
-      <Button
-        variant="contained"
-        color="success"
-        onClick={() => {
-          registrarPasajeros();
-        }}
-      >
-        Registar
-      </Button> */}
+
       <PassengerRegistrationTable
         rowsState={rowsState}
         setRowsState={setRowsState}
