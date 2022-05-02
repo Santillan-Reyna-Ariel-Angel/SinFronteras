@@ -2,14 +2,15 @@ import React from 'react';
 //Styles
 import Button from '@mui/material/Button';
 //x-data-grid
-import { DataGrid } from '@mui/x-data-grid';
+// *esEs: es el idioma español que se puede añadir a la <DataGrid/>
+import { DataGrid, esES } from '@mui/x-data-grid';
 
 const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
   //x-data-grid:
   // Nota: Precio tendria que ser editable?
   const columns = [
-    { field: 'id', headerName: 'N# Asiento', width: 102 },
-    { field: 'price', headerName: 'Precio', width: 73 },
+    { field: 'id', headerName: 'N# Asiento', width: 104 },
+    { field: 'price', headerName: 'Precio', width: 74 },
     {
       field: 'typeOfDocument',
       headerName: 'Documento',
@@ -19,7 +20,7 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
     {
       field: 'identificationNumber',
       headerName: 'N# Identificacion',
-      width: 140,
+      width: 142,
       editable: true,
     },
     {
@@ -58,9 +59,11 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
 
   const DataGridDemo = () => {
     return (
-      <div style={{ height: 380, width: 800 }}>
+      <div style={{ height: 380, width: 732 }}>
         {/* width: '100%' */}
         <DataGrid
+          //   sx={{ marginTop: '50px' }}
+          localeText={esES.components.MuiDataGrid.defaultProps.localeText} //Importante: convierte los testo del compoente en el idioma indicado
           rows={rowsState}
           columns={columns}
           pageSize={5} //cantidad maxima de elementos por pagina
@@ -88,7 +91,7 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
           registrarPasajeros();
         }}
       >
-        Registar
+        Siguiente paso
       </Button>
     </>
   );
