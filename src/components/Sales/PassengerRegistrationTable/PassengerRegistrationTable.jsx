@@ -1,9 +1,11 @@
 import React from 'react';
 //Styles
 import Button from '@mui/material/Button';
+// import { Background, Container } from './PassengerRegistrationTableStyles';
 //x-data-grid
 // *esEs: es el idioma español que se puede añadir a la <DataGrid/>
 import { DataGrid, esES } from '@mui/x-data-grid';
+import { BillingRecord } from '../BillingRecord/BillingRecord';
 
 const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
   //x-data-grid:
@@ -83,8 +85,11 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
   };
   return (
     <>
+      {/* <Background> */}
+      {/* <Container> */}
       {DataGridDemo()}
       <Button
+        // sx={{ margin: 'marginTop:0px', paddingTop: '0px' }}
         variant="contained"
         color="success"
         onClick={() => {
@@ -93,6 +98,9 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
       >
         Siguiente paso
       </Button>
+      {/* </Container> */}
+      {/* </Background> */}
+      <BillingRecord rowsState={rowsState} />
     </>
   );
 };
