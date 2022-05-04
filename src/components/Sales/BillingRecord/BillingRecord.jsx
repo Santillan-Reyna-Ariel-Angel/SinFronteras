@@ -3,30 +3,19 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 
 const BillingRecord = ({ rowsState }) => {
-  let CiOrNit = rowsState.map((passenger) => {
-    return passenger.identificationNumber;
-  });
-  const [newCiOrNit, setNewCiOrNit] = useState('');
-
-  const handleInputChange = (event) => {
-    setNewCiOrNit(event.target.value);
-  };
-
   //Nuevo:
+  const [billingContactInformation, setBillingContactInformation] = useState({
+    ciOrNit: '',
+    nameOrSocialReason: '',
+    email: '',
+    countryCode: '',
+    mobile: '',
+  });
+  console.log('billingContactInformation: ', billingContactInformation);
+
   let cisOrNits = rowsState.map((passenger) => {
     return passenger.identificationNumber;
   });
-
-  let completeNamesAux = rowsState.map((passenger) => {
-    if (passenger.identificationNumber === newCiOrNit) {
-      return `${passenger.lastName} ${passenger.firstName}`;
-    } else {
-      return 'vacio';
-    }
-  });
-  let completeNames = completeNamesAux.filter(
-    (passenger) => passenger !== 'vacio'
-  );
 
   //revisar: https://mui.com/x/react-data-grid/filtering/#main-content
   // import * as React from 'react';
@@ -58,82 +47,66 @@ const BillingRecord = ({ rowsState }) => {
 
   let countryCodes = ['+591', '+1'];
 
-  const [billingContactInformation, setBillingContactInformation] = useState({
-    ciOrNit: '',
-    nameOrSocialReason: '',
-    email: '',
-    countryCode: '',
-    mobile: '',
-  });
-  console.log('billingContactInformation: ', billingContactInformation);
-
-  const handleInputChange2 = (event) => {
-    setBillingContactInformation({
-      ...billingContactInformation,
-      [event.target.name]: event.target.value.toLowerCase(),
+  const completeNamesFunction = (identificationNumberParam) => {
+    let completeNamesAux = rowsState.map((passenger) => {
+      if (passenger.identificationNumber === identificationNumberParam) {
+        return `${passenger.lastName} ${passenger.firstName}`;
+      } else {
+        return 'vacio';
+      }
     });
-  };
-  // --------------------------------------------------
-  //inputNameOrSocialReason:
-  let fullNameAux = rowsState.map((passenger) => {
-    if (passenger.identificationNumber === newCiOrNit) {
-      return `${passenger.lastName} ${passenger.firstName}`;
-    } else {
-      return 'vacio';
-    }
-  });
-  let fullName = fullNameAux.filter((passenger) => passenger !== 'vacio');
+    let completeNames = completeNamesAux.filter(
+      (passenger) => passenger !== 'vacio'
+    );
+    console.log('completeNames', completeNames);
 
-  const [newFullName, setNewFullName] = useState('');
-
-  const nameOrSocialReason = (event) => {
-    setNewFullName(event.target.value);
+    return completeNames;
   };
+
+  const inputChangeAutoComplete = (newValue, inputName) => {
+    setBillingContactInformation((prevState) => ({
+      ...prevState,
+      [inputName]: newValue === null ? '' : newValue,
+    }));
+    let completeNames = completeNamesFunction(newValue);
+    // Agregando Nombre:
+    //Si completeNames.length===0, no se encontro el ci o nit en la lista de pasajeros por lo cual no se añade nameOrSocialReason
+    setBillingContactInformation((prevState) => ({
+      ...prevState,
+      nameOrSocialReason: completeNames.length === 0 ? '' : completeNames[0],
+    }));
+  };
+  const handleInputChange = (event) => {
+    // Agregando Nombre:
+    let findingPassenger = rowsState.filter(
+      (passenger) => passenger.identificationNumber === event.target.value
+    );
+    let completeNames = completeNamesFunction(event.target.value);
+
+    console.log('nameOrSocialReason: ', completeNames[0]);
+    //Si findingPassenger.length===0, no se encontro el ci o nit en la lista de pasajeros por lo cual no se añade nameOrSocialReason
+    setBillingContactInformation((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+      nameOrSocialReason: findingPassenger.length === 0 ? '' : completeNames[0],
+    }));
+  };
+
+  const handleInputChangeEmail = (event) => {
+    console.log(event.target.name, '-', event.target.value);
+    setBillingContactInformation((prevState) => ({
+      ...prevState,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
   return (
     <>
       <Autocomplete
-        value={newCiOrNit}
-        onChange={(event, newValue) => {
-          setNewCiOrNit(newValue);
-        }}
-        id="inputCiOrNit"
-        options={CiOrNit}
-        renderInput={(params) => (
-          <TextField
-            className="input"
-            {...params}
-            label="CI/NIT:"
-            variant="outlined"
-            onChange={handleInputChange}
-          />
-        )}
-      />
-
-      <Autocomplete
-        value={newFullName}
-        onChange={(event, newValue) => {
-          setNewFullName(newValue);
-        }}
-        id="inputNameOrSocialReason"
-        options={fullName}
-        renderInput={(params) => (
-          <TextField
-            className="input"
-            {...params}
-            label="Nombre/Razon social:"
-            variant="outlined"
-            onChange={nameOrSocialReason}
-          />
-        )}
-      />
-
-      {/* Nuevo: */}
-      <Autocomplete
         value={billingContactInformation.ciOrNit}
         onChange={(event, newValue) => {
-          setBillingContactInformation(newValue);
+          inputChangeAutoComplete(newValue, 'ciOrNit');
         }}
-        id="ciOrNit"
         options={cisOrNits}
         renderInput={(params) => (
           <TextField
@@ -144,29 +117,19 @@ const BillingRecord = ({ rowsState }) => {
             label="CI/NIT:"
             name="ciOrNit"
             value={billingContactInformation.ciOrNit}
-            onChange={handleInputChange2}
+            onChange={handleInputChange}
           />
         )}
       />
-      <Autocomplete
+
+      <TextField
+        className="input"
+        type="text"
+        variant="outlined"
+        label="Nombre/Rason Social:"
+        name="nameOrSocialReason"
         value={billingContactInformation.nameOrSocialReason}
-        onChange={(event, newValue) => {
-          setBillingContactInformation(newValue);
-        }}
-        id="nameOrSocialReason"
-        options={completeNames}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            className="input"
-            type="text"
-            variant="outlined"
-            label="Nombre/Rason Social:"
-            name="nameOrSocialReason"
-            value={billingContactInformation.nameOrSocialReason}
-            onChange={handleInputChange2}
-          />
-        )}
+        onChange={handleInputChange}
       />
       <TextField
         className="input"
@@ -174,27 +137,37 @@ const BillingRecord = ({ rowsState }) => {
         variant="outlined"
         label="Correo:"
         name="email"
+        // error={true}
         value={billingContactInformation.email}
-        onChange={handleInputChange2}
+        onChange={handleInputChangeEmail}
       />
 
       <Autocomplete
         value={billingContactInformation.countryCode}
-        onChange={(event, newValue) => {
-          setBillingContactInformation(newValue);
-        }}
+        // inputChangeAutoCompleteCountryCode(newValue, 'countryCode');
+        onChange={(event, newValue) =>
+          setBillingContactInformation((prevState) => ({
+            ...prevState,
+            countryCode: newValue === null ? '' : newValue,
+          }))
+        }
         id="countryCode"
         options={countryCodes}
         renderInput={(params) => (
           <TextField
             {...params}
             className="input"
-            type="number"
+            type="text"
             variant="outlined"
             label="Codigo pais:"
             name="countryCode"
             value={billingContactInformation.countryCode}
-            onChange={handleInputChange2}
+            onChange={(event) =>
+              setBillingContactInformation((prevState) => ({
+                ...prevState,
+                [event.target.name]: event.target.value,
+              }))
+            }
           />
         )}
       />
@@ -206,7 +179,12 @@ const BillingRecord = ({ rowsState }) => {
         label="Celular:"
         name="mobile"
         value={billingContactInformation.mobile}
-        onChange={handleInputChange2}
+        onChange={(event) =>
+          setBillingContactInformation((prevState) => ({
+            ...prevState,
+            [event.target.name]: event.target.value,
+          }))
+        }
       />
     </>
   );
