@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
+import { Button } from '@mui/material';
+import { countryData } from './countryData';
 
 const BillingRecord = ({ rowsState }) => {
   //Nuevo:
@@ -17,35 +19,11 @@ const BillingRecord = ({ rowsState }) => {
     return passenger.identificationNumber;
   });
 
-  //revisar: https://mui.com/x/react-data-grid/filtering/#main-content
-  // import * as React from 'react';
-  // import { DataGrid, GridToolbar } from '@mui/x-data-grid';
-  // import { useDemoData } from '@mui/x-data-grid-generator';
-
-  // const VISIBLE_FIELDS = [
-  //   'name',
-  //   'rating',
-  //   'country',
-  //   'dateCreated',
-  //   'isAdmin',
-  // ];
-
-  // export default function BasicExampleDataGrid() {
-  //   const { data } = useDemoData({
-  //     dataSet: "Employee",
-  //     visibleFields: VISIBLE_FIELDS,
-  //     rowLength: 100
-  //   });
-  //   // {value: "ST",code: "ST",label: "Sao Tome and Principe",phone: "239"}
-  //   console.log(data.rows[0].country);
-  //   return (
-  //     <div style={{ height: 400, width: "100%" }}>
-  //       <DataGrid {...data} components={{ Toolbar: GridToolbar }} />
-  //     </div>
-  //   );
-  // }
-
-  let countryCodes = ['+591', '+1'];
+  //Codigo de marcacion de paises:
+  let countryCodes = countryData.map(
+    (country) => `${country.dialCode} (${country.isoCode})`
+  );
+  // console.log('countryCodes', countryCodes);
 
   const completeNamesFunction = (identificationNumberParam) => {
     let completeNamesAux = rowsState.map((passenger) => {
@@ -126,7 +104,7 @@ const BillingRecord = ({ rowsState }) => {
         className="input"
         type="text"
         variant="outlined"
-        label="Nombre/Rason Social:"
+        label="Nombre/Rason social:"
         name="nameOrSocialReason"
         value={billingContactInformation.nameOrSocialReason}
         onChange={handleInputChange}
@@ -186,6 +164,15 @@ const BillingRecord = ({ rowsState }) => {
           }))
         }
       />
+      <Button
+        variant="contained"
+        color="success"
+        onClick={() => {
+          console.log('Vender');
+        }}
+      >
+        Vender
+      </Button>
     </>
   );
 };
