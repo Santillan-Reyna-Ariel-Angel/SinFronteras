@@ -3,6 +3,17 @@ import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Button } from '@mui/material';
 import { countryData } from './countryData';
+//Styles:
+import {
+  Background,
+  Container,
+  InputCiOrNit,
+  InputNameOrSocialReason,
+  InputEmail,
+  InputCountryCode,
+  InputMobile,
+  Btn,
+} from './BillingRecordStyles';
 
 const BillingRecord = ({ rowsState }) => {
   //Nuevo:
@@ -48,6 +59,7 @@ const BillingRecord = ({ rowsState }) => {
     }));
     let completeNames = completeNamesFunction(newValue);
     // Agregando Nombre:
+    //ERROR: NOSE PUEDE ESCRIBIR CUANDO SE COLOCAR OTRO CARNERT FUERA DE LA LSITA DE PASAJEROS
     //Si completeNames.length===0, no se encontro el ci o nit en la lista de pasajeros por lo cual no se añade nameOrSocialReason
     setBillingContactInformation((prevState) => ({
       ...prevState,
@@ -80,99 +92,114 @@ const BillingRecord = ({ rowsState }) => {
 
   return (
     <>
-      <Autocomplete
-        value={billingContactInformation.ciOrNit}
-        onChange={(event, newValue) => {
-          inputChangeAutoComplete(newValue, 'ciOrNit');
-        }}
-        options={cisOrNits}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            className="input"
-            type="number"
-            variant="outlined"
-            label="CI/NIT:"
-            name="ciOrNit"
-            value={billingContactInformation.ciOrNit}
-            onChange={handleInputChange}
-          />
-        )}
-      />
+      <Background>
+        <Container>
+          <InputCiOrNit>
+            <Autocomplete
+              value={billingContactInformation.ciOrNit}
+              onChange={(event, newValue) => {
+                inputChangeAutoComplete(newValue, 'ciOrNit');
+              }}
+              options={cisOrNits}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  className="input"
+                  type="number"
+                  variant="outlined"
+                  label="CI/NIT:"
+                  name="ciOrNit"
+                  value={billingContactInformation.ciOrNit}
+                  onChange={handleInputChange}
+                />
+              )}
+            />
+          </InputCiOrNit>
 
-      <TextField
-        className="input"
-        type="text"
-        variant="outlined"
-        label="Nombre/Rason social:"
-        name="nameOrSocialReason"
-        value={billingContactInformation.nameOrSocialReason}
-        onChange={handleInputChange}
-      />
-      <TextField
-        className="input"
-        type="email"
-        variant="outlined"
-        label="Correo:"
-        name="email"
-        // error={true}
-        value={billingContactInformation.email}
-        onChange={handleInputChangeEmail}
-      />
+          <InputNameOrSocialReason>
+            <TextField
+              className="input"
+              type="text"
+              variant="outlined"
+              label="Nombre/Rason social:"
+              name="nameOrSocialReason"
+              value={billingContactInformation.nameOrSocialReason}
+              onChange={handleInputChange}
+            />
+          </InputNameOrSocialReason>
+          <InputEmail>
+            <TextField
+              className="input"
+              type="email"
+              variant="outlined"
+              label="Correo:"
+              name="email"
+              // error={true}
+              value={billingContactInformation.email}
+              onChange={handleInputChangeEmail}
+            />
+          </InputEmail>
+          <InputCountryCode>
+            <Autocomplete
+              value={billingContactInformation.countryCode}
+              // inputChangeAutoCompleteCountryCode(newValue, 'countryCode');
+              onChange={(event, newValue) =>
+                setBillingContactInformation((prevState) => ({
+                  ...prevState,
+                  countryCode: newValue === null ? '' : newValue,
+                }))
+              }
+              id="countryCode"
+              options={countryCodes}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  className="input"
+                  type="text"
+                  variant="outlined"
+                  label="Codigo pais:"
+                  name="countryCode"
+                  value={billingContactInformation.countryCode}
+                  onChange={(event) =>
+                    setBillingContactInformation((prevState) => ({
+                      ...prevState,
+                      [event.target.name]: event.target.value,
+                    }))
+                  }
+                />
+              )}
+            />
+          </InputCountryCode>
 
-      <Autocomplete
-        value={billingContactInformation.countryCode}
-        // inputChangeAutoCompleteCountryCode(newValue, 'countryCode');
-        onChange={(event, newValue) =>
-          setBillingContactInformation((prevState) => ({
-            ...prevState,
-            countryCode: newValue === null ? '' : newValue,
-          }))
-        }
-        id="countryCode"
-        options={countryCodes}
-        renderInput={(params) => (
-          <TextField
-            {...params}
-            className="input"
-            type="text"
-            variant="outlined"
-            label="Codigo pais:"
-            name="countryCode"
-            value={billingContactInformation.countryCode}
-            onChange={(event) =>
-              setBillingContactInformation((prevState) => ({
-                ...prevState,
-                [event.target.name]: event.target.value,
-              }))
-            }
-          />
-        )}
-      />
-
-      <TextField
-        className="input"
-        type="number"
-        variant="outlined"
-        label="Celular:"
-        name="mobile"
-        value={billingContactInformation.mobile}
-        onChange={(event) =>
-          setBillingContactInformation((prevState) => ({
-            ...prevState,
-            [event.target.name]: event.target.value,
-          }))
-        }
-      />
-      <Button
-        variant="contained"
-        color="success"
-        onClick={() => {
-          console.log('Vender');
-        }}
-      >
-        Vender
-      </Button>
+          <InputMobile>
+            <TextField
+              className="input"
+              type="number"
+              variant="outlined"
+              label="Celular:"
+              name="mobile"
+              value={billingContactInformation.mobile}
+              onChange={(event) =>
+                setBillingContactInformation((prevState) => ({
+                  ...prevState,
+                  [event.target.name]: event.target.value,
+                }))
+              }
+            />
+          </InputMobile>
+          <Btn>
+            <Button
+              variant="contained"
+              color="success"
+              onClick={() => {
+                console.log('Vender');
+              }}
+            >
+              Vender
+            </Button>
+          </Btn>
+        </Container>
+      </Background>
     </>
   );
 };

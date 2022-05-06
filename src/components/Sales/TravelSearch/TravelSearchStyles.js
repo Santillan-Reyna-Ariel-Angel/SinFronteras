@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Background = styled.div`
   left: 0;
@@ -13,7 +13,7 @@ export const Container = styled.form`
   grid-template-columns: 200px 200px 150px auto;
   grid-template-rows: auto;
   border-radius: 10px;
-  grid-template-areas: "Origin Destination Date BtnSearch";
+  grid-template-areas: 'Origin Destination Date BtnSearch';
 
   /* background: #ffffff2e; */
   background: #00bdb2;
