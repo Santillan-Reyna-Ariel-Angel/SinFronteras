@@ -59,7 +59,6 @@ const BillingRecord = ({ rowsState }) => {
     }));
     let completeNames = completeNamesFunction(newValue);
     // Agregando Nombre:
-    //ERROR: NOSE PUEDE ESCRIBIR CUANDO SE COLOCAR OTRO CARNERT FUERA DE LA LSITA DE PASAJEROS
     //Si completeNames.length===0, no se encontro el ci o nit en la lista de pasajeros por lo cual no se añade nameOrSocialReason
     setBillingContactInformation((prevState) => ({
       ...prevState,
@@ -89,7 +88,23 @@ const BillingRecord = ({ rowsState }) => {
       [event.target.name]: event.target.value,
     }));
   };
-
+  const inputChangeNameOrSocialReason = (event) => {
+    let passanger = rowsState.filter(
+      (passenger) =>
+        `${passenger.lastName} ${passenger.firstName}` === event.target.value
+    );
+    let identificationNumber =
+      passanger[0] === undefined ? '' : passanger[0].identificationNumber;
+    // console.log(
+    //   'identificationNumber',
+    //   identificationNumber === '' ? 'vacio' : identificationNumber
+    // );
+    setBillingContactInformation((prevState) => ({
+      ...prevState,
+      ciOrNit: identificationNumber,
+      [event.target.name]: event.target.value,
+    }));
+  };
   return (
     <>
       <Background>
@@ -124,7 +139,7 @@ const BillingRecord = ({ rowsState }) => {
               label="Nombre/Rason social:"
               name="nameOrSocialReason"
               value={billingContactInformation.nameOrSocialReason}
-              onChange={handleInputChange}
+              onChange={inputChangeNameOrSocialReason}
             />
           </InputNameOrSocialReason>
           <InputEmail>
