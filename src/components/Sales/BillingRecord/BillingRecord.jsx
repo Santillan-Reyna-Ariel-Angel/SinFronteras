@@ -101,7 +101,9 @@ const BillingRecord = ({ rowsState }) => {
     // );
     setBillingContactInformation((prevState) => ({
       ...prevState,
-      ciOrNit: identificationNumber,
+      ciOrNit:
+        identificationNumber === '' ? prevState.ciOrNit : identificationNumber,
+      //Si identificationNumber === '' entonces se ingresa un nuevo nombre y por ende se conserva el CiOrNit que se puso anteriormente
       [event.target.name]: event.target.value,
     }));
   };

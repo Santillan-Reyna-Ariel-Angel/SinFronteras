@@ -44,7 +44,7 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
     let { id, field, value } = params;
     passengerAux = rowsState.map((passenger, index) => {
       if (passenger.id === id) {
-        passenger[field] = value;
+        passenger[field] = value.trim(); //trim(): Elimina los espacios en blanco en ambos extremos del string
         return passenger;
       } else {
         return passenger;
