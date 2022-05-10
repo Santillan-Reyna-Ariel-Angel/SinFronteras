@@ -19,8 +19,9 @@ import {
 } from './BillingRecordStyles';
 
 const BillingRecord = ({ rowsState }) => {
-  //Nuevo:
+  //billingContactInformation default:
   const [billingContactInformation, setBillingContactInformation] = useState({
+    invoiceCheckbox: false,
     ciOrNit: '',
     nameOrSocialReason: '',
     email: '',
@@ -111,8 +112,6 @@ const BillingRecord = ({ rowsState }) => {
     }));
   };
 
-  //Check Facturar
-  const [invoiceCheckbox, setInvoiceCheckbox] = useState(false);
   return (
     <>
       <Background>
@@ -128,11 +127,13 @@ const BillingRecord = ({ rowsState }) => {
               control={
                 <Checkbox
                   // sx={{ color: '#051E34' }}
-                  checked={invoiceCheckbox}
-                  onChange={(event) => {
-                    setInvoiceCheckbox((prevState) => !prevState);
-                    console.log(`invoiceCheckbox: ${invoiceCheckbox}`);
-                  }}
+                  checked={billingContactInformation.invoiceCheckbox}
+                  onChange={(event) =>
+                    setBillingContactInformation((prevState) => ({
+                      ...prevState,
+                      invoiceCheckbox: !prevState.invoiceCheckbox,
+                    }))
+                  }
                 />
               }
               label="Facturar: "
