@@ -50,11 +50,28 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
         return passenger;
       }
     });
-    console.log(passengerAux);
+    // console.log('passengerAux', passengerAux);
   };
 
   const registrarPasajeros = () => {
-    setRowsState(passengerAux);
+    if (passengerAux !== undefined) {
+      //convertir a una funcion:
+      let camposVacios = passengerAux.filter(
+        (passenger) =>
+          passenger.id === '' ||
+          passenger.price === '' ||
+          passenger.typeOfDocument === '' ||
+          passenger.identificationNumber === '' ||
+          passenger.firstName === '' ||
+          passenger.lastName === ''
+      );
+      if (camposVacios.length === 0) {
+        console.log('Btn passengerAux', passengerAux);
+        setRowsState(passengerAux);
+      } else {
+        console.log('camposVacios', camposVacios);
+      }
+    }
   };
 
   console.log('rowsState', rowsState);
