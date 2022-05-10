@@ -7,46 +7,55 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 
-export default function DialogSingOff() {
+// export default function DialogSingOff()
+const PlainModalButton = ({
+  primaryBtnText = 'Abrir Modal',
+  dialogTitle = 'Titulo',
+  dialogText = 'Texto',
+  closeBtnText = 'cancelar',
+  continueBtnText = 'ok',
+  redirectPage = './',
+}) => {
   const history = useHistory();
-  const [open, setOpen] = useState(false);
+  const [openDialog, setOpenDialog] = useState(false);
+  console.log('openDialog', openDialog);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setOpenDialog(true);
   };
 
   const handleCloseYes = () => {
-    setOpen(false);
-    sessionStorage.removeItem('userEmail');
-    history.push('/acceso');
+    setOpenDialog(false);
+    // sessionStorage.removeItem('userEmail');
+    // history.push('/acceso');
+
+    //Escribir codigo para dedirigir a destino
   };
 
   const handleCloseBack = () => {
-    setOpen(false);
+    setOpenDialog(false);
   };
 
   return (
     <>
-      <Button variant="contained" color="error" onClick={handleClickOpen}>
-        Salir
+      <Button variant="contained" color="success" onClick={handleClickOpen}>
+        {primaryBtnText}
       </Button>
       <Dialog
-        open={open}
+        open={openDialog}
         onClose={handleCloseBack}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-          {'Realmente desea cerrar sesion?'}
-        </DialogTitle>
+        <DialogTitle id="alert-dialog-title">{dialogTitle}</DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            Verifique que no tenga tareas pendientes
+            {dialogText}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
           <Button variant="contained" color="error" onClick={handleCloseBack}>
-            Atras
+            {closeBtnText}
           </Button>
           <Button
             variant="contained"
@@ -54,10 +63,12 @@ export default function DialogSingOff() {
             onClick={handleCloseYes}
             autoFocus
           >
-            Cerrar sesion
+            {continueBtnText}
           </Button>
         </DialogActions>
       </Dialog>
     </>
   );
-}
+};
+
+export { PlainModalButton };

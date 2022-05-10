@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { Button, Checkbox, FormControlLabel } from '@mui/material';
+import { Checkbox, FormControlLabel } from '@mui/material';
 import { countryData } from './countryData';
+import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
 //Styles:
 import {
   Background,
@@ -234,15 +235,15 @@ const BillingRecord = ({ rowsState }) => {
             />
           </InputMobile>
           <Btn>
-            <Button
-              variant="contained"
-              color="success"
-              onClick={() => {
-                console.log('Vender');
-              }}
-            >
-              Vender
-            </Button>
+            {
+              <PlainModalButton
+                primaryBtnText="vender"
+                dialogTitle="Esta seguro de realizar la venta?"
+                dialogText="Asegurece de que la informacion del contacto sea correcta."
+                closeBtnText="Atras"
+                continueBtnText="Si, realizar venta"
+              />
+            }
           </Btn>
         </BodyContainer>
       </Background>
