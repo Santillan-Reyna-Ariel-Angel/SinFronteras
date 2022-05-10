@@ -36,6 +36,7 @@ export const ContainerCardBody = styled.div`
   grid-template-areas: 'Bus TextDepartureTime BtnSeeBus' 'TypeOfBus DepartureTime BtnSeeBus';
   grid-template-rows: auto;
 
+  border: 4px solid #051e34; //contorno
   border-radius: 0px 0px 10px 10px;
   background: #00bdb2;
   /* background: rgb(102, 157, 246); */

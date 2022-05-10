@@ -8,8 +8,29 @@ export const Background = styled.div`
   /* align-content: center; //junta los elementos vertical */
   /* grid-template-columns: auto; */
 `;
+export const HeaderContainer = styled.div`
+  display: grid;
+  padding: 0px 0px;
+  grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: 'HeaderTitle';
 
-export const Container = styled.div`
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+  background: #051e34;
+  backdrop-filter: blur(18px);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+`;
+
+export const HeaderTitle = styled.div`
+  grid-area: HeaderTitle;
+  text-align: center;
+  padding: 5px 0px;
+  font-size: larger;
+`;
+
+export const BodyContainer = styled.div`
   display: grid;
   background-color: #00bdb2;
   grid-template-columns: 170px 170px;
@@ -18,11 +39,20 @@ export const Container = styled.div`
   grid-column-gap: 10px;
   padding: 15px 20px;
   //sombreado:
-  border-radius: 10px;
+  border: 4px solid #051e34; //contorno
+  border-radius: 0px 0px 10px 10px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  grid-template-areas: 'InputCiOrNit InputCiOrNit' 'InputNameOrSocialReason InputNameOrSocialReason' 'InputEmail InputEmail' 'InputCountryCode InputMobile' 'Btn Btn';
+  grid-template-areas: 'InvoiceCheckbox InvoiceCheckbox' 'InputCiOrNit InputCiOrNit' 'InputNameOrSocialReason InputNameOrSocialReason' 'InputEmail InputEmail' 'InputCountryCode InputMobile' 'Btn Btn';
   /* overflow: hidden; */
+`;
+
+export const InvoiceCheckbox = styled.div`
+  grid-area: InvoiceCheckbox;
+  .check {
+    /* width: 100%; */
+    margin-left: 0px;
+  }
 `;
 
 export const InputCiOrNit = styled.div`

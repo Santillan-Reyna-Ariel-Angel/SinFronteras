@@ -12,6 +12,7 @@ export const Container = styled.form`
   grid-column-gap: 5px;
   grid-template-columns: 200px 200px 150px auto;
   grid-template-rows: auto;
+  border: 4px solid #051e34; //contorno
   border-radius: 10px;
   grid-template-areas: 'Origin Destination Date BtnSearch';
 

@@ -162,7 +162,7 @@ const Seat = ({ dataBusTravel }) => {
                     checkedIcon={
                       <EventSeatRoundedIcon
                         // fontSize="small"
-                        sx={{ transform: 'rotate(90deg)', color: 'primary' }}
+                        sx={{ transform: 'rotate(90deg)', color: 'primary' }} //Modificar para cambiar el color de los asientos selecionados
                       />
                     }
                     onChange={handleChange}

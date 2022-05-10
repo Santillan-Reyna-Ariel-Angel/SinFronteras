@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { Button } from '@mui/material';
+import { Button, Checkbox, FormControlLabel } from '@mui/material';
 import { countryData } from './countryData';
 //Styles:
 import {
   Background,
-  Container,
+  HeaderContainer,
+  HeaderTitle,
+  BodyContainer,
+  InvoiceCheckbox,
   InputCiOrNit,
   InputNameOrSocialReason,
   InputEmail,
@@ -107,10 +110,35 @@ const BillingRecord = ({ rowsState }) => {
       [event.target.name]: event.target.value,
     }));
   };
+
+  //Check Facturar
+  const [invoiceCheckbox, setInvoiceCheckbox] = useState(false);
   return (
     <>
       <Background>
-        <Container>
+        <HeaderContainer>
+          <HeaderTitle>
+            <span>Informacion de contacto</span>
+          </HeaderTitle>
+        </HeaderContainer>
+        <BodyContainer>
+          <InvoiceCheckbox>
+            <FormControlLabel
+              className="check"
+              control={
+                <Checkbox
+                  // sx={{ color: '#051E34' }}
+                  checked={invoiceCheckbox}
+                  onChange={(event) => {
+                    setInvoiceCheckbox((prevState) => !prevState);
+                    console.log(`invoiceCheckbox: ${invoiceCheckbox}`);
+                  }}
+                />
+              }
+              label="Facturar: "
+              labelPlacement="start"
+            />
+          </InvoiceCheckbox>
           <InputCiOrNit>
             <Autocomplete
               value={billingContactInformation.ciOrNit}
@@ -215,7 +243,7 @@ const BillingRecord = ({ rowsState }) => {
               Vender
             </Button>
           </Btn>
-        </Container>
+        </BodyContainer>
       </Background>
     </>
   );
