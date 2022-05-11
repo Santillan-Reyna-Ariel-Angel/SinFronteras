@@ -30,6 +30,7 @@ const PlainModalButton = ({
     // history.push('/acceso');
 
     //Escribir codigo para dedirigir a destino
+    console.log('Vendido!!!');
   };
 
   const handleCloseBack = () => {
