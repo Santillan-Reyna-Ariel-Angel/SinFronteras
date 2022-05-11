@@ -13,7 +13,7 @@ let NumeroTotal = '26006'; // Para efectos del Código de Control, este monto de
 let LlaveDosificacion =
   'pPgiFS%)v}@N4W3aQqqXCEHVS2[aDw_n%3)pFyU%bEB9)YXt%xNBub4@PZ4S9)ct';
 
-let controlCode = factura.controlCode(
+let codigoControl = factura.codigoControl(
   NumeroAutorizacion,
   NumeroFactura,
   NumeroNIT,
@@ -21,7 +21,7 @@ let controlCode = factura.controlCode(
   NumeroTotal,
   LlaveDosificacion
 );
-console.log(`Resultado: '62-12-AF-1B' | controlCode: ${controlCode}`);
+console.log(`Resultado: '62-12-AF-1B' | codigoControl: ${codigoControl}`);
 
-let NumeroLiteral = factura.toLiteral(26006);
+let NumeroLiteral = factura.importeTotalLiteral(26006);
 console.log(`${26006} | NumeroLiteral: ${NumeroLiteral}`);

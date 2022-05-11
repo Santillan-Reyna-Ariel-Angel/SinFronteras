@@ -1,1 +1,20 @@
 Nota Importante: 5 de enero de 2022, ultmo dia de gitKraken Pro.
+
+*Atajo para crear un componente de React: rfce
+
+NOTAS DE DOCUMENTACION
+CAP1:
+*En el Proyecto de Grado hablar en presente: "se desarrollo" en vez de "desarrollar", "Mejora" envez de "Mejorar".
+*El Problema Central debe ser Corto(mejor si es en 1 parrafo).
+*El Problema y el Obj Central deben se sus contrapartes: Lentitud(Prob)->Agil(Obj G), Desorganizado(Prob)->Ordenado(Obj. G).
+
+*Observaciomes del Inge:
+++Problematica(recomendaciones):
++++Quitar "procesos diadios en papel" por "proceso manual" o tambien mencionar que existe "incoherencia de la informacion de pasajes"
+
+++Obj. Especificos(recomendaciones):
++++El inge sugirio que los obj Especificos(o Obj general, revisar video) deben tener o expresar 3 caracteristica: Funcion-Logro-Para que
++++EL obj "estudio.." es una tarea y podria cambiarse a "recopilar informacion de datos".
++++Cambiar "Desarrollar modulo" por "Desarrollar funcionalidad", utilizar las mismas palabras en todos los objetivos para no confundir.
++++Sobre el obj que habla "busqueda de pasajes", podria cambiarse por "permitir la ubicacion...", "Recuperar..."
++++El obj que habla sobre "permitir a las secretarias", podria eliminarse la palabra "secretarias".

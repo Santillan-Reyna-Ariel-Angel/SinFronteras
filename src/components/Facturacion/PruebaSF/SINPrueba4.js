@@ -12,7 +12,7 @@ let NumeroFecha = '20070813'; // (Con formato yyyyMMdd)
 let NumeroTotal = '451'; // Para efectos del Código de Control, este monto deberá expresarse sin centavos (Redondeado al inmediato superior a partir de los 50 centavos)
 let LlaveDosificacion = 'DSrCB7Ssdfv4X29d)5k7N%3ab8p3S(asFG5YU8477SWW)FDAQA';
 
-let controlCode = factura.controlCode(
+let codigoControl = factura.codigoControl(
   NumeroAutorizacion,
   NumeroFactura,
   NumeroNIT,
@@ -20,7 +20,7 @@ let controlCode = factura.controlCode(
   NumeroTotal,
   LlaveDosificacion
 );
-console.log(`Resultado: '6A-50-31-01-32' | controlCode: ${controlCode}`);
+console.log(`Resultado: '6A-50-31-01-32' | codigoControl: ${codigoControl}`);
 
-let NumeroLiteral = factura.toLiteral(451);
+let NumeroLiteral = factura.importeTotalLiteral(451);
 console.log(`${451} | NumeroLiteral: ${NumeroLiteral}`);

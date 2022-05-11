@@ -12,7 +12,7 @@ let NumeroTotal = '35959'; // (Redondeado al inmediato superior a partir de los 
 let LlaveDosificacion =
   'zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS';
 
-let controlCode = factura.controlCode(
+let codigoControl = factura.codigoControl(
   NumeroAutorizacion,
   NumeroFactura,
   NumeroNIT,
@@ -21,8 +21,8 @@ let controlCode = factura.controlCode(
   LlaveDosificacion
 );
 //Resultado: '7B-F3-48-A8'
-console.log(`Resultado: '7B-F3-48-A8' | controlCode: ${controlCode}`);
+console.log(`Resultado: '7B-F3-48-A8' | codigoControl: ${codigoControl}`);
 
-let NumeroLiteral = factura.toLiteral(123);
+let NumeroLiteral = factura.importeTotalLiteral(123);
 //Resultado: 'CIENTO VEINTITRES'
 console.log(`${123} | NumeroLiteral: ${NumeroLiteral}`);

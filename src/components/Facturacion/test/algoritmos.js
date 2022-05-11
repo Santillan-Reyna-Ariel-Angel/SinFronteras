@@ -18,7 +18,7 @@ fs.access(__dirname + '/5000CasosPruebaCCVer7.txt', fs.F_OK, function (err) {
 
     //execute tests
     //note: the file has an extra endline, and all rows end with '|' causing an erroneous last row, therefore 'cvs.data.length-1' is needed
-    describe('controlCode', function () {
+    describe('codigoControl', function () {
       it('should loaded 5000 test cases', function () {
         assert.equal(csv.data.length - 1, 5000);
       });
@@ -26,7 +26,7 @@ fs.access(__dirname + '/5000CasosPruebaCCVer7.txt', fs.F_OK, function (err) {
         for (var i = 0, len = csv.data.length - 1; i < len; i++) {
           assert.equal(
             csv.data[i]['CODIGO CONTROL'],
-            controlCode(
+            codigoControl(
               csv.data[i]['NRO. AUTORIZACION'],
               csv.data[i]['NRO. FACTURA'],
               csv.data[i]['NIT/CI'],
@@ -39,11 +39,11 @@ fs.access(__dirname + '/5000CasosPruebaCCVer7.txt', fs.F_OK, function (err) {
       });
     });
   } else {
-    describe('controlCode', function () {
+    describe('codigoControl', function () {
       it('should generate a correct control code', function () {
         assert.equal(
           '7B-F3-48-A8',
-          controlCode(
+          codigoControl(
             '7904006306693',
             '876814',
             '1665979',
@@ -54,7 +54,7 @@ fs.access(__dirname + '/5000CasosPruebaCCVer7.txt', fs.F_OK, function (err) {
         );
         assert.equal(
           '4E-62-66-62-65',
-          controlCode(
+          codigoControl(
             '3004004520427',
             '403345',
             '7468074016',
