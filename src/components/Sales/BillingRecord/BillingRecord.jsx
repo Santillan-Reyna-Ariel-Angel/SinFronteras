@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Checkbox, FormControlLabel } from '@mui/material';
@@ -18,8 +18,17 @@ import {
   InputMobile,
   Btn,
 } from './BillingRecordStyles';
+//Contexts generalCompanyData:
+import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCompanyData';
 
 const BillingRecord = ({ rowsState }) => {
+  //contex Data :
+  const generalCompanyData = useContext(ContextGeneralCompanyData);
+  const { billingInformation } = generalCompanyData
+    ? generalCompanyData
+    : { billingInformation: {} };
+  console.log('Firebase billingInformation: ', billingInformation);
+
   //billingContactInformation default:
   const [billingContactInformation, setBillingContactInformation] = useState({
     invoiceCheckbox: false,
