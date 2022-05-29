@@ -8,6 +8,8 @@ import Notes from './components/Notes/Notes';
 import UserRegistration from './components/UserRegistration/UserRegistration';
 import Layout from './components/Loyout/Layout';
 import Sales from './components/Sales/Sales';
+//probando tickets
+import { Tickets } from './components/Sales/Tickets/Tickets.jsx';
 //Contexts
 import { ProviderListarNotas } from './contexts/ContextListarNotas';
 import { ProviderBranchOffice } from './contexts/ContextBranchOffice';
@@ -29,6 +31,7 @@ const AppRoutes = () => {
                     component={() => <Redirect to="/acceso" />}
                   />
                   <Route exact path="/acceso" component={Login} />
+                  <Route exact path="/tickets" component={Tickets} />
                   <Layout>
                     <Route exact path="/principal" component={Home} />
                     <Route
@@ -37,6 +40,7 @@ const AppRoutes = () => {
                       component={RecoverPassword}
                     />
                     <Route exact path="/notas" component={Notes} />
+                    {/* <Route exact path="/tickets" component={Tickets} /> */}
                     <Route
                       exact
                       path="/personal/registro-de-cargos"
