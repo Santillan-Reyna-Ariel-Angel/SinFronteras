@@ -12,63 +12,116 @@ import {
   Legend,
 } from './TicketsStyles';
 
-const Tickets = () => {
+const Tickets = ({ data }) => {
+  const dataDefault = [
+    {
+      companyName: 'Sin Fronteras',
+      ticketNumber: '123456789',
+      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
+      companyPhone: '46410523',
+      origin: 'Sucre',
+      destiny: 'Santa Cruz',
+      travelDate: '30/5/2022',
+      DepartureTime: '20:30',
+      lane: '0', //carril
+      passengerName: 'Santillan Quispe Javier Angel',
+      identificationNumber: '7896541',
+      seat: '16',
+      typeOfSeat: 'Semi-cama',
+      price: '30',
+      legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    },
+    {
+      companyName: 'Sin Fronteras',
+      ticketNumber: '123456789',
+      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
+      companyPhone: '46410523',
+      origin: 'Sucre',
+      destiny: 'Santa Cruz',
+      travelDate: '30/5/2022',
+      DepartureTime: '20:30',
+      lane: '0', //carril
+      passengerName: 'Santillan Quispe Javier Angel',
+      identificationNumber: '7896541',
+      seat: '16',
+      typeOfSeat: 'Semi-cama',
+      price: '30',
+      legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    },
+  ];
   return (
     <>
-      <Background>
-        <BodyContainer>
-          <LogoContainer>
-            <LogoPng />
-            <CompanyName>
-              <span>Sin Fronteras</span>
-            </CompanyName>
-          </LogoContainer>
-          <GeneralInformation>
-            <p>
-              <span>Ticket: </span>1063891
-            </p>
-            <p>
-              <span>Emitido por: </span>Santillan Reyna Ariel Angel
-            </p>
-            <p>
-              <span>Telefono: </span>4645698
-            </p>
-          </GeneralInformation>
-          <Route>
-            <span>Sucre-SantaCruz</span>
-          </Route>
-          <PassengerInformation>
-            <p>
-              <span>Fecha: </span>28/05/2022
-            </p>
-            <p>
-              <span>Hora de salida: </span>19:30 hrs
-            </p>
-            <p>
-              <span>Carril: </span>0
-            </p>
-            <p>
-              <span>Pasajero: </span>Santillan Reyna Cristian Andres
-            </p>
-            <p>
-              <span>Ci: </span>7485963
-            </p>
-          </PassengerInformation>
-          <BusInformation>
-            <p>
-              <span>Asiento: </span>
-              <p className="seat">25</p>
-              <p className="typeSeat">Semi-cama</p>
-            </p>
-            <p className="price">
-              <span>Precio: </span>30Bs
-            </p>
-          </BusInformation>
-          <Legend>
-            <p>Gracias por su preferencia</p>
-          </Legend>
-        </BodyContainer>
-      </Background>
+      {dataDefault
+        ? dataDefault.map((data) => (
+            <>
+              <Background>
+                <BodyContainer>
+                  <LogoContainer>
+                    <LogoPng />
+                    <CompanyName>
+                      <span>{data.companyName}</span>
+                    </CompanyName>
+                  </LogoContainer>
+                  <GeneralInformation>
+                    <p>
+                      <span>Ticket: </span>
+                      {data.ticketNumber}
+                    </p>
+                    <p>
+                      <span>Emitido por: </span>
+                      {data.issuingUser}
+                    </p>
+                    <p>
+                      <span>Teléfono: </span>
+                      {data.companyPhone}
+                    </p>
+                  </GeneralInformation>
+                  <Route>
+                    <span>
+                      {data.origin} - {data.destiny}
+                    </span>
+                  </Route>
+                  <PassengerInformation>
+                    <p>
+                      <span>Fecha: </span>
+                      {data.travelDate}
+                    </p>
+                    <p>
+                      <span>Hora de salida: </span>
+                      {data.DepartureTime}
+                    </p>
+                    <p>
+                      <span>Carril: </span>
+                      {data.lane}
+                    </p>
+                    <p>
+                      <span>Pasajero: </span>
+                      {data.passengerName}
+                    </p>
+                    <p>
+                      <span>Ci: </span>
+                      {data.identificationNumber}
+                    </p>
+                  </PassengerInformation>
+                  <BusInformation>
+                    <p>
+                      <span>Asiento: </span>
+                      <p className="seat">{data.seat}</p>
+                      <p className="typeSeat">{data.typeOfSeat}</p>
+                    </p>
+                    <p className="price">
+                      <span>Precio: </span>
+                      {data.price} Bs
+                    </p>
+                  </BusInformation>
+                  <Legend>
+                    <p>{data.legend}</p>
+                  </Legend>
+                </BodyContainer>
+              </Background>
+            </>
+          ))
+        : null}
     </>
   );
 };

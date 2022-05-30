@@ -8,6 +8,7 @@ export const Background = styled.div`
   justify-content: center; //centrea los elementos
   /* align-content: center; //junta los elementos vertical */
   /* grid-template-columns: auto; */
+  padding: 5px 0px; // o margin: 5px 0px;
 `;
 
 export const BodyContainer = styled.div`
