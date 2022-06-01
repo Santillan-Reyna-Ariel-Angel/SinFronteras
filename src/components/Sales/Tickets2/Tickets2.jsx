@@ -11,6 +11,8 @@ import {
   CompanyName,
   Legend,
 } from './Tickets2Styles';
+//Compoennete impresion
+import { VentanaImprimir } from './VentanaImprimir.jsx';
 
 const Tickets2 = ({ data }) => {
   const dataDefault = [
@@ -261,6 +263,8 @@ const Tickets2 = ({ data }) => {
             </>
           ))
         : null}
+
+      {<VentanaImprimir />}
     </>
   );
 };
