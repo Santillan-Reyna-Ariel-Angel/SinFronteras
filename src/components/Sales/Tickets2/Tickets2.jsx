@@ -11,9 +11,9 @@ import {
   CompanyName,
   Legend,
 } from './Tickets2Styles';
-//Compoennete impresion
-import { VentanaImprimir } from './VentanaImprimir.jsx';
 import Button from '@mui/material/Button';
+//Para imprimir
+import { PDFViewer } from '@react-pdf/renderer';
 
 const Tickets2 = ({ data }) => {
   const dataDefault = [
@@ -68,141 +68,10 @@ const Tickets2 = ({ data }) => {
       price: '30',
       legend: 'Gracias por su compra, le deseamos un buen viaje.',
     },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '4',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '5',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '6',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '7',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '8',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '9',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Clara Reyna Caba',
-      identificationNumber: '63905454',
-      seat: '10',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
   ];
 
   // Probaremos react-pdf/renderer
-  // react-pdf/renderer instalado
-
-  const [openDialog, setOpenDialog] = useState(false);
-  console.log('openDialog', openDialog);
-
-  const handleClickOpen = () => {
-    setOpenDialog(true);
-    // return openDialog === true ? <VentanaImprimir /> : null;
-  };
-
-  const algo = () => {
-    return openDialog === true ? <VentanaImprimir /> : null;
-  };
+  const [pdfOpen, setPdfOpen] = useState(false);
 
   return (
     <>
@@ -277,12 +146,87 @@ const Tickets2 = ({ data }) => {
             </div>
           ))
         : null}
-      <Button variant="contained" color="success" onClick={handleClickOpen}>
-        Imprimir2
-      </Button>
 
-      {/* {() => (openDialog === true ? <VentanaImprimir /> : null)} */}
-      {() => algo()}
+      <Button
+        variant="contained"
+        color="success"
+        onClick={() => setPdfOpen(!pdfOpen)}
+      >
+        {pdfOpen === false ? `Imprimir Ahora` : `Cerrar pdf`}
+      </Button>
+      {pdfOpen ? (
+        <PDFViewer style={{ width: '100%', height: '90vh' }}>
+          {dataDefault.map((data, index) => (
+            <div key={index}>
+              <Background>
+                <BodyContainer>
+                  <LogoContainer>
+                    <LogoPng />
+                    <CompanyName>
+                      <span>{data.companyName}</span>
+                    </CompanyName>
+                  </LogoContainer>
+                  <GeneralInformation>
+                    <p>
+                      <span>Ticket: </span>
+                      {data.ticketNumber}
+                    </p>
+                    <p>
+                      <span>Emitido por: </span>
+                      {data.issuingUser}
+                    </p>
+                    <p>
+                      <span>Teléfono: </span>
+                      {data.companyPhone}
+                    </p>
+                  </GeneralInformation>
+                  <Route>
+                    <span>
+                      {data.origin} - {data.destiny}
+                    </span>
+                  </Route>
+                  <PassengerInformation>
+                    <p>
+                      <span>Fecha: </span>
+                      {data.travelDate}
+                    </p>
+                    <p>
+                      <span>Hora de salida: </span>
+                      {data.DepartureTime}
+                    </p>
+                    <p>
+                      <span>Carril: </span>
+                      {data.lane}
+                    </p>
+                    <p>
+                      <span>Pasajero: </span>
+                      {data.passengerName}
+                    </p>
+                    <p>
+                      <span>Ci: </span>
+                      {data.identificationNumber}
+                    </p>
+                  </PassengerInformation>
+                  <BusInformation>
+                    <p>
+                      <span>Asiento: </span>
+                      <p className="seat">{data.seat}</p>
+                      <p className="typeSeat">{data.typeOfSeat}</p>
+                    </p>
+                    <p className="price">
+                      <span>Precio: </span>
+                      {data.price} Bs
+                    </p>
+                  </BusInformation>
+                  <Legend>
+                    <p>{data.legend}</p>
+                  </Legend>
+                </BodyContainer>
+              </Background>
+            </div>
+          ))}
+        </PDFViewer>
+      ) : null}
     </>
   );
 };
