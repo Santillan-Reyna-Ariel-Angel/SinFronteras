@@ -187,6 +187,7 @@ const Tickets2 = ({ data }) => {
   ];
 
   // Probaremos react-pdf/renderer
+  // react-pdf/renderer instalado
   return (
     <>
       {dataDefault
