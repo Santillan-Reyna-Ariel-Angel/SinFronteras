@@ -178,13 +178,15 @@ const Tickets2 = ({ data }) => {
       DepartureTime: '20:30',
       lane: '0', //carril
       passengerName: 'Clara Reyna Caba',
-      identificationNumber: '7896541',
+      identificationNumber: '63905454',
       seat: '10',
       typeOfSeat: 'Semi-cama',
       price: '30',
       legend: 'Gracias por su compra, le deseamos un buen viaje.',
     },
   ];
+
+  // Probaremos react-pdf/renderer
   return (
     <>
       {dataDefault
