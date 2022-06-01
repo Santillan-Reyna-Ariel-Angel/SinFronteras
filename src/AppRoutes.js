@@ -10,6 +10,7 @@ import Layout from './components/Loyout/Layout';
 import Sales from './components/Sales/Sales';
 //probando tickets
 import { Tickets } from './components/Sales/Tickets/Tickets.jsx';
+import { Tickets2 } from './components/Sales/Tickets2/Tickets2.jsx';
 //Contexts
 import { ProviderListarNotas } from './contexts/ContextListarNotas';
 import { ProviderBranchOffice } from './contexts/ContextBranchOffice';
@@ -32,6 +33,7 @@ const AppRoutes = () => {
                   />
                   <Route exact path="/acceso" component={Login} />
                   <Route exact path="/tickets" component={Tickets} />
+                  <Route exact path="/tickets2" component={Tickets2} />
                   <Layout>
                     <Route exact path="/principal" component={Home} />
                     <Route
