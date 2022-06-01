@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Background,
   BodyContainer,
@@ -13,6 +13,7 @@ import {
 } from './Tickets2Styles';
 //Compoennete impresion
 import { VentanaImprimir } from './VentanaImprimir.jsx';
+import Button from '@mui/material/Button';
 
 const Tickets2 = ({ data }) => {
   const dataDefault = [
@@ -190,11 +191,19 @@ const Tickets2 = ({ data }) => {
 
   // Probaremos react-pdf/renderer
   // react-pdf/renderer instalado
+
+  const [openDialog, setOpenDialog] = useState(false);
+  console.log('openDialog', openDialog);
+
+  const handleClickOpen = () => {
+    setOpenDialog(true);
+  };
   return (
     <>
-      {dataDefault
-        ? dataDefault.map((data) => (
-            <>
+      {dataDefault ? (
+        <>
+          {dataDefault.map((data, index) => (
+            <div key={index}>
               <Background>
                 <BodyContainer>
                   <LogoContainer>
@@ -260,11 +269,23 @@ const Tickets2 = ({ data }) => {
                   </Legend>
                 </BodyContainer>
               </Background>
-            </>
-          ))
-        : null}
+            </div>
+          ))}
 
-      {<VentanaImprimir />}
+          <Button variant="contained" color="success" onClick={handleClickOpen}>
+            Imprimir
+          </Button>
+        </>
+      ) : null}
+      {/* <Button variant="contained" color="success" onClick={handleClickOpen}>
+        Imprimir
+      </Button> */}
+
+      {openDialog === true ? (
+        <>
+          <VentanaImprimir />
+        </>
+      ) : null}
     </>
   );
 };
