@@ -197,12 +197,17 @@ const Tickets2 = ({ data }) => {
 
   const handleClickOpen = () => {
     setOpenDialog(true);
+    // return openDialog === true ? <VentanaImprimir /> : null;
   };
+
+  const algo = () => {
+    return openDialog === true ? <VentanaImprimir /> : null;
+  };
+
   return (
     <>
-      {dataDefault ? (
-        <>
-          {dataDefault.map((data, index) => (
+      {dataDefault
+        ? dataDefault.map((data, index) => (
             <div key={index}>
               <Background>
                 <BodyContainer>
@@ -270,22 +275,14 @@ const Tickets2 = ({ data }) => {
                 </BodyContainer>
               </Background>
             </div>
-          ))}
+          ))
+        : null}
+      <Button variant="contained" color="success" onClick={handleClickOpen}>
+        Imprimir2
+      </Button>
 
-          <Button variant="contained" color="success" onClick={handleClickOpen}>
-            Imprimir
-          </Button>
-        </>
-      ) : null}
-      {/* <Button variant="contained" color="success" onClick={handleClickOpen}>
-        Imprimir
-      </Button> */}
-
-      {openDialog === true ? (
-        <>
-          <VentanaImprimir />
-        </>
-      ) : null}
+      {/* {() => (openDialog === true ? <VentanaImprimir /> : null)} */}
+      {() => algo()}
     </>
   );
 };
