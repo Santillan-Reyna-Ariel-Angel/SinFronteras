@@ -1,7 +1,7 @@
 import React from 'react';
 import { Document, Page, View, Text, Image } from '@react-pdf/renderer';
 import Logo from './../../../../sources/img/LogoSF2.png';
-const TicketPdf = ({ dataDefault }) => {
+const TicketPdfInlineStyles = ({ dataDefault }) => {
   return (
     <Document title="boletos">
       <Page size="A4">
@@ -232,4 +232,4 @@ const TicketPdf = ({ dataDefault }) => {
   );
 };
 
-export { TicketPdf };
+export { TicketPdfInlineStyles };
