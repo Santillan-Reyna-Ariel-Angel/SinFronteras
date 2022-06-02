@@ -1,3 +1,4 @@
+*PETICIONES
 put:
 patch: 
 > no pude actualizar al mismo tiempo 2 propiedades, que se encuentren en 2 recursos diferentes, pues eliminara lo que no que no se haya especificado(parecido al put). se hizo la prueba de de actualizar un {} y un []
@@ -14,3 +15,9 @@ Post:
 > No usar en arrays ya que nos genera una propiedad aleatoria, dentro de la posiison que hayamos indicado en la peticion url.
 Delete:
 > funciona bien con arrays
+
+
+*FIREBASE
+>Firebase: Guarda datos como transacciones
+>url: https://firebase.google.com/docs/database/web/read-and-write?hl=es-419#save_data_as_transactions
+Cuando trabajas con datos que se podrían dañar si se hacen cambios simultáneos (por ejemplo, contadores incrementales) puedes usar una operación de transacción.

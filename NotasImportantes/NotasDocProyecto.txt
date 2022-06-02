@@ -19,7 +19,3 @@ CAP1:
 +++Sobre el obj que habla "busqueda de pasajes", podria cambiarse por "permitir la ubicacion...", "Recuperar..."
 +++El obj que habla sobre "permitir a las secretarias", podria eliminarse la palabra "secretarias".
 
-
-*Firebase: Guarda datos como transacciones
-*url: https://firebase.google.com/docs/database/web/read-and-write?hl=es-419#save_data_as_transactions
-Cuando trabajas con datos que se podrían dañar si se hacen cambios simultáneos (por ejemplo, contadores incrementales) puedes usar una operación de transacción.
