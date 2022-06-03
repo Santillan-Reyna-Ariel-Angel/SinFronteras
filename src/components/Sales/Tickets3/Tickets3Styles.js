@@ -35,25 +35,27 @@ export const LogoContainer = styled.div`
   grid-template-rows: 1fr;
   grid-template-areas: 'LogoPng' 'CompanyName';
   grid-row-gap: 0px;
-  /* margin: 0 auto; // centrea elementos de un div*/
+  /* margin: 0 auto; // centrea elementos de un div */
   justify-content: center;
 `;
 
 export const LogoPng = styled.div`
   grid-area: LogoPng;
-  height: 100px;
-  width: 100px;
+  height: 100px; //100px
+  width: 64px; //con 100px en la web se centrea pero en el pdf se rompe el centreo
   background: url(${Logo});
-  background-position: center;
+  background-position: center; //center
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
+  text-align: center; //Borrar?
 `;
 export const CompanyName = styled.div`
   grid-area: CompanyName;
   text-align: center;
   font-size: large;
   font-weight: bold;
+  margin: 0px; //borrar?
 `;
 
 export const GeneralInformation = styled.div`
