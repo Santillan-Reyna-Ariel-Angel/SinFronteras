@@ -21,3 +21,16 @@ Delete:
 >Firebase: Guarda datos como transacciones
 >url: https://firebase.google.com/docs/database/web/read-and-write?hl=es-419#save_data_as_transactions
 Cuando trabajas con datos que se podrían dañar si se hacen cambios simultáneos (por ejemplo, contadores incrementales) puedes usar una operación de transacción.
+
+*VARIOS FUNCIONES EN 1 onClick 
+<Button
+        variant="contained"
+        color={!pdfOpen ? 'success' : 'error'}
+        onClick={() => [
+          handlePrint,
+          setPdfOpen(!pdfOpen),
+          console.log(pdfOpen ? 'Ocultando pdf' : 'Mostrando pdf'),
+        ]}
+      >
+        {!pdfOpen ? 'Imprimir Ahora' : 'Cerrar pdf'}
+</Button>

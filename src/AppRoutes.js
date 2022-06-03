@@ -11,6 +11,8 @@ import Sales from './components/Sales/Sales';
 //probando tickets
 import { Tickets } from './components/Sales/Tickets/Tickets.jsx';
 import { Tickets2 } from './components/Sales/Tickets2/Tickets2.jsx';
+import { ReactToPrintComponent } from './components/Sales/Tickets3/ReactToPrintComponent/ReactToPrintComponent.jsx';
+import { ReactToPrintComponent2 } from './components/Sales/Tickets3/ReactToPrintComponent/ReactToPrintComponent2.jsx';
 //Contexts
 import { ProviderListarNotas } from './contexts/ContextListarNotas';
 import { ProviderBranchOffice } from './contexts/ContextBranchOffice';
@@ -34,6 +36,16 @@ const AppRoutes = () => {
                   <Route exact path="/acceso" component={Login} />
                   <Route exact path="/tickets" component={Tickets} />
                   <Route exact path="/tickets2" component={Tickets2} />
+                  <Route
+                    exact
+                    path="/tickets-component"
+                    component={ReactToPrintComponent}
+                  />
+                  <Route
+                    exact
+                    path="/tickets-component2"
+                    component={ReactToPrintComponent2}
+                  />
                   <Layout>
                     <Route exact path="/principal" component={Home} />
                     <Route
