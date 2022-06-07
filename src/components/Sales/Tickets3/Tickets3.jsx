@@ -87,6 +87,19 @@ export const Tickets3 = React.forwardRef((props, ref) => {
                   </Legend>
                 </BodyContainer>
               </Background>
+
+              {(index + 1) % 3 === 0 ? (
+                <>
+                  <div
+                    style={{
+                      // marginTop: '1rem',
+                      marginTop: '10px', //Si aumentamos no hay diferencia en el pdf
+                      display: 'block',
+                      pageBreakBefore: 'auto',
+                    }}
+                  />
+                </>
+              ) : null}
             </div>
           ))
         : null}
