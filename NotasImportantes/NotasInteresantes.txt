@@ -34,3 +34,26 @@ Cuando trabajas con datos que se podrían dañar si se hacen cambios simultáneo
       >
         {!pdfOpen ? 'Imprimir Ahora' : 'Cerrar pdf'}
 </Button>
+
+*Considerar organizacion territorial para creacion de correo o sucursales*
+> https://es.wikipedia.org/wiki/Organizaci%C3%B3n_territorial_de_Bolivia
+> Usar ubicacion(location actualmente) o municipio
+> correo: sinfronteras.sucre@gmail.com - pass: sinfronteras.sucre@gmail
+
+* CHAT GMAIL CON CLIENTES:
+> Buscar "Leer y responder mensajes desde el Perfil de Empresa" 
+> https://support.google.com/business/answer/9114771?authuser=6&authuser=6&visit_id=637904667928787025-2369212576&p=search_task_messaging_respond&rd=1
+
+*ENVIAR CORREOS:
+SENDGRID:
+> Necesario crear cuenta
+> Registrar un correo en sendGrid
+> 100 emails/dia
+> Crear ApiKey
+> IMPORTANTE: activar SamboxMode para pruebas(no envia correo pero nos regresa un status 201 ok si todo esta bien), de esta forma no nos reduce los 100emails/dia
+NODEMAILER:
+> Modo Simple (service: "gmail"), permite 500 emails/dia
+> Modo SMPT
+
+*ALTERNATIVAS A CREATE-REACT-APP:
+> create-snowpack-app , es mas rapido
