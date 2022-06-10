@@ -19,7 +19,7 @@ const ReactToPrintComponent = () => {
         documentTitle="Sin Fronteras - Boletos de Viaje"
         trigger={() => (
           <Button variant="contained" color="success">
-            Mostar
+            Mostar Component
           </Button>
         )}
         content={() => componentRef.current}

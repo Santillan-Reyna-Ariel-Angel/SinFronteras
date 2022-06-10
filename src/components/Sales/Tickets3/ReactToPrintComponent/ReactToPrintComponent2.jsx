@@ -17,7 +17,7 @@ const ReactToPrintComponent2 = () => {
       <Tickets3 ref={componentRef} />
 
       <Button variant="contained" color="success" onClick={() => handlePrint()}>
-        Ver Pdf
+        Ver Pdf Component2
       </Button>
     </div>
   );
