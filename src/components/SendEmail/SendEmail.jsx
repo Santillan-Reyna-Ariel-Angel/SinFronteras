@@ -7,15 +7,15 @@ const SendEmail = () => {
   const buttonSendEmail = async () => {
     let transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      port: 587, // por que se tiene seguridad se coloca este puerto
-      secure: false, // true for 465, false for other ports or false si port is 587
+      port: 465, // por que se tiene seguridad se coloca este puerto
+      secure: true, // true for 465, false si port is 587 u otro
       // service: 'gmail', // opcional
       auth: {
         user: 'sinfronteras.sucre@gmail.com',
         pass: 'passGmailOrPassSecureApplication',
       },
       tls: {
-        rejectUnauthorized: true,
+        rejectUnauthorized: false,
       },
     });
     // Verify SMTP connection configuration:
@@ -63,7 +63,7 @@ const SendEmail = () => {
   //     service: 'gmail',
   //     auth: {
   //       user: 'sinfronteras.sucre@gmail.com',
-  //       pass: 'sinfronteras.sucre@gmail',
+  //       pass: 'passGmailOrPassSecureApplication',
   //     },
   //     tls: {
   //       rejectUnauthorized: false,
