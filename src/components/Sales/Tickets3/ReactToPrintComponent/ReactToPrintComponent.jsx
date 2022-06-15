@@ -10,11 +10,6 @@ const ReactToPrintComponent = () => {
 
   return (
     <div>
-      {/* <ReactToPrint
-        trigger={() => <button>Imprimir</button>}
-        content={() => componentRef.current}
-      /> */}
-
       <ReactToPrint
         documentTitle="Sin Fronteras - Boletos de Viaje"
         trigger={() => (

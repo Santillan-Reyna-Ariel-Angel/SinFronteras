@@ -39,6 +39,9 @@ Cuando trabajas con datos que se podrían dañar si se hacen cambios simultáneo
 > https://es.wikipedia.org/wiki/Organizaci%C3%B3n_territorial_de_Bolivia
 > Usar ubicacion(location actualmente) o municipio
 > correo: sinfronteras.sucre@gmail.com - pass: sinfronteras.sucre@gmail
+> pass app Sin Fronteras: dmgdybdmajuzcxuw
+> pass app sinFronteras: azptkgiescuwnddh
+
 
 * CHAT GMAIL CON CLIENTES:
 > Buscar "Leer y responder mensajes desde el Perfil de Empresa" 
@@ -53,7 +56,7 @@ SENDGRID:
 > IMPORTANTE: activar SamboxMode para pruebas(no envia correo pero nos regresa un status 201 ok si todo esta bien), de esta forma no nos reduce los 100emails/dia
 NODEMAILER:
 > Modo Simple (service: "gmail"), permite 500 emails/dia
-> Modo SMPT
+> Modo SMPT 
 
 *ALTERNATIVAS A CREATE-REACT-APP:
 > create-snowpack-app , es mas rapido
