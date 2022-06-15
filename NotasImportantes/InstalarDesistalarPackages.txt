@@ -1,3 +1,0 @@
-*Creacion de Pdf:
-> Se instalo react-to-print (utilizado actualmente 10-06-2022)
-> se instalo react-pdf/renderer (No usado)
