@@ -87,44 +87,44 @@ const SendEmail = () => {
   //   });
   // };
 
-  const email1 = () => {
-    let transporter = nodemailer.createTransport({
-      streamTransport: true,
-      newline: 'windows',
-    });
-    transporter.sendMail(
-      {
-        from: 'sinfronteras.sucre@gmail.com',
-        to: 'santillanreynaarielangel@gmail.com',
-        subject: 'Message',
-        text: 'I hope this message gets streamed!',
-      },
-      (err, info) => {
-        console.log(info.envelope);
-        console.log(info.messageId);
-        info.message.pipe(process.stdout);
-      }
-    );
-  };
+  // const email1 = () => {
+  //   let transporter = nodemailer.createTransport({
+  //     streamTransport: true,
+  //     newline: 'windows',
+  //   });
+  //   transporter.sendMail(
+  //     {
+  //       from: 'sinfronteras.sucre@gmail.com',
+  //       to: 'santillanreynaarielangel@gmail.com',
+  //       subject: 'Message',
+  //       text: 'I hope this message gets streamed!',
+  //     },
+  //     (err, info) => {
+  //       console.log(info.envelope);
+  //       console.log(info.messageId);
+  //       info.message.pipe(process.stdout);
+  //     }
+  //   );
+  // };
 
-  const email2 = () => {
-    let transporter = nodemailer.createTransport({
-      jsonTransport: true,
-    });
-    transporter.sendMail(
-      {
-        from: 'sinfronteras.sucre@gmail.com',
-        to: 'santillanreynaarielangel@gmail.com',
-        subject: 'Message',
-        text: 'I hope this message gets buffered!',
-      },
-      (err, info) => {
-        console.log(info.envelope);
-        console.log(info.messageId);
-        console.log(info.message); // JSON string
-      }
-    );
-  };
+  // const email2 = () => {
+  //   let transporter = nodemailer.createTransport({
+  //     jsonTransport: true,
+  //   });
+  //   transporter.sendMail(
+  //     {
+  //       from: 'sinfronteras.sucre@gmail.com',
+  //       to: 'santillanreynaarielangel@gmail.com',
+  //       subject: 'Message',
+  //       text: 'I hope this message gets buffered!',
+  //     },
+  //     (err, info) => {
+  //       console.log(info.envelope);
+  //       console.log(info.messageId);
+  //       console.log(info.message); // JSON string
+  //     }
+  //   );
+  // };
 
   return (
     <>
