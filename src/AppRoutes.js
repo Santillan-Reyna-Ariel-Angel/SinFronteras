@@ -15,6 +15,8 @@ import { ReactToPrintComponent } from './components/Sales/Tickets3/ReactToPrintC
 import { ReactToPrintComponent2 } from './components/Sales/Tickets3/ReactToPrintComponent/ReactToPrintComponent2.jsx';
 //SendEmail
 import { SendEmail } from './components/SendEmail/SendEmail.jsx';
+// import { SendEmail2 } from './components/SendEmail/SendEmail2.jsx';
+import { SendEmail3 } from './components/SendEmail/SendEmail3.jsx';
 //Contexts
 import { ProviderListarNotas } from './contexts/ContextListarNotas';
 import { ProviderBranchOffice } from './contexts/ContextBranchOffice';
@@ -49,6 +51,8 @@ const AppRoutes = () => {
                     component={ReactToPrintComponent2}
                   />
                   <Route exact path="/send-email" component={SendEmail} />
+                  {/* <Route exact path="/send-email2" component={SendEmail2} /> */}
+                  <Route exact path="/send-email3" component={SendEmail3} />
                   <Layout>
                     <Route exact path="/principal" component={Home} />
                     <Route
