@@ -34,13 +34,57 @@ const SendEmail2 = () => {
   //     );
   // };
 
-  const sendEmailBasic2 = () => {};
+  const sendEmailBasic2 = async () => {
+    const url = 'https://rickandmortyapi.com/api/character';
+    const options = {
+      // method: 'POST',
+      // headers: {
+      //   Accept: 'application/json',
+      //   'Content-Type': 'application/json',
+      // },
+    };
+
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => console.log(json.results))
+      .catch((err) => console.error('error:' + err));
+  };
+
+  const web2 = () => {
+    const url = 'https://api.sendinblue.com/v3/smtp/email';
+    const options = {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        sender: {
+          name: 'SinFronteras',
+          email: 'sinfronteras.sucre@gmail.com',
+        },
+        to: [{ email: 'santillanreynaarielangel@gmail.com', name: 'Ariel0' }],
+        htmlContent:
+          '<!DOCTYPE html> <html> <body> <h1>Confirm you email</h1> <p>Please confirm your email address by clicking on the link below</p> </body> </html>',
+        textContent:
+          'Please confirm your email address by clicking on the link https://text.domain.com',
+        subject: 'Login Email confirmation',
+        replyTo: { email: 'sinfronteras.sucre@gmail.com', name: 'Ariel0' },
+      }),
+    };
+
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((json) => console.log(json))
+      .catch((err) => console.error('error:' + err));
+  };
   return (
     <>
       <Button
         variant="contained"
         color="success"
-        onClick={() => sendEmailBasic2()}
+        // onClick={() => sendEmailBasic2()}
+        onClick={() => web2()}
       >
         sendInBlueEmail
       </Button>
