@@ -33,14 +33,16 @@ const SendEmail2 = () => {
   //       }
   //     );
   // };
+
+  const sendEmailBasic2 = () => {};
   return (
     <>
       <Button
         variant="contained"
         color="success"
-        // onClick={() => sendEmailBasic()}
+        onClick={() => sendEmailBasic2()}
       >
-        sendInBluetypeScriptEmail
+        sendInBlueEmail
       </Button>
     </>
   );
