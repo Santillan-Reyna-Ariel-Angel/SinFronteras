@@ -57,26 +57,45 @@ const SendEmail2 = () => {
       headers: {
         Accept: 'application/json',
         'Content-Type': 'application/json',
+        'api-key':
+          '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',
       },
-      body: JSON.stringify({
+      data: {
         sender: {
           name: 'SinFronteras',
           email: 'sinfronteras.sucre@gmail.com',
         },
-        to: [{ email: 'santillanreynaarielangel@gmail.com', name: 'Ariel0' }],
+        to: [
+          {
+            email: 'santillanreynaarielangel@gmail.com',
+            name: 'Arile0',
+          },
+        ],
+        subject: 'Hello world',
         htmlContent:
-          '<!DOCTYPE html> <html> <body> <h1>Confirm you email</h1> <p>Please confirm your email address by clicking on the link below</p> </body> </html>',
-        textContent:
-          'Please confirm your email address by clicking on the link https://text.domain.com',
-        subject: 'Login Email confirmation',
-        replyTo: { email: 'sinfronteras.sucre@gmail.com', name: 'Ariel0' },
-      }),
+          '<html><head></head><body><p>Hello,</p>This is my first transactional email sent from Sendinblue.</p></body></html>',
+      },
+
+      // body: JSON.stringify({
+      //   sender: {
+      //     name: 'SinFronteras',
+      //     email: 'sinfronteras.sucre@gmail.com',
+      //   },
+      //   to: [{ email: 'santillanreynaarielangel@gmail.com', name: 'Ariel0' }],
+      //   htmlContent:
+      //     '<!DOCTYPE html> <html> <body> <h1>Confirm you email</h1> <p>Please confirm your email address by clicking on the link below</p> </body> </html>',
+      //   textContent:
+      //     'Please confirm your email address by clicking on the link https://text.domain.com',
+      //   subject: 'Login Email confirmation',
+      //   replyTo: { email: 'sinfronteras.sucre@gmail.com', name: 'Ariel0' },
+      // }),
     };
 
     fetch(url, options)
       .then((res) => res.json())
       .then((json) => console.log(json))
       .catch((err) => console.error('error:' + err));
+    // Nos da error 401: 401	Unauthorized	You have not been authenticated. Make sure the provided api-key is correct
   };
   return (
     <>
