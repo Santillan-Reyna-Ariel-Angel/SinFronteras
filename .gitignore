@@ -25,6 +25,5 @@ yarn-error.log*
 # Notes:
 /NotasImportantes
 
-#Variables de entorno
-*.env
-
+#Variables de entorno de Developing
+.env
