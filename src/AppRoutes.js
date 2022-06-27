@@ -16,7 +16,7 @@ import { ReactToPrintComponent2 } from './components/Sales/Tickets3/ReactToPrint
 //SendEmail
 import { SendEmail } from './components/SendEmail/SendEmail.jsx';
 import { SendEmail2 } from './components/SendEmail/SendEmail2.jsx';
-import { SendEmail3 } from './components/SendEmail/SendEmail3.jsx';
+import { SendEmail3 } from './components/SendEmail/SendEmail3';
 //Contexts
 import { ProviderListarNotas } from './contexts/ContextListarNotas';
 import { ProviderBranchOffice } from './contexts/ContextBranchOffice';
