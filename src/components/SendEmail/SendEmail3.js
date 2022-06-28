@@ -17,6 +17,7 @@ const SendEmail3 = () => {
         Accept: 'application/json',
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': '*',
+        Authorization: process.env.SENDGRID_API_KEY, //delete?
       },
 
       to: [
@@ -29,6 +30,7 @@ const SendEmail3 = () => {
       text: 'Felicidades!!! acabas de comprar tu pasaje. Sin Fronteras te desea un Feliz Viaje. Estos son tus asientos:',
       html: '<strong>Felicitaciones estos son tus asientos en HTML</strong>',
     };
+    //ES6
     sgMail
       .send(message)
       .then(() => {
@@ -37,7 +39,39 @@ const SendEmail3 = () => {
       .catch((error) => {
         console.error('error:', error);
       });
+
+    //ES8
+    // (async () => {
+    //   try {
+    //     await sgMail.send(message);
+    //   } catch (error) {
+    //     console.error(error);
+
+    //     if (error.response) {
+    //       console.error(error.response.body);
+    //     }
+    //   }
+    // })();
     // SendGridSendEmail();
+  };
+
+  const sendEmailFetch = async () => {
+    require('dotenv').config();
+
+    const resp = await fetch(' https://api.sendgrid.com/v3/mail/send/', {
+      method: 'GET', //GET, POST, PUT, DELETE
+      Authorization: process.env.SENDGRID_API_KEY,
+      mode: 'no-cors', //delete?
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+      },
+    })
+      .then((respuesta) => console.log(respuesta.json())) //convertimos la respuesta en un json para poder ser operado y mostrado
+      .catch((error) => console.log(error)); // capturamos posibles errores
+
+    console.log(`resp: ${resp}`);
   };
 
   return (
@@ -47,7 +81,7 @@ const SendEmail3 = () => {
         color="success"
         onClick={() => sendEmailWithSendGrid()}
       >
-        send email with sendgrid Goo
+        send email with sendgrid
       </Button>
     </div>
   );
