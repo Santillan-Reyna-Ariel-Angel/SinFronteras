@@ -24,6 +24,7 @@
     "dotenv": "^16.0.1",
     "firebase": "^9.0.1",
     "js-codemod": "^7.0.0",
+    "node-fetch": "^3.2.6",
     "nodemailer": "^6.7.5",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

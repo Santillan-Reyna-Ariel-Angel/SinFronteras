@@ -3,6 +3,7 @@ import React from 'react';
 import Button from '@mui/material/Button';
 // import { SendGridSendEmail } from './SendGridSendEmail.js';
 
+// Nota: añadir a la url "HTTP/1.1" => https://api.sendgrid.com/v3/mail/send HTTP/1.1
 const SendEmail3 = () => {
   const sendEmailWithSendGrid = () => {
     require('dotenv').config();
@@ -58,7 +59,7 @@ const SendEmail3 = () => {
   const sendEmailFetch = async () => {
     require('dotenv').config();
 
-    const resp = await fetch(' https://api.sendgrid.com/v3/mail/send/', {
+    const resp = await fetch('https://api.sendgrid.com/v3/mail/send/', {
       method: 'GET', //GET, POST, PUT, DELETE
       Authorization: process.env.SENDGRID_API_KEY,
       mode: 'no-cors', //delete?
@@ -74,12 +75,82 @@ const SendEmail3 = () => {
     console.log(`resp: ${resp}`);
   };
 
+  const sendEmailSGClient = () => {
+    require('dotenv').config();
+
+    const client = require('@sendgrid/client');
+    client.setApiKey(process.env.SENDGRID_API_KEY);
+    const request = {
+      method: 'GET',
+      url: '/v3/api_keys',
+    };
+    client.request(request).then(([response, body]) => {
+      console.log(response.statusCode);
+      console.log(body);
+    });
+  };
+
+  const sendEmailSGClient2 = () => {
+    require('dotenv').config();
+
+    const client = require('@sendgrid/client');
+    client.setApiKey(process.env.SENDGRID_API_KEY);
+    const request = {
+      method: 'POST', //GET
+      url: 'https://api.sendgrid.com/v3/mail/send', // https://api.sendgrid.com/v3/mail/send or /v3/api_keys
+
+      mode: 'no-cors', //delete?
+      headers: {
+        //delete?
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*',
+        Authorization: process.env.SENDGRID_API_KEY, //delete?
+      },
+    };
+
+    const data = {
+      content: [
+        {
+          type: 'text/html',
+          value: '<html><p>Hello, world!</p></html>',
+        },
+      ],
+      from: {
+        email: 'sinfronteras.sucre@gmail.com',
+        name: 'Sin Fronteras',
+      },
+      personalizations: [
+        {
+          subject: 'Hello, World!',
+          to: [
+            {
+              email: 'santillanreynaarielangel@gmail.com',
+              name: 'Ariel0',
+            },
+          ],
+        },
+      ],
+      reply_to: {
+        email: 'sinfronteras.sucre@gmail.com',
+        name: 'Sin Fronteras',
+      },
+      subject: 'Hello, World!',
+    };
+    request.body = data;
+    request.method = 'POST';
+    request.url = 'https://api.sendgrid.com/v3/mail/send'; // https://api.sendgrid.com/v3/mail/send or /v3/mail/send
+    client.request(request).then(([response, body]) => {
+      console.log(response.statusCode);
+      console.log(response.body);
+    });
+  };
   return (
     <div>
       <Button
         variant="contained"
         color="success"
-        onClick={() => sendEmailWithSendGrid()}
+        onClick={() => sendEmailSGClient2()}
       >
         send email with sendgrid
       </Button>
