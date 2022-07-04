@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 const SendEmail3 = () => {
   const sendEmailWithSendGrid = () => {
     require('dotenv').config();
+    console.log('k', process.env.SENDGRID_API_KEY);
     const sgMail = require('@sendgrid/mail');
 
     sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -41,24 +42,12 @@ const SendEmail3 = () => {
         console.error('error:', error);
       });
 
-    //ES8
-    // (async () => {
-    //   try {
-    //     await sgMail.send(message);
-    //   } catch (error) {
-    //     console.error(error);
-
-    //     if (error.response) {
-    //       console.error(error.response.body);
-    //     }
-    //   }
-    // })();
     // SendGridSendEmail();
   };
 
   const sendEmailFetch = async () => {
     require('dotenv').config();
-
+    console.log('k', process.env.SENDGRID_API_KEY);
     const resp = await fetch('https://api.sendgrid.com/v3/mail/send/', {
       method: 'GET', //GET, POST, PUT, DELETE
       Authorization: process.env.SENDGRID_API_KEY,
@@ -77,7 +66,7 @@ const SendEmail3 = () => {
 
   const sendEmailSGClient = () => {
     require('dotenv').config();
-
+    console.log('k', process.env.SENDGRID_API_KEY);
     const client = require('@sendgrid/client');
     client.setApiKey(process.env.SENDGRID_API_KEY);
     const request = {
@@ -92,7 +81,7 @@ const SendEmail3 = () => {
 
   const sendEmailSGClient2 = () => {
     require('dotenv').config();
-
+    console.log('k', process.env.SENDGRID_API_KEY);
     const client = require('@sendgrid/client');
     client.setApiKey(process.env.SENDGRID_API_KEY);
     const request = {
