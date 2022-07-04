@@ -1,6 +1,6 @@
 require('dotenv').config();
 console.log('K', process.env.SIB_API_KEY);
-//bulkSend.js
+
 var SibApiV3Sdk = require('sib-api-v3-sdk');
 SibApiV3Sdk.ApiClient.instance.authentications['api-key'].apiKey =
   process.env.SIB_API_KEY;
@@ -15,7 +15,7 @@ new SibApiV3Sdk.TransactionalEmailsApi()
     //   headline: 'This is the default headline',
     // },
     messageVersions: [
-      //   //Definition for Message Version 1
+      //Definition for Message Version 1
       {
         to: [
           {
@@ -35,18 +35,7 @@ new SibApiV3Sdk.TransactionalEmailsApi()
       },
       //Definition for Message Version 2
       //   {
-      //     to: [
-      //       {
-      //         email: 'marie@example.com',
-      //         name: 'Marie Delvaux',
-      //       },
-      //     ],
-      //     params: {
-      //       greeting:
-      //         'Hello Marie, we have prepared some exclusive summer deals for you.',
-      //       headline: 'Some bathing suits you might like',
-      //     },
-      //     subject: 'Marie, new bathing suits are here.',
+      //     ...
       //   },
     ],
   })
