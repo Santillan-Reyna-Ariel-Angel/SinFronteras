@@ -1,5 +1,6 @@
 export const SendGridSendEmail = () => {
   require('dotenv').config();
+  console.log('k', process.env.SENDGRID_API_KEY);
   const sgMail = require('@sendgrid/mail');
 
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
@@ -25,9 +26,8 @@ export const SendGridSendEmail = () => {
 };
 
 //Prueba servidor:
-
-console.log('');
 // require('dotenv').config();
+// console.log('k', process.env.SENDGRID_API_KEY);
 // const sgMail = require('@sendgrid/mail');
 
 // sgMail.setApiKey(process.env.SENDGRID_API_KEY);
