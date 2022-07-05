@@ -75,7 +75,8 @@ export default function CustomizedList() {
             },
           })}
         >
-          <Paper elevation={0} sx={{ maxWidth: 225 }}>
+          {/*<Paper> Es el contenedor al cual podemos aplicar estilos al sidebar(borderRadius,etc): */}
+          <Paper elevation={0} sx={{ maxWidth: 225, borderRadius: '0px' }}>
             <FireNav component="nav" disablePadding>
               {/* Cabeza Menu */}
               <ListItem component="div" disablePadding>
