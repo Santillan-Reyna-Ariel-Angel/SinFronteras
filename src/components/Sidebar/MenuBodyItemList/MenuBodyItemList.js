@@ -11,7 +11,7 @@ import HomeWorkRoundedIcon from '@mui/icons-material/HomeWorkRounded';
 import PointOfSaleRoundedIcon from '@mui/icons-material/PointOfSaleRounded';
 import ConfirmationNumberRoundedIcon from '@mui/icons-material/ConfirmationNumberRounded';
 
-export const sidebarMenuList = [
+export const menuBodyItemList = [
   {
     path: '/ventas',
     icon: <PointOfSaleRoundedIcon />,
