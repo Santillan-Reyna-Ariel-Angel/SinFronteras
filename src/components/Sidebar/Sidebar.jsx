@@ -54,7 +54,6 @@ export default function CustomizedList() {
   const [open, setOpen] = useState(true);
   console.log('open:', open);
 
-  // Este comentario es una prueba para verificar la creacion exitosa de un anueva rama
   return (
     <>
       <Box sx={{ display: 'flex' }}>
@@ -93,7 +92,8 @@ export default function CustomizedList() {
                     }}
                   />
                 </ListItemButton>
-                <Tooltip title="Configuraciones">
+                {/* Icono de configuracion(Superior Lateral Derecho): */}
+                {/* <Tooltip title="Configuraciones">
                   <IconButton
                     size="large"
                     sx={{
@@ -119,7 +119,7 @@ export default function CustomizedList() {
                         display: 'block',
                         left: 0,
                         width: '1px',
-                        bgcolor: 'divider',
+                        bgcolor: 'divider', //Linea Vertical divisora con la con titulo del sidebar
                       },
                     }}
                   >
@@ -128,7 +128,7 @@ export default function CustomizedList() {
                       sx={{ position: 'absolute', right: 4, opacity: 0 }}
                     />
                   </IconButton>
-                </Tooltip>
+                </Tooltip> */}
               </ListItem>
               <Divider />
               {/* Caja de elementos:  */}
