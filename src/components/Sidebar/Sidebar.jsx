@@ -50,8 +50,9 @@ const FireNav = styled(List)({
 });
 
 export default function CustomizedList() {
+  // averiguar para que sirve este estado:
   const [open, setOpen] = useState(true);
-  // console.log("open:", open);
+  console.log('open:', open);
 
   return (
     <>
