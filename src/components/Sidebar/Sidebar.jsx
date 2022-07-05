@@ -54,6 +54,7 @@ export default function CustomizedList() {
   const [open, setOpen] = useState(true);
   console.log('open:', open);
 
+  // Este comentario es una prueba para verificar la creacion exitosa de un anueva rama
   return (
     <>
       <Box sx={{ display: 'flex' }}>
