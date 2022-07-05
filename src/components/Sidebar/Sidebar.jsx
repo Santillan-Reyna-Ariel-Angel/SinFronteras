@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 // material-styles
-import "./SidebarStyles.css";
-import { styled, ThemeProvider, createTheme } from "@mui/material/styles";
+import './SidebarStyles.css';
+import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
 //material
 import {
   Box,
@@ -15,7 +15,7 @@ import {
   Paper,
   IconButton,
   Tooltip,
-} from "@mui/material/";
+} from '@mui/material/';
 
 //icons-material
 import {
@@ -23,99 +23,27 @@ import {
   KeyboardArrowDown,
   Home,
   Settings,
-  People,
-} from "@mui/icons-material";
-// Otros iconos
-import PersonAddRoundedIcon from "@mui/icons-material/PersonAddRounded";
-import FactCheckRoundedIcon from "@mui/icons-material/FactCheckRounded";
-import DirectionsBusRoundedIcon from "@mui/icons-material/DirectionsBusRounded";
-import AddCircleRoundedIcon from "@mui/icons-material/AddCircleRounded";
-import FormatListNumberedRoundedIcon from "@mui/icons-material/FormatListNumberedRounded";
-import MapsHomeWorkRoundedIcon from "@mui/icons-material/MapsHomeWorkRounded";
-import HomeWorkRoundedIcon from "@mui/icons-material/HomeWorkRounded";
-import PointOfSaleRoundedIcon from "@mui/icons-material/PointOfSaleRounded";
-import ConfirmationNumberRoundedIcon from "@mui/icons-material/ConfirmationNumberRounded";
-// Estilos propios
-import { LinksStyles } from "./SidebarStyles";
+} from '@mui/icons-material';
 
-const SidebarMenu = [
-  {
-    path: "/ventas",
-    icon: <PointOfSaleRoundedIcon />,
-    title: "Ventas",
-    children: [
-      {
-        path: "/ventas/pasajes",
-        title: "Pasajes",
-        icon: <ConfirmationNumberRoundedIcon />,
-      },
-    ],
-  },
-  {
-    path: "/personal",
-    icon: <People />,
-    title: "Personal",
-    children: [
-      {
-        path: "/personal/registro-de-cargos",
-        title: "Registro de Usuarios",
-        icon: <PersonAddRoundedIcon />,
-      },
-      {
-        path: "/personal/roles-y-permisos",
-        title: "Roles y permisos",
-        icon: <FactCheckRoundedIcon />,
-      },
-    ],
-  },
-  {
-    path: "/Buses",
-    icon: <DirectionsBusRoundedIcon />,
-    title: "Bueses",
-    children: [
-      {
-        path: "/buses/registro-de-buses",
-        title: "Registro de Buses",
-        icon: <AddCircleRoundedIcon />,
-      },
-      {
-        path: "/buses/lista-de-buses",
-        title: "Lista de buses",
-        icon: <FormatListNumberedRoundedIcon />,
-      },
-    ],
-  },
-  {
-    path: "/sucursales",
-    icon: <HomeWorkRoundedIcon />,
-    title: "Sucursales",
-    children: [
-      {
-        path: "/sucursales/registro-de-sucursales",
-        title: "Registro de sucursales",
-        icon: <MapsHomeWorkRoundedIcon />,
-      },
-      {
-        path: "/sucursales/lista-de-sucursales",
-        title: "Lista de Sucursales",
-        icon: <FormatListNumberedRoundedIcon />,
-      },
-    ],
-  },
-];
+// Estilos propios
+import { LinksStyles } from './SidebarStyles';
+
+//Menu del sidebar:
+import { sidebarMenuList } from './SidebarMenu/SidebarMenu';
+const SidebarMenu = sidebarMenuList ? sidebarMenuList : [];
 
 const FireNav = styled(List)({
-  "& .MuiListItemButton-root": {
+  '& .MuiListItemButton-root': {
     //   Padding la caja general del sidebar
     paddingLeft: 24,
     paddingRight: 24,
   },
-  "& .MuiListItemIcon-root": {
+  '& .MuiListItemIcon-root': {
     //   padding de todos los iconos
     minWidth: 0,
     marginRight: 8,
   },
-  "& .MuiSvgIcon-root": {
+  '& .MuiSvgIcon-root': {
     // tamaño de todos los iconos
     fontSize: 20,
   },
@@ -127,7 +55,7 @@ export default function CustomizedList() {
 
   return (
     <>
-      <Box sx={{ display: "flex" }}>
+      <Box sx={{ display: 'flex' }}>
         <ThemeProvider
           theme={createTheme({
             components: {
@@ -138,11 +66,11 @@ export default function CustomizedList() {
               },
             },
             palette: {
-              mode: "dark",
+              mode: 'dark',
               primary: {
-                main: "rgb(102, 157, 246)",
+                main: 'rgb(102, 157, 246)',
               },
-              background: { paper: "rgb(5, 30, 52)" },
+              background: { paper: 'rgb(5, 30, 52)' },
             },
           })}
         >
@@ -150,16 +78,16 @@ export default function CustomizedList() {
             <FireNav component="nav" disablePadding>
               {/* Cabeza Menu */}
               <ListItem component="div" disablePadding>
-                <ListItemButton sx={{ height: "100%" }}>
+                <ListItemButton sx={{ height: '100%' }}>
                   <ListItemIcon>
                     <Home color="primary" />
                   </ListItemIcon>
                   <ListItemText
                     primary="Menu"
                     primaryTypographyProps={{
-                      color: "primary",
-                      fontWeight: "medium",
-                      variant: "body2",
+                      color: 'primary',
+                      fontWeight: 'medium',
+                      variant: 'body2',
                     }}
                   />
                 </ListItemButton>
@@ -167,35 +95,35 @@ export default function CustomizedList() {
                   <IconButton
                     size="large"
                     sx={{
-                      "& svg": {
-                        color: "rgba(255,255,255,0.8)",
-                        transition: "0.2s",
-                        transform: "translateX(0) rotate(0)",
+                      '& svg': {
+                        color: 'rgba(255,255,255,0.8)',
+                        transition: '0.2s',
+                        transform: 'translateX(0) rotate(0)',
                       },
-                      "&:hover, &:focus": {
-                        bgcolor: "unset",
-                        "& svg:first-of-type": {
-                          transform: "translateX(-4px) rotate(-20deg)",
+                      '&:hover, &:focus': {
+                        bgcolor: 'unset',
+                        '& svg:first-of-type': {
+                          transform: 'translateX(-4px) rotate(-20deg)',
                         },
-                        "& svg:last-of-type": {
+                        '& svg:last-of-type': {
                           right: 0,
                           opacity: 1,
                         },
                       },
-                      "&:after": {
+                      '&:after': {
                         content: '""',
-                        position: "absolute",
-                        height: "80%",
-                        display: "block",
+                        position: 'absolute',
+                        height: '80%',
+                        display: 'block',
                         left: 0,
-                        width: "1px",
-                        bgcolor: "divider",
+                        width: '1px',
+                        bgcolor: 'divider',
                       },
                     }}
                   >
                     <Settings />
                     <ArrowRight
-                      sx={{ position: "absolute", right: 4, opacity: 0 }}
+                      sx={{ position: 'absolute', right: 4, opacity: 0 }}
                     />
                   </IconButton>
                 </Tooltip>
@@ -204,7 +132,7 @@ export default function CustomizedList() {
               {/* Caja de elementos:  */}
               <Box
                 sx={{
-                  bgcolor: open ? "rgba(71, 98, 130, 0.2)" : null,
+                  bgcolor: open ? 'rgba(71, 98, 130, 0.2)' : null,
                   // py podemos ponerle 0 para que nuestros elementos esten mas cercanos entre si
                   py: open ? 2 : 0,
                 }}
@@ -220,9 +148,9 @@ export default function CustomizedList() {
                           px: 3,
                           pt: 1.5,
                           pb: open ? 0 : 1.5,
-                          "&:hover, &:focus": {
-                            color: "primary.main",
-                            "& svg": {
+                          '&:hover, &:focus': {
+                            color: 'primary.main',
+                            '& svg': {
                               opacity: 1,
                             },
                           },
@@ -230,9 +158,9 @@ export default function CustomizedList() {
                       >
                         <ListItemIcon
                           sx={{
-                            color: "inherit",
-                            mt: "-7px",
-                            ml: "-14px",
+                            color: 'inherit',
+                            mt: '-7px',
+                            ml: '-14px',
                           }}
                         >
                           {dad.icon}
@@ -242,26 +170,26 @@ export default function CustomizedList() {
                           primary={dad.title}
                           primaryTypographyProps={{
                             fontSize: 15,
-                            fontWeight: "medium",
-                            lineHeight: "10px",
-                            mb: "5px",
+                            fontWeight: 'medium',
+                            lineHeight: '10px',
+                            mb: '5px',
                           }}
                           secondary={dad.children.map((child) => {
-                            return "*" + child.title + " ";
+                            return '*' + child.title + ' ';
                           })}
                           secondaryTypographyProps={{
                             noWrap: true,
                             fontSize: 12,
-                            lineHeight: "12px",
+                            lineHeight: '12px',
                             color: open
-                              ? "rgba(0,0,0,0)"
-                              : "rgba(255,255,255,0.5)",
+                              ? 'rgba(0,0,0,0)'
+                              : 'rgba(255,255,255,0.5)',
                           }}
                           //   Estilos del texto padre(titulo)
                           sx={{
                             my: 0,
-                            "&:hover, &:focus": {
-                              color: "primary.main",
+                            '&:hover, &:focus': {
+                              color: 'primary.main',
                             },
                           }}
                         />
@@ -269,8 +197,8 @@ export default function CustomizedList() {
                           sx={{
                             mr: -1,
                             opacity: 0,
-                            transform: open ? "rotate(-180deg)" : "rotate(0)",
-                            transition: "0.2s",
+                            transform: open ? 'rotate(-180deg)' : 'rotate(0)',
+                            transition: '0.2s',
                           }}
                         />
                       </ListItemButton>
@@ -282,16 +210,16 @@ export default function CustomizedList() {
                             sx={{
                               py: 0,
                               minHeight: 32,
-                              color: "rgba(255,255,255,.8)",
-                              "&:hover, &:focus": {
-                                color: "primary.main",
+                              color: 'rgba(255,255,255,.8)',
+                              '&:hover, &:focus': {
+                                color: 'primary.main',
                               },
                             }}
                           >
                             <ListItemIcon
                               sx={{
-                                color: "inherit",
-                                pl: "12px",
+                                color: 'inherit',
+                                pl: '12px',
                               }}
                             >
                               {child.icon}
@@ -300,7 +228,7 @@ export default function CustomizedList() {
                               // primary={child.title}
                               primaryTypographyProps={{
                                 fontSize: 13,
-                                fontWeight: "medium",
+                                fontWeight: 'medium',
                               }}
                             >
                               <LinksStyles>
