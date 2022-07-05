@@ -208,39 +208,40 @@ export default function CustomizedList() {
                       {/* Items */}
                       {open &&
                         dad.children.map((child) => (
-                          <ListItemButton
-                            key={child.title}
-                            sx={{
-                              py: 0,
-                              minHeight: 32,
-                              color: 'rgba(255,255,255,.8)',
-                              '&:hover, &:focus': {
-                                color: 'primary.main',
-                              },
-                            }}
-                          >
-                            <ListItemIcon
-                              sx={{
-                                color: 'inherit',
-                                pl: '12px',
-                              }}
-                            >
-                              {child.icon}
-                            </ListItemIcon>
-                            <ListItemText
-                              // primary={child.title}
-                              primaryTypographyProps={{
-                                fontSize: 13,
-                                fontWeight: 'medium',
-                              }}
-                            >
-                              <LinksStyles>
-                                <Link to={child.path} className="linksStyles">
+                          // Los Items hijos se envuelven en <Link to={child.path} ...> para que cuando se precione en cualquier area(texto,icono o misma seccion), este nos pueda redireccionar.
+                          <LinksStyles>
+                            <Link to={child.path} className="linksStyles">
+                              <ListItemButton
+                                key={child.title}
+                                sx={{
+                                  py: 0,
+                                  minHeight: 32,
+                                  color: 'rgba(255,255,255,.8)',
+                                  '&:hover, &:focus': {
+                                    color: 'primary.main',
+                                  },
+                                }}
+                              >
+                                <ListItemIcon
+                                  sx={{
+                                    color: 'inherit',
+                                    pl: '12px',
+                                  }}
+                                >
+                                  {child.icon}
+                                </ListItemIcon>
+                                <ListItemText
+                                  primary={child.title}
+                                  primaryTypographyProps={{
+                                    fontSize: 13,
+                                    fontWeight: 'medium',
+                                  }}
+                                >
                                   {child.title}
-                                </Link>
-                              </LinksStyles>
-                            </ListItemText>
-                          </ListItemButton>
+                                </ListItemText>
+                              </ListItemButton>
+                            </Link>
+                          </LinksStyles>
                         ))}
                     </>
                   );
