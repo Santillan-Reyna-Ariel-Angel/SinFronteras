@@ -50,6 +50,7 @@ const MenuBody = () => {
         {sidebarMenuBodyItemList.map((dad, index) => {
           return (
             <>
+              {/* Items Padres: */}
               <ListItemButton
                 alignItems="flex-start"
                 // onClick={
@@ -59,8 +60,9 @@ const MenuBody = () => {
                 //   //   console.log(sidebarMenuBodyItemList[index].title),
                 //   // ]
                 // }
+
+                // Estilos de la caja que contiene al padre:
                 sx={{
-                  // Estilos de la caja que contiene al padre
                   px: 3,
                   pt: 1.5,
                   pb: open ? 0 : 1.5,
@@ -81,8 +83,8 @@ const MenuBody = () => {
                 >
                   {dad.icon}
                 </ListItemIcon>
+                {/* Items padres texto: */}
                 <ListItemText
-                  // Item padre
                   primary={dad.title}
                   primaryTypographyProps={{
                     fontSize: 15,
@@ -99,7 +101,7 @@ const MenuBody = () => {
                     lineHeight: '12px',
                     color: open ? 'rgba(0,0,0,0)' : 'rgba(255,255,255,0.5)',
                   }}
-                  //   Estilos del texto padre(titulo)
+                  //   Estilos del texto padre(titulo):
                   sx={{
                     my: 0,
                     // El hover y focus es innecesario(Por que el sx del la caja padre afecta a este):
@@ -117,15 +119,16 @@ const MenuBody = () => {
                   }}
                 />
               </ListItemButton>
-              {/* Items */}
+
+              {/* Items Hijos: */}
               {open &&
                 dad.children.map((child) => (
-                  // Los Items hijos se envuelven en <Link to={child.path} ...> para que cuando se precione en cualquier area(texto,icono o misma seccion), este nos pueda redireccionar.
+                  // Los Items hijos se envuelven en <Link to={child.path} ...> para que cuando se presione en cualquier area(texto,icono o misma seccion), este nos pueda redireccionar.
                   <LinksStyles>
                     <Link to={child.path} className="linksStyles">
                       <ListItemButton
                         key={child.title}
-                        // Estilos de la caja que contiene los Items(hijos)
+                        // Estilos de la caja que contiene los Items(hijos):
                         sx={{
                           py: 0,
                           minHeight: 32,
@@ -147,6 +150,7 @@ const MenuBody = () => {
                         >
                           {child.icon}
                         </ListItemIcon>
+                        {/* Items hijos texto: */}
                         <ListItemText
                           primary={child.title}
                           primaryTypographyProps={{
