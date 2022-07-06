@@ -1,11 +1,8 @@
 import React from 'react';
-
-// material-styles
-import './SidebarStyles.css';
+// material-styles:
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
-//material
+//material:
 import { Box, Divider, List, Paper } from '@mui/material/';
-
 // Cabecera del menu:
 import { MenuHeader } from './MenuHeader/MenuHeader';
 // Cuerpo del menu:
@@ -53,6 +50,7 @@ export default function CustomizedList() {
           {/*<Paper> Es el contenedor al cual podemos aplicar estilos al sidebar(borderRadius,etc): */}
           <Paper elevation={0} sx={{ maxWidth: 225, borderRadius: '0px' }}>
             <FireNav component="nav" disablePadding>
+              <Divider />
               {/* Cabeza Menu: */}
               <MenuHeader />
               <Divider />

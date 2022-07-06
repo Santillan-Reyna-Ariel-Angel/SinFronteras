@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+
 //material
 import {
   Box,
@@ -30,6 +31,12 @@ const MenuBody = () => {
       : setOpen(open);
   };
 
+  const urlPath = window.location.pathname;
+  console.log('urlPath', urlPath);
+  // O tambien:
+  const sampleLocation = useLocation();
+  console.log('url2', sampleLocation.pathname);
+
   return (
     <>
       {/* Cuerpo del menu:  */}
@@ -58,7 +65,7 @@ const MenuBody = () => {
                   pt: 1.5,
                   pb: open ? 0 : 1.5,
                   '&:hover, &:focus': {
-                    color: 'primary.main',
+                    // color: 'primary.main',
                     // '& svg': {
                     //   opacity: 1,
                     // },
@@ -95,9 +102,10 @@ const MenuBody = () => {
                   //   Estilos del texto padre(titulo)
                   sx={{
                     my: 0,
-                    '&:hover, &:focus': {
-                      color: 'primary.main',
-                    },
+                    // El hover y focus es innecesario(Por que el sx del la caja padre afecta a este):
+                    // '&:hover, &:focus': {
+                    //   color: 'primary.main',
+                    // },
                   }}
                 />
                 <KeyboardArrowDown
@@ -117,12 +125,17 @@ const MenuBody = () => {
                     <Link to={child.path} className="linksStyles">
                       <ListItemButton
                         key={child.title}
+                        // Estilos de la caja que contiene los Items(hijos)
                         sx={{
                           py: 0,
                           minHeight: 32,
-                          color: 'rgba(255,255,255,.8)',
+                          color: `${
+                            child.path === urlPath
+                              ? 'rgb(102, 157, 246)'
+                              : 'rgba(255,255,255,.8)'
+                          }`,
                           '&:hover, &:focus': {
-                            color: 'primary.main',
+                            // color: 'primary.main',
                           },
                         }}
                       >
