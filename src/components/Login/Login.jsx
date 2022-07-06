@@ -26,7 +26,7 @@ const Login = () => {
     const accessToken = await Auth(email, password);
     if (accessToken !== null) {
       sessionStorage.setItem('userEmail', email);
-      history.push('/principal');
+      history.push('/ventas/pasajes'); //redirigir a pagina de destino
       setCredentialError(false);
     } else {
       setCredentialError(true);
