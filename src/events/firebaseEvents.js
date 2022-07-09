@@ -9,7 +9,7 @@ export const Auth = async (email, password) => {
       .signInWithEmailAndPassword(email, password);
     // console.log("userCredential:", userCredential);
     const accessToken = await userCredential.user.getIdToken();
-    console.log('accessToken:', accessToken);
+    // console.log('accessToken:', accessToken);
     // return userCredential;
     return accessToken;
   } catch (error) {
