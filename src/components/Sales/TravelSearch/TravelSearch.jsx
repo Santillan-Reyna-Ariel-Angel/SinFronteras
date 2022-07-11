@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-//fecha
+//fecha:
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
-//Context branchOffice
+//Context branchOffice:
 import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
-//Estilos
+//Estilos:
 import {
   Background,
   Container,
@@ -16,11 +16,12 @@ import {
   InputDate,
   // ButtonSearch,
 } from './TravelSearchStyles';
-//Compoenetes
+//Componentes:
 import TravelCards from './../TravelCards/TravelCards';
+
 const TravelSearch = () => {
   const branchOffice = useContext(ContextBranchOffice);
-  // console.log("branchOfficeInTravelSearch", branchOffice);
+  // console.log('branchOfficeInTravelSearch', branchOffice);
 
   const { branchInformation } = branchOffice
     ? branchOffice
@@ -68,15 +69,6 @@ const TravelSearch = () => {
       destination !== null &&
       formattedTravelDate !== null
     ) {
-      // console.log(
-      //   'origin:',
-      //   origin,
-      //   '| destination:',
-      //   destination,
-      //   '| formattedTravelDate:',
-      //   formattedTravelDate
-      // );
-
       return (
         <TravelCards
           travelSearchData={{

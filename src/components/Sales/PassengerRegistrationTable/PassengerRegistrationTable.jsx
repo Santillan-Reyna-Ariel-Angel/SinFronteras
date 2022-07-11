@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //Styles
 import Button from '@mui/material/Button';
 // import { Background, Container } from './PassengerRegistrationTableStyles';
@@ -53,9 +53,14 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
     // console.log('passengerAux', passengerAux);
   };
 
-  const registrarPasajeros = () => {
-    if (passengerAux !== undefined) {
-      //convertir a una funcion:
+  const isCompleteFields = () => {
+    if (passengerAux === undefined) {
+      console.log(
+        'no se selecciono asiento o no se lleno ningun campo',
+        passengerAux
+      );
+      return false;
+    } else {
       let camposVacios = passengerAux.filter(
         (passenger) =>
           passenger.id === '' ||
@@ -66,19 +71,37 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
           passenger.lastName === ''
       );
       if (camposVacios.length === 0) {
-        console.log('Btn passengerAux', passengerAux);
-        setRowsState(passengerAux);
+        console.log('passengerAux', passengerAux);
+        return true;
       } else {
         console.log('camposVacios', camposVacios);
+        return false;
       }
+    }
+  };
+
+  const [mostrarInfocantacto, setMostrarInfocantacto] = useState(false);
+  const registrarPasajeros = () => {
+    let is_CompleteFields = isCompleteFields();
+    if (is_CompleteFields) {
+      setRowsState(passengerAux);
+      setMostrarInfocantacto(true);
     }
   };
 
   console.log('rowsState', rowsState);
 
+  // const [isDisableButton, setIsDisableButton] = useState(true);
+  // const enableOrDisableButton = (event) => {
+  //   event.preventDefault();
+  //   let is_CompleteFields = isCompleteFields();
+  //   is_CompleteFields ? setIsDisableButton(false) : setIsDisableButton(true);
+  // };
+
   const DataGridDemo = () => {
     return (
-      <div style={{ height: 380, width: 732 }}>
+      // height: 1fr o 100%
+      <div style={{ height: '1fr', width: 732 }}>
         {/* width: '100%' */}
         <DataGrid
           //   sx={{ marginTop: '50px' }}
@@ -91,7 +114,10 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
           rowsPerPageOptions={[5]} //la consola lo sugiere
           hideFooterSelectedRowCount //oculta conteo de filas selecionadas
           autoHeight={true} //Altura de la tabla dinamica
-          onCellEditCommit={(params, event) => recuperarDatos(params)} //registrar cada dato de la datagrid
+          onCellEditCommit={(params, event) => [
+            recuperarDatos(params),
+            // enableOrDisableButton(event),
+          ]} //registrar cada dato de la datagrid
           //Sin uso
           // checkboxSelection //columna check para cada fila
           // disableSelectionOnClick //seleciona la fila al hacer click en un celda
@@ -105,10 +131,20 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
       {/* <Background> */}
       {/* <Container> */}
       {DataGridDemo()}
+      {/* Ocultar/mostrar boton: */}
+      {/* {isDisableButton ? null : (
+        <>
+          <Button ...>
+            Siguiente paso
+          </Button>
+        </>
+      )} */}
+
       <Button
         // sx={{ margin: 'marginTop:0px', paddingTop: '0px' }}
         variant="contained"
         color="success"
+        // disabled={isDisableButton}
         onClick={() => {
           registrarPasajeros();
         }}
@@ -117,7 +153,7 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
       </Button>
       {/* </Container> */}
       {/* </Background> */}
-      <BillingRecord rowsState={rowsState} />
+      {mostrarInfocantacto ? <BillingRecord rowsState={rowsState} /> : null}
     </>
   );
 };
