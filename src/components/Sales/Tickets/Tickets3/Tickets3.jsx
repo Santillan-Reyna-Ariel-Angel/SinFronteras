@@ -33,6 +33,10 @@ export const Tickets3 = React.forwardRef((props, ref) => {
                   </LogoContainer>
                   <GeneralInformation>
                     <p>
+                      <span>Sucursal: </span>
+                      {data.branchNumber}
+                    </p>
+                    <p>
                       <span>Ticket: </span>
                       {data.ticketNumber}
                     </p>

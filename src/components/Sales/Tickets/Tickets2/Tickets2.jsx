@@ -40,6 +40,10 @@ const Tickets2 = ({ data }) => {
                   </LogoContainer>
                   <GeneralInformation>
                     <p>
+                      <span>Sucursal: </span>
+                      {data.branchNumber}
+                    </p>
+                    <p>
                       <span>Ticket: </span>
                       {data.ticketNumber}
                     </p>

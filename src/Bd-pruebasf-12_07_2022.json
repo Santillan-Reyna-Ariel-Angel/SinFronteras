@@ -162,7 +162,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "11/5/2022",
+          "travelDate": "17/7/2022",
           "travelStatus": false
         },
         "code2": {
@@ -209,7 +209,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "11/5/2022",
+          "travelDate": "17/7/2022",
           "travelStatus": false
         }
       }
@@ -378,7 +378,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "11/5/2022",
+          "travelDate": "17/7/2022",
           "travelStatus": false
         },
         "code2": {
@@ -427,7 +427,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "11/5/2022",
+          "travelDate": "17/7/2022",
           "travelStatus": false
         }
       }
@@ -565,6 +565,18 @@
       "typeOfSeats": "semi-cama"
     }
   },
+  "generalCompanyData": {
+    "billingInformation": {
+      "authorizationCode": "7904006306693",
+      "dosingKey": "zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS",
+      "nit": "1665979"
+    },
+    "companyName": "Sin Fronteras",
+    "country": "Bolivia",
+    "location": "Sucre",
+    "matrixHouse": "Sucre terminal interprovincial",
+    "telephone": "64-64646"
+  },
   "users": {
     "code1": {
       "address": "calle campero 593",
@@ -649,18 +661,6 @@
       "sex": "hombre",
       "status": "activo",
       "surnames": "colque choque"
-    }
-  },
-  "generalCompanyData": {
-    "companyName": "Sin Fronteras",
-    "matrixHouse": "Sucre terminal interprovincial",
-    "telephone": "64-64646",
-    "location": "Sucre",
-    "country": "Bolivia",
-    "billingInformation": {
-      "nit": "1665979",
-      "authorizationCode": "7904006306693",
-      "dosingKey": "zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS"
     }
   }
 }

@@ -1,6 +1,7 @@
 export let dataForPassengerTickets = [
   {
     companyName: 'Sin Fronteras',
+    branchNumber: '1',
     ticketNumber: '123456789',
     issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
     companyPhone: '46410523',
@@ -18,6 +19,7 @@ export let dataForPassengerTickets = [
   },
   {
     companyName: 'Sin Fronteras',
+    branchNumber: '1',
     ticketNumber: '123456789',
     issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
     companyPhone: '46410523',
@@ -35,6 +37,7 @@ export let dataForPassengerTickets = [
   },
   {
     companyName: 'Sin Fronteras',
+    branchNumber: '1',
     ticketNumber: '123456789',
     issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
     companyPhone: '46410523',
@@ -52,6 +55,7 @@ export let dataForPassengerTickets = [
   },
   {
     companyName: 'Sin Fronteras',
+    branchNumber: '1',
     ticketNumber: '123456789',
     issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
     companyPhone: '46410523',
@@ -69,6 +73,7 @@ export let dataForPassengerTickets = [
   },
   {
     companyName: 'Sin Fronteras',
+    branchNumber: '1',
     ticketNumber: '123456789',
     issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
     companyPhone: '46410523',
@@ -86,6 +91,7 @@ export let dataForPassengerTickets = [
   },
   {
     companyName: 'Sin Fronteras',
+    branchNumber: '1',
     ticketNumber: '123456789',
     issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
     companyPhone: '46410523',
@@ -101,106 +107,4 @@ export let dataForPassengerTickets = [
     price: '30',
     legend: 'Gracias por su compra, le deseamos un buen viaje.',
   },
-  // {
-  //   companyName: 'Sin Fronteras',
-  //   ticketNumber: '123456789',
-  //   issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-  //   companyPhone: '46410523',
-  //   origin: 'Sucre',
-  //   destiny: 'Santa Cruz',
-  //   travelDate: '30/5/2022',
-  //   DepartureTime: '20:30',
-  //   lane: '0', //carril
-  //   passengerName: 'Santillan Quispe Javier Angel',
-  //   identificationNumber: '7896541',
-  //   seat: '7',
-  //   typeOfSeat: 'Semi-cama',
-  //   price: '30',
-  //   legend: 'Gracias por su compra, le deseamos un buen viaje.',
-  // },
-  // {
-  //   companyName: 'Sin Fronteras',
-  //   ticketNumber: '123456789',
-  //   issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-  //   companyPhone: '46410523',
-  //   origin: 'Sucre',
-  //   destiny: 'Santa Cruz',
-  //   travelDate: '30/5/2022',
-  //   DepartureTime: '20:30',
-  //   lane: '0', //carril
-  //   passengerName: 'Santillan Quispe Javier Angel',
-  //   identificationNumber: '7896541',
-  //   seat: '8',
-  //   typeOfSeat: 'Semi-cama',
-  //   price: '30',
-  //   legend: 'Gracias por su compra, le deseamos un buen viaje.',
-  // },
-  // {
-  //   companyName: 'Sin Fronteras',
-  //   ticketNumber: '123456789',
-  //   issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-  //   companyPhone: '46410523',
-  //   origin: 'Sucre',
-  //   destiny: 'Santa Cruz',
-  //   travelDate: '30/5/2022',
-  //   DepartureTime: '20:30',
-  //   lane: '0', //carril
-  //   passengerName: 'Santillan Quispe Javier Angel',
-  //   identificationNumber: '7896541',
-  //   seat: '9',
-  //   typeOfSeat: 'Semi-cama',
-  //   price: '30',
-  //   legend: 'Gracias por su compra, le deseamos un buen viaje.',
-  // },
-  // {
-  //   companyName: 'Sin Fronteras',
-  //   ticketNumber: '123456789',
-  //   issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-  //   companyPhone: '46410523',
-  //   origin: 'Sucre',
-  //   destiny: 'Santa Cruz',
-  //   travelDate: '30/5/2022',
-  //   DepartureTime: '20:30',
-  //   lane: '0', //carril
-  //   passengerName: 'Santillan Quispe Javier Angel',
-  //   identificationNumber: '7896541',
-  //   seat: '10',
-  //   typeOfSeat: 'Semi-cama',
-  //   price: '30',
-  //   legend: 'Gracias por su compra, le deseamos un buen viaje.',
-  // },
-  // {
-  //   companyName: 'Sin Fronteras',
-  //   ticketNumber: '123456789',
-  //   issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-  //   companyPhone: '46410523',
-  //   origin: 'Sucre',
-  //   destiny: 'Santa Cruz',
-  //   travelDate: '30/5/2022',
-  //   DepartureTime: '20:30',
-  //   lane: '0', //carril
-  //   passengerName: 'Santillan Quispe Javier Angel',
-  //   identificationNumber: '7896541',
-  //   seat: '11',
-  //   typeOfSeat: 'Semi-cama',
-  //   price: '30',
-  //   legend: 'Gracias por su compra, le deseamos un buen viaje.',
-  // },
-  // {
-  //   companyName: 'Sin Fronteras',
-  //   ticketNumber: '123456789',
-  //   issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-  //   companyPhone: '46410523',
-  //   origin: 'Sucre',
-  //   destiny: 'Santa Cruz',
-  //   travelDate: '30/5/2022',
-  //   DepartureTime: '20:30',
-  //   lane: '0', //carril
-  //   passengerName: 'Santillan Quispe Javier Angel',
-  //   identificationNumber: '7896541',
-  //   seat: '12',
-  //   typeOfSeat: 'Semi-cama',
-  //   price: '30',
-  //   legend: 'Gracias por su compra, le deseamos un buen viaje.',
-  // },
 ];

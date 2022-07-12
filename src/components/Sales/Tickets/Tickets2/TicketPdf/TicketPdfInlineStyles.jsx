@@ -105,6 +105,10 @@ const TicketPdfInlineStyles = ({ dataDefault }) => {
                   }}
                 >
                   <Text style={{ margin: '0px' }}>
+                    <Text style={{ fontWeight: 'bold' }}>Sucursal: </Text>
+                    {data.branchNumber}
+                  </Text>
+                  <Text style={{ margin: '0px' }}>
                     <Text style={{ fontWeight: 'bold' }}>Ticket: </Text>
                     {data.ticketNumber}
                   </Text>
