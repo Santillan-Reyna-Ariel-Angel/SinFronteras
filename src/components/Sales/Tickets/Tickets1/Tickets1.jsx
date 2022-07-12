@@ -10,18 +10,18 @@ import {
   LogoPng,
   CompanyName,
   Legend,
-} from './Tickets3Styles';
+} from './Tickets1Styles';
+
 //Importando cantidad de pasajeros:
-import { dataForPassengerTickets } from './datos.js';
+import { dataForPassengerTickets } from './../datos';
 
-export const Tickets3 = React.forwardRef((props, ref) => {
-  const ticketData = dataForPassengerTickets ? dataForPassengerTickets : [];
-
+const Tickets1 = ({ data }) => {
+  const dataDefault = dataForPassengerTickets ? dataForPassengerTickets : [];
   return (
-    <div ref={ref}>
-      {ticketData
-        ? ticketData.map((data, index) => (
-            <div key={index}>
+    <>
+      {dataDefault
+        ? dataDefault.map((data) => (
+            <>
               <Background>
                 <BodyContainer>
                   <LogoContainer>
@@ -87,22 +87,11 @@ export const Tickets3 = React.forwardRef((props, ref) => {
                   </Legend>
                 </BodyContainer>
               </Background>
-
-              {(index + 1) % 3 === 0 ? (
-                <>
-                  <div
-                    style={{
-                      // marginTop: '1rem',
-                      marginTop: '10px', //Si aumentamos no hay diferencia en el pdf
-                      display: 'block',
-                      pageBreakBefore: 'auto',
-                    }}
-                  />
-                </>
-              ) : null}
-            </div>
+            </>
           ))
         : null}
-    </div>
+    </>
   );
-});
+};
+
+export { Tickets1 };

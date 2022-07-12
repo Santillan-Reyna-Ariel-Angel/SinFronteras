@@ -10,50 +10,19 @@ import {
   LogoPng,
   CompanyName,
   Legend,
-} from './TicketsStyles';
+} from './Tickets3Styles';
+//Importando cantidad de pasajeros:
+import { dataForPassengerTickets } from './../datos';
 
-const Tickets = ({ data }) => {
-  const dataDefault = [
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '16',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '16',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-  ];
+export const Tickets3 = React.forwardRef((props, ref) => {
+  // Este componente tiene el logo mas pequeño:
+  const ticketData = dataForPassengerTickets ? dataForPassengerTickets : [];
+
   return (
-    <>
-      {dataDefault
-        ? dataDefault.map((data) => (
-            <>
+    <div ref={ref}>
+      {ticketData
+        ? ticketData.map((data, index) => (
+            <div key={index}>
               <Background>
                 <BodyContainer>
                   <LogoContainer>
@@ -119,11 +88,22 @@ const Tickets = ({ data }) => {
                   </Legend>
                 </BodyContainer>
               </Background>
-            </>
+
+              {(index + 1) % 3 === 0 ? (
+                <>
+                  <div
+                    style={{
+                      // marginTop: '1rem',
+                      marginTop: '10px', //Si aumentamos no hay diferencia en el pdf
+                      display: 'block',
+                      pageBreakBefore: 'auto',
+                    }}
+                  />
+                </>
+              ) : null}
+            </div>
           ))
         : null}
-    </>
+    </div>
   );
-};
-
-export { Tickets };
+});

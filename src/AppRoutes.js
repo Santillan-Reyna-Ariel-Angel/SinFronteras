@@ -9,10 +9,11 @@ import UserRegistration from './components/UserRegistration/UserRegistration';
 import Layout from './components/Loyout/Layout';
 import Sales from './components/Sales/Sales';
 //probando tickets
-import { Tickets } from './components/Sales/Tickets/Tickets.jsx';
-import { Tickets2 } from './components/Sales/Tickets2/Tickets2.jsx';
-import { ReactToPrintComponent } from './components/Sales/Tickets3/ReactToPrintComponent/ReactToPrintComponent.jsx';
-import { ReactToPrintComponent2 } from './components/Sales/Tickets3/ReactToPrintComponent/ReactToPrintComponent2.jsx';
+import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
+import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
+import { Tickets3 } from './components/Sales/Tickets/Tickets3/Tickets3';
+import { ReactToPrintComponent } from './components/Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent.jsx';
+import { ReactToPrintComponent2 } from './components/Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2.jsx';
 //SendEmail
 import { SendEmail } from './components/SendEmail/SendEmail.jsx';
 import { SendEmail2 } from './components/SendEmail/SendEmail2.jsx';
@@ -38,8 +39,9 @@ const AppRoutes = () => {
                     component={() => <Redirect to="/acceso" />}
                   />
                   <Route exact path="/acceso" component={Login} />
-                  <Route exact path="/tickets" component={Tickets} />
+                  <Route exact path="/tickets1" component={Tickets1} />
                   <Route exact path="/tickets2" component={Tickets2} />
+                  <Route exact path="/tickets3" component={Tickets3} />
                   <Route
                     exact
                     path="/tickets-component"

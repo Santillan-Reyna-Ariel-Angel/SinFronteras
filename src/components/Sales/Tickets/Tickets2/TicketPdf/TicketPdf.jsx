@@ -1,8 +1,7 @@
 import React from 'react';
 import { Document, Page, View, Text, Image } from '@react-pdf/renderer';
-import Logo from './../../../../sources/img/LogoSF2.png';
-const TicketPdfInlineStyles = ({ dataDefault }) => {
-  // Esta es una copia de TicketPDF con los estilos en linea:
+import Logo from './../../../../../sources/img/LogoSF2.png';
+const TicketPdf = ({ dataDefault }) => {
   return (
     <Document title="boletos">
       <Page size="A4">
@@ -233,4 +232,4 @@ const TicketPdfInlineStyles = ({ dataDefault }) => {
   );
 };
 
-export { TicketPdfInlineStyles };
+export { TicketPdf };

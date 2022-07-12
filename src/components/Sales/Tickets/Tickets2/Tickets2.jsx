@@ -16,43 +16,11 @@ import Button from '@mui/material/Button';
 import { PDFViewer } from '@react-pdf/renderer';
 import { TicketPdf } from './TicketPdf/TicketPdf.jsx';
 
+//Importando cantidad de pasajeros:
+import { dataForPassengerTickets } from './../datos';
+
 const Tickets2 = ({ data }) => {
-  const dataDefault = [
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '1',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-    {
-      companyName: 'Sin Fronteras',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '2',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-  ];
+  const dataDefault = dataForPassengerTickets ? dataForPassengerTickets : [];
 
   // Probaremos react-pdf/renderer
   const [pdfOpen, setPdfOpen] = useState(false);

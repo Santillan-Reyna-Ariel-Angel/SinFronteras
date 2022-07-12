@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from './../../../sources/img/LogoSF2.png';
+import Logo from './../../../../sources/img/LogoSF2.png';
 
 export const Background = styled.div`
   display: grid;
@@ -13,7 +13,7 @@ export const Background = styled.div`
 
 export const BodyContainer = styled.div`
   display: grid;
-  background-color: #00bdb2;
+  /* background-color: #00bdb2; */
   grid-template-columns: 170px 170px;
   grid-template-rows: auto;
   grid-row-gap: 10px;
