@@ -81,6 +81,7 @@
         "localityPhotograpy": "sucre.png",
         "location": "sucre",
         "name": "Sin Fronteras sucursal Sucre",
+        "branchNumber": "1",
         "terminal": "interprovincial"
       },
       "busesInBranch": {
@@ -295,6 +296,7 @@
         "localityPhotograpy": "c. santa cruz.png",
         "location": "c. santa cruz",
         "name": "Sin Fronteras sucursal C. Santa Cruz",
+        "branchNumber": "2",
         "terminal": "interprovincial"
       },
       "busesInBranch": {

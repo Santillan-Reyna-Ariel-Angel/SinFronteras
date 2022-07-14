@@ -193,16 +193,16 @@ const Seat = ({ dataBusTravel }) => {
     );
   };
 
-  const [rowsState, setRowsState] = useState([]);
+  const [passengersDataTable, setPassengersDataTable] = useState([]);
 
   //Funcion para selecionar un asiento y colocarlo al estado:
   const handleChange = (event) => {
     // console.log('id: ', event.target.id, '.checked: ', event.target.checked);
-    const ids = rowsState.map((seat) => seat.id);
+    const ids = passengersDataTable.map((seat) => seat.id);
     let selectedSeat = ids.includes(event.target.id);
     if (selectedSeat !== true && event.target.checked === true) {
-      setRowsState([
-        ...rowsState,
+      setPassengersDataTable([
+        ...passengersDataTable,
         {
           id: event.target.id,
           price: '150',
@@ -213,10 +213,10 @@ const Seat = ({ dataBusTravel }) => {
         },
       ]);
     } else {
-      const rowsStateAux = rowsState.filter(
+      const passengersDataTableAux = passengersDataTable.filter(
         (seat) => seat.id !== event.target.id
       );
-      setRowsState(rowsStateAux);
+      setPassengersDataTable(passengersDataTableAux);
     }
   };
 
@@ -260,8 +260,8 @@ const Seat = ({ dataBusTravel }) => {
       </Background>
 
       <PassengerRegistrationTable
-        rowsState={rowsState}
-        setRowsState={setRowsState}
+        passengersDataTable={passengersDataTable}
+        setPassengersDataTable={setPassengersDataTable}
       />
     </>
   );

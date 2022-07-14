@@ -21,7 +21,7 @@ import {
 //Contexts generalCompanyData:
 import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCompanyData';
 
-const BillingRecord = ({ rowsState }) => {
+const BillingRecord = ({ passengersDataTable }) => {
   //contex Data :
   const generalCompanyData = useContext(ContextGeneralCompanyData);
   const { billingInformation } = generalCompanyData
@@ -40,7 +40,7 @@ const BillingRecord = ({ rowsState }) => {
   });
   console.log('billingContactInformation: ', billingContactInformation);
 
-  let cisOrNits = rowsState.map((passenger) => {
+  let cisOrNits = passengersDataTable.map((passenger) => {
     return passenger.identificationNumber;
   });
 
@@ -51,7 +51,7 @@ const BillingRecord = ({ rowsState }) => {
   // console.log('countryCodes', countryCodes);
 
   const completeNamesFunction = (identificationNumberParam) => {
-    let completeNamesAux = rowsState.map((passenger) => {
+    let completeNamesAux = passengersDataTable.map((passenger) => {
       if (passenger.identificationNumber === identificationNumberParam) {
         return `${passenger.lastName} ${passenger.firstName}`;
       } else {
@@ -81,7 +81,7 @@ const BillingRecord = ({ rowsState }) => {
   };
   const handleInputChange = (event) => {
     // Agregando Nombre:
-    let findingPassenger = rowsState.filter(
+    let findingPassenger = passengersDataTable.filter(
       (passenger) => passenger.identificationNumber === event.target.value
     );
     let completeNames = completeNamesFunction(event.target.value);
@@ -103,7 +103,7 @@ const BillingRecord = ({ rowsState }) => {
     }));
   };
   const inputChangeNameOrSocialReason = (event) => {
-    let passanger = rowsState.filter(
+    let passanger = passengersDataTable.filter(
       (passenger) =>
         `${passenger.lastName} ${passenger.firstName}` === event.target.value
     );

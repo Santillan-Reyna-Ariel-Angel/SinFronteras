@@ -7,7 +7,10 @@ import Button from '@mui/material/Button';
 import { DataGrid, esES } from '@mui/x-data-grid';
 import { BillingRecord } from '../BillingRecord/BillingRecord';
 
-const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
+const PassengerRegistrationTable = ({
+  passengersDataTable,
+  setPassengersDataTable,
+}) => {
   //x-data-grid:
   // Nota: Precio tendria que ser editable?
   const columns = [
@@ -42,7 +45,7 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
   let passengerAux;
   const recuperarDatos = (params) => {
     let { id, field, value } = params;
-    passengerAux = rowsState.map((passenger, index) => {
+    passengerAux = passengersDataTable.map((passenger, index) => {
       if (passenger.id === id) {
         passenger[field] = value.trim(); //trim(): Elimina los espacios en blanco en ambos extremos del string
         return passenger;
@@ -84,12 +87,12 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
   const registrarPasajeros = () => {
     let is_CompleteFields = isCompleteFields();
     if (is_CompleteFields) {
-      setRowsState(passengerAux);
+      setPassengersDataTable(passengerAux);
       setMostrarInfocantacto(true);
     }
   };
 
-  console.log('rowsState', rowsState);
+  console.log('passengersDataTable', passengersDataTable);
 
   // const [isDisableButton, setIsDisableButton] = useState(true);
   // const enableOrDisableButton = (event) => {
@@ -106,7 +109,7 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
         <DataGrid
           //   sx={{ marginTop: '50px' }}
           localeText={esES.components.MuiDataGrid.defaultProps.localeText} //Importante: convierte los testo del compoente en el idioma indicado
-          rows={rowsState}
+          rows={passengersDataTable}
           columns={columns}
           pageSize={5} //cantidad maxima de elementos por pagina
           density="compact" //Ancho de filas
@@ -153,7 +156,9 @@ const PassengerRegistrationTable = ({ rowsState, setRowsState }) => {
       </Button>
       {/* </Container> */}
       {/* </Background> */}
-      {mostrarInfocantacto ? <BillingRecord rowsState={rowsState} /> : null}
+      {mostrarInfocantacto ? (
+        <BillingRecord passengersDataTable={passengersDataTable} />
+      ) : null}
     </>
   );
 };
