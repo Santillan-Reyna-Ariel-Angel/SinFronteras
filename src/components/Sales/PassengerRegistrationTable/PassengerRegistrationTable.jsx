@@ -10,12 +10,20 @@ import { BillingRecord } from '../BillingRecord/BillingRecord';
 const PassengerRegistrationTable = ({
   passengersDataTable,
   setPassengersDataTable,
+  seatPrices,
 }) => {
+  let { minimalPrice, maximumPrice } = seatPrices;
+  console.log('P', seatPrices);
   //x-data-grid:
   // Nota: Precio tendria que ser editable?
   const columns = [
     { field: 'id', headerName: 'N# Asiento', width: 104 },
-    { field: 'price', headerName: 'Precio', width: 74 },
+    {
+      field: 'price',
+      headerName: 'Precio',
+      width: 74,
+      editable: true,
+    },
     {
       field: 'typeOfDocument',
       headerName: 'Documento',
@@ -42,20 +50,45 @@ const PassengerRegistrationTable = ({
     },
   ];
 
+  //Validate Price:
+  const validatePrice = (inputPrice) => {
+    let salePrice =
+      inputPrice >= minimalPrice && inputPrice <= maximumPrice
+        ? inputPrice
+        : '';
+
+    return salePrice;
+  };
   let passengerAux;
   const recuperarDatos = (params) => {
     let { id, field, value } = params;
+    let valueTrim = value.trim();
+    console.log(`id ${id} | field ${field} | value ${valueTrim}`);
     passengerAux = passengersDataTable.map((passenger, index) => {
       if (passenger.id === id) {
-        passenger[field] = value.trim(); //trim(): Elimina los espacios en blanco en ambos extremos del string
+        if (field === 'price') {
+          valueTrim = validatePrice(parseInt(valueTrim));
+        }
+        passenger[field] = valueTrim; //trim(): Elimina los espacios en blanco en ambos extremos del string
         return passenger;
       } else {
         return passenger;
       }
     });
-    // console.log('passengerAux', passengerAux);
+    console.log('passengerAux', passengerAux);
   };
 
+  const [seatsPriceError, setSeatsPriceError] = useState([]);
+  const messageErrorPrice = (camposVacios) => {
+    let seatRows = camposVacios.map((campo) =>
+      campo.price === '' ? campo.id : null
+    );
+    // La funcion de comparacion(=> a - b) dentro del "sort()" ordena el array de modo ascendente:
+    seatRows = seatRows.sort((a, b) => a - b);
+
+    setSeatsPriceError(seatRows);
+    console.log('seatRows', seatRows);
+  };
   const isCompleteFields = () => {
     if (passengerAux === undefined) {
       console.log(
@@ -75,9 +108,11 @@ const PassengerRegistrationTable = ({
       );
       if (camposVacios.length === 0) {
         console.log('passengerAux', passengerAux);
+        setSeatsPriceError([]);
         return true;
       } else {
         console.log('camposVacios', camposVacios);
+        messageErrorPrice(camposVacios);
         return false;
       }
     }
@@ -126,6 +161,21 @@ const PassengerRegistrationTable = ({
           // disableSelectionOnClick //seleciona la fila al hacer click en un celda
           // autoPageSize={true}
         />
+        {seatsPriceError !== [] && seatsPriceError[0] !== undefined ? (
+          <>
+            <p
+              style={{
+                color: 'red',
+                fontWeight: 'bold',
+                margin: '5px 0px 0px 0px',
+              }}
+            >
+              {`*El campo "Precio" de la fila del asiento: "${seatsPriceError.map(
+                (seat) => ' ' + seat
+              )} " esta fuera de rango o es un dato incorrecto.`}
+            </p>
+          </>
+        ) : null}
       </div>
     );
   };
@@ -134,6 +184,8 @@ const PassengerRegistrationTable = ({
       {/* <Background> */}
       {/* <Container> */}
       {DataGridDemo()}
+      {/* Mensaje de error: */}
+      {}
       {/* Ocultar/mostrar boton: */}
       {/* {isDisableButton ? null : (
         <>

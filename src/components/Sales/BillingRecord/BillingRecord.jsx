@@ -20,14 +20,55 @@ import {
 } from './BillingRecordStyles';
 //Contexts generalCompanyData:
 import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCompanyData';
+//Context branchOffice:
+import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
+//Context branchOffice:
+import { ContextUserData } from './../../../contexts/ContextUserData';
 
 const BillingRecord = ({ passengersDataTable }) => {
   //contex Data :
   const generalCompanyData = useContext(ContextGeneralCompanyData);
-  const { billingInformation } = generalCompanyData
+  const { billingInformation, companyName } = generalCompanyData
     ? generalCompanyData
     : { billingInformation: {} };
   console.log('Firebase billingInformation: ', billingInformation);
+  //context BranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  const { branchInformation } = branchOffice
+    ? branchOffice
+    : { branchInformation: {} };
+  let {
+    branchNumber,
+    location,
+    departmentsContactNumbers: {
+      informations: { telephone },
+    },
+  } = branchInformation;
+  // console.log('T*', telephone);
+  //context user:
+  const userData = useContext(ContextUserData);
+  let { names, surnames } = userData;
+
+  let dataForPassengerTicketsAux2 = [
+    {
+      companyName: companyName ? companyName : 'Sin Fronteras',
+      branchNumber: branchNumber,
+      ticketNumber: '123456789',
+      issuingUser: `${surnames} ${names}`, //usuario emisor
+      companyPhone: telephone,
+      origin: location, //esto deberia venir de la tabla pasajeros
+      destiny: 'Santa Cruz', //esto deberia venir de la tabla pasajeros
+      travelDate: '30/5/2022', //esto deberia venir de la tabla pasajeros
+      DepartureTime: '20:30', //esto deberia venir de la tabla pasajeros
+      lane: '0', //carril
+      passengerName: 'Santillan Quispe Javier Angel', //esto deberia venir de la tabla pasajeros
+      identificationNumber: '7896541', //esto deberia venir de la tabla pasajeros
+      seat: '1', //esto deberia venir de la tabla pasajeros
+      typeOfSeat: 'Semi-cama', //esto deberia venir de la tabla pasajeros
+      price: '30', //esto deberia venir de la tabla pasajeros
+      legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    },
+  ];
 
   //billingContactInformation default:
   const [billingContactInformation, setBillingContactInformation] = useState({
@@ -121,6 +162,31 @@ const BillingRecord = ({ passengersDataTable }) => {
       [event.target.name]: event.target.value,
     }));
   };
+
+  //SetFirebase:
+  let pasajerosRegistrados = billingContactInformation;
+  console.log('pasajerosRegistrados', pasajerosRegistrados);
+
+  let dataForPassengerTicketsAux = [
+    {
+      companyName: 'Sin Fronteras',
+      branchNumber: '1',
+      ticketNumber: '123456789',
+      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
+      companyPhone: '46410523',
+      origin: 'Sucre',
+      destiny: 'Santa Cruz',
+      travelDate: '30/5/2022',
+      DepartureTime: '20:30',
+      lane: '0', //carril
+      passengerName: 'Santillan Quispe Javier Angel',
+      identificationNumber: '7896541',
+      seat: '1',
+      typeOfSeat: 'Semi-cama',
+      price: '30',
+      legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    },
+  ];
 
   return (
     <>
