@@ -126,8 +126,8 @@ const Seat = ({ dataBusTravel }) => {
       return { minimalPrice, maximumPrice };
     }
   };
-  const seatData = busMapData();
-  // console.log('seatData', seatData);
+  const seatPrices = busMapData();
+  // console.log('seatPrices', seatPrices);
 
   const BusMap = (typeOfBusParameter, numberOfSeatsParameter, indice) => {
     return createSeats(typeOfBusParameter, numberOfSeatsParameter)[indice].map(
@@ -142,7 +142,7 @@ const Seat = ({ dataBusTravel }) => {
                   <p>Tipo: {typeOfSeats}</p>
                   <p>
                     Precio Rango:
-                    {` ${seatData.minimalPrice} bs - ${seatData.maximumPrice} bs`}
+                    {` ${seatPrices.minimalPrice} bs - ${seatPrices.maximumPrice} bs`}
                   </p>
                   <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
                 </>
@@ -207,7 +207,7 @@ const Seat = ({ dataBusTravel }) => {
         ...passengersDataTable,
         {
           id: event.target.id,
-          price: seatData.maximumPrice, // por defecto se coloca maximo precio a cobrar
+          price: seatPrices.maximumPrice, // por defecto se coloca maximo precio a cobrar
           typeOfDocument: 'Carnet Identidad',
           identificationNumber: '',
           firstName: '',
@@ -264,7 +264,7 @@ const Seat = ({ dataBusTravel }) => {
       <PassengerRegistrationTable
         passengersDataTable={passengersDataTable}
         setPassengersDataTable={setPassengersDataTable}
-        seatPrices={seatData}
+        seatPrices={seatPrices}
       />
     </>
   );

@@ -44,14 +44,14 @@ const BillingRecord = ({ passengersDataTable }) => {
       informations: { telephone },
     },
   } = branchInformation;
-  // console.log('T*', telephone);
+
   //context user:
   const userData = useContext(ContextUserData);
   let { names, surnames } = userData;
 
   let dataForPassengerTicketsAux2 = [
     {
-      companyName: companyName ? companyName : 'Sin Fronteras',
+      companyName: companyName,
       branchNumber: branchNumber,
       ticketNumber: '123456789',
       issuingUser: `${surnames} ${names}`, //usuario emisor
@@ -61,11 +61,11 @@ const BillingRecord = ({ passengersDataTable }) => {
       travelDate: '30/5/2022', //esto deberia venir de la tabla pasajeros
       DepartureTime: '20:30', //esto deberia venir de la tabla pasajeros
       lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel', //esto deberia venir de la tabla pasajeros
-      identificationNumber: '7896541', //esto deberia venir de la tabla pasajeros
-      seat: '1', //esto deberia venir de la tabla pasajeros
+      passengerName: `${passengersDataTable[0].lastName} ${passengersDataTable[0].firstName}`,
+      identificationNumber: passengersDataTable[0].identificationNumber,
+      seat: passengersDataTable[0].id,
       typeOfSeat: 'Semi-cama', //esto deberia venir de la tabla pasajeros
-      price: '30', //esto deberia venir de la tabla pasajeros
+      price: passengersDataTable.price,
       legend: 'Gracias por su compra, le deseamos un buen viaje.',
     },
   ];
@@ -164,8 +164,8 @@ const BillingRecord = ({ passengersDataTable }) => {
   };
 
   //SetFirebase:
-  let pasajerosRegistrados = billingContactInformation;
-  console.log('pasajerosRegistrados', pasajerosRegistrados);
+  let billingContactInformationAux = billingContactInformation;
+  console.log('Info Contacto', billingContactInformationAux);
 
   let dataForPassengerTicketsAux = [
     {

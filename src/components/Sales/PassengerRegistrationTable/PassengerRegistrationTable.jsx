@@ -13,7 +13,7 @@ const PassengerRegistrationTable = ({
   seatPrices,
 }) => {
   let { minimalPrice, maximumPrice } = seatPrices;
-  console.log('P', seatPrices);
+
   //x-data-grid:
   // Nota: Precio tendria que ser editable?
   const columns = [
@@ -63,7 +63,7 @@ const PassengerRegistrationTable = ({
   const recuperarDatos = (params) => {
     let { id, field, value } = params;
     let valueTrim = value.trim();
-    console.log(`id ${id} | field ${field} | value ${valueTrim}`);
+    // console.log(`id ${id} | field ${field} | value ${valueTrim}`);
     passengerAux = passengersDataTable.map((passenger, index) => {
       if (passenger.id === id) {
         if (field === 'price') {
@@ -75,28 +75,32 @@ const PassengerRegistrationTable = ({
         return passenger;
       }
     });
-    console.log('passengerAux', passengerAux);
+    // console.log('passengerAux', passengerAux);
   };
 
-  const [seatsPriceError, setSeatsPriceError] = useState([]);
-  const messageErrorPrice = (camposVacios) => {
-    let seatRows = camposVacios.map((campo) =>
-      campo.price === '' ? campo.id : null
-    );
+  //Messages isSeatSelected:
+  // const [isSeatSelected, setIsSeatSelected] = useState(false);
+
+  //Message camposVacios:
+  const [emptyFields, setEmptyFields] = useState([]);
+  const messageEmptyFields = (camposVacios) => {
+    let seatRows = camposVacios.map((campo) => campo.id);
     // La funcion de comparacion(=> a - b) dentro del "sort()" ordena el array de modo ascendente:
     seatRows = seatRows.sort((a, b) => a - b);
-
-    setSeatsPriceError(seatRows);
-    console.log('seatRows', seatRows);
+    setEmptyFields(seatRows);
+    console.log('seatRows EmptyFields', seatRows);
   };
+
   const isCompleteFields = () => {
     if (passengerAux === undefined) {
       console.log(
         'no se selecciono asiento o no se lleno ningun campo',
         passengerAux
       );
+      // setIsSeatSelected(true);
       return false;
     } else {
+      // setIsSeatSelected(false);
       let camposVacios = passengerAux.filter(
         (passenger) =>
           passenger.id === '' ||
@@ -107,12 +111,12 @@ const PassengerRegistrationTable = ({
           passenger.lastName === ''
       );
       if (camposVacios.length === 0) {
-        console.log('passengerAux', passengerAux);
-        setSeatsPriceError([]);
+        console.log('camposCompletos(passengerAux)', passengerAux);
+        setEmptyFields([]);
         return true;
       } else {
         console.log('camposVacios', camposVacios);
-        messageErrorPrice(camposVacios);
+        messageEmptyFields(camposVacios);
         return false;
       }
     }
@@ -161,7 +165,10 @@ const PassengerRegistrationTable = ({
           // disableSelectionOnClick //seleciona la fila al hacer click en un celda
           // autoPageSize={true}
         />
-        {seatsPriceError !== [] && seatsPriceError[0] !== undefined ? (
+        {/* Verificacion de Campos Vacios: */}
+        {emptyFields !== [] &&
+        emptyFields[0] !== undefined &&
+        emptyFields[0] !== null ? (
           <>
             <p
               style={{
@@ -170,9 +177,9 @@ const PassengerRegistrationTable = ({
                 margin: '5px 0px 0px 0px',
               }}
             >
-              {`*El campo "Precio" de la fila del asiento: "${seatsPriceError.map(
+              {`*La fila del asiento: "${emptyFields.map(
                 (seat) => ' ' + seat
-              )} " esta fuera de rango o es un dato incorrecto.`}
+              )} " tiene campos vacios o el "Precio" esta fuera de rango.`}
             </p>
           </>
         ) : null}
@@ -183,9 +190,23 @@ const PassengerRegistrationTable = ({
     <>
       {/* <Background> */}
       {/* <Container> */}
+      {/* Mensaje Seleccionar asiento: */}
+      {/* {isSeatSelected ? (
+        <>
+          <p
+            style={{
+              color: 'red',
+              fontWeight: 'bold',
+              margin: '5px 0px 0px 0px',
+            }}
+          >
+            {`*SELECCIONE ALMENOS UN ASIENTO Y LLENE SUS CAMPOS.`}
+          </p>
+        </>
+      ) : null} */}
+
       {DataGridDemo()}
-      {/* Mensaje de error: */}
-      {}
+
       {/* Ocultar/mostrar boton: */}
       {/* {isDisableButton ? null : (
         <>
