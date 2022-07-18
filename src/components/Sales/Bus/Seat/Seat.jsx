@@ -265,6 +265,7 @@ const Seat = ({ dataBusTravel }) => {
         passengersDataTable={passengersDataTable}
         setPassengersDataTable={setPassengersDataTable}
         seatPrices={seatPrices}
+        dataBusTravel={dataBusTravel}
       />
     </>
   );

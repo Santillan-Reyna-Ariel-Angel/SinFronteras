@@ -25,13 +25,14 @@ import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 //Context branchOffice:
 import { ContextUserData } from './../../../contexts/ContextUserData';
 
-const BillingRecord = ({ passengersDataTable }) => {
+const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //contex Data :
   const generalCompanyData = useContext(ContextGeneralCompanyData);
-  const { billingInformation, companyName } = generalCompanyData
-    ? generalCompanyData
-    : { billingInformation: {} };
-  console.log('Firebase billingInformation: ', billingInformation);
+  const {
+    billingInformation: { legend },
+    companyName,
+  } = generalCompanyData ? generalCompanyData : { billingInformation: {} };
+
   //context BranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
   const { branchInformation } = branchOffice
@@ -39,7 +40,6 @@ const BillingRecord = ({ passengersDataTable }) => {
     : { branchInformation: {} };
   let {
     branchNumber,
-    location,
     departmentsContactNumbers: {
       informations: { telephone },
     },
@@ -49,26 +49,37 @@ const BillingRecord = ({ passengersDataTable }) => {
   const userData = useContext(ContextUserData);
   let { names, surnames } = userData;
 
+  //Props dataBusTravel:
+  let {
+    localityOfOrigin,
+    destinationLocation,
+    travelDate,
+    departureTime,
+    lane,
+    bus: { typeOfSeats },
+  } = dataBusTravel;
+
   let dataForPassengerTicketsAux2 = [
     {
       companyName: companyName,
       branchNumber: branchNumber,
-      ticketNumber: '123456789',
+      ticketNumber: '123456789', //Generar automaticamente
       issuingUser: `${surnames} ${names}`, //usuario emisor
       companyPhone: telephone,
-      origin: location, //esto deberia venir de la tabla pasajeros
-      destiny: 'Santa Cruz', //esto deberia venir de la tabla pasajeros
-      travelDate: '30/5/2022', //esto deberia venir de la tabla pasajeros
-      DepartureTime: '20:30', //esto deberia venir de la tabla pasajeros
-      lane: '0', //carril
+      origin: localityOfOrigin,
+      destiny: destinationLocation,
+      travelDate: travelDate,
+      DepartureTime: departureTime,
+      lane: lane, //carril
       passengerName: `${passengersDataTable[0].lastName} ${passengersDataTable[0].firstName}`,
       identificationNumber: passengersDataTable[0].identificationNumber,
       seat: passengersDataTable[0].id,
-      typeOfSeat: 'Semi-cama', //esto deberia venir de la tabla pasajeros
-      price: passengersDataTable.price,
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
+      typeOfSeat: typeOfSeats,
+      price: passengersDataTable[0].price,
+      legend: legend,
     },
   ];
+  console.log('dataForPassengerTicketsAux2', dataForPassengerTicketsAux2);
 
   //billingContactInformation default:
   const [billingContactInformation, setBillingContactInformation] = useState({
@@ -166,27 +177,6 @@ const BillingRecord = ({ passengersDataTable }) => {
   //SetFirebase:
   let billingContactInformationAux = billingContactInformation;
   console.log('Info Contacto', billingContactInformationAux);
-
-  let dataForPassengerTicketsAux = [
-    {
-      companyName: 'Sin Fronteras',
-      branchNumber: '1',
-      ticketNumber: '123456789',
-      issuingUser: 'Santillan Reyna Ariel Angel', //usuario emisor
-      companyPhone: '46410523',
-      origin: 'Sucre',
-      destiny: 'Santa Cruz',
-      travelDate: '30/5/2022',
-      DepartureTime: '20:30',
-      lane: '0', //carril
-      passengerName: 'Santillan Quispe Javier Angel',
-      identificationNumber: '7896541',
-      seat: '1',
-      typeOfSeat: 'Semi-cama',
-      price: '30',
-      legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    },
-  ];
 
   return (
     <>

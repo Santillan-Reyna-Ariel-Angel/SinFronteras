@@ -11,6 +11,7 @@ const PassengerRegistrationTable = ({
   passengersDataTable,
   setPassengersDataTable,
   seatPrices,
+  dataBusTravel,
 }) => {
   let { minimalPrice, maximumPrice } = seatPrices;
 
@@ -230,7 +231,10 @@ const PassengerRegistrationTable = ({
       {/* </Container> */}
       {/* </Background> */}
       {mostrarInfocantacto ? (
-        <BillingRecord passengersDataTable={passengersDataTable} />
+        <BillingRecord
+          passengersDataTable={passengersDataTable}
+          dataBusTravel={dataBusTravel}
+        />
       ) : null}
     </>
   );
