@@ -33,13 +33,14 @@
             "openingHours": ""
           }
         },
+        "branchNumber": "1",
         "branchPhotography": "sucursal.png",
+        "department": "chuquisaca",
         "departmentsContactNumbers": {
           "informations": {
             "telephone": "64-64646"
           }
         },
-        "department": "chuquisaca",
         "destinations": {
           "code1": {
             "destinationLocation": "c. santa cruz",
@@ -80,7 +81,6 @@
         "localityPhotograpy": "sucre.png",
         "location": "sucre",
         "name": "Sin Fronteras sucursal Sucre",
-        "branchNumber": "1",
         "terminal": "interprovincial"
       },
       "busesInBranch": {
@@ -138,6 +138,7 @@
           },
           "departureTime": "21:30",
           "destinationLocation": "c. santa cruz",
+          "lane": "0",
           "localityOfOrigin": "sucre",
           "passengers": {
             "code1": {
@@ -162,7 +163,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "17/7/2022",
+          "travelDate": "24/7/2022",
           "travelStatus": false
         },
         "code2": {
@@ -185,6 +186,7 @@
           },
           "departureTime": "20:30",
           "destinationLocation": "yacuiba",
+          "lane": "0",
           "localityOfOrigin": "sucre",
           "passengers": {
             "code1": {
@@ -209,7 +211,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "17/7/2022",
+          "travelDate": "24/7/2022",
           "travelStatus": false
         }
       }
@@ -247,13 +249,14 @@
             "openingHours": ""
           }
         },
+        "branchNumber": "2",
         "branchPhotography": "sucursalsantacruz.png",
+        "department": "santa cruz",
         "departmentsContactNumbers": {
           "informations": {
             "telephone": "64-64646"
           }
         },
-        "department": "santa cruz",
         "destinations": {
           "code1": {
             "destinationLocation": "sucre",
@@ -294,7 +297,6 @@
         "localityPhotograpy": "c. santa cruz.png",
         "location": "c. santa cruz",
         "name": "Sin Fronteras sucursal C. Santa Cruz",
-        "branchNumber": "2",
         "terminal": "interprovincial"
       },
       "busesInBranch": {
@@ -354,6 +356,7 @@
           },
           "departureTime": "21:30",
           "destinationLocation": "sucre",
+          "lane": "0",
           "localityOfOrigin": "c. santa cruz",
           "passengers": {
             "code1": {
@@ -378,7 +381,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "17/7/2022",
+          "travelDate": "24/7/2022",
           "travelStatus": false
         },
         "code2": {
@@ -403,6 +406,7 @@
           },
           "departureTime": "20:30",
           "destinationLocation": "yacuiba",
+          "lane": "0",
           "localityOfOrigin": "c. santa cruz",
           "passengers": {
             "code1": {
@@ -427,7 +431,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "17/7/2022",
+          "travelDate": "24/7/2022",
           "travelStatus": false
         }
       }
@@ -569,6 +573,7 @@
     "billingInformation": {
       "authorizationCode": "7904006306693",
       "dosingKey": "zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS",
+      "legend": "Gracias por su compra, le deseamos un buen viaje.",
       "nit": "1665979"
     },
     "companyName": "Sin Fronteras",
@@ -661,6 +666,45 @@
       "sex": "hombre",
       "status": "activo",
       "surnames": "colque choque"
+    }
+  },
+  "tripsMade": {
+    "branch_1": {
+      "travel_19-07-2022_15-30_1000-asd": {
+        "passengers": {
+          "billingContact_19-07-2022_10-30_7481911": {
+            "billingContactInformation": {
+              "invoiceCheckbox": false,
+              "ciOrNit": "",
+              "nameOrSocialReason": "",
+              "email": "",
+              "countryCode": "",
+              "mobile": "",
+              "importeTotal": ""
+            },
+            "allPassengers": {
+              "passengers_19-07-2022_10-30_7481911": {
+                "companyName": "",
+                "branchNumber": "",
+                "ticketNumber": "",
+                "issuingUser": "",
+                "companyPhone": "",
+                "origin": "",
+                "destiny": "",
+                "travelDate": "",
+                "DepartureTime": "",
+                "lane": "",
+                "passengerName": "",
+                "identificationNumber": "",
+                "seat": "",
+                "typeOfSeat": "",
+                "price": "",
+                "legend": ""
+              }
+            }
+          }
+        }
+      }
     }
   }
 }

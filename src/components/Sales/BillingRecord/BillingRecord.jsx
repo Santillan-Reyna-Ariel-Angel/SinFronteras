@@ -64,11 +64,11 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   const generateTicketNumber = () => {
     countTicket = countTicket + 1;
     let date = new Date();
-    // console.log('H', date.toLocaleDateString('en-GB'));
+    // console.log('H', date.toLocaleDateString('en-GB')); //saca en formato "dia/mes/año"
     let suc = `suc${branchNumber}`;
     let dateTN = `${date.getMonth() + 1}${date.getFullYear()}`;
     let ticketNumber = `${suc}-${dateTN}-${countTicket}`;
-    console.log('ticketNumber', ticketNumber);
+    // console.log('ticketNumber:', ticketNumber);
     return ticketNumber;
   };
 
@@ -76,7 +76,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     let ticketSoldAux = {
       companyName: companyName,
       branchNumber: branchNumber,
-      ticketNumber: generateTicketNumber(), //'123456789' Generar automaticamente
+      ticketNumber: generateTicketNumber(), // Generar automaticamente
       issuingUser: `${surnames} ${names}`, //usuario emisor
       companyPhone: telephone,
       origin: localityOfOrigin,
@@ -94,28 +94,6 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     return ticketSoldAux;
   });
   console.log('pasajesVendidos', pasajesVendidos);
-
-  let dataForPassengerTicketsAux2 = [
-    {
-      companyName: companyName,
-      branchNumber: branchNumber,
-      ticketNumber: generateTicketNumber(), //'123456789' Generar automaticamente
-      issuingUser: `${surnames} ${names}`, //usuario emisor
-      companyPhone: telephone,
-      origin: localityOfOrigin,
-      destiny: destinationLocation,
-      travelDate: travelDate,
-      DepartureTime: departureTime,
-      lane: lane, //carril
-      passengerName: `${passengersDataTable[0].lastName} ${passengersDataTable[0].firstName}`,
-      identificationNumber: passengersDataTable[0].identificationNumber,
-      seat: passengersDataTable[0].id,
-      typeOfSeat: typeOfSeats,
-      price: passengersDataTable[0].price,
-      legend: legend,
-    },
-  ];
-  // console.log('dataForPassengerTicketsAux2', dataForPassengerTicketsAux2);
 
   //billingContactInformation default:
   const [billingContactInformation, setBillingContactInformation] = useState({
@@ -149,8 +127,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     let completeNames = completeNamesAux.filter(
       (passenger) => passenger !== 'vacio'
     );
-    console.log('completeNames', completeNames);
-
+    // console.log('completeNames', completeNames);
     return completeNames;
   };
 
@@ -173,8 +150,8 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       (passenger) => passenger.identificationNumber === event.target.value
     );
     let completeNames = completeNamesFunction(event.target.value);
+    // console.log('nameOrSocialReason: ', completeNames[0]);
 
-    console.log('nameOrSocialReason: ', completeNames[0]);
     //Si findingPassenger.length===0, no se encontro el ci o nit en la lista de pasajeros por lo cual no se añade nameOrSocialReason
     setBillingContactInformation((prevState) => ({
       ...prevState,
@@ -184,12 +161,13 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   };
 
   const handleInputChangeEmail = (event) => {
-    console.log(event.target.name, '-', event.target.value);
+    // console.log(event.target.name, ':', event.target.value);
     setBillingContactInformation((prevState) => ({
       ...prevState,
       [event.target.name]: event.target.value,
     }));
   };
+
   const inputChangeNameOrSocialReason = (event) => {
     let passanger = passengersDataTable.filter(
       (passenger) =>
@@ -209,10 +187,6 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       [event.target.name]: event.target.value,
     }));
   };
-
-  //SetFirebase:
-  let billingContactInformationAux = billingContactInformation;
-  console.log('Info Contacto', billingContactInformationAux);
 
   return (
     <>
