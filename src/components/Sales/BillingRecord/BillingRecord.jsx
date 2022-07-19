@@ -59,11 +59,47 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     bus: { typeOfSeats },
   } = dataBusTravel;
 
+  //generateTicketNumber:
+  let countTicket = 0;
+  const generateTicketNumber = () => {
+    countTicket = countTicket + 1;
+    let date = new Date();
+    // console.log('H', date.toLocaleDateString('en-GB'));
+    let suc = `suc${branchNumber}`;
+    let dateTN = `${date.getMonth() + 1}${date.getFullYear()}`;
+    let ticketNumber = `${suc}-${dateTN}-${countTicket}`;
+    console.log('ticketNumber', ticketNumber);
+    return ticketNumber;
+  };
+
+  let pasajesVendidos = passengersDataTable.map((ticketSold) => {
+    let ticketSoldAux = {
+      companyName: companyName,
+      branchNumber: branchNumber,
+      ticketNumber: generateTicketNumber(), //'123456789' Generar automaticamente
+      issuingUser: `${surnames} ${names}`, //usuario emisor
+      companyPhone: telephone,
+      origin: localityOfOrigin,
+      destiny: destinationLocation,
+      travelDate: travelDate,
+      DepartureTime: departureTime,
+      lane: lane, //carril
+      passengerName: `${ticketSold.lastName} ${ticketSold.firstName}`,
+      identificationNumber: ticketSold.identificationNumber,
+      seat: ticketSold.id,
+      typeOfSeat: typeOfSeats,
+      price: ticketSold.price,
+      legend: legend,
+    };
+    return ticketSoldAux;
+  });
+  console.log('pasajesVendidos', pasajesVendidos);
+
   let dataForPassengerTicketsAux2 = [
     {
       companyName: companyName,
       branchNumber: branchNumber,
-      ticketNumber: '123456789', //Generar automaticamente
+      ticketNumber: generateTicketNumber(), //'123456789' Generar automaticamente
       issuingUser: `${surnames} ${names}`, //usuario emisor
       companyPhone: telephone,
       origin: localityOfOrigin,
@@ -79,7 +115,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       legend: legend,
     },
   ];
-  console.log('dataForPassengerTicketsAux2', dataForPassengerTicketsAux2);
+  // console.log('dataForPassengerTicketsAux2', dataForPassengerTicketsAux2);
 
   //billingContactInformation default:
   const [billingContactInformation, setBillingContactInformation] = useState({
