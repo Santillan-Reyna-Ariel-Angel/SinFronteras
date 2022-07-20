@@ -24,6 +24,8 @@ import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCom
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 //Context branchOffice:
 import { ContextUserData } from './../../../contexts/ContextUserData';
+//Component Amount
+import { Amount } from './../Amount/Amount';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //contex Data :
@@ -190,6 +192,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
   return (
     <>
+      <Amount passengersDataTable={passengersDataTable} />
       <Background>
         <HeaderContainer>
           <HeaderTitle>

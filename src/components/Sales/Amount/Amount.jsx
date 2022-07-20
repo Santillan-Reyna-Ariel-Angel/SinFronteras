@@ -16,14 +16,24 @@ import {
   AmountTotal,
 } from './AmountStyles';
 
-const Amount = () => {
+const Amount = ({ passengersDataTable }) => {
+  let prices = passengersDataTable.map((passanger) => passanger.price);
+
+  //Sumar precios
+  let initialValue = 0;
+  let priceTotal = prices.reduce(
+    (previousValue, currentValue) => previousValue + currentValue,
+    initialValue
+  );
+  console.log('priceTotal:', priceTotal);
+
   //amountData default:
   const [amountData, setAmountData] = useState({
-    subtotal: 270,
+    subtotal: priceTotal,
     discountCheckbox: false,
     discount: '',
     description: '',
-    amountTotal: 270,
+    amountTotal: priceTotal,
   });
   console.log('amountData: ', amountData);
 
