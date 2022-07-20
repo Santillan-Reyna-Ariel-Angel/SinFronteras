@@ -198,7 +198,7 @@ const TicketPdf = ({ dataDefault }) => {
                         textAlign: 'center',
                       }}
                     >
-                      {data.seat}
+                      {data.seatId}
                     </Text>
                     <Text
                       style={{
@@ -210,7 +210,7 @@ const TicketPdf = ({ dataDefault }) => {
                   </Text>
                   <Text style={{ marginTop: '17px' }}>
                     <Text style={{ fontWeight: 'bold' }}>Precio: </Text>
-                    {data.price} Bs
+                    {data.seatPrice} Bs
                   </Text>
                 </View>
                 {/* Legend: */}

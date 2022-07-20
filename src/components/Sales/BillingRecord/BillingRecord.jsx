@@ -80,17 +80,18 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       branchNumber: branchNumber,
       ticketNumber: generateTicketNumber(), // Generar automaticamente
       issuingUser: `${surnames} ${names}`, //usuario emisor
-      companyPhone: telephone,
+      branchPhone: telephone,
       origin: localityOfOrigin,
       destiny: destinationLocation,
       travelDate: travelDate,
       DepartureTime: departureTime,
       lane: lane, //carril
       passengerName: `${ticketSold.lastName} ${ticketSold.firstName}`,
+      typeOfDocument: ticketSold.typeOfDocument,
       identificationNumber: ticketSold.identificationNumber,
-      seat: ticketSold.id,
+      seatId: ticketSold.id,
       typeOfSeat: typeOfSeats,
-      price: ticketSold.price,
+      seatPrice: ticketSold.seatPrice,
       legend: legend,
     };
     return ticketSoldAux;

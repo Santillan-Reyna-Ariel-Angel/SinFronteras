@@ -53,7 +53,7 @@ const Tickets2 = ({ data }) => {
                     </p>
                     <p>
                       <span>Teléfono: </span>
-                      {data.companyPhone}
+                      {data.branchPhone}
                     </p>
                   </GeneralInformation>
                   <Route>
@@ -86,12 +86,12 @@ const Tickets2 = ({ data }) => {
                   <BusInformation>
                     <p>
                       <span>Asiento: </span>
-                      <p className="seat">{data.seat}</p>
+                      <p className="seat">{data.seatId}</p>
                       <p className="typeSeat">{data.typeOfSeat}</p>
                     </p>
                     <p className="price">
                       <span>Precio: </span>
-                      {data.price} Bs
+                      {data.seatPrice} Bs
                     </p>
                   </BusInformation>
                   <Legend>

@@ -17,7 +17,7 @@ import {
 } from './AmountStyles';
 
 const Amount = ({ passengersDataTable }) => {
-  let prices = passengersDataTable.map((passanger) => passanger.price);
+  let prices = passengersDataTable.map((passanger) => passanger.seatPrice);
 
   //Sumar precios
   let initialValue = 0;
@@ -25,7 +25,7 @@ const Amount = ({ passengersDataTable }) => {
     (previousValue, currentValue) => previousValue + currentValue,
     initialValue
   );
-  console.log('priceTotal:', priceTotal);
+  // console.log('priceTotal:', priceTotal);
 
   //amountData default:
   const [amountData, setAmountData] = useState({

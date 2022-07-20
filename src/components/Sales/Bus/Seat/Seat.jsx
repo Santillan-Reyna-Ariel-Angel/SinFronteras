@@ -207,7 +207,7 @@ const Seat = ({ dataBusTravel }) => {
         ...passengersDataTable,
         {
           id: event.target.id,
-          price: seatPrices.maximumPrice, // por defecto se coloca maximo precio a cobrar
+          seatPrice: seatPrices.maximumPrice, // por defecto se coloca maximo precio a cobrar
           typeOfDocument: 'Carnet Identidad',
           identificationNumber: '',
           firstName: '',

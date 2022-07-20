@@ -20,7 +20,7 @@ const PassengerRegistrationTable = ({
   const columns = [
     { field: 'id', headerName: 'N# Asiento', width: 104 },
     {
-      field: 'price',
+      field: 'seatPrice',
       headerName: 'Precio',
       width: 74,
       editable: true,
@@ -67,7 +67,7 @@ const PassengerRegistrationTable = ({
     // console.log(`id ${id} | field ${field} | value ${valueTrim}`);
     passengerAux = passengersDataTable.map((passenger, index) => {
       if (passenger.id === id) {
-        if (field === 'price') {
+        if (field === 'seatPrice') {
           valueTrim = validatePrice(parseInt(valueTrim));
         }
         passenger[field] = valueTrim; //trim(): Elimina los espacios en blanco en ambos extremos del string
@@ -105,7 +105,7 @@ const PassengerRegistrationTable = ({
       let camposVacios = passengerAux.filter(
         (passenger) =>
           passenger.id === '' ||
-          passenger.price === '' ||
+          passenger.seatPrice === '' ||
           passenger.typeOfDocument === '' ||
           passenger.identificationNumber === '' ||
           passenger.firstName === '' ||

@@ -46,7 +46,7 @@ export const Tickets3 = React.forwardRef((props, ref) => {
                     </p>
                     <p>
                       <span>Teléfono: </span>
-                      {data.companyPhone}
+                      {data.branchPhone}
                     </p>
                   </GeneralInformation>
                   <Route>
@@ -79,12 +79,12 @@ export const Tickets3 = React.forwardRef((props, ref) => {
                   <BusInformation>
                     <p>
                       <span>Asiento: </span>
-                      <p className="seat">{data.seat}</p>
+                      <p className="seat">{data.seatId}</p>
                       <p className="typeSeat">{data.typeOfSeat}</p>
                     </p>
                     <p className="price">
                       <span>Precio: </span>
-                      {data.price} Bs
+                      {data.seatPrice} Bs
                     </p>
                   </BusInformation>
                   <Legend>
