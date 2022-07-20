@@ -33,7 +33,7 @@ export const HeaderTitle = styled.div`
 export const BodyContainer = styled.div`
   display: grid;
   background-color: #00bdb2;
-  grid-template-columns: 147px 170px;
+  grid-template-columns: auto 1fr; //Dimencion minima: 146.5px 115px
   grid-template-rows: auto;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
@@ -66,6 +66,9 @@ export const DiscountCheckbox = styled.div`
 
 export const InputDiscount = styled.div`
   grid-area: InputDiscount;
+  .input {
+    width: 115px;
+  }
 `;
 
 export const DiscountDescription = styled.div`

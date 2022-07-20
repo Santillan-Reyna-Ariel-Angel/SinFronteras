@@ -77,6 +77,7 @@ const Amount = () => {
             <>
               <InputDiscount>
                 <TextField
+                  className="input"
                   placeholder="Cantidad..."
                   type="number"
                   variant="outlined"
@@ -117,49 +118,6 @@ const Amount = () => {
               </DiscountDescription>
             </>
           ) : null}
-
-          {/* Input del descuento: */}
-          {/* <InputDiscount>
-            <TextField
-              placeholder="Cantidad..."
-              type="number"
-              variant="outlined"
-              label="Descuento (Bs): "
-              name="discount"
-              value={amountData.discount}
-              onChange={(event) => [
-                setAmountData((prevState) => ({
-                  ...prevState,
-                  [event.target.name]:
-                    event.target.value === ''
-                      ? ''
-                      : parseFloat(event.target.value), // Number()
-                })),
-                updateAmountTotal(event.target.value),
-              ]}
-            />
-          </InputDiscount> */}
-
-          {/* Input de la descripcion: */}
-          {/* <DiscountDescription>
-            <TextField
-              placeholder="Motivo del descuento..."
-              multiline
-              maxRows={4}
-              className="input"
-              type="text"
-              variant="outlined"
-              label="Descripcion: "
-              name="description"
-              value={amountData.description}
-              onChange={(event) =>
-                setAmountData((prevState) => ({
-                  ...prevState,
-                  [event.target.name]: event.target.value,
-                }))
-              }
-            />
-          </DiscountDescription> */}
 
           <TextAmountTotal>Importe Total (Bs): </TextAmountTotal>
           <AmountTotal>
