@@ -85,8 +85,8 @@
       },
       "busesInBranch": {
         "code1": {
-          "busPhotography": "bus-001.png",
-          "enrollment": "bus-001",
+          "busPhotography": "bus001.png",
+          "enrollment": "bus001",
           "filing": "H",
           "identificationNumberDriver": "",
           "numberOfFloors": 1,
@@ -101,8 +101,8 @@
           "typeOfSeats": "semi-cama"
         },
         "code6": {
-          "busPhotography": "bus-006.png",
-          "enrollment": "bus-006",
+          "busPhotography": "bus006.png",
+          "enrollment": "bus006",
           "filing": "H",
           "identificationNumberDriver": "",
           "numberOfFloors": 1,
@@ -120,8 +120,8 @@
       "travels": {
         "code1": {
           "bus": {
-            "busPhotography": "bus-006.png",
-            "enrollment": "bus-006",
+            "busPhotography": "bus006.png",
+            "enrollment": "bus006",
             "filing": "H",
             "identificationNumberDriver": "",
             "key": "code6",
@@ -168,8 +168,8 @@
         },
         "code2": {
           "bus": {
-            "busPhotography": "bus-001.png",
-            "enrollment": "bus-001",
+            "busPhotography": "bus001.png",
+            "enrollment": "bus001",
             "filing": "H",
             "identificationNumberDriver": "",
             "key": "code1",
@@ -301,8 +301,8 @@
       },
       "busesInBranch": {
         "code2": {
-          "busPhotography": "bus-002.png",
-          "enrollment": "bus-002",
+          "busPhotography": "bus002.png",
+          "enrollment": "bus002",
           "filing": "H",
           "identificationNumberDriver": "",
           "numberOfFloors": 1,
@@ -317,8 +317,8 @@
           "typeOfSeats": "semi-cama"
         },
         "code8": {
-          "busPhotography": "bus-008.png",
-          "enrollment": "bus-008",
+          "busPhotography": "bus008.png",
+          "enrollment": "bus008",
           "filing": "H",
           "identificationNumberDriver": "",
           "numberOfFloors": 2,
@@ -338,8 +338,8 @@
       "travels": {
         "code1": {
           "bus": {
-            "busPhotography": "bus-002.png",
-            "enrollment": "bus-002",
+            "busPhotography": "bus002.png",
+            "enrollment": "bus002",
             "filing": "H",
             "identificationNumberDriver": "",
             "key": "code2",
@@ -386,8 +386,8 @@
         },
         "code2": {
           "bus": {
-            "busPhotography": "bus-008.png",
-            "enrollment": "bus-008",
+            "busPhotography": "bus008.png",
+            "enrollment": "bus008",
             "filing": "H",
             "identificationNumberDriver": "",
             "key": "code8",
@@ -439,8 +439,8 @@
   },
   "companyBuses": {
     "code1": {
-      "busPhotography": "bus-001.png",
-      "enrollment": "bus-001",
+      "busPhotography": "bus001.png",
+      "enrollment": "bus001",
       "filing": "H",
       "identificationNumberDriver": "",
       "numberOfFloors": 1,
@@ -455,8 +455,8 @@
       "typeOfSeats": "semi-cama"
     },
     "code2": {
-      "busPhotography": "bus-002.png",
-      "enrollment": "bus-002",
+      "busPhotography": "bus002.png",
+      "enrollment": "bus002",
       "filing": "H",
       "identificationNumberDriver": "",
       "numberOfFloors": 1,
@@ -471,8 +471,8 @@
       "typeOfSeats": "semi-cama"
     },
     "code3": {
-      "busPhotography": "bus-003.png",
-      "enrollment": "bus-003",
+      "busPhotography": "bus003.png",
+      "enrollment": "bus003",
       "filing": "H",
       "identificationNumberDriver": "",
       "numberOfFloors": 1,
@@ -487,8 +487,8 @@
       "typeOfSeats": "semi-cama"
     },
     "code4": {
-      "busPhotography": "bus-004.png",
-      "enrollment": "bus-004",
+      "busPhotography": "bus004.png",
+      "enrollment": "bus004",
       "filing": "H",
       "identificationNumberDriver": "",
       "numberOfFloors": 1,
@@ -503,8 +503,8 @@
       "typeOfSeats": "cama"
     },
     "code5": {
-      "busPhotography": "bus-005.png",
-      "enrollment": "bus-005",
+      "busPhotography": "bus005.png",
+      "enrollment": "bus005",
       "filing": "H",
       "identificationNumberDriver": "",
       "numberOfFloors": 1,
@@ -519,8 +519,8 @@
       "typeOfSeats": "cama"
     },
     "code6": {
-      "busPhotography": "bus-006.png",
-      "enrollment": "bus-006",
+      "busPhotography": "bus006.png",
+      "enrollment": "bus006",
       "filing": "H",
       "identificationNumberDriver": "",
       "numberOfFloors": 1,
@@ -535,8 +535,8 @@
       "typeOfSeats": "cama"
     },
     "code8": {
-      "busPhotography": "bus-008.png",
-      "enrollment": "bus-008",
+      "busPhotography": "bus008.png",
+      "enrollment": "bus008",
       "filing": "H",
       "identificationNumberDriver": "",
       "numberOfFloors": 2,
@@ -670,7 +670,7 @@
   },
   "tripsMade": {
     "branch_1": {
-      "travel_19-7-2022_15-30_1000-asd": {
+      "travel_19-7-2022_15-30_2269KUN": {
         "passengers": {
           "billingContact_19-7-2022_10-30_7481911": {
             "billingContactInformation": {
