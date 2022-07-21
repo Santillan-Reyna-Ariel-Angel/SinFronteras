@@ -670,35 +670,42 @@
   },
   "tripsMade": {
     "branch_1": {
-      "travel_19-07-2022_15-30_1000-asd": {
+      "travel_19-7-2022_15-30_1000-asd": {
         "passengers": {
-          "billingContact_19-07-2022_10-30_7481911": {
+          "billingContact_19-7-2022_10-30_7481911": {
             "billingContactInformation": {
               "invoiceCheckbox": false,
               "ciOrNit": "",
               "nameOrSocialReason": "",
               "email": "",
               "countryCode": "",
-              "mobile": "",
-              "importeTotal": ""
+              "mobile": ""
             },
-            "allPassengers": {
-              "passengers_19-07-2022_10-30_7481911": {
+            "salesAmountData": {
+              "subtotal": "",
+              "discountCheckbox": false,
+              "discount": "",
+              "description": "",
+              "amountTotal": ""
+            },
+            "ticketsSalesData": {
+              "passenger_19-7-2022_10-30_7481911": {
                 "companyName": "",
                 "branchNumber": "",
                 "ticketNumber": "",
                 "issuingUser": "",
-                "companyPhone": "",
+                "branchPhone": "",
                 "origin": "",
                 "destiny": "",
                 "travelDate": "",
                 "DepartureTime": "",
                 "lane": "",
-                "passengerName": "",
+                "passengerFullName": "",
+                "typeOfDocument": "",
                 "identificationNumber": "",
-                "seat": "",
+                "seatId": "",
                 "typeOfSeat": "",
-                "price": "",
+                "seatPrice": "",
                 "legend": ""
               }
             }

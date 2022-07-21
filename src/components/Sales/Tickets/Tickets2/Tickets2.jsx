@@ -68,7 +68,7 @@ const Tickets2 = ({ data }) => {
                     </p>
                     <p>
                       <span>Hora de salida: </span>
-                      {data.DepartureTime}
+                      {data.departureTime}
                     </p>
                     <p>
                       <span>Carril: </span>
@@ -76,7 +76,7 @@ const Tickets2 = ({ data }) => {
                     </p>
                     <p>
                       <span>Pasajero: </span>
-                      {data.passengerName}
+                      {data.passengerFullName}
                     </p>
                     <p>
                       <span>Ci: </span>

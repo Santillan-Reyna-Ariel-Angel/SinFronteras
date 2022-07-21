@@ -61,7 +61,7 @@ export const Tickets3 = React.forwardRef((props, ref) => {
                     </p>
                     <p>
                       <span>Hora de salida: </span>
-                      {data.DepartureTime}
+                      {data.departureTime}
                     </p>
                     <p>
                       <span>Carril: </span>
@@ -69,7 +69,7 @@ export const Tickets3 = React.forwardRef((props, ref) => {
                     </p>
                     <p>
                       <span>Pasajero: </span>
-                      {data.passengerName}
+                      {data.passengerFullName}
                     </p>
                     <p>
                       <span>Ci: </span>

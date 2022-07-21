@@ -14,9 +14,9 @@ import {
   DiscountDescription,
   TextAmountTotal,
   AmountTotal,
-} from './AmountStyles';
+} from './SalesAmountDataStyles';
 
-const Amount = ({ passengersDataTable }) => {
+const SalesAmountData = ({ passengersDataTable }) => {
   let prices = passengersDataTable.map((passanger) => passanger.seatPrice);
 
   //Sumar precios
@@ -27,25 +27,25 @@ const Amount = ({ passengersDataTable }) => {
   );
   // console.log('priceTotal:', priceTotal);
 
-  //amountData default:
-  const [amountData, setAmountData] = useState({
+  //salesAmountData default:
+  const [salesAmountData, setSalesAmountData] = useState({
     subtotal: priceTotal,
     discountCheckbox: false,
     discount: '',
     description: '',
     amountTotal: priceTotal,
   });
-  console.log('amountData: ', amountData);
+  console.log('salesAmountData: ', salesAmountData);
 
   const updateAmountTotal = (discount) => {
-    // let updateAmountTotal = amountData.subtotal - amountData.discount; //ERROR DE CALCULO, PROBABLEMENTE amountData.discount NO SE ACTUALIZA A TIEMPO
-    let updateAmountTotal = amountData.subtotal - discount;
-    setAmountData((prevState) => ({
+    // let updateAmountTotal = salesAmountData.subtotal - salesAmountData.discount; //ERROR DE CALCULO, PROBABLEMENTE salesAmountData.discount NO SE ACTUALIZA A TIEMPO
+    let updateAmountTotal = salesAmountData.subtotal - discount;
+    setSalesAmountData((prevState) => ({
       ...prevState,
       amountTotal: updateAmountTotal.toFixed(2),
     }));
 
-    return amountData.amountTotal;
+    return salesAmountData.amountTotal;
   };
 
   return (
@@ -58,7 +58,7 @@ const Amount = ({ passengersDataTable }) => {
         </HeaderContainer>
         <BodyContainer>
           <TextSubtotal>SubTotal (Bs): </TextSubtotal>
-          <Subtotal>{amountData.subtotal}</Subtotal>
+          <Subtotal>{salesAmountData.subtotal}</Subtotal>
 
           <DiscountCheckbox>
             <FormControlLabel
@@ -66,9 +66,9 @@ const Amount = ({ passengersDataTable }) => {
               control={
                 <Checkbox
                   // sx={{ color: '#051E34' }}
-                  checked={amountData.discountCheckbox}
+                  checked={salesAmountData.discountCheckbox}
                   onChange={(event) => [
-                    setAmountData((prevState) => ({
+                    setSalesAmountData((prevState) => ({
                       ...prevState,
                       discountCheckbox: !prevState.discountCheckbox,
                       discount: '',
@@ -83,7 +83,7 @@ const Amount = ({ passengersDataTable }) => {
             />
           </DiscountCheckbox>
 
-          {amountData.discountCheckbox ? (
+          {salesAmountData.discountCheckbox ? (
             <>
               <InputDiscount>
                 <TextField
@@ -93,9 +93,9 @@ const Amount = ({ passengersDataTable }) => {
                   variant="outlined"
                   label="Descuento (Bs): "
                   name="discount"
-                  value={amountData.discount}
+                  value={salesAmountData.discount}
                   onChange={(event) => [
-                    setAmountData((prevState) => ({
+                    setSalesAmountData((prevState) => ({
                       ...prevState,
                       [event.target.name]:
                         event.target.value === ''
@@ -117,9 +117,9 @@ const Amount = ({ passengersDataTable }) => {
                   variant="outlined"
                   label="Descripcion: "
                   name="description"
-                  value={amountData.description}
+                  value={salesAmountData.description}
                   onChange={(event) =>
-                    setAmountData((prevState) => ({
+                    setSalesAmountData((prevState) => ({
                       ...prevState,
                       [event.target.name]: event.target.value,
                     }))
@@ -131,7 +131,7 @@ const Amount = ({ passengersDataTable }) => {
 
           <TextAmountTotal>Importe Total (Bs): </TextAmountTotal>
           <AmountTotal>
-            {(amountData.subtotal - amountData.discount).toFixed(2)}
+            {(salesAmountData.subtotal - salesAmountData.discount).toFixed(2)}
           </AmountTotal>
         </BodyContainer>
       </Background>
@@ -139,4 +139,4 @@ const Amount = ({ passengersDataTable }) => {
   );
 };
 
-export { Amount };
+export { SalesAmountData };

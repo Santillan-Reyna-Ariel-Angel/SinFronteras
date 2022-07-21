@@ -8,8 +8,6 @@ import Notes from './components/Notes/Notes';
 import UserRegistration from './components/UserRegistration/UserRegistration';
 import Layout from './components/Loyout/Layout';
 import Sales from './components/Sales/Sales';
-//Probando vista importe:
-import { Amount } from './components/Sales/Amount/Amount';
 //probando tickets
 import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
@@ -41,7 +39,6 @@ const AppRoutes = () => {
                     component={() => <Redirect to="/acceso" />}
                   />
                   <Route exact path="/acceso" component={Login} />
-                  <Route exact path="/amount" component={Amount} />
                   <Route exact path="/tickets1" component={Tickets1} />
                   <Route exact path="/tickets2" component={Tickets2} />
                   <Route exact path="/tickets3" component={Tickets3} />

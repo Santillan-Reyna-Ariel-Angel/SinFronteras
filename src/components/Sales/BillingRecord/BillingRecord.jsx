@@ -24,8 +24,8 @@ import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCom
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 //Context branchOffice:
 import { ContextUserData } from './../../../contexts/ContextUserData';
-//Component Amount
-import { Amount } from './../Amount/Amount';
+//Component SalesAmountData
+import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //contex Data :
@@ -74,7 +74,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     return ticketNumber;
   };
 
-  let pasajesVendidos = passengersDataTable.map((ticketSold) => {
+  let ticketsSalesData = passengersDataTable.map((ticketSold) => {
     let ticketSoldAux = {
       companyName: companyName,
       branchNumber: branchNumber,
@@ -84,19 +84,20 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       origin: localityOfOrigin,
       destiny: destinationLocation,
       travelDate: travelDate,
-      DepartureTime: departureTime,
+      departureTime: departureTime,
       lane: lane, //carril
-      passengerName: `${ticketSold.lastName} ${ticketSold.firstName}`,
+      passengerFullName: `${ticketSold.lastName} ${ticketSold.firstName}`,
       typeOfDocument: ticketSold.typeOfDocument,
       identificationNumber: ticketSold.identificationNumber,
       seatId: ticketSold.id,
       typeOfSeat: typeOfSeats,
       seatPrice: ticketSold.seatPrice,
+      // rowType:"ventana", //ventana o pasillo
       legend: legend,
     };
     return ticketSoldAux;
   });
-  console.log('pasajesVendidos', pasajesVendidos);
+  console.log('ticketsSalesData', ticketsSalesData);
 
   //billingContactInformation default:
   const [billingContactInformation, setBillingContactInformation] = useState({
@@ -193,7 +194,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
   return (
     <>
-      <Amount passengersDataTable={passengersDataTable} />
+      <SalesAmountData passengersDataTable={passengersDataTable} />
       <Background>
         <HeaderContainer>
           <HeaderTitle>

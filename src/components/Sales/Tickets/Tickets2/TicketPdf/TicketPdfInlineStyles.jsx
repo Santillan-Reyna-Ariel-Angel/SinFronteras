@@ -152,7 +152,7 @@ const TicketPdfInlineStyles = ({ dataDefault }) => {
                   </Text>
                   <Text style={{ margin: '0px' }}>
                     <Text style={{ fontWeight: 'bold' }}>Hora de salida: </Text>
-                    {data.DepartureTime}
+                    {data.departureTime}
                   </Text>
                   <Text style={{ margin: '0px' }}>
                     <Text style={{ fontWeight: 'bold' }}>Carril: </Text>
@@ -160,7 +160,7 @@ const TicketPdfInlineStyles = ({ dataDefault }) => {
                   </Text>
                   <Text style={{ margin: '0px' }}>
                     <Text style={{ fontWeight: 'bold' }}>Pasajero: </Text>
-                    {data.passengerName}
+                    {data.passengerFullName}
                   </Text>
                   <Text style={{ margin: '0px' }}>
                     <Text style={{ fontWeight: 'bold' }}>Ci: </Text>
