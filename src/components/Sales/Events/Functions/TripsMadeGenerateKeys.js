@@ -3,7 +3,7 @@
 // console.log(d.toLocaleDateString());
 // console.log(d.getHours()); //Al sacar hora del sistema, se corre el riesgo de que podria ser cambiado por el usuario y seria mas complejo una busqueda
 
-const travelKey = ({
+export const travelKey = ({
   travelDate = '19/7/2022',
   departureTime = '15:30',
   enrollment = '2269KUN',
@@ -15,10 +15,11 @@ const travelKey = ({
 
   let travelKey = `travel_${travelDateAux}_${departureTimeAux}_${enrollment}`;
   console.log('travelKey:', travelKey);
+  return travelKey;
 };
 travelKey({});
 
-const generateKeys = ({
+export const generateKeys = ({
   travelDate = '19/7/2022',
   identificationNumber = '7481911',
 }) => {
