@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
-import EventFirebase from './../../firebase-config';
-const { firebase } = EventFirebase;
+import { modulesFirebase } from './../../firebase-config.js';
+import { ref, onValue } from 'firebase/database';
+const { fire_db } = modulesFirebase;
 
 let generalCompanyData, setGeneralCompanyData;
 
@@ -8,12 +9,16 @@ const generalCompanyDataAux = () => {
   let userEmail = sessionStorage.getItem('userEmail');
 
   if (userEmail !== null) {
-    firebase
-      .database()
-      .ref('generalCompanyData')
-      .once('value', (generalCompanyData) => {
+    const response = ref(fire_db, 'generalCompanyData');
+    onValue(
+      response,
+      (generalCompanyData) => {
         setGeneralCompanyData(generalCompanyData.val());
-      });
+      },
+      {
+        onlyOnce: true, //esto es equivalente al once
+      }
+    );
   }
 };
 

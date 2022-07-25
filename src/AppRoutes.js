@@ -4,7 +4,7 @@ import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
 import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import RecoverPassword from './components/RecoverPassword/RecoverPassword';
-import Notes from './components/Notes/Notes';
+// import Notes from './components/Notes/Notes';
 import UserRegistration from './components/UserRegistration/UserRegistration';
 import Layout from './components/Loyout/Layout';
 import Sales from './components/Sales/Sales';
@@ -63,7 +63,7 @@ const AppRoutes = () => {
                       path="/recuperar-contraseña"
                       component={RecoverPassword}
                     />
-                    <Route exact path="/notas" component={Notes} />
+                    {/* <Route exact path="/notas" component={Notes} /> */}
                     {/* <Route exact path="/tickets" component={Tickets} /> */}
                     <Route
                       exact

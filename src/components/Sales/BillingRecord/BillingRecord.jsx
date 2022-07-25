@@ -58,7 +58,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     travelDate,
     departureTime,
     lane,
-    bus: { typeOfSeats },
+    bus: { typeOfSeats, enrollment },
   } = dataBusTravel;
 
   //generateTicketNumber:
@@ -94,6 +94,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       seatPrice: ticketSold.seatPrice,
       // rowType:"ventana", //ventana o pasillo
       legend: legend,
+      busEnrollment: enrollment,
     };
     return ticketSoldAux;
   });

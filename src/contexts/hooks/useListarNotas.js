@@ -1,16 +1,17 @@
-import { useState, useEffect } from "react";
-import EventFirebase from "../../firebase-config";
-const { firebase } = EventFirebase;
+import { useState, useEffect } from 'react';
+/*cod fire v9:*/
+import { modulesFirebase } from './../../firebase-config.js';
+import { ref, onValue } from 'firebase/database';
+const { fire_db } = modulesFirebase;
 
 let notes, setNotes;
 const noteaux = () => {
-  firebase
-    .database()
-    .ref("notes")
-    .on("value", (snapshot) => {
-      // console.log(snapshot.val());
-      setNotes(snapshot.val());
-    });
+  /*cod fire v9:*/
+  const response = ref(fire_db, 'notes');
+  onValue(response, (snapshot) => {
+    // console.log(snapshot.val());
+    setNotes(snapshot.val());
+  });
 };
 export const useListarConOn = () => {
   [notes, setNotes] = useState();

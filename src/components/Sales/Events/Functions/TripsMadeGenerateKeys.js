@@ -1,39 +1,33 @@
 // Notas:
 // hora UTC Bolivia: 'UTC-4'
-// console.log(d.toLocaleDateString());
-// console.log(d.getHours()); //Al sacar hora del sistema, se corre el riesgo de que podria ser cambiado por el usuario y seria mas complejo una busqueda
 
 export const travelKey = ({
   travelDate = '19/7/2022',
   departureTime = '15:30',
-  enrollment = '2269KUN',
+  busEnrollment = '2269KUN',
 }) => {
-  //  travel_fecha_hora_matricula => travel_19-7-2022_15-30_2269KUN
+  //  travel_fechaViaje_horaViaje_matricula => travel_19-7-2022_15-30_2269KUN
 
   let travelDateAux = travelDate.replaceAll('/', '-');
   let departureTimeAux = departureTime.replaceAll(':', '-');
 
-  let travelKey = `travel_${travelDateAux}_${departureTimeAux}_${enrollment}`;
-  console.log('travelKey:', travelKey);
+  let travelKey = `travel_${travelDateAux}_${departureTimeAux}_${busEnrollment}`;
+  //console.log('travelKey:', travelKey);
   return travelKey;
 };
-travelKey({});
 
-export const generateKeys = ({
-  travelDate = '19/7/2022',
-  identificationNumber = '7481911',
+export const billingContactKey = ({
+  saleDate = '19/7/2022',
+  hourOfSale = '10',
+  minuteOfSale = '00',
+  ciOrNit = '7481911',
 }) => {
-  // passenger_fecha_horaVenta_ci => passenger_19-7-2022_10-30_7481911
-  // billingContact_fecha_horaVenta_ci => billingContact_19-7-2022_10-30_7481911
+  // billingContact_fechaVenta_horaVenta_ciOrNit => billingContact_19-7-2022_10-30_7481911
 
-  let travelDateAux = travelDate.replaceAll('/', '-');
-  let date = new Date();
-  let timeOfSale = `${date.getHours()}-${date.getMinutes()}`;
+  let saleDateAux = saleDate.replaceAll('/', '-');
+  let timeOfSale = `${hourOfSale}-${minuteOfSale}`;
 
-  let billingContactKey = `billingContact_${travelDateAux}_${timeOfSale}_${identificationNumber}`;
-  let passengerKey = `passenger_${travelDateAux}_${timeOfSale}_${identificationNumber}`;
-  console.log('billingContactKey:', billingContactKey);
-  console.log('passengerKey:', passengerKey);
-  return { billingContactKey, passengerKey };
+  let billingContactKey = `billingContact_${saleDateAux}_${timeOfSale}_${ciOrNit}`;
+  //console.log('billingContactKey:', billingContactKey);
+  return billingContactKey;
 };
-generateKeys({});

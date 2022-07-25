@@ -1,24 +1,22 @@
-import EventFirebase from '../firebase-config';
-//import Note from "../views/Notes/Note";
-const { firebase } = EventFirebase;
+import { modulesFirebase } from './../firebase-config.js';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+const { fire_auth } = modulesFirebase;
 
-export const Auth = async (email, password) => {
-  try {
-    const userCredential = await firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password);
-    // console.log("userCredential:", userCredential);
-    const accessToken = await userCredential.user.getIdToken();
-    // console.log('accessToken:', accessToken);
-    // return userCredential;
-    return accessToken;
-  } catch (error) {
-    console.error('Error', error.message);
-    return null;
-  }
+export const Auth = (email, password) => {
+  signInWithEmailAndPassword(fire_auth, email, password)
+    .then(async (userCredential) => {
+      let accessToken = await userCredential.user.getIdToken();
+      // console.log('accessToken:', accessToken);
+      return accessToken;
+    })
+    .catch((error) => {
+      console.error('Error', error.message);
+      return null;
+    });
 };
 
-export const saveNote = (noteId, title, bodyNote) => {
+/*Codigo antiguo:*/
+/*export const saveNote = (noteId, title, bodyNote) => {
   firebase
     .database()
     .ref('notes/' + noteId)
@@ -36,8 +34,9 @@ export const saveNote = (noteId, title, bodyNote) => {
         }
       }
     );
-};
+};*/
 
+//readAllNotes estaba comentado:
 // export const readAllNotes = () => {
 //   try {
 //     const note = firebase.database().ref("notes/");
@@ -52,6 +51,7 @@ export const saveNote = (noteId, title, bodyNote) => {
 //   }
 // };
 
+/*
 export const readAllNotes2 = (noteId) => {
   try {
     const note = firebase.database().ref();
@@ -62,7 +62,7 @@ export const readAllNotes2 = (noteId) => {
       .then((element) => {
         if (element.exists()) {
           console.log(element.val());
-          // <Note element={element.val()} />;
+          // <NoteJsx element={element.val()} />;
         } else {
           console.log('Datos no dispinobles!!');
         }
@@ -91,7 +91,7 @@ export const readSpecificNote = (noteId) => {
     .then((element) => {
       if (element.exists()) {
         console.log(element.val());
-        // <Note element={element.val()} />;
+        // <NoteJsx element={element.val()} />;
       } else {
         console.log('Datos no dispinobles!!');
       }
@@ -126,3 +126,4 @@ export const deleteNote = (noteId) => {
     .remove();
   console.log('Datos eliminados');
 };
+*/

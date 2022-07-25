@@ -12,11 +12,12 @@ export let dataForPassengerTickets = [
     lane: '0', //carril
     passengerFullName: 'Santillan Quispe Javier Angel',
     typeOfDocument: 'Carnet Identidad',
-    identificationNumber: '7896541',
+    identificationNumber: '7481901',
     seatId: '1',
     typeOfSeat: 'Semi-cama',
     seatPrice: '30',
     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    busEnrollment: '2269KUN', //busMatricula
   },
   {
     companyName: 'Sin Fronteras',
@@ -31,11 +32,12 @@ export let dataForPassengerTickets = [
     lane: '0', //carril
     passengerFullName: 'Santillan Quispe Javier Angel',
     typeOfDocument: 'Carnet Identidad',
-    identificationNumber: '7896541',
+    identificationNumber: '7481902',
     seatId: '2',
     typeOfSeat: 'Semi-cama',
     seatPrice: '30',
     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    busEnrollment: '2269KUN', //busMatricula
   },
   {
     companyName: 'Sin Fronteras',
@@ -50,11 +52,12 @@ export let dataForPassengerTickets = [
     lane: '0', //carril
     passengerFullName: 'Santillan Quispe Javier Angel',
     typeOfDocument: 'Carnet Identidad',
-    identificationNumber: '7896541',
+    identificationNumber: '7481903',
     seatId: '3',
     typeOfSeat: 'Semi-cama',
     seatPrice: '30',
     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    busEnrollment: '2269KUN', //busMatricula
   },
   {
     companyName: 'Sin Fronteras',
@@ -69,11 +72,12 @@ export let dataForPassengerTickets = [
     lane: '0', //carril
     passengerFullName: 'Santillan Quispe Javier Angel',
     typeOfDocument: 'Carnet Identidad',
-    identificationNumber: '7896541',
+    identificationNumber: '7481904',
     seatId: '4',
     typeOfSeat: 'Semi-cama',
     seatPrice: '30',
     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    busEnrollment: '2269KUN', //busMatricula
   },
   {
     companyName: 'Sin Fronteras',
@@ -88,11 +92,12 @@ export let dataForPassengerTickets = [
     lane: '0', //carril
     passengerFullName: 'Santillan Quispe Javier Angel',
     typeOfDocument: 'Carnet Identidad',
-    identificationNumber: '7896541',
+    identificationNumber: '7481905',
     seatId: '5',
     typeOfSeat: 'Semi-cama',
     seatPrice: '30',
     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    busEnrollment: '2269KUN', //busMatricula
   },
   {
     companyName: 'Sin Fronteras',
@@ -107,10 +112,11 @@ export let dataForPassengerTickets = [
     lane: '0', //carril
     passengerFullName: 'Santillan Quispe Javier Angel',
     typeOfDocument: 'Carnet Identidad',
-    identificationNumber: '7896541',
+    identificationNumber: '7481906',
     seatId: '6',
     typeOfSeat: 'Semi-cama',
     seatPrice: '30',
     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+    busEnrollment: '2269KUN', //busMatricula
   },
 ];
