@@ -66,14 +66,11 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   } = dataBusTravel;
 
   //generateTicketNumber:
-  let countTicket = 0;
-  const generateTicketNumber = () => {
-    countTicket = countTicket + 1;
+  const generateTicketNumber = (identificationNumber) => {
     let date = new Date();
-    // console.log('H', date.toLocaleDateString('en-GB')); //saca en formato "dia/mes/año"
     let suc = `suc${branchNumber}`;
     let dateTN = `${date.getMonth() + 1}${date.getFullYear()}`;
-    let ticketNumber = `${suc}-${dateTN}-${countTicket}`;
+    let ticketNumber = `${suc}-${dateTN}-${identificationNumber}`;
     // console.log('ticketNumber:', ticketNumber);
     return ticketNumber;
   };
@@ -82,7 +79,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     let ticketSoldAux = {
       companyName: companyName,
       branchNumber: branchNumber,
-      ticketNumber: generateTicketNumber(), // Generar automaticamente
+      ticketNumber: generateTicketNumber(ticketSold.identificationNumber), // Genera automaticamente
       issuingUser: `${surnames} ${names}`, //usuario emisor
       branchPhone: telephone,
       origin: localityOfOrigin,
