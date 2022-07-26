@@ -26,6 +26,10 @@ import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextUserData } from './../../../contexts/ContextUserData';
 //Component SalesAmountData
 import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
+//BDsaveData:
+import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
+//salesAmountData:
+import { salesAmountData } from './../SalesAmountData/SalesAmountData';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //contex Data :
@@ -323,6 +327,12 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                 dialogText="Asegurece de que la informacion del contacto sea correcta."
                 closeBtnText="Atras"
                 continueBtnText="Si, realizar venta"
+                functionToExecute={saveTripsMade}
+                functionParameters={{
+                  billingContactInformation,
+                  salesAmountData,
+                  ticketsSalesData,
+                }}
               />
             }
           </Btn>

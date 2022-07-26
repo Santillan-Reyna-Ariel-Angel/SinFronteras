@@ -15,6 +15,8 @@ const PlainModalButton = ({
   closeBtnText = 'cancelar',
   continueBtnText = 'ok',
   redirectPage = './',
+  functionToExecute,
+  functionParameters,
 }) => {
   const history = useHistory();
   const [openDialog, setOpenDialog] = useState(false);
@@ -31,6 +33,7 @@ const PlainModalButton = ({
 
     //Escribir codigo para dedirigir a destino
     console.log('Vendido!!!');
+    functionToExecute(functionParameters);
   };
 
   const handleCloseBack = () => {

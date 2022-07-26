@@ -27,7 +27,7 @@ let SAD = {
   amountTotal: 100,
 };
 
-const saveTripsMade = ({
+export const saveTripsMade = ({
   billingContactInformation = BCI,
   salesAmountData = SAD,
   ticketsSalesData = dataForPassengerTickets,
@@ -84,4 +84,4 @@ const saveTripsMade = ({
   );
 };
 
-saveTripsMade({});
+//saveTripsMade({});

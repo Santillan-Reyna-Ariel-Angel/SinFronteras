@@ -16,6 +16,8 @@ import {
   AmountTotal,
 } from './SalesAmountDataStyles';
 
+export let salesAmountData, setSalesAmountData;
+
 const SalesAmountData = ({ passengersDataTable }) => {
   let prices = passengersDataTable.map((passanger) => passanger.seatPrice);
 
@@ -28,7 +30,7 @@ const SalesAmountData = ({ passengersDataTable }) => {
   // console.log('priceTotal:', priceTotal);
 
   //salesAmountData default:
-  const [salesAmountData, setSalesAmountData] = useState({
+  [salesAmountData, setSalesAmountData] = useState({
     subtotal: priceTotal,
     discountCheckbox: false,
     discount: '',
