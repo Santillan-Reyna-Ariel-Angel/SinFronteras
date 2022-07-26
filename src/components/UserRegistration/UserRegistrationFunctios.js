@@ -27,7 +27,7 @@ export const saveUser = (
       address,
       mobile,
       email,
-      formattedDate,
+      dateOfBirth: formattedDate,
       sex,
       branchOfficeName,
       chargeOfType,
