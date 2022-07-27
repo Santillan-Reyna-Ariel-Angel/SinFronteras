@@ -30,6 +30,8 @@ import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
 import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
 //salesAmountData:
 import { salesAmountData } from './../SalesAmountData/SalesAmountData';
+//State que muestra o no el mapa de asientos(se usara al finalizar la venta):
+import { showSeatMap, setShowSeatMap } from './../TravelCards/TravelCards';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //contex Data :
@@ -330,6 +332,8 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                   salesAmountData,
                   ticketsSalesData,
                 }}
+                secondFunctionToExecute={setShowSeatMap}
+                secondFunctionParameters={showSeatMap}
               />
             }
           </Btn>

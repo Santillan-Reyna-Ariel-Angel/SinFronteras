@@ -23,6 +23,9 @@ import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 
 import Seat from './../Bus/Seat/Seat';
 
+//Variables del estado que controla ver o no el mapa del bus:
+export let showSeatMap, setShowSeatMap;
+
 const TravelCards = ({ travelSearchData }) => {
   const { origin, destination, selectedTravelDate } = travelSearchData;
   const branchOffice = useContext(ContextBranchOffice);
@@ -70,8 +73,9 @@ const TravelCards = ({ travelSearchData }) => {
   // console.log('travelCardsListAux', travelCardsListAux);
   // console.log('dataOfTheSelectedTravelBus: ', dataOfTheSelectedTravelBus);
 
-  const [view, setView] = useState(false);
-  // console.log('view', view);
+  //Estado que controla ver o no el mapa del bus:
+  [showSeatMap, setShowSeatMap] = useState(false);
+  // console.log('showSeatMap', showSeatMap);
 
   // const dataTravelBusSelected = () => {
   //   return (
@@ -107,18 +111,18 @@ const TravelCards = ({ travelSearchData }) => {
                   <BtnSeeBusStyle>
                     <Button
                       variant="contained"
-                      color={view ? 'error' : 'success'}
+                      color={showSeatMap ? 'error' : 'success'}
                       endIcon={
-                        view ? (
+                        showSeatMap ? (
                           <NoTransferRoundedIcon />
                         ) : (
                           <DirectionsBusRoundedIcon />
                         )
                       }
                       // onClick={() => dataTravelBusSelected()}
-                      onClick={() => setView(!view)}
+                      onClick={() => setShowSeatMap(!showSeatMap)}
                     >
-                      {view ? 'Ocultar' : 'Ver'}
+                      {showSeatMap ? 'Ocultar' : 'Ver'}
                     </Button>
                   </BtnSeeBusStyle>
                   <TypeOfBusStyle>
@@ -148,7 +152,7 @@ const TravelCards = ({ travelSearchData }) => {
         </Background>
       )}
       {/* {travelCardsListAux.length >= 1 ? dataTravelBusSelected() : null} */}
-      {travelCardsListAux.length >= 1 && view === true ? (
+      {travelCardsListAux.length >= 1 && showSeatMap === true ? (
         <Seat dataBusTravel={dataOfTheSelectedTravelBus} />
       ) : null}
     </>

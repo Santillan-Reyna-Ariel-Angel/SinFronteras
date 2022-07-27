@@ -17,6 +17,8 @@ const PlainModalButton = ({
   redirectPage = './',
   functionToExecute,
   functionParameters,
+  secondFunctionToExecute,
+  secondFunctionParameters,
 }) => {
   const history = useHistory();
   const [openDialog, setOpenDialog] = useState(false);
@@ -31,9 +33,10 @@ const PlainModalButton = ({
     // sessionStorage.removeItem('userEmail');
     // history.push('/acceso');
 
-    //Escribir codigo para dedirigir a destino
+    //Escribir codigo para redirigir a destino
     console.log('Vendido!!!');
     functionToExecute(functionParameters);
+    secondFunctionToExecute(!secondFunctionParameters);
   };
 
   const handleCloseBack = () => {
