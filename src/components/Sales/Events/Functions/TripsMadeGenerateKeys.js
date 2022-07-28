@@ -2,9 +2,9 @@
 // hora UTC Bolivia: 'UTC-4'
 
 export const travelKey = ({
-  travelDate = '19/7/2022',
-  departureTime = '15:30',
-  busEnrollment = '2269KUN',
+  travelDate = '00/00/0000',
+  departureTime = '00:00',
+  busEnrollment = '0000MATRICULA',
 }) => {
   //  travel_fechaViaje_horaViaje_matricula => travel_19-7-2022_15-30_2269KUN
 
@@ -17,10 +17,10 @@ export const travelKey = ({
 };
 
 export const billingContactKey = ({
-  saleDate = '19/7/2022',
-  hourOfSale = '10',
+  saleDate = '00/00/0000',
+  hourOfSale = '0',
   minuteOfSale = '00',
-  ciOrNit = '7481911',
+  ciOrNit = '00000000',
 }) => {
   // billingContact_fechaVenta_horaVenta_ciOrNit => billingContact_19-7-2022_10-30_7481911
 

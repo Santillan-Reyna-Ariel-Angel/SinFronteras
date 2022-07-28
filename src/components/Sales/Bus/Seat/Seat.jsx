@@ -22,6 +22,8 @@ import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice'
 
 //PassengerRegistrationTable:
 import { PassengerRegistrationTable } from '../../PassengerRegistrationTable/PassengerRegistrationTable';
+//addOccupiedSeat In BD:
+import { addOccupiedSeat } from './../../Events/Firebase/addOccupiedSeat.js';
 
 //Usado en Check
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -94,7 +96,7 @@ const Seat = ({ dataBusTravel }) => {
   const { branchInformation } = branchOffice
     ? branchOffice
     : { branchInformation: {}, travels: {} };
-  const { destinations } = branchInformation;
+  const { destinations, branchNumber } = branchInformation;
   //Props
   //Tambien se podria extraer: numberOfFloors
   const {
@@ -214,6 +216,8 @@ const Seat = ({ dataBusTravel }) => {
           lastName: '',
         },
       ]);
+      let seatId = event.target.id;
+      addOccupiedSeat({ branchNumber, dataBusTravel, seatId });
     } else {
       const passengersDataTableAux = passengersDataTable.filter(
         (seat) => seat.id !== event.target.id

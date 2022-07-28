@@ -12,7 +12,7 @@ const { fire_db } = modulesFirebase;
 
 let BCI = {
   invoiceCheckbox: false,
-  ciOrNit: '7485960',
+  ciOrNit: '00000000',
   nameOrSocialReason: '',
   email: '',
   countryCode: '',
@@ -20,11 +20,11 @@ let BCI = {
 };
 
 let SAD = {
-  subtotal: 100,
+  subtotal: 0,
   discountCheckbox: false,
   discount: '',
   description: '',
-  amountTotal: 100,
+  amountTotal: 0,
 };
 
 export const saveTripsMade = ({
