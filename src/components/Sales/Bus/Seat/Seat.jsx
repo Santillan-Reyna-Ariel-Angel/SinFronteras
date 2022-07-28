@@ -24,6 +24,8 @@ import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice'
 import { PassengerRegistrationTable } from '../../PassengerRegistrationTable/PassengerRegistrationTable';
 //addOccupiedSeat In BD:
 import { addOccupiedSeat } from './../../Events/Firebase/addOccupiedSeat.js';
+//removeOccupiedSeat IN BD:
+import { removeOccupiedSeat } from './../../Events/Firebase/removeOccupiedSeat.js';
 
 //Usado en Check
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -204,6 +206,8 @@ const Seat = ({ dataBusTravel }) => {
     // console.log('id: ', event.target.id, '.checked: ', event.target.checked);
     const ids = passengersDataTable.map((seat) => seat.id);
     let selectedSeat = ids.includes(event.target.id);
+    //seatId para eventos BD:
+    let seatId = event.target.id;
     if (selectedSeat !== true && event.target.checked === true) {
       setPassengersDataTable([
         ...passengersDataTable,
@@ -216,13 +220,13 @@ const Seat = ({ dataBusTravel }) => {
           lastName: '',
         },
       ]);
-      let seatId = event.target.id;
       addOccupiedSeat({ branchNumber, dataBusTravel, seatId });
     } else {
       const passengersDataTableAux = passengersDataTable.filter(
         (seat) => seat.id !== event.target.id
       );
       setPassengersDataTable(passengersDataTableAux);
+      removeOccupiedSeat({ branchNumber, dataBusTravel, seatId });
     }
   };
 
