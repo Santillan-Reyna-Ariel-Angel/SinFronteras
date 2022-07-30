@@ -1,29 +1,21 @@
 import { useState, useEffect } from 'react';
-/*cod fire v9:*/
-import {
-  ref,
-  query,
-  orderByChild,
-  equalTo,
-  onValue,
-  // child,
-} from 'firebase/database';
-import { modulesFirebase } from './../../firebase-config.js';
+import { ref, onValue, query, orderByChild, equalTo } from 'firebase/database';
+import { modulesFirebase } from './../../firebase-config';
+
 const { fire_db } = modulesFirebase;
 
-let branchOffice, setBranchOffice;
+let branchTripsMade, setBranchTripsMade;
 
-const branchOfficeAux = () => {
+const branchTripsMadeAux = () => {
   let userEmail = sessionStorage.getItem('userEmail');
-  // console.log("sessionStorage_useBranchOffice:", userEmail);
-
   if (userEmail !== null) {
-    const response = query(
+    let user = query(
       ref(fire_db, 'users'),
       orderByChild('email'),
       equalTo(userEmail)
     );
-    onValue(response, (userData) => {
+
+    onValue(user, (userData) => {
       // console.log("userData", userData.val());
 
       let userKey = Object.keys(userData.val())[0];
@@ -33,23 +25,29 @@ const branchOfficeAux = () => {
       // console.log("branchOfficeKey", branchOfficeKey);
 
       let branchOffice_x = ref(fire_db, `branchOffices/${branchOfficeKey}/`);
-      //let newRef = ref(fire_db, 'branchOffices');
-      //let childAux = child(newRef, branchOfficeKey);
+
       onValue(branchOffice_x, (branchOffice) => {
         // console.log("branchOffice.val()", branchOffice.val());
-        setBranchOffice(branchOffice.val());
+        let {
+          branchInformation: { branchNumber },
+        } = branchOffice.val();
+        // console.log('branchNumber', branchNumber);
+
+        let response = ref(fire_db, `tripsMade/branch_${branchNumber}`); //useBranchNumber
+        onValue(response, (branch) => {
+          setBranchTripsMade(branch.val());
+        });
       });
     });
   }
 };
 
-export const useBranchOffice = () => {
-  [branchOffice, setBranchOffice] = useState();
+export const useBranchTripsMade = () => {
+  [branchTripsMade, setBranchTripsMade] = useState();
+
   useEffect(() => {
-    branchOfficeAux();
+    branchTripsMadeAux();
   }, []);
 
-  return {
-    branchOffice,
-  };
+  return { branchTripsMade };
 };

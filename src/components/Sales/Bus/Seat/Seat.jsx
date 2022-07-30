@@ -19,6 +19,7 @@ import Checkbox from '@mui/material/Checkbox';
 import FormControlLabel from '@mui/material/FormControlLabel';
 //Context
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
+import { ContextBranchTripsMade } from './../../../../contexts/ContextBranchTripsMade';
 
 //PassengerRegistrationTable:
 import { PassengerRegistrationTable } from '../../PassengerRegistrationTable/PassengerRegistrationTable';
@@ -99,6 +100,10 @@ const Seat = ({ dataBusTravel }) => {
     ? branchOffice
     : { branchInformation: {}, travels: {} };
   const { destinations, branchNumber } = branchInformation;
+
+  let branchTripsMade = useContext(ContextBranchTripsMade);
+  console.log('branchTripsMade', branchTripsMade);
+
   //Props
   //Tambien se podria extraer: numberOfFloors
   const {
