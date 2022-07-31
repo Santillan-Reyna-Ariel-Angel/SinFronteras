@@ -27,6 +27,8 @@ import { PassengerRegistrationTable } from '../../PassengerRegistrationTable/Pas
 import { addOccupiedSeat } from './../../Events/Firebase/addOccupiedSeat.js';
 //removeOccupiedSeat IN BD:
 import { removeOccupiedSeat } from './../../Events/Firebase/removeOccupiedSeat.js';
+//travelKey:
+import { travelKey } from './../../Events/Functions/TripsMadeGenerateKeys';
 
 //Usado en Check
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
@@ -102,13 +104,15 @@ const Seat = ({ dataBusTravel }) => {
   const { destinations, branchNumber } = branchInformation;
 
   let branchTripsMade = useContext(ContextBranchTripsMade);
-  console.log('branchTripsMade', branchTripsMade);
+  //console.log('branchTripsMade', branchTripsMade);
 
   //Props
   //Tambien se podria extraer: numberOfFloors
   const {
-    bus: { typeOfBus, numberOfSeats, typeOfSeats },
+    bus: { typeOfBus, numberOfSeats, typeOfSeats, enrollment: busEnrollment },
     destinationLocation,
+    travelDate,
+    departureTime,
   } = dataBusTravel ? dataBusTravel : {};
 
   const pricesAux = Object.keys(destinations).map((key) => {
@@ -137,6 +141,78 @@ const Seat = ({ dataBusTravel }) => {
   };
   const seatPrices = busMapData();
   // console.log('seatPrices', seatPrices);
+
+  //Estado de la tabla de pasajeros:
+  const [passengersDataTable, setPassengersDataTable] = useState([]);
+
+  //Recuperando solo los asientosOcupados del viaje en concreto (talvez colocarlo antes de busMap()):
+  let travelKeyAux = travelKey({
+    travelDate,
+    departureTime,
+    busEnrollment,
+  });
+  // console.log('travelKeyAux:', travelKeyAux);
+
+  let {
+    [travelKeyAux]: { occupiedSeat },
+  } = branchTripsMade;
+  //console.log('occupiedSeat', occupiedSeat);
+
+  const whatOccupiedSeatsToPaint = () => {
+    //json to array:
+    let occupiedSeatArray = [];
+    for (let i in occupiedSeat) occupiedSeatArray.push([i, occupiedSeat[i]]);
+    // console.log('occupiedSeatArray', occupiedSeatArray);
+
+    let selectedSeatsId = passengersDataTable.map((passenger) => passenger.id);
+    // console.log('selectedSeatsId', selectedSeatsId);
+
+    //verificar asientos ocupados:
+    let occupiedSeatsToPaintAux = occupiedSeatArray.map((occupiedSeat) => {
+      let seat = occupiedSeat[0];
+      if (selectedSeatsId.includes(seat) === false) {
+        return seat;
+      }
+    });
+    // console.log('occupiedSeatsToPaintAux', occupiedSeatsToPaintAux);
+
+    //limpieza de datos(descartamos los elementos indefinidos):
+    let occupiedSeatsToPaint = occupiedSeatsToPaintAux.filter(
+      (element) => element !== undefined
+    );
+    return occupiedSeatsToPaint;
+  };
+  let paintOccupiedSeats = whatOccupiedSeatsToPaint();
+  console.log('paintOccupiedSeats', paintOccupiedSeats);
+
+  //Funcion para selecionar un asiento y colocarlo al estado:
+  const handleChange = (event) => {
+    // console.log('id: ', event.target.id, '.checked: ', event.target.checked);
+    const ids = passengersDataTable.map((seat) => seat.id);
+    let selectedSeat = ids.includes(event.target.id);
+    //seatId para eventos BD:
+    let seatId = event.target.id;
+    if (selectedSeat !== true && event.target.checked === true) {
+      setPassengersDataTable([
+        ...passengersDataTable,
+        {
+          id: event.target.id,
+          seatPrice: seatPrices.maximumPrice, // por defecto se coloca maximo precio a cobrar
+          typeOfDocument: 'Carnet Identidad',
+          identificationNumber: '',
+          firstName: '',
+          lastName: '',
+        },
+      ]);
+      addOccupiedSeat({ branchNumber, dataBusTravel, seatId });
+    } else {
+      const passengersDataTableAux = passengersDataTable.filter(
+        (seat) => seat.id !== event.target.id
+      );
+      setPassengersDataTable(passengersDataTableAux);
+      removeOccupiedSeat({ branchNumber, dataBusTravel, seatId });
+    }
+  };
 
   const BusMap = (typeOfBusParameter, numberOfSeatsParameter, indice) => {
     return createSeats(typeOfBusParameter, numberOfSeatsParameter)[indice].map(
@@ -202,37 +278,6 @@ const Seat = ({ dataBusTravel }) => {
         }
       }
     );
-  };
-
-  const [passengersDataTable, setPassengersDataTable] = useState([]);
-
-  //Funcion para selecionar un asiento y colocarlo al estado:
-  const handleChange = (event) => {
-    // console.log('id: ', event.target.id, '.checked: ', event.target.checked);
-    const ids = passengersDataTable.map((seat) => seat.id);
-    let selectedSeat = ids.includes(event.target.id);
-    //seatId para eventos BD:
-    let seatId = event.target.id;
-    if (selectedSeat !== true && event.target.checked === true) {
-      setPassengersDataTable([
-        ...passengersDataTable,
-        {
-          id: event.target.id,
-          seatPrice: seatPrices.maximumPrice, // por defecto se coloca maximo precio a cobrar
-          typeOfDocument: 'Carnet Identidad',
-          identificationNumber: '',
-          firstName: '',
-          lastName: '',
-        },
-      ]);
-      addOccupiedSeat({ branchNumber, dataBusTravel, seatId });
-    } else {
-      const passengersDataTableAux = passengersDataTable.filter(
-        (seat) => seat.id !== event.target.id
-      );
-      setPassengersDataTable(passengersDataTableAux);
-      removeOccupiedSeat({ branchNumber, dataBusTravel, seatId });
-    }
   };
 
   return (
