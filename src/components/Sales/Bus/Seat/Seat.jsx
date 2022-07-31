@@ -185,6 +185,10 @@ const Seat = ({ dataBusTravel }) => {
   let paintOccupiedSeats = whatOccupiedSeatsToPaint();
   console.log('paintOccupiedSeats', paintOccupiedSeats);
 
+  const coloringSeat = (seatNumber) => {
+    return paintOccupiedSeats.includes(seatNumber.toString()) ? 'red' : '';
+  };
+
   //Funcion para selecionar un asiento y colocarlo al estado:
   const handleChange = (event) => {
     // console.log('id: ', event.target.id, '.checked: ', event.target.checked);
@@ -243,7 +247,10 @@ const Seat = ({ dataBusTravel }) => {
                     icon={
                       <EventSeatRoundedIcon
                         // fontSize="small"
-                        sx={{ transform: 'rotate(90deg)' }}
+                        sx={{
+                          transform: 'rotate(90deg)',
+                          color: coloringSeat(seatNumber),
+                        }}
                       />
                     }
                     checkedIcon={
