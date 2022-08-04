@@ -1,0 +1,778 @@
+{
+  "branchOffices": {
+    "code1": {
+      "branchInformation": {
+        "address": "av. marcelo quiroga N#300",
+        "attentionSchedule": {
+          "fryday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "monday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "sunday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "suturday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "thursday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "tuesday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "wednesday": {
+            "closingTime": "",
+            "openingHours": ""
+          }
+        },
+        "branchNumber": "1",
+        "branchPhotography": "sucursal.png",
+        "department": "chuquisaca",
+        "departmentsContactNumbers": {
+          "informations": {
+            "telephone": "64-64646"
+          }
+        },
+        "destinations": {
+          "code1": {
+            "destinationLocation": "c. santa cruz",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          },
+          "code2": {
+            "destinationLocation": "yacuiba",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          }
+        },
+        "emailsWithAccess": "s1secretario1@gmail.com",
+        "localityPhotograpy": "sucre.png",
+        "location": "sucre",
+        "name": "Sin Fronteras sucursal Sucre",
+        "terminal": "interprovincial"
+      },
+      "busesInBranch": {
+        "code1": {
+          "busPhotography": "bus-001.png",
+          "enrollment": "bus-001",
+          "filing": "H",
+          "identificationNumberDriver": "",
+          "numberOfFloors": 1,
+          "numberOfSeats": 42,
+          "services": {
+            "bathroom": true,
+            "drinks": true,
+            "tv": true
+          },
+          "status": "active",
+          "typeOfBus": "normal",
+          "typeOfSeats": "semi-cama"
+        },
+        "code6": {
+          "busPhotography": "bus-006.png",
+          "enrollment": "bus-006",
+          "filing": "H",
+          "identificationNumberDriver": "",
+          "numberOfFloors": 1,
+          "numberOfSeats": 29,
+          "services": {
+            "bathroom": true,
+            "drinks": true,
+            "tv": true
+          },
+          "status": "active",
+          "typeOfBus": "leito",
+          "typeOfSeats": "cama"
+        }
+      },
+      "travels": {
+        "code1": {
+          "bus": {
+            "busPhotography": "bus-006.png",
+            "enrollment": "bus-006",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "key": "code6",
+            "numberOfFloors": 1,
+            "numberOfSeats": 29,
+            "services": {
+              "bathroom": true,
+              "drinks": true,
+              "tv": true
+            },
+            "status": "active",
+            "typeOfBus": "leito",
+            "typeOfSeats": "cama"
+          },
+          "departureTime": "21:30",
+          "destinationLocation": "c. santa cruz",
+          "lane": "0",
+          "localityOfOrigin": "sucre",
+          "passengers": {
+            "code1": {
+              "documentType": "",
+              "identificationNumber": "",
+              "invoiceDetails": {
+                "amountTotal": "",
+                "email": "",
+                "mobile": "",
+                "nameOrSocialReason": "",
+                "nitOrCi": ""
+              },
+              "names": "",
+              "seats": {
+                "code1": {
+                  "rowType": "",
+                  "salePrice": "",
+                  "seatNumber": "",
+                  "seatType": ""
+                }
+              },
+              "surnames": ""
+            }
+          },
+          "travelDate": "7/8/2022",
+          "travelStatus": false
+        },
+        "code2": {
+          "bus": {
+            "busPhotography": "bus-001.png",
+            "enrollment": "bus-001",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "key": "code1",
+            "numberOfFloors": 1,
+            "numberOfSeats": 42,
+            "services": {
+              "bathroom": true,
+              "drinks": true,
+              "tv": true
+            },
+            "status": "active",
+            "typeOfBus": "normal",
+            "typeOfSeats": "semi-cama"
+          },
+          "departureTime": "20:30",
+          "destinationLocation": "yacuiba",
+          "lane": "0",
+          "localityOfOrigin": "sucre",
+          "passengers": {
+            "code1": {
+              "documentType": "",
+              "identificationNumber": "",
+              "invoiceDetails": {
+                "amountTotal": "",
+                "email": "",
+                "mobile": "",
+                "nameOrSocialReason": "",
+                "nitOrCi": ""
+              },
+              "names": "",
+              "seats": {
+                "code1": {
+                  "rowType": "",
+                  "salePrice": "",
+                  "seatNumber": "",
+                  "seatType": ""
+                }
+              },
+              "surnames": ""
+            }
+          },
+          "travelDate": "7/8/2022",
+          "travelStatus": false
+        }
+      }
+    },
+    "code2": {
+      "branchInformation": {
+        "address": "av. de los viajes N#300",
+        "attentionSchedule": {
+          "fryday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "monday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "sunday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "suturday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "thursday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "tuesday": {
+            "closingTime": "",
+            "openingHours": ""
+          },
+          "wednesday": {
+            "closingTime": "",
+            "openingHours": ""
+          }
+        },
+        "branchNumber": "2",
+        "branchPhotography": "sucursalsantacruz.png",
+        "department": "santa cruz",
+        "departmentsContactNumbers": {
+          "informations": {
+            "telephone": "64-64646"
+          }
+        },
+        "destinations": {
+          "code1": {
+            "destinationLocation": "sucre",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          },
+          "code2": {
+            "destinationLocation": "yacuiba",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          }
+        },
+        "emailsWithAccess": "s2secretario1@gmail.com",
+        "localityPhotograpy": "c. santa cruz.png",
+        "location": "c. santa cruz",
+        "name": "Sin Fronteras sucursal C. Santa Cruz",
+        "terminal": "interprovincial"
+      },
+      "busesInBranch": {
+        "code2": {
+          "busPhotography": "bus-002.png",
+          "enrollment": "bus-002",
+          "filing": "H",
+          "identificationNumberDriver": "",
+          "numberOfFloors": 1,
+          "numberOfSeats": 43,
+          "services": {
+            "bathroom": true,
+            "drinks": true,
+            "tv": true
+          },
+          "status": "active",
+          "typeOfBus": "normal",
+          "typeOfSeats": "semi-cama"
+        },
+        "code8": {
+          "busPhotography": "bus-008.png",
+          "enrollment": "bus-008",
+          "filing": "H",
+          "identificationNumberDriver": "",
+          "numberOfFloors": 2,
+          "numberOfSeats": 40,
+          "numberOfSeatsFirstFloor": 20,
+          "numberOfSeatsSecondFloor": 20,
+          "services": {
+            "bathroom": true,
+            "drinks": true,
+            "tv": true
+          },
+          "status": "active",
+          "typeOfBus": "leito",
+          "typeOfSeats": "cama"
+        }
+      },
+      "travels": {
+        "code1": {
+          "bus": {
+            "busPhotography": "bus-002.png",
+            "enrollment": "bus-002",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "key": "code2",
+            "numberOfFloors": 1,
+            "numberOfSeats": 43,
+            "services": {
+              "bathroom": true,
+              "drinks": true,
+              "tv": true
+            },
+            "status": "active",
+            "typeOfBus": "normal",
+            "typeOfSeats": "semi-cama"
+          },
+          "departureTime": "21:30",
+          "destinationLocation": "sucre",
+          "lane": "0",
+          "localityOfOrigin": "c. santa cruz",
+          "passengers": {
+            "code1": {
+              "documentType": "",
+              "identificationNumber": "",
+              "invoiceDetails": {
+                "amountTotal": "",
+                "email": "",
+                "mobile": "",
+                "nameOrSocialReason": "",
+                "nitOrCi": ""
+              },
+              "names": "",
+              "seats": {
+                "code1": {
+                  "rowType": "",
+                  "salePrice": "",
+                  "seatNumber": "",
+                  "seatType": ""
+                }
+              },
+              "surnames": ""
+            }
+          },
+          "travelDate": "7/8/2022",
+          "travelStatus": false
+        },
+        "code2": {
+          "bus": {
+            "busPhotography": "bus-008.png",
+            "enrollment": "bus-008",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "key": "code8",
+            "numberOfFloors": 2,
+            "numberOfSeats": 40,
+            "numberOfSeatsFirstFloor": 20,
+            "numberOfSeatsSecondFloor": 20,
+            "services": {
+              "bathroom": true,
+              "drinks": true,
+              "tv": true
+            },
+            "status": "active",
+            "typeOfBus": "leito",
+            "typeOfSeats": "cama"
+          },
+          "departureTime": "20:30",
+          "destinationLocation": "yacuiba",
+          "lane": "0",
+          "localityOfOrigin": "c. santa cruz",
+          "passengers": {
+            "code1": {
+              "documentType": "",
+              "identificationNumber": "",
+              "invoiceDetails": {
+                "amountTotal": "",
+                "email": "",
+                "mobile": "",
+                "nameOrSocialReason": "",
+                "nitOrCi": ""
+              },
+              "names": "",
+              "seats": {
+                "code1": {
+                  "rowType": "",
+                  "salePrice": "",
+                  "seatNumber": "",
+                  "seatType": ""
+                }
+              },
+              "surnames": ""
+            }
+          },
+          "travelDate": "7/8/2022",
+          "travelStatus": false
+        }
+      }
+    }
+  },
+  "companyBuses": {
+    "code1": {
+      "busPhotography": "bus-001.png",
+      "enrollment": "bus-001",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 42,
+      "services": {
+        "bathroom": true,
+        "drinks": true,
+        "tv": true
+      },
+      "status": "active",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "code2": {
+      "busPhotography": "bus-002.png",
+      "enrollment": "bus-002",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 43,
+      "services": {
+        "bathroom": true,
+        "drinks": true,
+        "tv": true
+      },
+      "status": "active",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "code3": {
+      "busPhotography": "bus-003.png",
+      "enrollment": "bus-003",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 36,
+      "services": {
+        "bathroom": true,
+        "drinks": true,
+        "tv": true
+      },
+      "status": "active",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "code4": {
+      "busPhotography": "bus-004.png",
+      "enrollment": "bus-004",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 27,
+      "services": {
+        "bathroom": true,
+        "drinks": true,
+        "tv": true
+      },
+      "status": "active",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "code5": {
+      "busPhotography": "bus-005.png",
+      "enrollment": "bus-005",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 26,
+      "services": {
+        "bathroom": true,
+        "drinks": true,
+        "tv": true
+      },
+      "status": "active",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "code6": {
+      "busPhotography": "bus-006.png",
+      "enrollment": "bus-006",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 29,
+      "services": {
+        "bathroom": true,
+        "drinks": true,
+        "tv": true
+      },
+      "status": "active",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "code8": {
+      "busPhotography": "bus-008.png",
+      "enrollment": "bus-008",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 2,
+      "numberOfSeats": 40,
+      "numberOfSeatsFirstFloor": 20,
+      "numberOfSeatsSecondFloor": 20,
+      "services": {
+        "bathroom": true,
+        "drinks": true,
+        "tv": true
+      },
+      "status": "active",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "codeAux": {
+      "busPhotography": "bus-aux.png",
+      "enrollment": "bus-aux",
+      "filing": "C",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 39,
+      "services": {
+        "bathroom": true,
+        "drinks": true,
+        "tv": true
+      },
+      "status": "active",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    }
+  },
+  "generalCompanyData": {
+    "billingInformation": {
+      "authorizationCode": "7904006306693",
+      "dosingKey": "zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS",
+      "legend": "Gracias por su compra, le deseamos un buen viaje.",
+      "nit": "1665979"
+    },
+    "companyName": "Sin Fronteras",
+    "country": "Bolivia",
+    "location": "Sucre",
+    "matrixHouse": "Sucre terminal interprovincial",
+    "telephone": "64-64646"
+  },
+  "tripsMade": {
+    "branch_1": {
+      "travel_31-7-2022_21-30_bus-006": {
+        "occupiedSeat": {
+          "14": "ocupado",
+          "20": "ocupado"
+        },
+        "passengers": {
+          "billingContact_30-7-2022_22-21_748596": {
+            "billingContactInformation": {
+              "ciOrNit": "748596",
+              "countryCode": "+591 (BO)",
+              "email": "reyna@gmail.com",
+              "invoiceCheckbox": false,
+              "mobile": "74859612",
+              "nameOrSocialReason": "Reyna Caba Clara"
+            },
+            "saleDate": "30/7/2022",
+            "salesAmountData": {
+              "amountTotal": "50.00",
+              "description": "mama.",
+              "discount": 50,
+              "discountCheckbox": true,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_748596": {
+                "branchNumber": "1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "748596",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Reyna Caba Clara",
+                "seatId": "16",
+                "seatPrice": 100,
+                "ticketNumber": "suc1-72022-748596",
+                "travelDate": "31/7/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "22:21"
+          },
+          "billingContact_30-7-2022_22-26_7481911": {
+            "billingContactInformation": {
+              "ciOrNit": "7481911",
+              "countryCode": "+591 (BO)",
+              "email": "rigardo1234@hotmail.com",
+              "invoiceCheckbox": false,
+              "mobile": "67616016",
+              "nameOrSocialReason": "Santillan Ariel"
+            },
+            "saleDate": "30/7/2022",
+            "salesAmountData": {
+              "amountTotal": 100,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_7481911": {
+                "branchNumber": "1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7481911",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Santillan Ariel",
+                "seatId": "8",
+                "seatPrice": 100,
+                "ticketNumber": "suc1-72022-7481911",
+                "travelDate": "31/7/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "22:26"
+          }
+        }
+      }
+    }
+  },
+  "users": {
+    "7481911": {
+      "address": "canelas 364",
+      "branchOfficeName": "Sucursal 1",
+      "chargeOfType": "Administrador-General",
+      "ci": "7481911",
+      "dateOfBirth": "16/10/1996",
+      "email": "santillanreynaarielangel@gmail.com",
+      "mobile": "67616016",
+      "names": "ariel angel",
+      "sex": "hombre",
+      "statusType": "Activo",
+      "surnames": "santillan"
+    },
+    "code1": {
+      "address": "calle campero 593",
+      "branchOffice": "code1",
+      "charge": "administrador",
+      "dateOfBirth": "",
+      "email": "s1administrador1@gmail.com",
+      "identificationNumber": "74747471",
+      "licensePhotography": "",
+      "mobile": 60616061,
+      "names": "javier angel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan quispe"
+    },
+    "code2": {
+      "address": "calle loa 593",
+      "branchOffice": "code1",
+      "charge": "secretario",
+      "dateOfBirth": "",
+      "email": "s1secretario1@gmail.com",
+      "identificationNumber": "74747472",
+      "licensePhotography": "",
+      "mobile": 60616062,
+      "names": "ariel angel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan reyna"
+    },
+    "code3": {
+      "address": "calle vega 593",
+      "branchOffice": "code1",
+      "charge": "boletero",
+      "dateOfBirth": "",
+      "email": "s1boletero1@gmail.com",
+      "identificationNumber": "74747473",
+      "licensePhotography": "",
+      "mobile": 60616063,
+      "names": "cristian andres",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan reyna"
+    },
+    "code4": {
+      "address": "calle lemoine 593",
+      "branchOffice": "code2",
+      "charge": "administrador",
+      "dateOfBirth": "",
+      "email": "s2administrador1@gmail.com",
+      "identificationNumber": "74747481",
+      "licensePhotography": "",
+      "mobile": 60616071,
+      "names": "juan miguel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "quispe rodriguez"
+    },
+    "code5": {
+      "address": "calle bustamante 593",
+      "branchOffice": "code2",
+      "charge": "secretaria",
+      "dateOfBirth": "",
+      "email": "s2secretario1@gmail.com",
+      "identificationNumber": "74747482",
+      "licensePhotography": "",
+      "mobile": 60616072,
+      "names": "berta angela",
+      "sex": "mujer",
+      "status": "activo",
+      "surnames": "ticona perez"
+    },
+    "code6": {
+      "address": "calle estudiantes 593",
+      "branchOffice": "code2",
+      "charge": "boletero",
+      "dateOfBirth": "",
+      "email": "s2boletero1@gmail.com",
+      "identificationNumber": "74747483",
+      "licensePhotography": "",
+      "mobile": 60616073,
+      "names": "kevin martin",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "colque choque"
+    }
+  }
+}

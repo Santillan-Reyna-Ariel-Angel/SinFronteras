@@ -151,8 +151,9 @@ const Seat = ({ dataBusTravel }) => {
     departureTime,
     busEnrollment,
   });
-  // console.log('travelKeyAux:', travelKeyAux);
+  console.log('travelKeyAux:', travelKeyAux); //travel_7-8-2022_21-30_bus-006
 
+  //IMPORTANTE: 1RO DEBERIA HABERSE CREADO EL VIAJE EN LA BD: (TripsMade/branc_x/travel_7-8-2022_21-30_bus-006)
   let {
     [travelKeyAux]: { occupiedSeat },
   } = branchTripsMade;
