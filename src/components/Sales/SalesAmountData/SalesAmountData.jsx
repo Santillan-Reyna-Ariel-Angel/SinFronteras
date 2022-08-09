@@ -37,7 +37,7 @@ const SalesAmountData = ({ passengersDataTable }) => {
     description: '',
     amountTotal: priceTotal,
   });
-  console.log('salesAmountData: ', salesAmountData);
+  // console.log('salesAmountData: ', salesAmountData);
 
   const updateAmountTotal = (discount) => {
     // let updateAmountTotal = salesAmountData.subtotal - salesAmountData.discount; //ERROR DE CALCULO, PROBABLEMENTE salesAmountData.discount NO SE ACTUALIZA A TIEMPO
