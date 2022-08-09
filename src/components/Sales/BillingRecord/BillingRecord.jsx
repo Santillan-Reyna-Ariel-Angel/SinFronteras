@@ -28,12 +28,15 @@ import { ContextUserData } from './../../../contexts/ContextUserData';
 import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
 //BDsaveData:
 import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
+//BD updateOccupiedSeat:
+import { updateOccupiedSeat } from './../Events/Firebase/updateOccupiedSeat';
 //salesAmountData:
 import { salesAmountData } from './../SalesAmountData/SalesAmountData';
 //State que muestra o no el mapa de asientos(se usara al finalizar la venta):
 import { showSeatMap, setShowSeatMap } from './../TravelCards/TravelCards';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
+  // console.log('***passengersDataTable', passengersDataTable);
   //contex Data :
   const generalCompanyData = useContext(ContextGeneralCompanyData);
   const {
@@ -55,7 +58,11 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
   //context user:
   const userData = useContext(ContextUserData);
-  let { names, surnames } = userData;
+  let {
+    names,
+    surnames,
+    identificationNumber: identificationNumberUser,
+  } = userData;
 
   //Props dataBusTravel:
   let {
@@ -112,7 +119,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     countryCode: '',
     mobile: '',
   });
-  console.log('billingContactInformation: ', billingContactInformation);
+  // console.log('billingContactInformation: ', billingContactInformation);
 
   let cisOrNits = passengersDataTable.map((passenger) => {
     return passenger.identificationNumber;
@@ -194,6 +201,19 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       //Si identificationNumber === '' entonces se ingresa un nuevo nombre y por ende se conserva el CiOrNit que se puso anteriormente
       [event.target.name]: event.target.value,
     }));
+  };
+
+  //Actualizar OccupiedSeat:
+  const updateOccupiedSeatAux = () => {
+    passengersDataTable.map((passenger) =>
+      updateOccupiedSeat({
+        branchNumber,
+        dataBusTravel,
+        seatId: passenger.id,
+        seatState: 'vendido',
+        identificationNumberUser,
+      })
+    );
   };
 
   return (
@@ -334,6 +354,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                 }}
                 secondFunctionToExecute={setShowSeatMap}
                 secondFunctionParameters={showSeatMap}
+                thirdFunctionToExecute={updateOccupiedSeatAux}
               />
             }
           </Btn>

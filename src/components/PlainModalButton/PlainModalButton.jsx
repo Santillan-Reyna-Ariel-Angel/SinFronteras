@@ -19,10 +19,11 @@ const PlainModalButton = ({
   functionParameters,
   secondFunctionToExecute,
   secondFunctionParameters,
+  thirdFunctionToExecute,
 }) => {
   const history = useHistory();
   const [openDialog, setOpenDialog] = useState(false);
-  console.log('openDialog', openDialog);
+  // console.log('openDialog', openDialog);
 
   const handleClickOpen = () => {
     setOpenDialog(true);
@@ -37,6 +38,7 @@ const PlainModalButton = ({
     console.log('Vendido!!!');
     functionToExecute(functionParameters);
     secondFunctionToExecute(!secondFunctionParameters);
+    thirdFunctionToExecute();
   };
 
   const handleCloseBack = () => {

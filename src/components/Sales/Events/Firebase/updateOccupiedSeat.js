@@ -1,8 +1,8 @@
-import { set, ref } from 'firebase/database';
+import { update, ref } from 'firebase/database';
 import { modulesFirebase } from './../../../../firebase-config.js';
 import { travelKey } from './../Functions/TripsMadeGenerateKeys.js';
 
-export const addOccupiedSeat = ({
+export const updateOccupiedSeat = ({
   branchNumber,
   dataBusTravel,
   seatId,
@@ -16,17 +16,17 @@ export const addOccupiedSeat = ({
     bus: { enrollment: busEnrollment },
   } = dataBusTravel;
 
-  // travelKeyAux = 'travel_31-7-2022_21-30_bus-006';
+  // travelKeyAux = 'travel_7-8-2022_21-30_bus-006';
   let travelKeyAux = travelKey({ travelDate, departureTime, busEnrollment });
 
-  //Enviar Datos a BD:
-  set(
+  //Actualiza el estado del asiento a "vendido" en la BD segun "seatId":
+  update(
     ref(
       fire_db,
-      `tripsMade/branch_${branchNumber}/${travelKeyAux}/occupiedSeat/${seatId}/`
+      `tripsMade/branch_${branchNumber}/${travelKeyAux}/occupiedSeat/`
     ),
-    `${seatState}-${identificationNumberUser}` //el valor que tendra cada asiento al crearse
+    { [seatId]: `${seatState}-${identificationNumberUser}` } //el valor al actualizar cada asiento
   );
 };
 
-//addOccupiedSeat({});
+//updateOccupiedSeat({});

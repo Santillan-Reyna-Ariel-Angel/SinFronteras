@@ -23,14 +23,33 @@ import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 
 import Seat from './../Bus/Seat/Seat';
 
+//Contexts
+import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
+import { ContextUserData } from './../../../contexts/ContextUserData';
+//removeOccupiedSeat IN BD:
+import { removeOccupiedSeat } from './../Events/Firebase/removeOccupiedSeat';
+//travelKey:
+import { travelKey } from './../Events/Functions/TripsMadeGenerateKeys';
+
 //Variables del estado que controla ver o no el mapa del bus:
 export let showSeatMap, setShowSeatMap;
 
 const TravelCards = ({ travelSearchData }) => {
   const { origin, destination, selectedTravelDate } = travelSearchData;
   const branchOffice = useContext(ContextBranchOffice);
-  const { travels } = branchOffice ? branchOffice : { travels: {} };
+  const {
+    travels,
+    branchInformation: { branchNumber },
+  } = branchOffice ? branchOffice : { travels: {} };
   // console.log('travels', travels);
+
+  //context tripsMade:
+  let branchTripsMade = useContext(ContextBranchTripsMade);
+  // console.log('branchTripsMade', branchTripsMade);
+  //context userData:
+  const userData = useContext(ContextUserData);
+  let { identificationNumber: identificationNumberUser } = userData;
+
   let dataOfTheSelectedTravelBus = {};
 
   let travelCardsList = Object.keys(travels).map((travelKey) => {
@@ -84,6 +103,59 @@ const TravelCards = ({ travelSearchData }) => {
   //     </>
   //   );
   // };
+
+  //Crear getSelectSeats:
+  const getSelectSeats = () => {
+    //Recuperando solo los asientos Selecionados del viaje en concreto:
+    // console.log('dataOfTheSelectedTravelBus', dataOfTheSelectedTravelBus);
+    let selectedSeatsId = [];
+    if (Object.keys(dataOfTheSelectedTravelBus).length !== 0) {
+      let {
+        bus: { enrollment: busEnrollment },
+        travelDate,
+        departureTime,
+      } = dataOfTheSelectedTravelBus ? dataOfTheSelectedTravelBus : {};
+
+      let travelKeyAux = travelKey({
+        travelDate,
+        departureTime,
+        busEnrollment,
+      });
+      // console.log('travelKeyAux:', travelKeyAux); //travel_7-8-2022_21-30_bus-006
+      //IMPORTANTE: 1RO DEBERIA HABERSE CREADO EL VIAJE EN LA BD: (TripsMade/branc_x/travel_7-8-2022_21-30_bus-006)
+      let {
+        [travelKeyAux]: { occupiedSeat },
+      } = branchTripsMade;
+      // console.log('occupiedSeat', occupiedSeat);
+      let occupiedSeatArray = [];
+
+      for (let i in occupiedSeat) occupiedSeatArray.push([i, occupiedSeat[i]]);
+      // console.log('occupiedSeatArray', occupiedSeatArray);
+
+      if (occupiedSeatArray.length !== 0) {
+        let selectedSeats = occupiedSeatArray.filter(
+          (element) => element[1] === `preventa-${identificationNumberUser}`
+        );
+        selectedSeatsId = selectedSeats.map((seat) => seat[0]);
+      }
+    }
+
+    // console.log('selectedSeatsId', selectedSeatsId);
+    return selectedSeatsId;
+  };
+
+  let selectedSeatsToDelete = getSelectSeats();
+  // console.log('selectedSeatsToDelete', selectedSeatsToDelete);
+
+  if (selectedSeatsToDelete.length !== 0 && showSeatMap === false) {
+    selectedSeatsToDelete.map((seatId) =>
+      removeOccupiedSeat({
+        branchNumber,
+        dataBusTravel: dataOfTheSelectedTravelBus,
+        seatId,
+      })
+    );
+  }
 
   return (
     <>

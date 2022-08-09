@@ -163,7 +163,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "7/8/2022",
+          "travelDate": "14/8/2022",
           "travelStatus": false
         },
         "code2": {
@@ -211,7 +211,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "7/8/2022",
+          "travelDate": "14/8/2022",
           "travelStatus": false
         }
       }
@@ -381,7 +381,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "7/8/2022",
+          "travelDate": "14/8/2022",
           "travelStatus": false
         },
         "code2": {
@@ -431,7 +431,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "7/8/2022",
+          "travelDate": "14/8/2022",
           "travelStatus": false
         }
       }
@@ -586,91 +586,49 @@
     "branch_1": {
       "travel_7-8-2022_21-30_bus-006": {
         "occupiedSeat": {
-          "14": "ocupado",
-          "20": "ocupado"
+          "29": "vendido-74747473"
         },
         "passengers": {
-          "billingContact_30-7-2022_22-21_748596": {
+          "billingContact_5-8-2022_22-14_464646": {
             "billingContactInformation": {
-              "ciOrNit": "748596",
+              "ciOrNit": "464646",
               "countryCode": "+591 (BO)",
-              "email": "reyna@gmail.com",
+              "email": "lola@gmail.com",
               "invoiceCheckbox": false,
-              "mobile": "74859612",
-              "nameOrSocialReason": "Reyna Caba Clara"
+              "mobile": "6963654",
+              "nameOrSocialReason": "apellido lola lola"
             },
-            "saleDate": "30/7/2022",
+            "saleDate": "5/8/2022",
             "salesAmountData": {
-              "amountTotal": "50.00",
-              "description": "mama.",
-              "discount": 50,
+              "amountTotal": "90.00",
+              "description": "amigo",
+              "discount": 10,
               "discountCheckbox": true,
               "subtotal": 100
             },
             "ticketsSalesData": {
-              "passenger_748596": {
+              "passenger_464646": {
                 "branchNumber": "1",
                 "branchPhone": "64-64646",
                 "busEnrollment": "bus-006",
                 "companyName": "Sin Fronteras",
                 "departureTime": "21:30",
                 "destiny": "c. santa cruz",
-                "identificationNumber": "748596",
+                "identificationNumber": "464646",
                 "issuingUser": "santillan reyna ariel angel",
                 "lane": "0",
                 "legend": "Gracias por su compra, le deseamos un buen viaje.",
                 "origin": "sucre",
-                "passengerFullName": "Reyna Caba Clara",
-                "seatId": "16",
+                "passengerFullName": "apellido lola lola",
+                "seatId": "10",
                 "seatPrice": 100,
-                "ticketNumber": "suc1-72022-748596",
-                "travelDate": "31/7/2022",
+                "ticketNumber": "suc1-82022-464646",
+                "travelDate": "7/8/2022",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "cama"
               }
             },
-            "timeOfSale": "22:21"
-          },
-          "billingContact_30-7-2022_22-26_7481911": {
-            "billingContactInformation": {
-              "ciOrNit": "7481911",
-              "countryCode": "+591 (BO)",
-              "email": "rigardo1234@hotmail.com",
-              "invoiceCheckbox": false,
-              "mobile": "67616016",
-              "nameOrSocialReason": "Santillan Ariel"
-            },
-            "saleDate": "30/7/2022",
-            "salesAmountData": {
-              "amountTotal": 100,
-              "description": "",
-              "discount": "",
-              "discountCheckbox": false,
-              "subtotal": 100
-            },
-            "ticketsSalesData": {
-              "passenger_7481911": {
-                "branchNumber": "1",
-                "branchPhone": "64-64646",
-                "busEnrollment": "bus-006",
-                "companyName": "Sin Fronteras",
-                "departureTime": "21:30",
-                "destiny": "c. santa cruz",
-                "identificationNumber": "7481911",
-                "issuingUser": "santillan reyna ariel angel",
-                "lane": "0",
-                "legend": "Gracias por su compra, le deseamos un buen viaje.",
-                "origin": "sucre",
-                "passengerFullName": "Santillan Ariel",
-                "seatId": "8",
-                "seatPrice": 100,
-                "ticketNumber": "suc1-72022-7481911",
-                "travelDate": "31/7/2022",
-                "typeOfDocument": "Carnet Identidad",
-                "typeOfSeat": "cama"
-              }
-            },
-            "timeOfSale": "22:26"
+            "timeOfSale": "22:14"
           }
         }
       }

@@ -20,6 +20,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 //Context
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 import { ContextBranchTripsMade } from './../../../../contexts/ContextBranchTripsMade';
+import { ContextUserData } from './../../../../contexts/ContextUserData';
 
 //PassengerRegistrationTable:
 import { PassengerRegistrationTable } from '../../PassengerRegistrationTable/PassengerRegistrationTable';
@@ -106,6 +107,10 @@ const Seat = ({ dataBusTravel }) => {
   let branchTripsMade = useContext(ContextBranchTripsMade);
   //console.log('branchTripsMade', branchTripsMade);
 
+  //context userData:
+  const userData = useContext(ContextUserData);
+  let { identificationNumber: identificationNumberUser } = userData;
+
   //Props
   //Tambien se podria extraer: numberOfFloors
   const {
@@ -151,7 +156,7 @@ const Seat = ({ dataBusTravel }) => {
     departureTime,
     busEnrollment,
   });
-  console.log('travelKeyAux:', travelKeyAux); //travel_7-8-2022_21-30_bus-006
+  // console.log('travelKeyAux:', travelKeyAux); //travel_7-8-2022_21-30_bus-006
 
   //IMPORTANTE: 1RO DEBERIA HABERSE CREADO EL VIAJE EN LA BD: (TripsMade/branc_x/travel_7-8-2022_21-30_bus-006)
   let {
@@ -168,26 +173,29 @@ const Seat = ({ dataBusTravel }) => {
     let selectedSeatsId = passengersDataTable.map((passenger) => passenger.id);
     // console.log('selectedSeatsId', selectedSeatsId);
 
-    //verificar asientos ocupados:
-    let occupiedSeatsToPaintAux = occupiedSeatArray.map((occupiedSeat) => {
-      let seat = occupiedSeat[0];
-      if (selectedSeatsId.includes(seat) === false) {
-        return seat;
-      }
-    });
-    // console.log('occupiedSeatsToPaintAux', occupiedSeatsToPaintAux);
-
-    //limpieza de datos(descartamos los elementos indefinidos):
-    let occupiedSeatsToPaint = occupiedSeatsToPaintAux.filter(
-      (element) => element !== undefined
+    //verificar asientos ocupados(occupiedSeat[0] es el numero de asiento):
+    let occupiedSeatsToPaint = occupiedSeatArray.filter(
+      (occupiedSeat) => selectedSeatsId.includes(occupiedSeat[0]) === false
     );
+    // console.log('occupiedSeatsToPaint ', occupiedSeatsToPaint);
+
     return occupiedSeatsToPaint;
   };
   let paintOccupiedSeats = whatOccupiedSeatsToPaint();
-  console.log('paintOccupiedSeats', paintOccupiedSeats);
+  // console.log('paintOccupiedSeats', paintOccupiedSeats);
 
   const coloringSeat = (seatNumber) => {
-    return paintOccupiedSeats.includes(seatNumber.toString()) ? 'red' : '';
+    let paintOccupiedSeat = paintOccupiedSeats.filter(
+      (seat) => seat[0] === seatNumber.toString()
+    );
+    if (paintOccupiedSeat.length !== 0) {
+      // console.log('paintOccupiedSeat', paintOccupiedSeat);
+      let seatState = paintOccupiedSeat[0][1];
+      // console.log('seatState', seatState);
+      return seatState.includes('vendido') ? 'red' : 'yellow';
+    } else {
+      return '';
+    }
   };
 
   //Funcion para selecionar un asiento y colocarlo al estado:
@@ -209,7 +217,14 @@ const Seat = ({ dataBusTravel }) => {
           lastName: '',
         },
       ]);
-      addOccupiedSeat({ branchNumber, dataBusTravel, seatId });
+
+      addOccupiedSeat({
+        branchNumber,
+        dataBusTravel,
+        seatId,
+        seatState: 'preventa',
+        identificationNumberUser,
+      });
     } else {
       const passengersDataTableAux = passengersDataTable.filter(
         (seat) => seat.id !== event.target.id
@@ -234,7 +249,15 @@ const Seat = ({ dataBusTravel }) => {
                     Precio Rango:
                     {` ${seatPrices.minimalPrice} bs - ${seatPrices.maximumPrice} bs`}
                   </p>
-                  <p>Estado: {true ? 'Libre' : 'Ocupado'}</p>
+                  <p>
+                    {/* //Si !==0 es true, el asiento esta selecionado o vendido. */}
+                    Estado:
+                    {coloringSeat(seatNumber).length !== 0
+                      ? coloringSeat(seatNumber) === 'red'
+                        ? ' Vendido'
+                        : ' Preventa'
+                      : ' Libre'}
+                  </p>
                 </>
               }
               arrow
@@ -262,6 +285,9 @@ const Seat = ({ dataBusTravel }) => {
                     }
                     onChange={handleChange}
                     sx={{ margin: '-16px 0px 0px 0px' }}
+                    disabled={
+                      coloringSeat(seatNumber).length !== 0 ? true : false //Si !==0 es true, el asiento esta selecionado(se inhabilita para los demas) o vendido(se inhabilita para todos).
+                    }
                   />
                 }
                 label={seatNumber}
