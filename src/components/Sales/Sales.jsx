@@ -14,4 +14,4 @@ const Sales = () => {
   );
 };
 
-export default Sales;
+export { Sales };

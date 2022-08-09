@@ -2,8 +2,6 @@ import React, { useState, useContext } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import { Checkbox, FormControlLabel } from '@mui/material';
-import { countryData } from './countryData';
-import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
 //Styles:
 import {
   Background,
@@ -18,33 +16,34 @@ import {
   InputMobile,
   Btn,
 } from './BillingRecordStyles';
-//Contexts generalCompanyData:
+//Contexts:
 import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCompanyData';
-//Context branchOffice:
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
-//Context branchOffice:
 import { ContextUserData } from './../../../contexts/ContextUserData';
-//Component SalesAmountData
-import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
-//BDsaveData:
+import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
+//Firebase Functions:
 import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
-//BD updateOccupiedSeat:
 import { updateOccupiedSeat } from './../Events/Firebase/updateOccupiedSeat';
-//salesAmountData:
+//States:
+import { showSeatMap, setShowSeatMap } from './../TravelCards/TravelCards'; //showSeatMap muestra o no el mapa de asientos(se usara al finalizar la venta)
 import { salesAmountData } from './../SalesAmountData/SalesAmountData';
-//State que muestra o no el mapa de asientos(se usara al finalizar la venta):
-import { showSeatMap, setShowSeatMap } from './../TravelCards/TravelCards';
+//Components:
+import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
+//Others:
+import { countryData } from './countryData';
+import { generateTicketNumber } from './Functions';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   // console.log('***passengersDataTable', passengersDataTable);
-  //contex Data :
+
+  //ContextGeneralCompanyData :
   const generalCompanyData = useContext(ContextGeneralCompanyData);
   const {
     billingInformation: { legend },
     companyName,
   } = generalCompanyData ? generalCompanyData : { billingInformation: {} };
 
-  //context BranchOffice:
+  //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
   const { branchInformation } = branchOffice
     ? branchOffice
@@ -56,7 +55,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     },
   } = branchInformation;
 
-  //context user:
+  //ContextUserData:
   const userData = useContext(ContextUserData);
   let {
     names,
@@ -74,21 +73,15 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     bus: { typeOfSeats, enrollment },
   } = dataBusTravel;
 
-  //generateTicketNumber:
-  const generateTicketNumber = (identificationNumber) => {
-    let date = new Date();
-    let suc = `suc${branchNumber}`;
-    let dateTN = `${date.getMonth() + 1}${date.getFullYear()}`;
-    let ticketNumber = `${suc}-${dateTN}-${identificationNumber}`;
-    // console.log('ticketNumber:', ticketNumber);
-    return ticketNumber;
-  };
-
   let ticketsSalesData = passengersDataTable.map((ticketSold) => {
+    let identificationNumber = ticketSold.identificationNumber;
     let ticketSoldAux = {
       companyName: companyName,
       branchNumber: branchNumber,
-      ticketNumber: generateTicketNumber(ticketSold.identificationNumber), // Genera automaticamente
+      ticketNumber: generateTicketNumber({
+        identificationNumber,
+        branchNumber,
+      }), // Genera automaticamente
       issuingUser: `${surnames} ${names}`, //usuario emisor
       branchPhone: telephone,
       origin: localityOfOrigin,
@@ -98,7 +91,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       lane: lane, //carril
       passengerFullName: `${ticketSold.lastName} ${ticketSold.firstName}`,
       typeOfDocument: ticketSold.typeOfDocument,
-      identificationNumber: ticketSold.identificationNumber,
+      identificationNumber: identificationNumber,
       seatId: ticketSold.id,
       typeOfSeat: typeOfSeats,
       seatPrice: ticketSold.seatPrice,
@@ -146,7 +139,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     return completeNames;
   };
 
-  const inputChangeAutoComplete = (newValue, inputName) => {
+  const autoCompleteCiOrNit = (newValue, inputName) => {
     setBillingContactInformation((prevState) => ({
       ...prevState,
       [inputName]: newValue === null ? '' : newValue,
@@ -159,7 +152,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       nameOrSocialReason: completeNames.length === 0 ? '' : completeNames[0],
     }));
   };
-  const handleInputChange = (event) => {
+  const handleInputChangeCiOrNit = (event) => {
     // Agregando Nombre:
     let findingPassenger = passengersDataTable.filter(
       (passenger) => passenger.identificationNumber === event.target.value
@@ -249,7 +242,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
             <Autocomplete
               value={billingContactInformation.ciOrNit}
               onChange={(event, newValue) => {
-                inputChangeAutoComplete(newValue, 'ciOrNit');
+                autoCompleteCiOrNit(newValue, 'ciOrNit');
               }}
               options={cisOrNits}
               renderInput={(params) => (
@@ -261,7 +254,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                   label="CI/NIT:"
                   name="ciOrNit"
                   value={billingContactInformation.ciOrNit}
-                  onChange={handleInputChange}
+                  onChange={handleInputChangeCiOrNit}
                 />
               )}
             />

@@ -7,7 +7,7 @@ import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 // import Notes from './components/Notes/Notes';
 import UserRegistration from './components/UserRegistration/UserRegistration';
 import Layout from './components/Loyout/Layout';
-import Sales from './components/Sales/Sales';
+import { Sales } from './components/Sales/Sales';
 //probando tickets
 import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
