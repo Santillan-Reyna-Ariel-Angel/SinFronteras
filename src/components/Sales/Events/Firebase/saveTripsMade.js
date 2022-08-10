@@ -6,31 +6,13 @@ import {
   travelKey,
 } from './../Functions/TripsMadeGenerateKeys.js';
 
-import { dataForPassengerTickets } from '../../Tickets/datos.js';
 //Modulos Firebase:
 const { fire_db } = modulesFirebase;
 
-let BCI = {
-  invoiceCheckbox: false,
-  ciOrNit: '00000000',
-  nameOrSocialReason: '',
-  email: '',
-  countryCode: '',
-  mobile: '',
-};
-
-let SAD = {
-  subtotal: 0,
-  discountCheckbox: false,
-  discount: '',
-  description: '',
-  amountTotal: 0,
-};
-
 export const saveTripsMade = ({
-  billingContactInformation = BCI,
-  salesAmountData = SAD,
-  ticketsSalesData = dataForPassengerTickets,
+  billingContactInformation,
+  salesAmountData,
+  ticketsSalesData,
 }) => {
   //Fecha y Hora de venta:
   let date = new Date();
