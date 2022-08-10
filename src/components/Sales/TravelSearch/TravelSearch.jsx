@@ -17,7 +17,7 @@ import {
   // ButtonSearch,
 } from './TravelSearchStyles';
 //Componentes:
-import TravelCards from './../TravelCards/TravelCards';
+import { TravelCards } from './../TravelCards/TravelCards';
 
 const TravelSearch = () => {
   const branchOffice = useContext(ContextBranchOffice);

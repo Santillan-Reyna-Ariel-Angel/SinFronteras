@@ -1,12 +1,11 @@
 import React, { useContext, useState } from 'react';
-//icons
+//MUI:
 import DirectionsBusRoundedIcon from '@mui/icons-material/DirectionsBusRounded';
 import NoTransferRoundedIcon from '@mui/icons-material/NoTransferRounded';
 // import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
 import QueryBuilderRoundedIcon from '@mui/icons-material/QueryBuilderRounded';
 import Button from '@mui/material/Button';
-
-//Estilos
+//Styles:
 import {
   Background,
   Container,
@@ -18,24 +17,24 @@ import {
   DepartureTimeStyle,
   ContainerCardBody,
 } from './TravelCardsStyles';
-//Contexto Sucursal
+//Contexts:
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
-
-import { BusSeatMap } from '../Bus/BusSeatMap/BusSeatMap';
-
-//Contexts
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 import { ContextUserData } from './../../../contexts/ContextUserData';
-//removeOccupiedSeat IN BD:
-import { removeOccupiedSeat } from './../Events/Firebase/removeOccupiedSeat';
-//travelKey:
+//Firebase Functions:
+import { removeOccupiedSeat } from './../Events/Firebase/removeOccupiedSeat'; //removeOccupiedSeat IN BD
+//Components:
+import { BusSeatMap } from '../Bus/BusSeatMap/BusSeatMap';
+//Others:
 import { travelKey } from './../Events/Functions/TripsMadeGenerateKeys';
 
 //Variables del estado que controla ver o no el mapa del bus:
 export let showSeatMap, setShowSeatMap;
 
 const TravelCards = ({ travelSearchData }) => {
+  //Props:
   const { origin, destination, selectedTravelDate } = travelSearchData;
+  //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
   const {
     travels,
@@ -43,15 +42,18 @@ const TravelCards = ({ travelSearchData }) => {
   } = branchOffice ? branchOffice : { travels: {} };
   // console.log('travels', travels);
 
-  //context tripsMade:
+  //ContextBranchTripsMade:
   let branchTripsMade = useContext(ContextBranchTripsMade);
   // console.log('branchTripsMade', branchTripsMade);
-  //context userData:
+
+  //ContextUserData:
   const userData = useContext(ContextUserData);
   let { identificationNumber: identificationNumberUser } = userData;
 
+  //Variable al cual se asignara los datos del bus seleccionado:
   let dataOfTheSelectedTravelBus = {};
 
+  //travelCardsList recuperara info del viaje que coincida con el destino y la fecha de salida ({} para no coincidentes):
   let travelCardsList = Object.keys(travels).map((travelKey) => {
     // return console.log(travels[travelKey].destinationLocation);
     let {
@@ -80,29 +82,20 @@ const TravelCards = ({ travelSearchData }) => {
     }
   });
 
-  //travelCardsListAux se le copiara solo los jsons({}) que NO esten vacios, es decir se copiaran jsons({}) que contengan datos de viajes.
+  //travelCardsListAux se le copiara solo los jsons({}) que NO esten vacios, es decir se copiaran jsons({}) que contengan datos de viajes:
   const travelCardsListAux = [];
   travelCardsList.forEach(function (elemento, indice, array) {
     if (Object.keys(elemento).length !== 0) {
       travelCardsListAux.push(elemento);
     }
   });
-
-  // console.log("travelCardsList", travelCardsList);
   // console.log('travelCardsListAux', travelCardsListAux);
+
   // console.log('dataOfTheSelectedTravelBus: ', dataOfTheSelectedTravelBus);
 
-  //Estado que controla ver o no el mapa del bus:
+  //Estado que controla ver o no el mapa de asientos del bus:
   [showSeatMap, setShowSeatMap] = useState(false);
   // console.log('showSeatMap', showSeatMap);
-
-  // const dataTravelBusSelected = () => {
-  //   return (
-  //     <>
-  //       <BusSeatMap dataBusTravel={dataOfTheSelectedTravelBus} />
-  //     </>
-  //   );
-  // };
 
   //Crear getSelectSeats:
   const getSelectSeats = () => {
@@ -121,14 +114,15 @@ const TravelCards = ({ travelSearchData }) => {
         departureTime,
         busEnrollment,
       });
-      // console.log('travelKeyAux:', travelKeyAux); //travel_7-8-2022_21-30_bus-006
-      //IMPORTANTE: 1RO DEBERIA HABERSE CREADO EL VIAJE EN LA BD: (TripsMade/branc_x/travel_7-8-2022_21-30_bus-006)
+      // console.log('travelKeyAux:', travelKeyAux); //output: travel_7-8-2022_21-30_bus-006
+      //IMPORTANTE: 1RO DEBERIA HABERSE CREADO EL VIAJE EN LA BD(TripsMade/branc_x/travel_7-8-2022_21-30_bus-006)
       let {
         [travelKeyAux]: { occupiedSeat },
       } = branchTripsMade;
       // console.log('occupiedSeat', occupiedSeat);
-      let occupiedSeatArray = [];
 
+      let occupiedSeatArray = [];
+      //json to array:
       for (let i in occupiedSeat) occupiedSeatArray.push([i, occupiedSeat[i]]);
       // console.log('occupiedSeatArray', occupiedSeatArray);
 
@@ -147,6 +141,7 @@ const TravelCards = ({ travelSearchData }) => {
   let selectedSeatsToDelete = getSelectSeats();
   // console.log('selectedSeatsToDelete', selectedSeatsToDelete);
 
+  //ELIMINAR asientos en BD que sean desleccionados o cuando se oculte el "mapa de asientos del bus" (Boton ocultar/ver):
   if (selectedSeatsToDelete.length !== 0 && showSeatMap === false) {
     selectedSeatsToDelete.map((seatId) =>
       removeOccupiedSeat({
@@ -191,7 +186,6 @@ const TravelCards = ({ travelSearchData }) => {
                           <DirectionsBusRoundedIcon />
                         )
                       }
-                      // onClick={() => dataTravelBusSelected()}
                       onClick={() => setShowSeatMap(!showSeatMap)}
                     >
                       {showSeatMap ? 'Ocultar' : 'Ver'}
@@ -209,7 +203,7 @@ const TravelCards = ({ travelSearchData }) => {
           );
         })
       ) : (
-        // console.log("No se encontraron viajes")
+        // Cuando No se encuentren viajes:
         <Background>
           <Container>
             <RouteStyle>
@@ -223,7 +217,8 @@ const TravelCards = ({ travelSearchData }) => {
           </ContainerCardBody>
         </Background>
       )}
-      {/* {travelCardsListAux.length >= 1 ? dataTravelBusSelected() : null} */}
+
+      {/* Mapa de asientos del Bus: */}
       {travelCardsListAux.length >= 1 && showSeatMap === true ? (
         <BusSeatMap dataBusTravel={dataOfTheSelectedTravelBus} />
       ) : null}
@@ -231,4 +226,4 @@ const TravelCards = ({ travelSearchData }) => {
   );
 };
 
-export default TravelCards;
+export { TravelCards };
