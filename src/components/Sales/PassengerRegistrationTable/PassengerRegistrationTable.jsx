@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-//Styles
+//MUI:
 import Button from '@mui/material/Button';
+import { DataGrid, esES } from '@mui/x-data-grid'; // *esEs: idioma español que se puede añadir a la <DataGrid/>
+//Styles:
 // import { Background, Container } from './PassengerRegistrationTableStyles';
-//x-data-grid
-// *esEs: es el idioma español que se puede añadir a la <DataGrid/>
-import { DataGrid, esES } from '@mui/x-data-grid';
+//Components:
 import { BillingRecord } from '../BillingRecord/BillingRecord';
 
 const PassengerRegistrationTable = ({
@@ -15,7 +15,7 @@ const PassengerRegistrationTable = ({
 }) => {
   let { minimalPrice, maximumPrice } = seatPrices;
 
-  //x-data-grid:
+  //Data necesary for  DataGrid:
   // Nota: Precio tendria que ser editable?
   const columns = [
     { field: 'id', headerName: 'N# Asiento', width: 104 },
@@ -61,7 +61,7 @@ const PassengerRegistrationTable = ({
     return salePrice;
   };
   let passengerAux;
-  const recuperarDatos = (params) => {
+  const recoverData = (params) => {
     let { id, field, value } = params;
     let valueTrim = value.trim();
     // console.log(`id ${id} | field ${field} | value ${valueTrim}`);
@@ -123,12 +123,12 @@ const PassengerRegistrationTable = ({
     }
   };
 
-  const [mostrarInfocantacto, setMostrarInfocantacto] = useState(false);
-  const registrarPasajeros = () => {
+  const [showContactInformation, setShowContactInformation] = useState(false);
+  const registerPassengers = () => {
     let is_CompleteFields = isCompleteFields();
     if (is_CompleteFields) {
       setPassengersDataTable(passengerAux);
-      setMostrarInfocantacto(true);
+      setShowContactInformation(true);
     }
   };
 
@@ -141,7 +141,7 @@ const PassengerRegistrationTable = ({
   //   is_CompleteFields ? setIsDisableButton(false) : setIsDisableButton(true);
   // };
 
-  const DataGridDemo = () => {
+  const passengerDataGrid = () => {
     return (
       // height: 1fr o 100%
       <div style={{ height: '1fr', width: 732 }}>
@@ -158,7 +158,7 @@ const PassengerRegistrationTable = ({
           hideFooterSelectedRowCount //oculta conteo de filas selecionadas
           autoHeight={true} //Altura de la tabla dinamica
           onCellEditCommit={(params, event) => [
-            recuperarDatos(params),
+            recoverData(params),
             // enableOrDisableButton(event),
           ]} //registrar cada dato de la datagrid
           //Sin uso
@@ -187,6 +187,7 @@ const PassengerRegistrationTable = ({
       </div>
     );
   };
+
   return (
     <>
       {/* <Background> */}
@@ -206,7 +207,7 @@ const PassengerRegistrationTable = ({
         </>
       ) : null} */}
 
-      {DataGridDemo()}
+      {passengerDataGrid()}
 
       {/* Ocultar/mostrar boton: */}
       {/* {isDisableButton ? null : (
@@ -223,14 +224,14 @@ const PassengerRegistrationTable = ({
         color="success"
         // disabled={isDisableButton}
         onClick={() => {
-          registrarPasajeros();
+          registerPassengers();
         }}
       >
         Siguiente paso
       </Button>
       {/* </Container> */}
       {/* </Background> */}
-      {mostrarInfocantacto ? (
+      {showContactInformation ? (
         <BillingRecord
           passengersDataTable={passengersDataTable}
           dataBusTravel={dataBusTravel}
