@@ -21,7 +21,7 @@ import {
 //Contexto Sucursal
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 
-import Seat from './../Bus/Seat/Seat';
+import { BusSeatMap } from '../Bus/BusSeatMap/BusSeatMap';
 
 //Contexts
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
@@ -99,7 +99,7 @@ const TravelCards = ({ travelSearchData }) => {
   // const dataTravelBusSelected = () => {
   //   return (
   //     <>
-  //       <Seat dataBusTravel={dataOfTheSelectedTravelBus} />
+  //       <BusSeatMap dataBusTravel={dataOfTheSelectedTravelBus} />
   //     </>
   //   );
   // };
@@ -225,7 +225,7 @@ const TravelCards = ({ travelSearchData }) => {
       )}
       {/* {travelCardsListAux.length >= 1 ? dataTravelBusSelected() : null} */}
       {travelCardsListAux.length >= 1 && showSeatMap === true ? (
-        <Seat dataBusTravel={dataOfTheSelectedTravelBus} />
+        <BusSeatMap dataBusTravel={dataOfTheSelectedTravelBus} />
       ) : null}
     </>
   );
