@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
+//MUI:
 import TextField from '@mui/material/TextField';
 import { Checkbox, FormControlLabel } from '@mui/material';
-//StylesComponents:
+//Styles:
 import {
   Background,
   HeaderContainer,
@@ -21,7 +22,7 @@ export let salesAmountData, setSalesAmountData;
 const SalesAmountData = ({ passengersDataTable }) => {
   let prices = passengersDataTable.map((passanger) => passanger.seatPrice);
 
-  //Sumar precios
+  //Sumar precios:
   let initialValue = 0;
   let priceTotal = prices.reduce(
     (previousValue, currentValue) => previousValue + currentValue,
@@ -102,7 +103,7 @@ const SalesAmountData = ({ passengersDataTable }) => {
                       [event.target.name]:
                         event.target.value === ''
                           ? ''
-                          : parseFloat(event.target.value), // Number()
+                          : parseFloat(event.target.value), // or Number()
                     })),
                     updateAmountTotal(event.target.value),
                   ]}
