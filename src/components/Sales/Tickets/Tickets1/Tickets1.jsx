@@ -1,4 +1,5 @@
 import React from 'react';
+//Styles:
 import {
   Background,
   BodyContainer,
@@ -11,9 +12,8 @@ import {
   CompanyName,
   Legend,
 } from './Tickets1Styles';
-
-//Importando cantidad de pasajeros:
-import { dataForPassengerTickets } from './../datos';
+//Others:
+import { dataForPassengerTickets } from './../datos'; //Importando cantidad de pasajeros:
 
 const Tickets1 = ({ data }) => {
   const dataDefault = dataForPassengerTickets ? dataForPassengerTickets : [];

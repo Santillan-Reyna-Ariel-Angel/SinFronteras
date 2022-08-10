@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+//MUI:
+import Button from '@mui/material/Button';
+//Styles:
 import {
   Background,
   BodyContainer,
@@ -11,18 +14,16 @@ import {
   CompanyName,
   Legend,
 } from './Tickets2Styles';
-import Button from '@mui/material/Button';
-//Para imprimir
-import { PDFViewer } from '@react-pdf/renderer';
+//Components:
 import { TicketPdf } from './TicketPdf/TicketPdf.jsx';
-
-//Importando cantidad de pasajeros:
-import { dataForPassengerTickets } from './../datos';
+//Others:
+import { PDFViewer } from '@react-pdf/renderer'; //  Para imprimir
+import { dataForPassengerTickets } from './../datos'; //Importando cantidad de pasajeros
 
 const Tickets2 = ({ data }) => {
   const dataDefault = dataForPassengerTickets ? dataForPassengerTickets : [];
 
-  // Probaremos react-pdf/renderer
+  // Probaremos react-pdf/renderer:
   const [pdfOpen, setPdfOpen] = useState(false);
 
   return (

@@ -1,4 +1,5 @@
 import React from 'react';
+//Styles:
 import {
   Background,
   BodyContainer,
@@ -11,8 +12,8 @@ import {
   CompanyName,
   Legend,
 } from './Tickets3Styles';
-//Importando cantidad de pasajeros:
-import { dataForPassengerTickets } from './../datos';
+//Others:
+import { dataForPassengerTickets } from './../datos'; //Importando cantidad de pasajeros
 
 export const Tickets3 = React.forwardRef((props, ref) => {
   // Este componente tiene el logo mas pequeño:

@@ -1,9 +1,9 @@
 import React, { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
-
-import { Tickets3 } from './../Tickets3.jsx';
 //MUI:
 import Button from '@mui/material/Button';
+//Components:
+import { Tickets3 } from './../Tickets3.jsx';
 
 const ReactToPrintComponent2 = () => {
   const componentRef = useRef();
