@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-//material:
+//MUI:
 import {
   Box,
   ListItemButton,
   ListItemIcon,
   ListItemText,
 } from '@mui/material/';
-//icons-material:
+//MUI icons-material:
 import { KeyboardArrowDown } from '@mui/icons-material';
-// Estilos propios:
+// Styles:
 import { LinksStyles } from './MenuBodyStyles';
-//Menu del sidebar:
-import { menuBodyItemList } from './MenuBodyItemList';
+//Components:
+import { menuBodyItemList } from './MenuBodyItemList'; //Menu del sidebar
 
 const MenuBody = () => {
   const sidebarMenuBodyItemList = menuBodyItemList ? menuBodyItemList : [];

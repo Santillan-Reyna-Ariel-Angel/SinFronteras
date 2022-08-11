@@ -1,12 +1,11 @@
 import React from 'react';
-// material-styles:
+//MUI-styles:
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
-//material:
+//MUI:
 import { Box, Divider, List, Paper } from '@mui/material/';
-// Cabecera del menu:
-import { MenuHeader } from './MenuHeader/MenuHeader';
-// Cuerpo del menu:
-import { MenuBody } from './MenuBody/MenuBody';
+//Components:
+import { MenuHeader } from './MenuHeader/MenuHeader'; // Cabecera del menu
+import { MenuBody } from './MenuBody/MenuBody'; // Cuerpo del menu
 
 const FireNav = styled(List)({
   '& .MuiListItemButton-root': {
