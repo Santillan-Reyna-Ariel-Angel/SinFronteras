@@ -1,6 +1,7 @@
 import React from 'react';
-//Css
+//MUI:
 import Button from '@mui/material/Button';
+
 const nodemailer = require('nodemailer'); // import nodemailer from 'nodemailer';
 
 const SendEmail = () => {

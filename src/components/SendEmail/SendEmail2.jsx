@@ -1,10 +1,10 @@
 import React from 'react';
-// Css:
+//MUI:
 import Button from '@mui/material/Button';
 
-// ApiKeySendInBlue (IMPORTANTE BORRAR LO SIGUIENTE):
+//Others:
 const ApiKeySendInBlue =
-  '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';
+  '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'; // ApiKeySendInBlue (IMPORTANTE BORRAR)
 
 const SendEmail2 = () => {
   // const sendEmailBasic = () => {
@@ -69,6 +69,7 @@ const SendEmail2 = () => {
       .then((json) => console.log(json))
       .catch((err) => console.error('error:' + err));
   };
+
   return (
     <>
       <Button variant="contained" color="success" onClick={() => web2()}>
