@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-//MUI-general
-import { TextField, Button } from "@mui/material";
-//MUI-Fecha de nacimiento
-import AdapterDateFns from "@mui/lab/AdapterDateFns";
-import { LocalizationProvider, DatePicker } from "@mui/lab/";
-// import Stack from "@mui/material/Stack";
-//MUI-Sexo
+import React, { useState } from 'react';
+//MUI-general:
 import {
+  TextField,
+  Button,
+  //for sex:
   Radio,
   RadioGroup,
   FormControlLabel,
   FormControl,
   FormLabel,
-} from "@mui/material/";
-//MUI-Sucursal/Cargos
-import {
+  //for branchs/charges:
   Dialog,
   DialogTitle,
   DialogContent,
   DialogContentText,
   DialogActions,
-} from "@mui/material/";
-import Autocomplete, { createFilterOptions } from "@mui/material/Autocomplete";
-// MUI-Boton enviar
-import SaveIcon from "@mui/icons-material/Save";
-
-//Estilos
+  //for autoComplete:
+  Autocomplete,
+  createFilterOptions,
+} from '@mui/material';
+//  import Stack from "@mui/material/Stack";
+//  MUI-Lab For Fecha de nacimiento:
+import { LocalizationProvider, DatePicker } from '@mui/lab/';
+import AdapterDateFns from '@mui/lab/AdapterDateFns';
+//  MUI-icons:
+import SaveIcon from '@mui/icons-material/Save';
+//Styles:
 import {
   Background,
   BtnToRegistrer,
@@ -41,83 +41,33 @@ import {
   InputSex,
   InputStatus,
   InputSurnames,
-} from "./UserRegistrationStyles";
-// firebase
-import { saveUser } from "./UserRegistrationFunctios";
+} from './UserRegistrationStyles';
+//Firebase Functions:
+import { saveUser } from './UserRegistrationFunctios';
+//Others:
+import { branchList, listOfCharges, stateList } from './data';
 
 const filter = createFilterOptions();
 
-//Lista de Sucursales=>branch list
-const branchList = [
-  {
-    branchOfficeName: "Sucursal 1",
-    location: "Sucre",
-    department: "Chuquisaca",
-    branchOfficeImg: "foto.png",
-    address: "Avenida lajastambo",
-    terminal: "Interdepartamnetal",
-  },
-  {
-    branchOfficeName: "Sucursal 2",
-    location: "Sucre",
-    department: "Chuquisaca",
-    branchOfficeImg: "foto.png",
-    address: "Avenida lajastambo",
-    terminal: "Interdepartamnetal",
-  },
-  {
-    branchOfficeName: "Sucursal 3",
-    location: "Sucre",
-    department: "Chuquisaca",
-    branchOfficeImg: "foto.png",
-    address: "Avenida lajastambo",
-    terminal: "Interdepartamnetal",
-  },
-  {
-    branchOfficeName: "Sucursal 4",
-    location: "Sucre",
-    department: "Chuquisaca",
-    branchOfficeImg: "foto.png",
-    address: "Avenida lajastambo",
-    terminal: "Interdepartamnetal",
-  },
-  {
-    branchOfficeName: "Sucursal 5",
-    location: "Sucre",
-    department: "Chuquisaca",
-    branchOfficeImg: "foto.png",
-    address: "Avenida lajastambo",
-    terminal: "Interdepartamnetal",
-  },
-];
-// Lista de cargos
-const listOfCharges = [
-  { chargeOfType: "Dueño", licenciaImg: "" },
-  { chargeOfType: "Administrador-General", licenciaImg: "" },
-  { chargeOfType: "Administrador-Sucursal", licenciaImg: "" },
-  { chargeOfType: "Chofer", licenciaImg: "licencia.png" },
-  { chargeOfType: "Secretaria(o)", licenciaImg: "" },
-  { chargeOfType: "Boletero(a)", licenciaImg: "" },
-];
-// Lista de estados:
-const stateList = [{ statusType: "Activo" }, { statusType: "Inactivo" }];
-
-// COMPOENTE:
 const UserRegistration = () => {
-  //basicInformation
-  const [basicInformation, setBasicInformation] = useState({
-    names: "",
-    surnames: "",
-    ci: "",
-    address: "",
-    mobile: "",
-    email: "",
-  });
-  console.log("basicInformation: ", basicInformation);
-  const handleInputChange = (event) => {
+  //basicInformation:
+  let defaultDataBasicInformation = {
+    names: '',
+    surnames: '',
+    ci: '',
+    address: '',
+    mobile: '',
+    email: '',
+  };
+  const [basicInformation, setBasicInformation] = useState(
+    defaultDataBasicInformation
+  );
+  console.log('basicInformation: ', basicInformation);
+
+  const changeBasicInformation = (event) => {
     //toLowerCase() para convertir las entradas en minuscula
     const property = event.target.name;
-    if (property === "email") {
+    if (property === 'email') {
       setBasicInformation({
         ...basicInformation,
         [event.target.name]: event.target.value,
@@ -133,53 +83,42 @@ const UserRegistration = () => {
   // Fecha de nacimiento
   const [date, setDate] = useState(null);
 
-  const day = date ? date.getDate() : "dia",
-    month = date ? date.getMonth() + 1 : "mes",
-    year = date ? date.getFullYear() : "año";
-  const formattedDate = day + "/" + month + "/" + year;
-  console.log("date: ", date);
-  console.log("formattedDate: ", formattedDate);
+  const day = date ? date.getDate() : 'dia',
+    month = date ? date.getMonth() + 1 : 'mes',
+    year = date ? date.getFullYear() : 'año';
+  const formattedDate = day + '/' + month + '/' + year;
+  // console.log('date: ', date);
+  console.log('formattedDate: ', formattedDate);
 
   // Sexo
-  const [sex, setSex] = useState("hombre");
+  const [sex, setSex] = useState('hombre');
   // console.log("sex:", sex);
-  const handleChange = (event) => {
+  const changeSex = (event) => {
     setSex(event.target.value);
   };
 
   // Sucursal
-  const [branchOffice, setBranchOffice] = useState({
-    branchOfficeName: "",
-    location: "",
-    department: "",
-    branchOfficeImg: "",
-    address: "",
-    terminal: "",
-  });
-  console.log("branchOffice: ", branchOffice);
+  let defaultDataBranchOffice = {
+    branchOfficeName: '',
+    location: '',
+    department: '',
+    branchOfficeImg: '',
+    address: '',
+    terminal: '',
+  };
+  const [branchOffice, setBranchOffice] = useState(defaultDataBranchOffice);
+  console.log('branchOffice: ', branchOffice);
 
   const [openBranchOffice, toggleOpenBranchOffice] = useState(false);
   const handleCloseBranchOffice = () => {
-    setDialogValueBranchOffice({
-      branchOfficeName: "",
-      location: "",
-      department: "",
-      branchOfficeImg: "",
-      address: "",
-      terminal: "",
-    });
+    setDialogValueBranchOffice(defaultDataBranchOffice);
 
     toggleOpenBranchOffice(false);
   };
 
-  const [dialogValueBranchOffice, setDialogValueBranchOffice] = useState({
-    branchOfficeName: "",
-    location: "",
-    department: "",
-    branchOfficeImg: "",
-    address: "",
-    terminal: "",
-  });
+  const [dialogValueBranchOffice, setDialogValueBranchOffice] = useState(
+    defaultDataBranchOffice
+  );
 
   const handleSubmitBranchOffice = (event) => {
     event.preventDefault();
@@ -194,26 +133,23 @@ const UserRegistration = () => {
 
     handleCloseBranchOffice();
   };
-  // Cargos
-  const [charge, setCharge] = useState({
-    chargeOfType: "",
-    licenciaImg: "",
-  });
-  console.log("charge:", charge);
+
+  // Cargos:
+  let defaultDataCharge = {
+    chargeOfType: '',
+    licenciaImg: '',
+  };
+  const [charge, setCharge] = useState(defaultDataCharge);
+  // console.log('charge:', charge);
+
   const [openCharge, toggleOpenCharge] = useState(false);
   const handleCloseCharge = () => {
-    setDialogValueCharge({
-      chargeOfType: "",
-      licenciaImg: "",
-    });
+    setDialogValueCharge(defaultDataCharge);
 
     toggleOpenCharge(false);
   };
 
-  const [dialogValueCharge, setDialogValueCharge] = useState({
-    chargeOfType: "",
-    licenciaImg: "",
-  });
+  const [dialogValueCharge, setDialogValueCharge] = useState(defaultDataCharge);
 
   const handleSubmitCharge = (event) => {
     event.preventDefault();
@@ -225,23 +161,21 @@ const UserRegistration = () => {
     handleCloseCharge();
   };
 
-  // Estado
-  const [status, setStatus] = useState({ statusType: "" });
-  console.log("status:", status);
+  // Estado:
+  let defaultDataStatus = { statusType: '' };
+  const [status, setStatus] = useState(defaultDataStatus);
+  // console.log('status:', status);
   const [openStatus, toggleOpenStatus] = useState(false);
+
   const handleCloseStatus = () => {
-    setDialogValueStatus({
-      statusType: "",
-    });
+    setDialogValueStatus(defaultDataStatus);
 
     toggleOpenStatus(false);
   };
 
-  const [dialogValueStatus, setDialogValueStatus] = useState({
-    statusType: "",
-  });
+  const [dialogValueStatus, setDialogValueStatus] = useState(defaultDataStatus);
 
-  const handleSubmit = (event) => {
+  const handleSubmitStatus = (event) => {
     event.preventDefault();
     setStatus({
       statusType: dialogValueStatus.statusType,
@@ -274,6 +208,7 @@ const UserRegistration = () => {
   //     return false;
   //   }
   // };
+
   const registerUser = async () => {
     // console.log(basicInformation);
     let response = await saveUser(
@@ -286,47 +221,29 @@ const UserRegistration = () => {
     );
 
     // let response = await saveUser(basicInformation);
-    if (response === "exitoso") {
+    if (response === 'exitoso') {
       console.log(response);
     } else {
       console.log(response);
     }
   };
 
-  //Alet-Dialog
+  //Alet-Dialog:
   const [openAlertDialog, setOpenAlertDialog] = useState(false);
   const handleClickOpenDialog = () => {
     setOpenAlertDialog(true);
   };
-
   const handleCloseDialogBack = () => {
     setOpenAlertDialog(false);
   };
   const handleCloseDialogYes = () => {
     setOpenAlertDialog(false);
-    setBasicInformation({
-      names: "",
-      surnames: "",
-      ci: "",
-      address: "",
-      mobile: "",
-      email: "",
-    });
-    setDate(new Date());
-    setSex("hombre");
-    setBranchOffice({
-      branchOfficeName: "",
-      location: "",
-      department: "",
-      branchOfficeImg: "",
-      address: "",
-      terminal: "",
-    });
-    setCharge({
-      chargeOfType: "",
-      licenciaImg: "",
-    });
-    setStatus({ statusType: "" });
+    setBasicInformation(defaultDataBasicInformation);
+    setDate(null);
+    setSex('hombre');
+    setBranchOffice(defaultDataBranchOffice);
+    setCharge(defaultDataCharge);
+    setStatus(defaultDataStatus);
   };
 
   return (
@@ -343,7 +260,7 @@ const UserRegistration = () => {
               name="names"
               className="input"
               value={basicInformation.names}
-              onChange={handleInputChange}
+              onChange={changeBasicInformation}
             />
           </InputNames>
           <InputSurnames>
@@ -354,7 +271,7 @@ const UserRegistration = () => {
               name="surnames"
               className="input"
               value={basicInformation.surnames}
-              onChange={handleInputChange}
+              onChange={changeBasicInformation}
             />
           </InputSurnames>
           <InputCi>
@@ -365,7 +282,7 @@ const UserRegistration = () => {
               name="ci"
               className="input"
               value={basicInformation.ci}
-              onChange={handleInputChange}
+              onChange={changeBasicInformation}
             />
           </InputCi>
 
@@ -377,7 +294,7 @@ const UserRegistration = () => {
               name="address"
               className="input"
               value={basicInformation.address}
-              onChange={handleInputChange}
+              onChange={changeBasicInformation}
             />
           </InputAddress>
           <InputMobile>
@@ -388,7 +305,7 @@ const UserRegistration = () => {
               name="mobile"
               className="input"
               value={basicInformation.mobile}
-              onChange={handleInputChange}
+              onChange={changeBasicInformation}
             />
           </InputMobile>
           <InputEmail>
@@ -399,7 +316,7 @@ const UserRegistration = () => {
               name="email"
               className="input"
               value={basicInformation.email}
-              onChange={handleInputChange}
+              onChange={changeBasicInformation}
             />
           </InputEmail>
           <InputDateOfBirdth>
@@ -408,9 +325,10 @@ const UserRegistration = () => {
               <DatePicker
                 disableFuture
                 label="Fecha de nacimiento"
-                minDate={new Date("1921-01-01")}
+                minDate={new Date('1922-01-01')}
+                maxDate={new Date()}
                 openTo="year"
-                views={["year", "month", "day"]}
+                views={['year', 'month', 'day']}
                 value={date}
                 // mask="mes/dia/año"
                 onChange={(newValue) => {
@@ -431,7 +349,7 @@ const UserRegistration = () => {
                 aria-label="sex"
                 name="controlled-radio-buttons-group"
                 value={sex}
-                onChange={handleChange}
+                onChange={changeSex}
               >
                 <FormControlLabel
                   value="hombre"
@@ -451,27 +369,27 @@ const UserRegistration = () => {
             <Autocomplete
               value={branchOffice}
               onChange={(event, newValue) => {
-                if (typeof newValue === "string") {
+                if (typeof newValue === 'string') {
                   setTimeout(() => {
                     toggleOpenBranchOffice(true);
                     setDialogValueBranchOffice({
                       branchOfficeName: newValue,
-                      location: "",
-                      department: "",
-                      branchOfficeImg: "",
-                      address: "",
-                      terminal: "",
+                      location: '',
+                      department: '',
+                      branchOfficeImg: '',
+                      address: '',
+                      terminal: '',
                     });
                   });
                 } else if (newValue && newValue.inputValue) {
                   toggleOpenBranchOffice(true);
                   setDialogValueBranchOffice({
                     branchOfficeName: newValue.inputValue.toLowerCase(),
-                    location: "",
-                    department: "",
-                    branchOfficeImg: "",
-                    address: "",
-                    terminal: "",
+                    location: '',
+                    department: '',
+                    branchOfficeImg: '',
+                    address: '',
+                    terminal: '',
                   });
                 } else {
                   setBranchOffice(newValue);
@@ -480,7 +398,7 @@ const UserRegistration = () => {
               filterOptions={(options, params) => {
                 const filtered = filter(options, params);
 
-                if (params.inputValue !== "") {
+                if (params.inputValue !== '') {
                   filtered.push({
                     inputValue: params.inputValue,
                     branchOfficeName: `Añadir "${params.inputValue}"`,
@@ -492,7 +410,7 @@ const UserRegistration = () => {
               id="free-solo-dialog-demo"
               options={branchList}
               getOptionLabel={(option) => {
-                if (typeof option === "string") {
+                if (typeof option === 'string') {
                   return option;
                 }
                 if (option.inputValue) {
@@ -630,19 +548,19 @@ const UserRegistration = () => {
             <Autocomplete
               value={charge}
               onChange={(event, newValue) => {
-                if (typeof newValue === "string") {
+                if (typeof newValue === 'string') {
                   setTimeout(() => {
                     toggleOpenCharge(true);
                     setDialogValueCharge({
                       chargeOfType: newValue,
-                      licenciaImg: "",
+                      licenciaImg: '',
                     });
                   });
                 } else if (newValue && newValue.inputValue) {
                   toggleOpenCharge(true);
                   setDialogValueCharge({
                     chargeOfType: newValue.inputValue.toLowerCase(),
-                    licenciaImg: "",
+                    licenciaImg: '',
                   });
                 } else {
                   setCharge(newValue);
@@ -651,7 +569,7 @@ const UserRegistration = () => {
               filterOptions={(options, params) => {
                 const filtered = filter(options, params);
 
-                if (params.inputValue !== "") {
+                if (params.inputValue !== '') {
                   filtered.push({
                     inputValue: params.inputValue,
                     chargeOfType: `Añadir "${params.inputValue}"`,
@@ -663,7 +581,7 @@ const UserRegistration = () => {
               id="free-solo-dialog-demo"
               options={listOfCharges}
               getOptionLabel={(option) => {
-                if (typeof option === "string") {
+                if (typeof option === 'string') {
                   return option;
                 }
                 if (option.inputValue) {
@@ -760,7 +678,7 @@ const UserRegistration = () => {
             <Autocomplete
               value={status}
               onChange={(event, newValue) => {
-                if (typeof newValue === "string") {
+                if (typeof newValue === 'string') {
                   setTimeout(() => {
                     toggleOpenStatus(true);
                     setDialogValueStatus({
@@ -779,7 +697,7 @@ const UserRegistration = () => {
               filterOptions={(options, params) => {
                 const filtered = filter(options, params);
 
-                if (params.inputValue !== "") {
+                if (params.inputValue !== '') {
                   filtered.push({
                     inputValue: params.inputValue,
                     statusType: `Añadir "${params.inputValue}"`,
@@ -791,7 +709,7 @@ const UserRegistration = () => {
               id="free-solo-dialog-demo"
               options={stateList}
               getOptionLabel={(option) => {
-                if (typeof option === "string") {
+                if (typeof option === 'string') {
                   return option;
                 }
                 if (option.inputValue) {
@@ -811,7 +729,7 @@ const UserRegistration = () => {
               )}
             />
             <Dialog open={openStatus} onClose={handleCloseStatus}>
-              <form onSubmit={handleSubmit}>
+              <form onSubmit={handleSubmitStatus}>
                 <DialogTitle>AÑADIR UN NUEVO ESTADO</DialogTitle>
                 <DialogContent>
                   <DialogContentText>
