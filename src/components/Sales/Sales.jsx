@@ -1,5 +1,5 @@
 import React from 'react';
-import TravelSearch from './TravelSearch/TravelSearch';
+import { TravelSearch } from './TravelSearch/TravelSearch';
 
 //iconos
 import Stack from '@mui/material/Stack';

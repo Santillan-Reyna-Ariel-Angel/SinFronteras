@@ -1,13 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
+//MUI:
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-//fecha:
+//  para manejo de fechas:
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import LocalizationProvider from '@mui/lab/LocalizationProvider';
 import DatePicker from '@mui/lab/DatePicker';
-//Context branchOffice:
-import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
-//Estilos:
+//Styles:
 import {
   Background,
   Container,
@@ -16,10 +15,13 @@ import {
   InputDate,
   // ButtonSearch,
 } from './TravelSearchStyles';
-//Componentes:
+//Contexts:
+import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
+//Components:
 import { TravelCards } from './../TravelCards/TravelCards';
 
 const TravelSearch = () => {
+  //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
   // console.log('branchOfficeInTravelSearch', branchOffice);
 
@@ -29,8 +31,9 @@ const TravelSearch = () => {
   let { destinations, location } = branchInformation;
   // console.log("destinations", destinations,"location", location);
 
-  const [origin, setOrigin] = useState(''); //problema
+  const [origin, setOrigin] = useState(''); //problema (Es necesario actualizar la pagina)
   // console.log(origin, "origin");
+
   useEffect(() => {
     setOrigin(location);
     // console.log(origin, "<<<---<<");
@@ -45,19 +48,21 @@ const TravelSearch = () => {
       })
     : [];
   // console.log("destinationsArray", destinationsArray);
+
   const [destination, setDestination] = useState(
     destinationsArray[0] ? destinationsArray[0] : ''
   );
   // console.log("destination", destination);
 
-  // //fecha
+  //Fecha de viaje:
   const [travelDate, setTravelDate] = useState(new Date());
   const formattedTravelDate = travelDate.toLocaleDateString();
 
   // console.log("travelDate: ", travelDate);
   console.log('formattedTravelDate: ', formattedTravelDate);
 
-  function recoverTripData() {
+  //Recuperar TravelCards que coincidan con el origen, destino y fecha de viaje:
+  function recoverTravelCards() {
     if (
       origin !== '' &&
       destination !== '' &&
@@ -150,9 +155,11 @@ const TravelSearch = () => {
           </InputDate>
         </Container>
       </Background>
-      {recoverTripData()}
+
+      {/* Mostrar travelCards: */}
+      {recoverTravelCards()}
     </>
   );
 };
 
-export default TravelSearch;
+export { TravelSearch };
