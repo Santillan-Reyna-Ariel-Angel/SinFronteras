@@ -86,8 +86,7 @@ const UserRegistration = () => {
   const day = date ? date.getDate() : 'dia',
     month = date ? date.getMonth() + 1 : 'mes',
     year = date ? date.getFullYear() : 'año';
-  const formattedDate = day + '/' + month + '/' + year;
-  // console.log('date: ', date);
+  const formattedDate = day + '/' + month + '/' + year; // otra opcion:  formattedDate=date.toLocaleDateString();
   console.log('formattedDate: ', formattedDate);
 
   // Sexo
@@ -246,6 +245,33 @@ const UserRegistration = () => {
     setStatus(defaultDataStatus);
   };
 
+  const fielBasicInformation = ({
+    ClassName = '',
+    Label,
+    Variant = 'outlined',
+    Type,
+    Name,
+    Value,
+    OnChange = changeBasicInformation,
+    Margin = 'none',
+  }) => {
+    //añadir: margin
+    return (
+      <>
+        <TextField
+          className={ClassName}
+          label={Label}
+          variant={Variant} //"outlined"
+          type={Type}
+          name={Name}
+          value={Value}
+          onChange={OnChange}
+          margin={Margin}
+        />
+      </>
+    );
+  };
+
   return (
     <>
       <Background>
@@ -253,95 +279,88 @@ const UserRegistration = () => {
         <br />
         <Container>
           <InputNames>
-            <TextField
-              label="Nombres"
-              variant="outlined"
-              type="text"
-              name="names"
-              className="input"
-              value={basicInformation.names}
-              onChange={changeBasicInformation}
-            />
+            {fielBasicInformation({
+              ClassName: 'input',
+              Label: 'Nombres',
+              Type: 'text',
+              Name: 'names',
+              Value: basicInformation.names,
+            })}
           </InputNames>
           <InputSurnames>
-            <TextField
-              label="Apellidos"
-              variant="outlined"
-              type="text"
-              name="surnames"
-              className="input"
-              value={basicInformation.surnames}
-              onChange={changeBasicInformation}
-            />
+            {fielBasicInformation({
+              ClassName: 'input',
+              Label: 'Apellidos',
+              Type: 'text',
+              Name: 'surnames',
+              Value: basicInformation.surnames,
+            })}
           </InputSurnames>
           <InputCi>
-            <TextField
-              label="Carnet de identidad"
-              variant="outlined"
-              type="number"
-              name="ci"
-              className="input"
-              value={basicInformation.ci}
-              onChange={changeBasicInformation}
-            />
+            {fielBasicInformation({
+              ClassName: 'input',
+              Label: 'Carnet de identidad',
+              Type: 'number',
+              Name: 'ci',
+              Value: basicInformation.ci,
+            })}
           </InputCi>
-
           <InputAddress>
-            <TextField
-              label="Domicilio"
-              variant="outlined"
-              type="text"
-              name="address"
-              className="input"
-              value={basicInformation.address}
-              onChange={changeBasicInformation}
-            />
+            {fielBasicInformation({
+              ClassName: 'input',
+              Label: 'Domicilio',
+              Type: 'text',
+              Name: 'address',
+              Value: basicInformation.address,
+            })}
           </InputAddress>
           <InputMobile>
-            <TextField
-              label="Celular"
-              variant="outlined"
-              type="number"
-              name="mobile"
-              className="input"
-              value={basicInformation.mobile}
-              onChange={changeBasicInformation}
-            />
+            {fielBasicInformation({
+              ClassName: 'input',
+              Label: 'Celular',
+              Type: 'number',
+              Name: 'mobile',
+              Value: basicInformation.mobile,
+            })}
           </InputMobile>
           <InputEmail>
-            <TextField
-              label="Correo"
-              variant="outlined"
-              type="email"
-              name="email"
-              className="input"
-              value={basicInformation.email}
-              onChange={changeBasicInformation}
-            />
+            {fielBasicInformation({
+              ClassName: 'input',
+              Label: 'Correo',
+              Type: 'email',
+              Name: 'email',
+              Value: basicInformation.email,
+            })}
           </InputEmail>
+
+          {/* Fecha de nacimiento: */}
           <InputDateOfBirdth>
-            {/* Fecha de nacimiento: */}
             <LocalizationProvider dateAdapter={AdapterDateFns}>
               <DatePicker
                 disableFuture
-                label="Fecha de nacimiento"
-                minDate={new Date('1922-01-01')}
+                label="F. nacimiento(dia/mes/año)"
+                minDate={new Date('1942-01-01')}
                 maxDate={new Date()}
                 openTo="year"
                 views={['year', 'month', 'day']}
                 value={date}
-                // mask="mes/dia/año"
+                inputFormat="dd/MM/yyyy" //IMPORTANTE formato de fecha
                 onChange={(newValue) => {
                   setDate(newValue);
                 }}
                 renderInput={(params) => (
-                  <TextField className="input" {...params} />
+                  <TextField
+                    className="input"
+                    {...params}
+                    helperText={'Ej. 01/06/1985'} //Texto de ayuda (debajo del input)
+                  />
                 )}
               />
             </LocalizationProvider>
           </InputDateOfBirdth>
+
+          {/* Sexo: */}
           <InputSex>
-            {/* Sexo: */}
             <FormControl component="fieldset">
               <FormLabel component="legend">Sexo:</FormLabel>
               <RadioGroup
@@ -364,32 +383,23 @@ const UserRegistration = () => {
               </RadioGroup>
             </FormControl>
           </InputSex>
+
+          {/* Sucursal: */}
           <InputBranchOffice>
-            {/* Sucursal */}
             <Autocomplete
               value={branchOffice}
               onChange={(event, newValue) => {
                 if (typeof newValue === 'string') {
-                  setTimeout(() => {
-                    toggleOpenBranchOffice(true);
-                    setDialogValueBranchOffice({
-                      branchOfficeName: newValue,
-                      location: '',
-                      department: '',
-                      branchOfficeImg: '',
-                      address: '',
-                      terminal: '',
-                    });
+                  toggleOpenBranchOffice(true);
+                  setDialogValueBranchOffice({
+                    ...defaultDataBranchOffice,
+                    branchOfficeName: newValue,
                   });
                 } else if (newValue && newValue.inputValue) {
                   toggleOpenBranchOffice(true);
                   setDialogValueBranchOffice({
+                    ...defaultDataBranchOffice,
                     branchOfficeName: newValue.inputValue.toLowerCase(),
-                    location: '',
-                    department: '',
-                    branchOfficeImg: '',
-                    address: '',
-                    terminal: '',
                   });
                 } else {
                   setBranchOffice(newValue);
@@ -437,9 +447,10 @@ const UserRegistration = () => {
                     Por favor ingresa los datos correspondientes
                   </DialogContentText>
                   <TextField
-                    autoFocus
-                    margin="dense"
-                    id="branchOfficeName"
+                    label="Sucursal"
+                    variant="standard"
+                    type="text"
+                    name="branchOfficeName"
                     value={dialogValueBranchOffice.branchOfficeName.toLowerCase()}
                     onChange={(event) =>
                       setDialogValueBranchOffice({
@@ -447,14 +458,31 @@ const UserRegistration = () => {
                         branchOfficeName: event.target.value.toLowerCase(),
                       })
                     }
-                    label="Sucursal"
-                    type="text"
-                    variant="standard"
-                  />
-                  <TextField
-                    autoFocus
+                    // autoFocus
                     margin="dense"
-                    id="location"
+                  />
+
+                  {/* {fielBasicInformation({
+                    Label: 'Sucursal',
+                    Variant: 'standard',
+                    Type: 'text',
+                    Name: 'branchOfficeName',
+                    Value:
+                      dialogValueBranchOffice.branchOfficeName.toLowerCase(),
+                    OnChange: [
+                      (event) =>
+                        setDialogValueBranchOffice({
+                          ...dialogValueBranchOffice,
+                          branchOfficeName: event.target.value.toLowerCase(),
+                        }),
+                    ],
+                  })} */}
+
+                  <TextField
+                    label="Localidad"
+                    variant="standard"
+                    type="text"
+                    name="location"
                     value={dialogValueBranchOffice.location}
                     onChange={(event) =>
                       setDialogValueBranchOffice({
@@ -462,14 +490,13 @@ const UserRegistration = () => {
                         location: event.target.value.toLowerCase(),
                       })
                     }
-                    label="Localidad"
-                    type="text"
-                    variant="standard"
+                    margin="dense"
                   />
                   <TextField
-                    autoFocus
-                    margin="dense"
-                    id="department"
+                    label="Departamento"
+                    variant="standard"
+                    type="text"
+                    name="department"
                     value={dialogValueBranchOffice.department}
                     onChange={(event) =>
                       setDialogValueBranchOffice({
@@ -477,14 +504,13 @@ const UserRegistration = () => {
                         department: event.target.value.toLowerCase(),
                       })
                     }
-                    label="Departamento"
-                    type="text"
-                    variant="standard"
+                    margin="dense"
                   />
                   <TextField
-                    autoFocus
-                    margin="dense"
-                    id="branchOfficeImg"
+                    label="Sucursal(Foto)"
+                    variant="standard"
+                    type="text"
+                    name="branchOfficeImg"
                     value={dialogValueBranchOffice.branchOfficeImg}
                     onChange={(event) =>
                       setDialogValueBranchOffice({
@@ -492,14 +518,13 @@ const UserRegistration = () => {
                         branchOfficeImg: event.target.value.toLowerCase(),
                       })
                     }
-                    label="Sucursal(Foto)"
-                    type="text"
-                    variant="standard"
+                    margin="dense"
                   />
                   <TextField
-                    autoFocus
-                    margin="dense"
-                    id="address"
+                    label="Direccion"
+                    variant="standard"
+                    type="text"
+                    name="address"
                     value={dialogValueBranchOffice.address}
                     onChange={(event) =>
                       setDialogValueBranchOffice({
@@ -507,13 +532,13 @@ const UserRegistration = () => {
                         address: event.target.value.toLowerCase(),
                       })
                     }
-                    label="Direccion"
-                    type="text"
-                    variant="standard"
+                    margin="dense"
                   />
                   <TextField
-                    margin="dense"
-                    id="terminal"
+                    label="Terminal"
+                    variant="standard"
+                    type="text"
+                    name="terminal"
                     value={dialogValueBranchOffice.terminal}
                     onChange={(event) =>
                       setDialogValueBranchOffice({
@@ -521,9 +546,7 @@ const UserRegistration = () => {
                         terminal: event.target.value.toLowerCase(),
                       })
                     }
-                    label="Terminal"
-                    type="text"
-                    variant="standard"
+                    margin="dense"
                   />
                 </DialogContent>
                 <DialogActions>
@@ -542,9 +565,8 @@ const UserRegistration = () => {
             </Dialog>
           </InputBranchOffice>
 
+          {/* Cargos */}
           <InputCharge>
-            {/* Cargos */}
-
             <Autocomplete
               value={charge}
               onChange={(event, newValue) => {
@@ -673,8 +695,8 @@ const UserRegistration = () => {
       )} */}
           </InputCharge>
 
+          {/* Esado: */}
           <InputStatus>
-            {/* Esado: */}
             <Autocomplete
               value={status}
               onChange={(event, newValue) => {
@@ -766,6 +788,7 @@ const UserRegistration = () => {
               </form>
             </Dialog>
           </InputStatus>
+
           <BtnToRegistrer>
             {/*Boton y alerta registrar */}
             <div>
