@@ -249,19 +249,18 @@ const UserRegistration = () => {
     ClassName = '',
     Label,
     Variant = 'outlined',
-    Type,
+    Type = 'text',
     Name,
     Value,
     OnChange = changeBasicInformation,
     Margin = 'none',
   }) => {
-    //añadir: margin
     return (
       <>
         <TextField
           className={ClassName}
           label={Label}
-          variant={Variant} //"outlined"
+          variant={Variant}
           type={Type}
           name={Name}
           value={Value}
@@ -282,7 +281,6 @@ const UserRegistration = () => {
             {fielBasicInformation({
               ClassName: 'input',
               Label: 'Nombres',
-              Type: 'text',
               Name: 'names',
               Value: basicInformation.names,
             })}
@@ -291,7 +289,6 @@ const UserRegistration = () => {
             {fielBasicInformation({
               ClassName: 'input',
               Label: 'Apellidos',
-              Type: 'text',
               Name: 'surnames',
               Value: basicInformation.surnames,
             })}
@@ -309,7 +306,6 @@ const UserRegistration = () => {
             {fielBasicInformation({
               ClassName: 'input',
               Label: 'Domicilio',
-              Type: 'text',
               Name: 'address',
               Value: basicInformation.address,
             })}
@@ -446,108 +442,85 @@ const UserRegistration = () => {
                   <DialogContentText>
                     Por favor ingresa los datos correspondientes
                   </DialogContentText>
-                  <TextField
-                    label="Sucursal"
-                    variant="standard"
-                    type="text"
-                    name="branchOfficeName"
-                    value={dialogValueBranchOffice.branchOfficeName.toLowerCase()}
-                    onChange={(event) =>
-                      setDialogValueBranchOffice({
-                        ...dialogValueBranchOffice,
-                        branchOfficeName: event.target.value.toLowerCase(),
-                      })
-                    }
-                    // autoFocus
-                    margin="dense"
-                  />
 
-                  {/* {fielBasicInformation({
+                  {fielBasicInformation({
                     Label: 'Sucursal',
                     Variant: 'standard',
-                    Type: 'text',
                     Name: 'branchOfficeName',
                     Value:
                       dialogValueBranchOffice.branchOfficeName.toLowerCase(),
-                    OnChange: [
-                      (event) =>
-                        setDialogValueBranchOffice({
-                          ...dialogValueBranchOffice,
-                          branchOfficeName: event.target.value.toLowerCase(),
-                        }),
-                    ],
-                  })} */}
+                    OnChange: (event) =>
+                      setDialogValueBranchOffice({
+                        ...dialogValueBranchOffice,
+                        branchOfficeName: event.target.value.toLowerCase(),
+                      }),
+                    Margin: 'dense',
+                  })}
 
-                  <TextField
-                    label="Localidad"
-                    variant="standard"
-                    type="text"
-                    name="location"
-                    value={dialogValueBranchOffice.location}
-                    onChange={(event) =>
+                  {fielBasicInformation({
+                    Label: 'Localidad',
+                    Variant: 'standard',
+                    Name: 'location',
+                    Value: dialogValueBranchOffice.location,
+                    OnChange: (event) =>
                       setDialogValueBranchOffice({
                         ...dialogValueBranchOffice,
                         location: event.target.value.toLowerCase(),
-                      })
-                    }
-                    margin="dense"
-                  />
-                  <TextField
-                    label="Departamento"
-                    variant="standard"
-                    type="text"
-                    name="department"
-                    value={dialogValueBranchOffice.department}
-                    onChange={(event) =>
+                      }),
+                    Margin: 'dense',
+                  })}
+
+                  {fielBasicInformation({
+                    Label: 'Departamento',
+                    Variant: 'standard',
+                    Name: 'department',
+                    Value: dialogValueBranchOffice.department,
+                    OnChange: (event) =>
                       setDialogValueBranchOffice({
                         ...dialogValueBranchOffice,
                         department: event.target.value.toLowerCase(),
-                      })
-                    }
-                    margin="dense"
-                  />
-                  <TextField
-                    label="Sucursal(Foto)"
-                    variant="standard"
-                    type="text"
-                    name="branchOfficeImg"
-                    value={dialogValueBranchOffice.branchOfficeImg}
-                    onChange={(event) =>
+                      }),
+                    Margin: 'dense',
+                  })}
+
+                  {fielBasicInformation({
+                    Label: 'Sucursal(Foto)',
+                    Variant: 'standard',
+                    Name: 'branchOfficeImg',
+                    Value: dialogValueBranchOffice.branchOfficeImg,
+                    OnChange: (event) =>
                       setDialogValueBranchOffice({
                         ...dialogValueBranchOffice,
                         branchOfficeImg: event.target.value.toLowerCase(),
-                      })
-                    }
-                    margin="dense"
-                  />
-                  <TextField
-                    label="Direccion"
-                    variant="standard"
-                    type="text"
-                    name="address"
-                    value={dialogValueBranchOffice.address}
-                    onChange={(event) =>
+                      }),
+                    Margin: 'dense',
+                  })}
+
+                  {fielBasicInformation({
+                    Label: 'Direccion',
+                    Variant: 'standard',
+                    Name: 'address',
+                    Value: dialogValueBranchOffice.address,
+                    OnChange: (event) =>
                       setDialogValueBranchOffice({
                         ...dialogValueBranchOffice,
                         address: event.target.value.toLowerCase(),
-                      })
-                    }
-                    margin="dense"
-                  />
-                  <TextField
-                    label="Terminal"
-                    variant="standard"
-                    type="text"
-                    name="terminal"
-                    value={dialogValueBranchOffice.terminal}
-                    onChange={(event) =>
+                      }),
+                    Margin: 'dense',
+                  })}
+
+                  {fielBasicInformation({
+                    Label: 'Terminal',
+                    Variant: 'standard',
+                    Name: 'terminal',
+                    Value: dialogValueBranchOffice.terminal,
+                    OnChange: (event) =>
                       setDialogValueBranchOffice({
                         ...dialogValueBranchOffice,
                         terminal: event.target.value.toLowerCase(),
-                      })
-                    }
-                    margin="dense"
-                  />
+                      }),
+                    Margin: 'dense',
+                  })}
                 </DialogContent>
                 <DialogActions>
                   <Button
