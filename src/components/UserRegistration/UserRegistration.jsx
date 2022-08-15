@@ -136,10 +136,9 @@ const UserRegistration = () => {
   // Cargos:
   let defaultDataCharge = {
     chargeOfType: '',
-    licenciaImg: '',
   };
   const [charge, setCharge] = useState(defaultDataCharge);
-  // console.log('charge:', charge);
+  console.log('charge:', charge);
 
   const [openCharge, toggleOpenCharge] = useState(false);
   const handleCloseCharge = () => {
@@ -154,7 +153,6 @@ const UserRegistration = () => {
     event.preventDefault();
     setCharge({
       chargeOfType: dialogValueCharge.chargeOfType,
-      licenciaImg: dialogValueCharge.licenciaImg,
     });
 
     handleCloseCharge();
@@ -199,7 +197,6 @@ const UserRegistration = () => {
   //     branchOffice.address === "" ||
   //     branchOffice.terminal === "" ||
   //     charge.chargeOfType === "" ||
-  //     // charge.licenciaImg !== "" ||
   //     status.statusType === ""
   //   ) {
   //     return true;
@@ -245,6 +242,7 @@ const UserRegistration = () => {
     setStatus(defaultDataStatus);
   };
 
+  //Data and Functions MUI:
   let dialogContentTextFieldData = [
     {
       Label: 'Sucursal',
@@ -277,29 +275,43 @@ const UserRegistration = () => {
       Value: dialogValueBranchOffice.terminal,
     },
   ];
-
   const muiTextField = ({
     ClassName = '',
     Label,
-    Variant = 'outlined',
     Type = 'text',
     Name,
     Value,
     OnChange = changeBasicInformation,
     Margin = 'none',
+    Variant = 'outlined',
   }) => {
     return (
       <>
         <TextField
           className={ClassName}
           label={Label}
-          variant={Variant}
           type={Type}
           name={Name}
           value={Value}
           onChange={OnChange}
           margin={Margin}
+          variant={Variant}
         />
+      </>
+    );
+  };
+
+  const muiDialogActions = ({ OnClick }) => {
+    return (
+      <>
+        <DialogActions>
+          <Button variant="contained" color="error" onClick={OnClick}>
+            Cancelar
+          </Button>
+          <Button variant="contained" color="success" type="submit">
+            Añadir
+          </Button>
+        </DialogActions>
       </>
     );
   };
@@ -492,40 +504,28 @@ const UserRegistration = () => {
                     })
                   )}
                 </DialogContent>
-                <DialogActions>
-                  <Button
-                    variant="contained"
-                    color="error"
-                    onClick={handleCloseBranchOffice}
-                  >
-                    Cancelar
-                  </Button>
-                  <Button variant="contained" color="success" type="submit">
-                    Añadir
-                  </Button>
-                </DialogActions>
+
+                {/* Crear botones de Dialog: */}
+                {muiDialogActions({ OnClick: handleCloseBranchOffice })}
               </form>
             </Dialog>
           </InputBranchOffice>
 
-          {/* Cargos */}
+          {/* Cargos: */}
           <InputCharge>
             <Autocomplete
               value={charge}
               onChange={(event, newValue) => {
                 if (typeof newValue === 'string') {
-                  setTimeout(() => {
-                    toggleOpenCharge(true);
-                    setDialogValueCharge({
-                      chargeOfType: newValue,
-                      licenciaImg: '',
-                    });
+                  toggleOpenCharge(true);
+                  setDialogValueCharge({
+                    chargeOfType: newValue,
                   });
                 } else if (newValue && newValue.inputValue) {
                   toggleOpenCharge(true);
                   setDialogValueCharge({
+                    ...defaultDataCharge,
                     chargeOfType: newValue.inputValue.toLowerCase(),
-                    licenciaImg: '',
                   });
                 } else {
                   setCharge(newValue);
@@ -572,70 +572,26 @@ const UserRegistration = () => {
                   <DialogContentText>
                     Por favor ingresa los datos correspondientes
                   </DialogContentText>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="chargeOfType"
-                    value={dialogValueCharge.chargeOfType.toLowerCase()}
-                    onChange={(event) =>
+
+                  {/* Creando TextFields: */}
+                  {muiTextField({
+                    Label: 'Cargo',
+                    Name: 'chargeOfType',
+                    Value: dialogValueCharge.chargeOfType,
+                    OnChange: (event) =>
                       setDialogValueCharge({
                         ...dialogValueCharge,
-                        chargeOfType: event.target.value,
-                      })
-                    }
-                    label="Cargo"
-                    type="text"
-                    variant="standard"
-                  />
-                  {/* <TextField
-              margin="dense"
-              id="licenciaImg"
-              value={dialogValueCharge.licenciaImg}
-              onChange={(event) =>
-                setDialogValueCharge({
-                  ...dialogValueCharge,
-                  licenciaImg: event.target.value,
-                })
-              }
-              label="Licencia(Foto)"
-              type="text"
-              variant="standard"
-            /> */}
+                        [event.target.name]: event.target.value.toLowerCase(),
+                      }),
+                    Margin: 'dense',
+                    Variant: 'standard',
+                  })}
                 </DialogContent>
-                <DialogActions>
-                  <Button
-                    variant="contained"
-                    color="error"
-                    onClick={handleCloseCharge}
-                  >
-                    Cancelar
-                  </Button>
-                  <Button variant="contained" color="success" type="submit">
-                    Añadir
-                  </Button>
-                </DialogActions>
+
+                {/* Crear botones de Dialog: */}
+                {muiDialogActions({ OnClick: handleCloseCharge })}
               </form>
             </Dialog>
-            {/* Si es chofer */}
-            {/* {charge.chargeOfType === "Chofer" ||
-                  charge.chargeOfType === "chofer" ||
-      charge === null ? (
-        <TextField
-          margin="dense"
-          id="licenciaImg"
-          onChange={(event) =>
-            setCharge({
-              ...charge,
-              licenciaImg: event.target.value,
-            })
-          }
-          label="Licencia(Foto)"
-          type="text"
-          variant="standard"
-        />
-      ) : (
-        console.log("nada")
-      )} */}
           </InputCharge>
 
           {/* Esado: */}
