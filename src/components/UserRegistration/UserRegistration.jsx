@@ -101,7 +101,7 @@ const UserRegistration = () => {
     branchOfficeName: '',
     location: '',
     department: '',
-    branchOfficeImg: '',
+    branchNumber: '',
     address: '',
     terminal: '',
   };
@@ -125,7 +125,7 @@ const UserRegistration = () => {
       branchOfficeName: dialogValueBranchOffice.branchOfficeName,
       location: dialogValueBranchOffice.location,
       department: dialogValueBranchOffice.department,
-      branchOfficeImg: dialogValueBranchOffice.branchOfficeImg,
+      branchNumber: dialogValueBranchOffice.branchNumber,
       address: dialogValueBranchOffice.address,
       terminal: dialogValueBranchOffice.terminal,
     });
@@ -195,7 +195,7 @@ const UserRegistration = () => {
   //     branchOffice.branchOfficeName === "" ||
   //     branchOffice.location === "" ||
   //     branchOffice.department === "" ||
-  //     // branchOffice.branchOfficeImg !== "" ||
+  //     // branchOffice.branchNumber !== "" ||
   //     branchOffice.address === "" ||
   //     branchOffice.terminal === "" ||
   //     charge.chargeOfType === "" ||
@@ -245,7 +245,40 @@ const UserRegistration = () => {
     setStatus(defaultDataStatus);
   };
 
-  const fielBasicInformation = ({
+  let dialogContentTextFieldData = [
+    {
+      Label: 'Sucursal',
+      Name: 'branchOfficeName',
+      Value: dialogValueBranchOffice.branchOfficeName,
+    },
+    {
+      Label: 'Num/Cod Sucursal',
+      Name: 'branchNumber',
+      Value: dialogValueBranchOffice.branchNumber,
+    },
+    {
+      Label: 'Departamento',
+      Name: 'department',
+      Value: dialogValueBranchOffice.department,
+    },
+    {
+      Label: 'Localidad',
+      Name: 'location',
+      Value: dialogValueBranchOffice.location,
+    },
+    {
+      Label: 'Direccion',
+      Name: 'address',
+      Value: dialogValueBranchOffice.address,
+    },
+    {
+      Label: 'Terminal',
+      Name: 'terminal',
+      Value: dialogValueBranchOffice.terminal,
+    },
+  ];
+
+  const muiTextField = ({
     ClassName = '',
     Label,
     Variant = 'outlined',
@@ -278,7 +311,7 @@ const UserRegistration = () => {
         <br />
         <Container>
           <InputNames>
-            {fielBasicInformation({
+            {muiTextField({
               ClassName: 'input',
               Label: 'Nombres',
               Name: 'names',
@@ -286,7 +319,7 @@ const UserRegistration = () => {
             })}
           </InputNames>
           <InputSurnames>
-            {fielBasicInformation({
+            {muiTextField({
               ClassName: 'input',
               Label: 'Apellidos',
               Name: 'surnames',
@@ -294,7 +327,7 @@ const UserRegistration = () => {
             })}
           </InputSurnames>
           <InputCi>
-            {fielBasicInformation({
+            {muiTextField({
               ClassName: 'input',
               Label: 'Carnet de identidad',
               Type: 'number',
@@ -303,7 +336,7 @@ const UserRegistration = () => {
             })}
           </InputCi>
           <InputAddress>
-            {fielBasicInformation({
+            {muiTextField({
               ClassName: 'input',
               Label: 'Domicilio',
               Name: 'address',
@@ -311,7 +344,7 @@ const UserRegistration = () => {
             })}
           </InputAddress>
           <InputMobile>
-            {fielBasicInformation({
+            {muiTextField({
               ClassName: 'input',
               Label: 'Celular',
               Type: 'number',
@@ -320,7 +353,7 @@ const UserRegistration = () => {
             })}
           </InputMobile>
           <InputEmail>
-            {fielBasicInformation({
+            {muiTextField({
               ClassName: 'input',
               Label: 'Correo',
               Type: 'email',
@@ -443,84 +476,21 @@ const UserRegistration = () => {
                     Por favor ingresa los datos correspondientes
                   </DialogContentText>
 
-                  {fielBasicInformation({
-                    Label: 'Sucursal',
-                    Variant: 'standard',
-                    Name: 'branchOfficeName',
-                    Value:
-                      dialogValueBranchOffice.branchOfficeName.toLowerCase(),
-                    OnChange: (event) =>
-                      setDialogValueBranchOffice({
-                        ...dialogValueBranchOffice,
-                        branchOfficeName: event.target.value.toLowerCase(),
-                      }),
-                    Margin: 'dense',
-                  })}
-
-                  {fielBasicInformation({
-                    Label: 'Localidad',
-                    Variant: 'standard',
-                    Name: 'location',
-                    Value: dialogValueBranchOffice.location,
-                    OnChange: (event) =>
-                      setDialogValueBranchOffice({
-                        ...dialogValueBranchOffice,
-                        location: event.target.value.toLowerCase(),
-                      }),
-                    Margin: 'dense',
-                  })}
-
-                  {fielBasicInformation({
-                    Label: 'Departamento',
-                    Variant: 'standard',
-                    Name: 'department',
-                    Value: dialogValueBranchOffice.department,
-                    OnChange: (event) =>
-                      setDialogValueBranchOffice({
-                        ...dialogValueBranchOffice,
-                        department: event.target.value.toLowerCase(),
-                      }),
-                    Margin: 'dense',
-                  })}
-
-                  {fielBasicInformation({
-                    Label: 'Sucursal(Foto)',
-                    Variant: 'standard',
-                    Name: 'branchOfficeImg',
-                    Value: dialogValueBranchOffice.branchOfficeImg,
-                    OnChange: (event) =>
-                      setDialogValueBranchOffice({
-                        ...dialogValueBranchOffice,
-                        branchOfficeImg: event.target.value.toLowerCase(),
-                      }),
-                    Margin: 'dense',
-                  })}
-
-                  {fielBasicInformation({
-                    Label: 'Direccion',
-                    Variant: 'standard',
-                    Name: 'address',
-                    Value: dialogValueBranchOffice.address,
-                    OnChange: (event) =>
-                      setDialogValueBranchOffice({
-                        ...dialogValueBranchOffice,
-                        address: event.target.value.toLowerCase(),
-                      }),
-                    Margin: 'dense',
-                  })}
-
-                  {fielBasicInformation({
-                    Label: 'Terminal',
-                    Variant: 'standard',
-                    Name: 'terminal',
-                    Value: dialogValueBranchOffice.terminal,
-                    OnChange: (event) =>
-                      setDialogValueBranchOffice({
-                        ...dialogValueBranchOffice,
-                        terminal: event.target.value.toLowerCase(),
-                      }),
-                    Margin: 'dense',
-                  })}
+                  {/* Creando TextFields: */}
+                  {dialogContentTextFieldData.map((field) =>
+                    muiTextField({
+                      Label: field.Label,
+                      Name: field.Name,
+                      Value: field.Value,
+                      OnChange: (event) =>
+                        setDialogValueBranchOffice({
+                          ...dialogValueBranchOffice,
+                          [event.target.name]: event.target.value.toLowerCase(),
+                        }),
+                      Margin: 'dense',
+                      Variant: 'standard',
+                    })
+                  )}
                 </DialogContent>
                 <DialogActions>
                   <Button
