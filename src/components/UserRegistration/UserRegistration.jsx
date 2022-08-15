@@ -161,7 +161,7 @@ const UserRegistration = () => {
   // Estado:
   let defaultDataStatus = { statusType: '' };
   const [status, setStatus] = useState(defaultDataStatus);
-  // console.log('status:', status);
+  console.log('status:', status);
   const [openStatus, toggleOpenStatus] = useState(false);
 
   const handleCloseStatus = () => {
@@ -519,6 +519,7 @@ const UserRegistration = () => {
                 if (typeof newValue === 'string') {
                   toggleOpenCharge(true);
                   setDialogValueCharge({
+                    ...defaultDataCharge,
                     chargeOfType: newValue,
                   });
                 } else if (newValue && newValue.inputValue) {
@@ -594,21 +595,21 @@ const UserRegistration = () => {
             </Dialog>
           </InputCharge>
 
-          {/* Esado: */}
+          {/* Estado: */}
           <InputStatus>
             <Autocomplete
               value={status}
               onChange={(event, newValue) => {
                 if (typeof newValue === 'string') {
-                  setTimeout(() => {
-                    toggleOpenStatus(true);
-                    setDialogValueStatus({
-                      statusType: newValue,
-                    });
+                  toggleOpenStatus(true);
+                  setDialogValueStatus({
+                    ...defaultDataStatus,
+                    statusType: newValue,
                   });
                 } else if (newValue && newValue.inputValue) {
                   toggleOpenStatus(true);
                   setDialogValueStatus({
+                    ...defaultDataStatus,
                     statusType: newValue.inputValue.toLowerCase(),
                   });
                 } else {
@@ -656,40 +657,30 @@ const UserRegistration = () => {
                   <DialogContentText>
                     Por favor ingresa los datos correspondientes
                   </DialogContentText>
-                  <TextField
-                    autoFocus
-                    margin="dense"
-                    id="name"
-                    value={dialogValueStatus.statusType}
-                    onChange={(event) =>
+
+                  {/* Creando TextFields: */}
+                  {muiTextField({
+                    Label: 'Estado',
+                    Name: 'statusType',
+                    Value: dialogValueStatus.statusType,
+                    OnChange: (event) =>
                       setDialogValueStatus({
                         ...dialogValueStatus,
-                        statusType: event.target.value,
-                      })
-                    }
-                    label="Estado"
-                    type="text"
-                    variant="standard"
-                  />
+                        [event.target.name]: event.target.value.toLowerCase(),
+                      }),
+                    Margin: 'dense',
+                    Variant: 'standard',
+                  })}
                 </DialogContent>
-                <DialogActions>
-                  <Button
-                    variant="contained"
-                    color="error"
-                    onClick={handleCloseStatus}
-                  >
-                    Cancelar
-                  </Button>
-                  <Button variant="contained" color="success" type="submit">
-                    Añadir
-                  </Button>
-                </DialogActions>
+
+                {/* Crear botones de Dialog: */}
+                {muiDialogActions({ OnClick: handleCloseStatus })}
               </form>
             </Dialog>
           </InputStatus>
 
+          {/*Boton y alerta registrar: */}
           <BtnToRegistrer>
-            {/*Boton y alerta registrar */}
             <div>
               <Button
                 color="success"
