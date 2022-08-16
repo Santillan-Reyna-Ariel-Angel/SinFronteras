@@ -12,7 +12,7 @@ export const saveUser = (
   status
 ) => {
   // basicInformation-branchOffice
-  const { branchOfficeName } = branchOffice;
+  const { branchOfficeName, branchNumber } = branchOffice;
   const { chargeOfType } = charge;
   // basicInformation-status
   const { statusType } = status;
@@ -21,17 +21,19 @@ export const saveUser = (
   set(
     ref(fire_db, 'users/' + ci),
     {
-      names,
-      surnames,
-      ci,
       address,
-      mobile,
-      email,
+      branchOffice: branchNumber, // cambiar "branchOffice" por "branchNumber" como tambien en la BD
+      branchOfficeName, //borrar, es innecesario
+      charge: chargeOfType,
       dateOfBirth: formattedDate,
+      email,
+      identificationNumber: ci,
+      mobile,
+      names,
       sex,
-      branchOfficeName,
-      chargeOfType,
-      statusType,
+      status: statusType,
+      surnames,
+      // licensePhotography, eliminar de la BD
     },
     (error) => {
       if (error) {
