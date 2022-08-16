@@ -5,7 +5,7 @@ import Login from './components/Login/Login';
 import Home from './components/Home/Home';
 import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 // import Notes from './components/Notes/Notes';
-import UserRegistration from './components/UserRegistration/UserRegistration';
+import { UserRegistration } from './components/UserRegistration/UserRegistration';
 import Layout from './components/Loyout/Layout';
 import { Sales } from './components/Sales/Sales';
 //probando tickets

@@ -205,9 +205,8 @@ const UserRegistration = () => {
   //   }
   // };
 
-  const registerUser = async () => {
-    // console.log(basicInformation);
-    let response = await saveUser(
+  const registerUser = () => {
+    let response = saveUser(
       basicInformation,
       formattedDate,
       sex,
@@ -216,7 +215,6 @@ const UserRegistration = () => {
       status
     );
 
-    // let response = await saveUser(basicInformation);
     if (response === 'exitoso') {
       console.log(response);
     } else {
@@ -681,7 +679,7 @@ const UserRegistration = () => {
 
           {/*Boton y alerta registrar: */}
           <BtnToRegistrer>
-            <div>
+            <>
               <Button
                 color="success"
                 onClick={handleClickOpenDialog}
@@ -691,17 +689,10 @@ const UserRegistration = () => {
               >
                 Registrar
               </Button>
-              <Dialog
-                open={openAlertDialog}
-                onClose={handleCloseDialogYes}
-                aria-labelledby="alert-dialog-title"
-                aria-describedby="alert-dialog-description"
-              >
-                <DialogTitle id="alert-dialog-title">
-                  {`REGISTRO DE USUSARIOS`}
-                </DialogTitle>
+              <Dialog open={openAlertDialog} onClose={handleCloseDialogYes}>
+                <DialogTitle>{`REGISTRO DE USUSARIOS`}</DialogTitle>
                 <DialogContent>
-                  <DialogContentText id="alert-dialog-description">
+                  <DialogContentText>
                     {`Esta seguro de registrar a ${basicInformation.names} ${basicInformation.surnames} ?`}
                   </DialogContentText>
                 </DialogContent>
@@ -726,7 +717,7 @@ const UserRegistration = () => {
                   </Button>
                 </DialogActions>
               </Dialog>
-            </div>
+            </>
           </BtnToRegistrer>
         </Container>
       </Background>
@@ -734,4 +725,4 @@ const UserRegistration = () => {
   );
 };
 
-export default UserRegistration;
+export { UserRegistration };
