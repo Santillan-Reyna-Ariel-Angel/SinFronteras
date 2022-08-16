@@ -28,8 +28,10 @@ import SaveIcon from '@mui/icons-material/Save';
 //Styles:
 import {
   Background,
+  HeaderContainer,
+  HeaderTitle,
   BtnToRegistrer,
-  Container,
+  BodyContainer,
   InputAddress,
   InputBranchOffice,
   InputCharge,
@@ -319,7 +321,12 @@ const UserRegistration = () => {
       <Background>
         <br />
         <br />
-        <Container>
+        <HeaderContainer>
+          <HeaderTitle>
+            <span>Registro de Usuarios</span>
+          </HeaderTitle>
+        </HeaderContainer>
+        <BodyContainer>
           <InputNames>
             {muiTextField({
               ClassName: 'input',
@@ -679,47 +686,47 @@ const UserRegistration = () => {
 
           {/*Boton y alerta registrar: */}
           <BtnToRegistrer>
-            <>
-              <Button
-                color="success"
-                onClick={handleClickOpenDialog}
-                disabled={false}
-                variant="contained"
-                startIcon={<SaveIcon />}
-              >
-                Registrar
-              </Button>
-              <Dialog open={openAlertDialog} onClose={handleCloseDialogYes}>
-                <DialogTitle>{`REGISTRO DE USUSARIOS`}</DialogTitle>
-                <DialogContent>
-                  <DialogContentText>
-                    {`Esta seguro de registrar a ${basicInformation.names} ${basicInformation.surnames} ?`}
-                  </DialogContentText>
-                </DialogContent>
-                <DialogActions>
-                  <Button
-                    variant="contained"
-                    color="error"
-                    onClick={handleCloseDialogBack}
-                  >
-                    Atras
-                  </Button>
-                  <Button
-                    variant="contained"
-                    color="success"
-                    onClick={() => {
-                      registerUser();
-                      handleCloseDialogYes();
-                    }}
-                    autoFocus
-                  >
-                    Si
-                  </Button>
-                </DialogActions>
-              </Dialog>
-            </>
+            <Button
+              color="success"
+              onClick={handleClickOpenDialog}
+              disabled={false}
+              variant="contained"
+              startIcon={<SaveIcon />}
+            >
+              Registrar
+            </Button>
+            <Dialog open={openAlertDialog} onClose={handleCloseDialogYes}>
+              {/* <form onSubmit={(event) => event.preventDefault()}> */}
+              <DialogTitle>{`REGISTRO DE USUSARIOS`}</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  {`Esta seguro de registrar a ${basicInformation.names} ${basicInformation.surnames} ?`}
+                </DialogContentText>
+              </DialogContent>
+              <DialogActions>
+                <Button
+                  variant="contained"
+                  color="error"
+                  onClick={handleCloseDialogBack}
+                >
+                  Atras
+                </Button>
+                <Button
+                  variant="contained"
+                  color="success"
+                  onClick={() => {
+                    registerUser();
+                    handleCloseDialogYes();
+                  }}
+                  // autoFocus
+                >
+                  Si
+                </Button>
+              </DialogActions>
+              {/* </form> */}
+            </Dialog>
           </BtnToRegistrer>
-        </Container>
+        </BodyContainer>
       </Background>
     </>
   );

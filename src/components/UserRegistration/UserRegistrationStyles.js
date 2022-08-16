@@ -1,29 +1,50 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Background = styled.div`
   display: grid;
-  width: 100%;
-  height: 100%;
   left: 0;
   top: 0;
-
-  justify-content: center;
-  align-content: center;
-
+  justify-content: center; //centrea los elementos
+  /* align-content: center; //junta los elementos vertical */
+  /* grid-template-columns: auto; */
+  width: 100%;
+  /* height: 100%; //parece que no hace efecto */
+`;
+export const HeaderContainer = styled.div`
+  display: grid;
+  padding: 0px 0px;
   grid-template-columns: auto;
+  grid-template-rows: auto;
+  grid-template-areas: 'HeaderTitle';
+
+  color: white;
+  border-radius: 10px 10px 0px 0px;
+  background: #051e34;
+  backdrop-filter: blur(18px);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+  overflow: hidden;
+`;
+export const HeaderTitle = styled.div`
+  grid-area: HeaderTitle;
+  text-align: center;
+  padding: 5px 0px;
+  font-size: larger;
 `;
 
-export const Container = styled.form`
+export const BodyContainer = styled.form`
   display: grid;
   background-color: #00bdb2;
-  /* background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%); */
-  grid-template-columns: 250px 250px;
+  grid-template-columns: 250px 250px; //probar auto o xfr
   grid-template-rows: auto;
-  grid-row-gap: 15px;
+  grid-row-gap: 10px;
   grid-column-gap: 10px;
-  padding: 15px 25px;
-  border-radius: 20px;
-  grid-template-areas: "InputNames InputSurnames" "InputCi InputAddress" "InputMobile InputEmail" "InputDateOfBirdth InputSex" "InputBranchOffice InputBranchOffice" "InputCharge InputCharge" "InputStatus InputStatus" "BtnToRegistrer BtnToRegistrer";
+  padding: 15px 20px;
+  //sombreado:
+  border: 4px solid #051e34; //contorno
+  border-radius: 0px 0px 10px 10px;
+  backdrop-filter: blur(18px);
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+  grid-template-areas: 'InputNames InputSurnames' 'InputCi InputAddress' 'InputMobile InputEmail' 'InputDateOfBirdth InputSex' 'InputBranchOffice InputBranchOffice' 'InputCharge InputCharge' 'InputStatus InputStatus' 'BtnToRegistrer BtnToRegistrer';
 `;
 
 export const InputNames = styled.div`
