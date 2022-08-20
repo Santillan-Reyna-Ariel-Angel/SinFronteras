@@ -31,6 +31,13 @@ export const BranchRegistration = () => {
     'Tarija',
   ];
 
+  const uuid = () => {
+    return Math.random().toString(16).slice(2);
+  };
+  console.log('uuid', uuid());
+
+  let llave = 'claveDesconocida';
+
   const defaultBranchData = {
     department: '',
     locality: '',
@@ -40,21 +47,27 @@ export const BranchRegistration = () => {
     branchNumber: '',
     checkInTime: '08:00',
     departureTime: '18:30',
-    prices: {
-      leito: {
-        maximumPrice: 0,
-        minimalPrice: 0,
-        seatType: '',
-        typeOfBus: 'leito',
-      },
-      normal: {
-        maximumPrice: 0,
-        minimalPrice: 0,
-        seatType: '',
-        typeOfBus: 'normal',
+    destinations: {
+      [llave]: {
+        destinationLocation: '',
+        prices: {
+          leito: {
+            maximumPrice: 0,
+            minimalPrice: 0,
+            seatType: '',
+            typeOfBus: 'leito',
+          },
+          normal: {
+            maximumPrice: 0,
+            minimalPrice: 0,
+            seatType: '',
+            typeOfBus: 'normal',
+          },
+        },
       },
     },
   };
+
   const [branchData, setBranchData] = useState(defaultBranchData);
   console.log('branchData', branchData);
 
@@ -77,40 +90,41 @@ export const BranchRegistration = () => {
     return `${hour}:${minute}`;
   };
 
-  const typeOfSeats = ['semi-cama', 'cama'];
-  const seatType = (event) => {
-    // let { seatType } = branchData.prices.normal;
-    // setBranchData({
-    //   ...branchData,
-    //   prices: {
-    //     leito: {
-    //       maximumPrice: 0,
-    //       minimalPrice: 0,
-    //       seatType: '',
-    //       typeOfBus: 'leito',
-    //     },
-    //     normal: {
-    //       maximumPrice: 0,
-    //       minimalPrice: 0,
-    //       seatType: event.target.value,
-    //       typeOfBus: 'normal',
-    //     },
-    //   },
-    // });
+  // const typeOfSeats = ['semi-cama', 'cama'];
 
-    setBranchData({
-      ...branchData,
-      prices: {
-        leito: {
-          ...branchData.prices.leito,
-        },
-        normal: {
-          ...branchData.prices.normal,
-          seatType: event.target.value,
-        },
-      },
-    });
-  };
+  // const seatType = (event) => {
+  //   let aux = branchData.destinations[0];
+  //   aux.prices.normal.seatType = event.target.value;
+  //   console.log('aux', aux);
+
+  //   // setBranchData({
+  //   //   ...branchData,
+  //   //   // destinations: [
+  //   //   //   // ...branchData.destinations,
+  //   //   //   {
+  //   //   //     ...branchData.destinations[0],
+  //   //   //     prices: {
+  //   //   //       leito: {
+  //   //   //         ...branchData.destinations[0].prices.leito,
+  //   //   //       },
+  //   //   //       normal: {
+  //   //   //         ...branchData.destinations[0].prices.normal,
+  //   //   //         seatType: event.target.value,
+  //   //   //       },
+  //   //   //     },
+  //   //   //   },
+  //   //   // ],
+  //   // });
+
+  //   setBranchData({
+  //     ...branchData,
+  //     destinations: [
+  //       ...branchData.destinations,
+  //       (branchData.destinations[0] = aux),
+  //     ],
+  //   });
+  // };
+
   return (
     <>
       <Box sx={{ width: 170 }}>
@@ -227,22 +241,58 @@ export const BranchRegistration = () => {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
-        <span>Añadir precios:</span>
-        <span>Bus normal:</span>
+        <span>Añadir Destinos (+):</span>
+
         <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Tipo de Asiento</InputLabel>
+          <InputLabel id="demo-simple-select-label">Departamento</InputLabel>
           <Select
-            value={branchData.prices.normal.seatType}
-            name="seatType"
-            onChange={seatType}
+            value={branchData.destinations[llave].destinationLocation} //
+            name="destinationLocation"
+            onChange={(event) =>
+              setBranchData({
+                ...branchData,
+                destinations: {
+                  [llave]: {
+                    ...branchData.destinations[llave],
+                    destinationLocation: event.target.value,
+                  },
+                },
+                // [event.target.name]: event.target.value,
+              })
+            }
           >
+            {departments.map((department, index) => (
+              <MenuItem key={index} value={department}>
+                {department}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+        <TextField
+          name="destinationLocation"
+          label="Localidad"
+          variant="outlined"
+          value={branchData.locality}
+          onChange={(event) =>
+            setBranchData({
+              ...branchData,
+              [event.target.name]: event.target.value,
+            })
+          }
+        />
+
+        {/* <span>Añadir precios:</span> */}
+        {/* <span>Bus normal:</span> */}
+        {/* <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Tipo de Asiento</InputLabel>
+          <Select value={''} name="seatType" onChange={seatType}>
             {typeOfSeats.map((typeSeat, index) => (
               <MenuItem key={index} value={typeSeat}>
                 {typeSeat}
               </MenuItem>
             ))}
           </Select>
-        </FormControl>
+        </FormControl> */}
       </Box>
     </>
   );
