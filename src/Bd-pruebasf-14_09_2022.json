@@ -163,7 +163,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "14/8/2022",
+          "travelDate": "18/9/2022",
           "travelStatus": false
         },
         "code2": {
@@ -211,7 +211,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "14/8/2022",
+          "travelDate": "18/9/2022",
           "travelStatus": false
         }
       }
@@ -381,7 +381,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "14/8/2022",
+          "travelDate": "18/9/2022",
           "travelStatus": false
         },
         "code2": {
@@ -431,7 +431,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "14/8/2022",
+          "travelDate": "18/9/2022",
           "travelStatus": false
         }
       }
@@ -584,69 +584,175 @@
   },
   "tripsMade": {
     "branch_1": {
-      "travel_7-8-2022_21-30_bus-006": {
-        "occupiedSeat": {
-          "29": "vendido-74747473"
-        },
+      "travel_14-8-2022_20-30_bus-001": {
+        "occupiedSeat": [
+          null,
+          "vendido-74747472"
+        ],
         "passengers": {
-          "billingContact_5-8-2022_22-14_464646": {
+          "billingContact_9-8-2022_16-48_79463": {
             "billingContactInformation": {
-              "ciOrNit": "464646",
+              "ciOrNit": "79463",
               "countryCode": "+591 (BO)",
-              "email": "lola@gmail.com",
-              "invoiceCheckbox": false,
-              "mobile": "6963654",
-              "nameOrSocialReason": "apellido lola lola"
+              "email": "pedro@gmail.com",
+              "invoiceCheckbox": true,
+              "mobile": "7484759",
+              "nameOrSocialReason": "Cardona Pedro"
             },
-            "saleDate": "5/8/2022",
+            "saleDate": "9/8/2022",
             "salesAmountData": {
-              "amountTotal": "90.00",
-              "description": "amigo",
-              "discount": 10,
+              "amountTotal": "48.00",
+              "description": "Hola",
+              "discount": 52,
               "discountCheckbox": true,
               "subtotal": 100
             },
             "ticketsSalesData": {
-              "passenger_464646": {
+              "passenger_79463": {
                 "branchNumber": "1",
                 "branchPhone": "64-64646",
                 "busEnrollment": "bus-006",
                 "companyName": "Sin Fronteras",
                 "departureTime": "21:30",
                 "destiny": "c. santa cruz",
-                "identificationNumber": "464646",
+                "identificationNumber": "79463",
                 "issuingUser": "santillan reyna ariel angel",
                 "lane": "0",
                 "legend": "Gracias por su compra, le deseamos un buen viaje.",
                 "origin": "sucre",
-                "passengerFullName": "apellido lola lola",
-                "seatId": "10",
+                "passengerFullName": "Cardona Pedro",
+                "seatId": "16",
                 "seatPrice": 100,
-                "ticketNumber": "suc1-82022-464646",
-                "travelDate": "7/8/2022",
+                "ticketNumber": "suc1-82022-79463",
+                "travelDate": "14/8/2022",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "cama"
               }
             },
-            "timeOfSale": "22:14"
+            "timeOfSale": "16:48"
+          }
+        }
+      },
+      "travel_14-8-2022_21-30_bus-006": {
+        "occupiedSeat": {
+          "10": "vendido-74747472",
+          "28": "vendido-74747472"
+        },
+        "passengers": {
+          "billingContact_10-8-2022_18-40_78888": {
+            "billingContactInformation": {
+              "ciOrNit": "78888",
+              "countryCode": "+591 (BO)",
+              "email": "javier@gmail.com",
+              "invoiceCheckbox": false,
+              "mobile": "7898789",
+              "nameOrSocialReason": "Santillan Quispe Javier"
+            },
+            "saleDate": "10/8/2022",
+            "salesAmountData": {
+              "amountTotal": 100,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_78888": {
+                "branchNumber": "1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "78888",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Santillan Quispe Javier",
+                "seatId": "10",
+                "seatPrice": 100,
+                "ticketNumber": "suc1-82022-78888",
+                "travelDate": "14/8/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "18:40"
+          },
+          "billingContact_9-8-2022_18-44_7965": {
+            "billingContactInformation": {
+              "ciOrNit": "7965",
+              "countryCode": "+591 (BO)",
+              "email": "terry@gmail.com",
+              "invoiceCheckbox": false,
+              "mobile": "799865",
+              "nameOrSocialReason": "Terry Wanda"
+            },
+            "saleDate": "9/8/2022",
+            "salesAmountData": {
+              "amountTotal": 100,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_7965": {
+                "branchNumber": "1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7965",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Terry Wanda",
+                "seatId": "2",
+                "seatPrice": 100,
+                "ticketNumber": "suc1-82022-7965",
+                "travelDate": "14/8/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "18:44"
           }
         }
       }
     }
   },
   "users": {
-    "7481911": {
-      "address": "canelas 364",
+    "7111111": {
+      "address": "address nelson",
+      "branchOffice": "1",
       "branchOfficeName": "Sucursal 1",
-      "chargeOfType": "Administrador-General",
-      "ci": "7481911",
+      "charge": "Secretaria(o)",
+      "dateOfBirth": "16/10/1996",
+      "email": "nelson@gmail.com",
+      "identificationNumber": "7111111",
+      "mobile": "7946131",
+      "names": "nelson",
+      "sex": "hombre",
+      "status": "Activo",
+      "surnames": "mandela"
+    },
+    "7481911": {
+      "address": "demetrio canelas 364",
+      "branchOffice": "1",
+      "branchOfficeName": "Sucursal 1",
+      "charge": "Dueño",
       "dateOfBirth": "16/10/1996",
       "email": "santillanreynaarielangel@gmail.com",
+      "identificationNumber": "7481911",
       "mobile": "67616016",
       "names": "ariel angel",
       "sex": "hombre",
-      "statusType": "Activo",
-      "surnames": "santillan"
+      "status": "Activo",
+      "surnames": "santillan reyna"
     },
     "code1": {
       "address": "calle campero 593",

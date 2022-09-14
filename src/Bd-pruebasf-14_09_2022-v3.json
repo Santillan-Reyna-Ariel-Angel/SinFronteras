@@ -163,7 +163,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "14/8/2022",
+          "travelDate": "18/9/2022",
           "travelStatus": false
         },
         "code2": {
@@ -211,7 +211,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "14/8/2022",
+          "travelDate": "18/9/2022",
           "travelStatus": false
         }
       }
@@ -381,7 +381,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "14/8/2022",
+          "travelDate": "18/9/2022",
           "travelStatus": false
         },
         "code2": {
@@ -431,7 +431,7 @@
               "surnames": ""
             }
           },
-          "travelDate": "14/8/2022",
+          "travelDate": "18/9/2022",
           "travelStatus": false
         }
       }
@@ -584,69 +584,118 @@
   },
   "tripsMade": {
     "branch_1": {
-      "travel_14-8-2022_21-30_bus-006": {
+      "travel_18-9-2022_20-30_bus-001": {
         "occupiedSeat": {
-          "29": "vendido-74747473"
+          "42": "vendido-74747472"
         },
         "passengers": {
-          "billingContact_5-8-2022_22-14_464646": {
+          "billingContact_14-9-2022_16-23_123456789": {
             "billingContactInformation": {
-              "ciOrNit": "464646",
+              "ciOrNit": "123456789",
               "countryCode": "+591 (BO)",
-              "email": "lola@gmail.com",
-              "invoiceCheckbox": false,
-              "mobile": "6963654",
-              "nameOrSocialReason": "apellido lola lola"
+              "email": "default@gmail.com",
+              "invoiceCheckbox": true,
+              "mobile": "12345678",
+              "nameOrSocialReason": "defaultSurnames defaultName"
             },
-            "saleDate": "5/8/2022",
+            "saleDate": "14/9/2022",
             "salesAmountData": {
-              "amountTotal": "90.00",
-              "description": "amigo",
-              "discount": 10,
+              "amountTotal": "39.50",
+              "description": "defaultDescription",
+              "discount": 20.5,
+              "discountCheckbox": true,
+              "subtotal": 60
+            },
+            "ticketsSalesData": {
+              "passenger_123456789": {
+                "branchNumber": "1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "yacuiba",
+                "identificationNumber": "123456789",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "defaultSurnames defaultName",
+                "seatId": "42",
+                "seatPrice": 60,
+                "ticketNumber": "suc1-92022-123456789",
+                "travelDate": "18/9/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "16:23"
+          }
+        }
+      },
+      "travel_18-9-2022_21-30_bus-006": {
+        "occupiedSeat": {
+          "29": "vendido-74747472"
+        },
+        "passengers": {
+          "billingContact_14-9-2022_16-19_123456789": {
+            "billingContactInformation": {
+              "ciOrNit": "123456789",
+              "countryCode": "+591 (BO)",
+              "email": "default@gmail.com",
+              "invoiceCheckbox": true,
+              "mobile": "12345678",
+              "nameOrSocialReason": "defaultSurnames defaultName"
+            },
+            "saleDate": "14/9/2022",
+            "salesAmountData": {
+              "amountTotal": "79.50",
+              "description": "defaultDescription",
+              "discount": 20.5,
               "discountCheckbox": true,
               "subtotal": 100
             },
             "ticketsSalesData": {
-              "passenger_464646": {
+              "passenger_123456789": {
                 "branchNumber": "1",
                 "branchPhone": "64-64646",
                 "busEnrollment": "bus-006",
                 "companyName": "Sin Fronteras",
                 "departureTime": "21:30",
                 "destiny": "c. santa cruz",
-                "identificationNumber": "464646",
+                "identificationNumber": "123456789",
                 "issuingUser": "santillan reyna ariel angel",
                 "lane": "0",
                 "legend": "Gracias por su compra, le deseamos un buen viaje.",
                 "origin": "sucre",
-                "passengerFullName": "apellido lola lola",
-                "seatId": "10",
+                "passengerFullName": "defaultSurnames defaultName",
+                "seatId": "29",
                 "seatPrice": 100,
-                "ticketNumber": "suc1-82022-464646",
-                "travelDate": "7/8/2022",
+                "ticketNumber": "suc1-92022-123456789",
+                "travelDate": "18/9/2022",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "cama"
               }
             },
-            "timeOfSale": "22:14"
+            "timeOfSale": "16:19"
           }
         }
       }
     }
   },
   "users": {
-    "7481911": {
-      "address": "canelas 364",
-      "branchOfficeName": "Sucursal 1",
-      "chargeOfType": "Administrador-General",
-      "ci": "7481911",
-      "dateOfBirth": "16/10/1996",
-      "email": "santillanreynaarielangel@gmail.com",
-      "mobile": "67616016",
-      "names": "ariel angel",
-      "sex": "hombre",
-      "statusType": "Activo",
-      "surnames": "santillan"
+    "777777": {
+      "address": "address fake",
+      "branchOffice": "10",
+      "branchOfficeName": "test sucursal",
+      "charge": "test cargo",
+      "dateOfBirth": "13/8/1946",
+      "email": "banana@gmail.com",
+      "identificationNumber": "777777",
+      "mobile": "7976455",
+      "names": "ana",
+      "sex": "mujer",
+      "status": "test state",
+      "surnames": "banana"
     },
     "code1": {
       "address": "calle campero 593",
