@@ -29,7 +29,10 @@ const branchOfficeAux = () => {
       let userKey = Object.keys(userData.val())[0];
       // console.log("userKey", userKey);
 
-      let branchOfficeKey = userData.child(userKey).child('branchOffice').val();
+      let branchOfficeKey = userData
+        .child(userKey)
+        .child('branchNumberOrCode')
+        .val();
       // console.log("branchOfficeKey", branchOfficeKey);
 
       let branchOffice_x = ref(fire_db, `branchOffices/${branchOfficeKey}/`);
