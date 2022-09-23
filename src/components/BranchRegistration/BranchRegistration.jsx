@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState  } from 'react';
 //MUI:
 import {
   Box,
@@ -18,6 +18,12 @@ import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers/';
 //Components:
 //Others:
 
+const uuid = () => {
+  return Math.random().toString(16).slice(2);
+};
+let llave = uuid();
+// console.log('llave', llave);
+
 export const BranchRegistration = () => {
   const departments = [
     'Beni',
@@ -31,12 +37,8 @@ export const BranchRegistration = () => {
     'Tarija',
   ];
 
-  const uuid = () => {
-    return Math.random().toString(16).slice(2);
-  };
-  console.log('uuid', uuid());
-
-  let llave = 'claveDesconocida';
+  console.log('llave', llave);
+  // let llave = 'keyDesknow';
 
   const defaultBranchData = {
     department: '',
@@ -210,7 +212,6 @@ export const BranchRegistration = () => {
         <span>Horarios de Atencion:</span>
         <br />
         <span>Lunes a Domingo:</span>
-
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <TimePicker
             label="Hora de Entrada"
@@ -241,8 +242,8 @@ export const BranchRegistration = () => {
             renderInput={(params) => <TextField {...params} />}
           />
         </LocalizationProvider>
-        <span>Añadir Destinos (+):</span>
 
+        <span>Añadir Destinos (+):</span>
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Departamento</InputLabel>
           <Select
