@@ -1,4 +1,4 @@
-import React, { useState  } from 'react';
+import React, { useState } from 'react';
 //MUI:
 import {
   Box,
@@ -51,6 +51,7 @@ export const BranchRegistration = () => {
     departureTime: '18:30',
     destinations: {
       [llave]: {
+        destinationDepartment: '',
         destinationLocation: '',
         prices: {
           leito: {
@@ -247,18 +248,17 @@ export const BranchRegistration = () => {
         <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Departamento</InputLabel>
           <Select
-            value={branchData.destinations[llave].destinationLocation} //
-            name="destinationLocation"
+            value={branchData.destinations[llave].destinationDepartment}
+            name="destinationDepartment"
             onChange={(event) =>
               setBranchData({
                 ...branchData,
                 destinations: {
                   [llave]: {
                     ...branchData.destinations[llave],
-                    destinationLocation: event.target.value,
+                    destinationDepartment: event.target.value,
                   },
                 },
-                // [event.target.name]: event.target.value,
               })
             }
           >
@@ -273,11 +273,16 @@ export const BranchRegistration = () => {
           name="destinationLocation"
           label="Localidad"
           variant="outlined"
-          value={branchData.locality}
+          value={branchData.destinations[llave].destinationLocation}
           onChange={(event) =>
             setBranchData({
               ...branchData,
-              [event.target.name]: event.target.value,
+              destinations: {
+                [llave]: {
+                  ...branchData.destinations[llave],
+                  destinationLocation: event.target.value,
+                },
+              },
             })
           }
         />
