@@ -93,40 +93,7 @@ export const BranchRegistration = () => {
     return `${hour}:${minute}`;
   };
 
-  // const typeOfSeats = ['semi-cama', 'cama'];
-
-  // const seatType = (event) => {
-  //   let aux = branchData.destinations[0];
-  //   aux.prices.normal.seatType = event.target.value;
-  //   console.log('aux', aux);
-
-  //   // setBranchData({
-  //   //   ...branchData,
-  //   //   // destinations: [
-  //   //   //   // ...branchData.destinations,
-  //   //   //   {
-  //   //   //     ...branchData.destinations[0],
-  //   //   //     prices: {
-  //   //   //       leito: {
-  //   //   //         ...branchData.destinations[0].prices.leito,
-  //   //   //       },
-  //   //   //       normal: {
-  //   //   //         ...branchData.destinations[0].prices.normal,
-  //   //   //         seatType: event.target.value,
-  //   //   //       },
-  //   //   //     },
-  //   //   //   },
-  //   //   // ],
-  //   // });
-
-  //   setBranchData({
-  //     ...branchData,
-  //     destinations: [
-  //       ...branchData.destinations,
-  //       (branchData.destinations[0] = aux),
-  //     ],
-  //   });
-  // };
+  const typeOfSeats = ['semi-cama', 'cama'];
 
   return (
     <>
@@ -287,18 +254,94 @@ export const BranchRegistration = () => {
           }
         />
 
-        {/* <span>Añadir precios:</span> */}
-        {/* <span>Bus normal:</span> */}
-        {/* <FormControl fullWidth>
+        <span>Añadir precios:</span>
+        <span>Bus normal:</span>
+        <FormControl fullWidth>
           <InputLabel id="demo-simple-select-label">Tipo de Asiento</InputLabel>
-          <Select value={''} name="seatType" onChange={seatType}>
-            {typeOfSeats.map((typeSeat, index) => (
-              <MenuItem key={index} value={typeSeat}>
-                {typeSeat}
+          <Select
+            value={branchData.destinations[llave].prices.normal.seatType}
+            name="normalSeatType"
+            onChange={(event) =>
+              setBranchData({
+                ...branchData,
+                destinations: {
+                  [llave]: {
+                    ...branchData.destinations[llave],
+                    prices: {
+                      ...branchData.destinations[llave].prices,
+                      normal: {
+                        ...branchData.destinations[llave].prices.normal,
+                        seatType: event.target.value,
+                      },
+                    },
+                  },
+                },
+              })
+            }
+          >
+            {typeOfSeats.map((seatType, index) => (
+              <MenuItem key={index} value={seatType}>
+                {seatType}
               </MenuItem>
             ))}
           </Select>
-        </FormControl> */}
+        </FormControl>
+
+        <TextField
+          name="normalMinimalPrice"
+          label="Precio minimo"
+          variant="outlined"
+          value={branchData.destinations[llave].prices.normal.minimalPrice}
+          type="number"
+          onChange={(event) =>
+            setBranchData({
+              ...branchData,
+              destinations: {
+                [llave]: {
+                  ...branchData.destinations[llave],
+                  prices: {
+                    ...branchData.destinations[llave].prices,
+                    normal: {
+                      ...branchData.destinations[llave].prices.normal,
+                      minimalPrice:
+                        event.target.value === ''
+                          ? event.target.value // 0 or event.target.value
+                          : parseFloat(event.target.value), //parseInt() or parseFloat()
+                    },
+                  },
+                },
+              },
+            })
+          }
+        />
+
+        <TextField
+          name="normalMaximumPrice"
+          label="Precio maximo"
+          variant="outlined"
+          value={branchData.destinations[llave].prices.normal.maximumPrice}
+          type="number"
+          onChange={(event) =>
+            setBranchData({
+              ...branchData,
+              destinations: {
+                [llave]: {
+                  ...branchData.destinations[llave],
+                  prices: {
+                    ...branchData.destinations[llave].prices,
+                    normal: {
+                      ...branchData.destinations[llave].prices.normal,
+                      maximumPrice:
+                        event.target.value === ''
+                          ? event.target.value // 0 or event.target.value
+                          : parseFloat(event.target.value), //parseInt() or parseFloat()
+                    },
+                  },
+                },
+              },
+            })
+          }
+        />
       </Box>
     </>
   );
