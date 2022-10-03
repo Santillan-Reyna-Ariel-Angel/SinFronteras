@@ -342,6 +342,94 @@ export const BranchRegistration = () => {
             })
           }
         />
+
+        <span>Bus leito:</span>
+        <FormControl fullWidth>
+          <InputLabel id="demo-simple-select-label">Tipo de Asiento</InputLabel>
+          <Select
+            value={branchData.destinations[llave].prices.leito.seatType}
+            name="leitoSeatType"
+            onChange={(event) =>
+              setBranchData({
+                ...branchData,
+                destinations: {
+                  [llave]: {
+                    ...branchData.destinations[llave],
+                    prices: {
+                      ...branchData.destinations[llave].prices,
+                      leito: {
+                        ...branchData.destinations[llave].prices.leito,
+                        seatType: event.target.value,
+                      },
+                    },
+                  },
+                },
+              })
+            }
+          >
+            {typeOfSeats.map((seatType, index) => (
+              <MenuItem key={index} value={seatType}>
+                {seatType}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        <TextField
+          name="leitoMinimalPrice"
+          label="Precio minimo"
+          variant="outlined"
+          value={branchData.destinations[llave].prices.leito.minimalPrice}
+          type="number"
+          onChange={(event) =>
+            setBranchData({
+              ...branchData,
+              destinations: {
+                [llave]: {
+                  ...branchData.destinations[llave],
+                  prices: {
+                    ...branchData.destinations[llave].prices,
+                    leito: {
+                      ...branchData.destinations[llave].prices.leito,
+                      minimalPrice:
+                        event.target.value === ''
+                          ? event.target.value // 0 or event.target.value
+                          : parseFloat(event.target.value), //parseInt() or parseFloat()
+                    },
+                  },
+                },
+              },
+            })
+          }
+        />
+
+        <TextField
+          name="leitoMaximumPrice"
+          label="Precio maximo"
+          variant="outlined"
+          value={branchData.destinations[llave].prices.leito.maximumPrice}
+          type="number"
+          onChange={(event) =>
+            setBranchData({
+              ...branchData,
+              destinations: {
+                [llave]: {
+                  ...branchData.destinations[llave],
+                  prices: {
+                    ...branchData.destinations[llave].prices,
+                    leito: {
+                      ...branchData.destinations[llave].prices.leito,
+                      maximumPrice:
+                        event.target.value === ''
+                          ? event.target.value // 0 or event.target.value
+                          : parseFloat(event.target.value), //parseInt() or parseFloat()
+                    },
+                  },
+                },
+              },
+            })
+          }
+        />
       </Box>
     </>
   );
