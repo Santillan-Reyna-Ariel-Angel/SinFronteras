@@ -140,7 +140,7 @@
           "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "25/9/2022",
+          "travelDate": "15/10/2022",
           "travelStatus": false
         },
         "code2": {
@@ -165,7 +165,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "25/9/2022",
+          "travelDate": "15/10/2022",
           "travelStatus": false
         }
       }
@@ -312,7 +312,7 @@
           "destinationLocation": "sucre",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "25/9/2022",
+          "travelDate": "15/10/2022",
           "travelStatus": false
         },
         "code2": {
@@ -339,7 +339,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "25/9/2022",
+          "travelDate": "15/10/2022",
           "travelStatus": false
         }
       }
@@ -492,35 +492,17 @@
   },
   "tripsMade": {
     "branch_1": {
-      "travel_25-9-2022_20-30_bus-001": {
-        "occupiedSeat": {
-          "0": "vendido-74747472"
-        },
+      "travel_15-10-2022_20-30_bus-001": {
+        "occupiedSeat": { "0": "vendido-74747472" },
         "passengers": {}
       },
-      "travel_25-9-2022_21-30_bus-006": {
-        "occupiedSeat": {
-          "0": "vendido-74747472"
-        },
+      "travel_15-10-2022_21-30_bus-006": {
+        "occupiedSeat": { "0": "vendido-74747472" },
         "passengers": {}
       }
     }
   },
   "users": {
-    "777777": {
-      "address": "address fake",
-      "branchNumberOrCode": "10",
-      "branchOfficeName": "test sucursal",
-      "charge": "test cargo",
-      "dateOfBirth": "13/8/1946",
-      "email": "banana@gmail.com",
-      "identificationNumber": "777777",
-      "mobile": "7976455",
-      "names": "ana",
-      "sex": "mujer",
-      "status": "test state",
-      "surnames": "banana"
-    },
     "code1": {
       "address": "calle campero 593",
       "branchNumberOrCode": "code1",
