@@ -48,12 +48,10 @@ export const BranchRegistration = () => {
     address: '',
     branchName: '',
     branchNumber: '',
-    // attentionSchedule:{
-    //   openingHours:"08:00",
-    //   closingTime:"18:30",
-    // }
-    checkInTime: '08:00',
-    departureTime: '18:30',
+    attentionSchedule: {
+      openingTime: '08:00',
+      closingTime: '18:30',
+    },
     destinations: {
       [llave]: {
         destinationDepartment: '',
@@ -83,10 +81,10 @@ export const BranchRegistration = () => {
   const [branchData, setBranchData] = useState(defaultBranchData);
   console.log('branchData', branchData);
 
-  const [checkInTime, setCheckInTime] = useState(
+  const [openingTime, setOpeningTime] = useState(
     new Date('2022-12-16T08:00:00')
   );
-  const [departureTime, setDepartureTime] = useState(
+  const [closingTime, setClosingTime] = useState(
     new Date('2022-12-16T18:30:00')
   );
 
@@ -191,14 +189,17 @@ export const BranchRegistration = () => {
         <span>Lunes a Domingo:</span>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <TimePicker
-            label="Hora de Entrada"
-            value={checkInTime}
+            label="Hora de Apertura"
+            value={openingTime}
             ampm={false}
             onChange={(newTime) => {
-              setCheckInTime(newTime);
+              setOpeningTime(newTime);
               setBranchData({
                 ...branchData,
-                checkInTime: timeFormat(newTime),
+                attentionSchedule: {
+                  ...branchData.attentionSchedule,
+                  openingTime: timeFormat(newTime),
+                },
               });
             }}
             renderInput={(params) => <TextField {...params} />}
@@ -206,14 +207,17 @@ export const BranchRegistration = () => {
         </LocalizationProvider>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <TimePicker
-            label="Hora de Salida"
-            value={departureTime}
+            label="Hora de Cierre"
+            value={closingTime}
             ampm={false}
             onChange={(newTime) => {
-              setDepartureTime(newTime);
+              setClosingTime(newTime);
               setBranchData({
                 ...branchData,
-                departureTime: timeFormat(newTime),
+                attentionSchedule: {
+                  ...branchData.attentionSchedule,
+                  closingTime: timeFormat(newTime),
+                },
               });
             }}
             renderInput={(params) => <TextField {...params} />}
@@ -443,7 +447,7 @@ export const BranchRegistration = () => {
         <span>Numeros de contacto:</span>
         <TextField
           name="telephone"
-          label="Telefono: "
+          label="Telefono"
           variant="outlined"
           value={branchData.contactNumbers.telephone}
           onChange={(event) =>
@@ -459,7 +463,7 @@ export const BranchRegistration = () => {
 
         <TextField
           name="cellphone"
-          label="Celular: "
+          label="Celular"
           variant="outlined"
           value={branchData.contactNumbers.cellphone}
           type="number"
