@@ -18,10 +18,8 @@ import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers/';
 //Components:
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
+import { uuid } from './../functions';
 
-const uuid = () => {
-  return Math.random().toString(16).slice(2);
-};
 let llave = uuid();
 // console.log('llave', llave);
 
