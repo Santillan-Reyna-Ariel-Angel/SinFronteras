@@ -16,6 +16,7 @@ import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers/';
 //Firebase Functions:
 //States:
 //Components:
+import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
 
 const uuid = () => {
@@ -47,6 +48,10 @@ export const BranchRegistration = () => {
     address: '',
     branchName: '',
     branchNumber: '',
+    // attentionSchedule:{
+    //   openingHours:"08:00",
+    //   closingTime:"18:30",
+    // }
     checkInTime: '08:00',
     departureTime: '18:30',
     destinations: {
@@ -68,6 +73,10 @@ export const BranchRegistration = () => {
           },
         },
       },
+    },
+    contactNumbers: {
+      telephone: '',
+      cellphone: '',
     },
   };
 
@@ -429,6 +438,53 @@ export const BranchRegistration = () => {
               },
             })
           }
+        />
+
+        <span>Numeros de contacto:</span>
+        <TextField
+          name="telephone"
+          label="Telefono: "
+          variant="outlined"
+          value={branchData.contactNumbers.telephone}
+          onChange={(event) =>
+            setBranchData({
+              ...branchData,
+              contactNumbers: {
+                ...branchData.contactNumbers,
+                [event.target.name]: event.target.value,
+              },
+            })
+          }
+        />
+
+        <TextField
+          name="cellphone"
+          label="Celular: "
+          variant="outlined"
+          value={branchData.contactNumbers.cellphone}
+          type="number"
+          onChange={(event) =>
+            setBranchData({
+              ...branchData,
+              contactNumbers: {
+                ...branchData.contactNumbers,
+                [event.target.name]: parseInt(event.target.value),
+              },
+            })
+          }
+        />
+
+        <PlainModalButton
+          primaryBtnText="Registrar"
+          dialogTitle="Registro de suculsales"
+          dialogText="Esta seguro de registrar esta sucursal?"
+          closeBtnText="cancelar"
+          continueBtnText="si"
+          // redirectPage="./"
+          functionToExecute={() => {}}
+          // functionParameters=""
+          secondFunctionToExecute={() => {}}
+          thirdFunctionToExecute={() => {}}
         />
       </Box>
     </>
