@@ -102,6 +102,13 @@ export const BranchRegistration = () => {
 
   const typeOfSeats = ['semi-cama', 'cama'];
 
+  // componentDefaultData
+  const componentDefaultData = () => {
+    setBranchData(defaultBranchData);
+    setOpeningTime(new Date('2022-12-16T08:00:00'));
+    setClosingTime(new Date('2022-12-16T18:30:00'));
+  };
+
   return (
     <>
       <Box sx={{ width: 170 }}>
@@ -487,8 +494,8 @@ export const BranchRegistration = () => {
           // redirectPage="./"
           functionToExecute={createBranch}
           functionParameters={branchData}
-          secondFunctionToExecute={() => {}}
-          thirdFunctionToExecute={() => {}}
+          secondFunctionToExecute={() => {}} //For data type bolean
+          thirdFunctionToExecute={componentDefaultData}
         />
       </Box>
     </>
