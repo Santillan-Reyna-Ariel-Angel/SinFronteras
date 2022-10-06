@@ -14,6 +14,7 @@ import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers/';
 //Styles:
 //Contexts:
 //Firebase Functions:
+import { createBranch } from './Firebase/createBranch';
 //States:
 //Components:
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
@@ -76,6 +77,7 @@ export const BranchRegistration = () => {
     },
   };
 
+  //State General:
   const [branchData, setBranchData] = useState(defaultBranchData);
   console.log('branchData', branchData);
 
@@ -483,8 +485,8 @@ export const BranchRegistration = () => {
           closeBtnText="cancelar"
           continueBtnText="si"
           // redirectPage="./"
-          functionToExecute={() => {}}
-          // functionParameters=""
+          functionToExecute={createBranch}
+          functionParameters={branchData}
           secondFunctionToExecute={() => {}}
           thirdFunctionToExecute={() => {}}
         />
