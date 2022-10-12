@@ -1,5 +1,5 @@
 import { ref, set } from 'firebase/database';
-import { modulesFirebase } from './../../../firebase-config.js';
+import { modulesFirebase } from '../../../firebase-config.js';
 
 //Modulos Firebase:
 const { fire_db } = modulesFirebase;
@@ -17,6 +17,7 @@ export const createBranch = (branchData) => {
       //   branchPhotography: 'sucursal.png',
       department: branchData.department,
       departmentsContactNumbers: branchData.contactNumbers,
+      destinations: branchData.destinations,
       emailsWithAccess: '', //IMPORTANTE: este dato debe ser llenado con el gmail con el que se crea un usuario(dependiendo el cargo y la sucursal)
       //   localityPhotograpy: 'sucre.png',
       location: branchData.locality,
