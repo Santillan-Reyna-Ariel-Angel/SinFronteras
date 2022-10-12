@@ -1,14 +1,14 @@
 import React, { useState, useContext } from 'react';
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
-import { Checkbox, FormControlLabel } from '@mui/material';
+// import { Checkbox, FormControlLabel } from '@mui/material';
 //Styles:
 import {
   Background,
   HeaderContainer,
   HeaderTitle,
   BodyContainer,
-  InvoiceCheckbox,
+  // InvoiceCheckbox,
   InputCiOrNit,
   InputNameOrSocialReason,
   InputEmail,
@@ -105,7 +105,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
   //billingContactInformation default:
   const [billingContactInformation, setBillingContactInformation] = useState({
-    invoiceCheckbox: false,
+    // invoiceCheckbox: false, //Se quito por que no habra facturacion en este proyecto.
     ciOrNit: '',
     nameOrSocialReason: '',
     email: '',
@@ -219,7 +219,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
           </HeaderTitle>
         </HeaderContainer>
         <BodyContainer>
-          <InvoiceCheckbox>
+          {/* <InvoiceCheckbox>
             <FormControlLabel
               className="check"
               control={
@@ -237,7 +237,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
               label="Facturar: "
               labelPlacement="start"
             />
-          </InvoiceCheckbox>
+          </InvoiceCheckbox> */}
           <InputCiOrNit>
             <Autocomplete
               value={billingContactInformation.ciOrNit}
