@@ -44,7 +44,7 @@ export const BranchRegistration = () => {
       openingTime: '08:00',
       closingTime: '18:30',
     },
-    contactNumbers: {
+    branchContactNumbers: {
       telephone: '',
       cellphone: '',
     },
@@ -207,12 +207,12 @@ export const BranchRegistration = () => {
           name="telephone"
           label="Telefono"
           variant="outlined"
-          value={branchData.contactNumbers.telephone}
+          value={branchData.branchContactNumbers.telephone}
           onChange={(event) =>
             setBranchData({
               ...branchData,
-              contactNumbers: {
-                ...branchData.contactNumbers,
+              branchContactNumbers: {
+                ...branchData.branchContactNumbers,
                 [event.target.name]: event.target.value,
               },
             })
@@ -223,13 +223,13 @@ export const BranchRegistration = () => {
           name="cellphone"
           label="Celular"
           variant="outlined"
-          value={branchData.contactNumbers.cellphone}
+          value={branchData.branchContactNumbers.cellphone}
           type="number"
           onChange={(event) =>
             setBranchData({
               ...branchData,
-              contactNumbers: {
-                ...branchData.contactNumbers,
+              branchContactNumbers: {
+                ...branchData.branchContactNumbers,
                 [event.target.name]: parseInt(event.target.value),
               },
             })

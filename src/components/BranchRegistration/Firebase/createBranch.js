@@ -14,11 +14,9 @@ export const createBranch = (branchData) => {
       address: branchData.address,
       attentionSchedule: branchData.attentionSchedule,
       branchNumber: branchData.branchNumber,
-      //   branchPhotography: 'sucursal.png',
       department: branchData.department,
-      departmentsContactNumbers: branchData.contactNumbers,
+      branchContactNumbers: branchData.branchContactNumbers,
       emailsWithAccess: '', //IMPORTANTE: este dato debe ser llenado con el gmail con el que se crea un usuario(dependiendo el cargo y la sucursal)
-      //   localityPhotograpy: 'sucre.png',
       location: branchData.locality,
       name: branchData.branchName,
       terminal: branchData.terminal,
