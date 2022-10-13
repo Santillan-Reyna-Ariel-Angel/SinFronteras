@@ -9,6 +9,7 @@ import { UserRegistration } from './components/UserRegistration/UserRegistration
 import Layout from './components/Loyout/Layout';
 import { Sales } from './components/Sales/Sales';
 import { BranchRegistration } from './components/BranchRegistration/BranchRegistration';
+import { BusRegistration } from './components/Bus/BusRegistration/BusRegistration';
 //probando tickets
 import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
@@ -68,12 +69,20 @@ const AppRoutes = () => {
                       />
                       {/* <Route exact path="/notas" component={Notes} /> */}
                       {/* <Route exact path="/tickets" component={Tickets} /> */}
+
+                      <Route exact path="/ventas/pasajes/" component={Sales} />
                       <Route
                         exact
                         path="/personal/registro-de-cargos"
                         component={UserRegistration}
                       />
-                      <Route exact path="/ventas/pasajes/" component={Sales} />
+
+                      <Route
+                        exact
+                        path="/buses/registro-de-buses"
+                        component={BusRegistration}
+                      />
+
                       <Route
                         exact
                         path="/sucursales/registro-de-sucursales/"
