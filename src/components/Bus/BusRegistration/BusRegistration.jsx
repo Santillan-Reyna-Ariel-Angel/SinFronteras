@@ -22,6 +22,7 @@ import {
 //Firebase Functions:
 //States:
 //Components:
+import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
 
 export const BusRegistration = () => {
@@ -265,6 +266,17 @@ export const BusRegistration = () => {
             ))}
           </Select>
         </FormControl>
+
+        <PlainModalButton
+          primaryBtnText="Registrar"
+          dialogTitle="Registro de Buses"
+          dialogText="Esta seguro de registrar este Bus?"
+          closeBtnText="cancelar"
+          continueBtnText="si"
+          // functionToExecute={}
+          // functionParameters={}
+          // thirdFunctionToExecute={}
+        />
       </Box>
     </>
   );

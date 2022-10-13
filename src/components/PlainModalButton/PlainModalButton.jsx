@@ -15,11 +15,11 @@ const PlainModalButton = ({
   closeBtnText = 'cancelar',
   continueBtnText = 'ok',
   redirectPage = './',
-  functionToExecute,
+  functionToExecute = () => {}, //Funcion vacia por defecto
   functionParameters,
-  secondFunctionToExecute,
-  secondFunctionParameters,
-  thirdFunctionToExecute,
+  secondFunctionToExecute = () => {},
+  secondFunctionParameters, //data type bolean
+  thirdFunctionToExecute = () => {},
 }) => {
   const history = useHistory();
   const [openDialog, setOpenDialog] = useState(false);

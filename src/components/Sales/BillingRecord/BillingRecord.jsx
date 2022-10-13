@@ -50,9 +50,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     : { branchInformation: {} };
   let {
     branchNumber,
-    departmentsContactNumbers: {
-      informations: { telephone },
-    },
+    branchContactNumbers: { telephone },
   } = branchInformation;
 
   //ContextUserData:

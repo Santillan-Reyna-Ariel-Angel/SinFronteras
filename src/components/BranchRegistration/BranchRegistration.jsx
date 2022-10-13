@@ -242,10 +242,8 @@ export const BranchRegistration = () => {
           dialogText="Esta seguro de registrar esta sucursal?"
           closeBtnText="cancelar"
           continueBtnText="si"
-          // redirectPage="./"
           functionToExecute={createBranch}
           functionParameters={branchData}
-          secondFunctionToExecute={() => {}} //For data type bolean
           thirdFunctionToExecute={componentDefaultData}
         />
       </Box>
