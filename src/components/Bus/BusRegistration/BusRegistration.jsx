@@ -20,6 +20,7 @@ import {
 //Styles:
 //Contexts:
 //Firebase Functions:
+import { createBus } from './../Firebase/createBus';
 //States:
 //Components:
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
@@ -73,6 +74,9 @@ export const BusRegistration = () => {
     });
   };
 
+  const componentDefaultData = () => {
+    setBusData(companyBusDefaultData);
+  };
   return (
     <>
       <Box sx={{ width: 170 }}>
@@ -273,9 +277,9 @@ export const BusRegistration = () => {
           dialogText="Esta seguro de registrar este Bus?"
           closeBtnText="cancelar"
           continueBtnText="si"
-          // functionToExecute={}
-          // functionParameters={}
-          // thirdFunctionToExecute={}
+          functionToExecute={createBus}
+          functionParameters={busData}
+          thirdFunctionToExecute={componentDefaultData}
         />
       </Box>
     </>
