@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 //MUI:
 import { Button, Checkbox } from '@mui/material/';
@@ -15,6 +15,7 @@ import {
   BtnUpdateDataStyle,
 } from './BusCardStyles';
 //Contexts:
+import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 //Firebase Functions:
 //States:
 //Components:
@@ -153,26 +154,17 @@ let companyBuses = [
 ];
 
 export const BusCard = () => {
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  const {
+    branchInformation: { branchNumber },
+  } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
+
   const [buses, setBuses] = useState(companyBuses);
 
   const changeServiceStatus = (event, index) => {
     let busInBranch = event.target.checked;
-    let state = busInBranch ? 'code1' : 'DISPONIBLE';
-
-    // option1:
-    // setBuses([...buses, buses[index]:{...buses[index], designatedBranch : d} ]);
-    // option2:
-    // setBuses([...buses, (buses[index].designatedBranch = d)]);
-    // option3:
-    // setBuses(
-    //   buses.map((bus) => {
-    //     if (bus.enrollment === buses[index].enrollment) {
-    //       return { ...bus, designatedBranch: d };
-    //     } else {
-    //       return bus;
-    //     }
-    //   })
-    // );
+    let state = busInBranch ? branchNumber : 'DISPONIBLE';
 
     setBuses(
       buses.map((bus) =>
