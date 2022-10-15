@@ -7,9 +7,6 @@ export const Background = styled.div`
   justify-content: center; //centrea los elementos
   align-content: center; //junta los elementos vertical
   /* grid-template-columns: auto; */
-
-  //Tentado a eliminar:
-  /* margin: 0px 3px; */
 `;
 
 export const BodyContainer = styled.div`
@@ -23,7 +20,7 @@ export const BodyContainer = styled.div`
   //sombreado:
   border: 4px solid #051e34; //contorno
   border-radius: 10px 10px 10px 10px; //0px 0px 10px 10px;
-  backdrop-filter: blur(18px);
+  /* backdrop-filter: blur(18px); */
   /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); */
   grid-template-areas: 'CheckboxBusIconStyle' 'EnrollmentStyle' 'BranchStyle' 'BtnUpdateDataStyle';
   /* overflow: hidden; */

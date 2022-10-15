@@ -1,6 +1,13 @@
 import React from 'react';
 //MUI:
 //Styles:
+import {
+  Background,
+  HeaderContainer,
+  HeaderTitle,
+  BodyContainer,
+  // CardsBody,
+} from './BusListStyles';
 //Contexts:
 //Firebase Functions:
 //States:
@@ -11,7 +18,18 @@ import { BusCard } from './BusCard/BusCard';
 export const BusList = () => {
   return (
     <>
-      <BusCard />
+      <Background>
+        <HeaderContainer>
+          <HeaderTitle>
+            {/* Lista de buses: */}
+            <span>Buses en Sucursal</span>
+          </HeaderTitle>
+        </HeaderContainer>
+
+        <BodyContainer>
+          <BusCard />
+        </BodyContainer>
+      </Background>
     </>
   );
 };

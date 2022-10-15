@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 //MUI:
 import { Button, Checkbox } from '@mui/material/';
@@ -153,22 +153,55 @@ let companyBuses = [
 ];
 
 export const BusCard = () => {
+  const [buses, setBuses] = useState(companyBuses);
+
+  const changeServiceStatus = (event, index) => {
+    let busInBranch = event.target.checked;
+    let state = busInBranch ? 'code1' : 'DISPONIBLE';
+
+    // option1:
+    // setBuses([...buses, buses[index]:{...buses[index], designatedBranch : d} ]);
+    // option2:
+    // setBuses([...buses, (buses[index].designatedBranch = d)]);
+    // option3:
+    // setBuses(
+    //   buses.map((bus) => {
+    //     if (bus.enrollment === buses[index].enrollment) {
+    //       return { ...bus, designatedBranch: d };
+    //     } else {
+    //       return bus;
+    //     }
+    //   })
+    // );
+
+    setBuses(
+      buses.map((bus) =>
+        bus.enrollment === buses[index].enrollment
+          ? { ...bus, designatedBranch: state }
+          : bus
+      )
+    );
+  };
+  console.log('bus:', buses);
   return (
     <>
-      {companyBuses.map((bus, index) => (
+      {buses.map((bus, index) => (
         <>
-          <Background key={index + 1}>
+          <Background>
             <BodyContainer>
               <CheckboxBusIconStyle>
                 <Checkbox
                   icon={<DirectionsBusRoundedIcon sx={{ color: 'black' }} />} //Modificar para cambiar el color
-                  checkedIcon={<DirectionsBusRoundedIcon />}
+                  checkedIcon={
+                    <DirectionsBusRoundedIcon sx={{ color: 'green' }} /> //#051E34
+                  }
                   disableRipple //Anula el hover y efecto de ondas al hacer el check
                   // size="medium"
                   sx={{
                     '& .MuiSvgIcon-root': { fontSize: 50 },
                     //   '&:hover': { bgcolor: 'transparent' }, //hover transratente (innecesario se se usa la propiedad disableRipple)
                   }}
+                  onChange={(event) => changeServiceStatus(event, index)}
                 />
               </CheckboxBusIconStyle>
 
