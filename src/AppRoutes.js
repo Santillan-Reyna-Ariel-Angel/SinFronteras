@@ -10,6 +10,7 @@ import Layout from './components/Loyout/Layout';
 import { Sales } from './components/Sales/Sales';
 import { BranchRegistration } from './components/BranchRegistration/BranchRegistration';
 import { BusRegistration } from './components/Bus/BusRegistration/BusRegistration';
+import { BusList } from './components/Bus/BusList/BusList';
 //probando tickets
 import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
@@ -79,8 +80,14 @@ const AppRoutes = () => {
 
                       <Route
                         exact
-                        path="/buses/registro-de-buses"
+                        path="/buses/registro-de-buses/"
                         component={BusRegistration}
+                      />
+
+                      <Route
+                        exact
+                        path="/buses/lista-de-buses/"
+                        component={BusList}
                       />
 
                       <Route
