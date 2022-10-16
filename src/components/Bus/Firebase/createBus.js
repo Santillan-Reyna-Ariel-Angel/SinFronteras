@@ -10,6 +10,7 @@ export const createBus = (busData) => {
   //   console.log('filingAux: ', filingAux);
   //Enviar Datos a BD:
   set(ref(fire_db, `companyBuses/${[enrollment]}/`), {
+    designatedBranch: 'DISPONIBLE', //Necesario para listar buses por branch
     enrollment: enrollment,
     filing: filingAux,
     identificationNumberDriver: busData.identificationNumberDriver,

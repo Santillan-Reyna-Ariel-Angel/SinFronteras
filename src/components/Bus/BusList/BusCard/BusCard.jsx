@@ -17,10 +17,12 @@ import {
 //Contexts:
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 import { ContextCompanyBuses } from './../../../../contexts/ContextCompanyBuses';
+
 //Firebase Functions:
 //States:
 //Components:
 //Others:
+
 let companyBusesDefault = [
   {
     designatedBranch: 'code1',
@@ -165,19 +167,18 @@ export const BusCard = () => {
   const companyBuses = useContext(ContextCompanyBuses);
   // console.log('companyBuses: ', companyBuses);
 
-  //json to array:
+  // json to array:
   let companyBusesArray = [];
   for (let i in companyBuses) companyBusesArray.push(companyBuses[i]);
   // console.log('companyBusesArray', companyBusesArray);
 
-  console.log('companyBusesArray', companyBusesArray);
-
-  const [buses, setBuses] = useState(companyBusesDefault);
+  const [buses, setBuses] = useState(companyBusesArray);
 
   const changeServiceStatus = (event, index) => {
     let busInBranch = event.target.checked;
     let state = busInBranch ? branchNumber : 'DISPONIBLE';
 
+    //tentativo a eliminar:
     setBuses(
       buses.map((bus) =>
         bus.enrollment === buses[index].enrollment
@@ -185,8 +186,16 @@ export const BusCard = () => {
           : bus
       )
     );
+
+    //llamar funcion firebase update:
+    // IMPORTANTE:
+    // 1) Hacer que el code y la matricula de cada bus en la BD sean iguales. Example: "bus-001":{enrollment:"bus-001"}
+    // 2) Todos los designatedBranch de cada bus que sean vacios cambiarlos por "DISPONIBLE"
+    // 3) Revisar que no tengas bugs las ventas y los formularios
   };
+
   console.log('buses:', buses);
+
   return (
     <>
       {buses.map((bus, index) => (
@@ -195,11 +204,30 @@ export const BusCard = () => {
             <BodyContainer>
               <CheckboxBusIconStyle>
                 <Checkbox
-                  icon={<DirectionsBusRoundedIcon sx={{ color: 'black' }} />} //Modificar para cambiar el color
+                  checked={bus.designatedBranch === branchNumber ? true : false}
+                  icon={
+                    <DirectionsBusRoundedIcon
+                      sx={{
+                        color: `${
+                          bus.designatedBranch === 'DISPONIBLE' ||
+                          bus.designatedBranch === ''
+                            ? 'black'
+                            : 'red'
+                        }`,
+                      }}
+                    />
+                  } //Modificar para cambiar el color: ;
                   checkedIcon={
                     <DirectionsBusRoundedIcon sx={{ color: 'green' }} /> //#051E34
                   }
                   disableRipple //Anula el hover y efecto de ondas al hacer el check
+                  disabled={
+                    bus.designatedBranch === branchNumber ||
+                    bus.designatedBranch === '' ||
+                    bus.designatedBranch === 'DISPONIBLE'
+                      ? false
+                      : true
+                  }
                   // size="medium"
                   sx={{
                     '& .MuiSvgIcon-root': { fontSize: 50 },
