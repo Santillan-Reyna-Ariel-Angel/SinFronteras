@@ -163,7 +163,14 @@ export const BusCard = () => {
 
   //ContextCompanyBuses:
   const companyBuses = useContext(ContextCompanyBuses);
-  console.log('companyBuses: ', companyBuses);
+  // console.log('companyBuses: ', companyBuses);
+
+  //json to array:
+  let companyBusesArray = [];
+  for (let i in companyBuses) companyBusesArray.push(companyBuses[i]);
+  // console.log('companyBusesArray', companyBusesArray);
+
+  console.log('companyBusesArray', companyBusesArray);
 
   const [buses, setBuses] = useState(companyBusesDefault);
 
@@ -179,7 +186,7 @@ export const BusCard = () => {
       )
     );
   };
-  console.log('bus:', buses);
+  console.log('buses:', buses);
   return (
     <>
       {buses.map((bus, index) => (
