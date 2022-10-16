@@ -16,11 +16,12 @@ import {
 } from './BusCardStyles';
 //Contexts:
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
+import { ContextCompanyBuses } from './../../../../contexts/ContextCompanyBuses';
 //Firebase Functions:
 //States:
 //Components:
 //Others:
-let companyBuses = [
+let companyBusesDefault = [
   {
     designatedBranch: 'code1',
     enrollment: 'bus-001',
@@ -160,7 +161,11 @@ export const BusCard = () => {
     branchInformation: { branchNumber },
   } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
 
-  const [buses, setBuses] = useState(companyBuses);
+  //ContextCompanyBuses:
+  const companyBuses = useContext(ContextCompanyBuses);
+  console.log('companyBuses: ', companyBuses);
+
+  const [buses, setBuses] = useState(companyBusesDefault);
 
   const changeServiceStatus = (event, index) => {
     let busInBranch = event.target.checked;

@@ -27,7 +27,7 @@ import { ProviderBranchOffice } from './contexts/ContextBranchOffice';
 import { ProviderUserData } from './contexts/ContextUserData';
 import { ProviderGeneralCompanyData } from './contexts/ContextGeneralCompanyData';
 import { ProviderBranchTripsMade } from './contexts/ContextBranchTripsMade';
-
+import { ProviderCompanyBuses } from './contexts/ContextCompanyBuses';
 const AppRoutes = () => {
   return (
     <>
@@ -35,70 +35,76 @@ const AppRoutes = () => {
         <ProviderUserData>
           <ProviderGeneralCompanyData>
             <ProviderBranchTripsMade>
-              <ProviderListarNotas>
-                <BrowserRouter>
-                  <Switch>
-                    <Route
-                      exact
-                      path="/"
-                      component={() => <Redirect to="/acceso" />}
-                    />
-                    <Route exact path="/acceso" component={Login} />
-                    <Route exact path="/tickets1" component={Tickets1} />
-                    <Route exact path="/tickets2" component={Tickets2} />
-                    <Route exact path="/tickets3" component={Tickets3} />
-                    <Route
-                      exact
-                      path="/tickets-component"
-                      component={ReactToPrintComponent}
-                    />
-                    <Route
-                      exact
-                      path="/tickets-component2"
-                      component={ReactToPrintComponent2}
-                    />
-                    <Route exact path="/send-email" component={SendEmail} />
-                    <Route exact path="/send-email2" component={SendEmail2} />
-                    <Route exact path="/send-email3" component={SendEmail3} />
-
-                    <Layout>
-                      <Route exact path="/principal" component={Home} />
+              <ProviderCompanyBuses>
+                <ProviderListarNotas>
+                  <BrowserRouter>
+                    <Switch>
                       <Route
                         exact
-                        path="/recuperar-contraseña"
-                        component={RecoverPassword}
+                        path="/"
+                        component={() => <Redirect to="/acceso" />}
                       />
-                      {/* <Route exact path="/notas" component={Notes} /> */}
-                      {/* <Route exact path="/tickets" component={Tickets} /> */}
-
-                      <Route exact path="/ventas/pasajes/" component={Sales} />
+                      <Route exact path="/acceso" component={Login} />
+                      <Route exact path="/tickets1" component={Tickets1} />
+                      <Route exact path="/tickets2" component={Tickets2} />
+                      <Route exact path="/tickets3" component={Tickets3} />
                       <Route
                         exact
-                        path="/personal/registro-de-cargos"
-                        component={UserRegistration}
+                        path="/tickets-component"
+                        component={ReactToPrintComponent}
                       />
-
                       <Route
                         exact
-                        path="/buses/registro-de-buses/"
-                        component={BusRegistration}
+                        path="/tickets-component2"
+                        component={ReactToPrintComponent2}
                       />
+                      <Route exact path="/send-email" component={SendEmail} />
+                      <Route exact path="/send-email2" component={SendEmail2} />
+                      <Route exact path="/send-email3" component={SendEmail3} />
 
-                      <Route
-                        exact
-                        path="/buses/lista-de-buses/"
-                        component={BusList}
-                      />
+                      <Layout>
+                        <Route exact path="/principal" component={Home} />
+                        <Route
+                          exact
+                          path="/recuperar-contraseña"
+                          component={RecoverPassword}
+                        />
+                        {/* <Route exact path="/notas" component={Notes} /> */}
+                        {/* <Route exact path="/tickets" component={Tickets} /> */}
 
-                      <Route
-                        exact
-                        path="/sucursales/registro-de-sucursales/"
-                        component={BranchRegistration}
-                      />
-                    </Layout>
-                  </Switch>
-                </BrowserRouter>
-              </ProviderListarNotas>
+                        <Route
+                          exact
+                          path="/ventas/pasajes/"
+                          component={Sales}
+                        />
+                        <Route
+                          exact
+                          path="/personal/registro-de-cargos"
+                          component={UserRegistration}
+                        />
+
+                        <Route
+                          exact
+                          path="/buses/registro-de-buses/"
+                          component={BusRegistration}
+                        />
+
+                        <Route
+                          exact
+                          path="/buses/lista-de-buses/"
+                          component={BusList}
+                        />
+
+                        <Route
+                          exact
+                          path="/sucursales/registro-de-sucursales/"
+                          component={BranchRegistration}
+                        />
+                      </Layout>
+                    </Switch>
+                  </BrowserRouter>
+                </ProviderListarNotas>
+              </ProviderCompanyBuses>
             </ProviderBranchTripsMade>
           </ProviderGeneralCompanyData>
         </ProviderUserData>
