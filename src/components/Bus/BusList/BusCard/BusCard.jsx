@@ -17,8 +17,8 @@ import {
 //Contexts:
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 import { ContextCompanyBuses } from './../../../../contexts/ContextCompanyBuses';
-
 //Firebase Functions:
+import { updateBusData } from './../../Firebase/updateBusData';
 //States:
 //Components:
 //Others:
@@ -186,15 +186,14 @@ export const BusCard = () => {
           : bus
       )
     );
-
+    console.log('2 buses[index]', buses[index]);
+    updateBusData(buses[index]); //Actualiza en BD
     //llamar funcion firebase update:
     // IMPORTANTE:
-    // 1) Hacer que el code y la matricula de cada bus en la BD sean iguales. Example: "bus-001":{enrollment:"bus-001"}
-    // 2) Todos los designatedBranch de cada bus que sean vacios cambiarlos por "DISPONIBLE"
     // 3) Revisar que no tengas bugs las ventas y los formularios
   };
 
-  console.log('buses:', buses);
+  console.log('1 buses:', buses);
 
   return (
     <>

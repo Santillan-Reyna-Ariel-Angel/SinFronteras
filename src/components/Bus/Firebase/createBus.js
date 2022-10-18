@@ -15,7 +15,7 @@ export const createBus = (busData) => {
     filing: filingAux,
     identificationNumberDriver: busData.identificationNumberDriver,
     numberOfFloors: busData.numberOfFloors,
-    numberOfSeats: busData.numberOfSeats,
+    numberOfSeats: busData.numberOfSeats, // Posteriormente considerar asietos de 1er y 2do piso
     services: busData.services,
     status: busData.status,
     typeOfBus: busData.typeOfBus,

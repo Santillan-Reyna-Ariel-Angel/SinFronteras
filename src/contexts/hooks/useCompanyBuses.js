@@ -10,15 +10,9 @@ const companyBusesAux = () => {
 
   if (userEmail !== null) {
     const response = ref(fire_db, 'companyBuses');
-    onValue(
-      response,
-      (companyBuses) => {
-        setCompanyBuses(companyBuses.val());
-      },
-      {
-        onlyOnce: true, //esto es equivalente al once. CONSIDERAR QUITAR TODO EL JSON PARA QUE SIEMPRE ESTE EN ESCUCHA
-      }
-    );
+    onValue(response, (companyBuses) => {
+      setCompanyBuses(companyBuses.val());
+    });
   }
 };
 
