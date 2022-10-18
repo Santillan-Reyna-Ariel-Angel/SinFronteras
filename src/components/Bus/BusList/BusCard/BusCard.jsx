@@ -4,7 +4,6 @@ import React, { useState, useContext } from 'react';
 import { Button, Checkbox } from '@mui/material/';
 import DirectionsBusRoundedIcon from '@mui/icons-material/DirectionsBusRounded';
 // import NoTransferRoundedIcon from '@mui/icons-material/NoTransferRounded';
-
 //Styles:
 import {
   Background,
@@ -22,139 +21,6 @@ import { updateBusData } from './../../Firebase/updateBusData';
 //States:
 //Components:
 //Others:
-
-let companyBusesDefault = [
-  {
-    designatedBranch: 'code1',
-    enrollment: 'bus-001',
-    filing: 'H',
-    identificationNumberDriver: '',
-    numberOfFloors: 1,
-    numberOfSeats: 42,
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: 'activo',
-    typeOfBus: 'normal',
-    typeOfSeats: 'semi-cama',
-  },
-  {
-    designatedBranch: 'code2',
-    enrollment: 'bus-002',
-    filing: 'H',
-    identificationNumberDriver: '',
-    numberOfFloors: 1,
-    numberOfSeats: 43,
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: 'activo',
-    typeOfBus: 'normal',
-    typeOfSeats: 'semi-cama',
-  },
-  {
-    designatedBranch: '',
-    enrollment: 'bus-003',
-    filing: 'H',
-    identificationNumberDriver: '',
-    numberOfFloors: 1,
-    numberOfSeats: 36,
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: 'activo',
-    typeOfBus: 'normal',
-    typeOfSeats: 'semi-cama',
-  },
-  {
-    designatedBranch: '',
-    enrollment: 'bus-004',
-    filing: 'H',
-    identificationNumberDriver: '',
-    numberOfFloors: 1,
-    numberOfSeats: 27,
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: 'activo',
-    typeOfBus: 'leito',
-    typeOfSeats: 'cama',
-  },
-  {
-    designatedBranch: '',
-    enrollment: 'bus-005',
-    filing: 'H',
-    identificationNumberDriver: '',
-    numberOfFloors: 1,
-    numberOfSeats: 26,
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: 'activo',
-    typeOfBus: 'leito',
-    typeOfSeats: 'cama',
-  },
-  {
-    designatedBranch: 'code1',
-    enrollment: 'bus-006',
-    filing: 'H',
-    identificationNumberDriver: '',
-    numberOfFloors: 1,
-    numberOfSeats: 29,
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: 'activo',
-    typeOfBus: 'leito',
-    typeOfSeats: 'cama',
-  },
-  {
-    designatedBranch: 'code2',
-    enrollment: 'bus-008',
-    filing: 'H',
-    identificationNumberDriver: '',
-    numberOfFloors: 2,
-    numberOfSeats: 40,
-    numberOfSeatsFirstFloor: 20,
-    numberOfSeatsSecondFloor: 20,
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: 'activo',
-    typeOfBus: 'leito',
-    typeOfSeats: 'cama',
-  },
-  {
-    designatedBranch: '',
-    enrollment: 'bus-aux',
-    filing: 'C',
-    identificationNumberDriver: '',
-    numberOfFloors: 1,
-    numberOfSeats: 39,
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: 'activo',
-    typeOfBus: 'normal',
-    typeOfSeats: 'semi-cama',
-  },
-];
 
 export const BusCard = () => {
   //ContextBranchOffice:
@@ -177,23 +43,30 @@ export const BusCard = () => {
   const changeServiceStatus = (event, index) => {
     let busInBranch = event.target.checked;
     let state = busInBranch ? branchNumber : 'DISPONIBLE';
+    // console.log('state', state);
 
-    //tentativo a eliminar:
+    // IMPORTANTE: PARA ACTUALIZAR EL ESTDO DE UN ARRAY DE OBJETOS:
+    // 1) Debemos extraer el OBJETO segun su index del ARRAY
+    // 2) Actualizar la propiedad deseada de la VARIABLE que contiene nuestro OBJETO extraido.
+    // o: Usar desectructuracion como acontinuacion para hacer los 2 pasos anteriores.
+    let selectedBus = { ...buses[index], designatedBranch: state }; //Actualizamos la propiedad necesaria
+    console.log('selectedBus', selectedBus);
+
+    // 3) Actualizar el estado atravez de un map al ARRAY, con la condicion ARRAY(objeto del map) === OBJETO(extraido) ? VARIABLE : ARRAY(objeto del map)
     setBuses(
       buses.map((bus) =>
-        bus.enrollment === buses[index].enrollment
-          ? { ...bus, designatedBranch: state }
-          : bus
+        bus.enrollment === buses[index].enrollment ? selectedBus : bus
       )
     );
-    console.log('2 buses[index]', buses[index]);
-    updateBusData(buses[index]); //Actualiza en BD
-    //llamar funcion firebase update:
+
+    //Llamar funcion firebase update:
+    updateBusData(selectedBus);
+
     // IMPORTANTE:
     // 3) Revisar que no tengas bugs las ventas y los formularios
   };
 
-  console.log('1 buses:', buses);
+  console.log('buses:', buses);
 
   return (
     <>
@@ -221,6 +94,7 @@ export const BusCard = () => {
                   }
                   disableRipple //Anula el hover y efecto de ondas al hacer el check
                   disabled={
+                    //Para bloquear el check segun los casos
                     bus.designatedBranch === branchNumber ||
                     bus.designatedBranch === '' ||
                     bus.designatedBranch === 'DISPONIBLE'
@@ -241,11 +115,7 @@ export const BusCard = () => {
               </EnrollmentStyle>
 
               <BranchStyle>
-                <span>{`${
-                  bus.designatedBranch !== ''
-                    ? bus.designatedBranch
-                    : 'DISPONIBLE'
-                }`}</span>
+                <span>{`${bus.designatedBranch}`}</span>
               </BranchStyle>
               <BtnUpdateDataStyle>
                 <Button variant="contained" color="success" size="small">
