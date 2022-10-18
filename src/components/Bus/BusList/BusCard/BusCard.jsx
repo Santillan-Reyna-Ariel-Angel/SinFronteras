@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 
 //MUI:
 import { Button, Checkbox } from '@mui/material/';
@@ -38,39 +38,23 @@ export const BusCard = () => {
   for (let i in companyBuses) companyBusesArray.push(companyBuses[i]);
   // console.log('companyBusesArray', companyBusesArray);
 
-  const [buses, setBuses] = useState(companyBusesArray);
-
   const changeServiceStatus = (event, index) => {
     let busInBranch = event.target.checked;
     let state = busInBranch ? branchNumber : 'DISPONIBLE';
     // console.log('state', state);
 
-    // IMPORTANTE: PARA ACTUALIZAR EL ESTDO DE UN ARRAY DE OBJETOS:
-    // 1) Debemos extraer el OBJETO segun su index del ARRAY
-    // 2) Actualizar la propiedad deseada de la VARIABLE que contiene nuestro OBJETO extraido.
-    // o: Usar desectructuracion como acontinuacion para hacer los 2 pasos anteriores.
-    let selectedBus = { ...buses[index], designatedBranch: state }; //Actualizamos la propiedad necesaria
-    console.log('selectedBus', selectedBus);
-
-    // 3) Actualizar el estado atravez de un map al ARRAY, con la condicion ARRAY(objeto del map) === OBJETO(extraido) ? VARIABLE : ARRAY(objeto del map)
-    setBuses(
-      buses.map((bus) =>
-        bus.enrollment === buses[index].enrollment ? selectedBus : bus
-      )
-    );
+    let selectedBus = { ...companyBusesArray[index], designatedBranch: state }; //Actualizamos la propiedad necesaria
+    // console.log('selectedBus', selectedBus);
 
     //Llamar funcion firebase update:
     updateBusData(selectedBus);
-
-    // IMPORTANTE:
-    // 3) Revisar que no tengas bugs las ventas y los formularios
   };
 
-  console.log('buses:', buses);
+  console.log('companyBusesArray:', companyBusesArray);
 
   return (
     <>
-      {buses.map((bus, index) => (
+      {companyBusesArray.map((bus, index) => (
         <>
           <Background>
             <BodyContainer>
