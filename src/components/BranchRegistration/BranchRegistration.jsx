@@ -12,6 +12,25 @@ import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers/';
 
 //Styles:
+import {
+  Background,
+  HeaderContainer,
+  HeaderTitle,
+  BodyContainer,
+  DepartmentStyle,
+  LocalityStyle,
+  TerminalStyle,
+  AddressStyle,
+  BranchNameStyle,
+  BranchNumberStyle,
+  AttentionScheduleText,
+  OpeningTimeStyle,
+  ClosingTimeStyle,
+  BranchContactNumbersText,
+  TelephoneStyle,
+  CellphoneStyle,
+  Btn,
+} from './BranchRegistrationStyles';
 //Contexts:
 //Firebase Functions:
 import { createBranch } from './Firebase/createBranch';
@@ -82,171 +101,228 @@ export const BranchRegistration = () => {
 
   return (
     <>
-      <Box sx={{ width: 170 }}>
-        <FormControl fullWidth>
-          <InputLabel id="demo-simple-select-label">Departamento</InputLabel>
-          <Select
-            value={branchData.department}
-            name="department"
-            onChange={(event) =>
-              setBranchData({
-                ...branchData,
-                [event.target.name]: event.target.value,
-              })
-            }
-          >
-            {departments.map((department, index) => (
-              <MenuItem key={index} value={department}>
-                {department}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <TextField
-          name="locality"
-          label="Localidad"
-          variant="outlined"
-          value={branchData.locality}
-          onChange={(event) =>
-            setBranchData({
-              ...branchData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        />
-        <TextField
-          name="terminal"
-          label="Terminal"
-          variant="outlined"
-          value={branchData.terminal}
-          onChange={(event) =>
-            setBranchData({
-              ...branchData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        />
-        <TextField
-          name="address"
-          label="Direccion"
-          variant="outlined"
-          value={branchData.address}
-          onChange={(event) =>
-            setBranchData({
-              ...branchData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        />
-        <TextField
-          name="branchName"
-          label="Sucursal"
-          variant="outlined"
-          value={branchData.branchName}
-          onChange={(event) =>
-            setBranchData({
-              ...branchData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        />
-        <TextField
-          name="branchNumber"
-          label="Num/Cod Sucursal"
-          variant="outlined"
-          value={branchData.branchNumber}
-          onChange={(event) =>
-            setBranchData({
-              ...branchData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        />
-        <span>Horarios de Atencion:</span>
-        <br />
-        <span>Lunes a Domingo:</span>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <TimePicker
-            label="Hora de Apertura"
-            value={openingTime}
-            ampm={false}
-            onChange={(newTime) => {
-              setOpeningTime(newTime);
-              setBranchData({
-                ...branchData,
-                attentionSchedule: {
-                  ...branchData.attentionSchedule,
-                  openingTime: timeFormat(newTime),
-                },
-              });
-            }}
-            renderInput={(params) => <TextField {...params} />}
-          />
-        </LocalizationProvider>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <TimePicker
-            label="Hora de Cierre"
-            value={closingTime}
-            ampm={false}
-            onChange={(newTime) => {
-              setClosingTime(newTime);
-              setBranchData({
-                ...branchData,
-                attentionSchedule: {
-                  ...branchData.attentionSchedule,
-                  closingTime: timeFormat(newTime),
-                },
-              });
-            }}
-            renderInput={(params) => <TextField {...params} />}
-          />
-        </LocalizationProvider>
+      <Background>
+        <HeaderContainer>
+          <HeaderTitle>
+            <span>Registro de Sucursales</span>
+          </HeaderTitle>
+        </HeaderContainer>
+        <BodyContainer>
+          {/* Departamento:  NOTA: DARLE WITH 100%*/}
+          <DepartmentStyle>
+            <FormControl fullWidth>
+              <InputLabel id="demo-simple-select-label">
+                Departamento
+              </InputLabel>
+              <Select
+                value={branchData.department}
+                name="department"
+                onChange={(event) =>
+                  setBranchData({
+                    ...branchData,
+                    [event.target.name]: event.target.value,
+                  })
+                }
+              >
+                {departments.map((department, index) => (
+                  <MenuItem key={index} value={department}>
+                    {department}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </DepartmentStyle>
 
-        <span>Numeros de contacto:</span>
-        <TextField
-          name="telephone"
-          label="Telefono"
-          variant="outlined"
-          value={branchData.branchContactNumbers.telephone}
-          onChange={(event) =>
-            setBranchData({
-              ...branchData,
-              branchContactNumbers: {
-                ...branchData.branchContactNumbers,
-                [event.target.name]: event.target.value,
-              },
-            })
-          }
-        />
+          {/* Localidad: */}
+          <LocalityStyle>
+            <TextField
+              name="locality"
+              label="Localidad"
+              variant="outlined"
+              value={branchData.locality}
+              onChange={(event) =>
+                setBranchData({
+                  ...branchData,
+                  [event.target.name]: event.target.value,
+                })
+              }
+            />
+          </LocalityStyle>
 
-        <TextField
-          name="cellphone"
-          label="Celular"
-          variant="outlined"
-          value={branchData.branchContactNumbers.cellphone}
-          type="number"
-          onChange={(event) =>
-            setBranchData({
-              ...branchData,
-              branchContactNumbers: {
-                ...branchData.branchContactNumbers,
-                [event.target.name]: parseInt(event.target.value),
-              },
-            })
-          }
-        />
+          {/* Terminal: */}
+          <TerminalStyle>
+            <TextField
+              name="terminal"
+              label="Terminal"
+              variant="outlined"
+              value={branchData.terminal}
+              onChange={(event) =>
+                setBranchData({
+                  ...branchData,
+                  [event.target.name]: event.target.value,
+                })
+              }
+            />
+          </TerminalStyle>
 
-        <PlainModalButton
-          primaryBtnText="Registrar"
-          dialogTitle="Registro de suculsales"
-          dialogText="Esta seguro de registrar esta sucursal?"
-          closeBtnText="cancelar"
-          continueBtnText="si"
-          functionToExecute={createBranch}
-          functionParameters={branchData}
-          thirdFunctionToExecute={componentDefaultData}
-        />
-      </Box>
+          {/* Direccion: */}
+          <AddressStyle>
+            <TextField
+              name="address"
+              label="Direccion"
+              variant="outlined"
+              value={branchData.address}
+              onChange={(event) =>
+                setBranchData({
+                  ...branchData,
+                  [event.target.name]: event.target.value,
+                })
+              }
+            />
+          </AddressStyle>
+
+          {/* SucursalName: */}
+          <BranchNameStyle>
+            <TextField
+              name="branchName"
+              label="Sucursal"
+              variant="outlined"
+              value={branchData.branchName}
+              onChange={(event) =>
+                setBranchData({
+                  ...branchData,
+                  [event.target.name]: event.target.value,
+                })
+              }
+            />
+          </BranchNameStyle>
+
+          {/* BranchCode: */}
+          <BranchNumberStyle>
+            <TextField
+              name="branchNumber"
+              label="Num/Cod Sucursal"
+              variant="outlined"
+              value={branchData.branchNumber}
+              onChange={(event) =>
+                setBranchData({
+                  ...branchData,
+                  [event.target.name]: event.target.value,
+                })
+              }
+            />
+          </BranchNumberStyle>
+
+          {/* Title Horarios */}
+          <AttentionScheduleText>
+            <span>Horarios de Atencion</span>
+            <br />
+            <span>Lunes a Domingo</span>
+          </AttentionScheduleText>
+
+          {/* HoraEntrada:  */}
+          <OpeningTimeStyle>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <TimePicker
+                label="Hora de Apertura"
+                value={openingTime}
+                ampm={false}
+                onChange={(newTime) => {
+                  setOpeningTime(newTime);
+                  setBranchData({
+                    ...branchData,
+                    attentionSchedule: {
+                      ...branchData.attentionSchedule,
+                      openingTime: timeFormat(newTime),
+                    },
+                  });
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </OpeningTimeStyle>
+
+          {/* HoraSalida:  */}
+          <ClosingTimeStyle>
+            <LocalizationProvider dateAdapter={AdapterDateFns}>
+              <TimePicker
+                label="Hora de Cierre"
+                value={closingTime}
+                ampm={false}
+                onChange={(newTime) => {
+                  setClosingTime(newTime);
+                  setBranchData({
+                    ...branchData,
+                    attentionSchedule: {
+                      ...branchData.attentionSchedule,
+                      closingTime: timeFormat(newTime),
+                    },
+                  });
+                }}
+                renderInput={(params) => <TextField {...params} />}
+              />
+            </LocalizationProvider>
+          </ClosingTimeStyle>
+
+          {/* Title Numeros Contacto */}
+          <BranchContactNumbersText>
+            <span>Numeros de Contacto</span>
+          </BranchContactNumbersText>
+
+          {/* Telefono */}
+          <TelephoneStyle>
+            <TextField
+              name="telephone"
+              label="Telefono"
+              variant="outlined"
+              value={branchData.branchContactNumbers.telephone}
+              onChange={(event) =>
+                setBranchData({
+                  ...branchData,
+                  branchContactNumbers: {
+                    ...branchData.branchContactNumbers,
+                    [event.target.name]: event.target.value,
+                  },
+                })
+              }
+            />
+          </TelephoneStyle>
+
+          {/* Celular: */}
+          <CellphoneStyle>
+            <TextField
+              name="cellphone"
+              label="Celular"
+              variant="outlined"
+              value={branchData.branchContactNumbers.cellphone}
+              type="number"
+              onChange={(event) =>
+                setBranchData({
+                  ...branchData,
+                  branchContactNumbers: {
+                    ...branchData.branchContactNumbers,
+                    [event.target.name]: parseInt(event.target.value),
+                  },
+                })
+              }
+            />
+          </CellphoneStyle>
+
+          {/* Boton:  */}
+          <Btn>
+            <PlainModalButton
+              primaryBtnText="Registrar"
+              dialogTitle="Registro de suculsales"
+              dialogText="Esta seguro de registrar esta sucursal?"
+              closeBtnText="cancelar"
+              continueBtnText="si"
+              functionToExecute={createBranch}
+              functionParameters={branchData}
+              thirdFunctionToExecute={componentDefaultData}
+            />
+          </Btn>
+        </BodyContainer>
+      </Background>
     </>
   );
 };
