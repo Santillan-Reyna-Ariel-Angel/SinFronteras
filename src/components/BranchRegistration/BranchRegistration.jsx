@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 //MUI:
 import {
-  Box,
   InputLabel,
   MenuItem,
   FormControl,
@@ -110,10 +109,8 @@ export const BranchRegistration = () => {
         <BodyContainer>
           {/* Departamento:  NOTA: DARLE WITH 100%*/}
           <DepartmentStyle>
-            <FormControl fullWidth>
-              <InputLabel id="demo-simple-select-label">
-                Departamento
-              </InputLabel>
+            <FormControl className="input">
+              <InputLabel>Departamento</InputLabel>
               <Select
                 value={branchData.department}
                 name="department"
@@ -136,6 +133,7 @@ export const BranchRegistration = () => {
           {/* Localidad: */}
           <LocalityStyle>
             <TextField
+              className="input"
               name="locality"
               label="Localidad"
               variant="outlined"
@@ -152,6 +150,7 @@ export const BranchRegistration = () => {
           {/* Terminal: */}
           <TerminalStyle>
             <TextField
+              className="input"
               name="terminal"
               label="Terminal"
               variant="outlined"
@@ -168,6 +167,7 @@ export const BranchRegistration = () => {
           {/* Direccion: */}
           <AddressStyle>
             <TextField
+              className="input"
               name="address"
               label="Direccion"
               variant="outlined"
@@ -184,6 +184,7 @@ export const BranchRegistration = () => {
           {/* SucursalName: */}
           <BranchNameStyle>
             <TextField
+              className="input"
               name="branchName"
               label="Sucursal"
               variant="outlined"
@@ -200,6 +201,7 @@ export const BranchRegistration = () => {
           {/* BranchCode: */}
           <BranchNumberStyle>
             <TextField
+              className="input"
               name="branchNumber"
               label="Num/Cod Sucursal"
               variant="outlined"
@@ -237,7 +239,9 @@ export const BranchRegistration = () => {
                     },
                   });
                 }}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => (
+                  <TextField {...params} className="input" />
+                )}
               />
             </LocalizationProvider>
           </OpeningTimeStyle>
@@ -259,7 +263,9 @@ export const BranchRegistration = () => {
                     },
                   });
                 }}
-                renderInput={(params) => <TextField {...params} />}
+                renderInput={(params) => (
+                  <TextField {...params} className="input" />
+                )}
               />
             </LocalizationProvider>
           </ClosingTimeStyle>
@@ -272,6 +278,7 @@ export const BranchRegistration = () => {
           {/* Telefono */}
           <TelephoneStyle>
             <TextField
+              className="input"
               name="telephone"
               label="Telefono"
               variant="outlined"
@@ -291,6 +298,7 @@ export const BranchRegistration = () => {
           {/* Celular: */}
           <CellphoneStyle>
             <TextField
+              className="input"
               name="cellphone"
               label="Celular"
               variant="outlined"

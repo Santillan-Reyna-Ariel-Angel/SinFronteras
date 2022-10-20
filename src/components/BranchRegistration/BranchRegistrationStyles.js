@@ -33,7 +33,7 @@ export const HeaderTitle = styled.div`
 export const BodyContainer = styled.div`
   display: grid;
   background-color: #00bdb2;
-  grid-template-columns: 170px 170px;
+  grid-template-columns: 200px 200px; //170px 170px
   grid-template-rows: auto;
   grid-row-gap: 15px;
   grid-column-gap: 10px;
