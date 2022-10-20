@@ -91,10 +91,9 @@ export const BranchNumberStyle = styled.div`
 
 export const AttentionScheduleText = styled.div`
   grid-area: AttentionScheduleText;
-  /* justify-self: center; */
   text-align: center;
-  /* padding: 5px 0px; */
   font-size: larger;
+  font-weight: bold;
 `;
 
 export const OpeningTimeStyle = styled.div`
@@ -113,11 +112,9 @@ export const ClosingTimeStyle = styled.div`
 
 export const BranchContactNumbersText = styled.div`
   grid-area: BranchContactNumbersText;
-
-  /* justify-self: center; */
   text-align: center;
-  /* padding: 5px 0px; */
   font-size: larger;
+  font-weight: bold;
 `;
 
 export const TelephoneStyle = styled.div`
