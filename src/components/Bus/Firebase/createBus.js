@@ -10,15 +10,8 @@ export const createBus = (busData) => {
   //   console.log('filingAux: ', filingAux);
   //Enviar Datos a BD:
   set(ref(fire_db, `companyBuses/${[enrollment]}/`), {
-    designatedBranch: 'DISPONIBLE', //Necesario para listar buses por branch
-    enrollment: enrollment,
+    ...busData,
     filing: filingAux,
-    identificationNumberDriver: busData.identificationNumberDriver,
-    numberOfFloors: busData.numberOfFloors,
-    numberOfSeats: busData.numberOfSeats, // Posteriormente considerar asietos de 1er y 2do piso
-    services: busData.services,
-    status: busData.status,
-    typeOfBus: busData.typeOfBus,
-    typeOfSeats: busData.typeOfSeats,
+    // numberOfSeats: busData.numberOfSeats, // Posteriormente considerar asietos de 1er y 2do piso
   });
 };

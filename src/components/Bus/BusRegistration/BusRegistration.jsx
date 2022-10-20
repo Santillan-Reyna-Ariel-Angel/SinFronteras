@@ -28,6 +28,7 @@ import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 
 export const BusRegistration = () => {
   let companyBusDefaultData = {
+    designatedBranch: 'DISPONIBLE', //Necesario para listar buses por branch
     enrollment: '', //bus-001
     filing: '', //"H"
     identificationNumberDriver: '',
@@ -38,9 +39,9 @@ export const BusRegistration = () => {
       drinks: false,
       tv: true,
     },
-    status: '', // activo
-    typeOfBus: '', // normal
-    typeOfSeats: '', //semi-cama
+    status: '',
+    typeOfBus: '',
+    typeOfSeats: '',
   };
 
   const [busData, setBusData] = useState(companyBusDefaultData);
@@ -202,6 +203,7 @@ export const BusRegistration = () => {
         <FormControl sx={{ m: 0 }} component="fieldset" variant="standard">
           <FormLabel component="legend">Servicios: </FormLabel>
           <FormGroup>
+            {/* Baño: */}
             <FormControlLabel
               control={
                 <Checkbox
@@ -212,16 +214,7 @@ export const BusRegistration = () => {
               }
               label="Baño"
             />
-            <FormControlLabel
-              control={
-                <Checkbox
-                  checked={busData.services.tv}
-                  onChange={changeServiceStatus}
-                  name="tv"
-                />
-              }
-              label="Tv"
-            />
+            {/* Bebidas: */}
             <FormControlLabel
               control={
                 <Checkbox
@@ -231,6 +224,17 @@ export const BusRegistration = () => {
                 />
               }
               label="Bebidas"
+            />
+            {/* Tv: */}
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={busData.services.tv}
+                  onChange={changeServiceStatus}
+                  name="tv"
+                />
+              }
+              label="Tv"
             />
           </FormGroup>
         </FormControl>
