@@ -11,6 +11,7 @@ import { Sales } from './components/Sales/Sales';
 import { BranchRegistration } from './components/BranchRegistration/BranchRegistration';
 import { BusRegistration } from './components/Bus/BusRegistration/BusRegistration';
 import { BusList } from './components/Bus/BusList/BusList';
+import { TravelRegistration } from './components/Travels/TravelRegistration/TravelRegistration';
 //probando tickets
 import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
@@ -99,6 +100,13 @@ const AppRoutes = () => {
                           exact
                           path="/sucursales/registro-de-sucursales/"
                           component={BranchRegistration}
+                        />
+
+                        {/* Route for Tests: */}
+                        <Route
+                          exact
+                          path="/test-component/"
+                          component={TravelRegistration}
                         />
                       </Layout>
                     </Switch>
