@@ -40,6 +40,35 @@ const formatTime = (date) => {
   return formatTimeAux;
 };
 
+let dateOutOfRange_TodayAndMaxDate = ({ inputDate, maxDateFullYMDInt }) => {
+  // maxDateFullYMDInt = 20451231; // => maxDate={new Date('2046-01-01')} - 1(dia)  que establezcamos en el <DatePicker ... />
+
+  //isNaN(inputDate) => para que en cada change NO guarde NaN/NaN/NaN en travelDate
+  let isErrorDate =
+    inputDate === null || inputDate === '' || isNaN(inputDate) ? true : false;
+
+  let dateOutOfRange;
+
+  if (isErrorDate) {
+    return true;
+  } else {
+    //Recuperar dia, mes y año por separado
+    let toDayAux = formatDate(new Date()).split('/');
+    let selectedDateAux = isErrorDate
+      ? [0, 0, 0] //ESTO ES INNECESARIO YA QUE SE COMPROBO anteriormente "isErrorDate"
+      : formatDate(inputDate).split('/');
+    //Invertir a: año, mes y dia para formar un numero que aumente su valor cada dia(no repetible)
+    let toDay = parseInt(toDayAux[2] + toDayAux[1] + toDayAux[0]);
+    let selectedDate = parseInt(
+      selectedDateAux[2] + selectedDateAux[1] + selectedDateAux[0]
+    );
+    //Comparar si la fecha ingresada es menor:
+    dateOutOfRange = selectedDate < toDay || selectedDate > maxDateFullYMDInt;
+    console.log('dateOutOfRange', dateOutOfRange);
+    return dateOutOfRange;
+  }
+};
+
 export const TravelRegistration = () => {
   const travelsDataDefaul = {
     bus: {
@@ -73,19 +102,15 @@ export const TravelRegistration = () => {
 
   const [travelDate, setTravelDate] = useState(null); //new Date()
 
-  const changeDate = (date) => {
-    //isNaN(date) => para que en cada change NO guarde NaN/NaN/NaN en travelDate
-    let isErrorDate =
-      date === null || date === '' || isNaN(date) ? true : false;
-
-    let toDay = parseInt(formatDate(new Date()));
-    let selectedDate = isErrorDate ? 0 : parseInt(formatDate(date));
-    let lastDate = selectedDate < toDay; //Tambien comparar la longuitud, por que acepta apartir de 20/10/2 y se coloca en el estado
+  const changeDate = (inputDate) => {
+    let dateOutOfRange = dateOutOfRange_TodayAndMaxDate({
+      inputDate,
+      maxDateFullYMDInt: 20451231,
+    }); // maxDateFullYMDInt = 20451231; // => maxDate={new Date('2046-01-01')} - 1(dia)  que establezcamos en el <DatePicker ... />
 
     setTravelData({
       ...travelData,
-      travelDate:
-        isErrorDate === true || lastDate === true ? '' : formatDate(date),
+      travelDate: dateOutOfRange ? '' : formatDate(inputDate),
     });
   };
 
