@@ -24,11 +24,18 @@ import DatePicker from '@mui/lab/DatePicker';
 //Others:
 
 // let date = new Date();
-const formatDate = (date) => {
+const formatDate = ({ date, format = 'dd/mm/yyyy' }) => {
   let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
   let month =
     date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
-  let formatDateAux = `${day}/${month}/${date.getFullYear()}`;
+
+  let formatDateAux;
+  if (format === 'dd/mm/yyyy' || format === '') {
+    formatDateAux = `${day}/${month}/${date.getFullYear()}`;
+  } else {
+    // format === 'yyyy/mm/dd'
+    formatDateAux = `${date.getFullYear()}/${month}/${day}`;
+  }
   return formatDateAux;
 };
 
@@ -50,18 +57,19 @@ let dateOutOfRange_TodayAndMaxDate = ({ inputDate, maxDateFullYMDInt }) => {
   let dateOutOfRange;
 
   if (isErrorDate) {
-    return true;
+    dateOutOfRange = true;
+    console.log('dateOutOfRange', dateOutOfRange);
+    return dateOutOfRange;
   } else {
-    //Recuperar dia, mes y año por separado
-    let toDayAux = formatDate(new Date()).split('/');
-    let selectedDateAux = isErrorDate
-      ? [0, 0, 0] //ESTO ES INNECESARIO YA QUE SE COMPROBO anteriormente "isErrorDate"
-      : formatDate(inputDate).split('/');
-    //Invertir a: año, mes y dia para formar un numero que aumente su valor cada dia(no repetible)
-    let toDay = parseInt(toDayAux[2] + toDayAux[1] + toDayAux[0]);
-    let selectedDate = parseInt(
-      selectedDateAux[2] + selectedDateAux[1] + selectedDateAux[0]
-    );
+    //Recuperar año, mes y dia. Para poder formar un numero que aumente su valor cada dia(no repetible):
+    let toDayAux = formatDate({ date: new Date(), format: 'yyyy/mm/dd' });
+    let selectedDateAux = formatDate({
+      date: inputDate,
+      format: 'yyyy/mm/dd',
+    });
+    //Eliminar las "/" y convertir la fecha a un entero(no repetible)
+    let toDay = parseInt(toDayAux.replaceAll('/', ''));
+    let selectedDate = parseInt(selectedDateAux.replaceAll('/', ''));
     //Comparar si la fecha ingresada es menor:
     dateOutOfRange = selectedDate < toDay || selectedDate > maxDateFullYMDInt;
     console.log('dateOutOfRange', dateOutOfRange);
@@ -110,7 +118,9 @@ export const TravelRegistration = () => {
 
     setTravelData({
       ...travelData,
-      travelDate: dateOutOfRange ? '' : formatDate(inputDate),
+      travelDate: dateOutOfRange
+        ? ''
+        : formatDate({ date: inputDate, format: 'dd/mm/yyyy' }),
     });
   };
 
@@ -163,7 +173,7 @@ export const TravelRegistration = () => {
             <TextField
               className="input"
               {...params}
-              helperText={'Ej. 01/09/2022'} //Texto de ayuda (debajo del input)
+              helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
             />
           )}
         />
