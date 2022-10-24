@@ -22,6 +22,7 @@ import DatePicker from '@mui/lab/DatePicker';
 //Components:
 // import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
+const DatePicker_maxDate = new Date('2046-01-01'); // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
 
 // let date = new Date();
 const formatDate = ({ date, format = 'dd/mm/yyyy' }) => {
@@ -47,9 +48,7 @@ const formatTime = (date) => {
   return formatTimeAux;
 };
 
-let dateOutOfRange_TodayAndMaxDate = ({ inputDate, maxDateFullYMDInt }) => {
-  // maxDateFullYMDInt = 20451231; // => maxDate={new Date('2046-01-01')} - 1(dia)  que establezcamos en el <DatePicker ... />
-
+const isDateOutOfRange = ({ inputDate, startDate, endDate }) => {
   //isNaN(inputDate) => para que en cada change NO guarde NaN/NaN/NaN en travelDate
   let isErrorDate =
     inputDate === null || inputDate === '' || isNaN(inputDate) ? true : false;
@@ -61,17 +60,18 @@ let dateOutOfRange_TodayAndMaxDate = ({ inputDate, maxDateFullYMDInt }) => {
     console.log('dateOutOfRange', dateOutOfRange);
     return dateOutOfRange;
   } else {
-    //Recuperar año, mes y dia. Para poder formar un numero que aumente su valor cada dia(no repetible):
-    let toDayAux = formatDate({ date: new Date(), format: 'yyyy/mm/dd' });
-    let selectedDateAux = formatDate({
+    //Recuperar año, mes y dia.
+    let selectedDate = formatDate({
       date: inputDate,
       format: 'yyyy/mm/dd',
     });
-    //Eliminar las "/" y convertir la fecha a un entero(no repetible)
-    let toDay = parseInt(toDayAux.replaceAll('/', ''));
-    let selectedDate = parseInt(selectedDateAux.replaceAll('/', ''));
+    //Eliminar las "/" y convertir la fecha a un entero:
+    let startDateInt = parseInt(startDate.replaceAll('/', ''));
+    let selectedDateInt = parseInt(selectedDate.replaceAll('/', ''));
+    let endDateInt = parseInt(endDate.replaceAll('/', ''));
     //Comparar si la fecha ingresada es menor:
-    dateOutOfRange = selectedDate < toDay || selectedDate > maxDateFullYMDInt;
+    dateOutOfRange =
+      selectedDateInt < startDateInt || selectedDateInt > endDateInt;
     console.log('dateOutOfRange', dateOutOfRange);
     return dateOutOfRange;
   }
@@ -111,10 +111,17 @@ export const TravelRegistration = () => {
   const [travelDate, setTravelDate] = useState(null); //new Date()
 
   const changeDate = (inputDate) => {
-    let dateOutOfRange = dateOutOfRange_TodayAndMaxDate({
+    let dateOutOfRange = isDateOutOfRange({
+      startDate: formatDate({
+        date: new Date(),
+        format: 'yyyy/mm/dd',
+      }),
       inputDate,
-      maxDateFullYMDInt: 20451231,
-    }); // maxDateFullYMDInt = 20451231; // => maxDate={new Date('2046-01-01')} - 1(dia)  que establezcamos en el <DatePicker ... />
+      endDate: formatDate({
+        date: DatePicker_maxDate,
+        format: 'yyyy/mm/dd',
+      }),
+    });
 
     setTravelData({
       ...travelData,
@@ -163,9 +170,9 @@ export const TravelRegistration = () => {
           name="travelDate"
           label="F. de viaje(dia/mes/año)"
           minDate={new Date()}
-          maxDate={new Date('2046-01-01')}
+          maxDate={DatePicker_maxDate} // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
           inputFormat="dd/MM/yyyy" //IMPORTANTE formato de fecha
-          //   onError={() => console.log('error')} //REVISAR PARA NO GUARDAR FECHAS PASADAS
+          //   onError={() => console.log('error')} //solo se ejecuta en ciertas partes al escribir la fecha
           //   onAccept={() => {}} //Funciona Solo si se usa la ventana emergente
           value={travelDate}
           onChange={(newDate) => [setTravelDate(newDate), changeDate(newDate)]}
