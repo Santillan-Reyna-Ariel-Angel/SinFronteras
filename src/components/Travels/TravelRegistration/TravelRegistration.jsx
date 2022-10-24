@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 //MUI:
 import {
@@ -18,6 +18,9 @@ import {
 
 //Styles:
 //Contexts:
+import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
+import { ContextCompanyBuses } from './../../../contexts/ContextCompanyBuses';
+
 //Firebase Functions:
 //States:
 //Components:
@@ -30,8 +33,37 @@ import {
 } from './../Functions/functions';
 
 const DatePicker_maxDate = new Date('2046-01-01'); // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
+const departments = [
+  'beni',
+  'chuquisaca',
+  'cochabamba',
+  'la paz',
+  'oruro',
+  'pando',
+  'potosi',
+  'santa cruz',
+  'tarija',
+];
 
 export const TravelRegistration = () => {
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  const {
+    branchInformation: { branchNumber, department, location },
+  } = branchOffice
+    ? branchOffice
+    : { branchInformation: { branchNumber: '', department: '', location: '' } };
+  // console.log('department', department);
+
+  //ContextCompanyBuses:
+  const companyBuses = useContext(ContextCompanyBuses);
+  // console.log('companyBuses: ', companyBuses);
+
+  // json to array:
+  let companyBusesArray = [];
+  for (let i in companyBuses) companyBusesArray.push(companyBuses[i]);
+  // console.log('companyBusesArray', companyBusesArray);
+
   const travelsDataDefaul = {
     bus: {
       enrollment: 'bus-006',
@@ -52,11 +84,13 @@ export const TravelRegistration = () => {
     departureTime: '20:30',
     destinationLocation: '', //c. santa cruz
     lane: '0',
-    localityOfOrigin: 'dataDefault', //sucre
+    localityOfOrigin: '', //sucre
     travelDate: '', //31/10/2022
     travelStatus: false,
     //extraData
-    departmentOfOrigin: 'dataDefault',
+    departmentOfOrigin: department === undefined ? '' : department,
+    destinationDepartment: '',
+    busEnrollment: '',
   };
 
   const [travelData, setTravelData] = useState(travelsDataDefaul);
@@ -89,9 +123,15 @@ export const TravelRegistration = () => {
     });
   };
 
+  let busEnrollments = companyBusesArray
+    .filter(
+      (bus) => bus.status === 'activo' && bus.designatedBranch === branchNumber
+    )
+    .map((bus) => bus.enrollment);
+  console.log('busEnrollments', busEnrollments);
   return (
     <>
-      <TextField
+      {/* <TextField
         className="input"
         name="localityOfOrigin"
         label="Generic"
@@ -103,17 +143,30 @@ export const TravelRegistration = () => {
             [event.target.name]: event.target.value,
           })
         }
-      />
+      /> */}
 
-      <TextField
-        className="input"
-        name="departmentOfOrigin"
-        label="Departamento origen"
-        variant="outlined"
-        value={travelData.departmentOfOrigin}
-        // disabled
-      />
+      {/* Departamento origen: */}
+      <FormControl className="input">
+        <InputLabel>Departamento origen</InputLabel>
+        <Select
+          value={travelData.departmentOfOrigin}
+          name="departmentOfOrigin"
+          onChange={(event) =>
+            setTravelData({
+              ...travelData,
+              [event.target.name]: event.target.value,
+            })
+          }
+        >
+          {departments.map((department, index) => (
+            <MenuItem key={index} value={department}>
+              {department}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
 
+      {/* Localidad origen: */}
       <TextField
         className="input"
         name="localityOfOrigin"
@@ -121,8 +174,15 @@ export const TravelRegistration = () => {
         variant="outlined"
         value={travelData.localityOfOrigin}
         // disabled
+        onChange={(event) =>
+          setTravelData({
+            ...travelData,
+            [event.target.name]: event.target.value,
+          })
+        }
       />
 
+      {/* Fecha viaje */}
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <DatePicker
           name="travelDate"
@@ -160,6 +220,64 @@ export const TravelRegistration = () => {
           renderInput={(params) => <TextField {...params} className="input" />}
         />
       </LocalizationProvider>
+
+      {/* Departamento destino: */}
+      <FormControl className="input">
+        <InputLabel>Departamento destino</InputLabel>
+        <Select
+          value={travelData.destinationDepartment}
+          name="destinationDepartment"
+          onChange={(event) =>
+            setTravelData({
+              ...travelData,
+              [event.target.name]: event.target.value,
+            })
+          }
+        >
+          {departments.map((department, index) => (
+            <MenuItem key={index} value={department}>
+              {department}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+
+      {/* Localidad origen: */}
+      <TextField
+        className="input"
+        name="destinationLocation"
+        label="Localidad destino"
+        variant="outlined"
+        value={travelData.destinationLocation}
+        // disabled
+        onChange={(event) =>
+          setTravelData({
+            ...travelData,
+            [event.target.name]: event.target.value,
+          })
+        }
+      />
+
+      {/* Placa bus: */}
+      <FormControl className="input">
+        <InputLabel>Placa bus</InputLabel>
+        <Select
+          value={travelData.busEnrollment}
+          name="busEnrollment"
+          onChange={(event) =>
+            setTravelData({
+              ...travelData,
+              [event.target.name]: event.target.value,
+            })
+          }
+        >
+          {busEnrollments.map((enrollment, index) => (
+            <MenuItem key={index} value={enrollment}>
+              {enrollment}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
     </>
   );
 };
