@@ -1,4 +1,4 @@
-export const formatDate = ({ date, format = 'dd/mm/yyyy' }) => {
+export const dateFormat = ({ date, format = 'dd/mm/yyyy' }) => {
   let day = date.getDate() < 10 ? `0${date.getDate()}` : date.getDate();
   let month =
     date.getMonth() + 1 < 10 ? `0${date.getMonth() + 1}` : date.getMonth() + 1;
@@ -13,12 +13,16 @@ export const formatDate = ({ date, format = 'dd/mm/yyyy' }) => {
   return formatDateAux;
 };
 
-export const formatTime = (date) => {
-  let hour = date.getHours();
+export const timeFormat = (newTime) => {
+  //Otra opcion con segundos seria: newTime.toLocaleTimeString()
+  let hour =
+    newTime.getHours() < 10 ? `0${newTime.getHours()}` : newTime.getHours();
   let minute =
-    date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
-  let formatTimeAux = `${hour}:${minute}`;
-  return formatTimeAux;
+    newTime.getMinutes() < 10
+      ? `0${newTime.getMinutes()}`
+      : newTime.getMinutes();
+
+  return `${hour}:${minute}`;
 };
 
 export const isDateOutOfRange = ({ inputDate, startDate, endDate }) => {
@@ -34,7 +38,7 @@ export const isDateOutOfRange = ({ inputDate, startDate, endDate }) => {
     return dateOutOfRange;
   } else {
     //Recuperar año, mes y dia.
-    let selectedDate = formatDate({
+    let selectedDate = dateFormat({
       date: inputDate,
       format: 'yyyy/mm/dd',
     });

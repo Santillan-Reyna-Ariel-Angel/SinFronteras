@@ -9,11 +9,12 @@ import {
   TextField,
 } from '@mui/material/';
 // Manejo de fechas:
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
-// import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
-// import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers/';
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import {
+  LocalizationProvider,
+  TimePicker,
+  DatePicker,
+} from '@mui/x-date-pickers/';
 
 //Styles:
 //Contexts:
@@ -22,7 +23,11 @@ import DatePicker from '@mui/lab/DatePicker';
 //Components:
 // import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
-import { formatDate, isDateOutOfRange } from './../Functions/functions';
+import {
+  dateFormat,
+  timeFormat,
+  isDateOutOfRange,
+} from './../Functions/functions';
 
 const DatePicker_maxDate = new Date('2046-01-01'); // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
 
@@ -44,7 +49,7 @@ export const TravelRegistration = () => {
       typeOfBus: 'leito',
       typeOfSeats: 'cama',
     },
-    departureTime: '', //21:30
+    departureTime: '20:30',
     destinationLocation: '', //c. santa cruz
     lane: '0',
     localityOfOrigin: 'dataDefault', //sucre
@@ -59,14 +64,18 @@ export const TravelRegistration = () => {
 
   const [travelDate, setTravelDate] = useState(null); //new Date()
 
+  const [departureTime, setDepartureTime] = useState(
+    new Date('2022-12-16T20:30:00')
+  );
+
   const changeDate = (inputDate) => {
     let dateOutOfRange = isDateOutOfRange({
-      startDate: formatDate({
+      startDate: dateFormat({
         date: new Date(),
         format: 'yyyy/mm/dd',
       }),
       inputDate,
-      endDate: formatDate({
+      endDate: dateFormat({
         date: DatePicker_maxDate,
         format: 'yyyy/mm/dd',
       }),
@@ -76,7 +85,7 @@ export const TravelRegistration = () => {
       ...travelData,
       travelDate: dateOutOfRange
         ? ''
-        : formatDate({ date: inputDate, format: 'dd/mm/yyyy' }),
+        : dateFormat({ date: inputDate, format: 'dd/mm/yyyy' }),
     });
   };
 
@@ -102,7 +111,7 @@ export const TravelRegistration = () => {
         label="Departamento origen"
         variant="outlined"
         value={travelData.departmentOfOrigin}
-        disabled
+        // disabled
       />
 
       <TextField
@@ -111,7 +120,7 @@ export const TravelRegistration = () => {
         label="Localidad origen"
         variant="outlined"
         value={travelData.localityOfOrigin}
-        disabled
+        // disabled
       />
 
       <LocalizationProvider dateAdapter={AdapterDateFns}>
@@ -132,6 +141,23 @@ export const TravelRegistration = () => {
               helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
             />
           )}
+        />
+      </LocalizationProvider>
+
+      {/* Hora de viaje:  */}
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <TimePicker
+          label="Hora de viaje"
+          value={departureTime}
+          ampm={false}
+          onChange={(newTime) => {
+            setDepartureTime(newTime);
+            setTravelData({
+              ...travelData,
+              departureTime: timeFormat(newTime),
+            });
+          }}
+          renderInput={(params) => <TextField {...params} className="input" />}
         />
       </LocalizationProvider>
     </>
