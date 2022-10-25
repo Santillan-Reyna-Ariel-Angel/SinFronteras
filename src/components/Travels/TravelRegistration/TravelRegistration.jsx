@@ -20,7 +20,7 @@ import {
 //Contexts:
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextCompanyBuses } from './../../../contexts/ContextCompanyBuses';
-
+import { ContextAllUserData } from './../../../contexts/ContextAllUserData';
 //Firebase Functions:
 //States:
 //Components:
@@ -53,33 +53,35 @@ export const TravelRegistration = () => {
   } = branchOffice
     ? branchOffice
     : { branchInformation: { branchNumber: '', department: '', location: '' } };
-  // console.log('department', department);
 
   //ContextCompanyBuses:
   const companyBuses = useContext(ContextCompanyBuses);
-  // console.log('companyBuses: ', companyBuses);
+
+  //ContextUserData
+  const allUserData = useContext(ContextAllUserData);
+  // console.log('allUserData', allUserData);
 
   // json to array:
   let companyBusesArray = [];
   for (let i in companyBuses) companyBusesArray.push(companyBuses[i]);
-  // console.log('companyBusesArray', companyBusesArray);
+  let allUserDataArray = [];
+  for (let i in allUserData) allUserDataArray.push(allUserData[i]);
 
   const travelsDataDefaul = {
     bus: {
-      enrollment: 'bus-006',
-      filing: 'H',
+      // enrollment: '',
+      // filing: '',
       identificationNumberDriver: '',
-      key: 'bus-006',
-      numberOfFloors: 1,
-      numberOfSeats: 29,
-      services: {
-        bathroom: true,
-        drinks: false,
-        tv: true,
-      },
-      status: 'activo',
-      typeOfBus: 'leito',
-      typeOfSeats: 'cama',
+      // numberOfFloors: 1,
+      // numberOfSeats: 29,
+      // services: {
+      //   bathroom: true,
+      //   drinks: false,
+      //   tv: true,
+      // },
+      // status: '',
+      // typeOfBus: '',
+      // typeOfSeats: '',
     },
     departureTime: '20:30',
     destinationLocation: '', //c. santa cruz
@@ -128,23 +130,28 @@ export const TravelRegistration = () => {
       (bus) => bus.status === 'activo' && bus.designatedBranch === branchNumber
     )
     .map((bus) => bus.enrollment);
-  console.log('busEnrollments', busEnrollments);
+  // console.log('busEnrollments', busEnrollments);
+
+  //insertar busData:
+  const insertBusData = (enrollment) => {
+    let busData = companyBusesArray.filter(
+      (bus) => bus.enrollment === enrollment
+    );
+    // console.log('busData[0]: ', busData[0]);
+    return busData[0];
+  };
+
+  let listOfDriversIdentificationNumber = allUserDataArray
+    .filter((user) => user.charge === 'chofer')
+    .map((user) => user.identificationNumber);
+
+  // console.log(
+  //   'listOfDriversIdentificationNumber',
+  //   listOfDriversIdentificationNumber
+  // );
+
   return (
     <>
-      {/* <TextField
-        className="input"
-        name="localityOfOrigin"
-        label="Generic"
-        variant="outlined"
-        value={'generic'} //travelData.localityOfOrigin
-        onChange={(event) =>
-          setTravelData({
-            ...travelData,
-            [event.target.name]: event.target.value,
-          })
-        }
-      /> */}
-
       {/* Departamento origen: */}
       <FormControl className="input">
         <InputLabel>Departamento origen</InputLabel>
@@ -268,6 +275,7 @@ export const TravelRegistration = () => {
             setTravelData({
               ...travelData,
               [event.target.name]: event.target.value,
+              bus: insertBusData(event.target.value),
             })
           }
         >
@@ -276,6 +284,32 @@ export const TravelRegistration = () => {
               {enrollment}
             </MenuItem>
           ))}
+        </Select>
+      </FormControl>
+
+      {/* CI Chofer: */}
+      <FormControl className="input">
+        <InputLabel>Ci Chofer</InputLabel>
+        <Select
+          value={travelData.bus.identificationNumberDriver}
+          name="identificationNumberDriver"
+          onChange={(event) =>
+            setTravelData({
+              ...travelData,
+              bus: {
+                ...travelData.bus,
+                [event.target.name]: event.target.value,
+              },
+            })
+          }
+        >
+          {listOfDriversIdentificationNumber.map(
+            (identificationNumber, index) => (
+              <MenuItem key={index} value={identificationNumber}>
+                {identificationNumber}
+              </MenuItem>
+            )
+          )}
         </Select>
       </FormControl>
     </>
