@@ -4,43 +4,15 @@
       "branchInformation": {
         "address": "av. marcelo quiroga N#300",
         "attentionSchedule": {
-          "fryday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "monday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "sunday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "suturday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "thursday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "tuesday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "wednesday": {
-            "closingTime": "",
-            "openingHours": ""
-          }
+          "closingTime": "18:30",
+          "openingTime": "08:00"
         },
-        "branchNumber": "1",
-        "branchPhotography": "sucursal.png",
+        "branchContactNumbers": {
+          "cellphone": 70707070,
+          "telephone": "64-64646"
+        },
+        "branchNumber": "code1",
         "department": "chuquisaca",
-        "departmentsContactNumbers": {
-          "informations": {
-            "telephone": "64-64646"
-          }
-        },
         "destinations": {
           "code1": {
             "destinationLocation": "c. santa cruz",
@@ -78,61 +50,25 @@
           }
         },
         "emailsWithAccess": "s1secretario1@gmail.com",
-        "localityPhotograpy": "sucre.png",
         "location": "sucre",
         "name": "Sin Fronteras sucursal Sucre",
         "terminal": "interprovincial"
       },
-      "busesInBranch": {
-        "code1": {
-          "busPhotography": "bus-001.png",
-          "enrollment": "bus-001",
-          "filing": "H",
-          "identificationNumberDriver": "",
-          "numberOfFloors": 1,
-          "numberOfSeats": 42,
-          "services": {
-            "bathroom": true,
-            "drinks": true,
-            "tv": true
-          },
-          "status": "active",
-          "typeOfBus": "normal",
-          "typeOfSeats": "semi-cama"
-        },
-        "code6": {
-          "busPhotography": "bus-006.png",
-          "enrollment": "bus-006",
-          "filing": "H",
-          "identificationNumberDriver": "",
-          "numberOfFloors": 1,
-          "numberOfSeats": 29,
-          "services": {
-            "bathroom": true,
-            "drinks": true,
-            "tv": true
-          },
-          "status": "active",
-          "typeOfBus": "leito",
-          "typeOfSeats": "cama"
-        }
-      },
       "travels": {
         "code1": {
           "bus": {
-            "busPhotography": "bus-006.png",
             "enrollment": "bus-006",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "code6",
+            "key": "bus-006",
             "numberOfFloors": 1,
             "numberOfSeats": 29,
             "services": {
               "bathroom": true,
-              "drinks": true,
+              "drinks": false,
               "tv": true
             },
-            "status": "active",
+            "status": "activo",
             "typeOfBus": "leito",
             "typeOfSeats": "cama"
           },
@@ -140,24 +76,23 @@
           "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "15/10/2022",
+          "travelDate": "31/10/2022",
           "travelStatus": false
         },
         "code2": {
           "bus": {
-            "busPhotography": "bus-001.png",
             "enrollment": "bus-001",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "code1",
+            "key": "bus-001",
             "numberOfFloors": 1,
             "numberOfSeats": 42,
             "services": {
               "bathroom": true,
-              "drinks": true,
+              "drinks": false,
               "tv": true
             },
-            "status": "active",
+            "status": "activo",
             "typeOfBus": "normal",
             "typeOfSeats": "semi-cama"
           },
@@ -165,7 +100,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "15/10/2022",
+          "travelDate": "31/10/2022",
           "travelStatus": false
         }
       }
@@ -174,43 +109,15 @@
       "branchInformation": {
         "address": "av. de los viajes N#300",
         "attentionSchedule": {
-          "fryday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "monday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "sunday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "suturday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "thursday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "tuesday": {
-            "closingTime": "",
-            "openingHours": ""
-          },
-          "wednesday": {
-            "closingTime": "",
-            "openingHours": ""
-          }
+          "closingTime": "18:30",
+          "openingTime": "08:00"
         },
-        "branchNumber": "2",
-        "branchPhotography": "sucursalsantacruz.png",
+        "branchContactNumbers": {
+          "cellphone": 70707070,
+          "telephone": "64-64646"
+        },
+        "branchNumber": "code2",
         "department": "santa cruz",
-        "departmentsContactNumbers": {
-          "informations": {
-            "telephone": "64-64646"
-          }
-        },
         "destinations": {
           "code1": {
             "destinationLocation": "sucre",
@@ -248,63 +155,25 @@
           }
         },
         "emailsWithAccess": "s2secretario1@gmail.com",
-        "localityPhotograpy": "c. santa cruz.png",
         "location": "c. santa cruz",
         "name": "Sin Fronteras sucursal C. Santa Cruz",
         "terminal": "interprovincial"
       },
-      "busesInBranch": {
-        "code2": {
-          "busPhotography": "bus-002.png",
-          "enrollment": "bus-002",
-          "filing": "H",
-          "identificationNumberDriver": "",
-          "numberOfFloors": 1,
-          "numberOfSeats": 43,
-          "services": {
-            "bathroom": true,
-            "drinks": true,
-            "tv": true
-          },
-          "status": "active",
-          "typeOfBus": "normal",
-          "typeOfSeats": "semi-cama"
-        },
-        "code8": {
-          "busPhotography": "bus-008.png",
-          "enrollment": "bus-008",
-          "filing": "H",
-          "identificationNumberDriver": "",
-          "numberOfFloors": 2,
-          "numberOfSeats": 40,
-          "numberOfSeatsFirstFloor": 20,
-          "numberOfSeatsSecondFloor": 20,
-          "services": {
-            "bathroom": true,
-            "drinks": true,
-            "tv": true
-          },
-          "status": "active",
-          "typeOfBus": "leito",
-          "typeOfSeats": "cama"
-        }
-      },
       "travels": {
         "code1": {
           "bus": {
-            "busPhotography": "bus-002.png",
             "enrollment": "bus-002",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "code2",
+            "key": "bus-002",
             "numberOfFloors": 1,
             "numberOfSeats": 43,
             "services": {
               "bathroom": true,
-              "drinks": true,
+              "drinks": false,
               "tv": true
             },
-            "status": "active",
+            "status": "activo",
             "typeOfBus": "normal",
             "typeOfSeats": "semi-cama"
           },
@@ -312,26 +181,25 @@
           "destinationLocation": "sucre",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "15/10/2022",
+          "travelDate": "31/10/2022",
           "travelStatus": false
         },
         "code2": {
           "bus": {
-            "busPhotography": "bus-008.png",
             "enrollment": "bus-008",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "code8",
+            "key": "bus-008",
             "numberOfFloors": 2,
             "numberOfSeats": 40,
             "numberOfSeatsFirstFloor": 20,
             "numberOfSeatsSecondFloor": 20,
             "services": {
               "bathroom": true,
-              "drinks": true,
+              "drinks": false,
               "tv": true
             },
-            "status": "active",
+            "status": "activo",
             "typeOfBus": "leito",
             "typeOfSeats": "cama"
           },
@@ -339,34 +207,15 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "15/10/2022",
+          "travelDate": "31/10/2022",
           "travelStatus": false
         }
-      }
-    },
-    "code203": {
-      "branchInformation": {
-        "address": "address brach sucre",
-        "attentionSchedule": {
-          "closingTime": "18:30",
-          "openingTime": "08:00"
-        },
-        "branchNumber": "code203",
-        "department": "chuquisaca",
-        "departmentsContactNumbers": {
-          "cellphone": 68246268,
-          "telephone": "64-68925"
-        },
-        "emailsWithAccess": "",
-        "location": "sucre",
-        "name": "sucursal name",
-        "terminal": "interprovincial"
       }
     }
   },
   "companyBuses": {
-    "code1": {
-      "busPhotography": "bus-001.png",
+    "bus-001": {
+      "designatedBranch": "code1",
       "enrollment": "bus-001",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -374,15 +223,15 @@
       "numberOfSeats": 42,
       "services": {
         "bathroom": true,
-        "drinks": true,
+        "drinks": false,
         "tv": true
       },
-      "status": "active",
+      "status": "activo",
       "typeOfBus": "normal",
       "typeOfSeats": "semi-cama"
     },
-    "code2": {
-      "busPhotography": "bus-002.png",
+    "bus-002": {
+      "designatedBranch": "code2",
       "enrollment": "bus-002",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -390,15 +239,15 @@
       "numberOfSeats": 43,
       "services": {
         "bathroom": true,
-        "drinks": true,
+        "drinks": false,
         "tv": true
       },
-      "status": "active",
+      "status": "activo",
       "typeOfBus": "normal",
       "typeOfSeats": "semi-cama"
     },
-    "code3": {
-      "busPhotography": "bus-003.png",
+    "bus-003": {
+      "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-003",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -406,15 +255,15 @@
       "numberOfSeats": 36,
       "services": {
         "bathroom": true,
-        "drinks": true,
+        "drinks": false,
         "tv": true
       },
-      "status": "active",
+      "status": "activo",
       "typeOfBus": "normal",
       "typeOfSeats": "semi-cama"
     },
-    "code4": {
-      "busPhotography": "bus-004.png",
+    "bus-004": {
+      "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-004",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -422,15 +271,15 @@
       "numberOfSeats": 27,
       "services": {
         "bathroom": true,
-        "drinks": true,
+        "drinks": false,
         "tv": true
       },
-      "status": "active",
+      "status": "activo",
       "typeOfBus": "leito",
       "typeOfSeats": "cama"
     },
-    "code5": {
-      "busPhotography": "bus-005.png",
+    "bus-005": {
+      "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-005",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -438,15 +287,15 @@
       "numberOfSeats": 26,
       "services": {
         "bathroom": true,
-        "drinks": true,
+        "drinks": false,
         "tv": true
       },
-      "status": "active",
+      "status": "activo",
       "typeOfBus": "leito",
       "typeOfSeats": "cama"
     },
-    "code6": {
-      "busPhotography": "bus-006.png",
+    "bus-006": {
+      "designatedBranch": "code1",
       "enrollment": "bus-006",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -454,15 +303,15 @@
       "numberOfSeats": 29,
       "services": {
         "bathroom": true,
-        "drinks": true,
+        "drinks": false,
         "tv": true
       },
-      "status": "active",
+      "status": "activo",
       "typeOfBus": "leito",
       "typeOfSeats": "cama"
     },
-    "code8": {
-      "busPhotography": "bus-008.png",
+    "bus-008": {
+      "designatedBranch": "code2",
       "enrollment": "bus-008",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -472,15 +321,15 @@
       "numberOfSeatsSecondFloor": 20,
       "services": {
         "bathroom": true,
-        "drinks": true,
+        "drinks": false,
         "tv": true
       },
-      "status": "active",
+      "status": "activo",
       "typeOfBus": "leito",
       "typeOfSeats": "cama"
     },
-    "codeAux": {
-      "busPhotography": "bus-aux.png",
+    "bus-aux": {
+      "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-aux",
       "filing": "C",
       "identificationNumberDriver": "",
@@ -488,10 +337,10 @@
       "numberOfSeats": 39,
       "services": {
         "bathroom": true,
-        "drinks": true,
+        "drinks": false,
         "tv": true
       },
-      "status": "active",
+      "status": "activo",
       "typeOfBus": "normal",
       "typeOfSeats": "semi-cama"
     }
@@ -510,13 +359,13 @@
     "telephone": "64-64646"
   },
   "tripsMade": {
-    "branch_1": {
-      "travel_15-10-2022_20-30_bus-001": {
+    "branch_code1": {
+      "travel_31-10-2022_20-30_bus-001": {
         "occupiedSeat": [
           "vendido-74747472"
         ]
       },
-      "travel_15-10-2022_21-30_bus-006": {
+      "travel_31-10-2022_21-30_bus-006": {
         "occupiedSeat": [
           "vendido-74747472"
         ]
@@ -524,6 +373,62 @@
     }
   },
   "users": {
+    "70707070": {
+      "address": "address branch",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "Sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "9/2/2001",
+      "email": "ronalquispe@gmail.com",
+      "identificationNumber": "70707070",
+      "mobile": "78965412",
+      "names": "ronal",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "quispe mamani"
+    },
+    "71717171": {
+      "address": "address branch",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "Sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "25/10/1982",
+      "email": "juanflores@gmail.com",
+      "identificationNumber": "71717171",
+      "mobile": "79456321",
+      "names": "juan",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "flores quispe"
+    },
+    "72727272": {
+      "address": "address brach sucre",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "Sucursal 2",
+      "charge": "chofer",
+      "dateOfBirth": "12/5/1987",
+      "email": "luisduran@gmail.com",
+      "identificationNumber": "72727272",
+      "mobile": "78951423",
+      "names": "luis fernando",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "duran chavez"
+    },
+    "73737373": {
+      "address": "address branch",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "Sucursal 2",
+      "charge": "chofer",
+      "dateOfBirth": "25/10/1986",
+      "email": "cesarhurtado@gmail.com",
+      "identificationNumber": "73737373",
+      "mobile": "74125896",
+      "names": "cesar",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "hurtado gonzalez"
+    },
     "code1": {
       "address": "calle campero 593",
       "branchNumberOrCode": "code1",
