@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react';
 
 //MUI:
 import {
+  Box,
   InputLabel,
   MenuItem,
   FormControl,
@@ -125,15 +126,15 @@ export const TravelRegistration = () => {
     });
   };
 
-  let busEnrollments = companyBusesArray
+  let busEnrollmentsList = companyBusesArray
     .filter(
       (bus) => bus.status === 'activo' && bus.designatedBranch === branchNumber
     )
     .map((bus) => bus.enrollment);
-  // console.log('busEnrollments', busEnrollments);
+  // console.log('busEnrollmentsList', busEnrollmentsList);
 
-  //insertar busData:
-  const insertBusData = (enrollment) => {
+  //obtener busData:
+  const getBusData = (enrollment) => {
     let busData = companyBusesArray.filter(
       (bus) => bus.enrollment === enrollment
     );
@@ -141,177 +142,206 @@ export const TravelRegistration = () => {
     return busData[0];
   };
 
-  let listOfDriversIdentificationNumber = allUserDataArray
-    .filter((user) => user.charge === 'chofer')
-    .map((user) => user.identificationNumber);
+  // Choferes:
+  let listOfDrivers = allUserDataArray.filter(
+    (user) => user.charge === 'chofer'
+  );
+  let fullNamesDriversList = listOfDrivers.map(
+    (user) => `${user.surnames} ${user.names}`
+  );
 
-  // console.log(
-  //   'listOfDriversIdentificationNumber',
-  //   listOfDriversIdentificationNumber
-  // );
+  const getIdentificationNumberDriver = (nameDriver) => {
+    let identificationNumberDriver = listOfDrivers
+      .filter((driver) => `${driver.surnames} ${driver.names}` === nameDriver)
+      .map((driver) => driver.identificationNumber);
+    console.log('identificationNumberDriver[0]', identificationNumberDriver[0]);
+    return identificationNumberDriver[0];
+  };
+
+  const [fullNameDriver, setFullNameDriver] = useState(undefined);
+  // console.log('fullNameDriver', fullNameDriver);
 
   return (
-    <>
-      {/* Departamento origen: */}
-      <FormControl className="input">
-        <InputLabel>Departamento origen</InputLabel>
-        <Select
-          value={travelData.departmentOfOrigin}
-          name="departmentOfOrigin"
-          onChange={(event) =>
-            setTravelData({
-              ...travelData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        >
-          {departments.map((department, index) => (
-            <MenuItem key={index} value={department}>
-              {department}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      {/* Localidad origen: */}
-      <TextField
-        className="input"
-        name="localityOfOrigin"
-        label="Localidad origen"
-        variant="outlined"
-        value={travelData.localityOfOrigin}
-        // disabled
-        onChange={(event) =>
-          setTravelData({
-            ...travelData,
-            [event.target.name]: event.target.value,
-          })
-        }
-      />
-
-      {/* Fecha viaje */}
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <DatePicker
-          name="travelDate"
-          label="F. de viaje(dia/mes/año)"
-          minDate={new Date()}
-          maxDate={DatePicker_maxDate} // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
-          inputFormat="dd/MM/yyyy" //IMPORTANTE formato de fecha
-          //   onError={() => console.log('error')} //solo se ejecuta en ciertas partes al escribir la fecha
-          //   onAccept={() => {}} //Funciona Solo si se usa la ventana emergente
-          value={travelDate}
-          onChange={(newDate) => [setTravelDate(newDate), changeDate(newDate)]}
-          renderInput={(params) => (
-            <TextField
-              className="input"
-              {...params}
-              helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
-            />
-          )}
-        />
-      </LocalizationProvider>
-
-      {/* Hora de viaje:  */}
-      <LocalizationProvider dateAdapter={AdapterDateFns}>
-        <TimePicker
-          label="Hora de viaje"
-          value={departureTime}
-          ampm={false}
-          onChange={(newTime) => {
-            setDepartureTime(newTime);
-            setTravelData({
-              ...travelData,
-              departureTime: timeFormat(newTime),
-            });
-          }}
-          renderInput={(params) => <TextField {...params} className="input" />}
-        />
-      </LocalizationProvider>
-
-      {/* Departamento destino: */}
-      <FormControl className="input">
-        <InputLabel>Departamento destino</InputLabel>
-        <Select
-          value={travelData.destinationDepartment}
-          name="destinationDepartment"
-          onChange={(event) =>
-            setTravelData({
-              ...travelData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        >
-          {departments.map((department, index) => (
-            <MenuItem key={index} value={department}>
-              {department}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      {/* Localidad origen: */}
-      <TextField
-        className="input"
-        name="destinationLocation"
-        label="Localidad destino"
-        variant="outlined"
-        value={travelData.destinationLocation}
-        // disabled
-        onChange={(event) =>
-          setTravelData({
-            ...travelData,
-            [event.target.name]: event.target.value,
-          })
-        }
-      />
-
-      {/* Placa bus: */}
-      <FormControl className="input">
-        <InputLabel>Placa bus</InputLabel>
-        <Select
-          value={travelData.busEnrollment}
-          name="busEnrollment"
-          onChange={(event) =>
-            setTravelData({
-              ...travelData,
-              [event.target.name]: event.target.value,
-              bus: insertBusData(event.target.value),
-            })
-          }
-        >
-          {busEnrollments.map((enrollment, index) => (
-            <MenuItem key={index} value={enrollment}>
-              {enrollment}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
-
-      {/* CI Chofer: */}
-      <FormControl className="input">
-        <InputLabel>Ci Chofer</InputLabel>
-        <Select
-          value={travelData.bus.identificationNumberDriver}
-          name="identificationNumberDriver"
-          onChange={(event) =>
-            setTravelData({
-              ...travelData,
-              bus: {
-                ...travelData.bus,
+    <Box>
+      <>
+        {/* Departamento origen: */}
+        <FormControl className="input">
+          <InputLabel>Departamento origen</InputLabel>
+          <Select
+            value={travelData.departmentOfOrigin}
+            name="departmentOfOrigin"
+            onChange={(event) =>
+              setTravelData({
+                ...travelData,
                 [event.target.name]: event.target.value,
-              },
+              })
+            }
+          >
+            {departments.map((department, index) => (
+              <MenuItem key={index} value={department}>
+                {department}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        {/* Localidad origen: */}
+        <TextField
+          className="input"
+          name="localityOfOrigin"
+          label="Localidad origen"
+          variant="outlined"
+          value={travelData.localityOfOrigin}
+          // disabled
+          onChange={(event) =>
+            setTravelData({
+              ...travelData,
+              [event.target.name]: event.target.value,
             })
           }
-        >
-          {listOfDriversIdentificationNumber.map(
-            (identificationNumber, index) => (
+        />
+
+        {/* Fecha viaje */}
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <DatePicker
+            name="travelDate"
+            label="F. de viaje(dia/mes/año)"
+            minDate={new Date()}
+            maxDate={DatePicker_maxDate} // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
+            inputFormat="dd/MM/yyyy" //IMPORTANTE formato de fecha
+            //   onError={() => console.log('error')} //solo se ejecuta en ciertas partes al escribir la fecha
+            //   onAccept={() => {}} //Funciona Solo si se usa la ventana emergente
+            value={travelDate}
+            onChange={(newDate) => [
+              setTravelDate(newDate),
+              changeDate(newDate),
+            ]}
+            renderInput={(params) => (
+              <TextField
+                className="input"
+                {...params}
+                helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
+              />
+            )}
+          />
+        </LocalizationProvider>
+
+        {/* Hora de viaje:  */}
+        <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <TimePicker
+            label="Hora de viaje"
+            value={departureTime}
+            ampm={false}
+            onChange={(newTime) => {
+              setDepartureTime(newTime);
+              setTravelData({
+                ...travelData,
+                departureTime: timeFormat(newTime),
+              });
+            }}
+            renderInput={(params) => (
+              <TextField {...params} className="input" />
+            )}
+          />
+        </LocalizationProvider>
+
+        {/* Departamento destino: */}
+        <FormControl className="input">
+          <InputLabel>Departamento destino</InputLabel>
+          <Select
+            value={travelData.destinationDepartment}
+            name="destinationDepartment"
+            onChange={(event) =>
+              setTravelData({
+                ...travelData,
+                [event.target.name]: event.target.value,
+              })
+            }
+          >
+            {departments.map((department, index) => (
+              <MenuItem key={index} value={department}>
+                {department}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        {/* Localidad origen: */}
+        <TextField
+          className="input"
+          name="destinationLocation"
+          label="Localidad destino"
+          variant="outlined"
+          value={travelData.destinationLocation}
+          // disabled
+          onChange={(event) =>
+            setTravelData({
+              ...travelData,
+              [event.target.name]: event.target.value,
+            })
+          }
+        />
+
+        {/* Placa bus: */}
+        <FormControl className="input">
+          <InputLabel>Placa bus</InputLabel>
+          <Select
+            value={travelData.busEnrollment}
+            name="busEnrollment"
+            onChange={(event) => [
+              setTravelData({
+                ...travelData,
+                [event.target.name]: event.target.value,
+                bus: getBusData(event.target.value),
+              }),
+
+              setTravelData((prevState) => ({
+                ...prevState,
+                bus: {
+                  ...prevState.bus,
+                  identificationNumberDriver:
+                    getIdentificationNumberDriver(fullNameDriver) === undefined
+                      ? ''
+                      : getIdentificationNumberDriver(fullNameDriver),
+                },
+              })),
+            ]}
+          >
+            {busEnrollmentsList.map((enrollment, index) => (
+              <MenuItem key={index} value={enrollment}>
+                {enrollment}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl>
+
+        {/* CI Chofer: */}
+        <FormControl className="input">
+          <InputLabel>Ci Chofer</InputLabel>
+          <Select
+            value={fullNameDriver} //travelData.bus.identificationNumberDriver
+            name="identificationNumberDriver"
+            onChange={(event) => [
+              setTravelData({
+                ...travelData,
+                bus: {
+                  ...travelData.bus,
+                  [event.target.name]: getIdentificationNumberDriver(
+                    event.target.value
+                  ),
+                },
+              }),
+              setFullNameDriver(event.target.value),
+            ]}
+          >
+            {fullNamesDriversList.map((identificationNumber, index) => (
               <MenuItem key={index} value={identificationNumber}>
                 {identificationNumber}
               </MenuItem>
-            )
-          )}
-        </Select>
-      </FormControl>
-    </>
+            ))}
+          </Select>
+        </FormControl>
+      </>
+    </Box>
   );
 };
