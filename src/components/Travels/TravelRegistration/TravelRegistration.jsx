@@ -18,6 +18,22 @@ import {
 } from '@mui/x-date-pickers/';
 
 //Styles:
+import {
+  Background,
+  HeaderContainer,
+  HeaderTitle,
+  BodyContainer,
+  DptOriginStyle,
+  LocOriginStyle,
+  TravelDateStyle,
+  DepartureTimeStyle,
+  DptDestinationStyle,
+  LocDestinationStyle,
+  BusEnrollmentStyle,
+  IdNumberDriverStyle,
+  LaneStyle,
+  Btn,
+} from './TravelRegistrationStyles';
 //Contexts:
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextCompanyBuses } from './../../../contexts/ContextCompanyBuses';
@@ -171,201 +187,226 @@ export const TravelRegistration = () => {
   };
 
   return (
-    <Box>
-      <>
+    <Background>
+      <HeaderContainer>
+        <HeaderTitle>
+          <span>Programacion de viajes</span>
+        </HeaderTitle>
+      </HeaderContainer>
+
+      <BodyContainer>
         {/* Departamento origen: */}
-        <FormControl className="input">
-          <InputLabel>Departamento origen</InputLabel>
-          <Select
-            value={travelData.departmentOfOrigin}
-            name="departmentOfOrigin"
-            onChange={(event) =>
-              setTravelData({
-                ...travelData,
-                [event.target.name]: event.target.value,
-              })
-            }
-          >
-            {departments.map((department, index) => (
-              <MenuItem key={index} value={department}>
-                {department}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <DptOriginStyle>
+          <FormControl className="input">
+            <InputLabel>Dpt. origen</InputLabel>
+            <Select
+              value={travelData.departmentOfOrigin}
+              name="departmentOfOrigin"
+              onChange={(event) =>
+                setTravelData({
+                  ...travelData,
+                  [event.target.name]: event.target.value,
+                })
+              }
+            >
+              {departments.map((department, index) => (
+                <MenuItem key={index} value={department}>
+                  {department}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </DptOriginStyle>
 
         {/* Localidad origen: */}
-        <TextField
-          className="input"
-          name="localityOfOrigin"
-          label="Localidad origen"
-          variant="outlined"
-          value={travelData.localityOfOrigin}
-          // disabled
-          onChange={(event) =>
-            setTravelData({
-              ...travelData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        />
-
-        {/* Fecha viaje */}
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <DatePicker
-            name="travelDate"
-            label="F. de viaje(dia/mes/año)"
-            minDate={new Date()}
-            maxDate={DatePicker_maxDate} // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
-            inputFormat="dd/MM/yyyy" //IMPORTANTE formato de fecha
-            //   onError={() => console.log('error')} //solo se ejecuta en ciertas partes al escribir la fecha
-            //   onAccept={() => {}} //Funciona Solo si se usa la ventana emergente
-            value={travelDate}
-            onChange={(newDate) => [
-              setTravelDate(newDate),
-              changeDate(newDate),
-            ]}
-            renderInput={(params) => (
-              <TextField
-                className="input"
-                {...params}
-                helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
-              />
-            )}
-          />
-        </LocalizationProvider>
-
-        {/* Hora de viaje:  */}
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <TimePicker
-            label="Hora de viaje"
-            value={departureTime}
-            ampm={false}
-            onChange={(newTime) => {
-              setDepartureTime(newTime);
-              setTravelData({
-                ...travelData,
-                departureTime: timeFormat(newTime),
-              });
-            }}
-            renderInput={(params) => (
-              <TextField {...params} className="input" />
-            )}
-          />
-        </LocalizationProvider>
-
-        {/* Departamento destino: */}
-        <FormControl className="input">
-          <InputLabel>Departamento destino</InputLabel>
-          <Select
-            value={travelData.destinationDepartment}
-            name="destinationDepartment"
+        <LocOriginStyle>
+          <TextField
+            className="input"
+            name="localityOfOrigin"
+            label="Localidad origen"
+            variant="outlined"
+            value={travelData.localityOfOrigin}
+            // disabled
             onChange={(event) =>
               setTravelData({
                 ...travelData,
                 [event.target.name]: event.target.value,
               })
             }
-          >
-            {departments.map((department, index) => (
-              <MenuItem key={index} value={department}>
-                {department}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+          />
+        </LocOriginStyle>
+
+        {/* Fecha viaje */}
+        <TravelDateStyle>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <DatePicker
+              name="travelDate"
+              label="Fecha de viaje" //(dia/mes/año)
+              minDate={new Date()}
+              maxDate={DatePicker_maxDate} // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
+              inputFormat="dd/MM/yyyy" //IMPORTANTE formato de fecha
+              //   onError={() => console.log('error')} //solo se ejecuta en ciertas partes al escribir la fecha
+              //   onAccept={() => {}} //Funciona Solo si se usa la ventana emergente
+              value={travelDate}
+              onChange={(newDate) => [
+                setTravelDate(newDate),
+                changeDate(newDate),
+              ]}
+              renderInput={(params) => (
+                <TextField
+                  className="input"
+                  {...params}
+                  helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
+                />
+              )}
+            />
+          </LocalizationProvider>
+        </TravelDateStyle>
+
+        {/* Hora de viaje:  */}
+        <DepartureTimeStyle>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <TimePicker
+              label="Hora de viaje"
+              value={departureTime}
+              ampm={false}
+              onChange={(newTime) => {
+                setDepartureTime(newTime);
+                setTravelData({
+                  ...travelData,
+                  departureTime: timeFormat(newTime),
+                });
+              }}
+              renderInput={(params) => (
+                <TextField {...params} className="input" />
+              )}
+            />
+          </LocalizationProvider>
+        </DepartureTimeStyle>
+
+        {/* Departamento destino: */}
+        <DptDestinationStyle>
+          <FormControl className="input">
+            <InputLabel>Dpt. destino</InputLabel>
+            <Select
+              value={travelData.destinationDepartment}
+              name="destinationDepartment"
+              onChange={(event) =>
+                setTravelData({
+                  ...travelData,
+                  [event.target.name]: event.target.value,
+                })
+              }
+            >
+              {departments.map((department, index) => (
+                <MenuItem key={index} value={department}>
+                  {department}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </DptDestinationStyle>
 
         {/* Localidad destino: */}
-        <TextField
-          className="input"
-          name="destinationLocation"
-          label="Localidad destino"
-          variant="outlined"
-          value={travelData.destinationLocation}
-          // disabled
-          onChange={(event) =>
-            setTravelData({
-              ...travelData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        />
-
-        {/* Placa bus: */}
-        <FormControl className="input">
-          <InputLabel>Placa bus</InputLabel>
-          <Select
-            value={travelData.busEnrollment}
-            name="busEnrollment"
-            onChange={(event) => [
+        <LocDestinationStyle>
+          <TextField
+            className="input"
+            name="destinationLocation"
+            label="Localidad destino"
+            variant="outlined"
+            value={travelData.destinationLocation}
+            // disabled
+            onChange={(event) =>
               setTravelData({
                 ...travelData,
                 [event.target.name]: event.target.value,
-                bus: getBusData(event.target.value),
-              }),
+              })
+            }
+          />
+        </LocDestinationStyle>
 
-              setTravelData((prevState) => ({
-                ...prevState,
-                bus: {
-                  ...prevState.bus,
-                  identificationNumberDriver:
-                    getIdentificationNumberDriver(fullNameDriver) === undefined
-                      ? ''
-                      : getIdentificationNumberDriver(fullNameDriver),
-                },
-              })),
-            ]}
-          >
-            {busEnrollmentsList.map((enrollment, index) => (
-              <MenuItem key={index} value={enrollment}>
-                {enrollment}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        {/* Placa bus: */}
+        <BusEnrollmentStyle>
+          <FormControl className="input">
+            <InputLabel>Placa del bus</InputLabel>
+            <Select
+              value={travelData.busEnrollment}
+              name="busEnrollment"
+              onChange={(event) => [
+                setTravelData({
+                  ...travelData,
+                  [event.target.name]: event.target.value,
+                  bus: getBusData(event.target.value),
+                }),
+
+                setTravelData((prevState) => ({
+                  ...prevState,
+                  bus: {
+                    ...prevState.bus,
+                    identificationNumberDriver:
+                      getIdentificationNumberDriver(fullNameDriver) ===
+                      undefined
+                        ? ''
+                        : getIdentificationNumberDriver(fullNameDriver),
+                  },
+                })),
+              ]}
+            >
+              {busEnrollmentsList.map((enrollment, index) => (
+                <MenuItem key={index} value={enrollment}>
+                  {enrollment}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </BusEnrollmentStyle>
 
         {/* CI Chofer: */}
-        <FormControl className="input">
-          <InputLabel>Ci Chofer</InputLabel>
-          <Select
-            value={fullNameDriver} //travelData.bus.identificationNumberDriver
-            name="identificationNumberDriver"
-            onChange={(event) => [
-              setTravelData({
-                ...travelData,
-                bus: {
-                  ...travelData.bus,
-                  [event.target.name]: getIdentificationNumberDriver(
-                    event.target.value
-                  ),
-                },
-              }),
-              setFullNameDriver(event.target.value),
-            ]}
-          >
-            {fullNamesDriversList.map((identificationNumber, index) => (
-              <MenuItem key={index} value={identificationNumber}>
-                {identificationNumber}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
+        <IdNumberDriverStyle>
+          <FormControl className="input">
+            <InputLabel>Designar Chofer</InputLabel>
+            <Select
+              value={fullNameDriver} //travelData.bus.identificationNumberDriver
+              name="identificationNumberDriver"
+              onChange={(event) => [
+                setTravelData({
+                  ...travelData,
+                  bus: {
+                    ...travelData.bus,
+                    [event.target.name]: getIdentificationNumberDriver(
+                      event.target.value
+                    ),
+                  },
+                }),
+                setFullNameDriver(event.target.value),
+              ]}
+            >
+              {fullNamesDriversList.map((identificationNumber, index) => (
+                <MenuItem key={index} value={identificationNumber}>
+                  {identificationNumber}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
+        </IdNumberDriverStyle>
 
         {/* Carril: */}
-        <TextField
-          className="input"
-          name="lane"
-          label="Carril"
-          variant="outlined"
-          value={travelData.lane}
-          // disabled
-          onChange={(event) =>
-            setTravelData({
-              ...travelData,
-              [event.target.name]: event.target.value,
-            })
-          }
-        />
+        <LaneStyle>
+          <TextField
+            className="input"
+            name="lane"
+            label="Carril de salida"
+            variant="outlined"
+            value={travelData.lane}
+            // disabled
+            onChange={(event) =>
+              setTravelData({
+                ...travelData,
+                [event.target.name]: event.target.value,
+              })
+            }
+          />
+        </LaneStyle>
 
         {/* Estado del viaje: */}
         {/* <FormControl className="input">
@@ -388,17 +429,19 @@ export const TravelRegistration = () => {
           </Select>
         </FormControl> */}
 
-        <PlainModalButton
-          primaryBtnText="Programar viaje"
-          dialogTitle="Registro de viajes"
-          dialogText="Esta seguro de programar este viaje?"
-          closeBtnText="cancelar"
-          continueBtnText="si"
-          // functionToExecute={createBranch}
-          // functionParameters={stateG}
-          // thirdFunctionToExecute={componentDefaultData}
-        />
-      </>
-    </Box>
+        <Btn>
+          <PlainModalButton
+            primaryBtnText="Programar viaje"
+            dialogTitle="Registro de viajes"
+            dialogText="Esta seguro de programar este viaje?"
+            closeBtnText="cancelar"
+            continueBtnText="si"
+            // functionToExecute={createBranch}
+            // functionParameters={stateG}
+            // thirdFunctionToExecute={componentDefaultData}
+          />
+        </Btn>
+      </BodyContainer>
+    </Background>
   );
 };
