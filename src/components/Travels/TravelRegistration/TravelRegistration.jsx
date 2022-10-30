@@ -25,7 +25,7 @@ import { ContextAllUserData } from './../../../contexts/ContextAllUserData';
 //Firebase Functions:
 //States:
 //Components:
-// import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
+import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
 import {
   dateFormat,
@@ -85,11 +85,11 @@ export const TravelRegistration = () => {
       // typeOfSeats: '',
     },
     departureTime: '20:30',
-    destinationLocation: '', //c. santa cruz
-    lane: '0',
-    localityOfOrigin: '', //sucre
-    travelDate: '', //31/10/2022
-    travelStatus: false,
+    destinationLocation: '',
+    lane: '0', //CarrilDefault
+    localityOfOrigin: '',
+    travelDate: '',
+    travelStatus: 'pendiente', // pendiente, realizado, cancelado
     //extraData
     departmentOfOrigin: department === undefined ? '' : department,
     destinationDepartment: '',
@@ -160,6 +160,15 @@ export const TravelRegistration = () => {
 
   const [fullNameDriver, setFullNameDriver] = useState(undefined);
   // console.log('fullNameDriver', fullNameDriver);
+
+  //travelStatus:
+  const travelStatusList = ['cancelado', 'pendiente', 'realizado'];
+
+  // componentDefaultData
+  const componentDefaultData = () => {
+    setTravelData(travelsDataDefaul);
+    setDepartureTime(new Date('2022-12-16T20:30:00'));
+  };
 
   return (
     <Box>
@@ -266,7 +275,7 @@ export const TravelRegistration = () => {
           </Select>
         </FormControl>
 
-        {/* Localidad origen: */}
+        {/* Localidad destino: */}
         <TextField
           className="input"
           name="destinationLocation"
@@ -341,6 +350,54 @@ export const TravelRegistration = () => {
             ))}
           </Select>
         </FormControl>
+
+        {/* Carril: */}
+        <TextField
+          className="input"
+          name="lane"
+          label="Carril"
+          variant="outlined"
+          value={travelData.lane}
+          // disabled
+          onChange={(event) =>
+            setTravelData({
+              ...travelData,
+              [event.target.name]: event.target.value,
+            })
+          }
+        />
+
+        {/* Estado del viaje: */}
+        {/* <FormControl className="input">
+          <InputLabel>Estado del viaje</InputLabel>
+          <Select
+            value={travelData.travelStatus}
+            name="travelStatus"
+            onChange={(event) =>
+              setTravelData({
+                ...travelData,
+                [event.target.name]: event.target.value,
+              })
+            }
+          >
+            {travelStatusList.map((status, index) => (
+              <MenuItem key={index} value={status}>
+                {status}
+              </MenuItem>
+            ))}
+          </Select>
+        </FormControl> */}
+
+        <PlainModalButton
+          primaryBtnText="Programar viaje"
+          dialogTitle="Registro de viajes"
+          dialogText="Esta seguro de programar este viaje?"
+          closeBtnText="cancelar"
+          continueBtnText="si"
+          // functionToExecute={createBranch}
+          // functionParameters={stateG}
+          // thirdFunctionToExecute={componentDefaultData}
+        />
       </>
     </Box>
   );
