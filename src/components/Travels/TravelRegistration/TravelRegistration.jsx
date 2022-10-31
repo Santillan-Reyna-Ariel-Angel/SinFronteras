@@ -2,7 +2,6 @@ import React, { useState, useContext } from 'react';
 
 //MUI:
 import {
-  Box,
   InputLabel,
   MenuItem,
   FormControl,
@@ -39,6 +38,7 @@ import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextCompanyBuses } from './../../../contexts/ContextCompanyBuses';
 import { ContextAllUserData } from './../../../contexts/ContextAllUserData';
 //Firebase Functions:
+import { createTripSchedule } from './../Firebase/createTripSchedule';
 //States:
 //Components:
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
@@ -103,7 +103,7 @@ export const TravelRegistration = () => {
     departureTime: '20:30',
     destinationLocation: '',
     lane: '0', //CarrilDefault
-    localityOfOrigin: '',
+    localityOfOrigin: location === undefined ? '' : location, // '',
     travelDate: '',
     travelStatus: 'pendiente', // pendiente, realizado, cancelado
     //extraData
@@ -178,7 +178,7 @@ export const TravelRegistration = () => {
   // console.log('fullNameDriver', fullNameDriver);
 
   //travelStatus:
-  const travelStatusList = ['cancelado', 'pendiente', 'realizado'];
+  // const travelStatusList = ['cancelado', 'pendiente', 'realizado'];
 
   // componentDefaultData
   const componentDefaultData = () => {
@@ -436,9 +436,9 @@ export const TravelRegistration = () => {
             dialogText="Esta seguro de programar este viaje?"
             closeBtnText="cancelar"
             continueBtnText="si"
-            // functionToExecute={createBranch}
-            // functionParameters={stateG}
-            // thirdFunctionToExecute={componentDefaultData}
+            functionToExecute={createTripSchedule}
+            functionParameters={{ travelData, branchNumber }}
+            thirdFunctionToExecute={componentDefaultData}
           />
         </Btn>
       </BodyContainer>
