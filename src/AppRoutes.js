@@ -113,6 +113,12 @@ const AppRoutes = () => {
                             component={BranchRegistration}
                           />
 
+                          <Route
+                            exact
+                            path="/viajes/programar-viaje/"
+                            component={TravelRegistration}
+                          />
+
                           {/* Route for Tests: */}
                           <Route
                             exact

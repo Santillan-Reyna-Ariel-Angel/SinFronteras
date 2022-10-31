@@ -10,6 +10,8 @@ import MapsHomeWorkRoundedIcon from '@mui/icons-material/MapsHomeWorkRounded';
 import HomeWorkRoundedIcon from '@mui/icons-material/HomeWorkRounded';
 import PointOfSaleRoundedIcon from '@mui/icons-material/PointOfSaleRounded';
 import ConfirmationNumberRoundedIcon from '@mui/icons-material/ConfirmationNumberRounded';
+import DepartureBoardRoundedIcon from '@mui/icons-material/DepartureBoardRounded';
+import MovingRoundedIcon from '@mui/icons-material/MovingRounded';
 
 export const menuBodyItemList = [
   {
@@ -58,6 +60,25 @@ export const menuBodyItemList = [
       },
     ],
   },
+
+  {
+    path: '/Viajes',
+    icon: <MovingRoundedIcon />, // <DirectionsBusRoundedIcon />,
+    title: 'Viajes',
+    children: [
+      {
+        path: '/viajes/programar-viaje',
+        title: 'Programar viaje',
+        icon: <DepartureBoardRoundedIcon />,
+      },
+      // {
+      //   path: '/viajes/lista-de-viajes',
+      //   title: 'Lista de viajes',
+      //   icon: <FormatListNumberedRoundedIcon />,
+      // },
+    ],
+  },
+
   {
     path: '/sucursales',
     icon: <HomeWorkRoundedIcon />,
