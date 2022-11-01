@@ -19,4 +19,10 @@ export const createTripSchedule = ({ travelData, branchNumber }) => {
     ...travelData, // se hace una copia de todos los datos
     // numberOfSeats: travelData.bus.numberOfSeats, // Posteriormente considerar asietos de 1er y 2do piso
   });
+
+  //Crear viaje en tripsMade, para poder buscar viaje y selecionar sus asientos:
+  set(ref(fire_db, `tripsMade/branch_${branchNumber}/${travelKeyAux}/`), {
+    occupiedSeat: { 0: 'vendido-74747472' },
+    passengers: {},
+  });
 };

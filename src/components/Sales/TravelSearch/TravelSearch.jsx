@@ -19,6 +19,8 @@ import {
 import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
 //Components:
 import { TravelCards } from './../TravelCards/TravelCards';
+//Others:
+import { dateFormat } from './functions';
 
 const TravelSearch = () => {
   //ContextBranchOffice:
@@ -56,10 +58,24 @@ const TravelSearch = () => {
 
   //Fecha de viaje:
   const [travelDate, setTravelDate] = useState(new Date());
-  const formattedTravelDate = travelDate.toLocaleDateString();
+  const formattedTravelDate = dateFormat({
+    date: travelDate,
+    format: 'dd/mm/yyyy',
+  }); // esto es mucho mejor que usar: travelDate.toLocaleDateString();
 
-  // console.log("travelDate: ", travelDate);
+  console.log('travelDate: ', travelDate);
   console.log('formattedTravelDate: ', formattedTravelDate);
+
+  const changeDate = (inputDate) => {
+    let isErrorDate =
+      inputDate === null || inputDate === '' || isNaN(inputDate) ? true : false;
+
+    if (isErrorDate === true) {
+      setTravelDate(null);
+    } else {
+      setTravelDate(inputDate);
+    }
+  };
 
   //Recuperar TravelCards que coincidan con el origen, destino y fecha de viaje:
   function recoverTravelCards() {
@@ -144,11 +160,17 @@ const TravelSearch = () => {
                 label="Fecha de viaje"
                 value={travelDate}
                 minDate={new Date()}
+                inputFormat="dd/MM/yyyy" //IMPORTANTE formato de fecha
                 onChange={(newValue) => {
-                  setTravelDate(newValue);
+                  // setTravelDate(newValue);
+                  changeDate(newValue);
                 }}
                 renderInput={(params) => (
-                  <TextField className="input" {...params} />
+                  <TextField
+                    className="input"
+                    {...params}
+                    // helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
+                  />
                 )}
               />
             </LocalizationProvider>
