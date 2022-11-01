@@ -60,7 +60,6 @@
             "enrollment": "bus-006",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "bus-006",
             "numberOfFloors": 1,
             "numberOfSeats": 29,
             "services": {
@@ -76,7 +75,7 @@
           "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "31/10/2022",
+          "travelDate": "10/11/2022",
           "travelStatus": false
         },
         "code2": {
@@ -84,7 +83,6 @@
             "enrollment": "bus-001",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "bus-001",
             "numberOfFloors": 1,
             "numberOfSeats": 42,
             "services": {
@@ -100,7 +98,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "31/10/2022",
+          "travelDate": "10/11/2022",
           "travelStatus": false
         }
       }
@@ -165,7 +163,6 @@
             "enrollment": "bus-002",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "bus-002",
             "numberOfFloors": 1,
             "numberOfSeats": 43,
             "services": {
@@ -181,7 +178,7 @@
           "destinationLocation": "sucre",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "31/10/2022",
+          "travelDate": "10/11/2022",
           "travelStatus": false
         },
         "code2": {
@@ -189,7 +186,6 @@
             "enrollment": "bus-008",
             "filing": "H",
             "identificationNumberDriver": "",
-            "key": "bus-008",
             "numberOfFloors": 2,
             "numberOfSeats": 40,
             "numberOfSeatsFirstFloor": 20,
@@ -207,7 +203,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "31/10/2022",
+          "travelDate": "10/11/2022",
           "travelStatus": false
         }
       }
@@ -447,7 +443,7 @@
       "address": "calle loa 593",
       "branchNumberOrCode": "code1",
       "branchOfficeName": "sucursalName 2",
-      "charge": "secretario",
+      "charge": "secretaria(o)",
       "dateOfBirth": "",
       "email": "s1secretario1@gmail.com",
       "identificationNumber": "74747472",
@@ -461,7 +457,7 @@
       "address": "calle vega 593",
       "branchNumberOrCode": "code1",
       "branchOfficeName": "sucursalName 3",
-      "charge": "boletero",
+      "charge": "boletero(a)",
       "dateOfBirth": "",
       "email": "s1boletero1@gmail.com",
       "identificationNumber": "74747473",
@@ -489,7 +485,7 @@
       "address": "calle bustamante 593",
       "branchNumberOrCode": "code2",
       "branchOfficeName": "sucursalName 5",
-      "charge": "secretaria",
+      "charge": "secretaria(o)",
       "dateOfBirth": "",
       "email": "s2secretario1@gmail.com",
       "identificationNumber": "74747482",
@@ -503,7 +499,7 @@
       "address": "calle estudiantes 593",
       "branchNumberOrCode": "code2",
       "branchOfficeName": "sucursalName 6",
-      "charge": "boletero",
+      "charge": "boletero(a)",
       "dateOfBirth": "",
       "email": "s2boletero1@gmail.com",
       "identificationNumber": "74747483",
