@@ -5,6 +5,8 @@ import {
   billingContactKey,
   travelKey,
 } from './../Functions/TripsMadeGenerateKeys.js';
+//functions:
+import { dateFormat, timeFormat } from './../Functions/functions';
 
 //Modulos Firebase:
 const { fire_db } = modulesFirebase;
@@ -15,13 +17,9 @@ export const saveTripsMade = ({
   ticketsSalesData,
 }) => {
   //Fecha y Hora de venta:
-  let date = new Date();
-  let saleDate = `${date.getDate()}/${
-    date.getMonth() + 1
-  }/${date.getFullYear()}`;
-  let hourOfSale = date.getHours();
-  let minuteOfSale =
-    date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes();
+  let NewDate = new Date();
+  let saleDate = dateFormat({ date: NewDate, format: 'dd/mm/yyyy' });
+  let timeOfSale = timeFormat({ newTime: NewDate, format: ':' });
 
   //Datos para Keys:
   let { travelDate, departureTime, busEnrollment, branchNumber } =
@@ -34,8 +32,7 @@ export const saveTripsMade = ({
   //billingContactKey = 'billingContact_19-7-2022_10-30_7481911';
   let billingContactKeyAux = billingContactKey({
     saleDate,
-    hourOfSale,
-    minuteOfSale,
+    timeOfSale,
     ciOrNit,
   });
 
@@ -61,7 +58,7 @@ export const saveTripsMade = ({
       salesAmountData: salesAmountData,
       ticketsSalesData: ticketsSalesDataAux,
       saleDate: saleDate,
-      timeOfSale: `${hourOfSale}:${minuteOfSale}`,
+      timeOfSale: timeOfSale,
     }
   );
 };

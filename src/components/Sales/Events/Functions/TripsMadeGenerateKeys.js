@@ -18,16 +18,15 @@ export const travelKey = ({
 
 export const billingContactKey = ({
   saleDate = '00/00/0000',
-  hourOfSale = '0',
-  minuteOfSale = '00',
+  timeOfSale = '00:00',
   ciOrNit = '00000000',
 }) => {
   // billingContact_fechaVenta_horaVenta_ciOrNit => billingContact_19-7-2022_10-30_7481911
 
   let saleDateAux = saleDate.replaceAll('/', '-');
-  let timeOfSale = `${hourOfSale}-${minuteOfSale}`;
+  let timeOfSaleAux = timeOfSale.replaceAll(':', '-');
 
-  let billingContactKey = `billingContact_${saleDateAux}_${timeOfSale}_${ciOrNit}`;
+  let billingContactKey = `billingContact_${saleDateAux}_${timeOfSaleAux}_${ciOrNit}`;
   //console.log('billingContactKey:', billingContactKey);
   return billingContactKey;
 };

@@ -13,7 +13,7 @@ export const dateFormat = ({ date, format = 'dd/mm/yyyy' }) => {
   return formatDateAux;
 };
 
-export const timeFormat = (newTime) => {
+export const timeFormat = ({ newTime, format = ':' }) => {
   //Otra opcion con segundos seria: newTime.toLocaleTimeString()
   let hour =
     newTime.getHours() < 10 ? `0${newTime.getHours()}` : newTime.getHours();
@@ -22,7 +22,14 @@ export const timeFormat = (newTime) => {
       ? `0${newTime.getMinutes()}`
       : newTime.getMinutes();
 
-  return `${hour}:${minute}`;
+  let timeFormatAux;
+  if (format === ':' || format === '') {
+    timeFormatAux = `${hour}:${minute}`;
+  } else {
+    timeFormatAux = `${hour}-${minute}`;
+  }
+
+  return timeFormatAux;
 };
 
 export const isDateOutOfRange = ({ inputDate, startDate, endDate }) => {

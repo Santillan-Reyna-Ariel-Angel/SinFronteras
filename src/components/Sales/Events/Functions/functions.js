@@ -22,17 +22,21 @@ export const dateFormat = ({ date, format = 'dd/mm/yyyy' }) => {
   }
 };
 
-//generateTicketNumber:
-export const generateTicketNumber = ({
-  identificationNumber,
-  branchNumber,
-}) => {
-  let suc = `suc-${branchNumber}`;
-  let dateTN = dateFormat({
-    date: new Date(),
-    format: 'dd/mm/yyyy',
-  }).replaceAll('/', '-');
-  let ticketNumber = `${suc}_${dateTN}_${identificationNumber}`;
-  // console.log('ticketNumber:', ticketNumber);
-  return ticketNumber;
+export const timeFormat = ({ newTime, format = ':' }) => {
+  //Otra opcion con segundos seria: newTime.toLocaleTimeString()
+  let hour =
+    newTime.getHours() < 10 ? `0${newTime.getHours()}` : newTime.getHours();
+  let minute =
+    newTime.getMinutes() < 10
+      ? `0${newTime.getMinutes()}`
+      : newTime.getMinutes();
+
+  let timeFormatAux;
+  if (format === ':' || format === '') {
+    timeFormatAux = `${hour}:${minute}`;
+  } else {
+    timeFormatAux = `${hour}-${minute}`;
+  }
+
+  return timeFormatAux;
 };
