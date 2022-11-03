@@ -30,15 +30,15 @@ export const SalesRecord = () => {
   // json to array:
   let branchTripsMadeArray = [];
   for (let i in branchTripsMade) branchTripsMadeArray.push(branchTripsMade[i]);
-  console.log('branchTripsMadeArray', branchTripsMadeArray);
+  // console.log('branchTripsMadeArray', branchTripsMadeArray);
 
   let billingContactList_x_everyTravel = branchTripsMadeArray
     .filter((travel_x) => travel_x.passengers) //filtramos solo los viajes que tengan pasajeros
     .map((data) => data.passengers);
-  console.log(
-    'billingContactList_x_everyTravel',
-    billingContactList_x_everyTravel
-  );
+  // console.log(
+  //   'billingContactList_x_everyTravel',
+  //   billingContactList_x_everyTravel
+  // );
 
   //billingContactAllList: Array objetos que sera la data de la tabla:
   let billingContactAllList = [];
@@ -46,52 +46,78 @@ export const SalesRecord = () => {
     for (let i in arrayOf_billingContact_x)
       billingContactAllList.push(arrayOf_billingContact_x[i]);
   });
-  console.log('billingContactAllList', billingContactAllList);
+  // console.log('billingContactAllList', billingContactAllList);
 
-  const columns = [
-    {
-      name: 'name',
-      label: 'Name',
-      options: {
-        filter: true,
-        sort: true,
-      },
-    },
-    {
-      name: 'company',
-      label: 'Company',
-      options: {
-        filter: true,
-        sort: false,
-      },
-    },
-    {
-      name: 'city',
-      label: 'City',
-      options: {
-        filter: true,
-        sort: false,
-      },
-    },
-    {
-      name: 'state',
-      label: 'State',
-      options: {
-        filter: true,
-        sort: false,
-      },
-    },
-  ];
+  let dataTableNecesary = [];
+  let dataNecesaryAux1 = billingContactAllList.map((billingContact) => {
+    let buyer = billingContact.billingContactInformation.nameOrSocialReason;
+    let passengersAll = billingContact.ticketsSalesData;
+    // json to array:
+    let passengersList = [];
+    for (let i in passengersAll) passengersList.push(passengersAll[i]);
+    // console.log('passengersList', passengersList);
 
-  const data = [
-    { name: 'Joe James', company: 'Test Corp', city: 'Yonkers', state: 'NY' },
-    { name: 'John Walsh', company: 'Test Corp', city: 'Hartford', state: 'CT' },
-    { name: 'Bob Herm', company: 'Test Corp', city: 'Tampa', state: 'FL' },
+    return { buyer, passengersList };
+  });
+  // console.log('dataNecesaryAux1', dataNecesaryAux1);
+
+  let dataNecesaryAux2 = dataNecesaryAux1.map((sale) => {
+    let buyer = sale.buyer;
+
+    let dataNecesary = sale.passengersList.map((passenger) => {
+      let passengerData = {
+        buyer,
+        passenger: passenger.passengerFullName,
+        identificationNumber: passenger.identificationNumber,
+        ticketNumber: passenger.ticketNumber,
+        destiny: passenger.destiny,
+        travelDate: passenger.travelDate,
+      };
+
+      dataTableNecesary.push(passengerData);
+
+      return passengerData;
+    });
+
+    return dataNecesary;
+  });
+  // console.log('dataNecesaryAux2', dataNecesaryAux2);
+  console.log('dataTableNecesary', dataTableNecesary);
+
+  //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
+
+  const columns2 = [
     {
-      name: 'James Houston',
-      company: 'Test Corp',
-      city: 'Dallas',
-      state: 'TX',
+      name: 'buyer',
+      label: 'Comprador',
+      // options: {
+      //   filter: true,
+      //   sort: true,
+      // },
+    },
+    {
+      name: 'passenger',
+      label: 'Pasajero',
+      // options: {
+      //   filter: true,
+      //   sort: false,
+      // },
+    },
+    {
+      name: 'identificationNumber',
+      label: 'CI Pasajero',
+    },
+    {
+      name: 'ticketNumber',
+      label: 'Codigo ticket',
+    },
+    {
+      name: 'destiny',
+      label: 'Destino',
+    },
+    {
+      name: 'travelDate',
+      label: 'Fecha Viaje',
     },
   ];
 
@@ -102,9 +128,9 @@ export const SalesRecord = () => {
   return (
     <>
       <MUIDataTable
-        title={'Employee List'}
-        data={data}
-        columns={columns}
+        title={'Registro de Ventas'}
+        data={dataTableNecesary}
+        columns={columns2}
         options={options}
       />
     </>
