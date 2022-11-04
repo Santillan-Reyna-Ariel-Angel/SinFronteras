@@ -21,6 +21,12 @@ import { ContextBranchTripsMade } from './../../contexts/ContextBranchTripsMade'
 //States:
 //Components:
 //Others:
+import {
+  billingContactList_x_everyTravel,
+  billingContactAllList,
+  ticketsSoldByBuyer,
+  dataTableNecesary,
+} from './functions';
 
 export const SalesRecord = () => {
   //ContextCompanyBuses:
@@ -32,61 +38,19 @@ export const SalesRecord = () => {
   for (let i in branchTripsMade) branchTripsMadeArray.push(branchTripsMade[i]);
   // console.log('branchTripsMadeArray', branchTripsMadeArray);
 
-  let billingContactList_x_everyTravel = branchTripsMadeArray
-    .filter((travel_x) => travel_x.passengers) //filtramos solo los viajes que tengan pasajeros
-    .map((data) => data.passengers);
-  // console.log(
-  //   'billingContactList_x_everyTravel',
-  //   billingContactList_x_everyTravel
-  // );
-
-  //billingContactAllList: Array objetos que sera la data de la tabla:
-  let billingContactAllList = [];
-  billingContactList_x_everyTravel.map((arrayOf_billingContact_x) => {
-    for (let i in arrayOf_billingContact_x)
-      billingContactAllList.push(arrayOf_billingContact_x[i]);
+  let billingContactList_x_everyTravelAux = billingContactList_x_everyTravel({
+    branchTripsMadeArray,
   });
-  // console.log('billingContactAllList', billingContactAllList);
 
-  let dataTableNecesary = [];
-  let dataNecesaryAux1 = billingContactAllList.map((billingContact) => {
-    let buyer = billingContact.billingContactInformation.nameOrSocialReason;
-    let passengersAll = billingContact.ticketsSalesData;
-    // json to array:
-    let passengersList = [];
-    for (let i in passengersAll) passengersList.push(passengersAll[i]);
-    // console.log('passengersList', passengersList);
-
-    return { buyer, passengersList };
+  let billingContactAllListAux = billingContactAllList({
+    billingContactList_x_everyTravelAux,
   });
-  // console.log('dataNecesaryAux1', dataNecesaryAux1);
 
-  let dataNecesaryAux2 = dataNecesaryAux1.map((sale) => {
-    let buyer = sale.buyer;
+  let ticketsSoldByBuyerAux = ticketsSoldByBuyer({ billingContactAllListAux });
 
-    let dataNecesary = sale.passengersList.map((passenger) => {
-      let passengerData = {
-        buyer,
-        passenger: passenger.passengerFullName,
-        identificationNumber: passenger.identificationNumber,
-        ticketNumber: passenger.ticketNumber,
-        destiny: passenger.destiny,
-        travelDate: passenger.travelDate,
-      };
-
-      dataTableNecesary.push(passengerData);
-
-      return passengerData;
-    });
-
-    return dataNecesary;
-  });
-  // console.log('dataNecesaryAux2', dataNecesaryAux2);
-  console.log('dataTableNecesary', dataTableNecesary);
-
-  //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
-
-  const columns2 = [
+  //Datos necesarios para llenar la tabla:
+  const data = dataTableNecesary({ ticketsSoldByBuyerAux });
+  const columns = [
     {
       name: 'buyer',
       label: 'Comprador',
@@ -96,7 +60,7 @@ export const SalesRecord = () => {
       // },
     },
     {
-      name: 'passenger',
+      name: 'passengerFullName',
       label: 'Pasajero',
       // options: {
       //   filter: true,
@@ -120,7 +84,6 @@ export const SalesRecord = () => {
       label: 'Fecha Viaje',
     },
   ];
-
   const options = {
     filterType: 'checkbox',
   };
@@ -129,8 +92,8 @@ export const SalesRecord = () => {
     <>
       <MUIDataTable
         title={'Registro de Ventas'}
-        data={dataTableNecesary}
-        columns={columns2}
+        data={data}
+        columns={columns}
         options={options}
       />
     </>
