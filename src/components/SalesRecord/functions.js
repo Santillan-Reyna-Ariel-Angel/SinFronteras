@@ -1,3 +1,7 @@
+import Button from '@mui/material/Button';
+import { ReactToPrintComponent2 } from './../Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2';
+import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
+
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
 export const billingContactList_x_everyTravel = ({ branchTripsMadeArray }) => {
@@ -51,18 +55,34 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
       let {
         passengerFullName,
         identificationNumber,
-        ticketNumber,
+        seatId,
+        // ticketNumber,
         destiny,
         travelDate,
+        departureTime,
       } = passenger;
 
       let passengerData = {
         buyer,
         passengerFullName,
         identificationNumber,
-        ticketNumber,
+        seatId,
+        // ticketNumber,
         destiny,
         travelDate,
+        departureTime,
+        btn: (
+          <PlainModalButton
+            primaryBtnText="ver ticket"
+            dialogTitle=""
+            dialogText=""
+            closeBtnText="cancelar"
+            continueBtnText="ok"
+            componentView={
+              <ReactToPrintComponent2 ticketDataProps={passenger} />
+            }
+          />
+        ), //<Button variant="contained">Contained</Button>, // <ReactToPrintComponent2 />,
       };
 
       dataTableNecesary.push(passengerData);

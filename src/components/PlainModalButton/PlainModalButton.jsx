@@ -20,6 +20,7 @@ const PlainModalButton = ({
   secondFunctionToExecute = () => {},
   secondFunctionParameters, //data type bolean
   thirdFunctionToExecute = () => {},
+  componentView = <></>,
 }) => {
   const history = useHistory();
   const [openDialog, setOpenDialog] = useState(false);
@@ -57,6 +58,8 @@ const PlainModalButton = ({
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">{dialogTitle}</DialogTitle>
+        {/* Componente enviado para ser mostrado  */}
+        {componentView ? componentView : null}
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             {dialogText}

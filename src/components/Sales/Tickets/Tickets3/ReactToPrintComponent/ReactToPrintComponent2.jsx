@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 //Components:
 import { Tickets3 } from './../Tickets3.jsx';
 
-const ReactToPrintComponent2 = () => {
+const ReactToPrintComponent2 = ({ ticketDataProps }) => {
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
@@ -14,10 +14,10 @@ const ReactToPrintComponent2 = () => {
 
   return (
     <div>
-      <Tickets3 ref={componentRef} />
+      <Tickets3 ref={componentRef} ticketDataProps={ticketDataProps} />
 
       <Button variant="contained" color="success" onClick={() => handlePrint()}>
-        Ver Pdf Component2
+        Imprimir Pdf
       </Button>
     </div>
   );

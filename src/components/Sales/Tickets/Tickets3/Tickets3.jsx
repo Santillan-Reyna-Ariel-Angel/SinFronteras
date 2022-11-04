@@ -17,7 +17,16 @@ import { dataForPassengerTickets } from './../datos'; //Importando cantidad de p
 
 export const Tickets3 = React.forwardRef((props, ref) => {
   // Este componente tiene el logo mas pequeño:
-  const ticketData = dataForPassengerTickets ? dataForPassengerTickets : [];
+  // const ticketData = dataForPassengerTickets ? dataForPassengerTickets : [];
+
+  let { ticketDataProps } = props;
+  // console.log('ticketDataProps', ticketDataProps);
+
+  const ticketData = ticketDataProps
+    ? [ticketDataProps]
+    : dataForPassengerTickets;
+
+  console.log('ticketData', ticketData);
 
   return (
     <div ref={ref}>

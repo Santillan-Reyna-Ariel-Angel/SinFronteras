@@ -72,9 +72,13 @@ export const SalesRecord = () => {
       label: 'CI Pasajero',
     },
     {
-      name: 'ticketNumber',
-      label: 'Codigo ticket',
+      name: 'seatId',
+      label: 'Asiento',
     },
+    // {
+    //   name: 'ticketNumber',
+    //   label: 'Codigo ticket',
+    // },
     {
       name: 'destiny',
       label: 'Destino',
@@ -82,6 +86,15 @@ export const SalesRecord = () => {
     {
       name: 'travelDate',
       label: 'Fecha Viaje',
+    },
+    {
+      name: 'departureTime',
+      label: 'Hora Viaje',
+    },
+
+    {
+      name: 'btn',
+      label: 'Ver detalles',
     },
   ];
   const options = {
