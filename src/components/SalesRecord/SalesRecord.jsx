@@ -54,10 +54,6 @@ export const SalesRecord = () => {
     {
       name: 'buyer',
       label: 'Comprador',
-      // options: {
-      //   filter: true,
-      //   sort: true,
-      // },
     },
     {
       name: 'passengerFullName',
@@ -81,6 +77,8 @@ export const SalesRecord = () => {
       options: {
         filter: false, // func para filtrar por la columna
         //sort: false, //funcionalidad para odernar la columna
+        // searchable: false, // se indica si text de la columna podra encontrarse por el buscador
+        // viewColumns: false, // func para añadir/quitar a la lista de columnas(de la barra de herramientas)
       },
     },
     // {
@@ -106,12 +104,13 @@ export const SalesRecord = () => {
       options: {
         filter: false, // func para filtrar por la columna
         sort: false, //funcionalidad para odernar la columna
+        print: false, //Esto deberia hacer que se omita esta columna para la impresion
       },
     },
   ];
   const options = {
-    filterType: 'checkbox',
-    download: false, //opcoon de descarga .csv
+    filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)
+    download: false, //opcion de descarga .csv
     downloadOptions: { filename: 'RegistroDeVentas.csv' },
     // jumpToPage: true, // para navegar a una paginas especifica
     // onRowClick: (rowData) => {
@@ -125,7 +124,10 @@ export const SalesRecord = () => {
     selectableRowsHideCheckboxes: true, //muestra o no los check box
     ////////////////////////////////
     // IMPORTANTE SEGUIR REVISANDO DESDE LO SIGUIENTE:
-    // tableBodyHeight:""
+    tableBodyHeight: 'auto', // "50px", "100%"
+    // viewColumns: false, // func para mostrar/oculta columnas
+    elevation: 0, //ancho de sombrea de la tabla (0-24)
+    responsive: 'vertical', //simple(imp bien) vertical(imp bien) standard(imp mal) //IMPORTENTE: ESTO AFECTA A LA IMPRESION
   };
 
   return (
