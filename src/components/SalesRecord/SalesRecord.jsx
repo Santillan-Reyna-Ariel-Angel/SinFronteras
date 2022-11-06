@@ -13,6 +13,10 @@ import React, { useContext } from 'react';
 // } from '@mui/x-date-pickers/';
 // Manejo de Tablas:
 import MUIDataTable from 'mui-datatables';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
 //Styles:
 //Contexts:
 import { ContextBranchTripsMade } from './../../contexts/ContextBranchTripsMade';
@@ -27,6 +31,11 @@ import {
   ticketsSoldByBuyer,
   dataTableNecesary,
 } from './functions';
+//Styles Manejo de Tablas:
+const muiCache = createCache({
+  key: 'mui',
+  prepend: true,
+});
 
 export const SalesRecord = () => {
   //ContextCompanyBuses:
@@ -130,14 +139,44 @@ export const SalesRecord = () => {
     responsive: 'vertical', //simple(imp bien) vertical(imp bien) standard(imp mal) //IMPORTENTE: ESTO AFECTA A LA IMPRESION
   };
 
+  //Styles Manejo de Tablas:
+  const getMuiTheme = () =>
+    createTheme({
+      components: {
+        MuiTableCell: {
+          //desde aqui controlaremos el padding de cada(todas) celda
+          styleOverrides: {
+            root: {
+              paddingTop: '5px',
+              paddingBottom: '5px',
+              paddingLeft: '5px',
+              paddingRight: '5px',
+            },
+          },
+        },
+        MUIDataTableBodyCell: {
+          //desde aqui controlaremos el color de cada(todas) celda
+          styleOverrides: {
+            root: {
+              backgroundColor: '#9ca3af', //#051E34 , #00bdb2 rgb(102, 157, 246)
+            },
+          },
+        },
+      },
+    });
+
   return (
     <>
-      <MUIDataTable
-        title={'Registro de Ventas'}
-        data={data}
-        columns={columns}
-        options={options}
-      />
+      <CacheProvider value={muiCache}>
+        <ThemeProvider theme={getMuiTheme()}>
+          <MUIDataTable
+            title={'Registro de Ventas'}
+            data={data}
+            columns={columns}
+            options={options}
+          />
+        </ThemeProvider>
+      </CacheProvider>
     </>
   );
 };
