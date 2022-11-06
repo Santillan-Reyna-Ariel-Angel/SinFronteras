@@ -71,9 +71,9 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
         destiny,
         travelDate,
         departureTime,
-        btn: (
+        btnTicket: (
           <PlainModalButton
-            primaryBtnText="ver ticket"
+            primaryBtnText="ticket"
             dialogTitle=""
             dialogText=""
             closeBtnText="cancelar"

@@ -62,18 +62,26 @@ export const SalesRecord = () => {
     {
       name: 'passengerFullName',
       label: 'Pasajero',
-      // options: {
-      //   filter: true,
-      //   sort: false,
-      // },
+      options: {
+        filter: false, // func para filtrar por la columna
+        //sort: false, //funcionalidad para odernar la columna
+      },
     },
     {
       name: 'identificationNumber',
       label: 'CI Pasajero',
+      options: {
+        filter: false, // func para filtrar por la columna
+        //sort: false, //funcionalidad para odernar la columna
+      },
     },
     {
       name: 'seatId',
       label: 'Asiento',
+      options: {
+        filter: false, // func para filtrar por la columna
+        //sort: false, //funcionalidad para odernar la columna
+      },
     },
     // {
     //   name: 'ticketNumber',
@@ -93,12 +101,31 @@ export const SalesRecord = () => {
     },
 
     {
-      name: 'btn',
-      label: 'Ver detalles',
+      name: 'btnTicket',
+      label: 'Detalles',
+      options: {
+        filter: false, // func para filtrar por la columna
+        sort: false, //funcionalidad para odernar la columna
+      },
     },
   ];
   const options = {
     filterType: 'checkbox',
+    download: false, //opcoon de descarga .csv
+    downloadOptions: { filename: 'RegistroDeVentas.csv' },
+    // jumpToPage: true, // para navegar a una paginas especifica
+    // onRowClick: (rowData) => {
+    //   console.log('rowData', rowData); // nos regresa info de la fila cliqueada
+    // },
+    rowsPerPageOptions: [10, 15, 20, 30, 50, 100], //numero de filas(registros) por paginas
+    searchOpen: true,
+    // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
+    // selectableRows: 'none', //single, multiple //indica si las filas pueden ser selecionadas
+
+    selectableRowsHideCheckboxes: true, //muestra o no los check box
+    ////////////////////////////////
+    // IMPORTANTE SEGUIR REVISANDO DESDE LO SIGUIENTE:
+    // tableBodyHeight:""
   };
 
   return (
