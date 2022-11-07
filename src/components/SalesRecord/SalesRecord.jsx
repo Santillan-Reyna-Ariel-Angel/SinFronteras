@@ -18,6 +18,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 //Styles:
+import { Background, BodyContainer } from './SalesRecordStyles';
 //Contexts:
 import { ContextBranchTripsMade } from './../../contexts/ContextBranchTripsMade';
 
@@ -264,16 +265,20 @@ export const SalesRecord = () => {
 
   return (
     <>
-      <CacheProvider value={muiCache}>
-        <ThemeProvider theme={getMuiTheme()}>
-          <MUIDataTable
-            title={'Registro de Ventas'}
-            data={data}
-            columns={columns}
-            options={options}
-          />
-        </ThemeProvider>
-      </CacheProvider>
+      <Background>
+        <BodyContainer>
+          <CacheProvider value={muiCache}>
+            <ThemeProvider theme={getMuiTheme()}>
+              <MUIDataTable
+                title={'Registro de Ventas'}
+                data={data}
+                columns={columns}
+                options={options}
+              />
+            </ThemeProvider>
+          </CacheProvider>
+        </BodyContainer>
+      </Background>
     </>
   );
 };
