@@ -143,8 +143,25 @@ export const SalesRecord = () => {
   const getMuiTheme = () =>
     createTheme({
       components: {
+        //Cabecera superior(titulo):
+        MUIDataTableToolbar: {
+          styleOverrides: {
+            root: {
+              backgroundColor: '#051e34', //#051e34 #00bdb2 #9ca3af
+              color: 'white', //color del titlulo de la tabla
+            },
+            icon: {
+              color: 'white',
+            },
+            // iconActive: {
+            //   // color: 'green', //cuando se hace click aun icono
+            // },
+          },
+        },
+
+        //Tabla General:
         MuiTableCell: {
-          //desde aqui controlaremos el padding de cada(todas) celda
+          //Aqui controlaremos el padding de cada(todas) celda
           styleOverrides: {
             root: {
               paddingTop: '5px',
@@ -152,13 +169,81 @@ export const SalesRecord = () => {
               paddingLeft: '5px',
               paddingRight: '5px',
             },
+            footer: {
+              backgroundColor: '#051e34',
+            },
           },
         },
-        MUIDataTableBodyCell: {
-          //desde aqui controlaremos el color de cada(todas) celda
+
+        //Cabecera Table:
+        MUIDataTableHeadCell: {
+          //Aqui controlaremos el color de la cabecera
           styleOverrides: {
             root: {
-              backgroundColor: '#9ca3af', //#051E34 , #00bdb2 rgb(102, 157, 246)
+              backgroundColor: '#051e34', //   #051e34 #00bdb2 #9ca3af
+              color: 'white',
+            },
+            sortActive: {
+              color: 'white',
+            },
+          },
+        },
+
+        //Icono para odenar columna:
+        MuiTableSortLabel: {
+          styleOverrides: {
+            icon: {
+              backgroundColor: 'white',
+              // color: 'red',
+            },
+          },
+        },
+
+        //Cuerpo Celdas Tabla:
+        MUIDataTableBodyCell: {
+          //Aqui controlaremos el color de cada(todas) celda
+          styleOverrides: {
+            root: {
+              backgroundColor: '#00bdb2', //   #051e34 #00bdb2 #9ca3af
+            },
+          },
+        },
+
+        //Styles Pagination:
+        MUIDataTablePagination: {
+          styleOverrides: {
+            root: {
+              color: 'white', //textos
+            },
+          },
+        },
+
+        //Textos de entrada(Search):
+        MuiInputBase: {
+          styleOverrides: {
+            root: {
+              input: {
+                color: 'white', //textos
+              },
+            },
+          },
+        },
+
+        //Styles del area donde aparecen los filtros (area chips)
+        MUIDataTableFilterList: {
+          styleOverrides: {
+            root: {
+              backgroundColor: '#051e34',
+              margin: '0px',
+            },
+          },
+        },
+
+        //Styles de los chips(filtrado)
+        MuiChip: {
+          styleOverrides: {
+            root: {
+              backgroundColor: 'white',
             },
           },
         },
