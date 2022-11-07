@@ -125,7 +125,7 @@ export const SalesRecord = () => {
     // onRowClick: (rowData) => {
     //   console.log('rowData', rowData); // nos regresa info de la fila cliqueada
     // },
-    rowsPerPageOptions: [10, 15, 20, 30, 50, 100], //numero de filas(registros) por paginas
+    rowsPerPageOptions: [5, 10, 15, 20, 25, 30, 50, 100], //numero de filas(registros) por paginas
     searchOpen: true,
     // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
     // selectableRows: 'none', //single, multiple //indica si las filas pueden ser selecionadas
@@ -209,11 +209,11 @@ export const SalesRecord = () => {
           },
         },
 
-        //Styles Pagination:
+        //Styles Pagination (textos e iconos):
         MUIDataTablePagination: {
           styleOverrides: {
             root: {
-              color: 'white', //textos
+              color: 'white',
             },
           },
         },
@@ -244,6 +244,18 @@ export const SalesRecord = () => {
           styleOverrides: {
             root: {
               backgroundColor: 'white',
+            },
+          },
+        },
+
+        //Styles Barra busqueda:
+        MUIDataTableSearch: {
+          styleOverrides: {
+            searchIcon: {
+              color: 'white',
+            },
+            clearIcon: {
+              color: 'red',
             },
           },
         },
