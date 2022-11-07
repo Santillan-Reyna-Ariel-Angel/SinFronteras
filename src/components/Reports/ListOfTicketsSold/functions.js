@@ -1,6 +1,5 @@
-import Button from '@mui/material/Button';
-import { ReactToPrintComponent2 } from './../Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2';
-import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
+import { ReactToPrintComponent2 } from './../../Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2';
+import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 

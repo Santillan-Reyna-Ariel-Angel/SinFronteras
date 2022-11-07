@@ -12,6 +12,8 @@ import PointOfSaleRoundedIcon from '@mui/icons-material/PointOfSaleRounded';
 import ConfirmationNumberRoundedIcon from '@mui/icons-material/ConfirmationNumberRounded';
 import DepartureBoardRoundedIcon from '@mui/icons-material/DepartureBoardRounded';
 import MovingRoundedIcon from '@mui/icons-material/MovingRounded';
+//Reportes
+import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 
 export const menuBodyItemList = [
   {
@@ -60,7 +62,6 @@ export const menuBodyItemList = [
       },
     ],
   },
-
   {
     path: '/Viajes',
     icon: <MovingRoundedIcon />, // <DirectionsBusRoundedIcon />,
@@ -78,7 +79,23 @@ export const menuBodyItemList = [
       // },
     ],
   },
-
+  {
+    path: '/Reportes',
+    icon: <QueryStatsRoundedIcon />,
+    title: 'Reportes',
+    children: [
+      {
+        path: '/reportes/lista-ventas',
+        title: 'Lista de ventas',
+        icon: <FormatListNumberedRoundedIcon />,
+      },
+      // {
+      //   path: '/viajes/lista-de-viajes',
+      //   title: 'Lista de viajes',
+      //   icon: <FormatListNumberedRoundedIcon />,
+      // },
+    ],
+  },
   {
     path: '/sucursales',
     icon: <HomeWorkRoundedIcon />,

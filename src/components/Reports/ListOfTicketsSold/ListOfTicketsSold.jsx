@@ -17,9 +17,9 @@ import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
 import { muiCache, getMuiTheme } from './themeDataTable';
 //Styles:
-import { Background, BodyContainer } from './SalesRecordStyles';
+import { Background, BodyContainer } from './ListOfTicketsSoldStyles';
 //Contexts:
-import { ContextBranchTripsMade } from './../../contexts/ContextBranchTripsMade';
+import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 
 //Firebase Functions:
 //States:
@@ -32,7 +32,7 @@ import {
   dataTableNecesary,
 } from './functions';
 
-export const SalesRecord = () => {
+export const ListOfTicketsSold = () => {
   //ContextCompanyBuses:
   const branchTripsMade = useContext(ContextBranchTripsMade);
   // console.log('branchTripsMade', branchTripsMade);
@@ -138,7 +138,7 @@ export const SalesRecord = () => {
           <CacheProvider value={muiCache}>
             <ThemeProvider theme={getMuiTheme()}>
               <MUIDataTable
-                title={'Registro de Ventas'}
+                title={'Lista de pasajes vendidos'}
                 data={data}
                 columns={columns}
                 options={options}
