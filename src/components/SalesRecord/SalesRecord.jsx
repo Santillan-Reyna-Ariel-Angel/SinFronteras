@@ -13,10 +13,9 @@ import React, { useContext } from 'react';
 // } from '@mui/x-date-pickers/';
 // Manejo de Tablas:
 import MUIDataTable from 'mui-datatables';
-
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
+import { muiCache, getMuiTheme } from './themeDataTable';
 //Styles:
 import { Background, BodyContainer } from './SalesRecordStyles';
 //Contexts:
@@ -32,11 +31,6 @@ import {
   ticketsSoldByBuyer,
   dataTableNecesary,
 } from './functions';
-//Styles Manejo de Tablas:
-const muiCache = createCache({
-  key: 'mui',
-  prepend: true,
-});
 
 export const SalesRecord = () => {
   //ContextCompanyBuses:
@@ -130,138 +124,12 @@ export const SalesRecord = () => {
     searchOpen: true,
     // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
     // selectableRows: 'none', //single, multiple //indica si las filas pueden ser selecionadas
-
     selectableRowsHideCheckboxes: true, //muestra o no los check box
-    ////////////////////////////////
-    // IMPORTANTE SEGUIR REVISANDO DESDE LO SIGUIENTE:
     tableBodyHeight: 'auto', // "50px", "100%"
     // viewColumns: false, // func para mostrar/oculta columnas
     elevation: 0, //ancho de sombrea de la tabla (0-24)
     responsive: 'vertical', //simple(imp bien) vertical(imp bien) standard(imp mal) //IMPORTENTE: ESTO AFECTA A LA IMPRESION
   };
-
-  //Styles Manejo de Tablas:
-  const getMuiTheme = () =>
-    createTheme({
-      components: {
-        //Cabecera superior(titulo):
-        MUIDataTableToolbar: {
-          styleOverrides: {
-            root: {
-              backgroundColor: '#051e34', //#051e34 #00bdb2 #9ca3af
-              color: 'white', //color del titlulo de la tabla
-            },
-            icon: {
-              color: 'white',
-            },
-            // iconActive: {
-            //   // color: 'green', //cuando se hace click aun icono
-            // },
-          },
-        },
-
-        //Tabla General:
-        MuiTableCell: {
-          //Aqui controlaremos el padding de cada(todas) celda
-          styleOverrides: {
-            root: {
-              paddingTop: '5px',
-              paddingBottom: '5px',
-              paddingLeft: '5px',
-              paddingRight: '5px',
-            },
-            footer: {
-              backgroundColor: '#051e34',
-            },
-          },
-        },
-
-        //Cabecera Table:
-        MUIDataTableHeadCell: {
-          //Aqui controlaremos el color de la cabecera
-          styleOverrides: {
-            root: {
-              backgroundColor: '#051e34', //   #051e34 #00bdb2 #9ca3af
-              color: 'white',
-            },
-            sortActive: {
-              color: 'white',
-            },
-          },
-        },
-
-        //Icono para odenar columna:
-        MuiTableSortLabel: {
-          styleOverrides: {
-            icon: {
-              backgroundColor: 'white',
-              // color: 'red',
-            },
-          },
-        },
-
-        //Cuerpo Celdas Tabla:
-        MUIDataTableBodyCell: {
-          //Aqui controlaremos el color de cada(todas) celda
-          styleOverrides: {
-            root: {
-              backgroundColor: '#00bdb2', //   #051e34 #00bdb2 #9ca3af
-            },
-          },
-        },
-
-        //Styles Pagination (textos e iconos):
-        MUIDataTablePagination: {
-          styleOverrides: {
-            root: {
-              color: 'white',
-            },
-          },
-        },
-
-        //Textos de entrada(Search):
-        MuiInputBase: {
-          styleOverrides: {
-            root: {
-              input: {
-                color: 'white', //textos
-              },
-            },
-          },
-        },
-
-        //Styles del area donde aparecen los filtros (area chips)
-        MUIDataTableFilterList: {
-          styleOverrides: {
-            root: {
-              backgroundColor: '#051e34',
-              margin: '0px',
-            },
-          },
-        },
-
-        //Styles de los chips(filtrado)
-        MuiChip: {
-          styleOverrides: {
-            root: {
-              backgroundColor: 'white',
-            },
-          },
-        },
-
-        //Styles Barra busqueda:
-        MUIDataTableSearch: {
-          styleOverrides: {
-            searchIcon: {
-              color: 'white',
-            },
-            clearIcon: {
-              color: 'red',
-            },
-          },
-        },
-      },
-    });
 
   return (
     <>
