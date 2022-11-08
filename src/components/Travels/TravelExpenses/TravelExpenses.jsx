@@ -51,6 +51,7 @@ export const TravelExpenses = () => {
       others: '',
       otherDescription: '',
     },
+    totalExpenses: 0, //Por default numerico
   };
 
   const [travelExpenses, setTravelExpenses] = useState(dataDefault);
@@ -76,7 +77,33 @@ export const TravelExpenses = () => {
     return keys[0].tripMadeKey;
   };
 
+  const getTotalExpenses = () => {
+    let { diesel, toll, viaticos, washed, laborUnion, others } =
+      travelExpenses.expenses;
+
+    let expensesArray = [diesel, toll, viaticos, washed, laborUnion, others];
+
+    let expensesArrayAux = expensesArray
+      .map((expense) => (expense === '' ? 0 : parseFloat(expense).toFixed(2))) //toFixed() nos regresa un string
+      .map((amount) => parseFloat(amount)); //del array de string a array de floats
+    // console.log('expensesArrayAux', expensesArrayAux);
+
+    //Sumar gastos:
+    let initialValue =
+      travelExpenses.totalExpenses === ''
+        ? 0
+        : parseFloat(travelExpenses.totalExpenses);
+    let totalExpenses = expensesArrayAux.reduce(
+      (previousValue, currentValue) => previousValue + currentValue,
+      initialValue
+    );
+    console.log('totalExpenses', totalExpenses);
+
+    return totalExpenses.toFixed(2);
+  };
+
   console.log('travelExpenses', travelExpenses);
+
   return (
     <>
       <FormControl className="input">
@@ -108,15 +135,15 @@ export const TravelExpenses = () => {
         variant="outlined"
         value={travelExpenses.expenses.diesel}
         type="number"
-        onChange={(event) =>
-          setTravelExpenses({
-            ...travelExpenses,
+        onChange={(event) => [
+          setTravelExpenses((prevState) => ({
+            ...prevState,
             expenses: {
-              ...travelExpenses.expenses,
+              ...prevState.expenses,
               [event.target.name]: event.target.value,
             },
-          })
-        }
+          })),
+        ]}
       />
 
       <TextField
@@ -126,15 +153,15 @@ export const TravelExpenses = () => {
         variant="outlined"
         value={travelExpenses.expenses.toll}
         type="number"
-        onChange={(event) =>
+        onChange={(event) => [
           setTravelExpenses({
             ...travelExpenses,
             expenses: {
               ...travelExpenses.expenses,
               [event.target.name]: event.target.value,
             },
-          })
-        }
+          }),
+        ]}
       />
 
       <TextField
@@ -144,15 +171,15 @@ export const TravelExpenses = () => {
         variant="outlined"
         value={travelExpenses.expenses.viaticos}
         type="number"
-        onChange={(event) =>
+        onChange={(event) => [
           setTravelExpenses({
             ...travelExpenses,
             expenses: {
               ...travelExpenses.expenses,
               [event.target.name]: event.target.value,
             },
-          })
-        }
+          }),
+        ]}
       />
 
       <TextField
@@ -162,15 +189,15 @@ export const TravelExpenses = () => {
         variant="outlined"
         value={travelExpenses.expenses.washed}
         type="number"
-        onChange={(event) =>
+        onChange={(event) => [
           setTravelExpenses({
             ...travelExpenses,
             expenses: {
               ...travelExpenses.expenses,
               [event.target.name]: event.target.value,
             },
-          })
-        }
+          }),
+        ]}
       />
 
       <TextField
@@ -180,15 +207,15 @@ export const TravelExpenses = () => {
         variant="outlined"
         value={travelExpenses.expenses.laborUnion}
         type="number"
-        onChange={(event) =>
+        onChange={(event) => [
           setTravelExpenses({
             ...travelExpenses,
             expenses: {
               ...travelExpenses.expenses,
               [event.target.name]: event.target.value,
             },
-          })
-        }
+          }),
+        ]}
       />
 
       <TextField
@@ -198,16 +225,40 @@ export const TravelExpenses = () => {
         variant="outlined"
         value={travelExpenses.expenses.others}
         type="number"
-        onChange={(event) =>
+        onChange={(event) => [
           setTravelExpenses({
             ...travelExpenses,
             expenses: {
               ...travelExpenses.expenses,
               [event.target.name]: event.target.value,
             },
-          })
+          }),
+        ]}
+      />
+
+      <TextField
+        placeholder="Descripcion de otros gastos..."
+        multiline
+        maxRows={4}
+        className="input"
+        type="text"
+        variant="outlined"
+        label="Descripcion "
+        name="otherDescription"
+        value={travelExpenses.expenses.otherDescription}
+        onChange={(event) =>
+          setTravelExpenses((prevState) => ({
+            ...prevState,
+            expenses: {
+              ...prevState.expenses,
+              [event.target.name]: event.target.value,
+            },
+          }))
         }
       />
+
+      {/* El boton guardar debera actualizar: totalExpenses:getTotalExpenses()  */}
+      <span>{`Total Egresos: ${getTotalExpenses()}`}</span>
     </>
   );
 };
