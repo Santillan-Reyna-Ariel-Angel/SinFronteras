@@ -213,7 +213,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       <Background>
         <HeaderContainer>
           <HeaderTitle>
-            <span>Informacion de contacto</span>
+            <span>INFORMACION DE CONTACTO</span>
           </HeaderTitle>
         </HeaderContainer>
         <BodyContainer>

@@ -22,7 +22,7 @@ export const BusList = () => {
         <HeaderContainer>
           <HeaderTitle>
             {/* Lista de buses: */}
-            <span>Buses en Sucursal</span>
+            <span>BUSES EN SUCURSAL</span>
           </HeaderTitle>
         </HeaderContainer>
 

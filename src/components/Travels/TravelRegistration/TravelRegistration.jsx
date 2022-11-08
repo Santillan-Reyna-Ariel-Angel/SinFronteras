@@ -190,7 +190,7 @@ export const TravelRegistration = () => {
     <Background>
       <HeaderContainer>
         <HeaderTitle>
-          <span>Programacion de viajes</span>
+          <span>PROGRAMACION DE VIAJES</span>
         </HeaderTitle>
       </HeaderContainer>
 

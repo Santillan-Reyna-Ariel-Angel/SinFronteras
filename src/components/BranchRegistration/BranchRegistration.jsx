@@ -103,7 +103,7 @@ export const BranchRegistration = () => {
       <Background>
         <HeaderContainer>
           <HeaderTitle>
-            <span>Registro de Sucursales</span>
+            <span>REGISTRO DE SUCURSALES</span>
           </HeaderTitle>
         </HeaderContainer>
         <BodyContainer>

@@ -100,7 +100,7 @@ export const BusRegistration = () => {
       <Background>
         <HeaderContainer>
           <HeaderTitle>
-            <span>Registro de Buses</span>
+            <span>REGISTRO DE BUSES</span>
           </HeaderTitle>
         </HeaderContainer>
 

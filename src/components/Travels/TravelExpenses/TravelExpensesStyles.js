@@ -38,7 +38,7 @@ export const HeaderTitle = styled.div`
 export const BodyContainer = styled.div`
   display: grid;
   background-color: #00bdb2;
-  grid-template-columns: 170px 170px;
+  grid-template-columns: 150px 150px;
   grid-template-rows: auto;
   grid-row-gap: 15px;
   grid-column-gap: 10px;
@@ -48,88 +48,74 @@ export const BodyContainer = styled.div`
   border-radius: 0px 0px 10px 10px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  grid-template-areas: 'DptOriginStyle LocOriginStyle' 'TravelDateStyle DepartureTimeStyle' 'DptDestinationStyle LocDestinationStyle' 'BusEnrollmentStyle BusEnrollmentStyle' 'IdNumberDriverStyle IdNumberDriverStyle' 'LaneStyle LaneStyle' 'Btn Btn';
+  grid-template-areas: 'TripMadeKeyStyle TripMadeKeyStyle' 'DieselStyle TollStyle' 'ViaticosStyle WashedStyle' 'LaborUnionStyle OthersStyle' 'OtherDescriptionStyle OtherDescriptionStyle' 'TextTotalExpensesStyle TextTotalExpensesStyle' 'Btn Btn';
   /* overflow: hidden; */
 `;
 
-export const DptOriginStyle = styled.div`
-  grid-area: DptOriginStyle;
+export const TripMadeKeyStyle = styled.div`
+  grid-area: TripMadeKeyStyle;
   .input {
     width: 100%;
   }
 `;
 
-export const LocOriginStyle = styled.div`
-  grid-area: LocOriginStyle;
+export const DieselStyle = styled.div`
+  grid-area: DieselStyle;
   .input {
     width: 100%;
   }
 `;
 
-export const TravelDateStyle = styled.div`
-  grid-area: TravelDateStyle;
+export const TollStyle = styled.div`
+  grid-area: TollStyle;
   .input {
     width: 100%;
   }
 `;
 
-export const DepartureTimeStyle = styled.div`
-  grid-area: DepartureTimeStyle;
+export const ViaticosStyle = styled.div`
+  grid-area: ViaticosStyle;
   .input {
     width: 100%;
   }
 `;
 
-export const DptDestinationStyle = styled.div`
-  grid-area: DptDestinationStyle;
+export const WashedStyle = styled.div`
+  grid-area: WashedStyle;
   .input {
     width: 100%;
   }
 `;
 
-export const LocDestinationStyle = styled.div`
-  grid-area: LocDestinationStyle;
+export const LaborUnionStyle = styled.div`
+  grid-area: LaborUnionStyle;
   .input {
     width: 100%;
   }
 `;
 
-export const BusEnrollmentStyle = styled.div`
-  grid-area: BusEnrollmentStyle;
-  .input {
-    width: 50%;
-  }
-`;
-
-export const IdNumberDriverStyle = styled.div`
-  grid-area: IdNumberDriverStyle;
+export const OthersStyle = styled.div`
+  grid-area: OthersStyle;
   .input {
     width: 100%;
   }
 `;
 
-export const LaneStyle = styled.div`
-  grid-area: LaneStyle;
+export const OtherDescriptionStyle = styled.div`
+  grid-area: OtherDescriptionStyle;
   .input {
-    width: 50%;
+    width: 100%;
   }
+`;
+
+export const TextTotalExpensesStyle = styled.div`
+  grid-area: TextTotalExpensesStyle;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
 `;
 
 export const Btn = styled.div`
   grid-area: Btn;
   justify-self: center;
 `;
-
-// export const ServicesText = styled.div`
-//   grid-area: ServicesText;
-//   text-align: center;
-//   font-size: larger;
-//   font-weight: bold;
-// `;
-
-// export const NumberOfFloorsText = styled.div`
-//   grid-area: NumberOfFloorsText;
-//   text-align: center;
-//   font-size: larger;
-//   font-weight: bold;
-// `;

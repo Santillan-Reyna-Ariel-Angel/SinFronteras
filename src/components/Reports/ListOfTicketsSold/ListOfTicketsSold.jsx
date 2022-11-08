@@ -138,7 +138,7 @@ export const ListOfTicketsSold = () => {
           <CacheProvider value={muiCache}>
             <ThemeProvider theme={getMuiTheme()}>
               <MUIDataTable
-                title={'Lista de pasajes vendidos'}
+                title={'LISTA DE PASAJES VENDIDOS'}
                 data={data}
                 columns={columns}
                 options={options}

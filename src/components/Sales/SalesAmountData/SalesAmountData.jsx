@@ -56,7 +56,7 @@ const SalesAmountData = ({ passengersDataTable }) => {
       <Background>
         <HeaderContainer>
           <HeaderTitle>
-            <span>Importe</span>
+            <span>IMPORTE</span>
           </HeaderTitle>
         </HeaderContainer>
         <BodyContainer>

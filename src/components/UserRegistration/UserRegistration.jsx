@@ -319,11 +319,11 @@ const UserRegistration = () => {
   return (
     <>
       <Background>
-        <br />
-        <br />
+        {/* <br />
+        <br /> */}
         <HeaderContainer>
           <HeaderTitle>
-            <span>Registro de Usuarios</span>
+            <span>REGISTRO DE USUARIOS</span>
           </HeaderTitle>
         </HeaderContainer>
         <BodyContainer>

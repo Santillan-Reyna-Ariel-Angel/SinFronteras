@@ -10,11 +10,28 @@ import {
 } from '@mui/material/';
 
 //Styles:
+import {
+  Background,
+  HeaderContainer,
+  HeaderTitle,
+  BodyContainer,
+  TripMadeKeyStyle,
+  DieselStyle,
+  TollStyle,
+  ViaticosStyle,
+  WashedStyle,
+  LaborUnionStyle,
+  OthersStyle,
+  OtherDescriptionStyle,
+  TextTotalExpensesStyle,
+  Btn,
+} from './TravelExpensesStyles';
 //Contexts:
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade.js';
 //Firebase Functions:
 //States:
 //Components:
+import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
 
 export const TravelExpenses = () => {
@@ -89,10 +106,7 @@ export const TravelExpenses = () => {
     // console.log('expensesArrayAux', expensesArrayAux);
 
     //Sumar gastos:
-    let initialValue =
-      travelExpenses.totalExpenses === ''
-        ? 0
-        : parseFloat(travelExpenses.totalExpenses);
+    let initialValue = 0;
     let totalExpenses = expensesArrayAux.reduce(
       (previousValue, currentValue) => previousValue + currentValue,
       initialValue
@@ -106,159 +120,195 @@ export const TravelExpenses = () => {
 
   return (
     <>
-      <FormControl className="input">
-        <InputLabel>Seleccionar viaje</InputLabel>
-        <Select
-          value={enrollmentSelectableOption} //travelExpenses.busEnrollment
-          name="busEnrollment"
-          onChange={(event) => [
-            setTravelExpenses({
-              ...travelExpenses,
-              [event.target.name]: getBusEnrollment(event.target.value),
-              tripMadeKey: getTripMadeKey(event.target.value),
-            }),
-            setEnrollmentSelectableOption(event.target.value),
-          ]}
-        >
-          {necessaryKeys.map((key, index) => (
-            <MenuItem key={index} value={key.selectableOption}>
-              {key.selectableOption}
-            </MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <Background>
+        <HeaderContainer>
+          <HeaderTitle>
+            <span>EGRESOS DE VIAJE</span>
+          </HeaderTitle>
+        </HeaderContainer>
 
-      <TextField
-        className="input"
-        name="diesel"
-        label="Diesel"
-        variant="outlined"
-        value={travelExpenses.expenses.diesel}
-        type="number"
-        onChange={(event) => [
-          setTravelExpenses((prevState) => ({
-            ...prevState,
-            expenses: {
-              ...prevState.expenses,
-              [event.target.name]: event.target.value,
-            },
-          })),
-        ]}
-      />
+        <BodyContainer>
+          <TripMadeKeyStyle>
+            <FormControl className="input">
+              <InputLabel>Seleccionar viaje</InputLabel>
+              <Select
+                value={enrollmentSelectableOption} //travelExpenses.busEnrollment
+                name="tripMadeKey" // busEnrollment
+                onChange={(event) => [
+                  setTravelExpenses({
+                    ...travelExpenses,
+                    [event.target.name]: getTripMadeKey(event.target.value),
+                    busEnrollment: getBusEnrollment(event.target.value),
+                  }),
+                  setEnrollmentSelectableOption(event.target.value),
+                ]}
+              >
+                {necessaryKeys.map((key, index) => (
+                  <MenuItem key={index} value={key.selectableOption}>
+                    {key.selectableOption}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </TripMadeKeyStyle>
 
-      <TextField
-        className="input"
-        name="toll"
-        label="Peaje"
-        variant="outlined"
-        value={travelExpenses.expenses.toll}
-        type="number"
-        onChange={(event) => [
-          setTravelExpenses({
-            ...travelExpenses,
-            expenses: {
-              ...travelExpenses.expenses,
-              [event.target.name]: event.target.value,
-            },
-          }),
-        ]}
-      />
+          <DieselStyle>
+            <TextField
+              className="input"
+              name="diesel"
+              label="Diesel"
+              variant="outlined"
+              value={travelExpenses.expenses.diesel}
+              type="number"
+              onChange={(event) => [
+                setTravelExpenses((prevState) => ({
+                  ...prevState,
+                  expenses: {
+                    ...prevState.expenses,
+                    [event.target.name]: event.target.value,
+                  },
+                })),
+              ]}
+            />
+          </DieselStyle>
 
-      <TextField
-        className="input"
-        name="viaticos"
-        label="Viaticos"
-        variant="outlined"
-        value={travelExpenses.expenses.viaticos}
-        type="number"
-        onChange={(event) => [
-          setTravelExpenses({
-            ...travelExpenses,
-            expenses: {
-              ...travelExpenses.expenses,
-              [event.target.name]: event.target.value,
-            },
-          }),
-        ]}
-      />
+          <TollStyle>
+            <TextField
+              className="input"
+              name="toll"
+              label="Peaje"
+              variant="outlined"
+              value={travelExpenses.expenses.toll}
+              type="number"
+              onChange={(event) => [
+                setTravelExpenses({
+                  ...travelExpenses,
+                  expenses: {
+                    ...travelExpenses.expenses,
+                    [event.target.name]: event.target.value,
+                  },
+                }),
+              ]}
+            />
+          </TollStyle>
 
-      <TextField
-        className="input"
-        name="washed"
-        label="Lavado"
-        variant="outlined"
-        value={travelExpenses.expenses.washed}
-        type="number"
-        onChange={(event) => [
-          setTravelExpenses({
-            ...travelExpenses,
-            expenses: {
-              ...travelExpenses.expenses,
-              [event.target.name]: event.target.value,
-            },
-          }),
-        ]}
-      />
+          <ViaticosStyle>
+            <TextField
+              className="input"
+              name="viaticos"
+              label="Viaticos"
+              variant="outlined"
+              value={travelExpenses.expenses.viaticos}
+              type="number"
+              onChange={(event) => [
+                setTravelExpenses({
+                  ...travelExpenses,
+                  expenses: {
+                    ...travelExpenses.expenses,
+                    [event.target.name]: event.target.value,
+                  },
+                }),
+              ]}
+            />
+          </ViaticosStyle>
 
-      <TextField
-        className="input"
-        name="laborUnion"
-        label="Sindicato"
-        variant="outlined"
-        value={travelExpenses.expenses.laborUnion}
-        type="number"
-        onChange={(event) => [
-          setTravelExpenses({
-            ...travelExpenses,
-            expenses: {
-              ...travelExpenses.expenses,
-              [event.target.name]: event.target.value,
-            },
-          }),
-        ]}
-      />
+          <WashedStyle>
+            <TextField
+              className="input"
+              name="washed"
+              label="Lavado"
+              variant="outlined"
+              value={travelExpenses.expenses.washed}
+              type="number"
+              onChange={(event) => [
+                setTravelExpenses({
+                  ...travelExpenses,
+                  expenses: {
+                    ...travelExpenses.expenses,
+                    [event.target.name]: event.target.value,
+                  },
+                }),
+              ]}
+            />
+          </WashedStyle>
 
-      <TextField
-        className="input"
-        name="others"
-        label="Otros"
-        variant="outlined"
-        value={travelExpenses.expenses.others}
-        type="number"
-        onChange={(event) => [
-          setTravelExpenses({
-            ...travelExpenses,
-            expenses: {
-              ...travelExpenses.expenses,
-              [event.target.name]: event.target.value,
-            },
-          }),
-        ]}
-      />
+          <LaborUnionStyle>
+            <TextField
+              className="input"
+              name="laborUnion"
+              label="Sindicato"
+              variant="outlined"
+              value={travelExpenses.expenses.laborUnion}
+              type="number"
+              onChange={(event) => [
+                setTravelExpenses({
+                  ...travelExpenses,
+                  expenses: {
+                    ...travelExpenses.expenses,
+                    [event.target.name]: event.target.value,
+                  },
+                }),
+              ]}
+            />
+          </LaborUnionStyle>
 
-      <TextField
-        placeholder="Descripcion de otros gastos..."
-        multiline
-        maxRows={4}
-        className="input"
-        type="text"
-        variant="outlined"
-        label="Descripcion "
-        name="otherDescription"
-        value={travelExpenses.expenses.otherDescription}
-        onChange={(event) =>
-          setTravelExpenses((prevState) => ({
-            ...prevState,
-            expenses: {
-              ...prevState.expenses,
-              [event.target.name]: event.target.value,
-            },
-          }))
-        }
-      />
+          <OthersStyle>
+            <TextField
+              className="input"
+              name="others"
+              label="Otros"
+              variant="outlined"
+              value={travelExpenses.expenses.others}
+              type="number"
+              onChange={(event) => [
+                setTravelExpenses({
+                  ...travelExpenses,
+                  expenses: {
+                    ...travelExpenses.expenses,
+                    [event.target.name]: event.target.value,
+                  },
+                }),
+              ]}
+            />
+          </OthersStyle>
 
-      {/* El boton guardar debera actualizar: totalExpenses:getTotalExpenses()  */}
-      <span>{`Total Egresos: ${getTotalExpenses()}`}</span>
+          <OtherDescriptionStyle>
+            <TextField
+              placeholder="Descripcion de otros gastos..."
+              multiline
+              maxRows={4}
+              className="input"
+              type="text"
+              variant="outlined"
+              label="Descripcion "
+              name="otherDescription"
+              value={travelExpenses.expenses.otherDescription}
+              onChange={(event) =>
+                setTravelExpenses((prevState) => ({
+                  ...prevState,
+                  expenses: {
+                    ...prevState.expenses,
+                    [event.target.name]: event.target.value,
+                  },
+                }))
+              }
+            />
+          </OtherDescriptionStyle>
+
+          <TextTotalExpensesStyle>
+            {/* El boton guardar debera actualizar: totalExpenses:getTotalExpenses()  */}
+            <span>{`Total Egresos (Bs): ${getTotalExpenses()}`}</span>
+          </TextTotalExpensesStyle>
+
+          <Btn>
+            <PlainModalButton
+              primaryBtnText="registrar egreso del viaje"
+              dialogTitle="Gatos de viaje"
+              dialogText="Esta seguro de registrar este egreso?"
+            />
+          </Btn>
+        </BodyContainer>
+      </Background>
     </>
   );
 };
