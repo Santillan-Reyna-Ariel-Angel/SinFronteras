@@ -1,12 +1,17 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
+  //Se usan los 4 o se usara margin:
   display: grid;
+  align-content: center; //junta los elementos vertical
+  justify-content: center; //centrea los elementos orizontalmente
+  width: 100%; //opcional para llevarlo al medio de la pantalla
+
   left: 0;
   top: 0;
-  justify-content: center; //centrea los elementos
-  align-content: center; //junta los elementos vertical
   /* grid-template-columns: auto; */
+  //new:
+  /* margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background> */
 `;
 
 export const BodyContainer = styled.div`

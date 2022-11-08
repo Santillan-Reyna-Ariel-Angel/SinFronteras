@@ -11,7 +11,7 @@ export const Background = styled.div`
   /* top: 0; */
   /* grid-template-columns: auto; */
   //new:
-  /* margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background> */
+  margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background>
 `;
 export const HeaderContainer = styled.div`
   display: grid;

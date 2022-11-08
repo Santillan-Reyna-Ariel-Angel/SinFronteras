@@ -12,8 +12,10 @@ import PointOfSaleRoundedIcon from '@mui/icons-material/PointOfSaleRounded';
 import ConfirmationNumberRoundedIcon from '@mui/icons-material/ConfirmationNumberRounded';
 import DepartureBoardRoundedIcon from '@mui/icons-material/DepartureBoardRounded';
 import MovingRoundedIcon from '@mui/icons-material/MovingRounded';
-//Reportes
+//Reportes:
 import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
+//Viajes:
+import MoneyOffRoundedIcon from '@mui/icons-material/MoneyOffRounded';
 
 export const menuBodyItemList = [
   {
@@ -38,11 +40,11 @@ export const menuBodyItemList = [
         title: 'Registro de Usuarios',
         icon: <PersonAddRoundedIcon />,
       },
-      {
-        path: '/personal/roles-y-permisos',
-        title: 'Roles y permisos',
-        icon: <FactCheckRoundedIcon />,
-      },
+      // {
+      //   path: '/personal/roles-y-permisos',
+      //   title: 'Roles y permisos',
+      //   icon: <FactCheckRoundedIcon />,
+      // },
     ],
   },
   {
@@ -72,11 +74,11 @@ export const menuBodyItemList = [
         title: 'Programar viaje',
         icon: <DepartureBoardRoundedIcon />,
       },
-      // {
-      //   path: '/viajes/lista-de-viajes',
-      //   title: 'Lista de viajes',
-      //   icon: <FormatListNumberedRoundedIcon />,
-      // },
+      {
+        path: '/viajes/egresos-de-viaje',
+        title: 'Egresos de viajes',
+        icon: <MoneyOffRoundedIcon />,
+      },
     ],
   },
   {
@@ -106,11 +108,11 @@ export const menuBodyItemList = [
         title: 'Registro de sucursales',
         icon: <MapsHomeWorkRoundedIcon />,
       },
-      {
-        path: '/sucursales/lista-de-sucursales',
-        title: 'Lista de Sucursales',
-        icon: <FormatListNumberedRoundedIcon />,
-      },
+      // {
+      //   path: '/sucursales/lista-de-sucursales',
+      //   title: 'Lista de Sucursales',
+      //   icon: <FormatListNumberedRoundedIcon />,
+      // },
     ],
   },
 ];

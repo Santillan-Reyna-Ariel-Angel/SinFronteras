@@ -130,11 +130,17 @@ const AppRoutes = () => {
                             component={ListOfTicketsSold}
                           />
 
+                          <Route
+                            exact
+                            path="/viajes/egresos-de-viaje/"
+                            component={TravelExpenses}
+                          />
+
                           {/* Route for Tests: */}
                           <Route
                             exact
                             path="/test-component/"
-                            component={TravelExpenses}
+                            component={SettlementForm}
                           />
                         </Layout>
                       </Switch>
