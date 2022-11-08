@@ -28,7 +28,10 @@ import {
 } from './TravelExpensesStyles';
 //Contexts:
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade.js';
+import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
+
 //Firebase Functions:
+import { createTravelExpenses } from './../Firebase/createTravelExpenses';
 //States:
 //Components:
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
@@ -38,6 +41,12 @@ export const TravelExpenses = () => {
   //ContextUserData
   const branchTripsMade = useContext(ContextBranchTripsMade);
   // console.log('branchTripsMade', branchTripsMade);
+
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  const {
+    branchInformation: { branchNumber },
+  } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
 
   let branchTripsMadeKeys =
     branchTripsMade !== undefined ? Object.keys(branchTripsMade) : [];
@@ -111,12 +120,25 @@ export const TravelExpenses = () => {
       (previousValue, currentValue) => previousValue + currentValue,
       initialValue
     );
-    console.log('totalExpenses', totalExpenses);
 
-    return totalExpenses.toFixed(2);
+    let totalExpensesFloat = parseFloat(totalExpenses.toFixed(2));
+    console.log('totalExpensesFloat', totalExpensesFloat);
+
+    return totalExpensesFloat;
   };
 
-  console.log('travelExpenses', travelExpenses);
+  //Data para enviar a FireFunc
+  let travelExpensesData = {
+    ...travelExpenses,
+    totalExpenses: getTotalExpenses(),
+  };
+  console.log('travelExpensesData', travelExpensesData);
+
+  // componentDefaultData
+  const componentDefaultData = () => {
+    setTravelExpenses(dataDefault);
+    setEnrollmentSelectableOption(undefined);
+  };
 
   return (
     <>
@@ -305,6 +327,14 @@ export const TravelExpenses = () => {
               primaryBtnText="registrar egreso del viaje"
               dialogTitle="Gatos de viaje"
               dialogText="Esta seguro de registrar este egreso?"
+              closeBtnText="cancelar"
+              continueBtnText="si"
+              functionToExecute={createTravelExpenses}
+              functionParameters={{
+                travelExpensesData,
+                branchNumber,
+              }}
+              thirdFunctionToExecute={componentDefaultData}
             />
           </Btn>
         </BodyContainer>
