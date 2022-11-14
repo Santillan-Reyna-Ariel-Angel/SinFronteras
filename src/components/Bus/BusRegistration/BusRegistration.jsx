@@ -310,8 +310,8 @@ export const BusRegistration = () => {
             </FormControl>
           </ServicesStyle>
 
-          {/* CI Chofer: */}
-          <IdentificationNumberDriver>
+          {/* CI Chofer: NOTA, EL INGE OBSERVO QUITAR input CI.*/}
+          {/* <IdentificationNumberDriver>
             <TextField
               className="input"
               name="identificationNumberDriver"
@@ -326,7 +326,7 @@ export const BusRegistration = () => {
                 })
               }
             />
-          </IdentificationNumberDriver>
+          </IdentificationNumberDriver> */}
 
           <Btn>
             <PlainModalButton
