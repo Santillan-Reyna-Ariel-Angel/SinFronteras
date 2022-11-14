@@ -75,8 +75,8 @@
           "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "31/10/2022",
-          "travelStatus": false
+          "travelDate": "20/11/2022",
+          "travelStatus": "pendiente"
         },
         "code2": {
           "bus": {
@@ -98,8 +98,8 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "31/10/2022",
-          "travelStatus": false
+          "travelDate": "20/11/2022",
+          "travelStatus": "pendiente"
         }
       }
     },
@@ -178,8 +178,8 @@
           "destinationLocation": "sucre",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "31/10/2022",
-          "travelStatus": false
+          "travelDate": "20/11/2022",
+          "travelStatus": "pendiente"
         },
         "code2": {
           "bus": {
@@ -203,8 +203,8 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "31/10/2022",
-          "travelStatus": false
+          "travelDate": "20/11/2022",
+          "travelStatus": "pendiente"
         }
       }
     }
@@ -259,7 +259,7 @@
       "typeOfSeats": "semi-cama"
     },
     "bus-004": {
-      "designatedBranch": "DISPONIBLE",
+      "designatedBranch": "code1",
       "enrollment": "bus-004",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -356,15 +356,13 @@
   },
   "tripsMade": {
     "branch_code1": {
-      "travel_31-10-2022_20-30_bus-001": {
-        "occupiedSeat": [
-          "vendido-74747472"
-        ]
+      "travel_20-11-2022_20-30_bus-001": {
+        "occupiedSeat": { "0": "vendido-74747472" },
+        "passengers": {}
       },
-      "travel_31-10-2022_21-30_bus-006": {
-        "occupiedSeat": [
-          "vendido-74747472"
-        ]
+      "travel_20-11-2022_21-30_bus-006": {
+        "occupiedSeat": { "0": "vendido-74747472" },
+        "passengers": {}
       }
     }
   },
@@ -424,20 +422,6 @@
       "sex": "hombre",
       "status": "activo",
       "surnames": "hurtado gonzalez"
-    },
-    "74747474": {
-      "address": "dir brach sucre",
-      "branchNumberOrCode": "code2",
-      "branchOfficeName": "Sucursal 2",
-      "charge": "chofer",
-      "dateOfBirth": "11/2/1981",
-      "email": "alfredoortega@gmail.com",
-      "identificationNumber": "74747474",
-      "mobile": "74125874",
-      "names": "alfredo",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "ortega hugarte"
     },
     "code1": {
       "address": "calle campero 593",

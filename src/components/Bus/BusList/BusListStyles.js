@@ -40,8 +40,8 @@ export const BodyContainer = styled.div`
   background-color: #00bdb2;
   grid-template-columns: 1fr 1fr 1fr 1fr; //Crea 4 columnas
   grid-template-rows: auto;
-  grid-row-gap: 0px; //15px
-  grid-column-gap: 7px; //10px
+  grid-row-gap: 7px;
+  grid-column-gap: 7px;
   padding: 15px 20px;
   //sombreado:
   border: 4px solid #051e34; //contorno
