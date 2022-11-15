@@ -46,9 +46,28 @@ const settlementData = {
   formCode: '004121',
   origin: 'Sucre',
   destiny: 'Santa Cruz',
-  numTickets: 2,
-  priceTicket: 100,
-  totalPrice: 200,
+  incomeTickets: [
+    {
+      numTickets: 2,
+      priceTicket: 100,
+      totalPrice: 200,
+    },
+    {
+      numTickets: 9,
+      priceTicket: 90,
+      totalPrice: 810,
+    },
+    {
+      numTickets: 16,
+      priceTicket: 80,
+      totalPrice: 1280,
+    },
+    {
+      numTickets: 2,
+      priceTicket: 70,
+      totalPrice: 140,
+    },
+  ],
   totalAmountTickets: 2430,
   totalAmountIncome: 2430,
   //travelExpenses.jsx :
@@ -101,47 +120,21 @@ export const SettlementForm = () => {
 
                 {/* Opcion Hibrida: */}
                 <PassageDataContainer>
-                  <>
-                    <NumTicketsStyle>
-                      <span>{data.numTickets}</span>
-                    </NumTicketsStyle>
+                  {data.incomeTickets.map((data) => (
+                    <>
+                      <NumTicketsStyle>
+                        <span>{data.numTickets}</span>
+                      </NumTicketsStyle>
 
-                    <span>{`Pasaje c/u Bs.`}</span>
+                      <span>{`Pasaje c/u Bs.`}</span>
 
-                    <PriceTicketStyle>
-                      <span>{data.priceTicket}</span>
-                    </PriceTicketStyle>
+                      <PriceTicketStyle>
+                        <span>{data.priceTicket}</span>
+                      </PriceTicketStyle>
 
-                    <span>{`Bs. ${data.totalPrice}`}</span>
-                  </>
-
-                  <>
-                    <NumTicketsStyle>
-                      <span>{10}</span>
-                    </NumTicketsStyle>
-
-                    <span>{`Pasaje c/u Bs.`}</span>
-
-                    <PriceTicketStyle>
-                      <span>{80}</span>
-                    </PriceTicketStyle>
-
-                    <span>{`Bs. ${80}`}</span>
-                  </>
-
-                  <>
-                    <NumTicketsStyle>
-                      <span>{100}</span>
-                    </NumTicketsStyle>
-
-                    <span>{`Pasaje c/u Bs.`}</span>
-
-                    <PriceTicketStyle>
-                      <span>{5}</span>
-                    </PriceTicketStyle>
-
-                    <span>{`Bs. ${5}`}</span>
-                  </>
+                      <span>{`Bs. ${data.totalPrice}`}</span>
+                    </>
+                  ))}
                 </PassageDataContainer>
 
                 <TextTotalAmountTickets>
