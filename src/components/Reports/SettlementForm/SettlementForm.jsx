@@ -3,16 +3,19 @@ import React from 'react';
 //Styles:
 import {
   Background,
-  BodyContainer,
+  // BodyContainer,
+  BodyContainer2,
   CompanyNameStyle,
   FormTitleStyle,
   FormCodeStyle,
   OriginStyle,
   DestinyStyle,
-  NumTicketsStyle,
-  TextPriceStyle,
-  PriceTicketStyle,
-  TotalPriceStyle,
+  // PassageDataBackground,
+  PassageDataContainer,
+  // NumTicketsStyle,
+  // TextPriceStyle,
+  // PriceTicketStyle,
+  // TotalPriceStyle,
   TextTotalAmountTickets,
   TotalAmountTickets,
   TextTotalAmountIncome,
@@ -79,7 +82,7 @@ export const SettlementForm = () => {
         ? settlementDataProps.map((data, index) => (
             // <div key={index}> //si utilizamos div los centreos del backgroung no funcionan
             <Background>
-              <BodyContainer>
+              <BodyContainer2>
                 <CompanyNameStyle>
                   <span>{`Flota "${data.companyName.toUpperCase()}"`}</span>
                 </CompanyNameStyle>
@@ -100,23 +103,90 @@ export const SettlementForm = () => {
                   <span>{`Destino: ${data.destiny}`}</span>
                 </DestinyStyle>
 
-                <>
-                  <NumTicketsStyle>
-                    <span>{data.numTickets}</span>
-                  </NumTicketsStyle>
+                {/* <PassageDataContainer>
+                  <>
+                    <NumTicketsStyle className="numTicketsStyle">
+                      <span>{data.numTickets}</span>
+                    </NumTicketsStyle>
 
-                  <TextPriceStyle>
+                    <TextPriceStyle className="textPriceStyle">
+                      <span>{`Pasaje c/u Bs.`}</span>
+                    </TextPriceStyle>
+
+                    <PriceTicketStyle className="priceTicketStyle">
+                      <span>{data.priceTicket}</span>
+                    </PriceTicketStyle>
+
+                    <TotalPriceStyle className="totalPriceStyle">
+                      <span>{`Bs. ${data.totalPrice}`}</span>
+                    </TotalPriceStyle>
+                  </>
+                </PassageDataContainer> */}
+
+                <PassageDataContainer>
+                  <>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.numTickets}
+                    </span>
                     <span>{`Pasaje c/u Bs.`}</span>
-                  </TextPriceStyle>
-
-                  <PriceTicketStyle>
-                    <span>{data.priceTicket}</span>
-                  </PriceTicketStyle>
-
-                  <TotalPriceStyle>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.priceTicket}
+                    </span>
                     <span>{`Bs. ${data.totalPrice}`}</span>
-                  </TotalPriceStyle>
-                </>
+                  </>
+
+                  <>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.numTickets}
+                    </span>
+                    <span>{`Pasaje c/u Bs.`}</span>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.priceTicket}
+                    </span>
+                    <span>{`Bs. ${data.totalPrice}`}</span>
+                  </>
+
+                  <>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.numTickets}
+                    </span>
+                    <span>{`Pasaje c/u Bs.`}</span>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.priceTicket}
+                    </span>
+                    <span>{`Bs. ${data.totalPrice}`}</span>
+                  </>
+                </PassageDataContainer>
 
                 <TextTotalAmountTickets>
                   <span>{`TOTAL PASAJES`}</span>
@@ -213,7 +283,7 @@ export const SettlementForm = () => {
                   <p>{`Recibi Conforme`}</p>
                   <span>{`PROPIETARIO`}</span>
                 </SignatureStyle>
-              </BodyContainer>
+              </BodyContainer2>
             </Background>
             // </div>
           ))
