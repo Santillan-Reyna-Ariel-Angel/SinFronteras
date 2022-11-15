@@ -3,19 +3,15 @@ import React from 'react';
 //Styles:
 import {
   Background,
-  // BodyContainer,
-  BodyContainer2,
+  BodyContainer,
   CompanyNameStyle,
   FormTitleStyle,
   FormCodeStyle,
   OriginStyle,
   DestinyStyle,
-  // PassageDataBackground,
   PassageDataContainer,
   NumTicketsStyle,
-  // TextPriceStyle,
   PriceTicketStyle,
-  // TotalPriceStyle,
   TextTotalAmountTickets,
   TotalAmountTickets,
   TextTotalAmountIncome,
@@ -82,7 +78,7 @@ export const SettlementForm = () => {
         ? settlementDataProps.map((data, index) => (
             // <div key={index}> //si utilizamos div los centreos del backgroung no funcionan
             <Background>
-              <BodyContainer2>
+              <BodyContainer>
                 <CompanyNameStyle>
                   <span>{`Flota "${data.companyName.toUpperCase()}"`}</span>
                 </CompanyNameStyle>
@@ -102,129 +98,6 @@ export const SettlementForm = () => {
                 <DestinyStyle>
                   <span>{`Destino: ${data.destiny}`}</span>
                 </DestinyStyle>
-
-                {/* Opcion 1: ccsLine */}
-                {/* <PassageDataContainer>
-                  <>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.numTickets}
-                    </span>
-                    <span>{`Pasaje c/u Bs.`}</span>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.priceTicket}
-                    </span>
-                    <span>{`Bs. ${data.totalPrice}`}</span>
-                  </>
-
-                  <>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.numTickets}
-                    </span>
-                    <span>{`Pasaje c/u Bs.`}</span>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.priceTicket}
-                    </span>
-                    <span>{`Bs. ${data.totalPrice}`}</span>
-                  </>
-
-                  <>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.numTickets}
-                    </span>
-                    <span>{`Pasaje c/u Bs.`}</span>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.priceTicket}
-                    </span>
-                    <span>{`Bs. ${data.totalPrice}`}</span>
-                  </>
-                </PassageDataContainer> */}
-
-                {/* Opcion 2: stylesComponents */}
-                {/* <PassageDataContainer>
-                  <>
-                    <NumTicketsStyle>
-                      <span>{data.numTickets}</span>
-                    </NumTicketsStyle>
-
-                    <TextPriceStyle>
-                      <span>{`Pasaje c/u Bs.`}</span>
-                    </TextPriceStyle>
-
-                    <PriceTicketStyle>
-                      <span>{data.priceTicket}</span>
-                    </PriceTicketStyle>
-
-                    <TotalPriceStyle>
-                      <span>{`Bs. ${data.totalPrice}`}</span>
-                    </TotalPriceStyle>
-                  </>
-
-                  <>
-                    <NumTicketsStyle>
-                      <span>{10}</span>
-                    </NumTicketsStyle>
-
-                    <TextPriceStyle>
-                      <span>{`Pasaje c/u Bs.`}</span>
-                    </TextPriceStyle>
-
-                    <PriceTicketStyle>
-                      <span>{80}</span>
-                    </PriceTicketStyle>
-
-                    <TotalPriceStyle>
-                      <span>{`Bs. ${80}`}</span>
-                    </TotalPriceStyle>
-                  </>
-
-                  <>
-                    <NumTicketsStyle>
-                      <span>{100}</span>
-                    </NumTicketsStyle>
-
-                    <TextPriceStyle>
-                      <span>{`Pasaje c/u Bs.`}</span>
-                    </TextPriceStyle>
-
-                    <PriceTicketStyle>
-                      <span>{5}</span>
-                    </PriceTicketStyle>
-
-                    <TotalPriceStyle>
-                      <span>{`Bs. ${5}`}</span>
-                    </TotalPriceStyle>
-                  </>
-                </PassageDataContainer> */}
 
                 {/* Opcion Hibrida: */}
                 <PassageDataContainer>
@@ -366,7 +239,7 @@ export const SettlementForm = () => {
                   <p>{`Recibi Conforme`}</p>
                   <span>{`PROPIETARIO`}</span>
                 </SignatureStyle>
-              </BodyContainer2>
+              </BodyContainer>
             </Background>
             // </div>
           ))

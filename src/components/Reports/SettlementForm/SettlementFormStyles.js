@@ -25,23 +25,6 @@ export const BodyContainer = styled.div`
   border-radius: 0px 0px 0px 0px;
   /* backdrop-filter: blur(18px); */
   /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); */
-  grid-template-areas: 'CompanyNameStyle CompanyNameStyle CompanyNameStyle CompanyNameStyle' 'FormTitleStyle FormTitleStyle FormTitleStyle FormCodeStyle' 'OriginStyle OriginStyle DestinyStyle DestinyStyle' 'NumTicketsStyle TextPriceStyle PriceTicketStyle TotalPriceStyle' 'TextTotalAmountTickets TextTotalAmountTickets TextTotalAmountTickets TotalAmountTickets' 'TextTotalAmountIncome TextTotalAmountIncome TextTotalAmountIncome TotalAmountIncome' 'TextTitleExpenseStyle TextTitleExpenseStyle TextTitleExpenseStyle TextTitleExpenseStyle' 'DieselStyle DieselStyle DieselPriceStyle DieselPriceStyle' ' TollStyle TollStyle TollPriceStyle TollPriceStyle' 'ViaticosStyle ViaticosStyle ViaticosAmountStyle ViaticosAmountStyle' 'WashedStyle WashedStyle WashedPriceStyle WashedPriceStyle' 'LaborUnionStyle LaborUnionStyle LaborUnionAmountStyle LaborUnionAmountStyle' 'OthersStyle OthersStyle OthersAmountStyle OthersAmountStyle' 'TextTotalExpensesStyle TextTotalExpensesStyle TextTotalExpensesStyle  TotalExpensesStyle' 'TextTotalSettlementStyle TextTotalSettlementStyle TextTotalSettlementStyle TotalSettlementStyle' 'PlaceAndDateStyle PlaceAndDateStyle PlaceAndDateStyle PlaceAndDateStyle ' 'SignatureStyle SignatureStyle SignatureStyle SignatureStyle';
-  /* overflow: hidden; */
-`;
-
-export const BodyContainer2 = styled.div`
-  display: grid;
-  background-color: 'gray'; //00bdb2
-  grid-template-columns: 100px 100px 100px 100px;
-  grid-template-rows: auto;
-  grid-row-gap: 5px;
-  grid-column-gap: 5px;
-  padding: 15px 20px;
-  //sombreado:
-  border: 4px solid #051e34; //contorno
-  border-radius: 0px 0px 0px 0px;
-  /* backdrop-filter: blur(18px); */
-  /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); */
   grid-template-areas: 'CompanyNameStyle CompanyNameStyle CompanyNameStyle CompanyNameStyle' 'FormTitleStyle FormTitleStyle FormTitleStyle FormCodeStyle' 'OriginStyle OriginStyle DestinyStyle DestinyStyle' 'PassageDataContainer PassageDataContainer PassageDataContainer PassageDataContainer' 'TextTotalAmountTickets TextTotalAmountTickets TextTotalAmountTickets TotalAmountTickets' 'TextTotalAmountIncome TextTotalAmountIncome TextTotalAmountIncome TotalAmountIncome' 'TextTitleExpenseStyle TextTitleExpenseStyle TextTitleExpenseStyle TextTitleExpenseStyle' 'DieselStyle DieselStyle DieselPriceStyle DieselPriceStyle' ' TollStyle TollStyle TollPriceStyle TollPriceStyle' 'ViaticosStyle ViaticosStyle ViaticosAmountStyle ViaticosAmountStyle' 'WashedStyle WashedStyle WashedPriceStyle WashedPriceStyle' 'LaborUnionStyle LaborUnionStyle LaborUnionAmountStyle LaborUnionAmountStyle' 'OthersStyle OthersStyle OthersAmountStyle OthersAmountStyle' 'TextTotalExpensesStyle TextTotalExpensesStyle TextTotalExpensesStyle  TotalExpensesStyle' 'TextTotalSettlementStyle TextTotalSettlementStyle TextTotalSettlementStyle TotalSettlementStyle' 'PlaceAndDateStyle PlaceAndDateStyle PlaceAndDateStyle PlaceAndDateStyle ' 'SignatureStyle SignatureStyle SignatureStyle SignatureStyle';
   /* overflow: hidden; */
 `;
@@ -84,47 +67,18 @@ export const PassageDataContainer = styled.div`
   grid-template-areas: 'NumTicketsStyle TextPriceStyle PriceTicketStyle TotalPriceStyle';
 `;
 
-// Opcion 2: stylesComponents
-// export const NumTicketsStyle = styled.div`
-//   /* grid-area: NumTicketsStyle; */
-//   text-align: right;
-//   padding-right: 50px;
-// `;
-
-// export const TextPriceStyle = styled.div`
-//   /* grid-area: TextPriceStyle; */
-// `;
-
-// export const PriceTicketStyle = styled.div`
-//   /* grid-area: PriceTicketStyle; */
-//   text-align: right;
-//   padding-right: 50px;
-// `;
-
-// export const TotalPriceStyle = styled.div`
-//   /* grid-area: TotalPriceStyle; */
-// `;
-
-// OPCION HIBRIDA:
+// OPCION HIBRIDA: TextPriceStyle y TotalPriceStyle no necesitan estilos:
 export const NumTicketsStyle = styled.div`
   /* grid-area: NumTicketsStyle; */
   text-align: right;
   padding-right: 50px;
 `;
 
-// export const TextPriceStyle = styled.div`
-//   /* grid-area: TextPriceStyle; */
-// `;
-
 export const PriceTicketStyle = styled.div`
   /* grid-area: PriceTicketStyle; */
   text-align: right;
   padding-right: 50px;
 `;
-
-// export const TotalPriceStyle = styled.div`
-//   /* grid-area: TotalPriceStyle; */
-// `;
 
 export const TextTotalAmountTickets = styled.div`
   grid-area: TextTotalAmountTickets;
@@ -284,71 +238,3 @@ export const SignatureStyle = styled.div`
 //   grid-area: Btn;
 //   justify-self: center;
 // `;
-
-///FUNCIONA:
-
-// .background {
-//   display: grid;
-//     align-content: center;
-//     justify-content: center;
-//   }
-
-//   .container {
-//     display: grid;
-//     grid-template-columns: 100px 100px 100px 100px;
-//     grid-template-rows: auto;
-//     grid-template-areas: "Hola Hola2 Hola3 Hola4" "Tickets Tickets Tickets Tickets";
-//   }
-
-//   .subContainer {
-//     grid-area:Tickets;
-//     display: grid;
-//    grid-template-areas: 'Num Text Price Total';
-//   }
-
-//   .num{
-//   grid-area:Num;
-//   }
-
-//   .text{
-//   grid-area:Text;
-//   }
-
-//   .price{
-//   grid-area:Price;
-//   }
-
-//   .total{
-//   grid-area:Total;
-//   }
-
-//HTML:
-
-<div class="background">
-  <div class="container">
-    <div class="subContainer">
-      <div class="num">1</div>
-      <div class="text">2</div>
-      <div class="price">3</div>
-      <div class="total">4</div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="subContainer">
-      <div class="num">1</div>
-      <div class="text">2</div>
-      <div class="price">3</div>
-      <div class="total">4</div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="subContainer">
-      <div class="num">1</div>
-      <div class="text">2</div>
-      <div class="price">3</div>
-      <div class="total">4</div>
-    </div>
-  </div>
-</div>;
