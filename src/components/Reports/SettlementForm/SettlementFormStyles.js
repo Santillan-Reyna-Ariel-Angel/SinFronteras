@@ -84,24 +84,25 @@ export const PassageDataContainer = styled.div`
   grid-template-areas: 'NumTicketsStyle TextPriceStyle PriceTicketStyle TotalPriceStyle';
 `;
 
+// Opcion 2: stylesComponents
 export const NumTicketsStyle = styled.div`
-  grid-area: NumTicketsStyle;
+  /* grid-area: NumTicketsStyle; */
   text-align: right;
   padding-right: 50px;
 `;
 
 export const TextPriceStyle = styled.div`
-  grid-area: TextPriceStyle;
+  /* grid-area: TextPriceStyle; */
 `;
 
 export const PriceTicketStyle = styled.div`
-  grid-area: PriceTicketStyle;
+  /* grid-area: PriceTicketStyle; */
   text-align: right;
   padding-right: 50px;
 `;
 
 export const TotalPriceStyle = styled.div`
-  grid-area: TotalPriceStyle;
+  /* grid-area: TotalPriceStyle; */
 `;
 
 export const TextTotalAmountTickets = styled.div`

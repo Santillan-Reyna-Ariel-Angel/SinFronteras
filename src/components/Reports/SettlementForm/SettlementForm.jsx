@@ -12,10 +12,10 @@ import {
   DestinyStyle,
   // PassageDataBackground,
   PassageDataContainer,
-  // NumTicketsStyle,
-  // TextPriceStyle,
-  // PriceTicketStyle,
-  // TotalPriceStyle,
+  NumTicketsStyle,
+  TextPriceStyle,
+  PriceTicketStyle,
+  TotalPriceStyle,
   TextTotalAmountTickets,
   TotalAmountTickets,
   TextTotalAmountIncome,
@@ -103,88 +103,126 @@ export const SettlementForm = () => {
                   <span>{`Destino: ${data.destiny}`}</span>
                 </DestinyStyle>
 
+                {/* Opcion 1: ccsLine */}
                 {/* <PassageDataContainer>
                   <>
-                    <NumTicketsStyle className="numTicketsStyle">
-                      <span>{data.numTickets}</span>
-                    </NumTicketsStyle>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.numTickets}
+                    </span>
+                    <span>{`Pasaje c/u Bs.`}</span>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.priceTicket}
+                    </span>
+                    <span>{`Bs. ${data.totalPrice}`}</span>
+                  </>
 
-                    <TextPriceStyle className="textPriceStyle">
-                      <span>{`Pasaje c/u Bs.`}</span>
-                    </TextPriceStyle>
+                  <>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.numTickets}
+                    </span>
+                    <span>{`Pasaje c/u Bs.`}</span>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.priceTicket}
+                    </span>
+                    <span>{`Bs. ${data.totalPrice}`}</span>
+                  </>
 
-                    <PriceTicketStyle className="priceTicketStyle">
-                      <span>{data.priceTicket}</span>
-                    </PriceTicketStyle>
-
-                    <TotalPriceStyle className="totalPriceStyle">
-                      <span>{`Bs. ${data.totalPrice}`}</span>
-                    </TotalPriceStyle>
+                  <>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.numTickets}
+                    </span>
+                    <span>{`Pasaje c/u Bs.`}</span>
+                    <span
+                      style={{
+                        textAlign: 'right',
+                        paddingRight: '50px',
+                      }}
+                    >
+                      {data.priceTicket}
+                    </span>
+                    <span>{`Bs. ${data.totalPrice}`}</span>
                   </>
                 </PassageDataContainer> */}
 
+                {/* Opcion 2: stylesComponents */}
                 <PassageDataContainer>
                   <>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.numTickets}
-                    </span>
-                    <span>{`Pasaje c/u Bs.`}</span>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.priceTicket}
-                    </span>
-                    <span>{`Bs. ${data.totalPrice}`}</span>
+                    <NumTicketsStyle>
+                      <span>{data.numTickets}</span>
+                    </NumTicketsStyle>
+
+                    <TextPriceStyle>
+                      <span>{`Pasaje c/u Bs.`}</span>
+                    </TextPriceStyle>
+
+                    <PriceTicketStyle>
+                      <span>{data.priceTicket}</span>
+                    </PriceTicketStyle>
+
+                    <TotalPriceStyle>
+                      <span>{`Bs. ${data.totalPrice}`}</span>
+                    </TotalPriceStyle>
                   </>
 
                   <>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.numTickets}
-                    </span>
-                    <span>{`Pasaje c/u Bs.`}</span>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.priceTicket}
-                    </span>
-                    <span>{`Bs. ${data.totalPrice}`}</span>
+                    <NumTicketsStyle>
+                      <span>{10}</span>
+                    </NumTicketsStyle>
+
+                    <TextPriceStyle>
+                      <span>{`Pasaje c/u Bs.`}</span>
+                    </TextPriceStyle>
+
+                    <PriceTicketStyle>
+                      <span>{80}</span>
+                    </PriceTicketStyle>
+
+                    <TotalPriceStyle>
+                      <span>{`Bs. ${80}`}</span>
+                    </TotalPriceStyle>
                   </>
 
                   <>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.numTickets}
-                    </span>
-                    <span>{`Pasaje c/u Bs.`}</span>
-                    <span
-                      style={{
-                        textAlign: 'right',
-                        paddingRight: '50px',
-                      }}
-                    >
-                      {data.priceTicket}
-                    </span>
-                    <span>{`Bs. ${data.totalPrice}`}</span>
+                    <NumTicketsStyle>
+                      <span>{100}</span>
+                    </NumTicketsStyle>
+
+                    <TextPriceStyle>
+                      <span>{`Pasaje c/u Bs.`}</span>
+                    </TextPriceStyle>
+
+                    <PriceTicketStyle>
+                      <span>{5}</span>
+                    </PriceTicketStyle>
+
+                    <TotalPriceStyle>
+                      <span>{`Bs. ${5}`}</span>
+                    </TotalPriceStyle>
                   </>
                 </PassageDataContainer>
 
