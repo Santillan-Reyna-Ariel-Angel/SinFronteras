@@ -42,143 +42,182 @@ import {
 //States:
 //Components:
 //Others:
+const settlementData = {
+  companyName: 'Sin Fronteras',
+  formCode: '004121',
+  origin: 'Sucre',
+  destiny: 'Santa Cruz',
+  numTickets: 2,
+  priceTicket: 100,
+  totalPrice: 200,
+  totalAmountTickets: 2430,
+  totalAmountIncome: 2430,
+  //travelExpenses.jsx :
+  busEnrollment: '',
+  tripMadeKey: '',
+  expenses: {
+    diesel: '0',
+    toll: '0',
+    viaticos: '0',
+    washed: '0',
+    laborUnion: '0',
+    others: '0',
+    otherDescription: '',
+  },
+  totalExpenses: 402, //Por default numerico
+
+  TotalSettlement: 2078,
+  date: '24/01/2021', //TravelDate?
+};
 
 export const SettlementForm = () => {
+  let settlementDataProps = [settlementData];
+
   return (
     <>
-      <Background>
-        <BodyContainer>
-          <CompanyNameStyle>
-            <span>{`Flota "SIN FRONTERAS"`}</span>
-          </CompanyNameStyle>
+      {settlementDataProps
+        ? settlementDataProps.map((data, index) => (
+            // <div key={index}> //si utilizamos div los centreos del backgroung no funcionan
+            <Background>
+              <BodyContainer>
+                <CompanyNameStyle>
+                  <span>{`Flota "${data.companyName.toUpperCase()}"`}</span>
+                </CompanyNameStyle>
 
-          <FormTitleStyle>
-            <span>{`PLANILLA DE LIQUIDACION`}</span>
-          </FormTitleStyle>
+                <FormTitleStyle>
+                  <span>{`PLANILLA DE LIQUIDACION`}</span>
+                </FormTitleStyle>
 
-          <FormCodeStyle>
-            <span>{`N# 004121`}</span>
-          </FormCodeStyle>
+                <FormCodeStyle>
+                  <span>{`N# ${data.formCode}`}</span>
+                </FormCodeStyle>
 
-          <OriginStyle>
-            <span>{`Origen: Sucre`}</span>
-          </OriginStyle>
+                <OriginStyle>
+                  <span>{`Origen: ${data.origin}`}</span>
+                </OriginStyle>
 
-          <DestinyStyle>
-            <span>{`Destino: Santa Cruz`}</span>
-          </DestinyStyle>
+                <DestinyStyle>
+                  <span>{`Destino: ${data.destiny}`}</span>
+                </DestinyStyle>
 
-          <NumTicketsStyle>
-            <span>{`2`}</span>
-          </NumTicketsStyle>
+                <>
+                  <NumTicketsStyle>
+                    <span>{data.numTickets}</span>
+                  </NumTicketsStyle>
 
-          <TextPriceStyle>
-            <span>{`Pasaje c/u Bs.`}</span>
-          </TextPriceStyle>
+                  <TextPriceStyle>
+                    <span>{`Pasaje c/u Bs.`}</span>
+                  </TextPriceStyle>
 
-          <PriceTicketStyle>
-            <span>{`100`}</span>
-          </PriceTicketStyle>
+                  <PriceTicketStyle>
+                    <span>{data.priceTicket}</span>
+                  </PriceTicketStyle>
 
-          <TotalPriceStyle>
-            <span>{`Bs. 200`}</span>
-          </TotalPriceStyle>
+                  <TotalPriceStyle>
+                    <span>{`Bs. ${data.totalPrice}`}</span>
+                  </TotalPriceStyle>
+                </>
 
-          <TextTotalAmountTickets>
-            <span>{`TOTAL PASAJES`}</span>
-          </TextTotalAmountTickets>
+                <TextTotalAmountTickets>
+                  <span>{`TOTAL PASAJES`}</span>
+                </TextTotalAmountTickets>
 
-          <TotalAmountTickets>
-            <span>{`Bs. 2430`}</span>
-          </TotalAmountTickets>
+                <TotalAmountTickets>
+                  <span>{`Bs. ${data.totalAmountTickets}`}</span>
+                </TotalAmountTickets>
 
-          <TextTotalAmountIncome>
-            <span>{`TOTAL INGRESOS`}</span>
-          </TextTotalAmountIncome>
+                <TextTotalAmountIncome>
+                  <span>{`TOTAL INGRESOS`}</span>
+                </TextTotalAmountIncome>
 
-          <TotalAmountIncome>
-            <span>{`Bs. 2430`}</span>
-          </TotalAmountIncome>
+                <TotalAmountIncome>
+                  <span>{`Bs. ${data.totalAmountIncome}`}</span>
+                </TotalAmountIncome>
 
-          <TextTitleExpenseStyle>
-            <span>{`EGRESOS`}</span>
-          </TextTitleExpenseStyle>
+                <>
+                  <TextTitleExpenseStyle>
+                    <span>{`EGRESOS`}</span>
+                  </TextTitleExpenseStyle>
 
-          <DieselStyle>
-            <span>{`Diesel`}</span>
-          </DieselStyle>
+                  <DieselStyle>
+                    <span>{`Diesel`}</span>
+                  </DieselStyle>
 
-          <DieselPriceStyle>
-            <span>{`Bs. 0`}</span>
-          </DieselPriceStyle>
+                  <DieselPriceStyle>
+                    <span>{`Bs. ${data.expenses.diesel}`}</span>
+                  </DieselPriceStyle>
 
-          <TollStyle>
-            <span>{`Peaje`}</span>
-          </TollStyle>
+                  <TollStyle>
+                    <span>{`Peaje`}</span>
+                  </TollStyle>
 
-          <TollPriceStyle>
-            <span>{`Bs. 0`}</span>
-          </TollPriceStyle>
+                  <TollPriceStyle>
+                    <span>{`Bs. ${data.expenses.toll}`}</span>
+                  </TollPriceStyle>
 
-          <ViaticosStyle>
-            <span>{`Viaticos`}</span>
-          </ViaticosStyle>
+                  <ViaticosStyle>
+                    <span>{`Viaticos`}</span>
+                  </ViaticosStyle>
 
-          <ViaticosAmountStyle>
-            <span>{`Bs. 0`}</span>
-          </ViaticosAmountStyle>
+                  <ViaticosAmountStyle>
+                    <span>{`Bs. ${data.expenses.viaticos}`}</span>
+                  </ViaticosAmountStyle>
 
-          <WashedStyle>
-            <span>{`Lavado`}</span>
-          </WashedStyle>
+                  <WashedStyle>
+                    <span>{`Lavado`}</span>
+                  </WashedStyle>
 
-          <WashedPriceStyle>
-            <span>{`Bs. 0`}</span>
-          </WashedPriceStyle>
+                  <WashedPriceStyle>
+                    <span>{`Bs. ${data.expenses.washed}`}</span>
+                  </WashedPriceStyle>
 
-          <LaborUnionStyle>
-            <span>{`Sindicato`}</span>
-          </LaborUnionStyle>
+                  <LaborUnionStyle>
+                    <span>{`Sindicato`}</span>
+                  </LaborUnionStyle>
 
-          <LaborUnionAmountStyle>
-            <span>{`Bs. 0`}</span>
-          </LaborUnionAmountStyle>
+                  <LaborUnionAmountStyle>
+                    <span>{`Bs. ${data.expenses.laborUnion}`}</span>
+                  </LaborUnionAmountStyle>
 
-          <OthersStyle>
-            <span>{`Otros`}</span>
-          </OthersStyle>
+                  <OthersStyle>
+                    <span>{`Otros`}</span>
+                  </OthersStyle>
 
-          <OthersAmountStyle>
-            <span>{`Bs. 0`}</span>
-          </OthersAmountStyle>
+                  <OthersAmountStyle>
+                    <span>{`Bs. ${data.expenses.others}`}</span>
+                  </OthersAmountStyle>
 
-          <TextTotalExpensesStyle>
-            <span>{`TOTAL EGRESOS`}</span>
-          </TextTotalExpensesStyle>
+                  <TextTotalExpensesStyle>
+                    <span>{`TOTAL EGRESOS`}</span>
+                  </TextTotalExpensesStyle>
 
-          <TotalExpensesStyle>
-            <span>{`Bs. 402`}</span>
-          </TotalExpensesStyle>
+                  <TotalExpensesStyle>
+                    <span>{`Bs. ${data.totalExpenses}`}</span>
+                  </TotalExpensesStyle>
+                </>
 
-          <TextTotalSettlementStyle>
-            <span>{`TOTAL LIQUIDACION`}</span>
-          </TextTotalSettlementStyle>
+                <TextTotalSettlementStyle>
+                  <span>{`TOTAL LIQUIDACION`}</span>
+                </TextTotalSettlementStyle>
 
-          <TotalSettlementStyle>
-            <span>{`Bs. 2078`}</span>
-          </TotalSettlementStyle>
+                <TotalSettlementStyle>
+                  <span>{`Bs. ${data.TotalSettlement}`}</span>
+                </TotalSettlementStyle>
 
-          <PlaceAndDateStyle>
-            <span>{`Lugar y Fecha: ${'Sucre'} ${'24/01/2021'}`}</span>
-          </PlaceAndDateStyle>
+                <PlaceAndDateStyle>
+                  <span>{`Lugar y Fecha: ${data.origin} ${data.date}`}</span>
+                </PlaceAndDateStyle>
 
-          <SignatureStyle>
-            <p>{`_ _ _ _ _ _ _ _ _ _ _ _ _ _`}</p>
-            <p>{`Recibi Conforme`}</p>
-            <span>{`PROPIETARIO`}</span>
-          </SignatureStyle>
-        </BodyContainer>
-      </Background>
+                <SignatureStyle>
+                  <p>{`_ _ _ _ _ _ _ _ _ _ _ _ _ _`}</p>
+                  <p>{`Recibi Conforme`}</p>
+                  <span>{`PROPIETARIO`}</span>
+                </SignatureStyle>
+              </BodyContainer>
+            </Background>
+            // </div>
+          ))
+        : null}
     </>
   );
 };

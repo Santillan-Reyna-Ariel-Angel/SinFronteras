@@ -7,8 +7,6 @@ export const Background = styled.div`
   justify-content: center; //centrea los elementos orizontalmente
   width: 100%; //opcional para llevarlo al medio de la pantalla
 
-  left: 0;
-  top: 0;
   /* grid-template-columns: auto; */
   //new:
   margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background>
@@ -65,6 +63,8 @@ export const DestinyStyle = styled.div`
 
 export const NumTicketsStyle = styled.div`
   grid-area: NumTicketsStyle;
+  text-align: right;
+  padding-right: 50px;
 `;
 
 export const TextPriceStyle = styled.div`
@@ -73,6 +73,8 @@ export const TextPriceStyle = styled.div`
 
 export const PriceTicketStyle = styled.div`
   grid-area: PriceTicketStyle;
+  text-align: right;
+  padding-right: 50px;
 `;
 
 export const TotalPriceStyle = styled.div`
