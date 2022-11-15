@@ -13,9 +13,9 @@ import {
   // PassageDataBackground,
   PassageDataContainer,
   NumTicketsStyle,
-  TextPriceStyle,
+  // TextPriceStyle,
   PriceTicketStyle,
-  TotalPriceStyle,
+  // TotalPriceStyle,
   TextTotalAmountTickets,
   TotalAmountTickets,
   TextTotalAmountIncome,
@@ -170,7 +170,7 @@ export const SettlementForm = () => {
                 </PassageDataContainer> */}
 
                 {/* Opcion 2: stylesComponents */}
-                <PassageDataContainer>
+                {/* <PassageDataContainer>
                   <>
                     <NumTicketsStyle>
                       <span>{data.numTickets}</span>
@@ -223,6 +223,51 @@ export const SettlementForm = () => {
                     <TotalPriceStyle>
                       <span>{`Bs. ${5}`}</span>
                     </TotalPriceStyle>
+                  </>
+                </PassageDataContainer> */}
+
+                {/* Opcion Hibrida: */}
+                <PassageDataContainer>
+                  <>
+                    <NumTicketsStyle>
+                      <span>{data.numTickets}</span>
+                    </NumTicketsStyle>
+
+                    <span>{`Pasaje c/u Bs.`}</span>
+
+                    <PriceTicketStyle>
+                      <span>{data.priceTicket}</span>
+                    </PriceTicketStyle>
+
+                    <span>{`Bs. ${data.totalPrice}`}</span>
+                  </>
+
+                  <>
+                    <NumTicketsStyle>
+                      <span>{10}</span>
+                    </NumTicketsStyle>
+
+                    <span>{`Pasaje c/u Bs.`}</span>
+
+                    <PriceTicketStyle>
+                      <span>{80}</span>
+                    </PriceTicketStyle>
+
+                    <span>{`Bs. ${80}`}</span>
+                  </>
+
+                  <>
+                    <NumTicketsStyle>
+                      <span>{100}</span>
+                    </NumTicketsStyle>
+
+                    <span>{`Pasaje c/u Bs.`}</span>
+
+                    <PriceTicketStyle>
+                      <span>{5}</span>
+                    </PriceTicketStyle>
+
+                    <span>{`Bs. ${5}`}</span>
                   </>
                 </PassageDataContainer>
 

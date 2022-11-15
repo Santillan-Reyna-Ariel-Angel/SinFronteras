@@ -85,15 +85,36 @@ export const PassageDataContainer = styled.div`
 `;
 
 // Opcion 2: stylesComponents
+// export const NumTicketsStyle = styled.div`
+//   /* grid-area: NumTicketsStyle; */
+//   text-align: right;
+//   padding-right: 50px;
+// `;
+
+// export const TextPriceStyle = styled.div`
+//   /* grid-area: TextPriceStyle; */
+// `;
+
+// export const PriceTicketStyle = styled.div`
+//   /* grid-area: PriceTicketStyle; */
+//   text-align: right;
+//   padding-right: 50px;
+// `;
+
+// export const TotalPriceStyle = styled.div`
+//   /* grid-area: TotalPriceStyle; */
+// `;
+
+// OPCION HIBRIDA:
 export const NumTicketsStyle = styled.div`
   /* grid-area: NumTicketsStyle; */
   text-align: right;
   padding-right: 50px;
 `;
 
-export const TextPriceStyle = styled.div`
-  /* grid-area: TextPriceStyle; */
-`;
+// export const TextPriceStyle = styled.div`
+//   /* grid-area: TextPriceStyle; */
+// `;
 
 export const PriceTicketStyle = styled.div`
   /* grid-area: PriceTicketStyle; */
@@ -101,9 +122,9 @@ export const PriceTicketStyle = styled.div`
   padding-right: 50px;
 `;
 
-export const TotalPriceStyle = styled.div`
-  /* grid-area: TotalPriceStyle; */
-`;
+// export const TotalPriceStyle = styled.div`
+//   /* grid-area: TotalPriceStyle; */
+// `;
 
 export const TextTotalAmountTickets = styled.div`
   grid-area: TextTotalAmountTickets;
