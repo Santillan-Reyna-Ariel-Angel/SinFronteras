@@ -17,6 +17,7 @@ import { TravelExpenses } from './components/Travels/TravelExpenses/TravelExpens
 //Reportes:
 import { ListOfTicketsSold } from './components/Reports/ListOfTicketsSold/ListOfTicketsSold';
 import { SettlementForm } from './components/Reports/SettlementForm/SettlementForm';
+import { SettlementFormsList } from './components/Reports/SettlementFormsList/SettlementFormsList';
 //probando tickets
 import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
@@ -137,10 +138,16 @@ const AppRoutes = () => {
                           />
 
                           {/* Route for Tests: */}
-                          <Route
+                          {/* <Route
                             exact
                             path="/test-component/"
                             component={SettlementForm}
+                          /> */}
+
+                          <Route
+                            exact
+                            path="/test-component/"
+                            component={SettlementFormsList}
                           />
                         </Layout>
                       </Switch>
