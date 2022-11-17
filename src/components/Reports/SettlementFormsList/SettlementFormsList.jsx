@@ -19,6 +19,7 @@ import {
   billingContactAllList,
   ticketsSoldByBuyer,
   dataTableNecesary,
+  travelKey,
 } from './functions';
 
 export const SettlementFormsList = () => {
@@ -51,7 +52,7 @@ export const SettlementFormsList = () => {
     totalExpenses: 402, //Por default numerico
 
     TotalSettlement: 2078,
-    date: '', //  24/01/2021 //TravelDate?
+    travelDate: '', //  24/01/2021 //TravelDate?
   };
   console.log('settlementData:', settlementData);
 
@@ -85,6 +86,7 @@ export const SettlementFormsList = () => {
     let dataAux = {
       formCode: data.travelExpenses.tripMadeKey,
       totalExpenses: data.travelExpenses.totalExpenses,
+      expenses: data.travelExpenses.expenses,
     };
     return dataAux;
   });
@@ -92,9 +94,16 @@ export const SettlementFormsList = () => {
 
   let uniqueCollection = new Set();
   ticketsSoldByBuyerAux.map((data) => {
+    let travelDate = data.passengersList[0].travelDate;
+    let departureTime = data.passengersList[0].departureTime;
+    let busEnrollment = data.passengersList[0].busEnrollment;
+
     let dataAux = {
+      companyName: data.passengersList[0].companyName,
+      formCode: travelKey({ travelDate, departureTime, busEnrollment }),
+      origin: data.passengersList[0].origin,
       destiny: data.passengersList[0].destiny,
-      date: data.passengersList[0].travelDate,
+      travelDate: travelDate,
     };
 
     uniqueCollection.add(JSON.stringify(dataAux)); // JSON.stringify(obj) convierte un {} a string

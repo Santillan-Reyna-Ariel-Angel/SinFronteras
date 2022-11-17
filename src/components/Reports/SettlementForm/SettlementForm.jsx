@@ -46,46 +46,51 @@ const settlementData = {
   formCode: '004121',
   origin: 'Sucre',
   destiny: 'Santa Cruz',
-  incomeTickets: [
-    {
-      numTickets: 2,
-      priceTicket: 100,
-      totalPrice: 200,
-    },
-    {
-      numTickets: 9,
-      priceTicket: 90,
-      totalPrice: 810,
-    },
-    {
-      numTickets: 16,
-      priceTicket: 80,
-      totalPrice: 1280,
-    },
-    {
-      numTickets: 2,
-      priceTicket: 70,
-      totalPrice: 140,
-    },
-  ],
-  totalAmountTickets: 2430,
-  totalAmountIncome: 2430,
-  //travelExpenses.jsx :
-  busEnrollment: '',
-  tripMadeKey: '',
-  expenses: {
-    diesel: '0',
-    toll: '0',
-    viaticos: '0',
-    washed: '0',
-    laborUnion: '0',
-    others: '0',
-    otherDescription: '',
+
+  travelIncome: {
+    incomeTickets: [
+      {
+        numTickets: 2,
+        priceTicket: 100,
+        totalPrice: 200,
+      },
+      {
+        numTickets: 9,
+        priceTicket: 90,
+        totalPrice: 810,
+      },
+      {
+        numTickets: 16,
+        priceTicket: 80,
+        totalPrice: 1280,
+      },
+      {
+        numTickets: 2,
+        priceTicket: 70,
+        totalPrice: 140,
+      },
+    ],
+    totalAmountTickets: 2430,
+    totalAmountIncome: 2430,
   },
-  totalExpenses: 402, //Por default numerico
+
+  travelExpenses: {
+    busEnrollment: '',
+    expenses: {
+      diesel: '0',
+      laborUnion: '0',
+      otherDescription: '',
+      others: '0',
+      toll: '0',
+      viaticos: '0',
+      washed: '0',
+    },
+    totalExpenses: 402, //Por default numerico
+    tripMadeKey: '',
+  },
 
   TotalSettlement: 2078,
-  date: '24/01/2021', //TravelDate?
+  travelDate: '24/01/2021', //TravelDate?
 };
 
 export const SettlementForm = () => {
@@ -120,7 +125,7 @@ export const SettlementForm = () => {
 
                 {/* Opcion Hibrida: */}
                 <PassageDataContainer>
-                  {data.incomeTickets.map((data) => (
+                  {data.travelIncome.incomeTickets.map((data) => (
                     <>
                       <NumTicketsStyle>
                         <span>{data.numTickets}</span>
@@ -142,7 +147,7 @@ export const SettlementForm = () => {
                 </TextTotalAmountTickets>
 
                 <TotalAmountTickets>
-                  <span>{`Bs. ${data.totalAmountTickets}`}</span>
+                  <span>{`Bs. ${data.travelIncome.totalAmountTickets}`}</span>
                 </TotalAmountTickets>
 
                 <TextTotalAmountIncome>
@@ -150,7 +155,7 @@ export const SettlementForm = () => {
                 </TextTotalAmountIncome>
 
                 <TotalAmountIncome>
-                  <span>{`Bs. ${data.totalAmountIncome}`}</span>
+                  <span>{`Bs. ${data.travelIncome.totalAmountIncome}`}</span>
                 </TotalAmountIncome>
 
                 <>
@@ -163,7 +168,7 @@ export const SettlementForm = () => {
                   </DieselStyle>
 
                   <DieselPriceStyle>
-                    <span>{`Bs. ${data.expenses.diesel}`}</span>
+                    <span>{`Bs. ${data.travelExpenses.expenses.diesel}`}</span>
                   </DieselPriceStyle>
 
                   <TollStyle>
@@ -171,7 +176,7 @@ export const SettlementForm = () => {
                   </TollStyle>
 
                   <TollPriceStyle>
-                    <span>{`Bs. ${data.expenses.toll}`}</span>
+                    <span>{`Bs. ${data.travelExpenses.expenses.toll}`}</span>
                   </TollPriceStyle>
 
                   <ViaticosStyle>
@@ -179,7 +184,7 @@ export const SettlementForm = () => {
                   </ViaticosStyle>
 
                   <ViaticosAmountStyle>
-                    <span>{`Bs. ${data.expenses.viaticos}`}</span>
+                    <span>{`Bs. ${data.travelExpenses.expenses.viaticos}`}</span>
                   </ViaticosAmountStyle>
 
                   <WashedStyle>
@@ -187,7 +192,7 @@ export const SettlementForm = () => {
                   </WashedStyle>
 
                   <WashedPriceStyle>
-                    <span>{`Bs. ${data.expenses.washed}`}</span>
+                    <span>{`Bs. ${data.travelExpenses.expenses.washed}`}</span>
                   </WashedPriceStyle>
 
                   <LaborUnionStyle>
@@ -195,7 +200,7 @@ export const SettlementForm = () => {
                   </LaborUnionStyle>
 
                   <LaborUnionAmountStyle>
-                    <span>{`Bs. ${data.expenses.laborUnion}`}</span>
+                    <span>{`Bs. ${data.travelExpenses.expenses.laborUnion}`}</span>
                   </LaborUnionAmountStyle>
 
                   <OthersStyle>
@@ -203,7 +208,7 @@ export const SettlementForm = () => {
                   </OthersStyle>
 
                   <OthersAmountStyle>
-                    <span>{`Bs. ${data.expenses.others}`}</span>
+                    <span>{`Bs. ${data.travelExpenses.expenses.others}`}</span>
                   </OthersAmountStyle>
 
                   <TextTotalExpensesStyle>
@@ -211,7 +216,7 @@ export const SettlementForm = () => {
                   </TextTotalExpensesStyle>
 
                   <TotalExpensesStyle>
-                    <span>{`Bs. ${data.totalExpenses}`}</span>
+                    <span>{`Bs. ${data.travelExpenses.totalExpenses}`}</span>
                   </TotalExpensesStyle>
                 </>
 
@@ -224,7 +229,7 @@ export const SettlementForm = () => {
                 </TotalSettlementStyle>
 
                 <PlaceAndDateStyle>
-                  <span>{`Lugar y Fecha: ${data.origin} ${data.date}`}</span>
+                  <span>{`Lugar y Fecha: ${data.origin} ${data.travelDate}`}</span>
                 </PlaceAndDateStyle>
 
                 <SignatureStyle>

@@ -18,7 +18,7 @@ export const BodyContainer = styled.div`
   grid-template-columns: 100px 100px 100px 100px;
   grid-template-rows: auto;
   grid-row-gap: 5px;
-  grid-column-gap: 5px;
+  grid-column-gap: 0px; //5px
   padding: 15px 20px;
   //sombreado:
   border: 4px solid #051e34; //contorno
