@@ -28,65 +28,71 @@ export const SettlementFormsList = () => {
     formCode: '', //004121
     origin: '', //Sucre
     destiny: '', //Santa Cruz
-    incomeTickets: [
-      {
-        numTickets: 2,
-        priceTicket: 100,
-        totalPrice: 200,
-      },
-    ],
-    totalAmountTickets: 2430,
-    totalAmountIncome: 2430,
-    //travelExpenses.jsx :
-    busEnrollment: '',
-    tripMadeKey: '',
-    expenses: {
-      diesel: '0',
-      toll: '0',
-      viaticos: '0',
-      washed: '0',
-      laborUnion: '0',
-      others: '0',
-      otherDescription: '',
-    },
-    totalExpenses: 402, //Por default numerico
 
-    TotalSettlement: 2078,
-    travelDate: '', //  24/01/2021 //TravelDate?
+    travelIncome: {
+      incomeTickets: [
+        {
+          numTickets: 0, //2
+          priceTicket: 0, //100
+          totalPrice: 0, //200
+        },
+      ],
+      totalAmountTickets: 0, //2430
+      totalAmountIncome: 0, //2430
+    },
+
+    travelExpenses: {
+      busEnrollment: '',
+      expenses: {
+        diesel: '0',
+        laborUnion: '0',
+        otherDescription: '',
+        others: '0',
+        toll: '0',
+        viaticos: '0',
+        washed: '0',
+      },
+      totalExpenses: 0, // 402 //Por default numerico
+      tripMadeKey: '',
+    },
+
+    TotalSettlement: 0, //2078
+    travelDate: '', // 24/01/2021  //TravelDate?
   };
   console.log('settlementData:', settlementData);
 
   //ContextCompanyBuses:
   const branchTripsMade = useContext(ContextBranchTripsMade);
-  console.log('branchTripsMade', branchTripsMade);
+  // console.log('branchTripsMade', branchTripsMade);
 
   // json to array:
   let branchTripsMadeArray = [];
   for (let i in branchTripsMade) branchTripsMadeArray.push(branchTripsMade[i]);
   console.log('branchTripsMadeArray', branchTripsMadeArray);
 
+  ///Tentativo a eliminar Inicio:
   let billingContactList_x_everyTravelAux = billingContactList_x_everyTravel({
     branchTripsMadeArray,
   });
-  console.log(
-    'billingContactList_x_everyTravelAux',
-    billingContactList_x_everyTravelAux
-  );
+  // console.log(
+  //   'billingContactList_x_everyTravelAux',
+  //   billingContactList_x_everyTravelAux
+  // );
 
   let billingContactAllListAux = billingContactAllList({
     billingContactList_x_everyTravelAux,
   });
-  console.log('billingContactAllListAux', billingContactAllListAux);
+  // console.log('billingContactAllListAux', billingContactAllListAux);
 
   let ticketsSoldByBuyerAux = ticketsSoldByBuyer({ billingContactAllListAux });
-  console.log('ticketsSoldByBuyerAux', ticketsSoldByBuyerAux);
+  // console.log('ticketsSoldByBuyerAux', ticketsSoldByBuyerAux);
+
+  ///Tentativo a eliminar Fin
 
   //New getData:
   let travelExpensesArray = branchTripsMadeArray.map((data) => {
     let dataAux = {
-      formCode: data.travelExpenses.tripMadeKey,
-      totalExpenses: data.travelExpenses.totalExpenses,
-      expenses: data.travelExpenses.expenses,
+      travelExpenses: data.travelExpenses,
     };
     return dataAux;
   });
@@ -112,11 +118,20 @@ export const SettlementFormsList = () => {
   });
 
   const uniqueCollectionArrayStrings = Array.from(uniqueCollection); // Convierte el objeto Se (new Set()) en un Array
-  console.log('uniqueCollectionArrayStrings', uniqueCollectionArrayStrings);
+  // console.log('uniqueCollectionArrayStrings', uniqueCollectionArrayStrings);
   const uniqueCollectionArrayObjs = uniqueCollectionArrayStrings.map((data) =>
     JSON.parse(data)
   ); //JSON.parse(stringObj) convierte un string a un {}
   console.log('uniqueCollectionArrayObjs', uniqueCollectionArrayObjs);
+
+  let settlementDataList = uniqueCollectionArrayObjs.map((data) => {
+    let travelExpensesList = travelExpensesArray.filter(
+      (data2) => data.formCode === data2.travelExpenses.tripMadeKey
+    );
+    // console.log('travelExpensesList', travelExpensesList);
+    return { ...data, ...travelExpensesList[0] };
+  });
+  console.log('settlementDataList', settlementDataList);
 
   //Datos necesarios para llenar la tabla:
   const data = [

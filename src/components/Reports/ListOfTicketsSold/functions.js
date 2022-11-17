@@ -39,7 +39,7 @@ export const ticketsSoldByBuyer = ({ billingContactAllListAux }) => {
 
     return { buyer, passengersList };
   });
-  console.log('ticketsSoldByBuyer', ticketsSoldByBuyer);
+  // console.log('ticketsSoldByBuyer', ticketsSoldByBuyer);
 
   return ticketsSoldByBuyer;
 };

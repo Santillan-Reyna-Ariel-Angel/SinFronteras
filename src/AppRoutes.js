@@ -138,17 +138,17 @@ const AppRoutes = () => {
                           />
 
                           {/* Route for Tests: */}
-                          <Route
-                            exact
-                            path="/test-component/"
-                            component={SettlementForm}
-                          />
-
                           {/* <Route
                             exact
                             path="/test-component/"
-                            component={SettlementFormsList}
+                            component={SettlementForm}
                           /> */}
+
+                          <Route
+                            exact
+                            path="/test-component/"
+                            component={SettlementFormsList}
+                          />
                         </Layout>
                       </Switch>
                     </BrowserRouter>
