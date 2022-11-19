@@ -1,0 +1,762 @@
+{
+  "branchOffices": {
+    "code1": {
+      "branchInformation": {
+        "address": "av. marcelo quiroga N#300",
+        "attentionSchedule": {
+          "closingTime": "18:30",
+          "openingTime": "08:00"
+        },
+        "branchContactNumbers": {
+          "cellphone": 70707070,
+          "telephone": "64-64646"
+        },
+        "branchNumber": "code1",
+        "department": "chuquisaca",
+        "destinations": {
+          "code1": {
+            "destinationLocation": "c. santa cruz",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          },
+          "code2": {
+            "destinationLocation": "yacuiba",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          }
+        },
+        "emailsWithAccess": "s1secretario1@gmail.com",
+        "location": "sucre",
+        "name": "Sin Fronteras sucursal Sucre",
+        "terminal": "interprovincial"
+      },
+      "travels": {
+        "code1": {
+          "bus": {
+            "enrollment": "bus-006",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "numberOfFloors": 1,
+            "numberOfSeats": 29,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "leito",
+            "typeOfSeats": "cama"
+          },
+          "departureTime": "21:30",
+          "destinationLocation": "c. santa cruz",
+          "lane": "0",
+          "localityOfOrigin": "sucre",
+          "travelDate": "30/11/2022",
+          "travelStatus": "pendiente"
+        },
+        "code2": {
+          "bus": {
+            "enrollment": "bus-001",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "numberOfFloors": 1,
+            "numberOfSeats": 42,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "normal",
+            "typeOfSeats": "semi-cama"
+          },
+          "departureTime": "20:30",
+          "destinationLocation": "yacuiba",
+          "lane": "0",
+          "localityOfOrigin": "sucre",
+          "travelDate": "30/11/2022",
+          "travelStatus": "pendiente"
+        }
+      }
+    },
+    "code2": {
+      "branchInformation": {
+        "address": "av. de los viajes N#300",
+        "attentionSchedule": {
+          "closingTime": "18:30",
+          "openingTime": "08:00"
+        },
+        "branchContactNumbers": {
+          "cellphone": 70707070,
+          "telephone": "64-64646"
+        },
+        "branchNumber": "code2",
+        "department": "santa cruz",
+        "destinations": {
+          "code1": {
+            "destinationLocation": "sucre",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          },
+          "code2": {
+            "destinationLocation": "yacuiba",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          }
+        },
+        "emailsWithAccess": "s2secretario1@gmail.com",
+        "location": "c. santa cruz",
+        "name": "Sin Fronteras sucursal C. Santa Cruz",
+        "terminal": "interprovincial"
+      },
+      "travels": {
+        "code1": {
+          "bus": {
+            "enrollment": "bus-002",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "numberOfFloors": 1,
+            "numberOfSeats": 43,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "normal",
+            "typeOfSeats": "semi-cama"
+          },
+          "departureTime": "21:30",
+          "destinationLocation": "sucre",
+          "lane": "0",
+          "localityOfOrigin": "c. santa cruz",
+          "travelDate": "30/11/2022",
+          "travelStatus": "pendiente"
+        },
+        "code2": {
+          "bus": {
+            "enrollment": "bus-008",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "numberOfFloors": 2,
+            "numberOfSeats": 40,
+            "numberOfSeatsFirstFloor": 20,
+            "numberOfSeatsSecondFloor": 20,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "leito",
+            "typeOfSeats": "cama"
+          },
+          "departureTime": "20:30",
+          "destinationLocation": "yacuiba",
+          "lane": "0",
+          "localityOfOrigin": "c. santa cruz",
+          "travelDate": "30/11/2022",
+          "travelStatus": "pendiente"
+        }
+      }
+    }
+  },
+  "companyBuses": {
+    "bus-001": {
+      "designatedBranch": "code1",
+      "enrollment": "bus-001",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 42,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "bus-002": {
+      "designatedBranch": "code2",
+      "enrollment": "bus-002",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 43,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "bus-003": {
+      "designatedBranch": "DISPONIBLE",
+      "enrollment": "bus-003",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 36,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "bus-004": {
+      "designatedBranch": "code1",
+      "enrollment": "bus-004",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 27,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "bus-005": {
+      "designatedBranch": "DISPONIBLE",
+      "enrollment": "bus-005",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 26,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "bus-006": {
+      "designatedBranch": "code1",
+      "enrollment": "bus-006",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 29,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "bus-008": {
+      "designatedBranch": "code2",
+      "enrollment": "bus-008",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 2,
+      "numberOfSeats": 40,
+      "numberOfSeatsFirstFloor": 20,
+      "numberOfSeatsSecondFloor": 20,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "bus-aux": {
+      "designatedBranch": "DISPONIBLE",
+      "enrollment": "bus-aux",
+      "filing": "C",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 39,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    }
+  },
+  "generalCompanyData": {
+    "billingInformation": {
+      "authorizationCode": "7904006306693",
+      "dosingKey": "zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS",
+      "legend": "Gracias por su compra, le deseamos un buen viaje.",
+      "nit": "1665979"
+    },
+    "companyName": "Sin Fronteras",
+    "country": "Bolivia",
+    "location": "Sucre",
+    "matrixHouse": "Sucre terminal interprovincial",
+    "telephone": "64-64646"
+  },
+  "tripsMade": {
+    "branch_code1": {
+      "travel_30-11-2022_20-30_bus-001": {
+        "occupiedSeat": {
+          "0": "vendido-74747472",
+          "7": "vendido-74747472",
+          "10": "vendido-74747472",
+          "17": "preventa-74747472",
+          "29": "preventa-74747472"
+        },
+        "passengers": {
+          "billingContact_15-11-2022_16-31_7481801": {
+            "billingContactInformation": {
+              "ciOrNit": "7481801",
+              "countryCode": "+591 (BO)",
+              "email": "marco@gmail.com",
+              "mobile": "7896354",
+              "nameOrSocialReason": "Salinas Guzman Marco Antonio"
+            },
+            "saleDate": "15/11/2022",
+            "salesAmountData": {
+              "amountTotal": "30.00",
+              "description": "Familia",
+              "discount": 25,
+              "discountCheckbox": true,
+              "subtotal": 55
+            },
+            "ticketsSalesData": {
+              "passenger_7481801": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "yacuiba",
+                "identificationNumber": "7481801",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Salinas Guzman Marco Antonio",
+                "seatId": "7",
+                "seatPrice": 55,
+                "ticketNumber": "suc-code1_15-11-2022_7481801",
+                "travelDate": "30/11/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "16:31"
+          },
+          "billingContact_15-11-2022_23-52_44444555": {
+            "billingContactInformation": {
+              "ciOrNit": "44444555",
+              "countryCode": "+591 (BO)",
+              "email": "jose@gmail.com",
+              "mobile": "7946435",
+              "nameOrSocialReason": "Chanchi Jose"
+            },
+            "saleDate": "15/11/2022",
+            "salesAmountData": {
+              "amountTotal": "30.00",
+              "description": "amigo",
+              "discount": 30,
+              "discountCheckbox": true,
+              "subtotal": 60
+            },
+            "ticketsSalesData": {
+              "passenger_44444555": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "yacuiba",
+                "identificationNumber": "44444555",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Chanchi Jose",
+                "seatId": "10",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_15-11-2022_44444555",
+                "travelDate": "30/11/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "23:52"
+          }
+        },
+        "travelExpenses": {
+          "busEnrollment": "bus-001",
+          "expenses": {
+            "diesel": "500",
+            "laborUnion": "10",
+            "otherDescription": "Se compro jabon liquido alcohol",
+            "others": "10",
+            "toll": "10",
+            "viaticos": "150",
+            "washed": "50"
+          },
+          "totalExpenses": 730,
+          "tripMadeKey": "travel_20-11-2022_20-30_bus-001"
+        },
+        "travelIncome": {
+          "incomeTickets": [],
+          "totalAmountTickets": 0,
+          "totalAmountIncome": 0
+        }
+      },
+      "travel_30-11-2022_21-30_bus-006": {
+        "occupiedSeat": {
+          "0": "vendido-74747472",
+          "7": "vendido-74747472",
+          "12": "vendido-74747472",
+          "20": "vendido-74747472"
+        },
+        "passengers": {
+          "billingContact_14-11-2022_21-36_7589632": {
+            "billingContactInformation": {
+              "ciOrNit": "7589632",
+              "countryCode": "+591 (BO)",
+              "email": "gustavo@gmail.com",
+              "mobile": "74136955",
+              "nameOrSocialReason": "Aguilar Gustavo"
+            },
+            "saleDate": "14/11/2022",
+            "salesAmountData": {
+              "amountTotal": "50.00",
+              "description": "Amigo",
+              "discount": 50,
+              "discountCheckbox": true,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_7589632": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7589632",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Aguilar Gustavo",
+                "seatId": "20",
+                "seatPrice": 100,
+                "ticketNumber": "suc-code1_14-11-2022_7589632",
+                "travelDate": "30/11/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "21:36"
+          },
+          "billingContact_15-11-2022_16-22_7481901": {
+            "billingContactInformation": {
+              "ciOrNit": "7481901",
+              "countryCode": "+591 (BO)",
+              "email": "javier@gmail.com",
+              "mobile": "67611515",
+              "nameOrSocialReason": "Santillan Quispe Javier Angel"
+            },
+            "saleDate": "15/11/2022",
+            "salesAmountData": {
+              "amountTotal": 100,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_7481901": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7481901",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Santillan Quispe Javier Angel",
+                "seatId": "7",
+                "seatPrice": 100,
+                "ticketNumber": "suc-code1_15-11-2022_7481901",
+                "travelDate": "30/11/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "16:22"
+          },
+          "billingContact_15-11-2022_16-25_7481902": {
+            "billingContactInformation": {
+              "ciOrNit": "7481902",
+              "countryCode": "+591 (BO)",
+              "email": "cristian@gmail.com",
+              "mobile": "70328816",
+              "nameOrSocialReason": "Santillan Reyna Cristian Andres"
+            },
+            "saleDate": "15/11/2022",
+            "salesAmountData": {
+              "amountTotal": 95,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 95
+            },
+            "ticketsSalesData": {
+              "passenger_7481902": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7481902",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Santillan Reyna Cristian Andres",
+                "seatId": "12",
+                "seatPrice": 95,
+                "ticketNumber": "suc-code1_15-11-2022_7481902",
+                "travelDate": "30/11/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "16:25"
+          }
+        },
+        "travelExpenses": {
+          "busEnrollment": "bus-006",
+          "expenses": {
+            "diesel": "350",
+            "laborUnion": "10",
+            "otherDescription": "",
+            "others": "0",
+            "toll": "10",
+            "viaticos": "130",
+            "washed": "50"
+          },
+          "totalExpenses": 550,
+          "tripMadeKey": "travel_20-11-2022_21-30_bus-006"
+        },
+        "travelIncome": {
+          "incomeTickets": [],
+          "totalAmountTickets": 0,
+          "totalAmountIncome": 0
+        }
+      }
+    }
+  },
+  "users": {
+    "70707070": {
+      "address": "address branch",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "Sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "9/2/2001",
+      "email": "ronalquispe@gmail.com",
+      "identificationNumber": "70707070",
+      "mobile": "78965412",
+      "names": "ronal",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "quispe mamani"
+    },
+    "71717171": {
+      "address": "address branch",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "Sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "25/10/1982",
+      "email": "juanflores@gmail.com",
+      "identificationNumber": "71717171",
+      "mobile": "79456321",
+      "names": "juan",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "flores quispe"
+    },
+    "72727272": {
+      "address": "address brach sucre",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "Sucursal 2",
+      "charge": "chofer",
+      "dateOfBirth": "12/5/1987",
+      "email": "luisduran@gmail.com",
+      "identificationNumber": "72727272",
+      "mobile": "78951423",
+      "names": "luis fernando",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "duran chavez"
+    },
+    "73737373": {
+      "address": "address branch",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "Sucursal 2",
+      "charge": "chofer",
+      "dateOfBirth": "25/10/1986",
+      "email": "cesarhurtado@gmail.com",
+      "identificationNumber": "73737373",
+      "mobile": "74125896",
+      "names": "cesar",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "hurtado gonzalez"
+    },
+    "code1": {
+      "address": "calle campero 593",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursalName 1",
+      "charge": "administrador",
+      "dateOfBirth": "",
+      "email": "s1administrador1@gmail.com",
+      "identificationNumber": "74747471",
+      "mobile": 60616061,
+      "names": "javier angel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan quispe"
+    },
+    "code2": {
+      "address": "calle loa 593",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursalName 2",
+      "charge": "secretaria(o)",
+      "dateOfBirth": "",
+      "email": "s1secretario1@gmail.com",
+      "identificationNumber": "74747472",
+      "mobile": 60616062,
+      "names": "ariel angel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan reyna"
+    },
+    "code3": {
+      "address": "calle vega 593",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursalName 3",
+      "charge": "boletero(a)",
+      "dateOfBirth": "",
+      "email": "s1boletero1@gmail.com",
+      "identificationNumber": "74747473",
+      "mobile": 60616063,
+      "names": "cristian andres",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan reyna"
+    },
+    "code4": {
+      "address": "calle lemoine 593",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "sucursalName 4",
+      "charge": "administrador",
+      "dateOfBirth": "",
+      "email": "s2administrador1@gmail.com",
+      "identificationNumber": "74747481",
+      "mobile": 60616071,
+      "names": "juan miguel",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "quispe rodriguez"
+    },
+    "code5": {
+      "address": "calle bustamante 593",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "sucursalName 5",
+      "charge": "secretaria(o)",
+      "dateOfBirth": "",
+      "email": "s2secretario1@gmail.com",
+      "identificationNumber": "74747482",
+      "mobile": 60616072,
+      "names": "berta angela",
+      "sex": "mujer",
+      "status": "activo",
+      "surnames": "ticona perez"
+    },
+    "code6": {
+      "address": "calle estudiantes 593",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "sucursalName 6",
+      "charge": "boletero(a)",
+      "dateOfBirth": "",
+      "email": "s2boletero1@gmail.com",
+      "identificationNumber": "74747483",
+      "mobile": 60616073,
+      "names": "kevin martin",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "colque choque"
+    }
+  }
+}
