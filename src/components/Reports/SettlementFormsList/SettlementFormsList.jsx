@@ -20,6 +20,7 @@ import {
   ticketsSoldByBuyer,
   dataTableNecesary,
   travelKey,
+  getTravelIncomeList,
 } from './functions';
 
 export const SettlementFormsList = () => {
@@ -63,31 +64,22 @@ export const SettlementFormsList = () => {
 
   //ContextCompanyBuses:
   const branchTripsMade = useContext(ContextBranchTripsMade);
-  // console.log('branchTripsMade', branchTripsMade);
+  console.log('branchTripsMade', branchTripsMade);
 
   // json to array:
   let branchTripsMadeArray = [];
   for (let i in branchTripsMade) branchTripsMadeArray.push(branchTripsMade[i]);
   console.log('branchTripsMadeArray', branchTripsMadeArray);
 
-  ///Tentativo a eliminar Inicio:
   let billingContactList_x_everyTravelAux = billingContactList_x_everyTravel({
     branchTripsMadeArray,
   });
-  // console.log(
-  //   'billingContactList_x_everyTravelAux',
-  //   billingContactList_x_everyTravelAux
-  // );
 
   let billingContactAllListAux = billingContactAllList({
     billingContactList_x_everyTravelAux,
   });
-  // console.log('billingContactAllListAux', billingContactAllListAux);
 
   let ticketsSoldByBuyerAux = ticketsSoldByBuyer({ billingContactAllListAux });
-  // console.log('ticketsSoldByBuyerAux', ticketsSoldByBuyerAux);
-
-  ///Tentativo a eliminar Fin
 
   //New getData:
   let travelExpensesArray = branchTripsMadeArray.map((data) => {
@@ -122,7 +114,7 @@ export const SettlementFormsList = () => {
   const uniqueCollectionArrayObjs = uniqueCollectionArrayStrings.map((data) =>
     JSON.parse(data)
   ); //JSON.parse(stringObj) convierte un string a un {}
-  console.log('uniqueCollectionArrayObjs', uniqueCollectionArrayObjs);
+  // console.log('uniqueCollectionArrayObjs', uniqueCollectionArrayObjs);
 
   let settlementDataList = uniqueCollectionArrayObjs.map((data) => {
     let travelExpensesList = travelExpensesArray.filter(
@@ -132,6 +124,11 @@ export const SettlementFormsList = () => {
     return { ...data, ...travelExpensesList[0] };
   });
   console.log('settlementDataList', settlementDataList);
+
+  //getDataFirebase:
+  let travelIncomeList = getTravelIncomeList(branchTripsMadeArray);
+
+  console.log('travelIncomeList', travelIncomeList);
 
   //Datos necesarios para llenar la tabla:
   const data = [

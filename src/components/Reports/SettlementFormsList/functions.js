@@ -111,3 +111,31 @@ export const travelKey = ({
   //console.log('travelKey:', travelKey);
   return travelKey;
 };
+
+export const getTravelIncomeList = (branchTripsMadeArray) => {
+  let travelIncomeList = branchTripsMadeArray.map((data) => {
+    let {
+      travelIncome,
+      travelExpenses: { tripMadeKey },
+    } = data;
+
+    let existingProperty = travelIncome.hasOwnProperty('incomeTickets'); // Se verifica si existe la propiedad, false=Np se tienen ningun registro de venta
+    // console.log('existingProperty', existingProperty);
+
+    let travelIncomeData; //La data para ser devuelta
+    if (existingProperty === false) {
+      travelIncomeData = {
+        ...travelIncome,
+        incomeTickets: existingProperty ? travelIncome.incomeTickets : [],
+      };
+    } else {
+      travelIncomeData = {
+        ...travelIncome,
+      };
+    }
+
+    return { travelIncome: travelIncomeData, tripMadeKey: tripMadeKey };
+  });
+
+  return travelIncomeList;
+};
