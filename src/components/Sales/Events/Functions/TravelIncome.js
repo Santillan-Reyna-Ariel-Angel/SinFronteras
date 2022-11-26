@@ -1,3 +1,5 @@
+import { travelKey } from './TripsMadeGenerateKeys.js';
+
 let data = [
   {
     branchNumber: 'code1',
@@ -164,6 +166,8 @@ const incomeTicketsList = ({ ticketsSalesData }) => {
     };
 
     incomeTicketsList.push(incomeTickets);
+
+    return []; //opcional,  para que no marque problemas(advertencias) la funcion
   });
 
   //   console.log('incomeTicketsList', incomeTicketsList);
@@ -176,9 +180,16 @@ const soldTicketsDiscount = (salesAmountData) => {
   return discount;
 };
 
-const travelIncome = () => {
+const travelIncome = (data) => {
+  let { travelDate, departureTime, busEnrollment } = data[0];
+  let tripMadeKey = travelKey({
+    travelDate,
+    departureTime,
+    busEnrollment,
+  });
+
   let incomeTicketsArray = incomeTicketsList({ ticketsSalesData: data });
-  //   console.log('incomeTicketsArray', incomeTicketsArray);
+  // console.log('incomeTicketsArray', incomeTicketsArray);
 
   let totalPriceList = incomeTicketsArray.map((data) => data.totalPrice);
   //   console.log('totalPriceList', totalPriceList);
@@ -199,9 +210,10 @@ const travelIncome = () => {
     incomeTickets: incomeTicketsArray,
     totalAmountTickets: totalAmountTickets,
     totalAmountIncome: totalAmountIncome,
+    tripMadeKey: tripMadeKey,
   };
 
   console.log('travelIncome', travelIncome);
   return travelIncome;
 };
-travelIncome();
+travelIncome(data);

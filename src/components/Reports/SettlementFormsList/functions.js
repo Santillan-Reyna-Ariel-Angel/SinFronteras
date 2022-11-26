@@ -22,6 +22,8 @@ export const billingContactAllList = ({
   billingContactList_x_everyTravelAux.map((arrayOf_billingContact_x) => {
     for (let i in arrayOf_billingContact_x)
       billingContactAllList.push(arrayOf_billingContact_x[i]);
+
+    return []; //opcional,  para que no marque problemas(advertencias) la funcion
   });
   //   console.log('billingContactAllList', billingContactAllList);
 
