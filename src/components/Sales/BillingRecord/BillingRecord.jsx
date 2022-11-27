@@ -207,6 +207,9 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     );
   };
 
+  //Prueba gnerateTravelIncomeForSale
+  
+
   return (
     <>
       <SalesAmountData passengersDataTable={passengersDataTable} />

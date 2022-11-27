@@ -1,4 +1,4 @@
-import { travelKey } from './TripsMadeGenerateKeys.js';
+import { travelKey } from '../Events/Functions/TripsMadeGenerateKeys.js'; // ./TripsMadeGenerateKeys.js
 
 let data = [
   {
@@ -106,7 +106,7 @@ let data = [
 let salesAmountData = {
   amountTotal: '30.00',
   description: 'Familia',
-  discount: 25,
+  discount: 100, //25
   discountCheckbox: true,
   subtotal: 55,
 };
@@ -180,7 +180,7 @@ const soldTicketsDiscount = (salesAmountData) => {
   return discount;
 };
 
-const travelIncome = (data) => {
+const getSalesIncome = (data) => {
   let { travelDate, departureTime, busEnrollment } = data[0];
   let tripMadeKey = travelKey({
     travelDate,
@@ -206,14 +206,14 @@ const travelIncome = (data) => {
     totalAmountTickets - parseFloat(soldTicketsDiscount(salesAmountData));
   //   console.log('totalAmountIncome', totalAmountIncome);
 
-  let travelIncome = {
+  let salesIncome = {
     incomeTickets: incomeTicketsArray,
     totalAmountTickets: totalAmountTickets,
     totalAmountIncome: totalAmountIncome,
     tripMadeKey: tripMadeKey,
   };
 
-  console.log('travelIncome', travelIncome);
-  return travelIncome;
+  console.log('salesIncome', salesIncome);
+  return salesIncome;
 };
-travelIncome(data);
+getSalesIncome(data);
