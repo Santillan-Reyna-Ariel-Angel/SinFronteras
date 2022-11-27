@@ -32,6 +32,7 @@ import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
 //Others:
 import { countryData } from './countryData';
 import { generateTicketNumber } from './Functions';
+import { getSalesIncome } from './getSalesIncome';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   // console.log('***passengersDataTable', passengersDataTable);
@@ -208,7 +209,8 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   };
 
   //Prueba gnerateTravelIncomeForSale
-  
+  let salesIncome = getSalesIncome({ ticketsSalesData, salesAmountData });
+  console.log('salesIncome', salesIncome);
 
   return (
     <>

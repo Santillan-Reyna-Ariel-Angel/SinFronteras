@@ -114,31 +114,31 @@ export const travelKey = ({
   return travelKey;
 };
 
-//funcion innecesaria?
-export const getTravelIncomeList = (branchTripsMadeArray) => {
-  let travelIncomeList = branchTripsMadeArray.map((data) => {
-    let {
-      travelIncome,
-      travelExpenses: { tripMadeKey },
-    } = data;
+//REVISAR: funcion innecesaria?
+// export const getTravelIncomeList = (branchTripsMadeArray) => {
+//   let travelIncomeList = branchTripsMadeArray.map((data) => {
+//     let {
+//       travelIncome,
+//       travelExpenses: { tripMadeKey },
+//     } = data;
 
-    let existingProperty = travelIncome.hasOwnProperty('incomeTickets'); // Se verifica si existe la propiedad, false=Np se tienen ningun registro de venta
-    // console.log('existingProperty', existingProperty);
+//     let existingProperty = travelIncome.hasOwnProperty('incomeTickets'); // Se verifica si existe la propiedad, false=Np se tienen ningun registro de venta
+//     // console.log('existingProperty', existingProperty);
 
-    let travelIncomeData; //La data para ser devuelta
-    if (existingProperty === false) {
-      travelIncomeData = {
-        ...travelIncome,
-        incomeTickets: existingProperty ? travelIncome.incomeTickets : [],
-      };
-    } else {
-      travelIncomeData = {
-        ...travelIncome,
-      };
-    }
+//     let travelIncomeData; //La data para ser devuelta
+//     if (existingProperty === false) {
+//       travelIncomeData = {
+//         ...travelIncome,
+//         incomeTickets: existingProperty ? travelIncome.incomeTickets : [],
+//       };
+//     } else {
+//       travelIncomeData = {
+//         ...travelIncome,
+//       };
+//     }
 
-    return { travelIncome: travelIncomeData, tripMadeKey: tripMadeKey };
-  });
+//     return { travelIncome: travelIncomeData, tripMadeKey: tripMadeKey };
+//   });
 
-  return travelIncomeList;
-};
+//   return travelIncomeList;
+// };

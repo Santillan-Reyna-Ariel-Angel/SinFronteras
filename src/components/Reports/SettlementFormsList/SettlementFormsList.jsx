@@ -20,7 +20,7 @@ import {
   ticketsSoldByBuyer,
   // dataTableNecesary,
   travelKey,
-  getTravelIncomeList,
+  // getTravelIncomeList,
 } from './functions';
 
 export const SettlementFormsList = () => {
@@ -132,9 +132,8 @@ export const SettlementFormsList = () => {
   console.log('settlementDataList', settlementDataList);
 
   //getDataFirebase:
-  let travelIncomeList = getTravelIncomeList(branchTripsMadeArray);
-
-  console.log('travelIncomeList', travelIncomeList);
+  // let travelIncomeList = getTravelIncomeList(branchTripsMadeArray);
+  // console.log('travelIncomeList', travelIncomeList);
 
   //Datos necesarios para llenar la tabla:
   const data = [
