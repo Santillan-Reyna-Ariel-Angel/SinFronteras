@@ -66,6 +66,12 @@ export const SettlementFormsList = () => {
   const branchTripsMade = useContext(ContextBranchTripsMade);
   console.log('branchTripsMade', branchTripsMade);
 
+  //Nuevo
+  let tripMadeKey = 'travel_30-11-2022_20-30_bus-001';
+  let { [tripMadeKey]: tripMadeKeyData } =
+    branchTripsMade !== undefined ? branchTripsMade : { [tripMadeKey]: {} };
+  console.log('tripMadeKeyData', tripMadeKeyData);
+
   // json to array:
   let branchTripsMadeArray = [];
   for (let i in branchTripsMade) branchTripsMadeArray.push(branchTripsMade[i]);

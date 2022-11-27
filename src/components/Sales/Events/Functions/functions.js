@@ -40,3 +40,11 @@ export const timeFormat = ({ newTime, format = ':' }) => {
 
   return timeFormatAux;
 };
+
+export const isEmptyObject = (obj) => {
+  // example: obj = { name: '' } or {};
+  let isEmptyObject = Object.keys(obj).length === 0;
+  console.log('isEmptyObject:', isEmptyObject);
+  return isEmptyObject;
+};
+// isEmptyObject({ name: 'ariel' });

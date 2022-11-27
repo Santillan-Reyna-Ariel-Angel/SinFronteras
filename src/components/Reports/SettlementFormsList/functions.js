@@ -114,6 +114,7 @@ export const travelKey = ({
   return travelKey;
 };
 
+//funcion innecesaria?
 export const getTravelIncomeList = (branchTripsMadeArray) => {
   let travelIncomeList = branchTripsMadeArray.map((data) => {
     let {
