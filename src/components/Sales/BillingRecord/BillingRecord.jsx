@@ -25,6 +25,7 @@ import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMa
 //Firebase Functions:
 import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
 import { updateOccupiedSeat } from './../Events/Firebase/updateOccupiedSeat';
+// import { updateTravelIncome } from './../Events/Firebase/updateTravelIncome';
 //States:
 import { showSeatMap, setShowSeatMap } from './../TravelCards/TravelCards'; //showSeatMap muestra o no el mapa de asientos(se usara al finalizar la venta)
 import { salesAmountData } from './../SalesAmountData/SalesAmountData';
@@ -34,7 +35,6 @@ import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
 import { countryData } from './countryData';
 import { generateTicketNumber } from './Functions';
 import { getSalesIncome } from './getSalesIncome';
-// import { travelKey } from './../Events/Functions/TripsMadeGenerateKeys';
 import { getTravelIncomeBd } from './getTravelIncomeBd';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
@@ -67,7 +67,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
   //ContextBranchTripsMade:
   const branchTripsMade = useContext(ContextBranchTripsMade);
-  console.log('branchTripsMade', branchTripsMade);
+  // console.log('branchTripsMade', branchTripsMade);
 
   //Props dataBusTravel:
   let {
@@ -218,15 +218,10 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //Prueba gnerateTravelIncomeForSale
   let salesIncome = getSalesIncome({ ticketsSalesData, salesAmountData });
   console.log('salesIncome', salesIncome);
+
   //Prueba getTravelIncomeBd
   if (ticketsSalesData.length > 0) {
     let { tripMadeKey } = salesIncome;
-    // let { travelDate, departureTime, busEnrollment } = ticketsSalesData[0];
-    // let tripMadeKey = travelKey({
-    //   travelDate,
-    //   departureTime,
-    //   busEnrollment,
-    // });
     // console.log('tripMadeKey', tripMadeKey);
 
     let { [tripMadeKey]: tripMadeKeyData } =
@@ -235,6 +230,24 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
     let travelIncomeBd = getTravelIncomeBd(tripMadeKeyData);
     console.log('travelIncomeBd', travelIncomeBd);
+    //update getTravelIncomeBd
+    let { incomeTickets, totalAmountIncome, totalAmountTickets } = salesIncome;
+
+    let updateTravelIncomeBd = {
+      travelIncome: {
+        incomeTickets: [
+          ...travelIncomeBd.travelIncome.incomeTickets,
+          ...incomeTickets,
+        ],
+        totalAmountIncome:
+          travelIncomeBd.travelIncome.totalAmountIncome + totalAmountIncome,
+        totalAmountTickets:
+          travelIncomeBd.travelIncome.totalAmountTickets + totalAmountTickets,
+      },
+      tripMadeKey: travelIncomeBd.tripMadeKey,
+    };
+
+    console.log('updateTravelIncomeBd', updateTravelIncomeBd);
   }
 
   return (
