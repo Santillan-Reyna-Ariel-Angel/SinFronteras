@@ -219,6 +219,87 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   let salesIncome = getSalesIncome({ ticketsSalesData, salesAmountData });
   console.log('salesIncome', salesIncome);
 
+  //prueba funcs:
+  const getIncomeTicketsFormat = ({ travelIncomeBd, incomeTickets }) => {
+    if (travelIncomeBd.travelIncome.incomeTickets.length === 0) {
+      return [...travelIncomeBd.travelIncome.incomeTickets, ...incomeTickets];
+    } else {
+      //1er
+      // let a = travelIncomeBd.travelIncome.incomeTickets.map(
+      //   (incomeTicketBd) => {
+      //     let nNewTickets = incomeTickets.map((incomeTicketsSale) => {
+      //       if (incomeTicketsSale.priceTicket === incomeTicketBd.priceTicket) {
+      //         console.log('=incomeTicketsSale', incomeTicketsSale);
+      //         // let x = {
+      //         //   numTickets:
+      //         //     incomeTicketBd.numTickets + incomeTicketsSale.numTickets,
+      //         //   priceTicket: incomeTicketBd.priceTicket,
+      //         //   totalPrice:
+      //         //     incomeTicketBd.totalPrice + incomeTicketsSale.totalPrice,
+      //         // };
+      //         // console.log('=priceTicket', x);
+      //         // return x;
+      //       } else {
+      //         console.log('!=incomeTicketsSale', incomeTicketsSale);
+      //         // let x = {
+      //         //   numTickets: incomeTicketsSale.numTickets,
+      //         //   priceTicket: incomeTicketsSale.priceTicket,
+      //         //   totalPrice: incomeTicketsSale.totalPrice,
+      //         // };
+      //         // console.log('!=priceTicket', x);
+      //         // return x;
+      //       }
+      //     });
+      //     return nNewTickets;
+      //   }
+      // );
+      // console.log('a', a);
+
+      let incomeTicketsBdAux = travelIncomeBd.travelIncome.incomeTickets;
+      console.log('incomeTicketsBdAux', incomeTicketsBdAux);
+
+      let priceTicketBdList = travelIncomeBd.travelIncome.incomeTickets.map(
+        (incomeTicketBd) => incomeTicketBd.priceTicket
+      );
+      // console.log('priceTicketBdList', priceTicketBdList);
+
+      let priceTicketSaleList = incomeTickets.map((incomeTicketSale) => {
+        let response = priceTicketBdList.includes(incomeTicketSale.priceTicket);
+        console.log('response', response);
+        if (response) {
+          console.log('incomeTicketSale', incomeTicketSale);
+          let ind = priceTicketBdList
+            .map((data, index) => {
+              if (data === incomeTicketSale.priceTicket) {
+                return index;
+              } else {
+                return '';
+              }
+            })
+            .filter((data) => data !== '');
+          console.log(ind);
+
+          let newData = {
+            numTickets:
+              incomeTicketsBdAux[ind].numTickets + incomeTicketSale.numTickets,
+            priceTicket: incomeTicketsBdAux[ind].priceTicket,
+            totalPrice:
+              incomeTicketsBdAux[ind].totalPrice + incomeTicketSale.totalPrice,
+          };
+
+          // console.log('newData', newData);
+          incomeTicketsBdAux[ind] = newData;
+        } else {
+          console.log('incomeTicketSale', incomeTicketSale);
+          incomeTicketsBdAux.push(incomeTicketSale);
+          // return incomeTicketSale;
+        }
+      });
+
+      console.log('incomeTicketsBdAux', incomeTicketsBdAux);
+      return ['no esta vacio'];
+    }
+  };
   //Prueba getTravelIncomeBd
   if (ticketsSalesData.length > 0) {
     let { tripMadeKey } = salesIncome;
@@ -235,10 +316,14 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
     let updateTravelIncomeBd = {
       travelIncome: {
-        incomeTickets: [
-          ...travelIncomeBd.travelIncome.incomeTickets,
-          ...incomeTickets,
-        ],
+        // incomeTickets: [
+        //   ...travelIncomeBd.travelIncome.incomeTickets,
+        //   ...incomeTickets,
+        // ],
+        incomeTickets: getIncomeTicketsFormat({
+          travelIncomeBd,
+          incomeTickets,
+        }),
         totalAmountIncome:
           travelIncomeBd.travelIncome.totalAmountIncome + totalAmountIncome,
         totalAmountTickets:

@@ -14,16 +14,16 @@ let updateTravelIncomeBd = {
     incomeTickets: [
       {
         numTickets: 1,
-        priceTicket: '93',
-        totalPrice: 93,
+        priceTicket: '96',
+        totalPrice: 96,
       },
       {
         numTickets: 1,
-        priceTicket: '97',
-        totalPrice: 97,
+        priceTicket: '94',
+        totalPrice: 94,
       },
     ],
-    totalAmountIncome: 120,
+    totalAmountIncome: 150,
     totalAmountTickets: 190,
   },
   tripMadeKey: 'travel_30-11-2022_21-30_bus-006',
@@ -42,4 +42,4 @@ export const updateTravelIncome = ({ branchNumber, updateTravelIncomeBd }) => {
   );
 };
 
-// updateTravelIncome({ branchNumber, updateTravelIncomeBd });
+updateTravelIncome({ branchNumber, updateTravelIncomeBd });
