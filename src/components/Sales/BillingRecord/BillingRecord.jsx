@@ -21,6 +21,7 @@ import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCom
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextUserData } from './../../../contexts/ContextUserData';
 import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
+import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 //Firebase Functions:
 import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
 import { updateOccupiedSeat } from './../Events/Firebase/updateOccupiedSeat';
@@ -33,6 +34,8 @@ import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
 import { countryData } from './countryData';
 import { generateTicketNumber } from './Functions';
 import { getSalesIncome } from './getSalesIncome';
+// import { travelKey } from './../Events/Functions/TripsMadeGenerateKeys';
+import { getTravelIncomeBd } from './getTravelIncomeBd';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   // console.log('***passengersDataTable', passengersDataTable);
@@ -61,6 +64,10 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     surnames,
     identificationNumber: identificationNumberUser,
   } = userData;
+
+  //ContextBranchTripsMade:
+  const branchTripsMade = useContext(ContextBranchTripsMade);
+  console.log('branchTripsMade', branchTripsMade);
 
   //Props dataBusTravel:
   let {
@@ -211,6 +218,24 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //Prueba gnerateTravelIncomeForSale
   let salesIncome = getSalesIncome({ ticketsSalesData, salesAmountData });
   console.log('salesIncome', salesIncome);
+  //Prueba getTravelIncomeBd
+  if (ticketsSalesData.length > 0) {
+    let { tripMadeKey } = salesIncome;
+    // let { travelDate, departureTime, busEnrollment } = ticketsSalesData[0];
+    // let tripMadeKey = travelKey({
+    //   travelDate,
+    //   departureTime,
+    //   busEnrollment,
+    // });
+    // console.log('tripMadeKey', tripMadeKey);
+
+    let { [tripMadeKey]: tripMadeKeyData } =
+      branchTripsMade !== undefined ? branchTripsMade : {};
+    // console.log('tripMadeKeyData', tripMadeKeyData);
+
+    let travelIncomeBd = getTravelIncomeBd(tripMadeKeyData);
+    console.log('travelIncomeBd', travelIncomeBd);
+  }
 
   return (
     <>

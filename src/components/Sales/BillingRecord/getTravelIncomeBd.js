@@ -134,19 +134,19 @@ export const getTravelIncomeBd = (tripMadeKeyData) => {
       };
     }
 
-    let travelIncomeBd = {
+    let getTravelIncomeBd = {
       travelIncome: travelIncomeData,
       tripMadeKey: tripMadeKey,
     };
 
-    console.log('travelIncomeBd', travelIncomeBd);
-    return travelIncomeBd;
+    // console.log('getTravelIncomeBd', getTravelIncomeBd);
+    return getTravelIncomeBd;
   } else {
     console.log('tripMadeKeyData:', tripMadeKeyData);
 
-    let travelIncomeBd = {};
-    console.log('travelIncomeBd', travelIncomeBd);
-    return travelIncomeBd;
+    let getTravelIncomeBd = {};
+    // console.log('getTravelIncomeBd', getTravelIncomeBd);
+    return getTravelIncomeBd;
   }
 };
-getTravelIncomeBd(tripMadeKeyData); //tripMadeKeyData
+// getTravelIncomeBd(tripMadeKeyData); //tripMadeKeyData
