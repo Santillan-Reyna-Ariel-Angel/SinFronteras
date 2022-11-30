@@ -138,11 +138,11 @@ const AppRoutes = () => {
                           />
 
                           {/* Route for Tests: */}
-                          {/* <Route
+                          <Route
                             exact
-                            path="/test-component/"
+                            path="/test-component2/"
                             component={SettlementForm}
-                          /> */}
+                          />
 
                           <Route
                             exact

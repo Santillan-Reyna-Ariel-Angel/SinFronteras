@@ -1,14 +1,14 @@
 import { update, ref } from 'firebase/database';
 import { modulesFirebase } from './../../../../firebase-config.js';
 
-let defaultTravelIncomeBd = {
-  travelIncome: {
-    incomeTickets: [],
-    totalAmountIncome: 0,
-    totalAmountTickets: 0,
-  },
-  tripMadeKey: 'travel_30-11-2022_21-30_bus-006',
-};
+// let defaultTravelIncomeBd = {
+//   travelIncome: {
+//     incomeTickets: [],
+//     totalAmountIncome: 0,
+//     totalAmountTickets: 0,
+//   },
+//   tripMadeKey: 'travel_30-11-2022_21-30_bus-006',
+// };
 let updateTravelIncomeBd = {
   travelIncome: {
     incomeTickets: [

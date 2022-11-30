@@ -222,48 +222,18 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //prueba funcs:
   const getIncomeTicketsFormat = ({ travelIncomeBd, incomeTickets }) => {
     if (travelIncomeBd.travelIncome.incomeTickets.length === 0) {
+      console.log('BD vacio');
       return [...travelIncomeBd.travelIncome.incomeTickets, ...incomeTickets];
     } else {
-      //1er
-      // let a = travelIncomeBd.travelIncome.incomeTickets.map(
-      //   (incomeTicketBd) => {
-      //     let nNewTickets = incomeTickets.map((incomeTicketsSale) => {
-      //       if (incomeTicketsSale.priceTicket === incomeTicketBd.priceTicket) {
-      //         console.log('=incomeTicketsSale', incomeTicketsSale);
-      //         // let x = {
-      //         //   numTickets:
-      //         //     incomeTicketBd.numTickets + incomeTicketsSale.numTickets,
-      //         //   priceTicket: incomeTicketBd.priceTicket,
-      //         //   totalPrice:
-      //         //     incomeTicketBd.totalPrice + incomeTicketsSale.totalPrice,
-      //         // };
-      //         // console.log('=priceTicket', x);
-      //         // return x;
-      //       } else {
-      //         console.log('!=incomeTicketsSale', incomeTicketsSale);
-      //         // let x = {
-      //         //   numTickets: incomeTicketsSale.numTickets,
-      //         //   priceTicket: incomeTicketsSale.priceTicket,
-      //         //   totalPrice: incomeTicketsSale.totalPrice,
-      //         // };
-      //         // console.log('!=priceTicket', x);
-      //         // return x;
-      //       }
-      //     });
-      //     return nNewTickets;
-      //   }
-      // );
-      // console.log('a', a);
-
       let incomeTicketsBdAux = travelIncomeBd.travelIncome.incomeTickets;
-      console.log('incomeTicketsBdAux', incomeTicketsBdAux);
+      // console.log('incomeTicketsBdAux', incomeTicketsBdAux);
 
       let priceTicketBdList = travelIncomeBd.travelIncome.incomeTickets.map(
         (incomeTicketBd) => incomeTicketBd.priceTicket
       );
       // console.log('priceTicketBdList', priceTicketBdList);
 
-      let priceTicketSaleList = incomeTickets.map((incomeTicketSale) => {
+      incomeTickets.forEach((incomeTicketSale) => {
         let response = priceTicketBdList.includes(incomeTicketSale.priceTicket);
         console.log('response', response);
         if (response) {
@@ -279,12 +249,22 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
             .filter((data) => data !== '');
           console.log(ind);
 
+          //1er Forma A:
+          // let newData = {
+          //   numTickets:
+          //     incomeTicketsBdAux[ind].numTickets + incomeTicketSale.numTickets,
+          //   priceTicket: incomeTicketsBdAux[ind].priceTicket,
+          //   totalPrice:
+          //     incomeTicketsBdAux[ind].totalPrice + incomeTicketSale.totalPrice,
+          // };
+
+          //2da Forma A:
           let newData = {
-            numTickets:
-              incomeTicketsBdAux[ind].numTickets + incomeTicketSale.numTickets,
+            numTickets: incomeTicketsBdAux[ind].numTickets + 1,
             priceTicket: incomeTicketsBdAux[ind].priceTicket,
             totalPrice:
-              incomeTicketsBdAux[ind].totalPrice + incomeTicketSale.totalPrice,
+              incomeTicketsBdAux[ind].totalPrice +
+              parseFloat(incomeTicketSale.priceTicket),
           };
 
           // console.log('newData', newData);
@@ -310,16 +290,12 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     // console.log('tripMadeKeyData', tripMadeKeyData);
 
     let travelIncomeBd = getTravelIncomeBd(tripMadeKeyData);
-    console.log('travelIncomeBd', travelIncomeBd);
+    // console.log('travelIncomeBd', travelIncomeBd);
     //update getTravelIncomeBd
     let { incomeTickets, totalAmountIncome, totalAmountTickets } = salesIncome;
 
     let updateTravelIncomeBd = {
       travelIncome: {
-        // incomeTickets: [
-        //   ...travelIncomeBd.travelIncome.incomeTickets,
-        //   ...incomeTickets,
-        // ],
         incomeTickets: getIncomeTicketsFormat({
           travelIncomeBd,
           incomeTickets,
