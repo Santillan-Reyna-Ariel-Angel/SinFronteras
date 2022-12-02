@@ -218,7 +218,7 @@ export const getSalesIncome = ({ ticketsSalesData, salesAmountData }) => {
     tripMadeKey: tripMadeKey,
   };
 
-  console.log('salesIncome', salesIncome);
+  // console.log('salesIncome', salesIncome);
   return salesIncome;
 };
 getSalesIncome({ ticketsSalesData, salesAmountData });

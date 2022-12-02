@@ -75,8 +75,8 @@
           "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "10/11/2022",
-          "travelStatus": false
+          "travelDate": "10/12/2022",
+          "travelStatus": "pendiente"
         },
         "code2": {
           "bus": {
@@ -98,8 +98,8 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "10/11/2022",
-          "travelStatus": false
+          "travelDate": "10/12/2022",
+          "travelStatus": "pendiente"
         }
       }
     },
@@ -178,8 +178,8 @@
           "destinationLocation": "sucre",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "10/11/2022",
-          "travelStatus": false
+          "travelDate": "10/12/2022",
+          "travelStatus": "pendiente"
         },
         "code2": {
           "bus": {
@@ -203,8 +203,8 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "10/11/2022",
-          "travelStatus": false
+          "travelDate": "10/12/2022",
+          "travelStatus": "pendiente"
         }
       }
     }
@@ -259,7 +259,7 @@
       "typeOfSeats": "semi-cama"
     },
     "bus-004": {
-      "designatedBranch": "DISPONIBLE",
+      "designatedBranch": "code1",
       "enrollment": "bus-004",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -356,15 +356,315 @@
   },
   "tripsMade": {
     "branch_code1": {
-      "travel_31-10-2022_20-30_bus-001": {
-        "occupiedSeat": [
-          "vendido-74747472"
-        ]
+      "travel_10-12-2022_20-30_bus-001": {
+        "tripMadeKey": "travel_10-12-2022_20-30_bus-001",
+        "occupiedSeat": {
+          "0": "vendido-74747472",
+          "7": "vendido-74747472",
+          "10": "vendido-74747472",
+          "32": "vendido-74747472"
+        },
+        "passengers": {
+          "billingContact_15-11-2022_16-31_7481801": {
+            "billingContactInformation": {
+              "ciOrNit": "7481801",
+              "countryCode": "+591 (BO)",
+              "email": "marco@gmail.com",
+              "mobile": "7896354",
+              "nameOrSocialReason": "Salinas Guzman Marco Antonio"
+            },
+            "saleDate": "15/11/2022",
+            "salesAmountData": {
+              "amountTotal": "30.00",
+              "description": "Familia",
+              "discount": 25,
+              "discountCheckbox": true,
+              "subtotal": 55
+            },
+            "ticketsSalesData": {
+              "passenger_7481801": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "yacuiba",
+                "identificationNumber": "7481801",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Salinas Guzman Marco Antonio",
+                "seatId": "7",
+                "seatPrice": 55,
+                "ticketNumber": "suc-code1_15-11-2022_7481801",
+                "travelDate": "10/12/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "16:31"
+          },
+          "billingContact_15-11-2022_23-52_44444555": {
+            "billingContactInformation": {
+              "ciOrNit": "44444555",
+              "countryCode": "+591 (BO)",
+              "email": "jose@gmail.com",
+              "mobile": "7946435",
+              "nameOrSocialReason": "Chanchi Jose"
+            },
+            "saleDate": "15/11/2022",
+            "salesAmountData": {
+              "amountTotal": "30.00",
+              "description": "amigo",
+              "discount": 30,
+              "discountCheckbox": true,
+              "subtotal": 60
+            },
+            "ticketsSalesData": {
+              "passenger_44444555": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "yacuiba",
+                "identificationNumber": "44444555",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Chanchi Jose",
+                "seatId": "10",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_15-11-2022_44444555",
+                "travelDate": "10/12/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "23:52"
+          },
+          "billingContact_27-11-2022_18-21_": {
+            "billingContactInformation": {
+              "ciOrNit": "",
+              "countryCode": "",
+              "email": "",
+              "mobile": "",
+              "nameOrSocialReason": ""
+            },
+            "saleDate": "27/11/2022",
+            "salesAmountData": {
+              "amountTotal": 240,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 240
+            },
+            "ticketsSalesData": {
+              "passenger_3123123": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "yacuiba",
+                "identificationNumber": "3123123",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "daasdas 2dasdsadas",
+                "seatId": "32",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_27-11-2022_3123123",
+                "travelDate": "10/12/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "18:21"
+          }
+        },
+        "travelExpenses": {
+          "busEnrollment": "bus-001",
+          "expenses": {
+            "diesel": "500",
+            "laborUnion": "10",
+            "otherDescription": "Se compro jabon liquido alcohol",
+            "others": "10",
+            "toll": "10",
+            "viaticos": "150",
+            "washed": "50"
+          },
+          "totalExpenses": 730,
+          "tripMadeKey": "travel_10-12-2022_20-30_bus-001"
+        },
+        "travelIncome": {
+          "totalAmountIncome": 0,
+          "totalAmountTickets": 0
+        }
       },
-      "travel_31-10-2022_21-30_bus-006": {
-        "occupiedSeat": [
-          "vendido-74747472"
-        ]
+      "travel_10-12-2022_21-30_bus-006": {
+        "tripMadeKey": "travel_10-12-2022_21-30_bus-006",
+        "occupiedSeat": {
+          "0": "vendido-74747472",
+          "7": "vendido-74747472",
+          "12": "vendido-74747472",
+          "20": "vendido-74747472"
+        },
+        "passengers": {
+          "billingContact_14-11-2022_21-36_7589632": {
+            "billingContactInformation": {
+              "ciOrNit": "7589632",
+              "countryCode": "+591 (BO)",
+              "email": "gustavo@gmail.com",
+              "mobile": "74136955",
+              "nameOrSocialReason": "Aguilar Gustavo"
+            },
+            "saleDate": "14/11/2022",
+            "salesAmountData": {
+              "amountTotal": "50.00",
+              "description": "Amigo",
+              "discount": 50,
+              "discountCheckbox": true,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_7589632": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7589632",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Aguilar Gustavo",
+                "seatId": "20",
+                "seatPrice": 100,
+                "ticketNumber": "suc-code1_14-11-2022_7589632",
+                "travelDate": "10/12/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "21:36"
+          },
+          "billingContact_15-11-2022_16-22_7481901": {
+            "billingContactInformation": {
+              "ciOrNit": "7481901",
+              "countryCode": "+591 (BO)",
+              "email": "javier@gmail.com",
+              "mobile": "67611515",
+              "nameOrSocialReason": "Santillan Quispe Javier Angel"
+            },
+            "saleDate": "15/11/2022",
+            "salesAmountData": {
+              "amountTotal": 100,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_7481901": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7481901",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Santillan Quispe Javier Angel",
+                "seatId": "7",
+                "seatPrice": 100,
+                "ticketNumber": "suc-code1_15-11-2022_7481901",
+                "travelDate": "10/12/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "16:22"
+          },
+          "billingContact_15-11-2022_16-25_7481902": {
+            "billingContactInformation": {
+              "ciOrNit": "7481902",
+              "countryCode": "+591 (BO)",
+              "email": "cristian@gmail.com",
+              "mobile": "70328816",
+              "nameOrSocialReason": "Santillan Reyna Cristian Andres"
+            },
+            "saleDate": "15/11/2022",
+            "salesAmountData": {
+              "amountTotal": 95,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 95
+            },
+            "ticketsSalesData": {
+              "passenger_7481902": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7481902",
+                "issuingUser": "santillan reyna ariel angel",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Santillan Reyna Cristian Andres",
+                "seatId": "12",
+                "seatPrice": 95,
+                "ticketNumber": "suc-code1_15-11-2022_7481902",
+                "travelDate": "10/12/2022",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "16:25"
+          }
+        },
+        "travelExpenses": {
+          "busEnrollment": "bus-006",
+          "expenses": {
+            "diesel": "350",
+            "laborUnion": "10",
+            "otherDescription": "",
+            "others": "0",
+            "toll": "10",
+            "viaticos": "130",
+            "washed": "50"
+          },
+          "totalExpenses": 550,
+          "tripMadeKey": "travel_10-12-2022_21-30_bus-006"
+        },
+        "travelIncome": {
+          "incomeTickets": [
+            {
+              "numTickets": 1,
+              "priceTicket": "96",
+              "totalPrice": 96
+            },
+            {
+              "numTickets": 1,
+              "priceTicket": "94",
+              "totalPrice": 94
+            }
+          ],
+          "totalAmountIncome": 150,
+          "totalAmountTickets": 190
+        }
       }
     }
   },
