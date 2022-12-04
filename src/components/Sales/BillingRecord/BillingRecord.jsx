@@ -228,26 +228,18 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       let incomeTicketsBdAux = travelIncomeBd.travelIncome.incomeTickets;
       // console.log('incomeTicketsBdAux', incomeTicketsBdAux);
 
-      let priceTicketBdList = travelIncomeBd.travelIncome.incomeTickets.map(
-        (incomeTicketBd) => incomeTicketBd.priceTicket
-      );
-      // console.log('priceTicketBdList', priceTicketBdList);
-
       incomeTickets.forEach((incomeTicketSale) => {
-        let response = priceTicketBdList.includes(incomeTicketSale.priceTicket);
-        console.log('response', response);
-        if (response) {
-          console.log('incomeTicketSale', incomeTicketSale);
-          let ind = priceTicketBdList
-            .map((data, index) => {
-              if (data === incomeTicketSale.priceTicket) {
-                return index;
-              } else {
-                return '';
-              }
-            })
-            .filter((data) => data !== '');
-          console.log(ind);
+        // considerar usar include() para: travelIncomeBd.travelIncome.incomeTickets o  incomeTickets
+
+        let ind = travelIncomeBd.travelIncome.incomeTickets.findIndex(
+          (incomeTicketBd) =>
+            incomeTicketBd.priceTicket === incomeTicketSale.priceTicket
+        );
+        console.log('ind2', ind);
+
+        if (ind !== -1) {
+          //Encontro una coincidencia :
+          console.log('incomeTicketSale if', incomeTicketSale);
 
           //1er Forma A:
           // let newData = {
@@ -270,7 +262,11 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
           // console.log('newData', newData);
           incomeTicketsBdAux[ind] = newData;
         } else {
-          console.log('incomeTicketSale', incomeTicketSale);
+          // Usar lo sig:
+          // const pruebita1 = new Set([JSON.stringify({name:"crsitian", age:43})]);
+          //pruebita1.add(JSON.stringify({name:"ariel", age:26}));
+          // y por ultimo actualizar incomeTicketsBdAux
+          console.log('incomeTicketSale else', incomeTicketSale);
           incomeTicketsBdAux.push(incomeTicketSale);
           // return incomeTicketSale;
         }

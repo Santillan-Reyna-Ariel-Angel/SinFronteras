@@ -63,7 +63,7 @@ const TravelSearch = () => {
     format: 'dd/mm/yyyy',
   }); // esto es mucho mejor que usar: travelDate.toLocaleDateString();
 
-  console.log('travelDate: ', travelDate);
+  // console.log('travelDate: ', travelDate);
   console.log('formattedTravelDate: ', formattedTravelDate);
 
   const changeDate = (inputDate) => {
