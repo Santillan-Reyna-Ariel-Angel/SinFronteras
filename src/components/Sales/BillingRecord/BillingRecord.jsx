@@ -229,37 +229,45 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       // console.log('incomeTicketsBdAux', incomeTicketsBdAux);
 
       incomeTickets.forEach((incomeTicketSale) => {
+        // some()
         // considerar usar include() para: travelIncomeBd.travelIncome.incomeTickets o  incomeTickets
-
+        //considerar filter()
         let ind = travelIncomeBd.travelIncome.incomeTickets.findIndex(
           (incomeTicketBd) =>
             incomeTicketBd.priceTicket === incomeTicketSale.priceTicket
         );
         console.log('ind2', ind);
 
+        console.log('incomeTicketsBdAux[ind]', incomeTicketsBdAux[ind]);
+
         if (ind !== -1) {
           //Encontro una coincidencia :
           console.log('incomeTicketSale if', incomeTicketSale);
 
           //1er Forma A:
-          // let newData = {
-          //   numTickets:
-          //     incomeTicketsBdAux[ind].numTickets + incomeTicketSale.numTickets,
-          //   priceTicket: incomeTicketsBdAux[ind].priceTicket,
-          //   totalPrice:
-          //     incomeTicketsBdAux[ind].totalPrice + incomeTicketSale.totalPrice,
-          // };
-
-          //2da Forma A:
           let newData = {
-            numTickets: incomeTicketsBdAux[ind].numTickets + 1,
-            priceTicket: incomeTicketsBdAux[ind].priceTicket,
+            numTickets:
+              travelIncomeBd.travelIncome.incomeTickets[ind].numTickets +
+              incomeTicketSale.numTickets,
+            priceTicket:
+              travelIncomeBd.travelIncome.incomeTickets[ind].priceTicket,
             totalPrice:
-              incomeTicketsBdAux[ind].totalPrice +
-              parseFloat(incomeTicketSale.priceTicket),
+              travelIncomeBd.travelIncome.incomeTickets[ind].totalPrice +
+              incomeTicketSale.totalPrice,
           };
 
-          // console.log('newData', newData);
+          //2da Forma A:
+          // let newData = {
+          //   numTickets:
+          //     travelIncomeBd.travelIncome.incomeTickets[ind].numTickets + 1,
+          //   priceTicket:
+          //     travelIncomeBd.travelIncome.incomeTickets[ind].priceTicket,
+          //   totalPrice:
+          //     travelIncomeBd.travelIncome.incomeTickets[ind].totalPrice +
+          //     parseFloat(incomeTicketSale.priceTicket),
+          // };
+
+          console.log('newData', newData);
           incomeTicketsBdAux[ind] = newData;
         } else {
           // Usar lo sig:
