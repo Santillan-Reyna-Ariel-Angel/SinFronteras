@@ -225,62 +225,68 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       console.log('BD vacio');
       return [...travelIncomeBd.travelIncome.incomeTickets, ...incomeTickets];
     } else {
-      let incomeTicketsBdAux = travelIncomeBd.travelIncome.incomeTickets;
+      let rawIncomeList = [
+        ...travelIncomeBd.travelIncome.incomeTickets,
+        ...incomeTickets,
+      ];
+      console.log('rawIncomeList', rawIncomeList);
+
+      //Antiguo
+      // let incomeTicketsBdAux = travelIncomeBd.travelIncome.incomeTickets;
+      // // console.log('incomeTicketsBdAux', incomeTicketsBdAux);
+      // incomeTickets.forEach((incomeTicketSale) => {
+      //   // some()
+      //   // considerar usar include() para: travelIncomeBd.travelIncome.incomeTickets o  incomeTickets
+      //   //considerar filter()
+      //   let ind = travelIncomeBd.travelIncome.incomeTickets.findIndex(
+      //     (incomeTicketBd) =>
+      //       incomeTicketBd.priceTicket === incomeTicketSale.priceTicket
+      //   );
+      //   console.log('ind2', ind);
+
+      //   console.log('incomeTicketsBdAux[ind]', incomeTicketsBdAux[ind]);
+
+      //   if (ind !== -1) {
+      //     //Encontro una coincidencia :
+      //     console.log('incomeTicketSale if', incomeTicketSale);
+
+      //     //1er Forma A:
+      //     let newData = {
+      //       numTickets:
+      //         travelIncomeBd.travelIncome.incomeTickets[ind].numTickets +
+      //         incomeTicketSale.numTickets,
+      //       priceTicket:
+      //         travelIncomeBd.travelIncome.incomeTickets[ind].priceTicket,
+      //       totalPrice:
+      //         travelIncomeBd.travelIncome.incomeTickets[ind].totalPrice +
+      //         incomeTicketSale.totalPrice,
+      //     };
+
+      //     //2da Forma A:
+      //     // let newData = {
+      //     //   numTickets:
+      //     //     travelIncomeBd.travelIncome.incomeTickets[ind].numTickets + 1,
+      //     //   priceTicket:
+      //     //     travelIncomeBd.travelIncome.incomeTickets[ind].priceTicket,
+      //     //   totalPrice:
+      //     //     travelIncomeBd.travelIncome.incomeTickets[ind].totalPrice +
+      //     //     parseFloat(incomeTicketSale.priceTicket),
+      //     // };
+
+      //     console.log('newData', newData);
+      //     incomeTicketsBdAux[ind] = newData;
+      //   } else {
+      //     // Usar lo sig:
+      //     // const pruebita1 = new Set([JSON.stringify({name:"crsitian", age:43})]);
+      //     //pruebita1.add(JSON.stringify({name:"ariel", age:26}));
+      //     // y por ultimo actualizar incomeTicketsBdAux
+      //     console.log('incomeTicketSale else', incomeTicketSale);
+      //     incomeTicketsBdAux.push(incomeTicketSale);
+      //     // return incomeTicketSale;
+      //   }
+      // });
       // console.log('incomeTicketsBdAux', incomeTicketsBdAux);
 
-      incomeTickets.forEach((incomeTicketSale) => {
-        // some()
-        // considerar usar include() para: travelIncomeBd.travelIncome.incomeTickets o  incomeTickets
-        //considerar filter()
-        let ind = travelIncomeBd.travelIncome.incomeTickets.findIndex(
-          (incomeTicketBd) =>
-            incomeTicketBd.priceTicket === incomeTicketSale.priceTicket
-        );
-        console.log('ind2', ind);
-
-        console.log('incomeTicketsBdAux[ind]', incomeTicketsBdAux[ind]);
-
-        if (ind !== -1) {
-          //Encontro una coincidencia :
-          console.log('incomeTicketSale if', incomeTicketSale);
-
-          //1er Forma A:
-          let newData = {
-            numTickets:
-              travelIncomeBd.travelIncome.incomeTickets[ind].numTickets +
-              incomeTicketSale.numTickets,
-            priceTicket:
-              travelIncomeBd.travelIncome.incomeTickets[ind].priceTicket,
-            totalPrice:
-              travelIncomeBd.travelIncome.incomeTickets[ind].totalPrice +
-              incomeTicketSale.totalPrice,
-          };
-
-          //2da Forma A:
-          // let newData = {
-          //   numTickets:
-          //     travelIncomeBd.travelIncome.incomeTickets[ind].numTickets + 1,
-          //   priceTicket:
-          //     travelIncomeBd.travelIncome.incomeTickets[ind].priceTicket,
-          //   totalPrice:
-          //     travelIncomeBd.travelIncome.incomeTickets[ind].totalPrice +
-          //     parseFloat(incomeTicketSale.priceTicket),
-          // };
-
-          console.log('newData', newData);
-          incomeTicketsBdAux[ind] = newData;
-        } else {
-          // Usar lo sig:
-          // const pruebita1 = new Set([JSON.stringify({name:"crsitian", age:43})]);
-          //pruebita1.add(JSON.stringify({name:"ariel", age:26}));
-          // y por ultimo actualizar incomeTicketsBdAux
-          console.log('incomeTicketSale else', incomeTicketSale);
-          incomeTicketsBdAux.push(incomeTicketSale);
-          // return incomeTicketSale;
-        }
-      });
-
-      console.log('incomeTicketsBdAux', incomeTicketsBdAux);
       return ['no esta vacio'];
     }
   };
