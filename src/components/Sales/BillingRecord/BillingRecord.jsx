@@ -203,22 +203,6 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     }));
   };
 
-  //Actualizar OccupiedSeat:
-  // const updateOccupiedSeatAux = () => {
-  //   passengersDataTable.map((passenger) =>
-  //     updateOccupiedSeat({
-  //       branchNumber,
-  //       dataBusTravel,
-  //       seatId: passenger.id,
-  //       seatState: 'vendido',
-  //       identificationNumberUser,
-  //     })
-  //   );
-
-  //   //Actualizar ingresos de viaje
-  //   updateTravelIncome({ branchNumber, updateTravelIncomeBd });
-  // };
-
   //Prueba gnerateTravelIncomeForSale
   let salesIncome = getSalesIncome({ ticketsSalesData, salesAmountData });
   console.log('salesIncome', salesIncome);
@@ -246,6 +230,33 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
       return sumIncomeFromBdAndSale;
     }
   };
+
+  //Funcion que obtine el TotalAmountDiscounts apartir los datos (bd , sale):
+  const getTotalAmountDiscounts = ({ travelIncomeBd }) => {
+    console.log('salesAmountData', salesAmountData); //La 1ra vez siempre es undefined por que aun no se asigno un descuento
+
+    let {
+      travelIncome: { totalAmountDiscounts },
+    } = travelIncomeBd;
+    let totalAmountDiscountsBd =
+      totalAmountDiscounts === '' ? 0 : parseFloat(totalAmountDiscounts);
+    console.log('totalAmountDiscountsBd', totalAmountDiscountsBd);
+
+    let newTotalAmountDiscounts;
+
+    if (salesAmountData === undefined) {
+      newTotalAmountDiscounts = totalAmountDiscounts; //Al no existir descuento solo se devuelve el dato de la BD
+    } else {
+      let { discount } = salesAmountData; //puede ser "" o int en algunos casos
+      let discountSale = discount === '' ? 0 : parseFloat(discount);
+
+      newTotalAmountDiscounts = totalAmountDiscountsBd + discountSale;
+    }
+
+    console.log('newTotalAmountDiscounts', newTotalAmountDiscounts);
+    return newTotalAmountDiscounts;
+  };
+
   //Prueba getTravelIncomeBd
   if (ticketsSalesData.length > 0) {
     let { tripMadeKey } = salesIncome;
@@ -266,6 +277,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
           travelIncomeBd,
           incomeTickets,
         }),
+        totalAmountDiscounts: getTotalAmountDiscounts({ travelIncomeBd }),
         totalAmountIncome:
           travelIncomeBd.travelIncome.totalAmountIncome + totalAmountIncome,
         totalAmountTickets:
@@ -276,10 +288,6 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
     console.log('updateTravelIncomeBd', updateTravelIncomeBd);
   }
-
-  // const updateTravelIncomeAux = ({ branchNumber, updateTravelIncomeBd }) => {
-  //   updateTravelIncome({ branchNumber, updateTravelIncomeBd });
-  // };
 
   //Func para ejecutar n Funciones que tengan parametros ya creados previamente:
   const executeNFunctions = () => {
