@@ -1,115 +1,115 @@
 import { travelKey } from '../Events/Functions/TripsMadeGenerateKeys.js'; // ./TripsMadeGenerateKeys.js
 
-let ticketsSalesData = [
-  {
-    branchNumber: 'code1',
-    branchPhone: '64-64646',
-    busEnrollment: 'bus-001',
-    companyName: 'Sin Fronteras',
-    departureTime: '20:30',
-    destiny: 'yacuiba',
-    identificationNumber: '7481801',
-    issuingUser: 'santillan reyna ariel angel',
-    lane: '0',
-    legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    origin: 'sucre',
-    passengerFullName: 'Salinas Guzman Marco Antonio',
-    seatId: '7',
-    seatPrice: 55,
-    ticketNumber: 'suc-code1_15-11-2022_7481801',
-    travelDate: '20/11/2022',
-    typeOfDocument: 'Carnet Identidad',
-    typeOfSeat: 'semi-cama',
-  },
-  {
-    branchNumber: 'code1',
-    branchPhone: '64-64646',
-    busEnrollment: 'bus-001',
-    companyName: 'Sin Fronteras',
-    departureTime: '20:30',
-    destiny: 'yacuiba',
-    identificationNumber: '44444555',
-    issuingUser: 'santillan reyna ariel angel',
-    lane: '0',
-    legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    origin: 'sucre',
-    passengerFullName: 'Chanchi Jose',
-    seatId: '10',
-    seatPrice: 60,
-    ticketNumber: 'suc-code1_15-11-2022_44444555',
-    travelDate: '20/11/2022',
-    typeOfDocument: 'Carnet Identidad',
-    typeOfSeat: 'semi-cama',
-  },
-  {
-    branchNumber: 'code1',
-    branchPhone: '64-64646',
-    busEnrollment: 'bus-006',
-    companyName: 'Sin Fronteras',
-    departureTime: '21:30',
-    destiny: 'c. santa cruz',
-    identificationNumber: '7589632',
-    issuingUser: 'santillan reyna ariel angel',
-    lane: '0',
-    legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    origin: 'sucre',
-    passengerFullName: 'Aguilar Gustavo',
-    seatId: '20',
-    seatPrice: 100,
-    ticketNumber: 'suc-code1_14-11-2022_7589632',
-    travelDate: '20/11/2022',
-    typeOfDocument: 'Carnet Identidad',
-    typeOfSeat: 'cama',
-  },
-  {
-    branchNumber: 'code1',
-    branchPhone: '64-64646',
-    busEnrollment: 'bus-006',
-    companyName: 'Sin Fronteras',
-    departureTime: '21:30',
-    destiny: 'c. santa cruz',
-    identificationNumber: '7481901',
-    issuingUser: 'santillan reyna ariel angel',
-    lane: '0',
-    legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    origin: 'sucre',
-    passengerFullName: 'Santillan Quispe Javier Angel',
-    seatId: '7',
-    seatPrice: 100,
-    ticketNumber: 'suc-code1_15-11-2022_7481901',
-    travelDate: '20/11/2022',
-    typeOfDocument: 'Carnet Identidad',
-    typeOfSeat: 'cama',
-  },
-  {
-    branchNumber: 'code1',
-    branchPhone: '64-64646',
-    busEnrollment: 'bus-006',
-    companyName: 'Sin Fronteras',
-    departureTime: '21:30',
-    destiny: 'c. santa cruz',
-    identificationNumber: '7481902',
-    issuingUser: 'santillan reyna ariel angel',
-    lane: '0',
-    legend: 'Gracias por su compra, le deseamos un buen viaje.',
-    origin: 'sucre',
-    passengerFullName: 'Santillan Reyna Cristian Andres',
-    seatId: '12',
-    seatPrice: 95,
-    ticketNumber: 'suc-code1_15-11-2022_7481902',
-    travelDate: '20/11/2022',
-    typeOfDocument: 'Carnet Identidad',
-    typeOfSeat: 'cama',
-  },
-];
+// let ticketsSalesData = [
+//   {
+//     branchNumber: 'code1',
+//     branchPhone: '64-64646',
+//     busEnrollment: 'bus-001',
+//     companyName: 'Sin Fronteras',
+//     departureTime: '20:30',
+//     destiny: 'yacuiba',
+//     identificationNumber: '7481801',
+//     issuingUser: 'santillan reyna ariel angel',
+//     lane: '0',
+//     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+//     origin: 'sucre',
+//     passengerFullName: 'Salinas Guzman Marco Antonio',
+//     seatId: '7',
+//     seatPrice: 55,
+//     ticketNumber: 'suc-code1_15-11-2022_7481801',
+//     travelDate: '20/11/2022',
+//     typeOfDocument: 'Carnet Identidad',
+//     typeOfSeat: 'semi-cama',
+//   },
+//   {
+//     branchNumber: 'code1',
+//     branchPhone: '64-64646',
+//     busEnrollment: 'bus-001',
+//     companyName: 'Sin Fronteras',
+//     departureTime: '20:30',
+//     destiny: 'yacuiba',
+//     identificationNumber: '44444555',
+//     issuingUser: 'santillan reyna ariel angel',
+//     lane: '0',
+//     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+//     origin: 'sucre',
+//     passengerFullName: 'Chanchi Jose',
+//     seatId: '10',
+//     seatPrice: 60,
+//     ticketNumber: 'suc-code1_15-11-2022_44444555',
+//     travelDate: '20/11/2022',
+//     typeOfDocument: 'Carnet Identidad',
+//     typeOfSeat: 'semi-cama',
+//   },
+//   {
+//     branchNumber: 'code1',
+//     branchPhone: '64-64646',
+//     busEnrollment: 'bus-006',
+//     companyName: 'Sin Fronteras',
+//     departureTime: '21:30',
+//     destiny: 'c. santa cruz',
+//     identificationNumber: '7589632',
+//     issuingUser: 'santillan reyna ariel angel',
+//     lane: '0',
+//     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+//     origin: 'sucre',
+//     passengerFullName: 'Aguilar Gustavo',
+//     seatId: '20',
+//     seatPrice: 100,
+//     ticketNumber: 'suc-code1_14-11-2022_7589632',
+//     travelDate: '20/11/2022',
+//     typeOfDocument: 'Carnet Identidad',
+//     typeOfSeat: 'cama',
+//   },
+//   {
+//     branchNumber: 'code1',
+//     branchPhone: '64-64646',
+//     busEnrollment: 'bus-006',
+//     companyName: 'Sin Fronteras',
+//     departureTime: '21:30',
+//     destiny: 'c. santa cruz',
+//     identificationNumber: '7481901',
+//     issuingUser: 'santillan reyna ariel angel',
+//     lane: '0',
+//     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+//     origin: 'sucre',
+//     passengerFullName: 'Santillan Quispe Javier Angel',
+//     seatId: '7',
+//     seatPrice: 100,
+//     ticketNumber: 'suc-code1_15-11-2022_7481901',
+//     travelDate: '20/11/2022',
+//     typeOfDocument: 'Carnet Identidad',
+//     typeOfSeat: 'cama',
+//   },
+//   {
+//     branchNumber: 'code1',
+//     branchPhone: '64-64646',
+//     busEnrollment: 'bus-006',
+//     companyName: 'Sin Fronteras',
+//     departureTime: '21:30',
+//     destiny: 'c. santa cruz',
+//     identificationNumber: '7481902',
+//     issuingUser: 'santillan reyna ariel angel',
+//     lane: '0',
+//     legend: 'Gracias por su compra, le deseamos un buen viaje.',
+//     origin: 'sucre',
+//     passengerFullName: 'Santillan Reyna Cristian Andres',
+//     seatId: '12',
+//     seatPrice: 95,
+//     ticketNumber: 'suc-code1_15-11-2022_7481902',
+//     travelDate: '20/11/2022',
+//     typeOfDocument: 'Carnet Identidad',
+//     typeOfSeat: 'cama',
+//   },
+// ];
 
-let salesAmountData = {
-  amountTotal: '30.00',
-  description: 'Familia',
-  discount: 100, //25
-  discountCheckbox: true,
-  subtotal: 55,
-};
+// let salesAmountData = {
+//   amountTotal: '30.00',
+//   description: 'Familia',
+//   discount: 25, //25
+//   discountCheckbox: true,
+//   subtotal: 55,
+// };
 
 const countRepeatedArray = (dataArray) => {
   //Ejemplo dataArray:
@@ -146,31 +146,30 @@ const getKeyAndValueJson = (json) => {
 // getKeyAndValueJson({ valor1: 1, valor2: [1, 2, 3, 4], valor3: '3' });
 
 const incomeTicketsList = ({ ticketsSalesData }) => {
-  let incomeTicketsList = [];
-
   let seatsPriceList = ticketsSalesData.map(
     (ticketData) => ticketData.seatPrice
   );
 
   let numTickets = countRepeatedArray(seatsPriceList);
-  //   console.log('numTickets', numTickets);
+  // console.log('numTickets', numTickets);
 
   let keyAndValueList = getKeyAndValueJson(numTickets);
-  //   console.log('keyAndValueList', keyAndValueList);
+  console.log('keyAndValueList', keyAndValueList);
 
-  keyAndValueList.map((data) => {
+  //IMPORTANTE: INTENTAR CORREGIR ERROR:
+  let incomeTicketsList = keyAndValueList.map((data) => {
     let incomeTickets = {
-      numTickets: data.value,
+      numTickets: data.value, //por algun razon este valor se incrementa +1 pero en el calculo de la bd no sufre cambios
       priceTicket: data.keyCode,
       totalPrice: parseFloat(data.keyCode) * parseFloat(data.value),
     };
 
-    incomeTicketsList.push(incomeTickets);
+    console.log('incomeTickets', incomeTickets);
 
-    return []; //opcional,  para que no marque problemas(advertencias) la funcion
+    return incomeTickets;
   });
 
-  //   console.log('incomeTicketsList', incomeTicketsList);
+  console.log('incomeTicketsList', incomeTicketsList);
   return incomeTicketsList;
 };
 
@@ -221,4 +220,4 @@ export const getSalesIncome = ({ ticketsSalesData, salesAmountData }) => {
   // console.log('salesIncome', salesIncome);
   return salesIncome;
 };
-getSalesIncome({ ticketsSalesData, salesAmountData });
+// getSalesIncome({ ticketsSalesData, salesAmountData });

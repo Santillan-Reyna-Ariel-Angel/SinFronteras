@@ -219,19 +219,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   //Prueba gnerateTravelIncomeForSale
   let salesIncome = getSalesIncome({ ticketsSalesData, salesAmountData });
   console.log('salesIncome', salesIncome);
-  //revisar:
-  // let salesIncome = [
-  //   {
-  //     numTickets: 3, esto deberia ser 2
-  //     priceTicket: '96',
-  //     totalPrice: 288, esto deberia ser 192
-  //   },
-  //   {
-  //     numTickets: 2,
-  //     priceTicket: '100',
-  //     totalPrice: 200,
-  //   },
-  // ];
+  //Error: revisar getSalesIncome.js func incomeTicketsList()
 
   //prueba funcs:
   const getIncomeTicketsFormat = ({ travelIncomeBd, incomeTickets }) => {
@@ -249,7 +237,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
         bd: travelIncomeBd.travelIncome.incomeTickets,
         sale: incomeTickets,
       });
-      console.log('sumIncomeFromBdAndSale', sumIncomeFromBdAndSale);
+      // console.log('sumIncomeFromBdAndSale', sumIncomeFromBdAndSale);
       return sumIncomeFromBdAndSale;
     }
   };

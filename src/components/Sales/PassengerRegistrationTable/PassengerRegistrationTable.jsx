@@ -63,7 +63,7 @@ const PassengerRegistrationTable = ({
   let passengerAux;
   const recoverData = (params) => {
     let { id, field, value } = params;
-    let valueTrim = value.trim();
+    let valueTrim = value.trim(); //corregir error cuando se leciona pero no se escribe?
     // console.log(`id ${id} | field ${field} | value ${valueTrim}`);
     passengerAux = passengersDataTable.map((passenger, index) => {
       if (passenger.id === id) {
