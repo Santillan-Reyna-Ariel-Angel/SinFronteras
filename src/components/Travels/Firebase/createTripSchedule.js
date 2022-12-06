@@ -24,5 +24,6 @@ export const createTripSchedule = ({ travelData, branchNumber }) => {
   set(ref(fire_db, `tripsMade/branch_${branchNumber}/${travelKeyAux}/`), {
     occupiedSeat: { 0: 'vendido-74747472' },
     passengers: {},
+    tripMadeKey: travelKeyAux,
   });
 };
