@@ -75,7 +75,7 @@
           "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "30/11/2022",
+          "travelDate": "10/12/2022",
           "travelStatus": "pendiente"
         },
         "code2": {
@@ -98,7 +98,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "30/11/2022",
+          "travelDate": "10/12/2022",
           "travelStatus": "pendiente"
         }
       }
@@ -178,7 +178,7 @@
           "destinationLocation": "sucre",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "30/11/2022",
+          "travelDate": "10/12/2022",
           "travelStatus": "pendiente"
         },
         "code2": {
@@ -203,7 +203,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "30/11/2022",
+          "travelDate": "10/12/2022",
           "travelStatus": "pendiente"
         }
       }
@@ -356,13 +356,11 @@
   },
   "tripsMade": {
     "branch_code1": {
-      "travel_30-11-2022_20-30_bus-001": {
+      "travel_10-12-2022_20-30_bus-001": {
+        "tripMadeKey": "travel_10-12-2022_20-30_bus-001",
         "occupiedSeat": {
           "0": "vendido-74747472",
-          "7": "vendido-74747472",
-          "10": "vendido-74747472",
-          "17": "preventa-74747472",
-          "29": "preventa-74747472"
+          "7": "vendido-74747472"
         },
         "passengers": {
           "billingContact_15-11-2022_16-31_7481801": {
@@ -398,52 +396,12 @@
                 "seatId": "7",
                 "seatPrice": 55,
                 "ticketNumber": "suc-code1_15-11-2022_7481801",
-                "travelDate": "30/11/2022",
+                "travelDate": "10/12/2022",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "semi-cama"
               }
             },
             "timeOfSale": "16:31"
-          },
-          "billingContact_15-11-2022_23-52_44444555": {
-            "billingContactInformation": {
-              "ciOrNit": "44444555",
-              "countryCode": "+591 (BO)",
-              "email": "jose@gmail.com",
-              "mobile": "7946435",
-              "nameOrSocialReason": "Chanchi Jose"
-            },
-            "saleDate": "15/11/2022",
-            "salesAmountData": {
-              "amountTotal": "30.00",
-              "description": "amigo",
-              "discount": 30,
-              "discountCheckbox": true,
-              "subtotal": 60
-            },
-            "ticketsSalesData": {
-              "passenger_44444555": {
-                "branchNumber": "code1",
-                "branchPhone": "64-64646",
-                "busEnrollment": "bus-001",
-                "companyName": "Sin Fronteras",
-                "departureTime": "20:30",
-                "destiny": "yacuiba",
-                "identificationNumber": "44444555",
-                "issuingUser": "santillan reyna ariel angel",
-                "lane": "0",
-                "legend": "Gracias por su compra, le deseamos un buen viaje.",
-                "origin": "sucre",
-                "passengerFullName": "Chanchi Jose",
-                "seatId": "10",
-                "seatPrice": 60,
-                "ticketNumber": "suc-code1_15-11-2022_44444555",
-                "travelDate": "30/11/2022",
-                "typeOfDocument": "Carnet Identidad",
-                "typeOfSeat": "semi-cama"
-              }
-            },
-            "timeOfSale": "23:52"
           }
         },
         "travelExpenses": {
@@ -458,15 +416,24 @@
             "washed": "50"
           },
           "totalExpenses": 730,
-          "tripMadeKey": "travel_20-11-2022_20-30_bus-001"
+          "tripMadeKey": "travel_10-12-2022_20-30_bus-001"
         },
         "travelIncome": {
-          "incomeTickets": [],
-          "totalAmountTickets": 0,
-          "totalAmountIncome": 0
+          "incomeTickets": [
+            {
+              "numTickets": 1,
+              "priceTicket": "55",
+              "totalPrice": 55
+            }
+          ],
+          "totalAmountIncome": 30,
+          "totalAmountTickets": 55,
+          "totalAmountDiscounts": 25
         }
       },
-      "travel_30-11-2022_21-30_bus-006": {
+
+      "travel_10-12-2022_21-30_bus-006": {
+        "tripMadeKey": "travel_10-12-2022_21-30_bus-006",
         "occupiedSeat": {
           "0": "vendido-74747472",
           "7": "vendido-74747472",
@@ -507,7 +474,7 @@
                 "seatId": "20",
                 "seatPrice": 100,
                 "ticketNumber": "suc-code1_14-11-2022_7589632",
-                "travelDate": "30/11/2022",
+                "travelDate": "10/12/2022",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "cama"
               }
@@ -547,7 +514,7 @@
                 "seatId": "7",
                 "seatPrice": 100,
                 "ticketNumber": "suc-code1_15-11-2022_7481901",
-                "travelDate": "30/11/2022",
+                "travelDate": "10/12/2022",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "cama"
               }
@@ -587,7 +554,7 @@
                 "seatId": "12",
                 "seatPrice": 95,
                 "ticketNumber": "suc-code1_15-11-2022_7481902",
-                "travelDate": "30/11/2022",
+                "travelDate": "10/12/2022",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "cama"
               }
@@ -607,12 +574,24 @@
             "washed": "50"
           },
           "totalExpenses": 550,
-          "tripMadeKey": "travel_20-11-2022_21-30_bus-006"
+          "tripMadeKey": "travel_10-12-2022_21-30_bus-006"
         },
         "travelIncome": {
-          "incomeTickets": [],
-          "totalAmountTickets": 0,
-          "totalAmountIncome": 0
+          "incomeTickets": [
+            {
+              "numTickets": 2,
+              "priceTicket": "100",
+              "totalPrice": 200
+            },
+            {
+              "numTickets": 1,
+              "priceTicket": "95",
+              "totalPrice": 95
+            }
+          ],
+          "totalAmountIncome": 245,
+          "totalAmountTickets": 295,
+          "totalAmountDiscounts": 50
         }
       }
     }
