@@ -9,26 +9,26 @@ import { modulesFirebase } from './../../../../firebase-config.js';
 //   },
 //   tripMadeKey: 'travel_30-11-2022_21-30_bus-006',
 // };
-let updateTravelIncomeBd = {
-  travelIncome: {
-    incomeTickets: [
-      {
-        numTickets: 1,
-        priceTicket: '96',
-        totalPrice: 96,
-      },
-      {
-        numTickets: 1,
-        priceTicket: '94',
-        totalPrice: 94,
-      },
-    ],
-    totalAmountIncome: 150,
-    totalAmountTickets: 190,
-  },
-  tripMadeKey: 'travel_30-11-2022_21-30_bus-006',
-};
-let branchNumber = 'code1';
+// let updateTravelIncomeBd = {
+//   travelIncome: {
+//     incomeTickets: [
+//       {
+//         numTickets: 1,
+//         priceTicket: '96',
+//         totalPrice: 96,
+//       },
+//       {
+//         numTickets: 1,
+//         priceTicket: '94',
+//         totalPrice: 94,
+//       },
+//     ],
+//     totalAmountIncome: 150,
+//     totalAmountTickets: 190,
+//   },
+//   tripMadeKey: 'travel_30-11-2022_21-30_bus-006',
+// };
+// let branchNumber = 'code1';
 export const updateTravelIncome = ({ branchNumber, updateTravelIncomeBd }) => {
   const { fire_db } = modulesFirebase;
   let { travelIncome, tripMadeKey } = updateTravelIncomeBd;
@@ -42,4 +42,4 @@ export const updateTravelIncome = ({ branchNumber, updateTravelIncomeBd }) => {
   );
 };
 
-updateTravelIncome({ branchNumber, updateTravelIncomeBd });
+// updateTravelIncome({ branchNumber, updateTravelIncomeBd });

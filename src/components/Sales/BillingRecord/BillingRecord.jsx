@@ -25,7 +25,7 @@ import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMa
 //Firebase Functions:
 import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
 import { updateOccupiedSeat } from './../Events/Firebase/updateOccupiedSeat';
-// import { updateTravelIncome } from './../Events/Firebase/updateTravelIncome';
+import { updateTravelIncome } from './../Events/Firebase/updateTravelIncome';
 //States:
 import { showSeatMap, setShowSeatMap } from './../TravelCards/TravelCards'; //showSeatMap muestra o no el mapa de asientos(se usara al finalizar la venta)
 import { salesAmountData } from './../SalesAmountData/SalesAmountData';
@@ -204,24 +204,29 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   };
 
   //Actualizar OccupiedSeat:
-  const updateOccupiedSeatAux = () => {
-    passengersDataTable.map((passenger) =>
-      updateOccupiedSeat({
-        branchNumber,
-        dataBusTravel,
-        seatId: passenger.id,
-        seatState: 'vendido',
-        identificationNumberUser,
-      })
-    );
-  };
+  // const updateOccupiedSeatAux = () => {
+  //   passengersDataTable.map((passenger) =>
+  //     updateOccupiedSeat({
+  //       branchNumber,
+  //       dataBusTravel,
+  //       seatId: passenger.id,
+  //       seatState: 'vendido',
+  //       identificationNumberUser,
+  //     })
+  //   );
+
+  //   //Actualizar ingresos de viaje
+  //   updateTravelIncome({ branchNumber, updateTravelIncomeBd });
+  // };
 
   //Prueba gnerateTravelIncomeForSale
   let salesIncome = getSalesIncome({ ticketsSalesData, salesAmountData });
   console.log('salesIncome', salesIncome);
   //Error: revisar getSalesIncome.js func incomeTicketsList()
 
-  //prueba funcs:
+  //Data para fireFunc:
+  let updateTravelIncomeBd;
+  //Funcion genera un array unico apartir de los parametros (bd , sale):
   const getIncomeTicketsFormat = ({ travelIncomeBd, incomeTickets }) => {
     let sumIncomeFromBdAndSale;
     if (travelIncomeBd.travelIncome.incomeTickets.length === 0) {
@@ -255,7 +260,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     //update getTravelIncomeBd
     let { incomeTickets, totalAmountIncome, totalAmountTickets } = salesIncome;
 
-    let updateTravelIncomeBd = {
+    updateTravelIncomeBd = {
       travelIncome: {
         incomeTickets: getIncomeTicketsFormat({
           travelIncomeBd,
@@ -271,6 +276,27 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
 
     console.log('updateTravelIncomeBd', updateTravelIncomeBd);
   }
+
+  // const updateTravelIncomeAux = ({ branchNumber, updateTravelIncomeBd }) => {
+  //   updateTravelIncome({ branchNumber, updateTravelIncomeBd });
+  // };
+
+  //Func para ejecutar n Funciones que tengan parametros ya creados previamente:
+  const executeNFunctions = () => {
+    //Actualizar OccupiedSeat:
+    passengersDataTable.map((passenger) =>
+      updateOccupiedSeat({
+        branchNumber,
+        dataBusTravel,
+        seatId: passenger.id,
+        seatState: 'vendido',
+        identificationNumberUser,
+      })
+    );
+
+    //Actualizar ingresos de viaje
+    updateTravelIncome({ branchNumber, updateTravelIncomeBd });
+  };
 
   return (
     <>
@@ -410,7 +436,7 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                 }}
                 secondFunctionToExecute={setShowSeatMap}
                 secondFunctionParameters={showSeatMap}
-                thirdFunctionToExecute={updateOccupiedSeatAux}
+                thirdFunctionToExecute={executeNFunctions}
               />
             }
           </Btn>

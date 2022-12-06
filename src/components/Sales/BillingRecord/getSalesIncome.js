@@ -156,20 +156,20 @@ const incomeTicketsList = ({ ticketsSalesData }) => {
   let keyAndValueList = getKeyAndValueJson(numTickets);
   console.log('keyAndValueList', keyAndValueList);
 
-  //IMPORTANTE: INTENTAR CORREGIR ERROR:
+  //IMPORTANTE: INTENTAR CORREGIR ERROR(EL ERROR SOLO SE GENERA SI HAY 2 O MAS DATOS EN keyAndValueList Y SE AFECTA SOLO AL 1ER ELEMENTO):
   let incomeTicketsList = keyAndValueList.map((data) => {
     let incomeTickets = {
-      numTickets: data.value, //por algun razon este valor se incrementa +1 pero en el calculo de la bd no sufre cambios
+      numTickets: data.value, //por algun razon este valor se incrementa +1 pero en el calculo de la bd no sufre cambios. LO MAS PROBABLE ES QUE SUMA EL VALOR QUE SE TIENE EN LA BD CON EL VALOR DE LA VENTA ACTUAL.
       priceTicket: data.keyCode,
       totalPrice: parseFloat(data.keyCode) * parseFloat(data.value),
     };
 
-    console.log('incomeTickets', incomeTickets);
+    console.log('incomeTickets', incomeTickets); //por el error anterior se imprime el doble de los valores reales(necesario desplegar el obj para verlo). LO MAS PROBABLE ES QUE SUMA EL VALOR QUE SE TIENE EN LA BD CON EL VALOR DE LA VENTA ACTUAL.
 
     return incomeTickets;
   });
 
-  console.log('incomeTicketsList', incomeTicketsList);
+  console.log('incomeTicketsList', incomeTicketsList); //por el error anterior se imprime el doble de los valores reales. LO MAS PROBABLE ES QUE SUMA EL VALOR QUE SE TIENE EN LA BD CON EL VALOR DE LA VENTA ACTUAL.
   return incomeTicketsList;
 };
 
