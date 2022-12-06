@@ -18,9 +18,8 @@ import {
   billingContactList_x_everyTravel,
   billingContactAllList,
   ticketsSoldByBuyer,
-  // dataTableNecesary,
+  getDataTableNecesary,
   travelKey,
-  // getTravelIncomeList,
 } from './functions';
 
 export const SettlementFormsList = () => {
@@ -38,8 +37,9 @@ export const SettlementFormsList = () => {
           totalPrice: 0, //200
         },
       ],
-      totalAmountTickets: 0, //2430
+      totalAmountDiscounts: 0,
       totalAmountIncome: 0, //2430
+      totalAmountTickets: 0, //2430
     },
 
     travelExpenses: {
@@ -57,10 +57,10 @@ export const SettlementFormsList = () => {
       tripMadeKey: '',
     },
 
-    TotalSettlement: 0, //2078
+    totalSettlement: 0, //2078
     travelDate: '', // 24/01/2021  //TravelDate?
   };
-  console.log('settlementData:', settlementData);
+  console.log('Obj settlementData:', settlementData);
 
   //ContextCompanyBuses:
   const branchTripsMade = useContext(ContextBranchTripsMade);
@@ -108,6 +108,7 @@ export const SettlementFormsList = () => {
       origin: data.passengersList[0].origin,
       destiny: data.passengersList[0].destiny,
       travelDate: travelDate,
+      departureTime: departureTime,
     };
 
     uniqueCollection.add(JSON.stringify(dataAux)); // JSON.stringify(obj) convierte un {} a string
@@ -131,22 +132,31 @@ export const SettlementFormsList = () => {
   });
   console.log('settlementDataList', settlementDataList);
 
-  //getDataFirebase:
-  // let travelIncomeList = getTravelIncomeList(branchTripsMadeArray);
-  // console.log('travelIncomeList', travelIncomeList);
+  //intento 06-12-2022:
+  let newSettlementDataList = settlementDataList.map((settlementData) => {
+    let { formCode } = settlementData;
+
+    let tripMade = branchTripsMadeArray.filter(
+      (tripMade) => tripMade.tripMadeKey === formCode
+    );
+
+    let {
+      travelIncome,
+      travelExpenses: { totalExpenses },
+    } = tripMade[0];
+
+    //crear funcion para crear: totalSettlement y adicionarlo dentro del obj
+    let totalSettlement =
+      parseFloat(travelIncome.totalAmountIncome) - parseFloat(totalExpenses);
+
+    return { totalSettlement, ...settlementData, travelIncome };
+  });
+  console.log('newSettlementDataList', newSettlementDataList);
 
   //Datos necesarios para llenar la tabla:
-  const data = [
-    {
-      formCode: '004121',
-      destiny: 'Santa Cruz',
-      totalAmountIncome: 2430,
-      totalExpenses: 402,
-      TotalSettlement: 2078,
-      date: '24/01/2021', //TravelDate?
-      departureTime: '08:30',
-    },
-  ];
+  const data = getDataTableNecesary({ newSettlementDataList });
+  console.log('data', data);
+
   const columns = [
     {
       name: 'formCode',
@@ -179,26 +189,35 @@ export const SettlementFormsList = () => {
       //   },
     },
     {
-      name: 'TotalSettlement',
+      name: 'totalSettlement',
       label: 'Total Liquidacion',
     },
     {
-      name: 'date',
+      name: 'travelDate',
       label: 'Fecha Viaje',
     },
     {
       name: 'departureTime',
       label: 'Hora Viaje',
     },
-    // {
-    //   name: 'btnTicket',
-    //   label: 'Detalles',
-    //   options: {
-    //     filter: false, // func para filtrar por la columna
-    //     sort: false, //funcionalidad para odernar la columna
-    //     print: false, //Esto deberia hacer que se omita esta columna para la impresion
-    //   },
-    // },
+    {
+      name: 'btnExpenses',
+      label: 'Registar Egresos',
+      options: {
+        filter: false, // func para filtrar por la columna
+        sort: false, //funcionalidad para odernar la columna
+        print: false, //Esto deberia hacer que se omita esta columna para la impresion
+      },
+    },
+    {
+      name: 'btnSettlementForm',
+      label: 'Ver Planilla',
+      options: {
+        filter: false, // func para filtrar por la columna
+        sort: false, //funcionalidad para odernar la columna
+        print: false, //Esto deberia hacer que se omita esta columna para la impresion
+      },
+    },
   ];
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)

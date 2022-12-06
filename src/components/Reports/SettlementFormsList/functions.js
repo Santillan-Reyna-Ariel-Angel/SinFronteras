@@ -46,55 +46,54 @@ export const ticketsSoldByBuyer = ({ billingContactAllListAux }) => {
   return ticketsSoldByBuyer;
 };
 
-export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
-  let dataTableNecesary = [];
-
-  ticketsSoldByBuyerAux.map((sale) => {
-    let buyer = sale.buyer;
-
-    let dataNecesary = sale.passengersList.map((passenger) => {
-      let {
-        passengerFullName,
-        identificationNumber,
-        seatId,
-        // ticketNumber,
-        destiny,
-        travelDate,
-        departureTime,
-      } = passenger;
-
-      let passengerData = {
-        buyer,
-        passengerFullName,
-        identificationNumber,
-        seatId,
-        // ticketNumber,
-        destiny,
-        travelDate,
-        departureTime,
-        btnTicket: (
-          <PlainModalButton
-            primaryBtnText="ticket"
-            dialogTitle=""
-            dialogText=""
-            closeBtnText="cancelar"
-            continueBtnText="ok"
-            componentView={
-              <ReactToPrintComponent2 ticketDataProps={passenger} />
-            }
-          />
-        ), //<Button variant="contained">Contained</Button>, // <ReactToPrintComponent2 />,
-      };
-
-      dataTableNecesary.push(passengerData);
-
-      return passengerData;
-    });
-
-    return dataNecesary;
+export const getDataTableNecesary = ({ newSettlementDataList }) => {
+  let dataTableNecesary = newSettlementDataList.map((settlementData) => {
+    return {
+      formCode: settlementData.formCode,
+      destiny: settlementData.destiny,
+      totalAmountIncome: settlementData.travelIncome.totalAmountIncome,
+      totalExpenses: settlementData.travelExpenses.totalExpenses,
+      totalSettlement: settlementData.totalSettlement,
+      travelDate: settlementData.travelDate, // '24/01/2021',
+      departureTime: settlementData.departureTime,
+      btnExpenses: (
+        <PlainModalButton
+          primaryBtnText="actualizar egresos"
+          dialogTitle=""
+          dialogText=""
+          closeBtnText="cancelar"
+          continueBtnText="ok"
+          // componentView={<ReactToPrintComponent2 ticketDataProps={passenger} />}
+        />
+      ),
+      btnSettlementForm: (
+        <PlainModalButton
+          primaryBtnText="planilla"
+          dialogTitle=""
+          dialogText=""
+          closeBtnText="cancelar"
+          continueBtnText="ok"
+          // componentView={<ReactToPrintComponent2 ticketDataProps={passenger} />}
+        />
+      ),
+    };
   });
+  // console.log('dataTableNecesary', dataTableNecesary);
 
-  console.log('dataTableNecesary', dataTableNecesary);
+  // let dataTableNecesaryAux = {
+  //   // travelDate,
+  //   // departureTime,
+  //   btnSettlementForm: (
+  //     <PlainModalButton
+  //       primaryBtnText="ticket"
+  //       dialogTitle=""
+  //       dialogText=""
+  //       closeBtnText="cancelar"
+  //       continueBtnText="ok"
+  //       // componentView={<ReactToPrintComponent2 ticketDataProps={passenger} />}
+  //     />
+  //   ), //<Button variant="contained">Contained</Button>, // <ReactToPrintComponent2 />,
+  // };
 
   return dataTableNecesary;
 };
@@ -113,32 +112,3 @@ export const travelKey = ({
   //console.log('travelKey:', travelKey);
   return travelKey;
 };
-
-//REVISAR: funcion innecesaria?
-// export const getTravelIncomeList = (branchTripsMadeArray) => {
-//   let travelIncomeList = branchTripsMadeArray.map((data) => {
-//     let {
-//       travelIncome,
-//       travelExpenses: { tripMadeKey },
-//     } = data;
-
-//     let existingProperty = travelIncome.hasOwnProperty('incomeTickets'); // Se verifica si existe la propiedad, false=Np se tienen ningun registro de venta
-//     // console.log('existingProperty', existingProperty);
-
-//     let travelIncomeData; //La data para ser devuelta
-//     if (existingProperty === false) {
-//       travelIncomeData = {
-//         ...travelIncome,
-//         incomeTickets: existingProperty ? travelIncome.incomeTickets : [],
-//       };
-//     } else {
-//       travelIncomeData = {
-//         ...travelIncome,
-//       };
-//     }
-
-//     return { travelIncome: travelIncomeData, tripMadeKey: tripMadeKey };
-//   });
-
-//   return travelIncomeList;
-// };
