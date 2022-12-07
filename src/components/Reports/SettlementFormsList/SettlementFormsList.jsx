@@ -66,12 +66,6 @@ export const SettlementFormsList = () => {
   const branchTripsMade = useContext(ContextBranchTripsMade);
   console.log('branchTripsMade', branchTripsMade);
 
-  //Nuevo
-  let tripMadeKey = 'travel_30-11-2022_20-30_bus-001';
-  let { [tripMadeKey]: tripMadeKeyData } =
-    branchTripsMade !== undefined ? branchTripsMade : { [tripMadeKey]: {} };
-  console.log('tripMadeKeyData', tripMadeKeyData);
-
   // json to array:
   let branchTripsMadeArray = [];
   for (let i in branchTripsMade) branchTripsMadeArray.push(branchTripsMade[i]);
@@ -131,6 +125,7 @@ export const SettlementFormsList = () => {
     return { ...data, ...travelExpensesList[0] };
   });
   console.log('settlementDataList', settlementDataList);
+  //New getData Fin (considerar llevarlo todo a una funcion que reciva : branchTripsMadeArray). Incluso se tambien podria estar en la funcion "newSettlementDataList"
 
   //intento 06-12-2022:
   let newSettlementDataList = settlementDataList.map((settlementData) => {
@@ -202,7 +197,7 @@ export const SettlementFormsList = () => {
     },
     {
       name: 'btnExpenses',
-      label: 'Registar Egresos',
+      label: 'Egresos',
       options: {
         filter: false, // func para filtrar por la columna
         sort: false, //funcionalidad para odernar la columna
@@ -211,7 +206,7 @@ export const SettlementFormsList = () => {
     },
     {
       name: 'btnSettlementForm',
-      label: 'Ver Planilla',
+      label: 'Planilla Liquidacion',
       options: {
         filter: false, // func para filtrar por la columna
         sort: false, //funcionalidad para odernar la columna
@@ -245,7 +240,7 @@ export const SettlementFormsList = () => {
           <CacheProvider value={muiCache}>
             <ThemeProvider theme={getMuiTheme()}>
               <MUIDataTable
-                title={'LISTA PLANILLAS DE LIQUIDACION'}
+                title={'LISTA DE VIAJES'} //LISTA PLANILLAS DE LIQUIDACION
                 data={data}
                 columns={columns}
                 options={options}

@@ -68,7 +68,7 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
       ),
       btnSettlementForm: (
         <PlainModalButton
-          primaryBtnText="planilla"
+          primaryBtnText="ver planilla"
           dialogTitle=""
           dialogText=""
           closeBtnText="cancelar"
