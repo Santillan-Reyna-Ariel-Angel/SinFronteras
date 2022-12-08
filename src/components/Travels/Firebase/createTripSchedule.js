@@ -14,6 +14,34 @@ export const createTripSchedule = ({ travelData, branchNumber }) => {
     busEnrollment,
   });
 
+  //data default para tripsMade:
+  const travelExpenses = {
+    busEnrollment: '',
+    expenses: {
+      diesel: '',
+      laborUnion: '',
+      otherDescription: '',
+      others: '',
+      toll: '',
+      viaticos: '',
+      washed: '',
+    },
+    totalExpenses: 0, //Por default numerico
+    tripMadeKey: travelKeyAux, //travel_10-12-2022_20-30_bus-001
+  };
+  const travelIncome = {
+    incomeTickets: [
+      // {
+      //   numTickets: 1,
+      //   priceTicket: '55',
+      //   totalPrice: 55,
+      // },
+    ],
+    totalAmountDiscounts: 0,
+    totalAmountIncome: 0,
+    totalAmountTickets: 0,
+  };
+
   //Enviar Datos a BD:
   set(ref(fire_db, `branchOffices/${branchNumber}/travels/${travelKeyAux}/`), {
     ...travelData, // se hace una copia de todos los datos
@@ -24,6 +52,8 @@ export const createTripSchedule = ({ travelData, branchNumber }) => {
   set(ref(fire_db, `tripsMade/branch_${branchNumber}/${travelKeyAux}/`), {
     occupiedSeat: { 0: 'vendido-74747472' },
     passengers: {},
+    travelExpenses,
+    travelIncome,
     tripMadeKey: travelKeyAux,
   });
 };

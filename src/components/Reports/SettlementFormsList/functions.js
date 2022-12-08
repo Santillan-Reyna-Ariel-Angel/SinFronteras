@@ -62,7 +62,7 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
         <DialogBasic
           primaryBtnText="actualizar egresos"
           componentView={
-            <TravelExpenses /> //tripMadeKey={settlementData.formCode}
+            <TravelExpenses tripMadeKey={settlementData.formCode} />
           } //<ReactToPrintComponent2 ticketDataProps={passenger} />
         />
       ),

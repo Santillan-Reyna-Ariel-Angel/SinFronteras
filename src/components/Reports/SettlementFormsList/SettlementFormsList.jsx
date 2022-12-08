@@ -91,6 +91,7 @@ export const SettlementFormsList = () => {
   console.log('travelExpensesArray', travelExpensesArray);
 
   let uniqueCollection = new Set();
+  //IMPORTANTE: si no se tiene "ticketsSoldByBuyerAux" (por que no hay ningun pasaje vendido),  NO SE PODRA MOSTRAR EL VIAJE CREADO EN LA TABLA.
   ticketsSoldByBuyerAux.map((data) => {
     let travelDate = data.passengersList[0].travelDate;
     let departureTime = data.passengersList[0].departureTime;

@@ -27,7 +27,6 @@ import {
   Btn,
 } from './TravelExpensesStyles';
 //Contexts:
-import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade.js';
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 
 //Firebase Functions:
@@ -37,13 +36,8 @@ import { createTravelExpenses } from './../Firebase/createTravelExpenses';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
 
-export const TravelExpenses = () => {
-  // TravelExpenses = ({ tripMadeKey })
-  // console.log('Props tripMadeKey', tripMadeKey);
-
-  //ContextUserData
-  const branchTripsMade = useContext(ContextBranchTripsMade);
-  // console.log('branchTripsMade', branchTripsMade);
+export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
+  console.log('tripMadeKeyProp', tripMadeKeyProp);
 
   //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
@@ -51,13 +45,9 @@ export const TravelExpenses = () => {
     branchInformation: { branchNumber },
   } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
 
-  let branchTripsMadeKeys =
-    branchTripsMade !== undefined ? Object.keys(branchTripsMade) : [];
-  // console.log('branchTripsMadeKeys', branchTripsMadeKeys);
-
-  const getNecessaryKeys = (branchTripsMadeKeys) => {
-    let necessaryKeys = branchTripsMadeKeys.map((tripMadeKey) => {
-      let fragmentedKey = tripMadeKey.split('_');
+  const getNecessaryKeys = (tripMadeKeyProp) => {
+    if (tripMadeKeyProp !== undefined) {
+      let fragmentedKey = tripMadeKeyProp.split('_');
 
       let travelDate = fragmentedKey[1];
       let departureTime = fragmentedKey[2].replace('-', ':');
@@ -65,16 +55,24 @@ export const TravelExpenses = () => {
 
       let selectableOption = `bus ${busEnrollment} (${travelDate} -> ${departureTime})`;
 
-      return { busEnrollment, selectableOption, tripMadeKey };
-    });
-    // console.log('necessaryKeys', necessaryKeys);
+      let necessaryKeys = {
+        busEnrollment,
+        selectableOption,
+        tripMadeKey: tripMadeKeyProp,
+      };
 
-    return necessaryKeys;
+      // console.log('[necessaryKeys]', [necessaryKeys]);
+
+      return [necessaryKeys]; //Es necesario devolverlo como un array por que el return(renderizado) del compoenete lo necesita asi
+    } else {
+      return [];
+    }
   };
 
-  let necessaryKeys = getNecessaryKeys(branchTripsMadeKeys);
-  console.log('*****necessaryKeys', necessaryKeys);
+  let necessaryKeys = getNecessaryKeys(tripMadeKeyProp);
+  console.log('necessaryKeys', necessaryKeys);
 
+  //dataDefault, debe venir de la BD
   const dataDefault = {
     busEnrollment: '',
     tripMadeKey: '',
