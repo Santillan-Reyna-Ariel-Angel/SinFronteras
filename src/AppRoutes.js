@@ -36,6 +36,8 @@ import { ProviderGeneralCompanyData } from './contexts/ContextGeneralCompanyData
 import { ProviderBranchTripsMade } from './contexts/ContextBranchTripsMade';
 import { ProviderCompanyBuses } from './contexts/ContextCompanyBuses';
 import { ProviderAllUserData } from './contexts/ContextAllUserData';
+//ComponentsGenerals:
+import { DialogBasic } from './components/DialogBasic/DialogBasic';
 
 const AppRoutes = () => {
   return (
@@ -138,6 +140,13 @@ const AppRoutes = () => {
                           />
 
                           {/* Route for Tests: */}
+
+                          <Route
+                            exact
+                            path="/test-component/"
+                            component={SettlementFormsList}
+                          />
+
                           <Route
                             exact
                             path="/test-component2/"
@@ -146,8 +155,8 @@ const AppRoutes = () => {
 
                           <Route
                             exact
-                            path="/test-component/"
-                            component={SettlementFormsList}
+                            path="/test-component3/"
+                            component={DialogBasic}
                           />
                         </Layout>
                       </Switch>
