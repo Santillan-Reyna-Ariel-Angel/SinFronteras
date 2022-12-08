@@ -21,7 +21,7 @@ export const HeaderContainer = styled.div`
   grid-template-areas: 'HeaderTitle';
 
   color: white;
-  border-radius: 10px 10px 0px 0px;
+  border-radius: 0px 0px 0px 0px; //10px 10px 0px 0px
   background: #051e34;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
@@ -45,7 +45,7 @@ export const BodyContainer = styled.div`
   padding: 15px 20px;
   //sombreado:
   border: 4px solid #051e34; //contorno
-  border-radius: 0px 0px 10px 10px;
+  border-radius: 0px 0px 0px 0px; //0px 0px 10px 10px
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'TripMadeKeyStyle TripMadeKeyStyle' 'DieselStyle TollStyle' 'ViaticosStyle WashedStyle' 'LaborUnionStyle OthersStyle' 'OtherDescriptionStyle OtherDescriptionStyle' 'TextTotalExpensesStyle TextTotalExpensesStyle' 'Btn Btn';

@@ -38,6 +38,9 @@ import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
 
 export const TravelExpenses = () => {
+  // TravelExpenses = ({ tripMadeKey })
+  // console.log('Props tripMadeKey', tripMadeKey);
+
   //ContextUserData
   const branchTripsMade = useContext(ContextBranchTripsMade);
   // console.log('branchTripsMade', branchTripsMade);
@@ -52,18 +55,25 @@ export const TravelExpenses = () => {
     branchTripsMade !== undefined ? Object.keys(branchTripsMade) : [];
   // console.log('branchTripsMadeKeys', branchTripsMadeKeys);
 
-  let necessaryKeys = branchTripsMadeKeys.map((tripMadeKey) => {
-    let fragmentedKey = tripMadeKey.split('_');
+  const getNecessaryKeys = (branchTripsMadeKeys) => {
+    let necessaryKeys = branchTripsMadeKeys.map((tripMadeKey) => {
+      let fragmentedKey = tripMadeKey.split('_');
 
-    let travelDate = fragmentedKey[1];
-    let departureTime = fragmentedKey[2].replace('-', ':');
-    let busEnrollment = fragmentedKey[3];
+      let travelDate = fragmentedKey[1];
+      let departureTime = fragmentedKey[2].replace('-', ':');
+      let busEnrollment = fragmentedKey[3];
 
-    let selectableOption = `bus ${busEnrollment} (${travelDate} -> ${departureTime})`;
+      let selectableOption = `bus ${busEnrollment} (${travelDate} -> ${departureTime})`;
 
-    return { busEnrollment, selectableOption, tripMadeKey };
-  });
-  // console.log('necessaryKeys', necessaryKeys);
+      return { busEnrollment, selectableOption, tripMadeKey };
+    });
+    // console.log('necessaryKeys', necessaryKeys);
+
+    return necessaryKeys;
+  };
+
+  let necessaryKeys = getNecessaryKeys(branchTripsMadeKeys);
+  console.log('*****necessaryKeys', necessaryKeys);
 
   const dataDefault = {
     busEnrollment: '',

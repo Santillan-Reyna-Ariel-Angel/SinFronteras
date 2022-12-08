@@ -1,5 +1,7 @@
-import { ReactToPrintComponent2 } from './../../Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2';
+// import { ReactToPrintComponent2 } from './../../Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
+import { DialogBasic } from './../../DialogBasic/DialogBasic';
+import { TravelExpenses } from './../../Travels/TravelExpenses/TravelExpenses';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -57,13 +59,11 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
       travelDate: settlementData.travelDate, // '24/01/2021',
       departureTime: settlementData.departureTime,
       btnExpenses: (
-        <PlainModalButton
+        <DialogBasic
           primaryBtnText="actualizar egresos"
-          dialogTitle=""
-          dialogText=""
-          closeBtnText="cancelar"
-          continueBtnText="ok"
-          // componentView={<ReactToPrintComponent2 ticketDataProps={passenger} />}
+          componentView={
+            <TravelExpenses /> //tripMadeKey={settlementData.formCode}
+          } //<ReactToPrintComponent2 ticketDataProps={passenger} />
         />
       ),
       btnSettlementForm: (

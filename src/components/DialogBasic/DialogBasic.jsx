@@ -2,46 +2,38 @@ import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 
-import { TravelExpenses } from './../Travels/TravelExpenses/TravelExpenses';
+// import { TravelExpenses } from './../Travels/TravelExpenses/TravelExpenses';
 
-const DialogInterface = (props) => {
-  const { onClose, open, componentView } = props;
+export const DialogBasic = ({
+  primaryBtnText = 'Abrir Dialog',
+  componentView = <></>, // <TravelExpenses />
+  redirectPage = './',
+}) => {
+  //ruterar:
+  // const history = useHistory();
+  // history.push('/acceso');
 
-  const handleClose = () => {
-    onClose();
-    console.log('DialogInterface-handleClose');
-  };
-
-  return (
-    <>
-      <Dialog onClose={handleClose} open={open}>
-        {componentView ? componentView : null}
-      </Dialog>
-    </>
-  );
-};
-
-export const DialogBasic = () => {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
+    console.log('abierto');
   };
 
   const handleClose = () => {
     setOpen(false);
+    console.log('cerrado');
   };
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open simple dialog
+      <Button variant="contained" color="success" onClick={handleClickOpen}>
+        {primaryBtnText}
       </Button>
-      <DialogInterface
-        open={open}
-        onClose={handleClose}
-        componentView={<TravelExpenses />}
-      />
+
+      <Dialog onClose={handleClose} open={open}>
+        {componentView ? componentView : null}
+      </Dialog>
     </div>
   );
 };
