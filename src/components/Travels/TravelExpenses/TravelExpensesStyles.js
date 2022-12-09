@@ -113,6 +113,7 @@ export const TextTotalExpensesStyle = styled.div`
   text-align: center;
   font-size: larger;
   font-weight: bold;
+  /* color: red; */
 `;
 
 export const Btn = styled.div`

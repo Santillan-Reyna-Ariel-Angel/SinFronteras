@@ -28,6 +28,7 @@ import {
 } from './TravelExpensesStyles';
 //Contexts:
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
+import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 
 //Firebase Functions:
 import { createTravelExpenses } from './../Firebase/createTravelExpenses';
@@ -44,6 +45,16 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
   const {
     branchInformation: { branchNumber },
   } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
+
+  //ContextBranchOffice:
+  const branchTripsMade = useContext(ContextBranchTripsMade);
+  let {
+    [tripMadeKeyProp]: { travelExpenses: travelExpensesBd },
+  } = branchTripsMade
+    ? branchTripsMade
+    : { [tripMadeKeyProp]: { travelExpenses: {} } };
+
+  console.log('travelExpensesBd', travelExpensesBd);
 
   const getNecessaryKeys = (tripMadeKeyProp) => {
     if (tripMadeKeyProp !== undefined) {
@@ -72,21 +83,23 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
   let necessaryKeys = getNecessaryKeys(tripMadeKeyProp);
   console.log('necessaryKeys', necessaryKeys);
 
-  //dataDefault, debe venir de la BD
-  const dataDefault = {
-    busEnrollment: '',
-    tripMadeKey: '',
-    expenses: {
-      diesel: '',
-      toll: '',
-      viaticos: '',
-      washed: '',
-      laborUnion: '',
-      others: '',
-      otherDescription: '',
-    },
-    totalExpenses: 0, //Por default numerico
-  };
+  //dataDefault debe venir de la BD:
+  const dataDefault = travelExpensesBd
+    ? travelExpensesBd
+    : {
+        busEnrollment: '',
+        tripMadeKey: '',
+        expenses: {
+          diesel: '',
+          toll: '',
+          viaticos: '',
+          washed: '',
+          laborUnion: '',
+          others: '',
+          otherDescription: '',
+        },
+        totalExpenses: 0, //Por default numerico
+      };
 
   const [travelExpenses, setTravelExpenses] = useState(dataDefault);
   const [enrollmentSelectableOption, setEnrollmentSelectableOption] =
@@ -190,6 +203,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               variant="outlined"
               value={travelExpenses.expenses.diesel}
               type="number"
+              // InputProps={{ inputProps: { style: { color: 'red' } } }}
+              inputProps={{ style: { color: 'black' } }}
               onChange={(event) => [
                 setTravelExpenses((prevState) => ({
                   ...prevState,
@@ -210,6 +225,7 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               variant="outlined"
               value={travelExpenses.expenses.toll}
               type="number"
+              inputProps={{ style: { color: 'black' } }}
               onChange={(event) => [
                 setTravelExpenses({
                   ...travelExpenses,
@@ -230,6 +246,7 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               variant="outlined"
               value={travelExpenses.expenses.viaticos}
               type="number"
+              inputProps={{ style: { color: 'black' } }}
               onChange={(event) => [
                 setTravelExpenses({
                   ...travelExpenses,
@@ -250,6 +267,7 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               variant="outlined"
               value={travelExpenses.expenses.washed}
               type="number"
+              inputProps={{ style: { color: 'black' } }}
               onChange={(event) => [
                 setTravelExpenses({
                   ...travelExpenses,
@@ -270,6 +288,7 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               variant="outlined"
               value={travelExpenses.expenses.laborUnion}
               type="number"
+              inputProps={{ style: { color: 'black' } }}
               onChange={(event) => [
                 setTravelExpenses({
                   ...travelExpenses,
@@ -290,6 +309,7 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               variant="outlined"
               value={travelExpenses.expenses.others}
               type="number"
+              inputProps={{ style: { color: 'black' } }}
               onChange={(event) => [
                 setTravelExpenses({
                   ...travelExpenses,
@@ -313,6 +333,7 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               label="Descripcion "
               name="otherDescription"
               value={travelExpenses.expenses.otherDescription}
+              // inputProps={{ style: { color: 'black' } }}
               onChange={(event) =>
                 setTravelExpenses((prevState) => ({
                   ...prevState,
