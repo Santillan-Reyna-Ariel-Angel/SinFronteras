@@ -36,7 +36,7 @@ const PlainModalButton = ({
     // history.push('/acceso');
 
     //Escribir codigo para redirigir a destino
-    console.log('Vendido!!!');
+    console.log('Se confirmo la accion de PlainModalButton!!!');
     functionToExecute(functionParameters);
     secondFunctionToExecute(!secondFunctionParameters);
     thirdFunctionToExecute();

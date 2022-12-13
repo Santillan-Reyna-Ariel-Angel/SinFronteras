@@ -31,11 +31,12 @@ import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 
 //Firebase Functions:
-import { createTravelExpenses } from './../Firebase/createTravelExpenses';
+import { updateTravelExpenses } from '../Firebase/updateTravelExpenses';
 //States:
 //Components:
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
+import { handleClose } from './../../DialogBasic/DialogBasic';
 
 export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
   console.log('tripMadeKeyProp', tripMadeKeyProp);
@@ -159,6 +160,9 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
   const componentDefaultData = () => {
     setTravelExpenses(dataDefault);
     setEnrollmentSelectableOption(undefined);
+
+    //Func que cierra(change state) <DialogBasic>
+    handleClose();
   };
 
   return (
@@ -358,7 +362,7 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               dialogText="Esta seguro de registrar este egreso?"
               closeBtnText="cancelar"
               continueBtnText="si"
-              functionToExecute={createTravelExpenses}
+              functionToExecute={updateTravelExpenses}
               functionParameters={{
                 travelExpensesData,
                 branchNumber,

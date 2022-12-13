@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 
 // import { TravelExpenses } from './../Travels/TravelExpenses/TravelExpenses';
-
+export let handleClose;
 export const DialogBasic = ({
   primaryBtnText = 'Abrir Dialog',
   componentView = <></>, // <TravelExpenses />
@@ -13,15 +13,15 @@ export const DialogBasic = ({
   // const history = useHistory();
   // history.push('/acceso');
 
-  const [open, setOpen] = useState(false);
+  const [openDialogBasic, setOpenDialogBasic] = useState(false);
 
   const handleClickOpen = () => {
-    setOpen(true);
+    setOpenDialogBasic(true);
     console.log('abierto');
   };
 
-  const handleClose = () => {
-    setOpen(false);
+  handleClose = () => {
+    setOpenDialogBasic(false);
     console.log('cerrado');
   };
 
@@ -31,7 +31,7 @@ export const DialogBasic = ({
         {primaryBtnText}
       </Button>
 
-      <Dialog onClose={handleClose} open={open}>
+      <Dialog onClose={handleClose} open={openDialogBasic}>
         {componentView ? componentView : null}
       </Dialog>
     </div>
