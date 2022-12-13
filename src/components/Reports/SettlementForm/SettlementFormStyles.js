@@ -26,7 +26,7 @@ export const BodyContainer = styled.div`
   border-radius: 0px 0px 0px 0px;
   /* backdrop-filter: blur(18px); */
   /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); */
-  grid-template-areas: 'CompanyNameStyle CompanyNameStyle CompanyNameStyle CompanyNameStyle' 'FormTitleStyle FormTitleStyle FormTitleStyle FormTitleStyle' 'FormCodeStyle FormCodeStyle FormCodeStyle FormCodeStyle' 'OriginStyle OriginStyle DestinyStyle DestinyStyle' 'PassageDataContainer PassageDataContainer PassageDataContainer PassageDataContainer' 'TextTotalAmountTickets TextTotalAmountTickets TextTotalAmountTickets TotalAmountTickets' 'TextTotalAmountIncome TextTotalAmountIncome TextTotalAmountIncome TotalAmountIncome' 'TextTitleExpenseStyle TextTitleExpenseStyle TextTitleExpenseStyle TextTitleExpenseStyle' 'DieselStyle DieselStyle DieselPriceStyle DieselPriceStyle' ' TollStyle TollStyle TollPriceStyle TollPriceStyle' 'ViaticosStyle ViaticosStyle ViaticosAmountStyle ViaticosAmountStyle' 'WashedStyle WashedStyle WashedPriceStyle WashedPriceStyle' 'LaborUnionStyle LaborUnionStyle LaborUnionAmountStyle LaborUnionAmountStyle' 'OthersStyle OthersStyle OthersAmountStyle OthersAmountStyle' 'TextTotalExpensesStyle TextTotalExpensesStyle TextTotalExpensesStyle  TotalExpensesStyle' 'TextTotalSettlementStyle TextTotalSettlementStyle TextTotalSettlementStyle TotalSettlementStyle' 'PlaceAndDateStyle PlaceAndDateStyle PlaceAndDateStyle PlaceAndDateStyle ' 'SignatureStyle SignatureStyle SignatureStyle SignatureStyle';
+  grid-template-areas: 'CompanyNameStyle CompanyNameStyle CompanyNameStyle CompanyNameStyle' 'FormTitleStyle FormTitleStyle FormTitleStyle FormTitleStyle' 'FormCodeStyle FormCodeStyle FormCodeStyle FormCodeStyle' 'OriginStyle OriginStyle DestinyStyle DestinyStyle' 'PassageDataContainer PassageDataContainer PassageDataContainer PassageDataContainer' 'TextTotalAmountTickets TextTotalAmountTickets TextTotalAmountTickets TotalAmountTickets' 'TextTotalAmountDiscounts TextTotalAmountDiscounts TextTotalAmountDiscounts TotalAmountDiscounts' 'TextTotalAmountIncome TextTotalAmountIncome TextTotalAmountIncome TotalAmountIncome' 'TextTitleExpenseStyle TextTitleExpenseStyle TextTitleExpenseStyle TextTitleExpenseStyle' 'DieselStyle DieselStyle DieselPriceStyle DieselPriceStyle' ' TollStyle TollStyle TollPriceStyle TollPriceStyle' 'ViaticosStyle ViaticosStyle ViaticosAmountStyle ViaticosAmountStyle' 'WashedStyle WashedStyle WashedPriceStyle WashedPriceStyle' 'LaborUnionStyle LaborUnionStyle LaborUnionAmountStyle LaborUnionAmountStyle' 'OthersStyle OthersStyle OthersAmountStyle OthersAmountStyle' 'TextTotalExpensesStyle TextTotalExpensesStyle TextTotalExpensesStyle  TotalExpensesStyle' 'TextTotalSettlementStyle TextTotalSettlementStyle TextTotalSettlementStyle TotalSettlementStyle' 'PlaceAndDateStyle PlaceAndDateStyle PlaceAndDateStyle PlaceAndDateStyle ' 'SignatureStyle SignatureStyle SignatureStyle SignatureStyle';
   /* overflow: hidden; */
 `;
 
@@ -91,6 +91,21 @@ export const TextTotalAmountTickets = styled.div`
 
 export const TotalAmountTickets = styled.div`
   grid-area: TotalAmountTickets;
+  font-size: larger;
+  font-weight: bold;
+`;
+
+//Decuentos:
+export const TextTotalAmountDiscounts = styled.div`
+  grid-area: TextTotalAmountDiscounts;
+  text-align: right;
+  font-size: larger;
+  font-weight: bold;
+  padding-right: 10px;
+`;
+
+export const TotalAmountDiscounts = styled.div`
+  grid-area: TotalAmountDiscounts;
   font-size: larger;
   font-weight: bold;
 `;

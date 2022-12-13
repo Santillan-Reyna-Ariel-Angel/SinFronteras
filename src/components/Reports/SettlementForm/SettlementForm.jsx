@@ -14,6 +14,8 @@ import {
   PriceTicketStyle,
   TextTotalAmountTickets,
   TotalAmountTickets,
+  TextTotalAmountDiscounts,
+  TotalAmountDiscounts,
   TextTotalAmountIncome,
   TotalAmountIncome,
   TextTitleExpenseStyle,
@@ -157,6 +159,16 @@ export const SettlementForm = React.forwardRef((props, ref) => {
                   <span>{`Bs. ${data.travelIncome.totalAmountTickets}`}</span>
                 </TotalAmountTickets>
 
+                {/* Descuentos: */}
+                <TextTotalAmountDiscounts>
+                  <span>{`TOTAL DESCUENTOS`}</span>
+                </TextTotalAmountDiscounts>
+
+                <TotalAmountDiscounts>
+                  <span>{`Bs. ${data.travelIncome.totalAmountDiscounts}`}</span>
+                </TotalAmountDiscounts>
+
+                {/* Total Ingresos: */}
                 <TextTotalAmountIncome>
                   <span>{`TOTAL INGRESOS`}</span>
                 </TextTotalAmountIncome>
