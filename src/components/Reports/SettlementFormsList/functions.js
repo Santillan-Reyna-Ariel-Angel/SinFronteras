@@ -1,5 +1,3 @@
-// import { ReactToPrintComponent2 } from './../../Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2';
-import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 import { DialogBasic } from './../../DialogBasic/DialogBasic';
 import { TravelExpenses } from './../../Travels/TravelExpenses/TravelExpenses';
 import { PrintSettlementForm } from './../SettlementForm/PrintSettlementForm';
@@ -64,7 +62,7 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
           primaryBtnText="actualizar egresos"
           componentView={
             <TravelExpenses tripMadeKey={settlementData.formCode} />
-          } //<ReactToPrintComponent2 ticketDataProps={passenger} />
+          }
         />
       ),
       btnSettlementForm: (
@@ -72,36 +70,12 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
           primaryBtnText="ver planilla"
           componentView={
             <PrintSettlementForm settlementFormData={settlementData} />
-          } //<ReactToPrintComponent2 ticketDataProps={passenger} />
+          }
         />
-
-        // <PlainModalButton
-        //   primaryBtnText="ver planilla"
-        //   dialogTitle=""
-        //   dialogText=""
-        //   closeBtnText="cancelar"
-        //   continueBtnText="ok"
-        //   // componentView={<ReactToPrintComponent2 ticketDataProps={passenger} />}
-        // />
       ),
     };
   });
   // console.log('dataTableNecesary', dataTableNecesary);
-
-  // let dataTableNecesaryAux = {
-  //   // travelDate,
-  //   // departureTime,
-  //   btnSettlementForm: (
-  //     <PlainModalButton
-  //       primaryBtnText="ticket"
-  //       dialogTitle=""
-  //       dialogText=""
-  //       closeBtnText="cancelar"
-  //       continueBtnText="ok"
-  //       // componentView={<ReactToPrintComponent2 ticketDataProps={passenger} />}
-  //     />
-  //   ), //<Button variant="contained">Contained</Button>, // <ReactToPrintComponent2 />,
-  // };
 
   return dataTableNecesary;
 };
