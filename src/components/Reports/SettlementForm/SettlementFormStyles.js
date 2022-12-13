@@ -9,7 +9,8 @@ export const Background = styled.div`
 
   /* grid-template-columns: auto; */
   //new:
-  margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background>
+  /* margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background> */
+  margin: 30px 0px 0px 0px;
 `;
 
 export const BodyContainer = styled.div`
@@ -122,67 +123,73 @@ export const DieselStyle = styled.div`
   grid-area: DieselStyle;
   text-align: left;
   /* margin-left: 80px; */
-  padding-left: 80px;
+  padding-left: 100px;
 `;
 
 export const DieselPriceStyle = styled.div`
   grid-area: DieselPriceStyle;
-  text-align: center;
+  text-align: left; //center
+  padding-left: 100px;
 `;
 
 export const TollStyle = styled.div`
   grid-area: TollStyle;
   text-align: left;
-  padding-left: 80px;
+  padding-left: 100px;
 `;
 
 export const TollPriceStyle = styled.div`
   grid-area: TollPriceStyle;
-  text-align: center;
+  text-align: left;
+  padding-left: 100px;
 `;
 
 export const ViaticosStyle = styled.div`
   grid-area: ViaticosStyle;
   text-align: left;
-  padding-left: 80px;
+  padding-left: 100px;
 `;
 
 export const ViaticosAmountStyle = styled.div`
   grid-area: ViaticosAmountStyle;
-  text-align: center;
+  text-align: left;
+  padding-left: 100px;
 `;
 
 export const WashedStyle = styled.div`
   grid-area: WashedStyle;
   text-align: left;
-  padding-left: 80px;
+  padding-left: 100px;
 `;
 
 export const WashedPriceStyle = styled.div`
   grid-area: WashedPriceStyle;
-  text-align: center;
+  text-align: left;
+  padding-left: 100px;
 `;
 
 export const LaborUnionStyle = styled.div`
   grid-area: LaborUnionStyle;
   text-align: left;
-  padding-left: 80px;
+  padding-left: 100px;
 `;
 
 export const LaborUnionAmountStyle = styled.div`
   grid-area: LaborUnionAmountStyle;
-  text-align: center;
+  text-align: left;
+  padding-left: 100px;
 `;
 
 export const OthersStyle = styled.div`
   grid-area: OthersStyle;
   text-align: left;
-  padding-left: 80px;
+  padding-left: 100px;
 `;
 
 export const OthersAmountStyle = styled.div`
   grid-area: OthersAmountStyle;
-  text-align: center;
+  text-align: left;
+  padding-left: 100px;
 `;
 
 export const TextTotalExpensesStyle = styled.div`

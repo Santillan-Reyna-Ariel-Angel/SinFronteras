@@ -2,6 +2,7 @@
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 import { DialogBasic } from './../../DialogBasic/DialogBasic';
 import { TravelExpenses } from './../../Travels/TravelExpenses/TravelExpenses';
+import { PrintSettlementForm } from './../SettlementForm/PrintSettlementForm';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -67,14 +68,21 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
         />
       ),
       btnSettlementForm: (
-        <PlainModalButton
+        <DialogBasic
           primaryBtnText="ver planilla"
-          dialogTitle=""
-          dialogText=""
-          closeBtnText="cancelar"
-          continueBtnText="ok"
-          // componentView={<ReactToPrintComponent2 ticketDataProps={passenger} />}
+          componentView={
+            <PrintSettlementForm settlementFormData={settlementData} />
+          } //<ReactToPrintComponent2 ticketDataProps={passenger} />
         />
+
+        // <PlainModalButton
+        //   primaryBtnText="ver planilla"
+        //   dialogTitle=""
+        //   dialogText=""
+        //   closeBtnText="cancelar"
+        //   continueBtnText="ok"
+        //   // componentView={<ReactToPrintComponent2 ticketDataProps={passenger} />}
+        // />
       ),
     };
   });

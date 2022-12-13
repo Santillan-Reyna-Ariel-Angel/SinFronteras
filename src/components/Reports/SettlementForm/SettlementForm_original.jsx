@@ -93,173 +93,13 @@ const settlementData = {
   travelDate: '24/01/2021', //TravelDate?
 };
 
-// export const SettlementForm = ({ settlementFormDataList }) => {
-//   let settlementDataProps = settlementFormDataList
-//     ? settlementFormDataList
-//     : [settlementData];
-
-//   return (
-//     <>
-//       {settlementDataProps
-//         ? settlementDataProps.map((data, index) => (
-//             // <div key={index}> //si utilizamos div los centreos del backgroung no funcionan
-//             <Background>
-//               <BodyContainer>
-//                 <CompanyNameStyle>
-//                   <span>{`Flota "${data.companyName.toUpperCase()}"`}</span>
-//                 </CompanyNameStyle>
-
-//                 <FormTitleStyle>
-//                   <span>{`PLANILLA DE LIQUIDACION`}</span>
-//                 </FormTitleStyle>
-
-//                 <FormCodeStyle>
-//                   <span>{`Codigo: ${data.formCode}`}</span>
-//                 </FormCodeStyle>
-
-//                 <OriginStyle>
-//                   <span>{`Origen: ${data.origin}`}</span>
-//                 </OriginStyle>
-
-//                 <DestinyStyle>
-//                   <span>{`Destino: ${data.destiny}`}</span>
-//                 </DestinyStyle>
-
-//                 {/* Opcion Hibrida: */}
-//                 <PassageDataContainer>
-//                   {data.travelIncome.incomeTickets.map((data) => (
-//                     <>
-//                       <NumTicketsStyle>
-//                         <span>{data.numTickets}</span>
-//                       </NumTicketsStyle>
-
-//                       <span>{`Pasaje c/u Bs.`}</span>
-
-//                       <PriceTicketStyle>
-//                         <span>{data.priceTicket}</span>
-//                       </PriceTicketStyle>
-
-//                       <span>{`Bs. ${data.totalPrice}`}</span>
-//                     </>
-//                   ))}
-//                 </PassageDataContainer>
-
-//                 <TextTotalAmountTickets>
-//                   <span>{`TOTAL PASAJES`}</span>
-//                 </TextTotalAmountTickets>
-
-//                 <TotalAmountTickets>
-//                   <span>{`Bs. ${data.travelIncome.totalAmountTickets}`}</span>
-//                 </TotalAmountTickets>
-
-//                 <TextTotalAmountIncome>
-//                   <span>{`TOTAL INGRESOS`}</span>
-//                 </TextTotalAmountIncome>
-
-//                 <TotalAmountIncome>
-//                   <span>{`Bs. ${data.travelIncome.totalAmountIncome}`}</span>
-//                 </TotalAmountIncome>
-
-//                 <>
-//                   <TextTitleExpenseStyle>
-//                     <span>{`EGRESOS`}</span>
-//                   </TextTitleExpenseStyle>
-
-//                   <DieselStyle>
-//                     <span>{`Diesel`}</span>
-//                   </DieselStyle>
-
-//                   <DieselPriceStyle>
-//                     <span>{`Bs. ${data.travelExpenses.expenses.diesel}`}</span>
-//                   </DieselPriceStyle>
-
-//                   <TollStyle>
-//                     <span>{`Peaje`}</span>
-//                   </TollStyle>
-
-//                   <TollPriceStyle>
-//                     <span>{`Bs. ${data.travelExpenses.expenses.toll}`}</span>
-//                   </TollPriceStyle>
-
-//                   <ViaticosStyle>
-//                     <span>{`Viaticos`}</span>
-//                   </ViaticosStyle>
-
-//                   <ViaticosAmountStyle>
-//                     <span>{`Bs. ${data.travelExpenses.expenses.viaticos}`}</span>
-//                   </ViaticosAmountStyle>
-
-//                   <WashedStyle>
-//                     <span>{`Lavado`}</span>
-//                   </WashedStyle>
-
-//                   <WashedPriceStyle>
-//                     <span>{`Bs. ${data.travelExpenses.expenses.washed}`}</span>
-//                   </WashedPriceStyle>
-
-//                   <LaborUnionStyle>
-//                     <span>{`Sindicato`}</span>
-//                   </LaborUnionStyle>
-
-//                   <LaborUnionAmountStyle>
-//                     <span>{`Bs. ${data.travelExpenses.expenses.laborUnion}`}</span>
-//                   </LaborUnionAmountStyle>
-
-//                   <OthersStyle>
-//                     <span>{`Otros`}</span>
-//                   </OthersStyle>
-
-//                   <OthersAmountStyle>
-//                     <span>{`Bs. ${data.travelExpenses.expenses.others}`}</span>
-//                   </OthersAmountStyle>
-
-//                   <TextTotalExpensesStyle>
-//                     <span>{`TOTAL EGRESOS`}</span>
-//                   </TextTotalExpensesStyle>
-
-//                   <TotalExpensesStyle>
-//                     <span>{`Bs. ${data.travelExpenses.totalExpenses}`}</span>
-//                   </TotalExpensesStyle>
-//                 </>
-
-//                 <TextTotalSettlementStyle>
-//                   <span>{`TOTAL LIQUIDACION`}</span>
-//                 </TextTotalSettlementStyle>
-
-//                 <TotalSettlementStyle>
-//                   <span>{`Bs. ${data.TotalSettlement}`}</span>
-//                 </TotalSettlementStyle>
-
-//                 <PlaceAndDateStyle>
-//                   <span>{`Lugar y Fecha: ${data.origin} ${data.travelDate}`}</span>
-//                 </PlaceAndDateStyle>
-
-//                 <SignatureStyle>
-//                   <p>{`_ _ _ _ _ _ _ _ _ _ _ _ _ _`}</p>
-//                   <p>{`Recibi Conforme`}</p>
-//                   <span>{`PROPIETARIO`}</span>
-//                 </SignatureStyle>
-//               </BodyContainer>
-//             </Background>
-//             // </div>
-//           ))
-//         : null}
-//     </>
-//   );
-// };
-
-export const SettlementForm = React.forwardRef((props, ref) => {
-  let { settlementFormData } = props;
-  // console.log('settlementFormDataList', settlementFormDataList);
-
-  let settlementDataProps = settlementFormData
-    ? [settlementFormData]
+export const SettlementForm = ({ settlementFormDataList }) => {
+  let settlementDataProps = settlementFormDataList
+    ? settlementFormDataList
     : [settlementData];
 
-  console.log('settlementDataProps', settlementDataProps);
-
   return (
-    <div ref={ref}>
+    <>
       {settlementDataProps
         ? settlementDataProps.map((data, index) => (
             // <div key={index}> //si utilizamos div los centreos del backgroung no funcionan
@@ -387,7 +227,7 @@ export const SettlementForm = React.forwardRef((props, ref) => {
                 </TextTotalSettlementStyle>
 
                 <TotalSettlementStyle>
-                  <span>{`Bs. ${data.totalSettlement}`}</span>
+                  <span>{`Bs. ${data.TotalSettlement}`}</span>
                 </TotalSettlementStyle>
 
                 <PlaceAndDateStyle>
@@ -404,6 +244,6 @@ export const SettlementForm = React.forwardRef((props, ref) => {
             // </div>
           ))
         : null}
-    </div>
+    </>
   );
-});
+};
