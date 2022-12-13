@@ -44,40 +44,15 @@ import {
 //Components:
 //Others:
 const settlementData = {
+  totalSettlement: 0,
   companyName: 'Sin Fronteras',
-  formCode: 'travel_fecha_hora_matricula', //travel_30-12-2022_20-30_bus-004
-  origin: 'a', //Sucre
-  destiny: 'b', //Santa Cruz
-
-  travelIncome: {
-    incomeTickets: [
-      {
-        numTickets: 0,
-        priceTicket: 0,
-        totalPrice: 0,
-      },
-      // {
-      //   numTickets: 9,
-      //   priceTicket: 90,
-      //   totalPrice: 810,
-      // },
-      // {
-      //   numTickets: 16,
-      //   priceTicket: 80,
-      //   totalPrice: 1280,
-      // },
-      // {
-      //   numTickets: 2,
-      //   priceTicket: 70,
-      //   totalPrice: 140,
-      // },
-    ],
-    totalAmountTickets: 0,
-    totalAmountIncome: 0,
-  },
-
+  formCode: 'travel_fecha_hora_matricula', //travel_10-12-2022_20-30_bus-001
+  origin: 'origen_a', //sucre
+  destiny: 'destino_b', //yacuiba
+  travelDate: 'xx/xx/xxxx', //10/12/2022
+  departureTime: 'xx:xx', //20:30
   travelExpenses: {
-    busEnrollment: '',
+    busEnrollment: 'matricula', //bus-001
     expenses: {
       diesel: '0',
       laborUnion: '0',
@@ -87,12 +62,21 @@ const settlementData = {
       viaticos: '0',
       washed: '0',
     },
-    totalExpenses: 0, //Por default numerico
-    tripMadeKey: '',
+    totalExpenses: 0,
+    tripMadeKey: 'travel_fecha_hora_matricula', //travel_10-12-2022_20-30_bus-001
   },
-
-  TotalSettlement: 0,
-  travelDate: 'xx/xx/xxxx', //TravelDate?
+  travelIncome: {
+    incomeTickets: [
+      {
+        numTickets: 0,
+        priceTicket: '0',
+        totalPrice: 0,
+      },
+    ],
+    totalAmountDiscounts: 0,
+    totalAmountIncome: 0,
+    totalAmountTickets: 0,
+  },
 };
 
 export const SettlementForm = React.forwardRef((props, ref) => {

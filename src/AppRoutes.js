@@ -13,7 +13,7 @@ import { BusRegistration } from './components/Bus/BusRegistration/BusRegistratio
 import { BusList } from './components/Bus/BusList/BusList';
 //travels
 import { TravelRegistration } from './components/Travels/TravelRegistration/TravelRegistration';
-import { TravelExpenses } from './components/Travels/TravelExpenses/TravelExpenses';
+// import { TravelExpenses } from './components/Travels/TravelExpenses/TravelExpenses';
 //Reportes:
 import { ListOfTicketsSold } from './components/Reports/ListOfTicketsSold/ListOfTicketsSold';
 import { SettlementForm } from './components/Reports/SettlementForm/SettlementForm';
@@ -37,7 +37,7 @@ import { ProviderBranchTripsMade } from './contexts/ContextBranchTripsMade';
 import { ProviderCompanyBuses } from './contexts/ContextCompanyBuses';
 import { ProviderAllUserData } from './contexts/ContextAllUserData';
 //ComponentsGenerals:
-import { DialogBasic } from './components/DialogBasic/DialogBasic';
+// import { DialogBasic } from './components/DialogBasic/DialogBasic';
 
 const AppRoutes = () => {
   return (
@@ -129,34 +129,21 @@ const AppRoutes = () => {
 
                           <Route
                             exact
-                            path="/reportes/lista-ventas/"
+                            path="/reportes/lista-de-ventas/"
                             component={ListOfTicketsSold}
                           />
 
                           <Route
                             exact
-                            path="/viajes/egresos-de-viaje/"
-                            component={TravelExpenses}
-                          />
-
-                          {/* Route for Tests: */}
-
-                          <Route
-                            exact
-                            path="/test-component/"
+                            path="/reportes/lista-de-viajes/"
                             component={SettlementFormsList}
                           />
 
+                          {/* Route for Tests: */}
                           <Route
                             exact
                             path="/test-component2/"
                             component={SettlementForm}
-                          />
-
-                          <Route
-                            exact
-                            path="/test-component3/"
-                            component={DialogBasic}
                           />
                         </Layout>
                       </Switch>

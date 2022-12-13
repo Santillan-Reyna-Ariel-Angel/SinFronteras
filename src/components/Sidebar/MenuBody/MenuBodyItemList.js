@@ -2,7 +2,7 @@
 import { People } from '@mui/icons-material';
 // Otros iconos
 import PersonAddRoundedIcon from '@mui/icons-material/PersonAddRounded';
-import FactCheckRoundedIcon from '@mui/icons-material/FactCheckRounded';
+// import FactCheckRoundedIcon from '@mui/icons-material/FactCheckRounded';
 import DirectionsBusRoundedIcon from '@mui/icons-material/DirectionsBusRounded';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import FormatListNumberedRoundedIcon from '@mui/icons-material/FormatListNumberedRounded';
@@ -15,7 +15,7 @@ import MovingRoundedIcon from '@mui/icons-material/MovingRounded';
 //Reportes:
 import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 //Viajes:
-import MoneyOffRoundedIcon from '@mui/icons-material/MoneyOffRounded';
+// import MoneyOffRoundedIcon from '@mui/icons-material/MoneyOffRounded';
 
 export const menuBodyItemList = [
   {
@@ -74,11 +74,11 @@ export const menuBodyItemList = [
         title: 'Programar viaje',
         icon: <DepartureBoardRoundedIcon />,
       },
-      {
-        path: '/viajes/egresos-de-viaje',
-        title: 'Egresos de viajes',
-        icon: <MoneyOffRoundedIcon />,
-      },
+      // {
+      //   path: '/viajes/egresos-de-viaje',
+      //   title: 'Egresos de viajes',
+      //   icon: <MoneyOffRoundedIcon />,
+      // },
     ],
   },
   {
@@ -87,15 +87,15 @@ export const menuBodyItemList = [
     title: 'Reportes',
     children: [
       {
-        path: '/reportes/lista-ventas',
+        path: '/reportes/lista-de-ventas',
         title: 'Lista de ventas',
         icon: <FormatListNumberedRoundedIcon />,
       },
-      // {
-      //   path: '/viajes/lista-de-viajes',
-      //   title: 'Lista de viajes',
-      //   icon: <FormatListNumberedRoundedIcon />,
-      // },
+      {
+        path: '/reportes/lista-de-viajes',
+        title: 'Lista de viajes',
+        icon: <FormatListNumberedRoundedIcon />,
+      },
     ],
   },
   {
