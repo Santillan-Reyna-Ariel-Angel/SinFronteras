@@ -43,7 +43,7 @@ import {
 //Others:
 const settlementData = {
   companyName: 'Sin Fronteras',
-  formCode: '004121',
+  formCode: 'travel_30-12-2022_20-30_bus-004', //004121
   origin: 'Sucre',
   destiny: 'Santa Cruz',
 
@@ -112,7 +112,7 @@ export const SettlementForm = () => {
                 </FormTitleStyle>
 
                 <FormCodeStyle>
-                  <span>{`N# ${data.formCode}`}</span>
+                  <span>{`Codigo: ${data.formCode}`}</span>
                 </FormCodeStyle>
 
                 <OriginStyle>
