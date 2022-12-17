@@ -132,6 +132,7 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
+    // <Box sx={{ flexGrow: 1 }}> podria dar solucion a la altura del sidebar
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" sx={{ backgroundColor: '#051E34' }}>
         <Toolbar>
