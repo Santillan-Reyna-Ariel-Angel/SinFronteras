@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 //Estilos:
 import {
   Background,
@@ -16,7 +16,7 @@ import { TextField, Button } from '@mui/material';
 import { Auth } from '../../events/firebaseEvents';
 
 const Login = () => {
-  const history = useHistory();
+  // const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [credentialError, setCredentialError] = useState(false);
@@ -26,7 +26,7 @@ const Login = () => {
     const accessToken = await Auth(email, password);
     if (accessToken !== null) {
       sessionStorage.setItem('userEmail', email);
-      history.push('/ventas/pasajes'); //redirigir a pagina de destino
+      window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
       setCredentialError(false);
     } else {
       setCredentialError(true);

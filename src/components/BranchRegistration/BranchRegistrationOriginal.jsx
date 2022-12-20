@@ -24,7 +24,7 @@ import { uuid } from '../functions';
 let llave = uuid(); // IMPORTANTE: Es necesario que la funcion uuid este fuera del componente, esto para que se cre una sola id por mas actualizaciones(renderizados del componente) tenga los estado.
 // console.log('llave', llave);
 
-export const BranchRegistration = () => {
+export const BranchRegistrationOriginal = () => {
   const departments = [
     'Beni',
     'Chuquisaca',
