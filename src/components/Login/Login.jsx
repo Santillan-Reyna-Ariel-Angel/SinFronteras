@@ -27,6 +27,8 @@ const Login = () => {
     if (accessToken !== null) {
       sessionStorage.setItem('userEmail', email);
       window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
+      //git push origin feature045_Viajes
+
       setCredentialError(false);
     } else {
       setCredentialError(true);
