@@ -40,6 +40,7 @@ import { ProviderAllUserData } from './contexts/ContextAllUserData';
 // import { DialogBasic } from './components/DialogBasic/DialogBasic';
 //Components Test:
 import { BranchRegistrationOriginal } from './components/BranchRegistration/BranchRegistrationOriginal';
+import { RegisterDestination } from './components/Destinations/RegisterDestination';
 
 const AppRoutes = () => {
   return (
@@ -152,6 +153,12 @@ const AppRoutes = () => {
                             exact
                             path="/test-component2/"
                             component={SettlementForm}
+                          />
+
+                          <Route
+                            exact
+                            path="/test-component3/"
+                            component={RegisterDestination}
                           />
                         </Layout>
                       </Switch>
