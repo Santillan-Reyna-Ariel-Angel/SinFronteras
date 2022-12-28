@@ -38,7 +38,7 @@ export const HeaderTitle = styled.div`
 export const BodyContainer = styled.div`
   display: grid;
   background-color: #00bdb2;
-  grid-template-columns: 110px 110px 110px 110px;
+  grid-template-columns: 135px 135px;
   grid-template-rows: auto;
   grid-row-gap: 15px;
   grid-column-gap: 10px;
@@ -48,7 +48,7 @@ export const BodyContainer = styled.div`
   border-radius: 0px 0px 10px 10px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  grid-template-areas: 'DepartmentStyle DepartmentStyle LocationStyle LocationStyle' 'AssignPricesText AssignPricesText AssignPricesText AssignPricesText' 'NormalTypeOfBusCheck NormalSeatType NormalMinimalPrice NormalMaximumPrice' 'LeitoTypeOfBusCheck LeitoSeatType LeitoMinimalPrice LeitoMaximumPrice' 'Btn Btn Btn Btn';
+  grid-template-areas: 'DepartmentStyle DepartmentStyle' 'LocationStyle LocationStyle' 'AssignPricesText AssignPricesText' 'NormalTypeOfBusCheck NormalSeatType' 'NormalMinimalPrice NormalMaximumPrice' 'LeitoTypeOfBusCheck LeitoSeatType' 'LeitoMinimalPrice LeitoMaximumPrice' 'Btn Btn';
   /* overflow: hidden; */
 `;
 

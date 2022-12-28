@@ -127,7 +127,7 @@ export const RegisterDestination = () => {
           {/* Type de Asiento */}
           <NormalSeatType>
             <FormControl className="input">
-              <InputLabel>T. Asiento</InputLabel>
+              <InputLabel>Tipo Asiento</InputLabel>
               <Select
                 value={''} //travelData.departmentOfOrigin
                 name="NormalSeatType"
@@ -192,7 +192,7 @@ export const RegisterDestination = () => {
           {/* Leito SeatType: */}
           <LeitoSeatType>
             <FormControl className="input">
-              <InputLabel>T. Asiento</InputLabel>
+              <InputLabel>Tipo Asiento</InputLabel>
               <Select
                 value={''} //travelData.departmentOfOrigin
                 name="LeitoSeatType"
