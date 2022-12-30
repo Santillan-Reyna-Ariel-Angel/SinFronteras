@@ -35,6 +35,8 @@ import {
 //Components:
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
+import { uuid } from './functions';
+import { useState } from 'react';
 const departmentsList = [
   'beni',
   'chuquisaca',
@@ -49,7 +51,44 @@ const departmentsList = [
 // const typeOfBus = ['normal', 'leito'];
 const typeOfSeatsList = ['normal', 'semi-cama', 'cama'];
 
+let llave = uuid(); // IMPORTANTE: Es necesario que la funcion uuid este fuera del componente, esto para que se cre una sola id por mas actualizaciones(renderizados del componente) tenga los estado.
+
 export const RegisterDestination = () => {
+  console.log('llave', llave);
+
+  const defaultDestinationData = {
+    destinations: {
+      [llave]: {
+        destinationDepartment: '',
+        destinationLocation: '',
+        prices: {
+          leito: {
+            maximumPrice: 0,
+            minimalPrice: 0,
+            seatType: '',
+            typeOfBus: 'leito',
+          },
+          normal: {
+            maximumPrice: 0,
+            minimalPrice: 0,
+            seatType: '',
+            typeOfBus: 'normal',
+          },
+        },
+      },
+    },
+  };
+
+  const [destinationData, setDestinationData] = useState(
+    defaultDestinationData
+  );
+  console.log('destinationData: ', destinationData);
+
+  const [checks, setChecks] = useState({
+    normalChek: false,
+    leitoCheck: false,
+  });
+
   return (
     <>
       <Background>
@@ -65,14 +104,22 @@ export const RegisterDestination = () => {
             <FormControl className="input">
               <InputLabel>Departamento</InputLabel>
               <Select
-                value={''} //travelData.departmentOfOrigin
-                name="department"
-                // onChange={(event) =>
-                //   setTravelData({
-                //     ...travelData,
-                //     [event.target.name]: event.target.value,
-                //   })
-                // }
+                value={
+                  destinationData.destinations[llave].destinationDepartment
+                }
+                name="destinationDepartment"
+                onChange={(event) =>
+                  setDestinationData({
+                    ...destinationData,
+                    destinations: {
+                      ...destinationData.destinations,
+                      [llave]: {
+                        ...destinationData.destinations[llave],
+                        [event.target.name]: event.target.value,
+                      },
+                    },
+                  })
+                }
               >
                 {departmentsList.map((department, index) => (
                   <MenuItem key={index} value={department}>
@@ -87,17 +134,22 @@ export const RegisterDestination = () => {
           <LocationStyle>
             <TextField
               className="input"
-              name="localityOfOrigin"
+              name="destinationLocation"
               label="Localidad"
               variant="outlined"
-              value={''} //travelData.localityOfOrigin
-              // disabled
-              //   onChange={(event) =>
-              //     setTravelData({
-              //       ...travelData,
-              //       [event.target.name]: event.target.value,
-              //     })
-              //   }
+              value={destinationData.destinations[llave].destinationLocation}
+              onChange={(event) =>
+                setDestinationData({
+                  ...destinationData,
+                  destinations: {
+                    ...destinationData.destinations,
+                    [llave]: {
+                      ...destinationData.destinations[llave],
+                      [event.target.name]: event.target.value,
+                    },
+                  },
+                })
+              }
             />
           </LocationStyle>
 
@@ -113,9 +165,14 @@ export const RegisterDestination = () => {
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={false} //busData.services.bathroom
-                      //   onChange={changeServiceStatus}
-                      name="NormalTypeOfBusCheck"
+                      checked={checks.normalChek}
+                      onChange={() =>
+                        setChecks({
+                          ...checks,
+                          normalChek: !checks.normalChek,
+                        })
+                      }
+                      name="normalChek"
                     />
                   }
                   label="Bus Normal"
@@ -124,52 +181,123 @@ export const RegisterDestination = () => {
             </FormControl>
           </NormalTypeOfBusCheck>
 
-          {/* Type de Asiento */}
-          <NormalSeatType>
-            <FormControl className="input">
-              <InputLabel>Tipo Asiento</InputLabel>
-              <Select
-                value={''} //travelData.departmentOfOrigin
-                name="NormalSeatType"
-                // onChange={(event) =>
-                //   setTravelData({
-                //     ...travelData,
-                //     [event.target.name]: event.target.value,
-                //   })
-                // }
-              >
-                {typeOfSeatsList.map((typeOfSeat, index) => (
-                  <MenuItem key={index} value={typeOfSeat}>
-                    {typeOfSeat}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </NormalSeatType>
+          {checks.normalChek && (
+            <>
+              {/* Type de Asiento: */}
+              <NormalSeatType>
+                <FormControl className="input">
+                  <InputLabel>Tipo Asiento</InputLabel>
+                  <Select
+                    value={
+                      destinationData.destinations[llave].prices.normal.seatType
+                    }
+                    name="seatType"
+                    onChange={(event) =>
+                      setDestinationData({
+                        ...destinationData,
+                        destinations: {
+                          ...destinationData.destinations,
+                          [llave]: {
+                            ...destinationData.destinations[llave],
+                            prices: {
+                              ...destinationData.destinations[llave].prices,
+                              normal: {
+                                ...destinationData.destinations[llave].prices
+                                  .normal,
+                                [event.target.name]: event.target.value, //talves seria colocar seatType:[event.target.value]
+                              },
+                            },
+                          },
+                        },
+                      })
+                    }
+                  >
+                    {typeOfSeatsList.map((typeOfSeat, index) => (
+                      <MenuItem key={index} value={typeOfSeat}>
+                        {typeOfSeat}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </NormalSeatType>
 
-          {/* Precio Minimo */}
-          <NormalMinimalPrice>
-            <TextField
-              name="normalMinimalPrice"
-              label="Precio minimo"
-              variant="outlined"
-              value={0} //branchData.destinations[llave].prices.normal.minimalPrice
-              type="number"
-              onChange={(event) => {}}
-            />
-          </NormalMinimalPrice>
+              {/* Precio Minimo: */}
+              <NormalMinimalPrice>
+                <TextField
+                  name="minimalPrice"
+                  label="Precio minimo"
+                  variant="outlined"
+                  value={
+                    destinationData.destinations[llave].prices.normal
+                      .minimalPrice
+                  }
+                  type="number"
+                  helperText={'Decimales con ","'}
+                  onChange={(event) =>
+                    setDestinationData({
+                      ...destinationData,
+                      destinations: {
+                        ...destinationData.destinations,
+                        [llave]: {
+                          ...destinationData.destinations[llave],
+                          prices: {
+                            ...destinationData.destinations[llave].prices,
+                            normal: {
+                              ...destinationData.destinations[llave].prices
+                                .normal,
+                              [event.target.name]:
+                                event.target.value === '' ||
+                                isNaN(event.target.value)
+                                  ? 0
+                                  : parseFloat(event.target.value), //talves seria colocar seatType:[event.target.value]
+                            },
+                          },
+                        },
+                      },
+                    })
+                  }
+                />
+              </NormalMinimalPrice>
 
-          {/* Precio Maximo */}
-          <NormalMaximumPrice>
-            <TextField
-              name="normalMaximumPrice"
-              label="Precio maximo"
-              variant="outlined"
-              value={0} //branchData.destinations[llave].prices.normal.maximumPrice
-              type="number"
-              //   onChange={(event) => {}}
-            />
-          </NormalMaximumPrice>
+              {/* Precio Maximo: */}
+              <NormalMaximumPrice>
+                <TextField
+                  name="maximumPrice"
+                  label="Precio maximo"
+                  variant="outlined"
+                  value={
+                    destinationData.destinations[llave].prices.normal
+                      .maximumPrice
+                  }
+                  type="number"
+                  helperText={'Ej: 90 o 90,00'}
+                  onChange={(event) =>
+                    setDestinationData({
+                      ...destinationData,
+                      destinations: {
+                        ...destinationData.destinations,
+                        [llave]: {
+                          ...destinationData.destinations[llave],
+                          prices: {
+                            ...destinationData.destinations[llave].prices,
+                            normal: {
+                              ...destinationData.destinations[llave].prices
+                                .normal,
+                              [event.target.name]:
+                                event.target.value === '' ||
+                                isNaN(event.target.value)
+                                  ? 0
+                                  : parseFloat(event.target.value), //talves seria colocar seatType:[event.target.value]
+                            },
+                          },
+                        },
+                      },
+                    })
+                  }
+                />
+              </NormalMaximumPrice>
+            </>
+          )}
 
           {/* Leito Check: */}
           <LeitoTypeOfBusCheck>
@@ -220,6 +348,7 @@ export const RegisterDestination = () => {
               variant="outlined"
               value={0} //branchData.destinations[llave].prices.normal.minimalPrice
               type="number"
+              helperText={'Decimales con ","'}
               onChange={(event) => {}}
             />
           </LeitoMinimalPrice>
@@ -232,6 +361,7 @@ export const RegisterDestination = () => {
               variant="outlined"
               value={0} //branchData.destinations[llave].prices.normal.maximumPrice
               type="number"
+              helperText={'Ej: 90 o 90,00'}
               //   onChange={(event) => {}}
             />
           </LeitoMaximumPrice>
