@@ -89,6 +89,27 @@ export const RegisterDestination = () => {
     leitoCheck: false,
   });
 
+  const defaultPricesData = (typeOfBus) => {
+    setDestinationData({
+      ...destinationData,
+      destinations: {
+        ...destinationData.destinations,
+        [llave]: {
+          ...destinationData.destinations[llave],
+          prices: {
+            ...destinationData.destinations[llave].prices,
+            [typeOfBus]: {
+              maximumPrice: 0,
+              minimalPrice: 0,
+              seatType: '',
+              typeOfBus: typeOfBus,
+            },
+          },
+        },
+      },
+    });
+  };
+
   return (
     <>
       <Background>
@@ -165,14 +186,15 @@ export const RegisterDestination = () => {
                 <FormControlLabel
                   control={
                     <Checkbox
+                      name="normalChek"
                       checked={checks.normalChek}
-                      onChange={() =>
+                      onChange={(event) => [
                         setChecks({
                           ...checks,
-                          normalChek: !checks.normalChek,
-                        })
-                      }
-                      name="normalChek"
+                          [event.target.name]: !checks.normalChek,
+                        }),
+                        defaultPricesData('normal'),
+                      ]}
                     />
                   }
                   label="Bus Normal"
@@ -306,9 +328,15 @@ export const RegisterDestination = () => {
                 <FormControlLabel
                   control={
                     <Checkbox
-                      checked={false} //busData.services.bathroom
-                      //   onChange={changeServiceStatus}
-                      name="LeitoTypeOfBusCheck"
+                      name="leitoCheck"
+                      checked={checks.leitoCheck}
+                      onChange={(event) => [
+                        setChecks({
+                          ...checks,
+                          [event.target.name]: !checks.leitoCheck,
+                        }),
+                        defaultPricesData('leito'),
+                      ]}
                     />
                   }
                   label="Bus Leito"
@@ -317,54 +345,123 @@ export const RegisterDestination = () => {
             </FormControl>
           </LeitoTypeOfBusCheck>
 
-          {/* Leito SeatType: */}
-          <LeitoSeatType>
-            <FormControl className="input">
-              <InputLabel>Tipo Asiento</InputLabel>
-              <Select
-                value={''} //travelData.departmentOfOrigin
-                name="LeitoSeatType"
-                // onChange={(event) =>
-                //   setTravelData({
-                //     ...travelData,
-                //     [event.target.name]: event.target.value,
-                //   })
-                // }
-              >
-                {typeOfSeatsList.map((typeOfSeat, index) => (
-                  <MenuItem key={index} value={typeOfSeat}>
-                    {typeOfSeat}
-                  </MenuItem>
-                ))}
-              </Select>
-            </FormControl>
-          </LeitoSeatType>
+          {checks.leitoCheck && (
+            <>
+              {/* Leito SeatType: */}
+              <LeitoSeatType>
+                <FormControl className="input">
+                  <InputLabel>Tipo Asiento</InputLabel>
+                  <Select
+                    value={
+                      destinationData.destinations[llave].prices.leito.seatType
+                    }
+                    name="seatType"
+                    onChange={(event) =>
+                      setDestinationData({
+                        ...destinationData,
+                        destinations: {
+                          ...destinationData.destinations,
+                          [llave]: {
+                            ...destinationData.destinations[llave],
+                            prices: {
+                              ...destinationData.destinations[llave].prices,
+                              leito: {
+                                ...destinationData.destinations[llave].prices
+                                  .leito,
+                                [event.target.name]: event.target.value, //talves seria colocar seatType:[event.target.value]
+                              },
+                            },
+                          },
+                        },
+                      })
+                    }
+                  >
+                    {typeOfSeatsList.map((typeOfSeat, index) => (
+                      <MenuItem key={index} value={typeOfSeat}>
+                        {typeOfSeat}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </LeitoSeatType>
 
-          {/* Leito Minimal Price: */}
-          <LeitoMinimalPrice>
-            <TextField
-              name="LeitoMinimalPrice"
-              label="Precio minimo"
-              variant="outlined"
-              value={0} //branchData.destinations[llave].prices.normal.minimalPrice
-              type="number"
-              helperText={'Decimales con ","'}
-              onChange={(event) => {}}
-            />
-          </LeitoMinimalPrice>
+              {/* Leito Minimal Price: */}
+              <LeitoMinimalPrice>
+                <TextField
+                  name="minimalPrice"
+                  label="Precio minimo"
+                  variant="outlined"
+                  value={
+                    destinationData.destinations[llave].prices.leito
+                      .minimalPrice
+                  }
+                  type="number"
+                  helperText={'Decimales con ","'}
+                  onChange={(event) =>
+                    setDestinationData({
+                      ...destinationData,
+                      destinations: {
+                        ...destinationData.destinations,
+                        [llave]: {
+                          ...destinationData.destinations[llave],
+                          prices: {
+                            ...destinationData.destinations[llave].prices,
+                            leito: {
+                              ...destinationData.destinations[llave].prices
+                                .leito,
+                              [event.target.name]:
+                                event.target.value === '' ||
+                                isNaN(event.target.value)
+                                  ? 0
+                                  : parseFloat(event.target.value), //talves seria colocar seatType:[event.target.value]
+                            },
+                          },
+                        },
+                      },
+                    })
+                  }
+                />
+              </LeitoMinimalPrice>
 
-          {/* Leito Maximum Price: */}
-          <LeitoMaximumPrice>
-            <TextField
-              name="LeitoMaximumPrice"
-              label="Precio maximo"
-              variant="outlined"
-              value={0} //branchData.destinations[llave].prices.normal.maximumPrice
-              type="number"
-              helperText={'Ej: 90 o 90,00'}
-              //   onChange={(event) => {}}
-            />
-          </LeitoMaximumPrice>
+              {/* Leito Maximum Price: */}
+              <LeitoMaximumPrice>
+                <TextField
+                  name="maximumPrice"
+                  label="Precio maximo"
+                  variant="outlined"
+                  value={
+                    destinationData.destinations[llave].prices.leito
+                      .maximumPrice
+                  }
+                  type="number"
+                  helperText={'Ej: 90 o 90,00'}
+                  onChange={(event) =>
+                    setDestinationData({
+                      ...destinationData,
+                      destinations: {
+                        ...destinationData.destinations,
+                        [llave]: {
+                          ...destinationData.destinations[llave],
+                          prices: {
+                            ...destinationData.destinations[llave].prices,
+                            leito: {
+                              ...destinationData.destinations[llave].prices
+                                .leito,
+                              [event.target.name]:
+                                event.target.value === '' ||
+                                isNaN(event.target.value)
+                                  ? 0
+                                  : parseFloat(event.target.value), //talves seria colocar seatType:[event.target.value]
+                            },
+                          },
+                        },
+                      },
+                    })
+                  }
+                />
+              </LeitoMaximumPrice>
+            </>
+          )}
 
           {/* Boton */}
           <Btn>
