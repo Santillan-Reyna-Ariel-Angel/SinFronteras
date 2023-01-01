@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 // MUI:
 import {
   TextField,
@@ -30,13 +30,14 @@ import {
   Btn,
 } from './RegisterDestinationStyles';
 //Contexts:
+import { ContextBranchOffice } from './../../contexts/ContextBranchOffice';
 //Firebase Functions:
 //States:
 //Components:
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
 import { uuid } from './functions';
-import { useState } from 'react';
+
 const departmentsList = [
   'beni',
   'chuquisaca',
@@ -55,6 +56,17 @@ let llave = uuid(); // IMPORTANTE: Es necesario que la funcion uuid este fuera d
 
 export const RegisterDestination = () => {
   console.log('llave', llave);
+
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  console.log('branchOffice', branchOffice);
+
+  const {
+    branchInformation: { branchNumber },
+  } = branchOffice
+    ? branchOffice
+    : { branchInformation: { branchNumber: 'codeX' } };
+  console.log('branchNumber: ', branchNumber);
 
   const defaultDestinationData = {
     destinations: {
