@@ -32,6 +32,7 @@ import {
 //Contexts:
 import { ContextBranchOffice } from './../../contexts/ContextBranchOffice';
 //Firebase Functions:
+import { createDestination } from './Firebase/createDestination';
 //States:
 //Components:
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
@@ -483,8 +484,8 @@ export const RegisterDestination = () => {
               dialogText="Esta seguro de registrar este destino?"
               closeBtnText="cancelar"
               continueBtnText="si"
-              //   functionToExecute={createBus}
-              //   functionParameters={busData}
+              functionToExecute={createDestination}
+              functionParameters={{ destinationData, branchNumber, llave }}
               //   thirdFunctionToExecute={componentDefaultData}
             />
           </Btn>
