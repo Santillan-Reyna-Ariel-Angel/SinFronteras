@@ -60,14 +60,14 @@ export const RegisterDestination = () => {
 
   //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
-  console.log('branchOffice', branchOffice);
+  // console.log('branchOffice', branchOffice);
 
   const {
     branchInformation: { branchNumber },
   } = branchOffice
     ? branchOffice
     : { branchInformation: { branchNumber: 'codeX' } };
-  console.log('branchNumber: ', branchNumber);
+  // console.log('branchNumber: ', branchNumber);
 
   const defaultDestinationData = {
     destinations: {
