@@ -174,7 +174,7 @@ export const TravelRegistration = () => {
     return identificationNumberDriver[0];
   };
 
-  const [fullNameDriver, setFullNameDriver] = useState(undefined);
+  const [fullNameDriver, setFullNameDriver] = useState(''); //undefined trae warnings
   // console.log('fullNameDriver', fullNameDriver);
 
   //travelStatus:
@@ -274,7 +274,7 @@ export const TravelRegistration = () => {
                 setDepartureTime(newTime);
                 setTravelData({
                   ...travelData,
-                  departureTime: timeFormat(newTime),
+                  departureTime: timeFormat({ newTime }),
                 });
               }}
               renderInput={(params) => (

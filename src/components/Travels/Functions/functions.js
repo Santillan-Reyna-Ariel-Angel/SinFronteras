@@ -14,22 +14,29 @@ export const dateFormat = ({ date, format = 'dd/mm/yyyy' }) => {
 };
 
 export const timeFormat = ({ newTime, format = ':' }) => {
+  console.log('newTime:', newTime);
   //Otra opcion con segundos seria: newTime.toLocaleTimeString()
-  let hour =
-    newTime.getHours() < 10 ? `0${newTime.getHours()}` : newTime.getHours();
-  let minute =
-    newTime.getMinutes() < 10
-      ? `0${newTime.getMinutes()}`
-      : newTime.getMinutes();
+  // console.log('isNaN(newTime):', isNaN(newTime));
 
-  let timeFormatAux;
-  if (format === ':' || format === '') {
-    timeFormatAux = `${hour}:${minute}`;
+  if (newTime === null || newTime === undefined || isNaN(newTime) === true) {
+    return '20:30'; //departureTime: '20:30', by default
   } else {
-    timeFormatAux = `${hour}-${minute}`;
-  }
+    let hour =
+      newTime.getHours() < 10 ? `0${newTime.getHours()}` : newTime.getHours();
+    let minute =
+      newTime.getMinutes() < 10
+        ? `0${newTime.getMinutes()}`
+        : newTime.getMinutes();
 
-  return timeFormatAux;
+    let timeFormatAux;
+    if (format === ':' || format === '') {
+      timeFormatAux = `${hour}:${minute}`;
+    } else {
+      timeFormatAux = `${hour}-${minute}`;
+    }
+
+    return timeFormatAux;
+  }
 };
 
 export const isDateOutOfRange = ({ inputDate, startDate, endDate }) => {
