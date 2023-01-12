@@ -15,6 +15,7 @@ import MovingRoundedIcon from '@mui/icons-material/MovingRounded';
 //Reportes:
 import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 //Viajes:
+import AddLocationRoundedIcon from '@mui/icons-material/AddLocationRounded';
 // import MoneyOffRoundedIcon from '@mui/icons-material/MoneyOffRounded';
 
 export const menuBodyItemList = [
@@ -74,11 +75,11 @@ export const menuBodyItemList = [
         title: 'Programar viaje',
         icon: <DepartureBoardRoundedIcon />,
       },
-      // {
-      //   path: '/viajes/egresos-de-viaje',
-      //   title: 'Egresos de viajes',
-      //   icon: <MoneyOffRoundedIcon />,
-      // },
+      {
+        path: '/viajes/registrar-destinos',
+        title: 'Registrar Destinos',
+        icon: <AddLocationRoundedIcon />,
+      },
     ],
   },
   {

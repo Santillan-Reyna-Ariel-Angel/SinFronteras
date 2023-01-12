@@ -14,6 +14,7 @@ import { BusList } from './components/Bus/BusList/BusList';
 //travels
 import { TravelRegistration } from './components/Travels/TravelRegistration/TravelRegistration';
 // import { TravelExpenses } from './components/Travels/TravelExpenses/TravelExpenses';
+import { RegisterDestination } from './components/Destinations/RegisterDestination';
 //Reportes:
 import { ListOfTicketsSold } from './components/Reports/ListOfTicketsSold/ListOfTicketsSold';
 import { SettlementForm } from './components/Reports/SettlementForm/SettlementForm';
@@ -40,7 +41,6 @@ import { ProviderAllUserData } from './contexts/ContextAllUserData';
 // import { DialogBasic } from './components/DialogBasic/DialogBasic';
 //Components Test:
 import { BranchRegistrationOriginal } from './components/BranchRegistration/BranchRegistrationOriginal';
-import { RegisterDestination } from './components/Destinations/RegisterDestination';
 
 const AppRoutes = () => {
   return (
@@ -132,6 +132,12 @@ const AppRoutes = () => {
 
                           <Route
                             exact
+                            path="/viajes/registrar-destinos/"
+                            component={RegisterDestination}
+                          />
+
+                          <Route
+                            exact
                             path="/reportes/lista-de-ventas/"
                             component={ListOfTicketsSold}
                           />
@@ -153,12 +159,6 @@ const AppRoutes = () => {
                             exact
                             path="/test-component2/"
                             component={SettlementForm}
-                          />
-
-                          <Route
-                            exact
-                            path="/test-component3/"
-                            component={RegisterDestination}
                           />
                         </Layout>
                       </Switch>
