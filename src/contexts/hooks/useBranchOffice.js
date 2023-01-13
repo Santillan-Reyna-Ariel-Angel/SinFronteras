@@ -9,6 +9,9 @@ import {
   // child,
 } from 'firebase/database';
 import { modulesFirebase } from './../../firebase-config.js';
+//Functions:
+import { saveDataSessionStorage } from './../saveDataSessionStorage';
+
 const { fire_db } = modulesFirebase;
 
 let branchOffice, setBranchOffice;
@@ -41,6 +44,12 @@ const branchOfficeAux = () => {
       onValue(branchOffice_x, (branchOffice) => {
         // console.log("branchOffice.val()", branchOffice.val());
         setBranchOffice(branchOffice.val());
+
+        //GUARDAR INFO EN sessionStorage:
+        saveDataSessionStorage({
+          dataName: 'branchOffice',
+          dataValue: branchOffice.val(),
+        });
       });
     });
   }

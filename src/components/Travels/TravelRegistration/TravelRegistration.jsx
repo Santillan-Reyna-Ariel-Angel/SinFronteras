@@ -184,6 +184,8 @@ export const TravelRegistration = () => {
   const componentDefaultData = () => {
     setTravelData(travelsDataDefaul);
     setDepartureTime(new Date('2022-12-16T20:30:00'));
+    setTravelDate(null);
+    setFullNameDriver('');
   };
 
   return (
