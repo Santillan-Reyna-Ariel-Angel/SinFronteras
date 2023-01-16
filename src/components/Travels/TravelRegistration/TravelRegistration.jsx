@@ -48,28 +48,23 @@ import {
   timeFormat,
   isDateOutOfRange,
 } from './../Functions/functions';
+import { DEPARTMENT_LIST } from './../../constantData';
 
 const DatePicker_maxDate = new Date('2046-01-01'); // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
-const departments = [
-  'beni',
-  'chuquisaca',
-  'cochabamba',
-  'la paz',
-  'oruro',
-  'pando',
-  'potosi',
-  'santa cruz',
-  'tarija',
-];
 
 export const TravelRegistration = () => {
+  //sessionStorage:
+  const storedData = sessionStorage.getItem('branchOffice');
+  let branchOffice_seStorage = storedData
+    ? JSON.parse(storedData)
+    : { branchInformation: { branchNumber: '', department: '', location: '' } };
+  console.log('branchOffice_seStorage:', branchOffice_seStorage);
+
   //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
   const {
     branchInformation: { branchNumber, department, location },
-  } = branchOffice
-    ? branchOffice
-    : { branchInformation: { branchNumber: '', department: '', location: '' } };
+  } = branchOffice ? branchOffice : branchOffice_seStorage;
 
   //ContextCompanyBuses:
   const companyBuses = useContext(ContextCompanyBuses);
@@ -103,11 +98,11 @@ export const TravelRegistration = () => {
     departureTime: '20:30',
     destinationLocation: '',
     lane: '0', //CarrilDefault
-    localityOfOrigin: location === undefined ? '' : location, // '',
+    localityOfOrigin: location, // context o session storage garantiza este dato
     travelDate: '',
     travelStatus: 'pendiente', // pendiente, realizado, cancelado
     //extraData
-    departmentOfOrigin: department === undefined ? '' : department,
+    departmentOfOrigin: department, // context o session storage garantiza este dato
     destinationDepartment: '',
     busEnrollment: '',
   };
@@ -211,7 +206,7 @@ export const TravelRegistration = () => {
                 })
               }
             >
-              {departments.map((department, index) => (
+              {DEPARTMENT_LIST.map((department, index) => (
                 <MenuItem key={index} value={department}>
                   {department}
                 </MenuItem>
@@ -300,7 +295,7 @@ export const TravelRegistration = () => {
                 })
               }
             >
-              {departments.map((department, index) => (
+              {DEPARTMENT_LIST.map((department, index) => (
                 <MenuItem key={index} value={department}>
                   {department}
                 </MenuItem>
