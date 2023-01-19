@@ -71,14 +71,15 @@ export const menuBodyItemList = [
     title: 'Viajes',
     children: [
       {
-        path: '/viajes/programar-viaje',
-        title: 'Programar viaje',
-        icon: <DepartureBoardRoundedIcon />,
-      },
-      {
         path: '/viajes/registrar-destinos',
         title: 'Registrar Destinos',
         icon: <AddLocationRoundedIcon />,
+      },
+
+      {
+        path: '/viajes/programar-viaje',
+        title: 'Programar viaje',
+        icon: <DepartureBoardRoundedIcon />,
       },
     ],
   },
