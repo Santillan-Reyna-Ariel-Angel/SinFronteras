@@ -1,5 +1,4 @@
 export const saveDataSessionStorage = ({ dataName, newDataValue }) => {
-  //new code
   let currentValue = sessionStorage.getItem(dataName);
   if (currentValue === null) {
     // No exite en sessionStorage, crearla:
