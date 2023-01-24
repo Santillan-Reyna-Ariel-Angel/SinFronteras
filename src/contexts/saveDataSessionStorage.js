@@ -2,15 +2,15 @@ export const saveDataSessionStorage = ({ dataName, newDataValue }) => {
   let currentValue = sessionStorage.getItem(dataName);
   if (currentValue === null) {
     // No exite en sessionStorage, crearla:
-    console.log(`create dataName: ${dataName} - newDataValue:`, newDataValue);
+    console.log(`Create Obj: "${dataName}" - newDataValue:`, newDataValue);
     sessionStorage.setItem(`${dataName}`, JSON.stringify(newDataValue));
   } else {
     if (currentValue === JSON.stringify(newDataValue)) {
       // No realizar acciones
-      console.log(`Ya existe el obj en sessionStorage (no hacer nada)`);
+      console.log(`El Obj "${dataName}" ya existe en sessionStorage`);
     } else {
       //Actualizar el valor:
-      console.log(`update dataName: ${dataName} - newDataValue:`, newDataValue);
+      console.log(`Update Obj: "${dataName}" - newDataValue:`, newDataValue);
       sessionStorage.setItem(`${dataName}`, JSON.stringify(newDataValue));
     }
   }
