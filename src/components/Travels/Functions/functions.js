@@ -82,3 +82,33 @@ export const travelKey = ({
   //console.log('travelKey:', travelKey);
   return travelKey;
 };
+
+export const getLocationsList = ({ department = '', destinationsList }) => {
+  // console.log('destinationsList: ', destinationsList);
+
+  if (destinationsList !== undefined && destinationsList !== null) {
+    let locationsList = destinationsList
+      .filter((destination) => destination.destinationDepartment === department)
+      .map((filteredDestination) => filteredDestination.destinationLocation);
+    // console.log('locationsList: ', locationsList);
+
+    return locationsList;
+  } else {
+    return [];
+  }
+};
+
+export const getDepartmentList = ({ destinationsList }) => {
+  // console.log('destinationsList: ', destinationsList);
+
+  if (destinationsList !== undefined && destinationsList !== null) {
+    let departmentList = destinationsList.map(
+      (destination) => destination.destinationDepartment
+    );
+    // console.log('departmentList: ', departmentList);
+
+    return departmentList;
+  } else {
+    return [];
+  }
+};

@@ -47,6 +47,8 @@ import {
   dateFormat,
   timeFormat,
   isDateOutOfRange,
+  getDepartmentList,
+  getLocationsList,
 } from './../Functions/functions';
 import { DEPARTMENT_LIST } from './../../constantData';
 
@@ -57,13 +59,20 @@ export const TravelRegistration = () => {
   const storedData = sessionStorage.getItem('branchOffice');
   let branchOffice_seStorage = storedData
     ? JSON.parse(storedData)
-    : { branchInformation: { branchNumber: '', department: '', location: '' } };
+    : {
+        branchInformation: {
+          branchNumber: '',
+          department: '',
+          destinations: {},
+          location: '',
+        },
+      };
   console.log('branchOffice_seStorage:', branchOffice_seStorage);
 
   //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
   const {
-    branchInformation: { branchNumber, department, location },
+    branchInformation: { branchNumber, department, destinations, location },
   } = branchOffice ? branchOffice : branchOffice_seStorage;
 
   //ContextCompanyBuses:
@@ -78,6 +87,8 @@ export const TravelRegistration = () => {
   for (let i in companyBuses) companyBusesArray.push(companyBuses[i]);
   let allUserDataArray = [];
   for (let i in allUserData) allUserDataArray.push(allUserData[i]);
+  let destinationsList = [];
+  for (let i in destinations) destinationsList.push(destinations[i]);
 
   const travelsDataDefaul = {
     bus: {
@@ -174,6 +185,16 @@ export const TravelRegistration = () => {
 
   //travelStatus:
   // const travelStatusList = ['cancelado', 'pendiente', 'realizado'];
+
+  //getDepartmentList:
+  let destinationDepartmentList = getDepartmentList({
+    destinationsList: destinationsList,
+  });
+  console.log('destinationDepartmentList: ', destinationDepartmentList);
+
+  // getLocationsList (Estado para select destinationLocation):
+  const [destinationLocationList, setDestinationLocationList] = useState([]);
+  console.log('destinationLocationList: ', destinationLocationList);
 
   // componentDefaultData
   const componentDefaultData = () => {
@@ -288,14 +309,22 @@ export const TravelRegistration = () => {
             <Select
               value={travelData.destinationDepartment}
               name="destinationDepartment"
-              onChange={(event) =>
+              onChange={(event) => [
                 setTravelData({
                   ...travelData,
+                  destinationLocation: '', // para evitar warnings
                   [event.target.name]: event.target.value,
-                })
-              }
+                }),
+
+                setDestinationLocationList(
+                  getLocationsList({
+                    department: event.target.value, //example: 'tarija' o 'santa cruz
+                    destinationsList: destinationsList,
+                  })
+                ),
+              ]}
             >
-              {DEPARTMENT_LIST.map((department, index) => (
+              {destinationDepartmentList.map((department, index) => (
                 <MenuItem key={index} value={department}>
                   {department}
                 </MenuItem>
@@ -306,20 +335,25 @@ export const TravelRegistration = () => {
 
         {/* Localidad destino: */}
         <LocDestinationStyle>
-          <TextField
-            className="input"
-            name="destinationLocation"
-            label="Localidad destino"
-            variant="outlined"
-            value={travelData.destinationLocation}
-            // disabled
-            onChange={(event) =>
-              setTravelData({
-                ...travelData,
-                [event.target.name]: event.target.value,
-              })
-            }
-          />
+          <FormControl className="input">
+            <InputLabel>Localidad destino</InputLabel>
+            <Select
+              value={travelData.destinationLocation}
+              name="destinationLocation"
+              onChange={(event) =>
+                setTravelData({
+                  ...travelData,
+                  [event.target.name]: event.target.value,
+                })
+              }
+            >
+              {destinationLocationList.map((location, index) => (
+                <MenuItem key={index} value={location}>
+                  {location}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </LocDestinationStyle>
 
         {/* Placa bus: */}
