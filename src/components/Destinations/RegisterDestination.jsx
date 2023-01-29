@@ -123,6 +123,15 @@ export const RegisterDestination = () => {
     });
   };
 
+  const componentDefaultData = () => {
+    setDestinationData(defaultDestinationData);
+    setChecks({
+      normalChek: false,
+      leitoCheck: false,
+    });
+    //IMPORTANTE: NECESARIO recargar la pagina para que "let llave = uuid();" se ejecute de nuevo y entregue un nuevo valor:
+    window.location.assign('/viajes/registrar-destinos'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina.
+  };
   return (
     <>
       <Background>
@@ -486,7 +495,7 @@ export const RegisterDestination = () => {
               continueBtnText="si"
               functionToExecute={createDestination}
               functionParameters={{ destinationData, branchNumber, llave }}
-              //   thirdFunctionToExecute={componentDefaultData}
+              thirdFunctionToExecute={componentDefaultData}
             />
           </Btn>
         </BodyContainer>
