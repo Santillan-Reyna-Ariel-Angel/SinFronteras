@@ -5,21 +5,29 @@ import Button from '@mui/material/Button';
 //Components:
 import { Tickets3 } from './../Tickets3.jsx';
 
-const ReactToPrintComponent2 = ({ ticketDataProps }) => {
+export const ReactToPrintComponent2 = ({ ticketDataProps }) => {
+  // console.log('***ticketDataProps: ', ticketDataProps);
+  let { identificationNumber } = ticketDataProps;
+
   const componentRef = useRef();
   const handlePrint = useReactToPrint({
     content: () => componentRef.current,
-    documentTitle: 'Sin Fronteras - Boletos de Viaje',
+    documentTitle: `Sin Fronteras - Boletos de Viaje - ${identificationNumber}`,
   });
 
   return (
-    <div>
+    // Nota: si colocamos <div></div> el boton de imprimir se vuelve pequeño
+    <>
       <Tickets3 ref={componentRef} ticketDataProps={ticketDataProps} />
 
-      <Button variant="contained" color="success" onClick={() => handlePrint()}>
+      <Button
+        variant="contained"
+        color="success"
+        onClick={() => handlePrint()}
+        sx={{ margin: '-8px 8px 18px 8px' }}
+      >
         Imprimir Pdf
       </Button>
-    </div>
+    </>
   );
 };
-export { ReactToPrintComponent2 };

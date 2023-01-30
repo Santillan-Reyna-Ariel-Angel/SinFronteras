@@ -1,5 +1,5 @@
 import { ReactToPrintComponent2 } from './../../Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2';
-import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
+import { DialogBasic } from './../../DialogBasic/DialogBasic';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -70,18 +70,15 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
         destiny,
         travelDate,
         departureTime,
+        //boton "ticket" de la tabla "LISTA DE PASAJES VENDIDOS":
         btnTicket: (
-          <PlainModalButton
+          <DialogBasic
             primaryBtnText="ticket"
-            dialogTitle=""
-            dialogText=""
-            closeBtnText="cancelar"
-            continueBtnText="ok"
             componentView={
               <ReactToPrintComponent2 ticketDataProps={passenger} />
             }
           />
-        ), //<Button variant="contained">Contained</Button>, // <ReactToPrintComponent2 />,
+        ),
       };
 
       dataTableNecesary.push(passengerData);
