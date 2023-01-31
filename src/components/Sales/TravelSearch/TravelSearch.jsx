@@ -1,11 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
 //MUI:
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-//  para manejo de fechas:
+import { TextField, Autocomplete } from '@mui/material/';
+// manejo de fechas:
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers/';
+// idioma del calentario:
+import { es } from 'date-fns/locale';
+
 //Styles:
 import {
   Background,
@@ -155,7 +156,7 @@ const TravelSearch = () => {
             />
           </InputDestination>
           <InputDate>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
               <DatePicker
                 label="Fecha de viaje"
                 value={travelDate}
