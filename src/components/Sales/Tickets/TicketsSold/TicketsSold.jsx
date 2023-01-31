@@ -11,11 +11,11 @@ import {
   LogoPng,
   CompanyName,
   Legend,
-} from './Tickets3Styles';
+} from './TicketsSoldStyles';
 //Others:
-import { dataForPassengerTickets } from './../datos'; //Importando cantidad de pasajeros
+import { dataForPassengerTickets } from '../datos'; //Importando cantidad de pasajeros
 
-export const Tickets3 = React.forwardRef((props, ref) => {
+export const TicketsSold = React.forwardRef((props, ref) => {
   // Este componente tiene el logo mas pequeño:
   // const ticketData = dataForPassengerTickets ? dataForPassengerTickets : [];
 

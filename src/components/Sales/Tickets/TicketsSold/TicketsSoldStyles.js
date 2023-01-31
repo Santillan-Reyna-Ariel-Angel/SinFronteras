@@ -8,7 +8,7 @@ export const Background = styled.div`
   justify-content: center; //centrea los elementos
   /* align-content: center; //junta los elementos vertical */
   /* grid-template-columns: auto; */
-  padding: 18px 0px; // o margin: 5px 0px;
+  padding: 18px 0px; // o margin: 5px 0px; // se utiliza para separar(dar espacio) entre los tickets que seran impresos
 `;
 
 export const BodyContainer = styled.div`
@@ -23,7 +23,7 @@ export const BodyContainer = styled.div`
   border: 4px solid #051e34; //contorno
   border-radius: 0px;
   backdrop-filter: blur(18px);
-  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
+  /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); // sombra del componente */
   grid-template-areas: 'LogoContainer GeneralInformation' 'Route Route' 'PassengerInformation BusInformation' 'Legend Legend';
   /* overflow: hidden; */
 `;

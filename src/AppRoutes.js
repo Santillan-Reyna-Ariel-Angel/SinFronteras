@@ -22,9 +22,9 @@ import { SettlementFormsList } from './components/Reports/SettlementFormsList/Se
 //probando tickets
 import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
-import { Tickets3 } from './components/Sales/Tickets/Tickets3/Tickets3';
-import { ReactToPrintComponent } from './components/Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent.jsx';
-import { ReactToPrintComponent2 } from './components/Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2.jsx';
+import { TicketsSold } from './components/Sales/Tickets/TicketsSold/TicketsSold';
+import { ReactToPrintComponent } from './components/Sales/Tickets/TicketsSold/ReactToPrintComponent/ReactToPrintComponent.jsx';
+import { PrintTicketsSold } from './components/Sales/Tickets/TicketsSold/PrintTicketsSold.jsx';
 //SendEmail
 import { SendEmail } from './components/SendEmail/SendEmail.jsx';
 import { SendEmail2 } from './components/SendEmail/SendEmail2.jsx';
@@ -62,7 +62,11 @@ const AppRoutes = () => {
                         <Route exact path="/acceso" component={Login} />
                         <Route exact path="/tickets1" component={Tickets1} />
                         <Route exact path="/tickets2" component={Tickets2} />
-                        <Route exact path="/tickets3" component={Tickets3} />
+                        <Route
+                          exact
+                          path="/pasajes-vendidos"
+                          component={TicketsSold} // componente en pre-produccion y ruta para pruebas visualizadas
+                        />
                         <Route
                           exact
                           path="/tickets-component"
@@ -70,8 +74,8 @@ const AppRoutes = () => {
                         />
                         <Route
                           exact
-                          path="/tickets-component2"
-                          component={ReactToPrintComponent2}
+                          path="/pasajes-imprimir" // o /pasajes/imprimir-pasaje o /boletos/imprimir-boleto
+                          component={PrintTicketsSold} // se usa con otro componente en pre-produccion y ruta inaccesible
                         />
                         <Route exact path="/send-email" component={SendEmail} />
                         <Route

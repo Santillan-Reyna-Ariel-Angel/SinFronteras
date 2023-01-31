@@ -3,7 +3,7 @@ import ReactToPrint from 'react-to-print';
 //MUI:
 import Button from '@mui/material/Button';
 //Components:
-import { Tickets3 } from '../Tickets3.jsx';
+import { TicketsSold } from '../TicketsSold.jsx';
 
 const ReactToPrintComponent = () => {
   const componentRef = useRef();
@@ -20,7 +20,7 @@ const ReactToPrintComponent = () => {
         content={() => componentRef.current}
       />
 
-      <Tickets3 ref={componentRef} />
+      <TicketsSold ref={componentRef} />
     </div>
   );
 };

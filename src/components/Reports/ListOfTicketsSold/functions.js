@@ -1,4 +1,4 @@
-import { ReactToPrintComponent2 } from './../../Sales/Tickets/Tickets3/ReactToPrintComponent/ReactToPrintComponent2';
+import { PrintTicketsSold } from '../../Sales/Tickets/TicketsSold/PrintTicketsSold';
 import { DialogBasic } from './../../DialogBasic/DialogBasic';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
@@ -19,7 +19,8 @@ export const billingContactAllList = ({
   billingContactList_x_everyTravelAux,
 }) => {
   let billingContactAllList = [];
-  billingContactList_x_everyTravelAux.map((arrayOf_billingContact_x) => {
+
+  billingContactList_x_everyTravelAux.forEach((arrayOf_billingContact_x) => {
     for (let i in arrayOf_billingContact_x)
       billingContactAllList.push(arrayOf_billingContact_x[i]);
   });
@@ -74,9 +75,7 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
         btnTicket: (
           <DialogBasic
             primaryBtnText="ticket"
-            componentView={
-              <ReactToPrintComponent2 ticketDataProps={passenger} />
-            }
+            componentView={<PrintTicketsSold ticketDataProps={passenger} />}
           />
         ),
       };
