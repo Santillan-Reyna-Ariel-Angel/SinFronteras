@@ -19,7 +19,7 @@ import { createBranch } from './Firebase/createBranch';
 //Components:
 import { PlainModalButton } from '../PlainModalButton/PlainModalButton';
 //Others:
-import { uuid } from '../functions';
+import { uuid } from './../globalFunctions';
 
 let llave = uuid(); // IMPORTANTE: Es necesario que la funcion uuid este fuera del componente, esto para que se cre una sola id por mas actualizaciones(renderizados del componente) tenga los estado.
 // console.log('llave', llave);

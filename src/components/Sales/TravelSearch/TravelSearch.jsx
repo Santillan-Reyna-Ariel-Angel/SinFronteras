@@ -21,7 +21,7 @@ import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
 //Components:
 import { TravelCards } from './../TravelCards/TravelCards';
 //Others:
-import { dateFormat } from './functions';
+import { dateFormat } from '../../globalFunctions';
 
 const TravelSearch = () => {
   //ContextBranchOffice:

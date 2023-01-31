@@ -20,9 +20,12 @@ import {
   createFilterOptions,
 } from '@mui/material';
 //  import Stack from "@mui/material/Stack";
-//  MUI-Lab For Fecha de nacimiento:
-import { LocalizationProvider, DatePicker } from '@mui/lab/';
+// manejo de fechas:
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers/';
+// idioma del calentario:
+import { es } from 'date-fns/locale';
+
 //  MUI-icons:
 import SaveIcon from '@mui/icons-material/Save';
 //Styles:
@@ -48,6 +51,7 @@ import {
 import { saveUser } from './UserRegistrationFunctios';
 //Others:
 import { branchList, listOfCharges, stateList } from './data';
+import { dateFormat } from './../globalFunctions';
 
 const filter = createFilterOptions();
 
@@ -83,12 +87,9 @@ const UserRegistration = () => {
   };
 
   // Fecha de nacimiento
-  const [date, setDate] = useState(null);
+  const [date, setDate] = useState(null); // o cambiar a dateOfBirth
 
-  const day = date ? date.getDate() : 'dia',
-    month = date ? date.getMonth() + 1 : 'mes',
-    year = date ? date.getFullYear() : 'año';
-  const formattedDate = day + '/' + month + '/' + year; // otra opcion:  formattedDate=date.toLocaleDateString();
+  const formattedDate = dateFormat({ date: date, format: 'dd/mm/yyyy' }); //formattedDate podria cambairse a dateOfBirth
   console.log('formattedDate: ', formattedDate);
 
   // Sexo
@@ -381,7 +382,7 @@ const UserRegistration = () => {
 
           {/* Fecha de nacimiento: */}
           <InputDateOfBirdth>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
               <DatePicker
                 disableFuture
                 label="F. nacimiento(dia/mes/año)"

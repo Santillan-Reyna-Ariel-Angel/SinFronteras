@@ -1,3 +1,7 @@
+export const uuid = () => {
+  return Math.random().toString(16).slice(2);
+};
+
 export const dateFormat = ({ date, format = 'dd/mm/yyyy' }) => {
   let isErrorDate = date === null || date === '' || isNaN(date) ? true : false;
 
