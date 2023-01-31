@@ -15,6 +15,8 @@ import {
   TimePicker,
   DatePicker,
 } from '@mui/x-date-pickers/';
+// idioma del calentario:
+import { es } from 'date-fns/locale';
 
 //Styles:
 import {
@@ -44,13 +46,12 @@ import { createTripSchedule } from './../Firebase/createTripSchedule';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
 import {
-  dateFormat,
-  timeFormat,
   isDateOutOfRange,
   getDepartmentList,
   getLocationsList,
 } from './../Functions/functions';
 import { DEPARTMENT_LIST } from './../../constantData';
+import { dateFormat, timeFormat } from './../../globalFunctions';
 
 const DatePicker_maxDate = new Date('2046-01-01'); // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
 
@@ -256,7 +257,7 @@ export const TravelRegistration = () => {
 
         {/* Fecha viaje */}
         <TravelDateStyle>
-          <LocalizationProvider dateAdapter={AdapterDateFns}>
+          <LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
             <DatePicker
               name="travelDate"
               label="Fecha de viaje" //(dia/mes/año)

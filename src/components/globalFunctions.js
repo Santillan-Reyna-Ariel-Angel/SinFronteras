@@ -25,3 +25,29 @@ export const dateFormat = ({ date, format = 'dd/mm/yyyy' }) => {
     return formatDateAux;
   }
 };
+
+export const timeFormat = ({ newTime, format = ':' }) => {
+  console.log('newTime:', newTime);
+  //Otra opcion con segundos seria: newTime.toLocaleTimeString()
+  // console.log('isNaN(newTime):', isNaN(newTime));
+
+  if (newTime === null || newTime === undefined || isNaN(newTime) === true) {
+    return '20:30'; //departureTime: '20:30', by default
+  } else {
+    let hour =
+      newTime.getHours() < 10 ? `0${newTime.getHours()}` : newTime.getHours();
+    let minute =
+      newTime.getMinutes() < 10
+        ? `0${newTime.getMinutes()}`
+        : newTime.getMinutes();
+
+    let timeFormatAux;
+    if (format === ':' || format === '') {
+      timeFormatAux = `${hour}:${minute}`;
+    } else {
+      timeFormatAux = `${hour}-${minute}`;
+    }
+
+    return timeFormatAux;
+  }
+};
