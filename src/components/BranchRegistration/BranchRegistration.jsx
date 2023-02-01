@@ -37,20 +37,10 @@ import { createBranch } from './Firebase/createBranch';
 //Components:
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
+import { DEPARTMENT_LIST } from './../constantData';
+import { timeFormat } from './../globalFunctions';
 
 export const BranchRegistration = () => {
-  const departments = [
-    'beni',
-    'chuquisaca',
-    'cochabamba',
-    'la paz',
-    'oruro',
-    'pando',
-    'potosi',
-    'santa cruz',
-    'tarija',
-  ];
-
   const defaultBranchData = {
     department: '',
     locality: '',
@@ -78,18 +68,6 @@ export const BranchRegistration = () => {
   const [closingTime, setClosingTime] = useState(
     new Date('2022-12-16T18:30:00')
   );
-
-  const timeFormat = (newTime) => {
-    //Otra opcion con segundos seria: newTime.toLocaleTimeString()
-    let hour =
-      newTime.getHours() < 10 ? `0${newTime.getHours()}` : newTime.getHours();
-    let minute =
-      newTime.getMinutes() < 10
-        ? `0${newTime.getMinutes()}`
-        : newTime.getMinutes();
-
-    return `${hour}:${minute}`;
-  };
 
   // componentDefaultData
   const componentDefaultData = () => {
@@ -121,7 +99,7 @@ export const BranchRegistration = () => {
                   })
                 }
               >
-                {departments.map((department, index) => (
+                {DEPARTMENT_LIST.map((department, index) => (
                   <MenuItem key={index} value={department}>
                     {department}
                   </MenuItem>
@@ -235,7 +213,10 @@ export const BranchRegistration = () => {
                     ...branchData,
                     attentionSchedule: {
                       ...branchData.attentionSchedule,
-                      openingTime: timeFormat(newTime),
+                      openingTime: timeFormat({
+                        newTime: newTime,
+                        format: ':',
+                      }),
                     },
                   });
                 }}
@@ -259,7 +240,10 @@ export const BranchRegistration = () => {
                     ...branchData,
                     attentionSchedule: {
                       ...branchData.attentionSchedule,
-                      closingTime: timeFormat(newTime),
+                      closingTime: timeFormat({
+                        newTime: newTime,
+                        format: ':',
+                      }),
                     },
                   });
                 }}
