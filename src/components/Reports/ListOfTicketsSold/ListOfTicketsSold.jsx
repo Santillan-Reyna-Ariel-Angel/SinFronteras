@@ -21,6 +21,7 @@ import {
   ticketsSoldByBuyer,
   dataTableNecesary,
 } from './functions';
+import { MUI_DATA_TABLE___TEXT_LABELS_ES } from './../../constantData';
 
 export const ListOfTicketsSold = () => {
   //ContextCompanyBuses:
@@ -119,6 +120,9 @@ export const ListOfTicketsSold = () => {
     // viewColumns: false, // func para mostrar/oculta columnas
     elevation: 0, //ancho de sombrea de la tabla (0-24)
     responsive: 'vertical', //simple(imp bien) vertical(imp bien) standard(imp mal) //IMPORTENTE: ESTO AFECTA A LA IMPRESION
+
+    //CAMBIAR IDIOMA:
+    textLabels: { ...MUI_DATA_TABLE___TEXT_LABELS_ES },
   };
 
   return (
