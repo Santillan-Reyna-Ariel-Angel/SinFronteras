@@ -21,6 +21,7 @@ import {
   getDataTableNecesary,
   travelKey,
 } from './functions';
+import { MUI_DATA_TABLE___TEXT_LABELS_ES } from './../../constantData';
 
 export const SettlementFormsList = () => {
   let settlementData = {
@@ -232,6 +233,9 @@ export const SettlementFormsList = () => {
     // viewColumns: false, // func para mostrar/oculta columnas
     elevation: 0, //ancho de sombrea de la tabla (0-24)
     responsive: 'vertical', //simple(imp bien) vertical(imp bien) standard(imp mal) //IMPORTENTE: ESTO AFECTA A LA IMPRESION
+
+    //CAMBIAR IDIOMA:
+    textLabels: { ...MUI_DATA_TABLE___TEXT_LABELS_ES },
   };
 
   return (
