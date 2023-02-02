@@ -6,6 +6,7 @@ import Home from './components/Home/Home';
 import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 // import Notes from './components/Notes/Notes';
 import { UserRegistration } from './components/UserRegistration/UserRegistration';
+import { UserDataTable } from './components/UserDataTable/UserDataTable';
 import Layout from './components/Loyout/Layout';
 import { Sales } from './components/Sales/Sales';
 import { BranchRegistration } from './components/BranchRegistration/BranchRegistration';
@@ -105,8 +106,14 @@ const AppRoutes = () => {
                           />
                           <Route
                             exact
-                            path="/personal/registro-de-cargos"
+                            path="/personal/registro-de-usuarios/"
                             component={UserRegistration}
+                          />
+
+                          <Route
+                            exact
+                            path="/personal/lista-de-usuarios/"
+                            component={UserDataTable}
                           />
 
                           <Route

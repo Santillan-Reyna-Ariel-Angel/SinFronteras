@@ -37,9 +37,14 @@ export const menuBodyItemList = [
     title: 'Personal',
     children: [
       {
-        path: '/personal/registro-de-cargos',
+        path: '/personal/registro-de-usuarios',
         title: 'Registro de Usuarios',
         icon: <PersonAddRoundedIcon />,
+      },
+      {
+        path: '/personal/lista-de-usuarios',
+        title: 'Lista de Usuarios',
+        icon: <FormatListNumberedRoundedIcon />,
       },
       // {
       //   path: '/personal/roles-y-permisos',
