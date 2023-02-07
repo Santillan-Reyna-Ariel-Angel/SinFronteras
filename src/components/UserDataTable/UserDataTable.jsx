@@ -46,32 +46,24 @@ export const UserDataTable = () => {
     {
       name: 'identificationNumber',
       label: 'CI',
-    },
-    {
-      name: 'userFullName',
-      label: 'Nombre Completo',
-      //   options: {
-      //     filter: false, // func para filtrar por la columna
-      //     //sort: false, //funcionalidad para odernar la columna
-      //   },
-    },
-    {
-      name: 'charge',
-      label: 'Cargo',
-      //   options: {
-      //     filter: false, // func para filtrar por la columna
-      //     //sort: false, //funcionalidad para odernar la columna
-      //   },
-    },
-    {
-      name: 'branchOfficeName',
-      label: 'Sucursal',
       //   options: {
       //     filter: false, // func para filtrar por la columna
       //     //sort: false, //funcionalidad para odernar la columna
       //     // searchable: false, // se indica si text de la columna podra encontrarse por el buscador
       //     // viewColumns: false, // func para añadir/quitar a la lista de columnas(de la barra de herramientas)
       //   },
+    },
+    {
+      name: 'userFullName',
+      label: 'Nombre Completo',
+    },
+    {
+      name: 'charge',
+      label: 'Cargo',
+    },
+    {
+      name: 'branchOfficeName',
+      label: 'Sucursal',
     },
     {
       name: 'mobile',
@@ -81,16 +73,15 @@ export const UserDataTable = () => {
       name: 'status',
       label: 'Estado',
     },
-
-    // {
-    //   name: 'btnSettlementForm',
-    //   label: 'boton',
-    //   options: {
-    //     filter: false, // func para filtrar por la columna
-    //     sort: false, //funcionalidad para odernar la columna
-    //     print: false, //Esto deberia hacer que se omita esta columna para la impresion
-    //   },
-    // },
+    {
+      name: 'btnEdit',
+      label: 'Acciones',
+      options: {
+        filter: false, // func para filtrar por la columna
+        sort: false, //funcionalidad para odernar la columna
+        print: false, //Esto deberia hacer que se omita esta columna para la impresion
+      },
+    },
   ];
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)

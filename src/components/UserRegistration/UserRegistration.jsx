@@ -297,6 +297,7 @@ const UserRegistration = () => {
           onChange={OnChange}
           margin={Margin}
           variant={Variant}
+          inputProps={{ style: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
         />
       </>
     );
@@ -395,6 +396,7 @@ const UserRegistration = () => {
                 onChange={(newValue) => {
                   setDate(newValue);
                 }}
+                inputProps={{ style: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
                 renderInput={(params) => (
                   <TextField
                     className="input"
@@ -482,6 +484,7 @@ const UserRegistration = () => {
                 <li {...props}>{option.branchOfficeName}</li>
               )}
               freeSolo
+              sx={{ input: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
               renderInput={(params) => (
                 <TextField className="input" {...params} label="Sucursal" />
               )}
@@ -568,6 +571,7 @@ const UserRegistration = () => {
                 <li {...props}>{option.chargeOfType}</li>
               )}
               freeSolo
+              sx={{ input: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
               renderInput={(params) => (
                 <TextField className="input" {...params} label="Cargo" />
               )}
@@ -652,6 +656,7 @@ const UserRegistration = () => {
                 <li {...props}>{option.statusType}</li>
               )}
               freeSolo
+              sx={{ input: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
               renderInput={(params) => (
                 <TextField className="input" {...params} label="Estado" />
               )}

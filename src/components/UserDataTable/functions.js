@@ -1,3 +1,6 @@
+import { DialogBasic } from './../DialogBasic/DialogBasic';
+import { UserRegistration } from './../UserRegistration/UserRegistration';
+
 export const getDataTableNecesary = ({ allUserDataList }) => {
   if (allUserDataList.length === 0) {
     return [];
@@ -11,14 +14,12 @@ export const getDataTableNecesary = ({ allUserDataList }) => {
         mobile: userData.mobile,
         status: userData.status,
 
-        // btnSettlementForm: (
-        //   <DialogBasic
-        //     primaryBtnText="ver planilla"
-        //     componentView={
-        //       <PrintSettlementForm settlementFormData={settlementData} />
-        //     }
-        //   />
-        // ),
+        btnEdit: (
+          <DialogBasic
+            primaryBtnText="editar"
+            componentView={<UserRegistration />}
+          />
+        ),
       };
     });
     // console.log('dataTableNecesary', dataTableNecesary);
