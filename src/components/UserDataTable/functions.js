@@ -17,7 +17,11 @@ export const getDataTableNecesary = ({ allUserDataList }) => {
         btnEdit: (
           <DialogBasic
             primaryBtnText="editar"
-            componentView={<UserRegistration />}
+            componentView={
+              <UserRegistration
+                identificationNumber={userData.identificationNumber}
+              />
+            }
           />
         ),
       };

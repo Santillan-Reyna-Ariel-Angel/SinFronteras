@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 //MUI-general:
 import {
   TextField,
@@ -47,6 +47,9 @@ import {
   InputStatus,
   InputSurnames,
 } from './UserRegistrationStyles';
+//Contexts:
+import { ContextAllUserData } from './../../contexts/ContextAllUserData';
+
 //Firebase Functions:
 import { saveUser } from './UserRegistrationFunctios';
 //Others:
@@ -55,15 +58,32 @@ import { dateFormat } from './../globalFunctions';
 
 const filter = createFilterOptions();
 
-const UserRegistration = () => {
+const UserRegistration = ({ identificationNumber = '' }) => {
+  console.log('identificationNumber Prop: ', identificationNumber);
+
+  //ContextAllUserData:
+  const allUserData = useContext(ContextAllUserData);
+  console.log('allUserData: ', allUserData);
+
+  let { [identificationNumber]: userProp } = allUserData ? allUserData : {};
+  console.log('userProp', userProp);
+  let {
+    names,
+    surnames,
+    identificationNumber: identificationNumberUser,
+    address,
+    mobile,
+    email,
+  } = userProp ? userProp : {};
+
   //basicInformation:
   let defaultDataBasicInformation = {
-    names: '',
-    surnames: '',
-    ci: '',
-    address: '',
-    mobile: '',
-    email: '',
+    names: names ? names : '',
+    surnames: surnames ? surnames : '',
+    ci: identificationNumberUser ? identificationNumberUser : '',
+    address: address ? address : '',
+    mobile: mobile ? mobile : '',
+    email: email ? email : '',
   };
   const [basicInformation, setBasicInformation] = useState(
     defaultDataBasicInformation
