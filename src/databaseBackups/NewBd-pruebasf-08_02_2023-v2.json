@@ -588,8 +588,8 @@
     "74747471": {
       "address": "calle campero 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucursalName 1",
-      "charge": "administrador",
+      "branchOfficeName": "sucursalName 1", //coinccidir datos con la data en UserRegistration
+      "charge": "administrador", //coinccidir datos con la data en UserRegistration
       "dateOfBirth": "",
       "email": "s1administrador1@gmail.com",
       "identificationNumber": "74747471",
@@ -602,7 +602,7 @@
     "74747472": {
       "address": "calle loa 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucursalName 2",
+      "branchOfficeName": "sucursalName 2", //coinccidir datos con la data en UserRegistration
       "charge": "secretaria(o)",
       "dateOfBirth": "",
       "email": "s1secretario1@gmail.com",
@@ -616,7 +616,7 @@
     "74747473": {
       "address": "calle vega 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucursalName 3",
+      "branchOfficeName": "sucursalName 3", //coinccidir datos con la data en UserRegistration
       "charge": "boletero(a)",
       "dateOfBirth": "",
       "email": "s1boletero1@gmail.com",
@@ -630,8 +630,8 @@
     "74747481": {
       "address": "calle lemoine 593",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "sucursalName 4",
-      "charge": "administrador",
+      "branchOfficeName": "sucursalName 4", //coinccidir datos con la data en UserRegistration
+      "charge": "administrador", //coinccidir datos con la data en UserRegistration
       "dateOfBirth": "",
       "email": "s2administrador1@gmail.com",
       "identificationNumber": "74747481",
@@ -644,7 +644,7 @@
     "74747482": {
       "address": "calle bustamante 593",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "sucursalName 5",
+      "branchOfficeName": "sucursalName 5", //coinccidir datos con la data en UserRegistration
       "charge": "secretaria(o)",
       "dateOfBirth": "",
       "email": "s2secretario1@gmail.com",
@@ -658,7 +658,7 @@
     "74747483": {
       "address": "calle estudiantes 593",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "sucursalName 6",
+      "branchOfficeName": "sucursalName 6", //ccoinccidir datos con la data en UserRegistration
       "charge": "boletero(a)",
       "dateOfBirth": "",
       "email": "s2boletero1@gmail.com",

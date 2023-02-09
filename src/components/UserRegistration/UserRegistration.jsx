@@ -75,6 +75,10 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     mobile,
     email,
     dateOfBirth,
+    sex: sexUser,
+    branchOfficeName,
+    charge: chargeUser,
+    status: statusUser,
   } = userProp ? userProp : {};
 
   //basicInformation:
@@ -136,16 +140,16 @@ const UserRegistration = ({ identificationNumber = '' }) => {
   const formattedDate = dateFormat({ date: date, format: 'dd/mm/yyyy' }); //formattedDate podria cambairse a dateOfBirth
   console.log('formattedDate: ', formattedDate);
 
-  // Sexo
-  const [sex, setSex] = useState('hombre');
-  // console.log("sex:", sex);
+  // Sexo:
+  const [sex, setSex] = useState(sexUser ? sexUser : 'hombre');
+  console.log(`sexUser: ${sexUser} | sex : ${sex} `);
   const changeSex = (event) => {
     setSex(event.target.value);
   };
 
   // Sucursal
   let defaultDataBranchOffice = {
-    branchOfficeName: '',
+    branchOfficeName: branchOfficeName ? branchOfficeName : '',
     location: '',
     department: '',
     branchNumber: '',
@@ -182,7 +186,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
 
   // Cargos:
   let defaultDataCharge = {
-    chargeOfType: '',
+    chargeOfType: chargeUser ? chargeUser : '',
   };
   const [charge, setCharge] = useState(defaultDataCharge);
   console.log('charge:', charge);
@@ -206,7 +210,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
   };
 
   // Estado:
-  let defaultDataStatus = { statusType: '' };
+  let defaultDataStatus = { statusType: statusUser ? statusUser : '' };
   const [status, setStatus] = useState(defaultDataStatus);
   console.log('status:', status);
   const [openStatus, toggleOpenStatus] = useState(false);
