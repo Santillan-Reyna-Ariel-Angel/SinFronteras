@@ -74,6 +74,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     address,
     mobile,
     email,
+    dateOfBirth,
   } = userProp ? userProp : {};
 
   //basicInformation:
@@ -106,8 +107,31 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     }
   };
 
-  // Fecha de nacimiento
-  const [date, setDate] = useState(null); // o cambiar a dateOfBirth
+  // Fecha de nacimiento:
+  const getDateOfBirthUser = (dateOfBirth) => {
+    console.log('dateOfBirth BD:', dateOfBirth);
+
+    if (
+      dateOfBirth !== '' &&
+      dateOfBirth !== undefined &&
+      dateOfBirth !== null
+    ) {
+      let dateArray = dateOfBirth.split('/');
+      let day = dateArray[0];
+      let month = dateArray[1] - 1;
+      let year = dateArray[2];
+
+      return new Date(year, month, day);
+    } else {
+      return null;
+    }
+  };
+
+  let dateOfBirthUser = getDateOfBirthUser(dateOfBirth);
+  // console.log('dateOfBirthUser :', dateOfBirthUser);
+
+  const [date, setDate] = useState(dateOfBirthUser);
+  // console.log('date: ', date);
 
   const formattedDate = dateFormat({ date: date, format: 'dd/mm/yyyy' }); //formattedDate podria cambairse a dateOfBirth
   console.log('formattedDate: ', formattedDate);
