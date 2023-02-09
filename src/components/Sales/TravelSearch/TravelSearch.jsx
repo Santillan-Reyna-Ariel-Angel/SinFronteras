@@ -156,7 +156,10 @@ const TravelSearch = () => {
             />
           </InputDestination>
           <InputDate>
-            <LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
+            <LocalizationProvider
+              dateAdapter={AdapterDateFns}
+              adapterLocale={es}
+            >
               <DatePicker
                 label="Fecha de viaje"
                 value={travelDate}

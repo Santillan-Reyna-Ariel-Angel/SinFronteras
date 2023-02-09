@@ -7,8 +7,11 @@ import {
   Select,
   TextField,
 } from '@mui/material/';
+// manejo de fechas:
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers/';
+// idioma del calentario:
+import { es } from 'date-fns/locale';
 
 //Styles:
 import {
@@ -202,7 +205,10 @@ export const BranchRegistration = () => {
 
           {/* HoraEntrada:  */}
           <OpeningTimeStyle>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider
+              dateAdapter={AdapterDateFns}
+              adapterLocale={es}
+            >
               <TimePicker
                 label="Hora de Apertura"
                 value={openingTime}
@@ -229,7 +235,10 @@ export const BranchRegistration = () => {
 
           {/* HoraSalida:  */}
           <ClosingTimeStyle>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider
+              dateAdapter={AdapterDateFns}
+              adapterLocale={es}
+            >
               <TimePicker
                 label="Hora de Cierre"
                 value={closingTime}

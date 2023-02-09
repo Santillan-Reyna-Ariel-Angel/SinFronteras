@@ -427,7 +427,10 @@ const UserRegistration = ({ identificationNumber = '' }) => {
 
           {/* Fecha de nacimiento: */}
           <InputDateOfBirdth>
-            <LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
+            <LocalizationProvider
+              dateAdapter={AdapterDateFns}
+              adapterLocale={es}
+            >
               <DatePicker
                 disableFuture
                 label="F. nacimiento(dia/mes/año)"

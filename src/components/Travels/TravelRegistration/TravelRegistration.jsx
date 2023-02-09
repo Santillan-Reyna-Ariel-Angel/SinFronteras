@@ -257,7 +257,7 @@ export const TravelRegistration = () => {
 
         {/* Fecha viaje */}
         <TravelDateStyle>
-          <LocalizationProvider dateAdapter={AdapterDateFns} locale={es}>
+          <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={es}>
             <DatePicker
               name="travelDate"
               label="Fecha de viaje" //(dia/mes/año)
