@@ -535,7 +535,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
                 <li {...props}>{option.branchOfficeName}</li>
               )}
               freeSolo
-              sx={{ input: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
+              sx={{ input: { color: '#000000' } }} // Necesario si <DialogBasic/> llama a este componente
               renderInput={(params) => (
                 <TextField className="input" {...params} label="Sucursal" />
               )}
@@ -622,7 +622,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
                 <li {...props}>{option.chargeOfType}</li>
               )}
               freeSolo
-              sx={{ input: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
+              sx={{ input: { color: '#000000' } }} // Necesario si <DialogBasic/> llama a este componente
               renderInput={(params) => (
                 <TextField className="input" {...params} label="Cargo" />
               )}
@@ -707,7 +707,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
                 <li {...props}>{option.statusType}</li>
               )}
               freeSolo
-              sx={{ input: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
+              sx={{ input: { color: '#000000' } }} // Necesario si <DialogBasic/> llama a este componente
               renderInput={(params) => (
                 <TextField className="input" {...params} label="Estado" />
               )}
