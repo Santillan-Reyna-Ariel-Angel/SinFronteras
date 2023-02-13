@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+// import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -21,8 +21,10 @@ const PlainModalButton = ({
   secondFunctionParameters, //data type bolean
   thirdFunctionToExecute = () => {},
   componentView = <></>,
+
+  // primaryBtnColor="success", //Conciderar poder modificar el color del boton de PlainModalButton
 }) => {
-  const history = useHistory();
+  // const history = useHistory();
   const [openDialog, setOpenDialog] = useState(false);
   // console.log('openDialog', openDialog);
 

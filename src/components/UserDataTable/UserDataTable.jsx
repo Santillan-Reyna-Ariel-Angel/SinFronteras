@@ -82,6 +82,16 @@ export const UserDataTable = () => {
         print: false, //Esto deberia hacer que se omita esta columna para la impresion
       },
     },
+    //
+    {
+      name: 'btnDelete',
+      label: 'Accion2',
+      options: {
+        filter: false, // func para filtrar por la columna
+        sort: false, //funcionalidad para odernar la columna
+        print: false, //Esto deberia hacer que se omita esta columna para la impresion
+      },
+    },
   ];
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)

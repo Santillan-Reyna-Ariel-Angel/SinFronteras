@@ -1,5 +1,7 @@
 import { DialogBasic } from './../DialogBasic/DialogBasic';
 import { UserRegistration } from './../UserRegistration/UserRegistration';
+import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
+import { deleteUser } from '../UserRegistration/Firebase/deleteUser';
 
 export const getDataTableNecesary = ({ allUserDataList }) => {
   if (allUserDataList.length === 0) {
@@ -22,6 +24,18 @@ export const getDataTableNecesary = ({ allUserDataList }) => {
                 identificationNumber={userData.identificationNumber}
               />
             }
+          />
+        ),
+
+        btnDelete: (
+          <PlainModalButton
+            primaryBtnText="Eliminar"
+            dialogTitle="Lista de usuarios"
+            dialogText={`Esta seguro de eliminar al usuario ${userData.surnames} ${userData.names}?`}
+            closeBtnText="cancelar"
+            continueBtnText="si"
+            functionToExecute={deleteUser}
+            functionParameters={userData.identificationNumber}
           />
         ),
       };
