@@ -75,7 +75,7 @@ export const UserDataTable = () => {
     },
     {
       name: 'btnEdit',
-      label: 'Acciones',
+      label: 'Editar',
       options: {
         filter: false, // func para filtrar por la columna
         sort: false, //funcionalidad para odernar la columna
@@ -85,7 +85,7 @@ export const UserDataTable = () => {
     //
     {
       name: 'btnDelete',
-      label: 'Accion2',
+      label: 'Eliminar',
       options: {
         filter: false, // func para filtrar por la columna
         sort: false, //funcionalidad para odernar la columna

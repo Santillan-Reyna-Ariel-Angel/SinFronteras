@@ -22,7 +22,7 @@ const PlainModalButton = ({
   thirdFunctionToExecute = () => {},
   componentView = <></>,
 
-  // primaryBtnColor="success", //Conciderar poder modificar el color del boton de PlainModalButton
+  primaryBtnColor = 'success', //Conciderar poder modificar el color del boton de PlainModalButton
 }) => {
   // const history = useHistory();
   const [openDialog, setOpenDialog] = useState(false);
@@ -50,7 +50,11 @@ const PlainModalButton = ({
 
   return (
     <>
-      <Button variant="contained" color="success" onClick={handleClickOpen}>
+      <Button
+        variant="contained"
+        color={primaryBtnColor}
+        onClick={handleClickOpen}
+      >
         {primaryBtnText}
       </Button>
       <Dialog

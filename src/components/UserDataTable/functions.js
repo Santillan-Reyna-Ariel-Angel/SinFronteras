@@ -36,6 +36,7 @@ export const getDataTableNecesary = ({ allUserDataList }) => {
             continueBtnText="si"
             functionToExecute={deleteUser}
             functionParameters={userData.identificationNumber}
+            primaryBtnColor="error"
           />
         ),
       };

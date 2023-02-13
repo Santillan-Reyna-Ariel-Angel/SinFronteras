@@ -339,6 +339,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     OnChange = changeBasicInformation,
     Margin = 'none',
     Variant = 'outlined',
+    Disabled = false,
   }) => {
     return (
       <>
@@ -351,6 +352,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
           onChange={OnChange}
           margin={Margin}
           variant={Variant}
+          disabled={Disabled}
           inputProps={{ style: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
         />
       </>
@@ -406,6 +408,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
               Type: 'number',
               Name: 'ci',
               Value: basicInformation.ci,
+              Disabled: userProp ? true : false,
             })}
           </InputCi>
           <InputAddress>
