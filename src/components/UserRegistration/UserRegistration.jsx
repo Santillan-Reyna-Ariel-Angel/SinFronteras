@@ -55,6 +55,7 @@ import { saveUser } from './UserRegistrationFunctios';
 //Others:
 import { branchList, listOfCharges, stateList } from './data';
 import { dateFormat } from './../globalFunctions';
+import { handleClose } from './../DialogBasic/DialogBasic';
 
 const filter = createFilterOptions();
 
@@ -77,6 +78,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     dateOfBirth,
     sex: sexUser,
     branchOfficeName,
+    branchNumberOrCode,
     charge: chargeUser,
     status: statusUser,
   } = userProp ? userProp : {};
@@ -152,7 +154,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     branchOfficeName: branchOfficeName ? branchOfficeName : '',
     location: '',
     department: '',
-    branchNumber: '',
+    branchNumber: branchNumberOrCode ? branchNumberOrCode : '',
     address: '',
     terminal: '',
   };
@@ -281,6 +283,8 @@ const UserRegistration = ({ identificationNumber = '' }) => {
   const handleCloseDialogBack = () => {
     setOpenAlertDialog(false);
   };
+
+  //componentDefaultData:
   const handleCloseDialogYes = () => {
     setOpenAlertDialog(false);
     setBasicInformation(defaultDataBasicInformation);
@@ -289,6 +293,8 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     setBranchOffice(defaultDataBranchOffice);
     setCharge(defaultDataCharge);
     setStatus(defaultDataStatus);
+    //Cerrar modal de <BasicDialog> para actualizar data:
+    handleClose();
   };
 
   //Data and Functions MUI:

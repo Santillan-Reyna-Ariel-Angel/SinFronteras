@@ -1,6 +1,6 @@
 /*cod fire v9:*/
 import { modulesFirebase } from './../../firebase-config.js';
-import { ref, set } from 'firebase/database';
+import { ref, set, update } from 'firebase/database';
 const { fire_db } = modulesFirebase;
 
 export const saveUser = (
@@ -18,7 +18,8 @@ export const saveUser = (
   const { statusType } = status;
 
   /*cod new fire v9:*/
-  set(
+  //set()
+  update(
     ref(fire_db, 'users/' + ci),
     {
       address,
