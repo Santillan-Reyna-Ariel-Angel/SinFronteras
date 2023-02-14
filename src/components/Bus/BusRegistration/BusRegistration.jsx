@@ -42,6 +42,8 @@ import { createBus } from './../Firebase/createBus';
 //Components:
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
+import { handleClose } from './../../DialogBasic/DialogBasic';
+
 const departmentsList = [
   '(B) beni',
   '(C) cochabamba',
@@ -105,6 +107,7 @@ export const BusRegistration = ({ busProp }) => {
 
   const componentDefaultData = () => {
     setBusData(companyBusDefaultData);
+    handleClose();
   };
   return (
     <>
@@ -124,6 +127,7 @@ export const BusRegistration = ({ busProp }) => {
               label="Matricula"
               variant="outlined"
               value={busData.enrollment}
+              disabled={busProp ? true : false}
               onChange={(event) =>
                 setBusData({
                   ...busData,

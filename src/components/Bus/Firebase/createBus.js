@@ -1,4 +1,4 @@
-import { ref, set } from 'firebase/database';
+import { ref, update } from 'firebase/database';
 import { modulesFirebase } from './../../../firebase-config.js';
 
 //Modulos Firebase:
@@ -9,7 +9,8 @@ export const createBus = (busData) => {
   let filingAux = filing.slice(1, 2); //Nos sacara la letra correspondiente de la Matricula
   //   console.log('filingAux: ', filingAux);
   //Enviar Datos a BD:
-  set(ref(fire_db, `companyBuses/${[enrollment]}/`), {
+  // update envez de set, por que podemos crear y actualizar datos.
+  update(ref(fire_db, `companyBuses/${[enrollment]}/`), {
     ...busData,
     filing: filingAux,
     // numberOfSeats: busData.numberOfSeats, // Posteriormente considerar asietos de 1er y 2do piso

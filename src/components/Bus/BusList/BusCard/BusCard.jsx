@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 //MUI:
-import { Button, Checkbox } from '@mui/material/';
+import { Checkbox } from '@mui/material/';
 import DirectionsBusRoundedIcon from '@mui/icons-material/DirectionsBusRounded';
 // import NoTransferRoundedIcon from '@mui/icons-material/NoTransferRounded';
 //Styles:
@@ -22,6 +22,7 @@ import { DialogBasic } from '../../../DialogBasic/DialogBasic';
 //States:
 //Components:
 import { BusRegistration } from './../../BusRegistration/BusRegistration';
+import { PlainModalButton } from '../../../PlainModalButton/PlainModalButton';
 //Others:
 
 export const BusCard = () => {
@@ -104,13 +105,25 @@ export const BusCard = () => {
                 <span>{`${bus.designatedBranch}`}</span>
               </BranchStyle>
               <BtnUpdateDataStyle>
-                {/* <Button variant="contained" color="success" size="small">
-                  editar
-                </Button> */}
-
                 <DialogBasic
                   primaryBtnText="editar"
                   componentView={<BusRegistration busProp={bus} />}
+                />
+
+                <PlainModalButton
+                  primaryBtnText="eliminar"
+                  dialogTitle="Buses en sucursal"
+                  dialogText="Esta seguro de eliminar este Bus?"
+                  closeBtnText="cancelar"
+                  continueBtnText="si"
+                  // redirectPage = './'
+                  // functionToExecute = () => {} //Funcion vacia por defecto
+                  // functionParameters
+                  // secondFunctionToExecute = () => {}
+                  // secondFunctionParameters //data type bolean
+                  // thirdFunctionToExecute = () => {}
+                  // componentView = <></>
+                  primaryBtnColor="error" //Conciderar poder modificar el color del boton de PlainModalButton
                 />
               </BtnUpdateDataStyle>
             </BodyContainer>
