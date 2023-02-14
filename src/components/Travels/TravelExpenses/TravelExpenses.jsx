@@ -103,8 +103,12 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
       };
 
   const [travelExpenses, setTravelExpenses] = useState(dataDefault);
-  const [enrollmentSelectableOption, setEnrollmentSelectableOption] =
-    useState(undefined);
+  let selectableOptionDefault = necessaryKeys[0]
+    ? necessaryKeys[0].selectableOption
+    : '';
+  const [enrollmentSelectableOption, setEnrollmentSelectableOption] = useState(
+    selectableOptionDefault
+  );
 
   const getBusEnrollmentAndTripMadeKey = (selectableOption) => {
     let selectableOptionKeys = necessaryKeys.filter(
