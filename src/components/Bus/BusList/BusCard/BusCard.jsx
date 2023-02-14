@@ -18,8 +18,10 @@ import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice'
 import { ContextCompanyBuses } from './../../../../contexts/ContextCompanyBuses';
 //Firebase Functions:
 import { updateBusData } from './../../Firebase/updateBusData';
+import { DialogBasic } from '../../../DialogBasic/DialogBasic';
 //States:
 //Components:
+import { BusRegistration } from './../../BusRegistration/BusRegistration';
 //Others:
 
 export const BusCard = () => {
@@ -102,9 +104,14 @@ export const BusCard = () => {
                 <span>{`${bus.designatedBranch}`}</span>
               </BranchStyle>
               <BtnUpdateDataStyle>
-                <Button variant="contained" color="success" size="small">
-                  Data
-                </Button>
+                {/* <Button variant="contained" color="success" size="small">
+                  editar
+                </Button> */}
+
+                <DialogBasic
+                  primaryBtnText="editar"
+                  componentView={<BusRegistration busProp={bus} />}
+                />
               </BtnUpdateDataStyle>
             </BodyContainer>
           </Background>

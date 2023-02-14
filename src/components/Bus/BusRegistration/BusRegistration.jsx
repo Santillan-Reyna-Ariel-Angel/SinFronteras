@@ -32,7 +32,7 @@ import {
   NumberOfFloorsStyle,
   ServicesText,
   ServicesStyle,
-  IdentificationNumberDriver,
+  // IdentificationNumberDriver,
   Btn,
 } from './BusRegistrationStyles';
 //Contexts:
@@ -42,39 +42,50 @@ import { createBus } from './../Firebase/createBus';
 //Components:
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
+const departmentsList = [
+  '(B) beni',
+  '(C) cochabamba',
+  '(H) chuquisaca',
+  '(L) la paz',
+  '(N) pando',
+  '(O) oruro',
+  '(P) potosi',
+  '(S) santa cruz',
+  '(T) tarija',
+];
 
-export const BusRegistration = () => {
+export const BusRegistration = ({ busProp }) => {
+  console.log('busProp: ', busProp);
+
+  let filingProp = busProp ? busProp.filing : '';
+  let departamentoFiltrado = departmentsList.filter((departamento) =>
+    departamento.includes(`(${filingProp})`)
+  );
+  console.log('departamentoFiltrado: ', departamentoFiltrado);
+
   let companyBusDefaultData = {
-    designatedBranch: 'DISPONIBLE', //Necesario para listar buses por branch
-    enrollment: '', //bus-001
-    filing: '', //"H"
-    identificationNumberDriver: '',
-    numberOfFloors: 1,
-    numberOfSeats: 0, //multiplo de 3(1 piso) y 4 (2 pisos)
-    services: {
-      bathroom: true,
-      drinks: false,
-      tv: true,
-    },
-    status: '',
-    typeOfBus: '',
-    typeOfSeats: '',
+    designatedBranch: busProp ? busProp.designatedBranch : 'DISPONIBLE', //Necesario para listar buses por branch
+    enrollment: busProp ? busProp.enrollment : '', //bus-001
+    filing: busProp ? departamentoFiltrado[0] : '', //"H"  hacer coincidor con el formato
+    identificationNumberDriver: busProp
+      ? busProp.identificationNumberDriver
+      : '',
+    numberOfFloors: busProp ? busProp.numberOfFloors : 1,
+    numberOfSeats: busProp ? busProp.numberOfSeats : 0, //multiplo de 3(1 piso) y 4 (2 pisos)
+    services: busProp
+      ? busProp.services
+      : {
+          bathroom: true,
+          drinks: false,
+          tv: true,
+        },
+    status: busProp ? busProp.status : '',
+    typeOfBus: busProp ? busProp.typeOfBus : '',
+    typeOfSeats: busProp ? busProp.typeOfSeats : '',
   };
 
   const [busData, setBusData] = useState(companyBusDefaultData);
   console.log('busData: ', busData);
-
-  const departmentsList = [
-    '(B) beni',
-    '(C) cochabamba',
-    '(H) chuquisaca',
-    '(L) la paz',
-    '(N) pando',
-    '(O) oruro',
-    '(P) potosi',
-    '(S) santa cruz',
-    '(T) tarija',
-  ];
 
   const typeOfBus = ['normal', 'leito'];
 
