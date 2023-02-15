@@ -164,26 +164,18 @@ export const SettlementFormsList = () => {
       label: 'Destino',
       //   options: {
       //     filter: false, // func para filtrar por la columna
-      //     //sort: false, //funcionalidad para odernar la columna
+      //     //sort: false, // funcionalidad para odernar la columna
+      //     // searchable: false, // se indica si text de la columna podra encontrarse por el buscador
+      //     // viewColumns: false, // func para añadir/quitar a la lista de columnas(de la barra de herramientas)
       //   },
     },
     {
       name: 'totalAmountIncome',
       label: 'Total Ingreso',
-      //   options: {
-      //     filter: false, // func para filtrar por la columna
-      //     //sort: false, //funcionalidad para odernar la columna
-      //   },
     },
     {
       name: 'totalExpenses',
       label: 'Total Egreso',
-      //   options: {
-      //     filter: false, // func para filtrar por la columna
-      //     //sort: false, //funcionalidad para odernar la columna
-      //     // searchable: false, // se indica si text de la columna podra encontrarse por el buscador
-      //     // viewColumns: false, // func para añadir/quitar a la lista de columnas(de la barra de herramientas)
-      //   },
     },
     {
       name: 'totalSettlement',
@@ -201,18 +193,18 @@ export const SettlementFormsList = () => {
       name: 'btnExpenses',
       label: 'Egresos',
       options: {
-        filter: false, // func para filtrar por la columna
-        sort: false, //funcionalidad para odernar la columna
-        print: false, //Esto deberia hacer que se omita esta columna para la impresion
+        filter: false,
+        sort: false,
+        print: false, // Esto deberia hacer que se omita esta columna para la impresion
       },
     },
     {
       name: 'btnSettlementForm',
       label: 'Planilla Liquidacion',
       options: {
-        filter: false, // func para filtrar por la columna
-        sort: false, //funcionalidad para odernar la columna
-        print: false, //Esto deberia hacer que se omita esta columna para la impresion
+        filter: false,
+        sort: false,
+        print: false, // Esto deberia hacer que se omita esta columna para la impresion
       },
     },
   ];

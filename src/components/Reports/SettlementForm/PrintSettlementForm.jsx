@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import { SettlementForm } from './SettlementForm';
 //Others:
 import { useReactToPrint } from 'react-to-print';
+import { handleClose } from './../../DialogBasic/DialogBasic';
 
 export const PrintSettlementForm = ({
   settlementFormData,
@@ -32,7 +33,8 @@ export const PrintSettlementForm = ({
       <Button
         variant="contained"
         color="success"
-        onClick={() => handlePrint()}
+        // onClick={() => handlePrint()}
+        onClick={() => [handlePrint(), handleClose()]} //Hara que se nos cierre automaticamente el modal de <DialogBasic/> al presionar el boton
         sx={{ margin: '8px 8px 30px 8px' }}
       >
         Imprimir Pdf
