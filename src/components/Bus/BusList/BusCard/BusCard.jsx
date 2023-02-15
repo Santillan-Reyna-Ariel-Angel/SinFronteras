@@ -117,18 +117,13 @@ export const BusCard = () => {
               <BtnDeleteBusStyle>
                 <PlainModalButton
                   primaryBtnText="eliminar"
-                  dialogTitle="Buses en sucursal"
-                  dialogText="Esta seguro de eliminar este Bus?"
+                  dialogTitle="Lista de buses"
+                  dialogText={`Esta seguro de eliminar este Bus (${bus.enrollment})?`}
                   closeBtnText="cancelar"
                   continueBtnText="si"
-                  // redirectPage = './'
-                  functionToExecute={deleteBus} //Funcion vacia por defecto
+                  functionToExecute={deleteBus}
                   functionParameters={bus.enrollment}
-                  // secondFunctionToExecute = () => {}
-                  // secondFunctionParameters //data type bolean
-                  // thirdFunctionToExecute = () => {}
-                  // componentView = <></>
-                  primaryBtnColor="error" //Conciderar poder modificar el color del boton de PlainModalButton
+                  primaryBtnColor="error"
                 />
               </BtnDeleteBusStyle>
             </BodyContainer>
