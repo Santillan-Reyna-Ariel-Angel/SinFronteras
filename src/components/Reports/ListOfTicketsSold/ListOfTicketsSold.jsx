@@ -55,25 +55,23 @@ export const ListOfTicketsSold = () => {
       label: 'Pasajero',
       options: {
         filter: false, // func para filtrar por la columna
-        //sort: false, //funcionalidad para odernar la columna
+        // sort: false, //funcionalidad para odernar la columna
+        // searchable: false, // se indica si text de la columna podra encontrarse por el buscador
+        // viewColumns: false, // func para añadir/quitar a la lista de columnas(de la barra de herramientas)
       },
     },
     {
       name: 'identificationNumber',
       label: 'CI Pasajero',
       options: {
-        filter: false, // func para filtrar por la columna
-        //sort: false, //funcionalidad para odernar la columna
+        filter: false,
       },
     },
     {
       name: 'seatId',
       label: 'Asiento',
       options: {
-        filter: false, // func para filtrar por la columna
-        //sort: false, //funcionalidad para odernar la columna
-        // searchable: false, // se indica si text de la columna podra encontrarse por el buscador
-        // viewColumns: false, // func para añadir/quitar a la lista de columnas(de la barra de herramientas)
+        filter: false,
       },
     },
     // {
@@ -97,8 +95,8 @@ export const ListOfTicketsSold = () => {
       name: 'btnTicket',
       label: 'Detalles',
       options: {
-        filter: false, // func para filtrar por la columna
-        sort: false, //funcionalidad para odernar la columna
+        filter: false,
+        sort: false,
         print: false, //Esto deberia hacer que se omita esta columna para la impresion
       },
     },
