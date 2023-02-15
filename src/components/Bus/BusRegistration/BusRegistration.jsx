@@ -37,7 +37,7 @@ import {
 } from './BusRegistrationStyles';
 //Contexts:
 //Firebase Functions:
-import { createBus } from './../Firebase/createBus';
+import { create_update_Bus } from '../Firebase/create_update_Bus';
 //States:
 //Components:
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
@@ -350,7 +350,7 @@ export const BusRegistration = ({ busProp }) => {
               dialogText="Esta seguro de registrar este Bus?"
               closeBtnText="cancelar"
               continueBtnText="si"
-              functionToExecute={createBus}
+              functionToExecute={create_update_Bus}
               functionParameters={busData}
               thirdFunctionToExecute={componentDefaultData}
             />

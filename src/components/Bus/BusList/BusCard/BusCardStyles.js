@@ -22,7 +22,7 @@ export const BodyContainer = styled.div`
   border-radius: 10px 10px 10px 10px; //0px 0px 10px 10px;
   /* backdrop-filter: blur(18px); */
   /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); */
-  grid-template-areas: 'CheckboxBusIconStyle' 'EnrollmentStyle' 'BranchStyle' 'BtnUpdateDataStyle';
+  grid-template-areas: 'CheckboxBusIconStyle' 'EnrollmentStyle' 'BranchStyle' 'BtnUpdateDataStyle' 'BtnDeleteBusStyle';
   /* overflow: hidden; */
 `;
 
@@ -44,5 +44,10 @@ export const BranchStyle = styled.div`
 
 export const BtnUpdateDataStyle = styled.div`
   grid-area: BtnUpdateDataStyle;
+  justify-self: center;
+`;
+
+export const BtnDeleteBusStyle = styled.div`
+  grid-area: BtnDeleteBusStyle;
   justify-self: center;
 `;

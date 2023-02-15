@@ -12,17 +12,20 @@ import {
   EnrollmentStyle,
   BranchStyle,
   BtnUpdateDataStyle,
+  BtnDeleteBusStyle,
 } from './BusCardStyles';
 //Contexts:
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 import { ContextCompanyBuses } from './../../../../contexts/ContextCompanyBuses';
 //Firebase Functions:
-import { updateBusData } from './../../Firebase/updateBusData';
 import { DialogBasic } from '../../../DialogBasic/DialogBasic';
+import { deleteBus } from '../../Firebase/deleteBus';
+import { create_update_Bus } from '../../Firebase/create_update_Bus';
 //States:
 //Components:
 import { BusRegistration } from './../../BusRegistration/BusRegistration';
 import { PlainModalButton } from '../../../PlainModalButton/PlainModalButton';
+
 //Others:
 
 export const BusCard = () => {
@@ -41,7 +44,7 @@ export const BusCard = () => {
   for (let i in companyBuses) companyBusesArray.push(companyBuses[i]);
   // console.log('companyBusesArray', companyBusesArray);
 
-  const changeServiceStatus = (event, index) => {
+  const changeDesignatedBranch = (event, index) => {
     let busInBranch = event.target.checked;
     let state = busInBranch ? branchNumber : 'DISPONIBLE';
     // console.log('state', state);
@@ -49,8 +52,8 @@ export const BusCard = () => {
     let selectedBus = { ...companyBusesArray[index], designatedBranch: state }; //Actualizamos la propiedad necesaria
     // console.log('selectedBus', selectedBus);
 
-    //Llamar funcion firebase update:
-    updateBusData(selectedBus);
+    //Llamar funcion  que cambia la designacion de sucursal:
+    create_update_Bus(selectedBus);
   };
 
   console.log('companyBusesArray:', companyBusesArray);
@@ -93,7 +96,7 @@ export const BusCard = () => {
                     '& .MuiSvgIcon-root': { fontSize: 50 },
                     //   '&:hover': { bgcolor: 'transparent' }, //hover transratente (innecesario se se usa la propiedad disableRipple)
                   }}
-                  onChange={(event) => changeServiceStatus(event, index)}
+                  onChange={(event) => changeDesignatedBranch(event, index)}
                 />
               </CheckboxBusIconStyle>
 
@@ -109,7 +112,9 @@ export const BusCard = () => {
                   primaryBtnText="editar"
                   componentView={<BusRegistration busProp={bus} />}
                 />
+              </BtnUpdateDataStyle>
 
+              <BtnDeleteBusStyle>
                 <PlainModalButton
                   primaryBtnText="eliminar"
                   dialogTitle="Buses en sucursal"
@@ -117,15 +122,15 @@ export const BusCard = () => {
                   closeBtnText="cancelar"
                   continueBtnText="si"
                   // redirectPage = './'
-                  // functionToExecute = () => {} //Funcion vacia por defecto
-                  // functionParameters
+                  functionToExecute={deleteBus} //Funcion vacia por defecto
+                  functionParameters={bus.enrollment}
                   // secondFunctionToExecute = () => {}
                   // secondFunctionParameters //data type bolean
                   // thirdFunctionToExecute = () => {}
                   // componentView = <></>
                   primaryBtnColor="error" //Conciderar poder modificar el color del boton de PlainModalButton
                 />
-              </BtnUpdateDataStyle>
+              </BtnDeleteBusStyle>
             </BodyContainer>
           </Background>
         </>
