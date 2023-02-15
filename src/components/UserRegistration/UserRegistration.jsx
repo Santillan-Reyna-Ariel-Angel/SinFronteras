@@ -446,7 +446,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
             >
               <DatePicker
                 disableFuture
-                label="F. nacimiento(dia/mes/año)"
+                label="Fecha de nacimiento" // F. nacimiento(dia/mes/año)
                 minDate={new Date('1942-01-01')}
                 maxDate={new Date()}
                 openTo="year"

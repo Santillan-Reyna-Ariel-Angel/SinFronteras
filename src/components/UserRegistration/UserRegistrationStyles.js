@@ -40,7 +40,7 @@ export const HeaderTitle = styled.div`
 export const BodyContainer = styled.form`
   display: grid;
   background-color: #00bdb2;
-  grid-template-columns: 250px 250px; //probar auto o xfr
+  grid-template-columns: 210px 210px; //  250px 250px  ||  probar auto o xfr
   grid-template-rows: auto;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
@@ -50,7 +50,10 @@ export const BodyContainer = styled.form`
   border-radius: 0px 0px 0px 0px; //en vista: 0px 0px 10px 10px; en <BasicDialog/> : 0px 0px 0px 0px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  grid-template-areas: 'InputNames InputSurnames' 'InputCi InputAddress' 'InputMobile InputEmail' 'InputDateOfBirdth InputSex' 'InputBranchOffice InputBranchOffice' 'InputCharge InputCharge' 'InputStatus InputStatus' 'BtnToRegistrer BtnToRegistrer';
+  grid-template-areas: 'InputNames InputSurnames' 'InputCi InputAddress' 'InputMobile InputEmail' 'InputSex InputDateOfBirdth' 'InputBranchOffice InputBranchOffice' 'InputCharge InputStatus' 'BtnToRegistrer BtnToRegistrer';
+
+  // antiguo:
+  /* grid-template-areas: 'InputNames InputSurnames' 'InputCi InputAddress' 'InputMobile InputEmail' 'InputDateOfBirdth InputSex' 'InputBranchOffice InputBranchOffice' 'InputCharge InputCharge' 'InputStatus InputStatus' 'BtnToRegistrer BtnToRegistrer'; */
 `;
 
 export const InputNames = styled.div`
@@ -119,7 +122,7 @@ export const InputBranchOffice = styled.div`
   grid-area: InputBranchOffice;
 
   .input {
-    width: 50%;
+    width: 100%; //50%
   }
 `;
 
@@ -127,7 +130,7 @@ export const InputCharge = styled.div`
   grid-area: InputCharge;
 
   .input {
-    width: 50%;
+    width: 100%; // 50%;
   }
 `;
 
@@ -135,7 +138,7 @@ export const InputStatus = styled.div`
   grid-area: InputStatus;
 
   .input {
-    width: 50%;
+    width: 100%; //50%;
   }
 `;
 
