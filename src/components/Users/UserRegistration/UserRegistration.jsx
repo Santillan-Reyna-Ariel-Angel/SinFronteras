@@ -48,14 +48,14 @@ import {
   InputSurnames,
 } from './UserRegistrationStyles';
 //Contexts:
-import { ContextAllUserData } from './../../contexts/ContextAllUserData';
+import { ContextAllUserData } from './../../../contexts/ContextAllUserData';
 
 //Firebase Functions:
 import { saveUser } from './UserRegistrationFunctios';
 //Others:
 import { branchList, listOfCharges, stateList } from './data';
-import { dateFormat } from './../globalFunctions';
-import { handleClose } from './../DialogBasic/DialogBasic';
+import { dateFormat } from './../../globalFunctions';
+import { handleClose } from './../../DialogBasic/DialogBasic';
 
 const filter = createFilterOptions();
 

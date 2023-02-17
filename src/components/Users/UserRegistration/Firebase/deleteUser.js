@@ -1,4 +1,4 @@
-import { modulesFirebase } from './../../../firebase-config.js';
+import { modulesFirebase } from './../../../../firebase-config.js';
 import { ref, remove } from 'firebase/database';
 const { fire_db } = modulesFirebase;
 

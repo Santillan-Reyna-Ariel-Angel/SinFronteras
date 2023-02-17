@@ -5,16 +5,16 @@ import React, { useContext } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
-import { muiCache, getThemeForMUIDataTable } from './../themeForMUIDataTable';
+import { muiCache, getThemeForMUIDataTable } from '../../themeForMUIDataTable';
 //Styles:
 import { Background, BodyContainer } from './UserDataTableStyles';
 //Contexts:
-import { ContextAllUserData } from './../../contexts/ContextAllUserData';
+import { ContextAllUserData } from '../../../contexts/ContextAllUserData';
 //Firebase Functions:
 //States:
 //Components:
 //Others:
-import { MUI_DATA_TABLE___TEXT_LABELS_ES } from './../constantData';
+import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../constantData';
 import { getDataTableNecesary } from './functions';
 
 export const UserDataTable = () => {

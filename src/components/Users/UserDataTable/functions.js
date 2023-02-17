@@ -1,7 +1,7 @@
-import { DialogBasic } from './../DialogBasic/DialogBasic';
+import { DialogBasic } from '../../DialogBasic/DialogBasic';
 import { UserRegistration } from './../UserRegistration/UserRegistration';
-import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
-import { deleteUser } from '../UserRegistration/Firebase/deleteUser';
+import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
+import { deleteUser } from './../UserRegistration/Firebase/deleteUser';
 
 export const getDataTableNecesary = ({ allUserDataList }) => {
   if (allUserDataList.length === 0) {
