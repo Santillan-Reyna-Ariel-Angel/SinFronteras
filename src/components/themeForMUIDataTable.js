@@ -8,7 +8,7 @@ export const muiCache = createCache({
 });
 
 //Styles Manejo de Tablas:
-export const getMuiTheme = () =>
+export const getThemeForMUIDataTable = () =>
   createTheme({
     components: {
       //Cabecera superior(titulo):
@@ -77,11 +77,20 @@ export const getMuiTheme = () =>
         },
       },
 
-      //Styles Pagination (textos e iconos):
+      //Styles Pagination 1: (textos e iconos, menos el icono selector de filas por pagina):
       MUIDataTablePagination: {
         styleOverrides: {
           root: {
             color: 'white',
+          },
+        },
+      },
+
+      // Styles Pagination 2: icono selector de filas por page:
+      MuiTablePagination: {
+        styleOverrides: {
+          selectIcon: {
+            color: 'white', // cambiar color del icono selector de filas por pagina
           },
         },
       },

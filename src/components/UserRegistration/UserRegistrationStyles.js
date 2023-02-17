@@ -40,7 +40,7 @@ export const HeaderTitle = styled.div`
 export const BodyContainer = styled.form`
   display: grid;
   background-color: #00bdb2;
-  grid-template-columns: 210px 210px; //  250px 250px  ||  probar auto o xfr
+  grid-template-columns: 230px 230px; //  250px 250px  o  probar auto o xfr
   grid-template-rows: auto;
   grid-row-gap: 10px;
   grid-column-gap: 10px;

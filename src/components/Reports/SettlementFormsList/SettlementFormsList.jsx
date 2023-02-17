@@ -5,7 +5,10 @@ import React, { useContext } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
-import { muiCache, getMuiTheme } from './themeDataTable';
+import {
+  muiCache,
+  getThemeForMUIDataTable,
+} from './../../themeForMUIDataTable';
 //Styles:
 import { Background, BodyContainer } from './SettlementFormsListStyles';
 //Contexts:
@@ -216,7 +219,8 @@ export const SettlementFormsList = () => {
     // onRowClick: (rowData) => {
     //   console.log('rowData', rowData); // nos regresa info de la fila cliqueada
     // },
-    rowsPerPageOptions: [5, 10, 15, 20, 25, 30, 50, 100], //numero de filas(registros) por paginas
+    rowsPerPage: 5, // Número de filas permitidas por página. Por defecto es 10
+    rowsPerPageOptions: [5, 10, 15, 20, 30, 50, 100], //numero de filas(registros) por paginas
     searchOpen: true,
     // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
     // selectableRows: 'none', //single, multiple //indica si las filas pueden ser selecionadas
@@ -235,7 +239,7 @@ export const SettlementFormsList = () => {
       <Background>
         <BodyContainer>
           <CacheProvider value={muiCache}>
-            <ThemeProvider theme={getMuiTheme()}>
+            <ThemeProvider theme={getThemeForMUIDataTable()}>
               <MUIDataTable
                 title={'LISTA DE VIAJES'} //LISTA PLANILLAS DE LIQUIDACION
                 data={data}
