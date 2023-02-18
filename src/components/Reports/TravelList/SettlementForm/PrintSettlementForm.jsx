@@ -9,7 +9,7 @@ import Button from '@mui/material/Button';
 import { SettlementForm } from './SettlementForm';
 //Others:
 import { useReactToPrint } from 'react-to-print';
-import { handleClose } from './../../DialogBasic/DialogBasic';
+import { handleClose } from './../../../DialogBasic/DialogBasic';
 
 export const PrintSettlementForm = ({
   settlementFormData,

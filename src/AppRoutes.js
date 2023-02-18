@@ -18,8 +18,8 @@ import { TravelRegistration } from './components/Travels/TravelRegistration/Trav
 import { RegisterDestination } from './components/Destinations/RegisterDestination';
 //Reportes:
 import { TicketsSoldDataTable } from './components/Reports/Tickets/TicketsSoldDataTable/TicketsSoldDataTable';
-import { SettlementForm } from './components/Reports/SettlementForm/SettlementForm';
-import { SettlementFormsList } from './components/Reports/SettlementFormsList/SettlementFormsList';
+import { SettlementForm } from './components/Reports/TravelList/SettlementForm/SettlementForm';
+import { SettlementFormsList } from './components/Reports/TravelList/SettlementFormsList/SettlementFormsList';
 
 import { TicketsSold } from './components/Reports/Tickets/TicketsSold/TicketsSold';
 import { ReactToPrintComponent } from './components/Reports/Tickets/TicketsSold/ReactToPrintComponent/ReactToPrintComponent.jsx';
