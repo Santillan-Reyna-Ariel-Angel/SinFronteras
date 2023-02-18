@@ -19,7 +19,7 @@ import { RegisterDestination } from './components/Destinations/RegisterDestinati
 //Reportes:
 import { TicketsSoldDataTable } from './components/Reports/Tickets/TicketsSoldDataTable/TicketsSoldDataTable';
 import { SettlementForm } from './components/Reports/TravelList/SettlementForm/SettlementForm';
-import { SettlementFormsList } from './components/Reports/TravelList/SettlementFormsList/SettlementFormsList';
+import { SettlementFormsDataTable } from './components/Reports/TravelList/SettlementFormsDataTable/SettlementFormsDataTable';
 
 import { TicketsSold } from './components/Reports/Tickets/TicketsSold/TicketsSold';
 import { ReactToPrintComponent } from './components/Reports/Tickets/TicketsSold/ReactToPrintComponent/ReactToPrintComponent.jsx';
@@ -159,7 +159,7 @@ const AppRoutes = () => {
                           <Route
                             exact
                             path="/reportes/lista-de-viajes/"
-                            component={SettlementFormsList}
+                            component={SettlementFormsDataTable}
                           />
 
                           {/* Route for Tests: */}

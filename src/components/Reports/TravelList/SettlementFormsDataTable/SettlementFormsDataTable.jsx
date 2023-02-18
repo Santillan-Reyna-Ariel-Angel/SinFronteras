@@ -8,11 +8,11 @@ import { CacheProvider } from '@emotion/react';
 import {
   muiCache,
   getThemeForMUIDataTable,
-} from './../../../themeForMUIDataTable';
+} from '../../../themeForMUIDataTable';
 //Styles:
-import { Background, BodyContainer } from './SettlementFormsListStyles';
+import { Background, BodyContainer } from './SettlementFormsDataTableStyles';
 //Contexts:
-import { ContextBranchTripsMade } from './../../../../contexts/ContextBranchTripsMade';
+import { ContextBranchTripsMade } from '../../../../contexts/ContextBranchTripsMade';
 //Firebase Functions:
 //States:
 //Components:
@@ -24,9 +24,10 @@ import {
   getDataTableNecesary,
   travelKey,
 } from './functions';
-import { MUI_DATA_TABLE___TEXT_LABELS_ES } from './../../../constantData';
+import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../../constantData';
 
-export const SettlementFormsList = () => {
+// SettlementFormsDataTable por SettlementFormsList
+export const SettlementFormsDataTable = () => {
   let settlementData = {
     companyName: '', //Sin Fronteras
     formCode: '', //004121

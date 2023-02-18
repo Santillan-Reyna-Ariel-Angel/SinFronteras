@@ -1,6 +1,6 @@
-import { DialogBasic } from './../../../DialogBasic/DialogBasic';
-import { TravelExpenses } from './../../../Travels/TravelExpenses/TravelExpenses';
-import { PrintSettlementForm } from './../SettlementForm/PrintSettlementForm';
+import { DialogBasic } from '../../../DialogBasic/DialogBasic';
+import { TravelExpenses } from '../../../Travels/TravelExpenses/TravelExpenses';
+import { PrintSettlementForm } from '../SettlementForm/PrintSettlementForm';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
