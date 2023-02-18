@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Logo from './../../../../sources/img/LogoSF2.png';
+import Logo from './../../../../../sources/img/LogoSF2.png';
 
 export const Background = styled.div`
   display: grid;

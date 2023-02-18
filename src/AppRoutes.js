@@ -20,9 +20,7 @@ import { RegisterDestination } from './components/Destinations/RegisterDestinati
 import { TicketsSoldDataTable } from './components/Reports/TicketsSoldDataTable/TicketsSoldDataTable';
 import { SettlementForm } from './components/Reports/SettlementForm/SettlementForm';
 import { SettlementFormsList } from './components/Reports/SettlementFormsList/SettlementFormsList';
-//probando tickets
-import { Tickets1 } from './components/Sales/Tickets/Tickets1/Tickets1.jsx';
-import { Tickets2 } from './components/Sales/Tickets/Tickets2/Tickets2.jsx';
+
 import { TicketsSold } from './components/Sales/Tickets/TicketsSold/TicketsSold';
 import { ReactToPrintComponent } from './components/Sales/Tickets/TicketsSold/ReactToPrintComponent/ReactToPrintComponent.jsx';
 import { PrintTicketsSold } from './components/Sales/Tickets/TicketsSold/PrintTicketsSold.jsx';
@@ -41,6 +39,9 @@ import { ProviderAllUserData } from './contexts/ContextAllUserData';
 //ComponentsGenerals:
 // import { DialogBasic } from './components/DialogBasic/DialogBasic';
 //Components Test:
+//probando tickets
+import { Tickets1 } from './components/ComponentTest/EmptyPage/Tickets/Tickets1/Tickets1.jsx';
+import { Tickets2 } from './components/ComponentTest/EmptyPage/Tickets/Tickets2/Tickets2.jsx';
 
 const AppRoutes = () => {
   return (
@@ -60,8 +61,7 @@ const AppRoutes = () => {
                           component={() => <Redirect to="/acceso" />}
                         />
                         <Route exact path="/acceso" component={Login} />
-                        <Route exact path="/tickets1" component={Tickets1} />
-                        <Route exact path="/tickets2" component={Tickets2} />
+
                         <Route
                           exact
                           path="/pasajes-vendidos"
@@ -88,6 +88,10 @@ const AppRoutes = () => {
                           path="/send-email3"
                           component={SendEmail3}
                         />
+
+                        {/* COMPONENTES DE PRUEBA SIN MENU NI CABECERA: */}
+                        <Route exact path="/tickets1" component={Tickets1} />
+                        <Route exact path="/tickets2" component={Tickets2} />
 
                         <Layout>
                           <Route exact path="/principal" component={Home} />

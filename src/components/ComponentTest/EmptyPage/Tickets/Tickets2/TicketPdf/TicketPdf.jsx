@@ -1,7 +1,7 @@
 import React from 'react';
 import { Document, Page, View, Text, Image } from '@react-pdf/renderer';
 //Others:
-import Logo from './../../../../../sources/img/LogoSF2.png';
+import Logo from './../../../../../../sources/img/LogoSF2.png';
 
 const TicketPdf = ({ dataDefault }) => {
   return (

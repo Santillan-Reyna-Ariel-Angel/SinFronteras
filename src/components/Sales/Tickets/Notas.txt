@@ -1,7 +1,2 @@
-Componentes considerados a eliminar:
-*Por que solo son vista del en el navegador:
->Tickets
->Tickets2
-
 Componente que genera pdf y es vista en el navegador:
->Tickets3
+>TicketsSold
