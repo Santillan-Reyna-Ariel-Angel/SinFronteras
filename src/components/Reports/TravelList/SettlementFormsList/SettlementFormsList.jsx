@@ -158,9 +158,13 @@ export const SettlementFormsList = () => {
   console.log('data', data);
 
   const columns = [
+    // {
+    //   name: 'formCode',
+    //   label: 'Codigo',
+    // },
     {
-      name: 'formCode',
-      label: 'Codigo',
+      name: 'busEnrollment',
+      label: 'Bus',
     },
     {
       name: 'destiny',

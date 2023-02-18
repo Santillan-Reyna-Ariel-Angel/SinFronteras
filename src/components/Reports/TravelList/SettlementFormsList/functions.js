@@ -51,6 +51,7 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
   let dataTableNecesary = newSettlementDataList.map((settlementData) => {
     return {
       formCode: settlementData.formCode,
+      busEnrollment: settlementData.travelExpenses.busEnrollment,
       destiny: settlementData.destiny,
       totalAmountIncome: settlementData.travelIncome.totalAmountIncome,
       totalExpenses: settlementData.travelExpenses.totalExpenses,
