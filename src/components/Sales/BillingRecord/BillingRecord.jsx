@@ -20,7 +20,6 @@ import {
 import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCompanyData';
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextUserData } from './../../../contexts/ContextUserData';
-import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 //Firebase Functions:
 import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
@@ -30,6 +29,7 @@ import { updateTravelIncome } from './../Events/Firebase/updateTravelIncome';
 import { showSeatMap, setShowSeatMap } from './../TravelCards/TravelCards'; //showSeatMap muestra o no el mapa de asientos(se usara al finalizar la venta)
 import { salesAmountData } from './../SalesAmountData/SalesAmountData';
 //Components:
+import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
 import { SalesAmountData } from '../SalesAmountData/SalesAmountData';
 //Others:
 import { countryData } from './countryData';

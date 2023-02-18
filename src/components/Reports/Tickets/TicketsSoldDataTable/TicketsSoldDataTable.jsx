@@ -5,11 +5,14 @@ import React, { useContext } from 'react';
 import MUIDataTable from 'mui-datatables';
 import { ThemeProvider } from '@mui/material/styles';
 import { CacheProvider } from '@emotion/react';
-import { muiCache, getThemeForMUIDataTable } from '../../themeForMUIDataTable';
+import {
+  muiCache,
+  getThemeForMUIDataTable,
+} from '../../../themeForMUIDataTable';
 //Styles:
 import { Background, BodyContainer } from './TicketsSoldDataTableStyles';
 //Contexts:
-import { ContextBranchTripsMade } from '../../../contexts/ContextBranchTripsMade';
+import { ContextBranchTripsMade } from '../../../../contexts/ContextBranchTripsMade';
 
 //Firebase Functions:
 //States:
@@ -21,7 +24,7 @@ import {
   ticketsSoldByBuyer,
   dataTableNecesary,
 } from './functions';
-import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../constantData';
+import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../../constantData';
 
 export const TicketsSoldDataTable = () => {
   //ContextCompanyBuses:

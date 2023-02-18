@@ -1,5 +1,5 @@
-import { PrintTicketsSold } from '../../Sales/Tickets/TicketsSold/PrintTicketsSold';
-import { DialogBasic } from './../../DialogBasic/DialogBasic';
+import { PrintTicketsSold } from './../TicketsSold/PrintTicketsSold';
+import { DialogBasic } from './../../../DialogBasic/DialogBasic';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 

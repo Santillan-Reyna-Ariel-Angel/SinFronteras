@@ -1,2 +1,3 @@
 Componente que genera pdf y es vista en el navegador:
 >TicketsSold
+>datos.js es para probar TicketsSold

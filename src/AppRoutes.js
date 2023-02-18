@@ -17,13 +17,13 @@ import { TravelRegistration } from './components/Travels/TravelRegistration/Trav
 // import { TravelExpenses } from './components/Travels/TravelExpenses/TravelExpenses';
 import { RegisterDestination } from './components/Destinations/RegisterDestination';
 //Reportes:
-import { TicketsSoldDataTable } from './components/Reports/TicketsSoldDataTable/TicketsSoldDataTable';
+import { TicketsSoldDataTable } from './components/Reports/Tickets/TicketsSoldDataTable/TicketsSoldDataTable';
 import { SettlementForm } from './components/Reports/SettlementForm/SettlementForm';
 import { SettlementFormsList } from './components/Reports/SettlementFormsList/SettlementFormsList';
 
-import { TicketsSold } from './components/Sales/Tickets/TicketsSold/TicketsSold';
-import { ReactToPrintComponent } from './components/Sales/Tickets/TicketsSold/ReactToPrintComponent/ReactToPrintComponent.jsx';
-import { PrintTicketsSold } from './components/Sales/Tickets/TicketsSold/PrintTicketsSold.jsx';
+import { TicketsSold } from './components/Reports/Tickets/TicketsSold/TicketsSold';
+import { ReactToPrintComponent } from './components/Reports/Tickets/TicketsSold/ReactToPrintComponent/ReactToPrintComponent.jsx';
+import { PrintTicketsSold } from './components/Reports/Tickets/TicketsSold/PrintTicketsSold.jsx';
 //SendEmail
 import { SendEmail } from './components/SendEmail/SendEmail.jsx';
 import { SendEmail2 } from './components/SendEmail/SendEmail2.jsx';
