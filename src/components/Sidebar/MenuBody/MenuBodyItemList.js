@@ -56,7 +56,7 @@ export const menuBodyItemList = [
   {
     path: '/Buses',
     icon: <DirectionsBusRoundedIcon />,
-    title: 'Bueses',
+    title: 'Buses',
     children: [
       {
         path: '/buses/registro-de-buses',
@@ -123,3 +123,60 @@ export const menuBodyItemList = [
     ],
   },
 ];
+const [sales, users, buses, travels, reports, branchOffices] = menuBodyItemList;
+
+const OWNER_MENU = [sales, users, buses, travels, reports, branchOffices];
+
+const GENERAL_ADMINISTRATOR_MENU = [
+  sales,
+  users,
+  buses,
+  travels,
+  reports,
+  branchOffices,
+]; //  o const GENERAL_ADMINISTRATOR_MENU = OWNER_MENU;
+
+const BRANCH_MANAGER_MENU = [
+  sales,
+  users,
+  buses,
+  { ...travels, children: [travels.children[1]] }, // solo se mostrara el item de "programar viaje"
+  reports,
+];
+
+const SECRETARY_MENU = BRANCH_MANAGER_MENU;
+
+const TICKET_HOLDER_MENU = SECRETARY_MENU;
+
+const DRIVER_MENU = TICKET_HOLDER_MENU;
+
+export const getMenuBodyItemList = (charge) => {
+  let menuBodyItemList;
+
+  switch (charge) {
+    case 'dueño':
+      menuBodyItemList = OWNER_MENU;
+      break;
+    case 'administrador-general':
+      menuBodyItemList = GENERAL_ADMINISTRATOR_MENU;
+      break;
+    case 'administrador-sucursal':
+      menuBodyItemList = BRANCH_MANAGER_MENU;
+      break;
+    case 'secretaria(o)':
+      menuBodyItemList = SECRETARY_MENU;
+      break;
+    case 'boletero(a)':
+      menuBodyItemList = TICKET_HOLDER_MENU;
+      break;
+    case 'chofer':
+      menuBodyItemList = DRIVER_MENU;
+      break;
+
+    default:
+      console.log(`El cargo no coincide.`);
+      menuBodyItemList = [];
+  }
+
+  return menuBodyItemList;
+};

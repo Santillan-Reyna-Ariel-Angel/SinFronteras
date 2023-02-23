@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 //MUI:
 import {
@@ -12,10 +12,26 @@ import { KeyboardArrowDown } from '@mui/icons-material';
 // Styles:
 import { LinksStyles } from './MenuBodyStyles';
 //Components:
-import { menuBodyItemList } from './MenuBodyItemList'; //Menu del sidebar
+import {
+  // menuBodyItemList,
+  getMenuBodyItemList,
+} from './MenuBodyItemList'; //Menu del sidebar
+// Contexts:
+import { ContextUserData } from './../../../contexts/ContextUserData';
 
 const MenuBody = () => {
+  // ContextUserData:
+  const userData = useContext(ContextUserData);
+  console.log('userData', userData);
+  let { charge } = userData ? userData : { charge: '' };
+
+  //Antiguo:
+  // const sidebarMenuBodyItemList = menuBodyItemList ? menuBodyItemList : [];
+
+  // New:
+  let menuBodyItemList = getMenuBodyItemList(charge);
   const sidebarMenuBodyItemList = menuBodyItemList ? menuBodyItemList : [];
+  console.log('sidebarMenuBodyItemList', sidebarMenuBodyItemList);
 
   const urlPath = window.location.pathname;
   // O tambien importando "useLocation" de react-router-dom :

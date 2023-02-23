@@ -49,9 +49,9 @@ export const listOfCharges = [
   { chargeOfType: 'dueño' },
   { chargeOfType: 'administrador-general' },
   { chargeOfType: 'administrador-sucursal' },
-  { chargeOfType: 'chofer' },
   { chargeOfType: 'secretaria(o)' },
   { chargeOfType: 'boletero(a)' },
+  { chargeOfType: 'chofer' },
 ];
 // Lista de estados:
 export const stateList = [{ statusType: 'activo' }, { statusType: 'inactivo' }];
