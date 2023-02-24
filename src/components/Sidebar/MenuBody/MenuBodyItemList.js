@@ -157,7 +157,7 @@ const TICKET_HOLDER_MENU = [
   { ...reports, children: [reports.children[0]] }, // solo se mostrara el item de "lista de ventas"
 ];
 
-const DRIVER_MENU = TICKET_HOLDER_MENU;
+const DRIVER_MENU = [reports];
 
 export const getMenuBodyItemList = (charge) => {
   let menuBodyItemList;
