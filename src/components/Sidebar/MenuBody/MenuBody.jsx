@@ -30,7 +30,7 @@ const MenuBody = () => {
 
   // New:
   //(charge)
-  let menuBodyItemList = getMenuBodyItemList('secretaria(o)');
+  let menuBodyItemList = getMenuBodyItemList('boletero(a)');
   const sidebarMenuBodyItemList = menuBodyItemList ? menuBodyItemList : [];
   console.log('sidebarMenuBodyItemList', sidebarMenuBodyItemList);
 

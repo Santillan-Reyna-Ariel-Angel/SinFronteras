@@ -152,7 +152,10 @@ const SECRETARY_MENU = [
   reports,
 ];
 
-const TICKET_HOLDER_MENU = [];
+const TICKET_HOLDER_MENU = [
+  sales,
+  { ...reports, children: [reports.children[0]] }, // solo se mostrara el item de "lista de ventas"
+];
 
 const DRIVER_MENU = TICKET_HOLDER_MENU;
 
