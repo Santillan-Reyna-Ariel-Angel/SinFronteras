@@ -29,7 +29,8 @@ const MenuBody = () => {
   // const sidebarMenuBodyItemList = menuBodyItemList ? menuBodyItemList : [];
 
   // New:
-  let menuBodyItemList = getMenuBodyItemList(charge);
+  //(charge)
+  let menuBodyItemList = getMenuBodyItemList('secretaria(o)');
   const sidebarMenuBodyItemList = menuBodyItemList ? menuBodyItemList : [];
   console.log('sidebarMenuBodyItemList', sidebarMenuBodyItemList);
 

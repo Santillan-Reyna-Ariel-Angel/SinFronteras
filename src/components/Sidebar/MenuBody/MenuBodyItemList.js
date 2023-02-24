@@ -144,9 +144,15 @@ const BRANCH_MANAGER_MENU = [
   reports,
 ];
 
-const SECRETARY_MENU = BRANCH_MANAGER_MENU;
+const SECRETARY_MENU = [
+  sales,
+  { ...users, children: [users.children[1]] }, // solo se mostrara el item de "lista de usuarios"
+  { ...buses, children: [buses.children[1]] }, // solo se mostrara el item de "lista de buses"
+  { ...travels, children: [travels.children[1]] }, // solo se mostrara el item de "programar viaje"
+  reports,
+];
 
-const TICKET_HOLDER_MENU = SECRETARY_MENU;
+const TICKET_HOLDER_MENU = [];
 
 const DRIVER_MENU = TICKET_HOLDER_MENU;
 
