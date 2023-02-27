@@ -7,7 +7,7 @@ import RecoverPassword from './components/RecoverPassword/RecoverPassword';
 // import Notes from './components/Notes/Notes';
 import { UserRegistration } from './components/Users/UserRegistration/UserRegistration';
 import { UserDataTable } from './components/Users/UserDataTable/UserDataTable';
-import Layout from './components/Loyout/Layout';
+import { Layout } from './components/Loyout/Layout';
 import { Sales } from './components/Sales/Sales';
 import { BranchRegistration } from './components/BranchRegistration/BranchRegistration';
 import { BusRegistration } from './components/Bus/BusRegistration/BusRegistration';

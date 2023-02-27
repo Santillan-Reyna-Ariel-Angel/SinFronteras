@@ -18,7 +18,7 @@ import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 import AddLocationRoundedIcon from '@mui/icons-material/AddLocationRounded';
 // import MoneyOffRoundedIcon from '@mui/icons-material/MoneyOffRounded';
 
-export const menuBodyItemList = [
+const menuBodyItemList = [
   {
     path: '/ventas',
     icon: <PointOfSaleRoundedIcon />,

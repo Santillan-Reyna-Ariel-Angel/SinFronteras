@@ -1,10 +1,11 @@
 import React from 'react';
 import PrimarySearchAppBar from './../AppBar/AppBar.jsx';
-import CustomizedList from './../Sidebar/Sidebar';
+import { Sidebar } from './../Sidebar/Sidebar';
 import Box from '@mui/material/Box';
 //Estilos:
 import { Background } from './LayoutStyles';
-const Layout = (props) => {
+
+export const Layout = (props) => {
   return (
     <>
       <Background>
@@ -20,12 +21,10 @@ const Layout = (props) => {
             // bgcolor: "background.paper",
           }}
         >
-          {CustomizedList()}
+          {Sidebar()}
           {props.children}
         </Box>
       </Background>
     </>
   );
 };
-
-export default Layout;

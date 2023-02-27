@@ -12,10 +12,7 @@ import { KeyboardArrowDown } from '@mui/icons-material';
 // Styles:
 import { LinksStyles } from './MenuBodyStyles';
 //Components:
-import {
-  // menuBodyItemList,
-  getMenuBodyItemList,
-} from './MenuBodyItemList'; //Menu del sidebar
+import { getMenuBodyItemList } from './MenuBodyItemList'; //Menu del sidebar
 // Contexts:
 import { ContextUserData } from './../../../contexts/ContextUserData';
 
@@ -25,18 +22,12 @@ const MenuBody = () => {
   console.log('userData', userData);
   let { charge } = userData ? userData : { charge: '' };
 
-  //Antiguo:
-  // const sidebarMenuBodyItemList = menuBodyItemList ? menuBodyItemList : [];
-
-  // New:
-  //(charge)
-  let menuBodyItemList = getMenuBodyItemList('chofer');
+  let menuBodyItemList = getMenuBodyItemList(charge);
   const sidebarMenuBodyItemList = menuBodyItemList ? menuBodyItemList : [];
   console.log('sidebarMenuBodyItemList', sidebarMenuBodyItemList);
 
+  // Para obtener la ruta(url) actual de la pagina:
   const urlPath = window.location.pathname;
-  // O tambien importando "useLocation" de react-router-dom :
-  // const urlPath = useLocation();
   // console.log('urlPath', urlPath);
 
   const States = (dad, setDad) => {

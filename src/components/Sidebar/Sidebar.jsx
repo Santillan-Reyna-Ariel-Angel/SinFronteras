@@ -24,7 +24,7 @@ const FireNav = styled(List)({
   },
 });
 
-export default function CustomizedList() {
+export const Sidebar = () => {
   return (
     <>
       <Box sx={{ display: 'flex' }}>
@@ -61,4 +61,4 @@ export default function CustomizedList() {
       </Box>
     </>
   );
-}
+};
