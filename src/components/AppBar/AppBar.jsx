@@ -20,6 +20,7 @@ import { LogoAppBar } from './AppBarStyles';
 import ProfilePicture from '../../sources/img/PerfilFake.jpg';
 //Context UserData
 import { ContextUserData } from './../../contexts/ContextUserData';
+import { ControlMenu } from './ControlMenu/ControlMenu';
 
 export default function PrimarySearchAppBar() {
   const userData = useContext(ContextUserData);
@@ -148,6 +149,8 @@ export default function PrimarySearchAppBar() {
           </IconButton> */}
 
           <LogoAppBar />
+
+          <ControlMenu />
 
           <Box sx={{ flexGrow: 1 }} />
           {/* Botones(tentativo a eliminar) */}

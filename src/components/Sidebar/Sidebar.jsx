@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 //MUI-styles:
 import { styled, ThemeProvider, createTheme } from '@mui/material/styles';
 //MUI:
@@ -24,41 +24,48 @@ const FireNav = styled(List)({
   },
 });
 
+export let showMenu, setShowMenu;
+
 export const Sidebar = () => {
+  [showMenu, setShowMenu] = useState(true);
+  console.log('showMenu', showMenu);
+
   return (
     <>
-      <Box sx={{ display: 'flex' }}>
-        <ThemeProvider
-          theme={createTheme({
-            components: {
-              MuiListItemButton: {
-                defaultProps: {
-                  disableTouchRipple: true,
+      {showMenu && (
+        <Box sx={{ display: 'flex' }}>
+          <ThemeProvider
+            theme={createTheme({
+              components: {
+                MuiListItemButton: {
+                  defaultProps: {
+                    disableTouchRipple: true,
+                  },
                 },
               },
-            },
-            palette: {
-              mode: 'dark',
-              primary: {
-                main: 'rgb(102, 157, 246)',
+              palette: {
+                mode: 'dark',
+                primary: {
+                  main: 'rgb(102, 157, 246)',
+                },
+                background: { paper: 'rgb(5, 30, 52)' },
               },
-              background: { paper: 'rgb(5, 30, 52)' },
-            },
-          })}
-        >
-          {/*<Paper> Es el contenedor al cual podemos aplicar estilos al sidebar(borderRadius,etc): */}
-          <Paper elevation={0} sx={{ maxWidth: 225, borderRadius: '0px' }}>
-            <FireNav component="nav" disablePadding>
-              <Divider />
-              {/* Cabeza Menu: */}
-              <MenuHeader />
-              <Divider />
-              {/* Cuerpo del menu:  */}
-              <MenuBody />
-            </FireNav>
-          </Paper>
-        </ThemeProvider>
-      </Box>
+            })}
+          >
+            {/*<Paper> Es el contenedor al cual podemos aplicar estilos al sidebar(borderRadius,etc): */}
+            <Paper elevation={0} sx={{ maxWidth: 225, borderRadius: '0px' }}>
+              <FireNav component="nav" disablePadding>
+                <Divider />
+                {/* Cabeza Menu: */}
+                <MenuHeader />
+                <Divider />
+                {/* Cuerpo del menu:  */}
+                <MenuBody />
+              </FireNav>
+            </Paper>
+          </ThemeProvider>
+        </Box>
+      )}
     </>
   );
 };
