@@ -47,8 +47,8 @@ export const branchList = [
 // Lista de cargos
 export const listOfCharges = [
   { chargeOfType: 'dueño' },
-  { chargeOfType: 'administrador-general' },
-  { chargeOfType: 'administrador-sucursal' },
+  { chargeOfType: 'adm-general' },
+  { chargeOfType: 'adm-sucursal' },
   { chargeOfType: 'secretaria(o)' },
   { chargeOfType: 'boletero(a)' },
   { chargeOfType: 'chofer' },
