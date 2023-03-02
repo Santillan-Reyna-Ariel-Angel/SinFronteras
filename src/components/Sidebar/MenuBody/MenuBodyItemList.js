@@ -166,10 +166,10 @@ export const getMenuBodyItemList = (charge) => {
     case 'dueño':
       menuBodyItemList = OWNER_MENU;
       break;
-    case 'administrador-general':
+    case 'adm-general':
       menuBodyItemList = GENERAL_ADMINISTRATOR_MENU;
       break;
-    case 'administrador-sucursal':
+    case 'adm-sucursal':
       menuBodyItemList = BRANCH_MANAGER_MENU;
       break;
     case 'secretaria(o)':
