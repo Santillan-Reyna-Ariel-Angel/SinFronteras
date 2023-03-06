@@ -29,7 +29,8 @@ import { SendEmail } from './components/SendEmail/SendEmail.jsx';
 import { SendEmail2 } from './components/SendEmail/SendEmail2.jsx';
 import { SendEmail3 } from './components/SendEmail/SendEmail3';
 //Contexts
-import { ProviderListarNotas } from './contexts/ContextListarNotas';
+
+import { ProviderAllBranchOffices } from './contexts/ContextAllBranchOffices';
 import { ProviderBranchOffice } from './contexts/ContextBranchOffice';
 import { ProviderUserData } from './contexts/ContextUserData';
 import { ProviderGeneralCompanyData } from './contexts/ContextGeneralCompanyData';
@@ -42,17 +43,19 @@ import { ProviderAllUserData } from './contexts/ContextAllUserData';
 //probando tickets
 import { Tickets1 } from './components/ComponentTest/EmptyPage/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/ComponentTest/EmptyPage/Tickets/Tickets2/Tickets2.jsx';
+//probando ChangeBranchConnection:
+import { ChangeBranchConnection } from './components/ComponentTest/EmptyPage/ChangeBranchConnection/ChangeBranchConnection.jsx';
 
 const AppRoutes = () => {
   return (
     <>
-      <ProviderBranchOffice>
-        <ProviderUserData>
-          <ProviderGeneralCompanyData>
-            <ProviderBranchTripsMade>
-              <ProviderCompanyBuses>
-                <ProviderAllUserData>
-                  <ProviderListarNotas>
+      <ProviderAllBranchOffices>
+        <ProviderBranchOffice>
+          <ProviderUserData>
+            <ProviderGeneralCompanyData>
+              <ProviderBranchTripsMade>
+                <ProviderCompanyBuses>
+                  <ProviderAllUserData>
                     <BrowserRouter>
                       <Switch>
                         <Route
@@ -92,7 +95,13 @@ const AppRoutes = () => {
                         {/* COMPONENTES DE PRUEBA SIN MENU NI CABECERA: */}
                         <Route exact path="/tickets1" component={Tickets1} />
                         <Route exact path="/tickets2" component={Tickets2} />
+                        <Route
+                          exact
+                          path="/conectar-sucursal"
+                          component={ChangeBranchConnection}
+                        />
 
+                        {/* Layout */}
                         <Layout>
                           <Route exact path="/principal" component={Home} />
                           <Route
@@ -172,13 +181,13 @@ const AppRoutes = () => {
                         </Layout>
                       </Switch>
                     </BrowserRouter>
-                  </ProviderListarNotas>
-                </ProviderAllUserData>
-              </ProviderCompanyBuses>
-            </ProviderBranchTripsMade>
-          </ProviderGeneralCompanyData>
-        </ProviderUserData>
-      </ProviderBranchOffice>
+                  </ProviderAllUserData>
+                </ProviderCompanyBuses>
+              </ProviderBranchTripsMade>
+            </ProviderGeneralCompanyData>
+          </ProviderUserData>
+        </ProviderBranchOffice>
+      </ProviderAllBranchOffices>
     </>
   );
 };
