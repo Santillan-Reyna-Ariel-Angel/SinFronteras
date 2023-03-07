@@ -13,18 +13,16 @@ import {
   ChangeConnectionStyle,
   Btn,
 } from './ChangeBranchConnectionStyles';
-import { PlainModalButton } from '../../../PlainModalButton/PlainModalButton';
+import { PlainModalButton } from '../PlainModalButton/PlainModalButton';
 
 //Contexts:
-import { ContextUserData } from './../../../../contexts/ContextUserData';
-import { ContextAllBranchOffices } from './../../../../contexts/ContextAllBranchOffices';
+import { ContextUserData } from '../../contexts/ContextUserData';
+import { ContextAllBranchOffices } from '../../contexts/ContextAllBranchOffices';
 //Firebase Functions:
 import { updateUserBranch } from './updateUserBranch';
 //States:
 //Components:
 //Others:
-
-let firstData = false;
 
 export const ChangeBranchConnection = () => {
   //ContextUserData:

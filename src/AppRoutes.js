@@ -44,7 +44,7 @@ import { ProviderAllUserData } from './contexts/ContextAllUserData';
 import { Tickets1 } from './components/ComponentTest/EmptyPage/Tickets/Tickets1/Tickets1.jsx';
 import { Tickets2 } from './components/ComponentTest/EmptyPage/Tickets/Tickets2/Tickets2.jsx';
 //probando ChangeBranchConnection:
-import { ChangeBranchConnection } from './components/ComponentTest/EmptyPage/ChangeBranchConnection/ChangeBranchConnection.jsx';
+import { ChangeBranchConnection } from './components/ChangeBranchConnection/ChangeBranchConnection.jsx';
 
 const AppRoutes = () => {
   return (
