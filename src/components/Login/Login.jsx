@@ -26,7 +26,12 @@ const Login = () => {
     const accessToken = await Auth(email, password);
     if (accessToken !== null) {
       sessionStorage.setItem('userEmail', email);
-      window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
+
+      if (email === 'dueño@gmail.com') {
+        window.location.assign('/conectar-sucursal'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
+      } else {
+        window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
+      }
       setCredentialError(false);
     } else {
       setCredentialError(true);

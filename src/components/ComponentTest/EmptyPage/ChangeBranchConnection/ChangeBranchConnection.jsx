@@ -24,6 +24,8 @@ import { updateUserBranch } from './updateUserBranch';
 //Components:
 //Others:
 
+let firstData = false;
+
 export const ChangeBranchConnection = () => {
   //ContextUserData:
   const userData = useContext(ContextUserData);
@@ -58,7 +60,7 @@ export const ChangeBranchConnection = () => {
     let valuesList = value.split('-');
 
     setCurrentBranch({
-      ...currentBranch,
+      identificationNumber: userData.identificationNumber,
       branchNumberOrCode: valuesList[0],
       branchOfficeName: valuesList[1],
       selectOption: `${valuesList[0]}-${valuesList[1]}`,
@@ -66,6 +68,13 @@ export const ChangeBranchConnection = () => {
   };
 
   console.log('currentBranch', currentBranch);
+
+  const componentDefaultData = () => {
+    setCurrentBranch(currentBranchDefault);
+    //REDIRECIONAR PAGINA:
+    window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
+  };
+
   return (
     <>
       <Background>
@@ -78,7 +87,7 @@ export const ChangeBranchConnection = () => {
         <BodyContainer>
           <CurrentConnectionText>
             <span>
-              Usted esta conectado actualmente en la{' '}
+              Usted esta conectado actualmente a:{' '}
               <strong>{userData ? userData.branchOfficeName : ''}</strong>
             </span>
           </CurrentConnectionText>
@@ -108,12 +117,16 @@ export const ChangeBranchConnection = () => {
             <PlainModalButton
               primaryBtnText="Continuar"
               dialogTitle="Conexión a sucursal"
-              dialogText={`Esta seguro de conectarse a la sucursal_x?`}
+              dialogText={`Esta seguro de conectarse a esta sucursal?`}
               closeBtnText="cancelar"
               continueBtnText="si"
               functionToExecute={updateUserBranch}
-              functionParameters={currentBranch}
-              //   thirdFunctionToExecute={componentDefaultData}
+              functionParameters={
+                currentBranch.branchNumberOrCode !== ''
+                  ? currentBranch
+                  : 'sin cambios'
+              }
+              thirdFunctionToExecute={componentDefaultData}
             />
           </Btn>
         </BodyContainer>
