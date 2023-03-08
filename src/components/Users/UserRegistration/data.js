@@ -4,19 +4,19 @@
 
 export const branchList = [
   {
-    branchOfficeName: 'Sucursal 1',
+    branchOfficeName: 'sucre sucursal 1',
     location: 'sucre',
     department: 'chuquisaca',
     branchNumber: 'code1',
-    address: 'Avenida lajastambo',
+    address: 'av. marcelo quiroga N#300',
     terminal: 'Interdepartamnetal',
   },
   {
-    branchOfficeName: 'Sucursal 2',
-    location: 'sucre',
-    department: 'chuquisaca',
+    branchOfficeName: 'santa cruz sucursal 1',
+    location: 'c. santa cruz',
+    department: 'santa cruz',
     branchNumber: 'code2',
-    address: 'Avenida lajastambo',
+    address: 'av. de los viajes N#300',
     terminal: 'Interdepartamnetal',
   },
   {
