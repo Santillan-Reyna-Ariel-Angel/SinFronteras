@@ -15,6 +15,9 @@ import {
   DialogContent,
   DialogContentText,
   DialogActions,
+  InputLabel,
+  MenuItem,
+  Select,
   //for autoComplete:
   Autocomplete,
   createFilterOptions,
@@ -36,7 +39,7 @@ import {
   BtnToRegistrer,
   BodyContainer,
   InputAddress,
-  InputBranchOffice,
+  InputBranchOffice2,
   InputCharge,
   InputCi,
   InputDateOfBirdth,
@@ -49,11 +52,12 @@ import {
 } from './UserRegistrationStyles';
 //Contexts:
 import { ContextAllUserData } from './../../../contexts/ContextAllUserData';
+import { ContextAllBranchOffices } from './../../../contexts/ContextAllBranchOffices';
 
 //Firebase Functions:
 import { saveUser } from './UserRegistrationFunctios';
 //Others:
-import { branchList, listOfCharges, stateList } from './data';
+import { listOfCharges, stateList } from './data';
 import { dateFormat } from './../../globalFunctions';
 import { handleClose } from './../../DialogBasic/DialogBasic';
 
@@ -82,6 +86,19 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     charge: chargeUser,
     status: statusUser,
   } = userProp ? userProp : {};
+
+  //ContextAllBranchOffices:
+  const allBranchOffices = useContext(ContextAllBranchOffices);
+  console.log('allBranchOffices', allBranchOffices);
+  let branchKeysList = allBranchOffices ? Object.keys(allBranchOffices) : [];
+  console.log('branchKeysList', branchKeysList);
+
+  //Lista de Sucursales:
+  let optionsBranchList = branchKeysList.map((branchKey) => {
+    let { branchNumber, name } = allBranchOffices[branchKey].branchInformation;
+    return { branchNumber, name };
+  });
+  console.log('optionsBranchList', optionsBranchList);
 
   //basicInformation:
   let defaultDataBasicInformation = {
@@ -149,41 +166,24 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     setSex(event.target.value);
   };
 
-  // Sucursal
-  let defaultDataBranchOffice = {
+  //Sucursal:
+  let defaultDataBranchOffice2 = {
     branchOfficeName: branchOfficeName ? branchOfficeName : '',
-    location: '',
-    department: '',
     branchNumber: branchNumberOrCode ? branchNumberOrCode : '',
-    address: '',
-    terminal: '',
   };
-  const [branchOffice, setBranchOffice] = useState(defaultDataBranchOffice);
-  console.log('branchOffice: ', branchOffice);
+  const [branchOffice2, setBranchOffice2] = useState(defaultDataBranchOffice2);
+  console.log('branchOffice2: ', branchOffice2);
 
-  const [openBranchOffice, toggleOpenBranchOffice] = useState(false);
-  const handleCloseBranchOffice = () => {
-    setDialogValueBranchOffice(defaultDataBranchOffice);
+  const changeBranchOffice2 = (branchOfficeName) => {
+    let selectedBranch = optionsBranchList.filter(
+      (optionBranch) => optionBranch.name === branchOfficeName
+    );
 
-    toggleOpenBranchOffice(false);
-  };
-
-  const [dialogValueBranchOffice, setDialogValueBranchOffice] = useState(
-    defaultDataBranchOffice
-  );
-
-  const handleSubmitBranchOffice = (event) => {
-    event.preventDefault();
-    setBranchOffice({
-      branchOfficeName: dialogValueBranchOffice.branchOfficeName,
-      location: dialogValueBranchOffice.location,
-      department: dialogValueBranchOffice.department,
-      branchNumber: dialogValueBranchOffice.branchNumber,
-      address: dialogValueBranchOffice.address,
-      terminal: dialogValueBranchOffice.terminal,
+    setBranchOffice2({
+      ...branchOffice2,
+      branchOfficeName: branchOfficeName,
+      branchNumber: selectedBranch[0].branchNumber,
     });
-
-    handleCloseBranchOffice();
   };
 
   // Cargos:
@@ -234,36 +234,13 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     handleCloseStatus();
   };
 
-  //Boton Registrar
-  // const disabledB = () => {
-  //   if (
-  //     basicInformation.names === "" ||
-  //     basicInformation.surnames === "" ||
-  //     basicInformation.ci === "" ||
-  //     basicInformation.address === "" ||
-  //     basicInformation.mobile === "" ||
-  //     basicInformation.email === "" ||
-  //     branchOffice.branchOfficeName === "" ||
-  //     branchOffice.location === "" ||
-  //     branchOffice.department === "" ||
-  //     // branchOffice.branchNumber !== "" ||
-  //     branchOffice.address === "" ||
-  //     branchOffice.terminal === "" ||
-  //     charge.chargeOfType === "" ||
-  //     status.statusType === ""
-  //   ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  // };
-
+  //Boton Registrar:
   const registerUser = () => {
     let response = saveUser(
       basicInformation,
       formattedDate,
       sex,
-      branchOffice,
+      branchOffice2,
       charge,
       status
     );
@@ -290,46 +267,17 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     setBasicInformation(defaultDataBasicInformation);
     setDate(null);
     setSex('hombre');
-    setBranchOffice(defaultDataBranchOffice);
+    setBranchOffice2(defaultDataBranchOffice2);
     setCharge(defaultDataCharge);
     setStatus(defaultDataStatus);
-    //Cerrar modal de <BasicDialog> para actualizar data:
-    handleClose();
+    //Si usamos <BasicDialog> para actualizar data, debemos cerrar el modal:
+    let currentUrl = window.location.pathname; // sacamos el la ruta actual
+    if (currentUrl === '/personal/lista-de-usuarios') {
+      handleClose();
+    }
   };
 
   //Data and Functions MUI:
-  let dialogContentTextFieldData = [
-    {
-      Label: 'Sucursal',
-      Name: 'branchOfficeName',
-      Value: dialogValueBranchOffice.branchOfficeName,
-    },
-    {
-      Label: 'Num/Cod Sucursal',
-      Name: 'branchNumber',
-      Value: dialogValueBranchOffice.branchNumber,
-    },
-    {
-      Label: 'Departamento',
-      Name: 'department',
-      Value: dialogValueBranchOffice.department,
-    },
-    {
-      Label: 'Localidad',
-      Name: 'location',
-      Value: dialogValueBranchOffice.location,
-    },
-    {
-      Label: 'Direccion',
-      Name: 'address',
-      Value: dialogValueBranchOffice.address,
-    },
-    {
-      Label: 'Terminal',
-      Name: 'terminal',
-      Value: dialogValueBranchOffice.terminal,
-    },
-  ];
   const muiTextField = ({
     ClassName = '',
     Label,
@@ -494,91 +442,22 @@ const UserRegistration = ({ identificationNumber = '' }) => {
           </InputSex>
 
           {/* Sucursal: */}
-          <InputBranchOffice>
-            <Autocomplete
-              value={branchOffice}
-              onChange={(event, newValue) => {
-                if (typeof newValue === 'string') {
-                  toggleOpenBranchOffice(true);
-                  setDialogValueBranchOffice({
-                    ...defaultDataBranchOffice,
-                    branchOfficeName: newValue,
-                  });
-                } else if (newValue && newValue.inputValue) {
-                  toggleOpenBranchOffice(true);
-                  setDialogValueBranchOffice({
-                    ...defaultDataBranchOffice,
-                    branchOfficeName: newValue.inputValue.toLowerCase(),
-                  });
-                } else {
-                  setBranchOffice(newValue);
-                }
-              }}
-              filterOptions={(options, params) => {
-                const filtered = filter(options, params);
-
-                if (params.inputValue !== '') {
-                  filtered.push({
-                    inputValue: params.inputValue,
-                    branchOfficeName: `Añadir "${params.inputValue}"`,
-                  });
-                }
-
-                return filtered;
-              }}
-              id="free-solo-dialog-demo"
-              options={branchList}
-              getOptionLabel={(option) => {
-                if (typeof option === 'string') {
-                  return option;
-                }
-                if (option.inputValue) {
-                  return option.inputValue;
-                }
-                return option.branchOfficeName;
-              }}
-              selectOnFocus
-              clearOnBlur
-              handleHomeEndKeys
-              renderOption={(props, option) => (
-                <li {...props}>{option.branchOfficeName}</li>
-              )}
-              freeSolo
-              sx={{ input: { color: '#000000' } }} // Necesario si <DialogBasic/> llama a este componente
-              renderInput={(params) => (
-                <TextField className="input" {...params} label="Sucursal" />
-              )}
-            />
-            <Dialog open={openBranchOffice} onClose={handleCloseBranchOffice}>
-              <form onSubmit={handleSubmitBranchOffice}>
-                <DialogTitle>AÑADIR UNA NUEVA SUCURSAL</DialogTitle>
-                <DialogContent>
-                  <DialogContentText>
-                    Por favor ingresa los datos correspondientes
-                  </DialogContentText>
-
-                  {/* Creando TextFields: */}
-                  {dialogContentTextFieldData.map((field) =>
-                    muiTextField({
-                      Label: field.Label,
-                      Name: field.Name,
-                      Value: field.Value,
-                      OnChange: (event) =>
-                        setDialogValueBranchOffice({
-                          ...dialogValueBranchOffice,
-                          [event.target.name]: event.target.value.toLowerCase(),
-                        }),
-                      Margin: 'dense',
-                      Variant: 'standard',
-                    })
-                  )}
-                </DialogContent>
-
-                {/* Crear botones de Dialog: */}
-                {muiDialogActions({ OnClick: handleCloseBranchOffice })}
-              </form>
-            </Dialog>
-          </InputBranchOffice>
+          <InputBranchOffice2>
+            <FormControl className="input">
+              <InputLabel>Sucursal2</InputLabel>
+              <Select
+                value={branchOffice2.branchOfficeName}
+                name="branchOfficeName"
+                onChange={(event) => changeBranchOffice2(event.target.value)}
+              >
+                {optionsBranchList.map((branch, index) => (
+                  <MenuItem key={index} value={branch.name}>
+                    {branch.name}
+                  </MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          </InputBranchOffice2>
 
           {/* Cargos: */}
           <InputCharge>
@@ -750,7 +629,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
             </Dialog>
           </InputStatus>
 
-          {/*Boton y alerta registrar: */}
+          {/*Boton y alerta registrar:  BtnToRegistrer CAMBIAR POR "DialogBasic" */}
           <BtnToRegistrer>
             <Button
               color="success"

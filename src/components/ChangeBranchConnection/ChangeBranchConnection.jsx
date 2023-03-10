@@ -35,6 +35,13 @@ export const ChangeBranchConnection = () => {
   let branchKeysList = allBranchOffices ? Object.keys(allBranchOffices) : [];
   console.log('branchKeysList', branchKeysList);
 
+  let selectOptionsList = branchKeysList.map((branchKey) => {
+    let { branchNumber, name } = allBranchOffices[branchKey].branchInformation;
+    let selectOption = `${branchNumber}-${name}`;
+    return selectOption;
+  });
+  console.log('selectOptionsList', selectOptionsList);
+
   let currentBranchDefault = {
     identificationNumber: userData ? userData.identificationNumber : '',
     branchNumberOrCode: userData ? userData.branchNumberOrCode : '',
@@ -43,13 +50,6 @@ export const ChangeBranchConnection = () => {
       ? `${userData.branchNumberOrCode}-${userData.branchOfficeName}`
       : '',
   };
-
-  let selectOptionsList = branchKeysList.map((branchKey) => {
-    let { branchNumber, name } = allBranchOffices[branchKey].branchInformation;
-    let selectOption = `${branchNumber}-${name}`;
-    return selectOption;
-  });
-  console.log('selectOptionsList', selectOptionsList);
 
   const [currentBranch, setCurrentBranch] = useState(currentBranchDefault);
 
