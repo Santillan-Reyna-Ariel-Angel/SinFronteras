@@ -49,6 +49,7 @@ import {
   InputSex,
   InputStatus,
   InputSurnames,
+  BtnRegistrer,
 } from './UserRegistrationStyles';
 //Contexts:
 import { ContextAllUserData } from './../../../contexts/ContextAllUserData';
@@ -60,6 +61,7 @@ import { saveUser } from './UserRegistrationFunctios';
 import { listOfCharges, stateList } from './data';
 import { dateFormat } from './../../globalFunctions';
 import { handleClose } from './../../DialogBasic/DialogBasic';
+import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 
 const filter = createFilterOptions();
 
@@ -171,16 +173,16 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     branchOfficeName: branchOfficeName ? branchOfficeName : '',
     branchNumber: branchNumberOrCode ? branchNumberOrCode : '',
   };
-  const [branchOffice2, setBranchOffice2] = useState(defaultDataBranchOffice2);
-  console.log('branchOffice2: ', branchOffice2);
+  const [branchOffice, setBranchOffice] = useState(defaultDataBranchOffice2);
+  console.log('branchOffice: ', branchOffice);
 
-  const changeBranchOffice2 = (branchOfficeName) => {
+  const changeBranchOffice = (branchOfficeName) => {
     let selectedBranch = optionsBranchList.filter(
       (optionBranch) => optionBranch.name === branchOfficeName
     );
 
-    setBranchOffice2({
-      ...branchOffice2,
+    setBranchOffice({
+      ...branchOffice,
       branchOfficeName: branchOfficeName,
       branchNumber: selectedBranch[0].branchNumber,
     });
@@ -235,39 +237,42 @@ const UserRegistration = ({ identificationNumber = '' }) => {
   };
 
   //Boton Registrar:
-  const registerUser = () => {
-    let response = saveUser(
-      basicInformation,
-      formattedDate,
-      sex,
-      branchOffice2,
-      charge,
-      status
-    );
+  //No se usa con BtnRegistrer:
+  // const registerUser = () => {
+  //   let response = saveUser(
+  //     basicInformation,
+  //     formattedDate,
+  //     sex,
+  //     branchOffice,
+  //     charge,
+  //     status
+  //   );
 
-    if (response === 'exitoso') {
-      console.log(response);
-    } else {
-      console.log(response);
-    }
-  };
+  //   if (response === 'exitoso') {
+  //     console.log(response);
+  //   } else {
+  //     console.log(response);
+  //   }
+  // };
 
   //Alet-Dialog:
-  const [openAlertDialog, setOpenAlertDialog] = useState(false);
-  const handleClickOpenDialog = () => {
-    setOpenAlertDialog(true);
-  };
-  const handleCloseDialogBack = () => {
-    setOpenAlertDialog(false);
-  };
+  //No se usa con BtnRegistrer:
+  // const [openAlertDialog, setOpenAlertDialog] = useState(false);
+  // const handleClickOpenDialog = () => {
+  //   setOpenAlertDialog(true);
+  // };
+  //No se usa con BtnRegistrer:
+  // const handleCloseDialogBack = () => {
+  //   setOpenAlertDialog(false);
+  // };
 
   //componentDefaultData:
-  const handleCloseDialogYes = () => {
-    setOpenAlertDialog(false);
+  const componentDefaultData = () => {
+    // setOpenAlertDialog(false);
     setBasicInformation(defaultDataBasicInformation);
     setDate(null);
     setSex('hombre');
-    setBranchOffice2(defaultDataBranchOffice2);
+    setBranchOffice(defaultDataBranchOffice2);
     setCharge(defaultDataCharge);
     setStatus(defaultDataStatus);
     //Si usamos <BasicDialog> para actualizar data, debemos cerrar el modal:
@@ -444,11 +449,11 @@ const UserRegistration = ({ identificationNumber = '' }) => {
           {/* Sucursal: */}
           <InputBranchOffice2>
             <FormControl className="input">
-              <InputLabel>Sucursal2</InputLabel>
+              <InputLabel>Sucursal</InputLabel>
               <Select
-                value={branchOffice2.branchOfficeName}
+                value={branchOffice.branchOfficeName}
                 name="branchOfficeName"
-                onChange={(event) => changeBranchOffice2(event.target.value)}
+                onChange={(event) => changeBranchOffice(event.target.value)}
               >
                 {optionsBranchList.map((branch, index) => (
                   <MenuItem key={index} value={branch.name}>
@@ -630,7 +635,8 @@ const UserRegistration = ({ identificationNumber = '' }) => {
           </InputStatus>
 
           {/*Boton y alerta registrar:  BtnToRegistrer CAMBIAR POR "DialogBasic" */}
-          <BtnToRegistrer>
+
+          {/* <BtnToRegistrer>
             <Button
               color="success"
               onClick={handleClickOpenDialog}
@@ -640,8 +646,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
             >
               Registrar
             </Button>
-            <Dialog open={openAlertDialog} onClose={handleCloseDialogYes}>
-              {/* <form onSubmit={(event) => event.preventDefault()}> */}
+            <Dialog open={openAlertDialog} onClose={componentDefaultData}>
               <DialogTitle>{`REGISTRO DE USUSARIOS`}</DialogTitle>
               <DialogContent>
                 <DialogContentText>
@@ -661,16 +666,35 @@ const UserRegistration = ({ identificationNumber = '' }) => {
                   color="success"
                   onClick={() => {
                     registerUser();
-                    handleCloseDialogYes();
+                    componentDefaultData();
                   }}
                   // autoFocus
                 >
                   Si
                 </Button>
               </DialogActions>
-              {/* </form> */}
             </Dialog>
-          </BtnToRegistrer>
+          </BtnToRegistrer> */}
+
+          <BtnRegistrer>
+            <PlainModalButton
+              primaryBtnText="registrar"
+              dialogTitle="REGISTRO DE USUSARIOS"
+              dialogText={`Esta seguro de registrar a ${basicInformation.names} ${basicInformation.surnames} ?`}
+              closeBtnText="atras"
+              continueBtnText="si"
+              functionToExecute={saveUser}
+              functionParameters={{
+                basicInformation,
+                formattedDate,
+                sex,
+                branchOffice,
+                charge,
+                status,
+              }}
+              thirdFunctionToExecute={componentDefaultData}
+            />
+          </BtnRegistrer>
         </BodyContainer>
       </Background>
     </>

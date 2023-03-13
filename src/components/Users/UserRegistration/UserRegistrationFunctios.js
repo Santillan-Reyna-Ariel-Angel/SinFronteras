@@ -3,18 +3,21 @@ import { modulesFirebase } from './../../../firebase-config.js';
 import { ref, set, update } from 'firebase/database';
 const { fire_db } = modulesFirebase;
 
-export const saveUser = (
-  { names, surnames, ci, address, mobile, email },
+export const saveUser = ({
+  basicInformation,
   formattedDate,
   sex,
   branchOffice,
   charge,
-  status
-) => {
-  // basicInformation-branchOffice
+  status,
+}) => {
+  // basicInformation:
+  let { names, surnames, ci, address, mobile, email } = basicInformation;
+
+  // branchOffice:
   const { branchOfficeName, branchNumber } = branchOffice;
   const { chargeOfType } = charge;
-  // basicInformation-status
+  // status:
   const { statusType } = status;
 
   /*cod new fire v9:*/
