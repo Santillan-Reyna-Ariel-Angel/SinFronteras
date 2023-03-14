@@ -17,12 +17,7 @@ import DialogSingOff from './DialogSingOff/DialogSingOff';
 //Estilos propios
 import { LogoAppBar } from './AppBarStyles';
 //src-images
-import ProfilePicture from '../../sources/img/PerfilFake.jpg';
-import ProfilePicture5 from '../../sources/img/PerfilFake5.png';
-//icons user:
-import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
-import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
-import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+import ProfilePicture2 from '../../sources/img/PerfilFake5_1976D2.png';
 //Context UserData
 import { ContextUserData } from './../../contexts/ContextUserData';
 import { ContextAllBranchOffices } from './../../contexts/ContextAllBranchOffices';
@@ -158,7 +153,7 @@ export default function PrimarySearchAppBar() {
         >
           <Avatar
             alt="Usuario" // Travis Howard
-            src={ProfilePicture5}
+            src={ProfilePicture2}
             sx={{ ml: '-10px' }}
           />
         </IconButton>
@@ -237,7 +232,7 @@ export default function PrimarySearchAppBar() {
               </Typography>
               <Avatar
                 alt="Usuario" //Travis Howard
-                src={ProfilePicture5}
+                src={ProfilePicture2}
               />
             </IconButton>
           </Box>
