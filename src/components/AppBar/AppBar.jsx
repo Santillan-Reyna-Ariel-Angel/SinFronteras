@@ -20,13 +20,43 @@ import { LogoAppBar } from './AppBarStyles';
 import ProfilePicture from '../../sources/img/PerfilFake.jpg';
 //Context UserData
 import { ContextUserData } from './../../contexts/ContextUserData';
+import { ContextAllBranchOffices } from './../../contexts/ContextAllBranchOffices';
+//Components
 import { ControlMenu } from './ControlMenu/ControlMenu';
 
 export default function PrimarySearchAppBar() {
+  // ContextUserData:
   const userData = useContext(ContextUserData);
   // console.log("userData", userData);
-  const { names } = userData ? userData : { names: '' };
+  const { names, branchNumberOrCode } = userData ? userData : { names: '' };
   // console.log("names", names);
+
+  //ContextAllBranchOffices:
+  const allBranchOffices = useContext(ContextAllBranchOffices);
+  // console.log('allBranchOffices', allBranchOffices);
+
+  // json to array:
+  let allBranchOfficesArray = [];
+  for (let i in allBranchOffices)
+    allBranchOfficesArray.push(allBranchOffices[i].branchInformation);
+  console.log('allBranchOfficesArray', allBranchOfficesArray);
+
+  const branchOffice = allBranchOfficesArray.filter(
+    (branchOffice) => branchOffice.branchNumber === branchNumberOrCode
+  );
+  // console.log('branchOffice', branchOffice[0]);
+
+  let {
+    department: branchDepartment,
+    location: branchLocation,
+    name: branchName,
+  } = branchOffice[0] !== undefined
+    ? branchOffice[0]
+    : { department: '', location: '', name: '' };
+
+  console.log(
+    `branchDepartment: ${branchDepartment}, branchLocation: ${branchLocation}, BranchName: ${branchName}`
+  );
 
   // const messagesCant = 25;
   // const notificationsCant = 35;
@@ -163,6 +193,17 @@ export default function PrimarySearchAppBar() {
           {/* <Button variant="primary" color="" size="small">
             Reportes
           </Button> */}
+
+          {/* TEXT QUE INDICA EN QUE SUCURSAL NOS ENCONTRAMOS: */}
+          <span
+            style={{
+              fontSize: 'larger',
+              // fontWeight: 'bold', // medium
+              color: 'white',
+            }}
+          >
+            {`${branchDepartment} - ${branchLocation} - ${branchName}`}
+          </span>
 
           {/* Notificaciones escritorio */}
           <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
