@@ -16,7 +16,7 @@ export const createTripSchedule = ({ travelData, branchNumber }) => {
 
   //data default para tripsMade:
   const travelExpenses = {
-    busEnrollment: '',
+    busEnrollment: busEnrollment ? busEnrollment : '', // Necesario para que la tabla "lista de viajes" pueda mostrar la matricula del bus.
     expenses: {
       diesel: '',
       laborUnion: '',
