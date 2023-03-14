@@ -8,7 +8,7 @@
           "openingTime": "08:00"
         },
         "branchContactNumbers": {
-          "cellphone": 70707070,
+          "cellphone": 70707071,
           "telephone": "64-64646"
         },
         "branchNumber": "code1",
@@ -53,7 +53,7 @@
         },
         "emailsWithAccess": "s1secretario1@gmail.com",
         "location": "sucre",
-        "name": "Sin Fronteras sucursal Sucre",
+        "name": "sucre sucursal 1",
         "terminal": "interprovincial"
       },
       "travels": {
@@ -81,7 +81,7 @@
           "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "31/01/2023",
+          "travelDate": "31/03/2023",
           "travelStatus": "pendiente"
         },
         "code2": {
@@ -108,7 +108,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "31/01/2023",
+          "travelDate": "31/03/2023",
           "travelStatus": "pendiente"
         }
       }
@@ -121,7 +121,7 @@
           "openingTime": "08:00"
         },
         "branchContactNumbers": {
-          "cellphone": 70707070,
+          "cellphone": 70707072,
           "telephone": "64-64646"
         },
         "branchNumber": "code2",
@@ -166,7 +166,7 @@
         },
         "emailsWithAccess": "s2secretario1@gmail.com",
         "location": "c. santa cruz",
-        "name": "Sin Fronteras sucursal C. Santa Cruz",
+        "name": "santa cruz sucursal 1",
         "terminal": "interprovincial"
       },
       "travels": {
@@ -194,7 +194,7 @@
           "destinationLocation": "sucre",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "31/01/2023",
+          "travelDate": "31/03/2023",
           "travelStatus": "pendiente"
         },
         "code2": {
@@ -223,7 +223,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "31/01/2023",
+          "travelDate": "31/03/2023",
           "travelStatus": "pendiente"
         }
       }
@@ -376,13 +376,13 @@
   },
   "tripsMade": {
     "branch_code1": {
-      "travel_31-01-2023_20-30_bus-001": {
+      "travel_31-03-2023_20-30_bus-001": {
         "occupiedSeat": {
-          "0": "vendido-74747472",
-          "7": "vendido-74747472"
+          "0": "vendido-71010001",
+          "7": "vendido-71010001"
         },
         "passengers": {
-          "billingContact_15-01-2023_16-31_7481801": {
+          "billingContact_10-03-2023_16-31_7481801": {
             "billingContactInformation": {
               "ciOrNit": "7481801",
               "countryCode": "+591 (BO)",
@@ -390,7 +390,7 @@
               "mobile": "7896354",
               "nameOrSocialReason": "Salinas Guzman Marco Antonio"
             },
-            "saleDate": "15/01/2023",
+            "saleDate": "10/03/2023",
             "salesAmountData": {
               "amountTotal": "30.00",
               "description": "Familia",
@@ -407,7 +407,7 @@
                 "departureTime": "20:30",
                 "destiny": "yacuiba",
                 "identificationNumber": "7481801",
-                "issuingUser": "santillan reyna ariel angel",
+                "issuingUser": "santillan reyna cristian andres",
                 "lane": "0",
                 "legend": "Gracias por su compra, le deseamos un buen viaje.",
                 "origin": "sucre",
@@ -415,7 +415,7 @@
                 "seatId": "7",
                 "seatPrice": 55,
                 "ticketNumber": "suc-code1_15-01-2023_7481801",
-                "travelDate": "31/01/2023",
+                "travelDate": "31/03/2023",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "semi-cama"
               }
@@ -435,7 +435,7 @@
             "washed": "50"
           },
           "totalExpenses": 730,
-          "tripMadeKey": "travel_31-01-2023_20-30_bus-001"
+          "tripMadeKey": "travel_31-03-2023_20-30_bus-001"
         },
         "travelIncome": {
           "incomeTickets": [
@@ -449,15 +449,15 @@
           "totalAmountIncome": 30,
           "totalAmountTickets": 55
         },
-        "tripMadeKey": "travel_31-01-2023_20-30_bus-001"
+        "tripMadeKey": "travel_31-03-2023_20-30_bus-001"
       },
-      "travel_31-01-2023_21-30_bus-006": {
+      "travel_31-03-2023_21-30_bus-006": {
         "occupiedSeat": {
-          "0": "vendido-74747472",
-          "7": "vendido-74747472"
+          "0": "vendido-71010001",
+          "7": "vendido-71010001"
         },
         "passengers": {
-          "billingContact_15-01-2023_16-22_7481901": {
+          "billingContact_10-03-2023_16-22_7481901": {
             "billingContactInformation": {
               "ciOrNit": "7481901",
               "countryCode": "+591 (BO)",
@@ -465,7 +465,7 @@
               "mobile": "67611515",
               "nameOrSocialReason": "Santillan Quispe Javier Angel"
             },
-            "saleDate": "15/01/2023",
+            "saleDate": "10/03/2023",
             "salesAmountData": {
               "amountTotal": 100,
               "description": "",
@@ -482,7 +482,7 @@
                 "departureTime": "21:30",
                 "destiny": "c. santa cruz",
                 "identificationNumber": "7481901",
-                "issuingUser": "santillan reyna ariel angel",
+                "issuingUser": "santillan reyna cristian andres",
                 "lane": "0",
                 "legend": "Gracias por su compra, le deseamos un buen viaje.",
                 "origin": "sucre",
@@ -490,7 +490,7 @@
                 "seatId": "7",
                 "seatPrice": 100,
                 "ticketNumber": "suc-code1_15-01-2023_7481901",
-                "travelDate": "31/01/2023",
+                "travelDate": "31/03/2023",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "cama"
               }
@@ -510,7 +510,7 @@
             "washed": "50"
           },
           "totalExpenses": 550,
-          "tripMadeKey": "travel_31-01-2023_21-30_bus-006"
+          "tripMadeKey": "travel_31-03-2023_21-30_bus-006"
         },
         "travelIncome": {
           "incomeTickets": [
@@ -524,150 +524,189 @@
           "totalAmountIncome": 100,
           "totalAmountTickets": 100
         },
-        "tripMadeKey": "travel_31-01-2023_21-30_bus-006"
+        "tripMadeKey": "travel_31-03-2023_21-30_bus-006"
       }
     }
   },
   "users": {
-    "70707070": {
+    "60000000": {
       "address": "address branch",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "Sucursal 1",
-      "charge": "chofer",
-      "dateOfBirth": "09/02/2001",
-      "email": "ronalquispe@gmail.com",
-      "identificationNumber": "70707070",
-      "mobile": "78965412",
-      "names": "ronal",
+      "branchOfficeName": "sucre sucursal 1",
+      "charge": "dueño",
+      "dateOfBirth": "15/01/1996",
+      "email": "dueño@gmail.com",
+      "identificationNumber": "60000000",
+      "mobile": 60065412,
+      "names": "ruben",
       "sex": "hombre",
       "status": "activo",
-      "surnames": "quispe mamani"
+      "surnames": "alcon"
     },
-    "71717171": {
-      "address": "address branch",
-      "branchNumberOrCode": "code1",
-      "branchOfficeName": "Sucursal 1",
-      "charge": "chofer",
-      "dateOfBirth": "25/10/1982",
-      "email": "juanflores@gmail.com",
-      "identificationNumber": "71717171",
-      "mobile": "79456321",
-      "names": "juan",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "flores quispe"
-    },
-    "72727272": {
-      "address": "address brach sucre",
-      "branchNumberOrCode": "code2",
-      "branchOfficeName": "Sucursal 2",
-      "charge": "chofer",
-      "dateOfBirth": "12/05/1987",
-      "email": "luisduran@gmail.com",
-      "identificationNumber": "72727272",
-      "mobile": "78951423",
-      "names": "luis fernando",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "duran chavez"
-    },
-    "73737373": {
-      "address": "address branch",
-      "branchNumberOrCode": "code2",
-      "branchOfficeName": "Sucursal 2",
-      "charge": "chofer",
-      "dateOfBirth": "25/10/1986",
-      "email": "cesarhurtado@gmail.com",
-      "identificationNumber": "73737373",
-      "mobile": "74125896",
-      "names": "cesar",
-      "sex": "hombre",
-      "status": "activo",
-      "surnames": "hurtado gonzalez"
-    },
-    "74747471": {
+
+    "61000000": {
       "address": "calle campero 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "Sucursal 1",
-      "charge": "administrador-general",
+      "branchOfficeName": "sucre sucursal 1",
+      "charge": "adm-general",
       "dateOfBirth": "",
-      "email": "s1administrador1@gmail.com",
-      "identificationNumber": "74747471",
+      "email": "admgeneral@gmail.com",
+      "identificationNumber": "61000000",
       "mobile": 60616061,
-      "names": "javier angel",
+      "names": "fabricio",
       "sex": "hombre",
       "status": "activo",
-      "surnames": "santillan quispe"
+      "surnames": "alcon rodrigues"
     },
-    "74747472": {
-      "address": "calle loa 593",
+
+    "71000000": {
+      "address": "calle hecheveria 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "Sucursal 1",
-      "charge": "secretaria(o)",
+      "branchOfficeName": "sucre sucursal 1",
+      "charge": "adm-sucursal",
       "dateOfBirth": "",
-      "email": "s1secretario1@gmail.com",
-      "identificationNumber": "74747472",
-      "mobile": 60616062,
+      "email": "s1admsucursal@gmail.com",
+      "identificationNumber": "71000000",
+      "mobile": 61245061,
       "names": "ariel angel",
       "sex": "hombre",
       "status": "activo",
       "surnames": "santillan reyna"
     },
-    "74747473": {
-      "address": "calle vega 593",
+
+    "71010001": {
+      "address": "calle loa 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "Sucursal 1",
-      "charge": "boletero(a)",
+      "branchOfficeName": "sucre sucursal 1",
+      "charge": "secretaria(o)",
       "dateOfBirth": "",
-      "email": "s1boletero1@gmail.com",
-      "identificationNumber": "74747473",
-      "mobile": 60616063,
+      "email": "s1secretario1@gmail.com",
+      "identificationNumber": "71010001",
+      "mobile": 60616062,
       "names": "cristian andres",
       "sex": "hombre",
       "status": "activo",
       "surnames": "santillan reyna"
     },
-    "74747481": {
-      "address": "calle lemoine 593",
-      "branchNumberOrCode": "code2",
-      "branchOfficeName": "Sucursal 2",
-      "charge": "administrador-general",
+
+    "71020001": {
+      "address": "calle vega 593",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucre sucursal 1",
+      "charge": "boletero(a)",
       "dateOfBirth": "",
-      "email": "s2administrador1@gmail.com",
-      "identificationNumber": "74747481",
-      "mobile": 60616071,
-      "names": "juan miguel",
+      "email": "s1boletero1@gmail.com",
+      "identificationNumber": "71020001",
+      "mobile": 60616063,
+      "names": "javier angel",
       "sex": "hombre",
       "status": "activo",
-      "surnames": "quispe rodriguez"
+      "surnames": "santillan quispe"
     },
-    "74747482": {
+
+    "72000000": {
+      "address": "av gonzales 593",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "santa cruz sucursal 1",
+      "charge": "adm-sucursal",
+      "dateOfBirth": "",
+      "email": "s2admsucursal@gmail.com",
+      "identificationNumber": "72000000",
+      "mobile": 61745473,
+      "names": "bryan",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "fernandez flores"
+    },
+
+    "72010001": {
       "address": "calle bustamante 593",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "Sucursal 2",
+      "branchOfficeName": "santa cruz sucursal 1",
       "charge": "secretaria(o)",
       "dateOfBirth": "",
       "email": "s2secretario1@gmail.com",
-      "identificationNumber": "74747482",
+      "identificationNumber": "72010001",
       "mobile": 60616072,
-      "names": "berta angela",
+      "names": "paola andrea",
       "sex": "mujer",
       "status": "activo",
-      "surnames": "ticona perez"
+      "surnames": "cabrera flores"
     },
-    "74747483": {
+
+    "72020001": {
       "address": "calle estudiantes 593",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "Sucursal 2",
+      "branchOfficeName": "santa cruz sucursal 1",
       "charge": "boletero(a)",
       "dateOfBirth": "",
       "email": "s2boletero1@gmail.com",
-      "identificationNumber": "74747483",
+      "identificationNumber": "72020001",
       "mobile": 60616073,
-      "names": "kevin martin",
+      "names": "erick",
       "sex": "hombre",
       "status": "activo",
-      "surnames": "colque choque"
+      "surnames": "manzano"
+    },
+
+    "80000001": {
+      "address": "address branch",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucre sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "13/01/2000",
+      "email": "chofer1@gmail.com",
+      "identificationNumber": "80000001",
+      "mobile": 78965412,
+      "names": "ronal",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "quispe mamani"
+    },
+
+    "80000002": {
+      "address": "address branch",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucre sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "25/10/1982",
+      "email": "chofer2@gmail.com",
+      "identificationNumber": "80000002",
+      "mobile": 79456321,
+      "names": "juan",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "flores quispe"
+    },
+
+    "80000003": {
+      "address": "address brach sucre",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "santa cruz sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "12/05/1987",
+      "email": "chofer3@gmail.com",
+      "identificationNumber": "80000003",
+      "mobile": 78951423,
+      "names": "luis fernando",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "duran chavez"
+    },
+
+    "80000004": {
+      "address": "address branch",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "santa cruz sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "25/10/1986",
+      "email": "chofer4@gmail.com",
+      "identificationNumber": "80000004",
+      "mobile": 74125896,
+      "names": "cesar",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "hurtado gonzalez"
     }
   }
 }
