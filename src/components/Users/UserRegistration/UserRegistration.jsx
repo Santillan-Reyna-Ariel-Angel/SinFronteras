@@ -22,24 +22,21 @@ import {
   Autocomplete,
   createFilterOptions,
 } from '@mui/material';
-//  import Stack from "@mui/material/Stack";
+
 // manejo de fechas:
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
 import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers/';
 // idioma del calentario:
 import { es } from 'date-fns/locale';
 
-//  MUI-icons:
-import SaveIcon from '@mui/icons-material/Save';
 //Styles:
 import {
   Background,
   HeaderContainer,
   HeaderTitle,
-  BtnToRegistrer,
   BodyContainer,
   InputAddress,
-  InputBranchOffice2,
+  InputBranchOffice,
   InputCharge,
   InputCi,
   InputDateOfBirdth,
@@ -106,7 +103,9 @@ const UserRegistration = ({ identificationNumber = '' }) => {
   let defaultDataBasicInformation = {
     names: names ? names : '',
     surnames: surnames ? surnames : '',
-    ci: identificationNumberUser ? identificationNumberUser : '',
+    identificationNumber: identificationNumberUser
+      ? identificationNumberUser
+      : '',
     address: address ? address : '',
     mobile: mobile ? mobile : '',
     email: email ? email : '',
@@ -169,11 +168,11 @@ const UserRegistration = ({ identificationNumber = '' }) => {
   };
 
   //Sucursal:
-  let defaultDataBranchOffice2 = {
+  let defaultDataBranchOffice = {
     branchOfficeName: branchOfficeName ? branchOfficeName : '',
-    branchNumber: branchNumberOrCode ? branchNumberOrCode : '',
+    branchNumberOrCode: branchNumberOrCode ? branchNumberOrCode : '',
   };
-  const [branchOffice, setBranchOffice] = useState(defaultDataBranchOffice2);
+  const [branchOffice, setBranchOffice] = useState(defaultDataBranchOffice);
   console.log('branchOffice: ', branchOffice);
 
   const changeBranchOffice = (branchOfficeName) => {
@@ -184,7 +183,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     setBranchOffice({
       ...branchOffice,
       branchOfficeName: branchOfficeName,
-      branchNumber: selectedBranch[0].branchNumber,
+      branchNumberOrCode: selectedBranch[0].branchNumber,
     });
   };
 
@@ -236,43 +235,12 @@ const UserRegistration = ({ identificationNumber = '' }) => {
     handleCloseStatus();
   };
 
-  //Boton Registrar:
-  //No se usa con BtnRegistrer:
-  // const registerUser = () => {
-  //   let response = saveUser(
-  //     basicInformation,
-  //     formattedDate,
-  //     sex,
-  //     branchOffice,
-  //     charge,
-  //     status
-  //   );
-
-  //   if (response === 'exitoso') {
-  //     console.log(response);
-  //   } else {
-  //     console.log(response);
-  //   }
-  // };
-
-  //Alet-Dialog:
-  //No se usa con BtnRegistrer:
-  // const [openAlertDialog, setOpenAlertDialog] = useState(false);
-  // const handleClickOpenDialog = () => {
-  //   setOpenAlertDialog(true);
-  // };
-  //No se usa con BtnRegistrer:
-  // const handleCloseDialogBack = () => {
-  //   setOpenAlertDialog(false);
-  // };
-
   //componentDefaultData:
   const componentDefaultData = () => {
-    // setOpenAlertDialog(false);
     setBasicInformation(defaultDataBasicInformation);
     setDate(null);
     setSex('hombre');
-    setBranchOffice(defaultDataBranchOffice2);
+    setBranchOffice(defaultDataBranchOffice);
     setCharge(defaultDataCharge);
     setStatus(defaultDataStatus);
     //Si usamos <BasicDialog> para actualizar data, debemos cerrar el modal:
@@ -359,8 +327,8 @@ const UserRegistration = ({ identificationNumber = '' }) => {
               ClassName: 'input',
               Label: 'Carnet de identidad',
               Type: 'number',
-              Name: 'ci',
-              Value: basicInformation.ci,
+              Name: 'identificationNumber',
+              Value: basicInformation.identificationNumber,
               Disabled: userProp ? true : false,
             })}
           </InputCi>
@@ -447,7 +415,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
           </InputSex>
 
           {/* Sucursal: */}
-          <InputBranchOffice2>
+          <InputBranchOffice>
             <FormControl className="input">
               <InputLabel>Sucursal</InputLabel>
               <Select
@@ -462,7 +430,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
                 ))}
               </Select>
             </FormControl>
-          </InputBranchOffice2>
+          </InputBranchOffice>
 
           {/* Cargos: */}
           <InputCharge>
@@ -634,48 +602,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
             </Dialog>
           </InputStatus>
 
-          {/*Boton y alerta registrar:  BtnToRegistrer CAMBIAR POR "DialogBasic" */}
-
-          {/* <BtnToRegistrer>
-            <Button
-              color="success"
-              onClick={handleClickOpenDialog}
-              disabled={false}
-              variant="contained"
-              startIcon={<SaveIcon />}
-            >
-              Registrar
-            </Button>
-            <Dialog open={openAlertDialog} onClose={componentDefaultData}>
-              <DialogTitle>{`REGISTRO DE USUSARIOS`}</DialogTitle>
-              <DialogContent>
-                <DialogContentText>
-                  {`Esta seguro de registrar a ${basicInformation.names} ${basicInformation.surnames} ?`}
-                </DialogContentText>
-              </DialogContent>
-              <DialogActions>
-                <Button
-                  variant="contained"
-                  color="error"
-                  onClick={handleCloseDialogBack}
-                >
-                  Atras
-                </Button>
-                <Button
-                  variant="contained"
-                  color="success"
-                  onClick={() => {
-                    registerUser();
-                    componentDefaultData();
-                  }}
-                  // autoFocus
-                >
-                  Si
-                </Button>
-              </DialogActions>
-            </Dialog>
-          </BtnToRegistrer> */}
-
+          {/*Boton Registrar:   */}
           <BtnRegistrer>
             <PlainModalButton
               primaryBtnText="registrar"

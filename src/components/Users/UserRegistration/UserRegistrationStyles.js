@@ -50,7 +50,7 @@ export const BodyContainer = styled.form`
   border-radius: 0px 0px 0px 0px; //en vista: 0px 0px 10px 10px; en <BasicDialog/> : 0px 0px 0px 0px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  grid-template-areas: 'InputNames InputSurnames' 'InputCi InputAddress' 'InputMobile InputEmail' 'InputSex InputDateOfBirdth' 'InputBranchOffice2 InputBranchOffice2' 'InputCharge InputStatus' 'BtnToRegistrer BtnToRegistrer' 'BtnRegistrer BtnRegistrer';
+  grid-template-areas: 'InputNames InputSurnames' 'InputCi InputAddress' 'InputMobile InputEmail' 'InputSex InputDateOfBirdth' 'InputBranchOffice InputBranchOffice' 'InputCharge InputStatus' 'BtnRegistrer BtnRegistrer';
 `;
 
 export const InputNames = styled.div`
@@ -115,8 +115,8 @@ export const InputSex = styled.div`
   }
 `;
 
-export const InputBranchOffice2 = styled.div`
-  grid-area: InputBranchOffice2;
+export const InputBranchOffice = styled.div`
+  grid-area: InputBranchOffice;
 
   .input {
     width: 100%; //50%
@@ -137,11 +137,6 @@ export const InputStatus = styled.div`
   .input {
     width: 100%; //50%;
   }
-`;
-
-export const BtnToRegistrer = styled.div`
-  grid-area: BtnToRegistrer;
-  justify-self: center;
 `;
 
 export const BtnRegistrer = styled.div`
