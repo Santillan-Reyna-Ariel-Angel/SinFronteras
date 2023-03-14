@@ -18,6 +18,11 @@ import DialogSingOff from './DialogSingOff/DialogSingOff';
 import { LogoAppBar } from './AppBarStyles';
 //src-images
 import ProfilePicture from '../../sources/img/PerfilFake.jpg';
+import ProfilePicture5 from '../../sources/img/PerfilFake5.png';
+//icons user:
+import AccountCircleRoundedIcon from '@mui/icons-material/AccountCircleRounded';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
+import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
 //Context UserData
 import { ContextUserData } from './../../contexts/ContextUserData';
 import { ContextAllBranchOffices } from './../../contexts/ContextAllBranchOffices';
@@ -39,7 +44,7 @@ export default function PrimarySearchAppBar() {
   let allBranchOfficesArray = [];
   for (let i in allBranchOffices)
     allBranchOfficesArray.push(allBranchOffices[i].branchInformation);
-  console.log('allBranchOfficesArray', allBranchOfficesArray);
+  // console.log('allBranchOfficesArray', allBranchOfficesArray);
 
   const branchOffice = allBranchOfficesArray.filter(
     (branchOffice) => branchOffice.branchNumber === branchNumberOrCode
@@ -152,8 +157,8 @@ export default function PrimarySearchAppBar() {
           color="inherit"
         >
           <Avatar
-            alt="Travis Howard"
-            src={ProfilePicture}
+            alt="Usuario" // Travis Howard
+            src={ProfilePicture5}
             sx={{ ml: '-10px' }}
           />
         </IconButton>
@@ -230,7 +235,10 @@ export default function PrimarySearchAppBar() {
               <Typography variant="subtitle2" sx={{ mr: '5px' }}>
                 {names}
               </Typography>
-              <Avatar alt="Travis Howard" src={ProfilePicture} />
+              <Avatar
+                alt="Usuario" //Travis Howard
+                src={ProfilePicture5}
+              />
             </IconButton>
           </Box>
 
