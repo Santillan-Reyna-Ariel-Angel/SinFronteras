@@ -1,0 +1,155 @@
+// "Create, Read, Update, Delete" (Crear, Leer, Actualizar, Eliminar).
+
+const permissionsAux = {
+  dueño: {
+    venderPasajes: true,
+    registrarUsuarios: true,
+    listarUsuarios: true,
+    editarInfoUsuarios: true,
+    eliminarUsuarios: true,
+    registrarBuses: true,
+    listarBuses: true,
+    editarInfoBuses: true,
+    eliminarBuses: true,
+    registrarDestinos: true,
+    programarViaje: true,
+    listarVentas: true,
+    verTicket: true,
+    imprimirTicket: true,
+    listarViajes: true,
+    registrarEgresos: true,
+    verEgresos: true,
+    actualizarEgresos: true,
+    verPlanillaLiquidacion: true,
+    imprimirPlanillaLiquidacion: true,
+    registrarSucursales: true,
+  },
+  'adm-general': {
+    venderPasajes: true,
+    registrarUsuarios: true,
+    listarUsuarios: true,
+    editarInfoUsuarios: true,
+    eliminarUsuarios: true,
+    registrarBuses: true,
+    listarBuses: true,
+    editarInfoBuses: true,
+    eliminarBuses: true,
+    registrarDestinos: true,
+    programarViaje: true,
+    listarVentas: true,
+    verTicket: true,
+    imprimirTicket: true,
+    listarViajes: true,
+    registrarEgresos: true,
+    verEgresos: true,
+    actualizarEgresos: true,
+    verPlanillaLiquidacion: true,
+    imprimirPlanillaLiquidacion: true,
+    registrarSucursales: true,
+  },
+  'adm-sucursal': {
+    venderPasajes: true,
+    registrarUsuarios: true,
+    listarUsuarios: true,
+    editarInfoUsuarios: true,
+    eliminarUsuarios: true,
+    registrarBuses: true,
+    listarBuses: true,
+    editarInfoBuses: true,
+    eliminarBuses: true,
+    registrarDestinos: true,
+    programarViaje: true,
+    listarVentas: true,
+    verTicket: true,
+    imprimirTicket: true,
+    listarViajes: true,
+    registrarEgresos: true,
+    verEgresos: true,
+    actualizarEgresos: true,
+    verPlanillaLiquidacion: true,
+    imprimirPlanillaLiquidacion: true,
+    registrarSucursales: true,
+  },
+  secretaria: {
+    venderPasajes: true,
+    registrarUsuarios: false,
+    listarUsuarios: true,
+    editarInfoUsuarios: false,
+    eliminarUsuarios: false,
+    registrarBuses: false,
+    listarBuses: false,
+    editarInfoBuses: false,
+    eliminarBuses: false,
+    registrarDestinos: false,
+    programarViaje: false,
+    listarVentas: true,
+    verTicket: true,
+    imprimirTicket: true,
+    listarViajes: true,
+    registrarEgresos: false,
+    verEgresos: true,
+    actualizarEgresos: false,
+    verPlanillaLiquidacion: true,
+    imprimirPlanillaLiquidacion: true,
+    registrarSucursales: false,
+  },
+};
+// console.log('resp: ', permissionsAux.dueño.venderPasajes);
+
+export const permissions = {
+  pasajes: {
+    crear: true,
+    leer: true,
+    // btnTicket: true, // Es igual a leer
+    imprimir: true,
+  },
+  usuarios: {
+    crear: true,
+    leer: true,
+    actualizar: true,
+    eliminar: true,
+  },
+  buses: {
+    crear: true,
+    leer: true,
+    actualizar: true,
+    eliminar: true,
+  },
+  destinos: {
+    crear: true,
+  },
+  viajes: {
+    crear: true, // => programar viaje
+    leer: true,
+  },
+  egresos: {
+    crear: true,
+    leer: true,
+    actualizar: true,
+  },
+  planillaLiquidacion: {
+    leer: true,
+    imprimir: true,
+  },
+  sucursales: {
+    crear: true,
+  },
+};
+
+const rolesAndPermissions = {
+  dueño: {
+    ...permissions,
+  },
+  'adm-general': {
+    ...permissions,
+  },
+  'adm-sucursal': {},
+  secretaria: {},
+  boletero: {},
+  chofer: {},
+};
+
+console.log(
+  'resp: ',
+  rolesAndPermissions['adm-general'].planillaLiquidacion.imprimir
+);
