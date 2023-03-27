@@ -23,6 +23,7 @@ const PlainModalButton = ({
   componentView = <></>,
 
   primaryBtnColor = 'success', //Conciderar poder modificar el color del boton de PlainModalButton
+  disabledBtn = false, //controla si el boton esta "desactivado" o no
 }) => {
   // const history = useHistory();
   const [openDialog, setOpenDialog] = useState(false);
@@ -53,6 +54,7 @@ const PlainModalButton = ({
       <Button
         variant="contained"
         color={primaryBtnColor}
+        disabled={disabledBtn}
         onClick={handleClickOpen}
       >
         {primaryBtnText}

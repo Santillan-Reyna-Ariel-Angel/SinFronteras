@@ -34,11 +34,11 @@ export const UserDataTable = () => {
   const data = getDataTableNecesary({ allUserDataList });
   console.log('data', data);
 
-  const data2 = data.filter(
+  const dataFilteredByBranch = data.filter(
     (user) =>
       user.branchNumberOrCode === branchOffice?.branchInformation?.branchNumber
   );
-  console.log('data2', data2);
+  console.log('dataFilteredByBranch', dataFilteredByBranch);
 
   const columns = [
     {
@@ -122,7 +122,7 @@ export const UserDataTable = () => {
             <ThemeProvider theme={getThemeForMUIDataTable()}>
               <MUIDataTable
                 title={'LISTA DE USUARIOS '}
-                data={data2}
+                data={dataFilteredByBranch}
                 columns={columns}
                 options={options}
               />

@@ -124,6 +124,9 @@ export const BusCard = () => {
                   functionToExecute={deleteBus}
                   functionParameters={bus.enrollment}
                   primaryBtnColor="error"
+                  disabledBtn={
+                    bus.designatedBranch === 'DISPONIBLE' ? false : true
+                  }
                 />
               </BtnDeleteBusStyle>
             </BodyContainer>
