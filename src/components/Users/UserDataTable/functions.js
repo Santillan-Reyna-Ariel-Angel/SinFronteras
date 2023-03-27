@@ -12,6 +12,7 @@ export const getDataTableNecesary = ({ allUserDataList }) => {
         identificationNumber: userData.identificationNumber,
         userFullName: `${userData.surnames} ${userData.names}`,
         charge: userData.charge,
+        branchNumberOrCode: userData.branchNumberOrCode,
         branchOfficeName: userData.branchOfficeName,
         mobile: userData.mobile,
         status: userData.status,

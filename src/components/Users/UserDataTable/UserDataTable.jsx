@@ -10,6 +10,7 @@ import { muiCache, getThemeForMUIDataTable } from '../../themeForMUIDataTable';
 import { Background, BodyContainer } from './UserDataTableStyles';
 //Contexts:
 import { ContextAllUserData } from '../../../contexts/ContextAllUserData';
+import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 //Firebase Functions:
 //States:
 //Components:
@@ -22,25 +23,22 @@ export const UserDataTable = () => {
   const allUserData = useContext(ContextAllUserData);
   console.log('allUserData', allUserData);
 
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+
   // json to array:
   let allUserDataList = [];
   for (let i in allUserData) allUserDataList.push(allUserData[i]);
   console.log('allUserDataList', allUserDataList);
 
-  //Datos necesarios para llenar la tabla:
-  //   let allUserDataListDefault = [
-  //     {
-  //       identificationNumber: '123456',
-  //       userFullName: 'jose perez',
-  //       charge: 'chofer',
-  //       branchOfficeName: 'sucursal 1',
-  //       mobile: '67676767',
-  //       status: 'activo',
-  //       // btnSettlementForm: 'funcion',
-  //     },
-  //   ];
-
   const data = getDataTableNecesary({ allUserDataList });
+  console.log('data', data);
+
+  const data2 = data.filter(
+    (user) =>
+      user.branchNumberOrCode === branchOffice?.branchInformation?.branchNumber
+  );
+  console.log('data2', data2);
 
   const columns = [
     {
@@ -124,7 +122,7 @@ export const UserDataTable = () => {
             <ThemeProvider theme={getThemeForMUIDataTable()}>
               <MUIDataTable
                 title={'LISTA DE USUARIOS '}
-                data={data}
+                data={data2}
                 columns={columns}
                 options={options}
               />

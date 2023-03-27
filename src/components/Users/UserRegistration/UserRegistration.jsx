@@ -51,7 +51,7 @@ import {
 //Contexts:
 import { ContextAllUserData } from './../../../contexts/ContextAllUserData';
 import { ContextAllBranchOffices } from './../../../contexts/ContextAllBranchOffices';
-import { ContextUserData } from './../../../contexts/ContextUserData';
+import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 
 //Firebase Functions:
 import { saveUser } from './UserRegistrationFunctios';
@@ -93,17 +93,21 @@ const UserRegistration = ({ identificationNumber = '' }) => {
   let branchKeysList = allBranchOffices ? Object.keys(allBranchOffices) : [];
   console.log('branchKeysList', branchKeysList);
 
-  //ContextUserData:
-  const userData = useContext(ContextUserData);
+  // ContextBranchOffice:
+  const contextBranchOffice = useContext(ContextBranchOffice);
 
-  //Lista de Sucursales (se listara solo la sucursal que coincida con la que tiene el usuario (con filter) ):
+  //Lista de Sucursales (se listara solo la sucursal actual (con filter) ):
   let optionsBranchList = branchKeysList
     .map((branchKey) => {
       let { branchNumber, name } =
         allBranchOffices[branchKey].branchInformation;
       return { branchNumber, name };
     })
-    .filter((branch) => branch.branchNumber === userData.branchNumberOrCode);
+    .filter(
+      (branch) =>
+        branch.branchNumber ===
+        contextBranchOffice?.branchInformation?.branchNumber
+    );
   console.log('optionsBranchList', optionsBranchList);
 
   //basicInformation:
