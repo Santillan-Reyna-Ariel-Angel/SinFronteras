@@ -39,6 +39,7 @@ import {
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextCompanyBuses } from './../../../contexts/ContextCompanyBuses';
 import { ContextAllUserData } from './../../../contexts/ContextAllUserData';
+import { ContextUserData } from './../../../contexts/ContextUserData';
 //Firebase Functions:
 import { createTripSchedule } from './../Firebase/createTripSchedule';
 //States:
@@ -82,6 +83,12 @@ export const TravelRegistration = () => {
   //ContextUserData
   const allUserData = useContext(ContextAllUserData);
   // console.log('allUserData', allUserData);
+
+  //ContextUserData:
+  const userData = useContext(ContextUserData);
+  let { identificationNumber } = userData
+    ? userData
+    : { identificationNumber: '' };
 
   // json to array:
   let companyBusesArray = [];
@@ -469,7 +476,11 @@ export const TravelRegistration = () => {
             closeBtnText="cancelar"
             continueBtnText="si"
             functionToExecute={createTripSchedule}
-            functionParameters={{ travelData, branchNumber }}
+            functionParameters={{
+              travelData,
+              branchNumber,
+              identificationNumber,
+            }}
             thirdFunctionToExecute={componentDefaultData}
           />
         </Btn>

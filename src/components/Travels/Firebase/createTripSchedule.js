@@ -5,7 +5,11 @@ import { travelKey } from './../Functions/functions';
 //Modulos Firebase:
 const { fire_db } = modulesFirebase;
 
-export const createTripSchedule = ({ travelData, branchNumber }) => {
+export const createTripSchedule = ({
+  travelData,
+  branchNumber,
+  identificationNumber,
+}) => {
   let { travelDate, departureTime, busEnrollment } = travelData;
 
   let travelKeyAux = travelKey({
@@ -50,7 +54,7 @@ export const createTripSchedule = ({ travelData, branchNumber }) => {
 
   //Crear viaje en tripsMade, para poder buscar viaje y selecionar sus asientos:
   set(ref(fire_db, `tripsMade/branch_${branchNumber}/${travelKeyAux}/`), {
-    occupiedSeat: { 0: 'vendido-74747472' },
+    occupiedSeat: { 0: `vendido-${identificationNumber}` },
     passengers: {},
     travelExpenses,
     travelIncome,

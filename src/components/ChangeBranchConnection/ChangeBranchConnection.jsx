@@ -32,12 +32,18 @@ export const ChangeBranchConnection = () => {
   //ContextAllBranchOffices:
   const allBranchOffices = useContext(ContextAllBranchOffices);
   console.log('allBranchOffices', allBranchOffices);
+
+  // json to array:
+  let allBranchOfficesList = [];
+  for (let i in allBranchOffices)
+    allBranchOfficesList.push(allBranchOffices[i]);
+
   let branchKeysList = allBranchOffices ? Object.keys(allBranchOffices) : [];
   console.log('branchKeysList', branchKeysList);
 
   let selectOptionsList = branchKeysList.map((branchKey) => {
     let { location, name } = allBranchOffices[branchKey].branchInformation;
-    let selectOption = `${location} - ${name}`;
+    let selectOption = `${location}-${name}`;
     return selectOption;
   });
   console.log('selectOptionsList', selectOptionsList);
@@ -57,9 +63,14 @@ export const ChangeBranchConnection = () => {
     let value = event.target.value;
     let valuesList = value.split('-');
 
+    let brachFiltered = allBranchOfficesList.filter(
+      (branch) => branch.branchInformation.location === valuesList[0]
+    );
+    let branchNumber = brachFiltered[0]?.branchInformation?.branchNumber;
+
     setCurrentBranch({
       identificationNumber: userData.identificationNumber,
-      branchNumberOrCode: valuesList[0],
+      branchNumberOrCode: branchNumber,
       branchOfficeName: valuesList[1],
       selectOption: `${valuesList[0]}-${valuesList[1]}`,
     });
