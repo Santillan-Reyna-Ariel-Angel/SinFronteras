@@ -36,8 +36,8 @@ export const ChangeBranchConnection = () => {
   console.log('branchKeysList', branchKeysList);
 
   let selectOptionsList = branchKeysList.map((branchKey) => {
-    let { branchNumber, name } = allBranchOffices[branchKey].branchInformation;
-    let selectOption = `${branchNumber}-${name}`;
+    let { location, name } = allBranchOffices[branchKey].branchInformation;
+    let selectOption = `${location} - ${name}`;
     return selectOption;
   });
   console.log('selectOptionsList', selectOptionsList);
@@ -67,6 +67,12 @@ export const ChangeBranchConnection = () => {
 
   console.log('currentBranch', currentBranch);
 
+  //Datos de sucursal actual:
+  let { location: locationBranch = '', name: nameBranch = '' } =
+    allBranchOffices
+      ? allBranchOffices[userData?.branchNumberOrCode]?.branchInformation
+      : {};
+
   const componentDefaultData = () => {
     setCurrentBranch(currentBranchDefault);
     //REDIRECIONAR PAGINA:
@@ -86,7 +92,7 @@ export const ChangeBranchConnection = () => {
           <CurrentConnectionText>
             <span>
               Usted esta conectado actualmente a:{' '}
-              <strong>{userData ? userData.branchOfficeName : ''}</strong>
+              <strong>{`${locationBranch} ${nameBranch}`}</strong>
             </span>
           </CurrentConnectionText>
 
