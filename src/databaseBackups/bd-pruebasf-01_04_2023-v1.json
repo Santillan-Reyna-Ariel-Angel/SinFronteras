@@ -53,7 +53,7 @@
         },
         "emailsWithAccess": "s1secretario1@gmail.com",
         "location": "sucre",
-        "name": "sucre sucursal 1",
+        "name": "sucursal 1",
         "terminal": "interprovincial"
       },
       "travels": {
@@ -81,7 +81,7 @@
           "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "31/01/2023",
+          "travelDate": "30/04/2023",
           "travelStatus": "pendiente"
         },
         "code2": {
@@ -108,7 +108,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "31/01/2023",
+          "travelDate": "30/04/2023",
           "travelStatus": "pendiente"
         }
       }
@@ -166,7 +166,7 @@
         },
         "emailsWithAccess": "s2secretario1@gmail.com",
         "location": "c. santa cruz",
-        "name": "santa cruz sucursal 1",
+        "name": "sucursal 1",
         "terminal": "interprovincial"
       },
       "travels": {
@@ -194,7 +194,7 @@
           "destinationLocation": "sucre",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "31/01/2023",
+          "travelDate": "30/04/2023",
           "travelStatus": "pendiente"
         },
         "code2": {
@@ -223,7 +223,7 @@
           "destinationLocation": "yacuiba",
           "lane": "0",
           "localityOfOrigin": "c. santa cruz",
-          "travelDate": "31/01/2023",
+          "travelDate": "30/04/2023",
           "travelStatus": "pendiente"
         }
       }
@@ -376,13 +376,13 @@
   },
   "tripsMade": {
     "branch_code1": {
-      "travel_31-01-2023_20-30_bus-001": {
+      "travel_30-04-2023_20-30_bus-001": {
         "occupiedSeat": {
           "0": "vendido-71010001",
           "7": "vendido-71010001"
         },
         "passengers": {
-          "billingContact_15-01-2023_16-31_7481801": {
+          "billingContact_10-03-2023_16-31_7481801": {
             "billingContactInformation": {
               "ciOrNit": "7481801",
               "countryCode": "+591 (BO)",
@@ -390,7 +390,7 @@
               "mobile": "7896354",
               "nameOrSocialReason": "Salinas Guzman Marco Antonio"
             },
-            "saleDate": "15/01/2023",
+            "saleDate": "10/03/2023",
             "salesAmountData": {
               "amountTotal": "30.00",
               "description": "Familia",
@@ -415,7 +415,7 @@
                 "seatId": "7",
                 "seatPrice": 55,
                 "ticketNumber": "suc-code1_15-01-2023_7481801",
-                "travelDate": "31/01/2023",
+                "travelDate": "30/04/2023",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "semi-cama"
               }
@@ -435,7 +435,7 @@
             "washed": "50"
           },
           "totalExpenses": 730,
-          "tripMadeKey": "travel_31-01-2023_20-30_bus-001"
+          "tripMadeKey": "travel_30-04-2023_20-30_bus-001"
         },
         "travelIncome": {
           "incomeTickets": [
@@ -449,15 +449,15 @@
           "totalAmountIncome": 30,
           "totalAmountTickets": 55
         },
-        "tripMadeKey": "travel_31-01-2023_20-30_bus-001"
+        "tripMadeKey": "travel_30-04-2023_20-30_bus-001"
       },
-      "travel_31-01-2023_21-30_bus-006": {
+      "travel_30-04-2023_21-30_bus-006": {
         "occupiedSeat": {
           "0": "vendido-71010001",
           "7": "vendido-71010001"
         },
         "passengers": {
-          "billingContact_15-01-2023_16-22_7481901": {
+          "billingContact_10-03-2023_16-22_7481901": {
             "billingContactInformation": {
               "ciOrNit": "7481901",
               "countryCode": "+591 (BO)",
@@ -465,7 +465,7 @@
               "mobile": "67611515",
               "nameOrSocialReason": "Santillan Quispe Javier Angel"
             },
-            "saleDate": "15/01/2023",
+            "saleDate": "10/03/2023",
             "salesAmountData": {
               "amountTotal": 100,
               "description": "",
@@ -490,7 +490,7 @@
                 "seatId": "7",
                 "seatPrice": 100,
                 "ticketNumber": "suc-code1_15-01-2023_7481901",
-                "travelDate": "31/01/2023",
+                "travelDate": "30/04/2023",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "cama"
               }
@@ -510,7 +510,7 @@
             "washed": "50"
           },
           "totalExpenses": 550,
-          "tripMadeKey": "travel_31-01-2023_21-30_bus-006"
+          "tripMadeKey": "travel_30-04-2023_21-30_bus-006"
         },
         "travelIncome": {
           "incomeTickets": [
@@ -524,7 +524,7 @@
           "totalAmountIncome": 100,
           "totalAmountTickets": 100
         },
-        "tripMadeKey": "travel_31-01-2023_21-30_bus-006"
+        "tripMadeKey": "travel_30-04-2023_21-30_bus-006"
       }
     }
   },
@@ -532,7 +532,7 @@
     "60000000": {
       "address": "address branch",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucre sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "dueño",
       "dateOfBirth": "15/01/1996",
       "email": "dueño@gmail.com",
@@ -547,7 +547,7 @@
     "61000000": {
       "address": "calle campero 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucre sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "adm-general",
       "dateOfBirth": "",
       "email": "admgeneral@gmail.com",
@@ -562,7 +562,7 @@
     "71000000": {
       "address": "calle hecheveria 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucre sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "adm-sucursal",
       "dateOfBirth": "",
       "email": "s1admsucursal@gmail.com",
@@ -577,7 +577,7 @@
     "71010001": {
       "address": "calle loa 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucre sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "secretaria(o)",
       "dateOfBirth": "",
       "email": "s1secretario1@gmail.com",
@@ -592,7 +592,7 @@
     "71020001": {
       "address": "calle vega 593",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucre sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "boletero(a)",
       "dateOfBirth": "",
       "email": "s1boletero1@gmail.com",
@@ -607,7 +607,7 @@
     "72000000": {
       "address": "av gonzales 593",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "santa cruz sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "adm-sucursal",
       "dateOfBirth": "",
       "email": "s2admsucursal@gmail.com",
@@ -622,7 +622,7 @@
     "72010001": {
       "address": "calle bustamante 593",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "santa cruz sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "secretaria(o)",
       "dateOfBirth": "",
       "email": "s2secretario1@gmail.com",
@@ -637,7 +637,7 @@
     "72020001": {
       "address": "calle estudiantes 593",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "santa cruz sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "boletero(a)",
       "dateOfBirth": "",
       "email": "s2boletero1@gmail.com",
@@ -652,7 +652,7 @@
     "80000001": {
       "address": "address branch",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucre sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "chofer",
       "dateOfBirth": "13/01/2000",
       "email": "chofer1@gmail.com",
@@ -667,7 +667,7 @@
     "80000002": {
       "address": "address branch",
       "branchNumberOrCode": "code1",
-      "branchOfficeName": "sucre sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "chofer",
       "dateOfBirth": "25/10/1982",
       "email": "chofer2@gmail.com",
@@ -682,7 +682,7 @@
     "80000003": {
       "address": "address brach sucre",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "santa cruz sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "chofer",
       "dateOfBirth": "12/05/1987",
       "email": "chofer3@gmail.com",
@@ -697,7 +697,7 @@
     "80000004": {
       "address": "address branch",
       "branchNumberOrCode": "code2",
-      "branchOfficeName": "santa cruz sucursal 1",
+      "branchOfficeName": "sucursal 1",
       "charge": "chofer",
       "dateOfBirth": "25/10/1986",
       "email": "chofer4@gmail.com",
