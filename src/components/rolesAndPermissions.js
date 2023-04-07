@@ -123,12 +123,12 @@ export const permissions = {
     leer: true,
   },
   egresos: {
-    crear: true,
+    crear: true, // Se crea automaticamente al crear un viaje, esto pude ser innecesario
     leer: true,
-    actualizar: true,
+    actualizar: true, // Es el boton "REGISTRAR EGRESO DEL VAIJE" esta ligado a "leer"
   },
   planillaLiquidacion: {
-    leer: true,
+    leer: true, // Es el Btn "Planilla Liquidacion" habilitado
     imprimir: true,
   },
   sucursales: {
@@ -136,7 +136,7 @@ export const permissions = {
   },
 };
 
-const rolesAndPermissions = {
+export const rolesAndPermissions = {
   dueño: {
     ...permissions,
   },

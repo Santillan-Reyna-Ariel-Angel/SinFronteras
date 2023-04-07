@@ -156,6 +156,9 @@ export const TravelRegistration = () => {
     });
   };
 
+  // companyBusesArray: apartir de esta filtrar solo aquellos que sean diferentes en fecha y hora de viaje de los ya registrados.
+  // esto afecta a : busEnrollmentsList y getBusData()
+
   let busEnrollmentsList = companyBusesArray
     .filter(
       (bus) => bus.status === 'activo' && bus.designatedBranch === branchNumber

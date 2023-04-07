@@ -27,7 +27,7 @@ const Login = () => {
     if (accessToken !== null) {
       sessionStorage.setItem('userEmail', email);
 
-      if (email === 'dueño@gmail.com') {
+      if (email === 'dueño@gmail.com' || email === 'admgeneral@gmail.com') {
         window.location.assign('/conectar-sucursal'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
       } else {
         window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
