@@ -6,6 +6,7 @@ import Dialog from '@mui/material/Dialog';
 export let handleClose;
 export const DialogBasic = ({
   primaryBtnText = 'Abrir Dialog',
+  disabledBtn = false, //controla si el boton esta "desactivado" o no
   componentView = <></>, // <TravelExpenses />
   redirectPage = './',
 }) => {
@@ -26,14 +27,19 @@ export const DialogBasic = ({
   };
 
   return (
-    <div>
-      <Button variant="contained" color="success" onClick={handleClickOpen}>
+    <>
+      <Button
+        variant="contained"
+        color="success"
+        disabled={disabledBtn}
+        onClick={handleClickOpen}
+      >
         {primaryBtnText}
       </Button>
 
       <Dialog onClose={handleClose} open={openDialogBasic}>
         {componentView ? componentView : null}
       </Dialog>
-    </div>
+    </>
   );
 };

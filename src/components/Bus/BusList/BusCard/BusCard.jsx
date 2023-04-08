@@ -17,6 +17,7 @@ import {
 //Contexts:
 import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 import { ContextCompanyBuses } from './../../../../contexts/ContextCompanyBuses';
+import { ContextUserData } from './../../../../contexts/ContextUserData';
 //Firebase Functions:
 import { DialogBasic } from '../../../DialogBasic/DialogBasic';
 import { deleteBus } from '../../Firebase/deleteBus';
@@ -27,6 +28,8 @@ import { BusRegistration } from './../../BusRegistration/BusRegistration';
 import { PlainModalButton } from '../../../PlainModalButton/PlainModalButton';
 
 //Others:
+import { getBusesByUserRole, isEdit, isDelete } from './functions';
+import { rolesAndPermissions } from './../../../rolesAndPermissions';
 
 export const BusCard = () => {
   //ContextBranchOffice:
@@ -38,6 +41,10 @@ export const BusCard = () => {
   //ContextCompanyBuses:
   const companyBuses = useContext(ContextCompanyBuses);
   // console.log('companyBuses: ', companyBuses);
+
+  //ContextUserData:
+  const userData = useContext(ContextUserData);
+  const { charge = '' } = userData ? userData : {};
 
   // json to array:
   let companyBusesArray = [];
@@ -58,9 +65,19 @@ export const BusCard = () => {
 
   console.log('companyBusesArray:', companyBusesArray);
 
+  let busesByUserRole = rolesAndPermissions[charge]?.buses?.leer
+    ? getBusesByUserRole({
+        charge: charge,
+        branchNumber: branchNumber,
+        companyBusesArray: companyBusesArray,
+      })
+    : [];
+
+  console.log('busesByUserRole:', busesByUserRole);
+
   return (
     <>
-      {companyBusesArray.map((bus, index) => (
+      {busesByUserRole.map((bus, index) => (
         <>
           <Background>
             <BodyContainer>
@@ -107,14 +124,44 @@ export const BusCard = () => {
               <BranchStyle>
                 <span>{`${bus.designatedBranch}`}</span>
               </BranchStyle>
+
               <BtnUpdateDataStyle>
-                <DialogBasic
-                  primaryBtnText="editar"
-                  componentView={<BusRegistration busProp={bus} />}
-                />
+                {rolesAndPermissions[charge]?.buses?.actualizar && (
+                  <DialogBasic
+                    primaryBtnText="editar"
+                    disabledBtn={
+                      !isEdit({
+                        charge: charge,
+                        designatedBranch: bus.designatedBranch,
+                      })
+                    }
+                    componentView={<BusRegistration busProp={bus} />}
+                  />
+                )}
               </BtnUpdateDataStyle>
 
               <BtnDeleteBusStyle>
+                {rolesAndPermissions[charge]?.buses?.eliminar && (
+                  <PlainModalButton
+                    primaryBtnText="eliminar"
+                    dialogTitle="Lista de buses"
+                    dialogText={`Esta seguro de eliminar este Bus (${bus.enrollment})?`}
+                    closeBtnText="cancelar"
+                    continueBtnText="si"
+                    functionToExecute={deleteBus}
+                    functionParameters={bus.enrollment}
+                    primaryBtnColor="error"
+                    disabledBtn={
+                      !isDelete({
+                        charge: charge,
+                        designatedBranch: bus.designatedBranch,
+                      })
+                    }
+                  />
+                )}
+              </BtnDeleteBusStyle>
+
+              {/* <BtnDeleteBusStyle>
                 <PlainModalButton
                   primaryBtnText="eliminar"
                   dialogTitle="Lista de buses"
@@ -125,10 +172,13 @@ export const BusCard = () => {
                   functionParameters={bus.enrollment}
                   primaryBtnColor="error"
                   disabledBtn={
-                    bus.designatedBranch === 'DISPONIBLE' ? false : true
+                    !isDelete({
+                      charge: charge,
+                      designatedBranch: bus.designatedBranch,
+                    })
                   }
                 />
-              </BtnDeleteBusStyle>
+              </BtnDeleteBusStyle> */}
             </BodyContainer>
           </Background>
         </>

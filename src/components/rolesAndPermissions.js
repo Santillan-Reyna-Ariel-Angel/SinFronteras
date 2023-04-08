@@ -96,7 +96,7 @@ const permissionsAux = {
 };
 // console.log('resp: ', permissionsAux.dueño.venderPasajes);
 
-export const permissions = {
+const permissions = {
   pasajes: {
     crear: true,
     leer: true,
@@ -143,7 +143,20 @@ export const rolesAndPermissions = {
   'adm-general': {
     ...permissions,
   },
-  'adm-sucursal': {},
+  'adm-sucursal': {
+    pasajes: {
+      ...permissions.pasajes,
+    },
+    usuarios: {
+      ...permissions.usuarios,
+    },
+    buses: {
+      crear: true,
+      leer: true, // solo puede ver los buses de su sucursal y disponibles
+      actualizar: true, // solo los buses disponibles.
+      eliminar: false, // no puede eliminar ningun bus
+    },
+  },
   secretaria: {},
   boletero: {},
   chofer: {},
