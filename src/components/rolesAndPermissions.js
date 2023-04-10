@@ -164,15 +164,25 @@ export const rolesAndPermissions = {
   'secretaria(o)': {
     pasajes: {
       crear: true,
-      // leer: true,
+      leer: true,
       // btnTicket: true, // Es igual a leer
-      // imprimir: true,
+      imprimir: true,
     },
     usuarios: {
       crear: false,
       leer: true,
       actualizar: false,
       eliminar: false,
+    },
+    buses: {
+      crear: false,
+      leer: true, // solo puede ver los buses de su sucursal y disponibles
+      actualizar: false, // no puede actualizar ningun bus (ocultar BtnEdit)
+      eliminar: false, // no puede eliminar ningun bus (ocultar BtnDelete)
+    },
+    viajes: {
+      crear: true, // => programar viaje
+      leer: true,
     },
   },
   boletero: {},

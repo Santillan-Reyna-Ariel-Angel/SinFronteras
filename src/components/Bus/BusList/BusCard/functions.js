@@ -17,6 +17,14 @@ export const getBusesByUserRole = ({
     );
   }
 
+  if (charge === 'secretaria(o)') {
+    busesFilteredByUserRole = companyBusesArray.filter(
+      (bus) =>
+        bus.designatedBranch === 'DISPONIBLE' ||
+        bus.designatedBranch === branchNumber
+    );
+  }
+
   return busesFilteredByUserRole;
 };
 
@@ -28,6 +36,10 @@ export const isEdit = ({ charge, designatedBranch }) => {
   if (charge === 'adm-sucursal') {
     return designatedBranch === 'DISPONIBLE' ? true : false;
   }
+
+  if (charge === 'secretaria(o)') {
+    return false; // esto deberia venir de rolesAndPermissions[charge].busees.actualizar o sino crear un propiedad "isBtnEdit_Habilitado"
+  }
 };
 
 export const isDelete = ({ charge, designatedBranch }) => {
@@ -37,5 +49,9 @@ export const isDelete = ({ charge, designatedBranch }) => {
 
   if (charge === 'adm-sucursal') {
     return false;
+  }
+
+  if (charge === 'secretaria(o)') {
+    return false; // esto deberia venir de rolesAndPermissions[charge].busees.eliminar o sino crear un propiedad "isBtnDelete_Habilitado"
   }
 };
