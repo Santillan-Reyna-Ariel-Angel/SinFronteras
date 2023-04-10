@@ -47,3 +47,63 @@ export const getDataTableNecesary = ({ allUserDataList }) => {
     return dataTableNecesary;
   }
 };
+
+export const getColumnsByUserRole = ({ charge, columns }) => {
+  let columnsFilteredByUserRole = [];
+
+  if (
+    charge === 'dueño' ||
+    charge === 'adm-general' ||
+    charge === 'adm-sucursal'
+  ) {
+    columnsFilteredByUserRole = columns;
+  }
+
+  if (charge === 'secretaria(o)') {
+    columnsFilteredByUserRole = columns.filter(
+      (column) => column.name !== 'btnEdit' && column.name !== 'btnDelete'
+    );
+  }
+
+  return columnsFilteredByUserRole;
+};
+
+export const isEdit = ({ charge, columns }) => {
+  let columnsFilteredByUserRole = [];
+
+  if (
+    charge === 'dueño' ||
+    charge === 'adm-general' ||
+    charge === 'adm-sucursal'
+  ) {
+    columnsFilteredByUserRole = columns;
+  }
+
+  if (charge === 'secretaria(o)') {
+    columnsFilteredByUserRole = columns.filter(
+      (column) => column.name !== 'btnEdit'
+    );
+  }
+
+  return columnsFilteredByUserRole;
+};
+
+export const isDelete = ({ charge, columns_isEditResponse }) => {
+  let columnsFilteredByUserRole = [];
+
+  if (
+    charge === 'dueño' ||
+    charge === 'adm-general' ||
+    charge === 'adm-sucursal'
+  ) {
+    columnsFilteredByUserRole = columns_isEditResponse;
+  }
+
+  if (charge === 'secretaria(o)') {
+    columnsFilteredByUserRole = columns_isEditResponse.filter(
+      (column) => column.name !== 'btnDelete'
+    );
+  }
+
+  return columnsFilteredByUserRole;
+};

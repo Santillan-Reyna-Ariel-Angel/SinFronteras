@@ -161,7 +161,20 @@ export const rolesAndPermissions = {
       leer: true,
     },
   },
-  secretaria: {},
+  'secretaria(o)': {
+    pasajes: {
+      crear: true,
+      // leer: true,
+      // btnTicket: true, // Es igual a leer
+      // imprimir: true,
+    },
+    usuarios: {
+      crear: false,
+      leer: true,
+      actualizar: false,
+      eliminar: false,
+    },
+  },
   boletero: {},
   chofer: {},
 };

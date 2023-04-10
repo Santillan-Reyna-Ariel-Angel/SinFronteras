@@ -11,12 +11,19 @@ import { Background, BodyContainer } from './UserDataTableStyles';
 //Contexts:
 import { ContextAllUserData } from '../../../contexts/ContextAllUserData';
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
+import { ContextUserData } from './../../../contexts/ContextUserData';
 //Firebase Functions:
 //States:
 //Components:
 //Others:
 import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../constantData';
-import { getDataTableNecesary } from './functions';
+import {
+  getDataTableNecesary,
+  // getColumnsByUserRole,
+  isEdit,
+  isDelete,
+} from './functions';
+import { rolesAndPermissions } from './../../rolesAndPermissions';
 
 export const UserDataTable = () => {
   //ContextAllUserData:
@@ -25,6 +32,14 @@ export const UserDataTable = () => {
 
   //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
+
+  //ContextUserData:
+  const userData = useContext(ContextUserData);
+  const { charge } = userData ? userData : {};
+  console.log('charge', charge);
+
+  const userCanUpdate = rolesAndPermissions[charge]?.usuarios?.actualizar;
+  const userCanDelete = rolesAndPermissions[charge]?.usuarios?.eliminar;
 
   // json to array:
   let allUserDataList = [];
@@ -80,7 +95,6 @@ export const UserDataTable = () => {
         print: false, //Esto deberia hacer que se omita esta columna para la impresion
       },
     },
-    //
     {
       name: 'btnDelete',
       label: 'Eliminar',
@@ -91,6 +105,20 @@ export const UserDataTable = () => {
       },
     },
   ];
+
+  // FILTRAR COLUMNAS POR ROL DE USUARIO:
+  // let columnsByUserRole = getColumnsByUserRole({ charge, columns });
+
+  let columns_isEditResponse = userCanUpdate
+    ? columns
+    : isEdit({ charge, columns });
+
+  let columns_isDeleteResponse = userCanDelete
+    ? columns_isEditResponse
+    : isDelete({ charge, columns_isEditResponse });
+
+  let filteredColumnsByUserRole = columns_isDeleteResponse;
+
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)
     download: false, //opcion de descarga .csv
@@ -123,7 +151,7 @@ export const UserDataTable = () => {
               <MUIDataTable
                 title={'LISTA DE USUARIOS '}
                 data={dataFilteredByBranch}
-                columns={columns}
+                columns={filteredColumnsByUserRole} // columns // columnsByUserRole
                 options={options}
               />
             </ThemeProvider>
