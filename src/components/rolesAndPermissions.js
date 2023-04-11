@@ -185,7 +185,14 @@ export const rolesAndPermissions = {
       leer: true,
     },
   },
-  boletero: {},
+  boletero: {
+    pasajes: {
+      crear: true,
+      leer: true,
+      // btnTicket: true, // Es igual a leer
+      imprimir: true,
+    },
+  },
   chofer: {},
 };
 
