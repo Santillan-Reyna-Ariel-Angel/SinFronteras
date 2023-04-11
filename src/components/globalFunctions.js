@@ -51,3 +51,18 @@ export const timeFormat = ({ newTime, format = ':' }) => {
     return timeFormatAux;
   }
 };
+
+export const travelKeyGlobal = ({
+  travelDate = '00/00/0000',
+  departureTime = '00:00',
+  busEnrollment = '0000MATRICULA',
+}) => {
+  //  travel_fechaViaje_horaViaje_matricula => travel_19-7-2022_15-30_2269KUN
+
+  let travelDateAux = travelDate.replaceAll('/', '-');
+  let departureTimeAux = departureTime.replaceAll(':', '-');
+
+  let travelKey = `travel_${travelDateAux}_${departureTimeAux}_${busEnrollment}`;
+  //console.log('travelKey:', travelKey);
+  return travelKey;
+};

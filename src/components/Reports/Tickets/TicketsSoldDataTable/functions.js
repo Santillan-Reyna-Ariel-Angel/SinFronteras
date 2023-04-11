@@ -1,5 +1,6 @@
 import { PrintTicketsSold } from './../TicketsSold/PrintTicketsSold';
 import { DialogBasic } from './../../../DialogBasic/DialogBasic';
+import { dateFormat, travelKeyGlobal } from './../../../globalFunctions';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -60,6 +61,7 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
         destiny,
         travelDate,
         departureTime,
+        busEnrollment,
       } = passenger;
 
       let passengerData = {
@@ -71,6 +73,7 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
         destiny,
         travelDate,
         departureTime,
+        busEnrollment,
         //boton "ticket" de la tabla "LISTA DE PASAJES VENDIDOS":
         btnTicket: (
           <DialogBasic
@@ -91,4 +94,66 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
   console.log('dataTableNecesary', dataTableNecesary);
 
   return dataTableNecesary;
+};
+
+export const getTravelKeysList_todayTrips = ({
+  identificationNumber,
+  travelsList,
+}) => {
+  let todayDate = new Date();
+
+  const formattedTodayDate = dateFormat({
+    date: todayDate,
+    format: 'dd/mm/yyyy',
+  }); // esto es mucho mejor que usar: todayDate.toLocaleDateString();
+  // console.log('formattedTodayDate: ', formattedTodayDate);
+
+  let travelsFiltered = travelsList.filter(
+    (travel) =>
+      travel.bus.identificationNumberDriver === identificationNumber &&
+      travel.travelDate === formattedTodayDate //filtramos los viajes DEL DIA ACTUAL
+  );
+
+  let travelKeysList = travelsFiltered.map((travel) => {
+    let { travelDate, departureTime, busEnrollment } = travel;
+
+    let travelKey = travelKeyGlobal({
+      travelDate,
+      departureTime,
+      busEnrollment,
+    });
+
+    return travelKey;
+  });
+
+  return travelKeysList;
+};
+
+export const getFilteredDataByUserRole = ({
+  charge,
+  data,
+  travelKeysList_todayTrips,
+}) => {
+  let newData = [];
+  if (charge === 'chofer') {
+    data.forEach((passenger) => {
+      let { travelDate, departureTime, busEnrollment } = passenger;
+
+      let travelKey_passenger = travelKeyGlobal({
+        travelDate,
+        departureTime,
+        busEnrollment,
+      });
+
+      travelKeysList_todayTrips.forEach((travelKey) => {
+        if (travelKey === travelKey_passenger) {
+          newData.push(passenger);
+        }
+      });
+    });
+  } else {
+    newData = data;
+  }
+
+  return newData;
 };

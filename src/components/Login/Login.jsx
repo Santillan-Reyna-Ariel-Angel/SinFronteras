@@ -30,7 +30,11 @@ const Login = () => {
       if (email === 'dueño@gmail.com' || email === 'admgeneral@gmail.com') {
         window.location.assign('/conectar-sucursal'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
       } else {
-        window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
+        if (email.includes('chofer')) {
+          window.location.assign('/reportes/lista-de-ventas'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
+        } else {
+          window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
+        }
       }
       setCredentialError(false);
     } else {

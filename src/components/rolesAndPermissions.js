@@ -193,7 +193,14 @@ export const rolesAndPermissions = {
       imprimir: true,
     },
   },
-  chofer: {},
+  chofer: {
+    pasajes: {
+      crear: false,
+      leer: true,
+      // btnTicket: true, // Es igual a leer
+      imprimir: false,
+    },
+  },
 };
 
 console.log(

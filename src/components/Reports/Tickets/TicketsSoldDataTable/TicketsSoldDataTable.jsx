@@ -13,6 +13,8 @@ import {
 import { Background, BodyContainer } from './TicketsSoldDataTableStyles';
 //Contexts:
 import { ContextBranchTripsMade } from '../../../../contexts/ContextBranchTripsMade';
+import { ContextUserData } from './../../../../contexts/ContextUserData';
+import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice';
 
 //Firebase Functions:
 //States:
@@ -23,6 +25,8 @@ import {
   billingContactAllList,
   ticketsSoldByBuyer,
   dataTableNecesary,
+  getTravelKeysList_todayTrips,
+  getFilteredDataByUserRole,
 } from './functions';
 import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../../constantData';
 
@@ -31,10 +35,22 @@ export const TicketsSoldDataTable = () => {
   const branchTripsMade = useContext(ContextBranchTripsMade);
   // console.log('branchTripsMade', branchTripsMade);
 
+  //ContextUserData:
+  const userData = useContext(ContextUserData);
+  const { identificationNumber, charge } = userData ? userData : {};
+
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  const { travels } = branchOffice ? branchOffice : {};
+  // console.log('travels', travels);
+
   // json to array:
   let branchTripsMadeArray = [];
   for (let i in branchTripsMade) branchTripsMadeArray.push(branchTripsMade[i]);
   // console.log('branchTripsMadeArray', branchTripsMadeArray);
+  let travelsList = [];
+  for (let i in travels) travelsList.push(travels[i]);
+  // console.log('travelsList', travelsList);
 
   let billingContactList_x_everyTravelAux = billingContactList_x_everyTravel({
     branchTripsMadeArray,
@@ -48,6 +64,21 @@ export const TicketsSoldDataTable = () => {
 
   //Datos necesarios para llenar la tabla:
   const data = dataTableNecesary({ ticketsSoldByBuyerAux });
+  console.log('data', data);
+
+  let travelKeysList_todayTrips = getTravelKeysList_todayTrips({
+    identificationNumber,
+    travelsList,
+  });
+  console.log('travelKeysList_todayTrips', travelKeysList_todayTrips);
+
+  let filteredDataByUserRole = getFilteredDataByUserRole({
+    charge,
+    data,
+    travelKeysList_todayTrips,
+  });
+  console.log('filteredDataByUserRole', filteredDataByUserRole);
+
   const columns = [
     {
       name: 'buyer',
@@ -135,7 +166,7 @@ export const TicketsSoldDataTable = () => {
             <ThemeProvider theme={getThemeForMUIDataTable()}>
               <MUIDataTable
                 title={'LISTA DE PASAJES VENDIDOS'}
-                data={data}
+                data={filteredDataByUserRole} //data
                 columns={columns}
                 options={options}
               />
