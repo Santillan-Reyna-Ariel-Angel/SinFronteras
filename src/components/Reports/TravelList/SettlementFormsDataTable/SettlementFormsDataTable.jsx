@@ -11,6 +11,8 @@ import {
 } from '../../../themeForMUIDataTable';
 //Styles:
 import { Background, BodyContainer } from './SettlementFormsDataTableStyles';
+import './print-styles.css'; // importa el archivo de estilos de impresión
+
 //Contexts:
 import { ContextBranchTripsMade } from '../../../../contexts/ContextBranchTripsMade';
 import { ContextUserData } from './../../../../contexts/ContextUserData';
