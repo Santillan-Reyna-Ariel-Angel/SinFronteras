@@ -1,6 +1,11 @@
 import { DialogBasic } from '../../../DialogBasic/DialogBasic';
 import { TravelExpenses } from '../../../Travels/TravelExpenses/TravelExpenses';
 import { PrintSettlementForm } from '../SettlementForm/PrintSettlementForm';
+import {
+  dateFormat,
+  //  travelKeyGlobal
+  getNextDate_ddMMYYYY,
+} from './../../../globalFunctions';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -58,6 +63,8 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
       totalSettlement: settlementData.totalSettlement,
       travelDate: settlementData.travelDate, // '24/01/2021',
       departureTime: settlementData.departureTime,
+      identificationNumberDriver: settlementData.identificationNumberDriver,
+
       btnExpenses: (
         <DialogBasic
           primaryBtnText="actualizar egresos"
@@ -94,4 +101,46 @@ export const travelKey = ({
   let travelKey = `travel_${travelDateAux}_${departureTimeAux}_${busEnrollment}`;
   //console.log('travelKey:', travelKey);
   return travelKey;
+};
+
+export const getFilteredDataByUserRole = ({
+  charge,
+  identificationNumber,
+  data,
+}) => {
+  if (charge === 'chofer') {
+    let todayDate = new Date();
+
+    const formattedTodayDate = dateFormat({
+      date: todayDate,
+      format: 'dd/mm/yyyy',
+    });
+    // console.log('formattedTodayDate: ', formattedTodayDate);
+
+    let travelsYesterdayAndTodayList = data.filter(
+      (travel) =>
+        travel.identificationNumberDriver === identificationNumber &&
+        (travel.travelDate === formattedTodayDate ||
+          getNextDate_ddMMYYYY(travel.travelDate) === formattedTodayDate) //getNextDate_ddMMYYYY(travel.travelDate) para que muestre los viajes del dia anterior
+    );
+
+    return travelsYesterdayAndTodayList;
+  } else {
+    return data;
+  }
+};
+
+export const getFilteredColumnsByUserRole = ({ charge, columns }) => {
+  let columnsFilteredByUserRole = [];
+
+  if (charge === 'chofer') {
+    columnsFilteredByUserRole = columns.filter(
+      (column) => column.name !== 'btnSettlementForm'
+    );
+  } else {
+    // otros usuarios:
+    columnsFilteredByUserRole = columns;
+  }
+
+  return columnsFilteredByUserRole;
 };

@@ -23,7 +23,9 @@ export const PrintTicketsSold = ({ ticketDataProps }) => {
   // ContextUserData:
   const userData = useContext(ContextUserData);
   const { charge } = userData ? userData : {};
-  let isCanUserPrint = rolesAndPermissions[charge].pasajes.imprimir;
+  // console.log('charge: ', charge);
+
+  let isCanUserPrint = rolesAndPermissions[charge]?.pasajes?.imprimir;
   console.log('isCanUserPrint: ', isCanUserPrint);
 
   return (

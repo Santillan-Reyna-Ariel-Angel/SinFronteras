@@ -13,6 +13,8 @@ import {
 import { Background, BodyContainer } from './SettlementFormsDataTableStyles';
 //Contexts:
 import { ContextBranchTripsMade } from '../../../../contexts/ContextBranchTripsMade';
+import { ContextUserData } from './../../../../contexts/ContextUserData';
+
 //Firebase Functions:
 //States:
 //Components:
@@ -23,8 +25,11 @@ import {
   ticketsSoldByBuyer,
   getDataTableNecesary,
   travelKey,
+  getFilteredDataByUserRole,
+  getFilteredColumnsByUserRole,
 } from './functions';
 import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../../constantData';
+import { rolesAndPermissions } from './../../../rolesAndPermissions';
 
 // SettlementFormsDataTable por SettlementFormsList
 export const SettlementFormsDataTable = () => {
@@ -70,6 +75,10 @@ export const SettlementFormsDataTable = () => {
   //ContextCompanyBuses:
   const branchTripsMade = useContext(ContextBranchTripsMade);
   console.log('branchTripsMade', branchTripsMade);
+
+  //ContextUserData:
+  const userData = useContext(ContextUserData);
+  const { charge, identificationNumber } = userData ? userData : {};
 
   // json to array:
   let branchTripsMadeArray = [];
@@ -130,10 +139,10 @@ export const SettlementFormsDataTable = () => {
     // console.log('travelExpensesList', travelExpensesList);
     return { ...data, ...travelExpensesList[0] };
   });
-  console.log('settlementDataList', settlementDataList);
+  // console.log('settlementDataList', settlementDataList);
   //New getData Fin (considerar llevarlo todo a una funcion que reciva : branchTripsMadeArray). Incluso se tambien podria estar en la funcion "newSettlementDataList"
 
-  //intento 06-12-2022:
+  // Asignado nueva data:
   let newSettlementDataList = settlementDataList.map((settlementData) => {
     let { formCode } = settlementData;
 
@@ -144,19 +153,32 @@ export const SettlementFormsDataTable = () => {
     let {
       travelIncome,
       travelExpenses: { totalExpenses },
+      identificationNumberDriver = '',
     } = tripMade[0];
 
     //crear funcion para crear: totalSettlement y adicionarlo dentro del obj
     let totalSettlement =
       parseFloat(travelIncome.totalAmountIncome) - parseFloat(totalExpenses);
 
-    return { totalSettlement, ...settlementData, travelIncome };
+    return {
+      totalSettlement,
+      ...settlementData,
+      travelIncome,
+      identificationNumberDriver,
+    };
   });
   console.log('newSettlementDataList', newSettlementDataList);
 
   //Datos necesarios para llenar la tabla:
   const data = getDataTableNecesary({ newSettlementDataList });
   console.log('data', data);
+
+  let filteredDataByUserRole = getFilteredDataByUserRole({
+    charge,
+    identificationNumber,
+    data,
+  });
+  console.log('filteredDataByUserRole', filteredDataByUserRole);
 
   const columns = [
     // {
@@ -216,6 +238,19 @@ export const SettlementFormsDataTable = () => {
       },
     },
   ];
+
+  // FILTRAR COLUMNAS POR ROL DE USUARIO:
+  let userCanViewSettlementForm =
+    rolesAndPermissions[charge]?.planillaLiquidacion?.leer;
+
+  let filteredColumnsByUserRole = userCanViewSettlementForm
+    ? columns
+    : getFilteredColumnsByUserRole({
+        charge,
+        columns,
+      });
+  console.log('filteredColumnsByUserRole', filteredColumnsByUserRole);
+
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)
     download: false, //opcion de descarga .csv
@@ -247,8 +282,8 @@ export const SettlementFormsDataTable = () => {
             <ThemeProvider theme={getThemeForMUIDataTable()}>
               <MUIDataTable
                 title={'LISTA DE VIAJES'} //LISTA PLANILLAS DE LIQUIDACION
-                data={data}
-                columns={columns}
+                data={filteredDataByUserRole} // data
+                columns={filteredColumnsByUserRole} // columns
                 options={options}
               />
             </ThemeProvider>

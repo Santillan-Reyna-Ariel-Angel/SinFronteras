@@ -10,7 +10,12 @@ export const createTripSchedule = ({
   branchNumber,
   identificationNumber,
 }) => {
-  let { travelDate, departureTime, busEnrollment } = travelData;
+  let {
+    travelDate,
+    departureTime,
+    busEnrollment,
+    bus: { identificationNumberDriver },
+  } = travelData;
 
   let travelKeyAux = travelKey({
     travelDate,
@@ -54,6 +59,7 @@ export const createTripSchedule = ({
 
   //Crear viaje en tripsMade, para poder buscar viaje y selecionar sus asientos:
   set(ref(fire_db, `tripsMade/branch_${branchNumber}/${travelKeyAux}/`), {
+    identificationNumberDriver: identificationNumberDriver,
     occupiedSeat: { 0: `vendido-${identificationNumber}` },
     passengers: {},
     travelExpenses,

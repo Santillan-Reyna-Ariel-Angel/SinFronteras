@@ -185,7 +185,7 @@ export const rolesAndPermissions = {
       leer: true,
     },
   },
-  boletero: {
+  'boletero(a)': {
     pasajes: {
       crear: true,
       leer: true,
@@ -198,6 +198,10 @@ export const rolesAndPermissions = {
       crear: false,
       leer: true,
       // btnTicket: true, // Es igual a leer
+      imprimir: false,
+    },
+    planillaLiquidacion: {
+      leer: false, // Es el Btn "Planilla Liquidacion"
       imprimir: false,
     },
   },
