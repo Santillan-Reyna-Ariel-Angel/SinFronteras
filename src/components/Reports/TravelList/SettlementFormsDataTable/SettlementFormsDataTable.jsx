@@ -11,7 +11,7 @@ import {
 } from '../../../themeForMUIDataTable';
 //Styles:
 import { Background, BodyContainer } from './SettlementFormsDataTableStyles';
-import './print-styles.css'; // importa el archivo de estilos de impresión
+import './../../../print-global-styles.css'; // IMPORTANTE: Se importa los estilos de impresión (AFECTA A TODA LA APLICAION, DE OTRA FORMA EL MENU Y LA CABECERA SON TRANSPARENTES)
 
 //Contexts:
 import { ContextBranchTripsMade } from '../../../../contexts/ContextBranchTripsMade';
