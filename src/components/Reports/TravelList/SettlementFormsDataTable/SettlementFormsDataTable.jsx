@@ -256,7 +256,7 @@ export const SettlementFormsDataTable = () => {
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)
     download: false, //opcion de descarga .csv
-    downloadOptions: { filename: 'RegistroDeVentas.csv' },
+    downloadOptions: { filename: 'ListaDeViajes.csv' },
     // jumpToPage: true, // para navegar a una paginas especifica
     // onRowClick: (rowData) => {
     //   console.log('rowData', rowData); // nos regresa info de la fila cliqueada

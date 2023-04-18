@@ -175,9 +175,11 @@ export const TravelRegistration = () => {
     return busData[0];
   };
 
-  // Choferes:
+  // Choferes en Sucursal(su branchNumberOrCode === branchNumber de la sucursal actual):
+  //  * IMPORTANTE: CADA VEZ QUE UN CHOFER LLEGUE A SU DESTINO DEBERA ACTUALIZAR SU branchNumberOrCode
   let listOfDrivers = allUserDataArray.filter(
-    (user) => user.charge === 'chofer'
+    (user) =>
+      user.charge === 'chofer' && user.branchNumberOrCode === branchNumber
   );
   let fullNamesDriversList = listOfDrivers.map(
     (user) => `${user.surnames} ${user.names}`
