@@ -25,7 +25,8 @@ import {
   billingContactAllList,
   ticketsSoldByBuyer,
   dataTableNecesary,
-  getTravelKeysList_todayTrips,
+  // getTravelKeysList_todayTrips,
+  getTravelKeysList_yesterdayAndTodayTrips,
   getFilteredDataByUserRole,
 } from './functions';
 import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../../constantData';
@@ -66,16 +67,20 @@ export const TicketsSoldDataTable = () => {
   const data = dataTableNecesary({ ticketsSoldByBuyerAux });
   console.log('data', data);
 
-  let travelKeysList_todayTrips = getTravelKeysList_todayTrips({
-    identificationNumber,
-    travelsList,
-  });
-  console.log('travelKeysList_todayTrips', travelKeysList_todayTrips);
+  let travelKeysList_yesterdayAndTodayTrips =
+    getTravelKeysList_yesterdayAndTodayTrips({
+      identificationNumber,
+      travelsList,
+    });
+  console.log(
+    'travelKeysList_yesterdayAndTodayTrips',
+    travelKeysList_yesterdayAndTodayTrips
+  );
 
   let filteredDataByUserRole = getFilteredDataByUserRole({
     charge,
     data,
-    travelKeysList_todayTrips,
+    travelKeysList_yesterdayAndTodayTrips,
   });
   console.log('filteredDataByUserRole', filteredDataByUserRole);
 

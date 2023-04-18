@@ -1,6 +1,10 @@
 import { PrintTicketsSold } from './../TicketsSold/PrintTicketsSold';
 import { DialogBasic } from './../../../DialogBasic/DialogBasic';
-import { dateFormat, travelKeyGlobal } from './../../../globalFunctions';
+import {
+  dateFormat,
+  getNextDate_ddMMYYYY,
+  travelKeyGlobal,
+} from './../../../globalFunctions';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -96,7 +100,7 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
   return dataTableNecesary;
 };
 
-export const getTravelKeysList_todayTrips = ({
+export const getTravelKeysList_yesterdayAndTodayTrips = ({
   identificationNumber,
   travelsList,
 }) => {
@@ -111,7 +115,8 @@ export const getTravelKeysList_todayTrips = ({
   let travelsFiltered = travelsList.filter(
     (travel) =>
       travel.bus.identificationNumberDriver === identificationNumber &&
-      travel.travelDate === formattedTodayDate //filtramos los viajes DEL DIA ACTUAL
+      (travel.travelDate === formattedTodayDate ||
+        getNextDate_ddMMYYYY(travel.travelDate) === formattedTodayDate) //filtramos los viajes DEL DIA ANTERIOR Y DEL DIA ACTUAL
   );
 
   let travelKeysList = travelsFiltered.map((travel) => {
@@ -132,7 +137,7 @@ export const getTravelKeysList_todayTrips = ({
 export const getFilteredDataByUserRole = ({
   charge,
   data,
-  travelKeysList_todayTrips,
+  travelKeysList_yesterdayAndTodayTrips,
 }) => {
   let newData = [];
   if (charge === 'chofer') {
@@ -145,7 +150,7 @@ export const getFilteredDataByUserRole = ({
         busEnrollment,
       });
 
-      travelKeysList_todayTrips.forEach((travelKey) => {
+      travelKeysList_yesterdayAndTodayTrips.forEach((travelKey) => {
         if (travelKey === travelKey_passenger) {
           newData.push(passenger);
         }
