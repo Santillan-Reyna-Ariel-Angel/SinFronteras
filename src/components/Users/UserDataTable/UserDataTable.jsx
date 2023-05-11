@@ -53,7 +53,7 @@ export const UserDataTable = () => {
     (user) =>
       user.branchNumberOrCode === branchOffice?.branchInformation?.branchNumber
   );
-  console.log('dataFilteredByBranch', dataFilteredByBranch);
+  console.log('*****dataFilteredByBranch', dataFilteredByBranch);
 
   const columns = [
     {
@@ -121,7 +121,7 @@ export const UserDataTable = () => {
 
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)
-    download: false, //opcion de descarga .csv
+    download: true, //opcion de descarga .csv
     downloadOptions: { filename: 'RegistroDeVentas.csv' },
     // jumpToPage: true, // para navegar a una paginas especifica
     // onRowClick: (rowData) => {

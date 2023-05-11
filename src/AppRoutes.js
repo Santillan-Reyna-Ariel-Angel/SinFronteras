@@ -46,6 +46,9 @@ import { Tickets2 } from './components/ComponentTest/EmptyPage/Tickets/Tickets2/
 //probando ChangeBranchConnection:
 import { ChangeBranchConnection } from './components/ChangeBranchConnection/ChangeBranchConnection.jsx';
 
+// others test:
+import { SettlementFormsDataTableCopy } from './components/Reports/TravelList/SettlementFormsDataTableCopy/SettlementFormsDataTableCopy';
+
 const AppRoutes = () => {
   return (
     <>
@@ -64,6 +67,11 @@ const AppRoutes = () => {
                           component={() => <Redirect to="/acceso" />}
                         />
                         <Route exact path="/acceso" component={Login} />
+                        <Route
+                          exact
+                          path="/conectar-sucursal"
+                          component={ChangeBranchConnection}
+                        />
 
                         <Route
                           exact
@@ -95,11 +103,6 @@ const AppRoutes = () => {
                         {/* COMPONENTES DE PRUEBA SIN MENU NI CABECERA: */}
                         <Route exact path="/tickets1" component={Tickets1} />
                         <Route exact path="/tickets2" component={Tickets2} />
-                        <Route
-                          exact
-                          path="/conectar-sucursal"
-                          component={ChangeBranchConnection}
-                        />
 
                         {/* Layout */}
                         <Layout>
@@ -109,7 +112,7 @@ const AppRoutes = () => {
                             path="/recuperar-contraseña"
                             component={RecoverPassword}
                           />
-                          {/* <Route exact path="/notas" component={Notes} /> */}
+
                           {/* <Route exact path="/tickets" component={Tickets} /> */}
 
                           <Route
@@ -177,6 +180,12 @@ const AppRoutes = () => {
                             exact
                             path="/test-component2/"
                             component={SettlementForm}
+                          />
+
+                          <Route
+                            exact
+                            path="/test-component3/"
+                            component={SettlementFormsDataTableCopy}
                           />
                         </Layout>
                       </Switch>
