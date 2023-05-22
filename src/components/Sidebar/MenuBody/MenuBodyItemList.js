@@ -17,6 +17,11 @@ import QueryStatsRoundedIcon from '@mui/icons-material/QueryStatsRounded';
 //Viajes:
 import AddLocationRoundedIcon from '@mui/icons-material/AddLocationRounded';
 // import MoneyOffRoundedIcon from '@mui/icons-material/MoneyOffRounded';
+// perfil:
+import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded';
+import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
+//contraseña:
+// import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded';
 
 const menuBodyItemList = [
   {
@@ -122,12 +127,35 @@ const menuBodyItemList = [
       // },
     ],
   },
-];
-const [sales, users, buses, travels, reports, branchOffices] = menuBodyItemList;
 
-const OWNER_MENU = [sales, users, buses, travels, reports, branchOffices];
+  {
+    path: '/perfil',
+    icon: <ManageAccountsRoundedIcon />,
+    title: 'Perfil',
+    children: [
+      {
+        path: '/perfil/mi-perfil',
+        title: 'Mi perfil',
+        icon: <PersonRoundedIcon />,
+      },
+    ],
+  },
+];
+const [sales, users, buses, travels, reports, branchOffices, perfil] =
+  menuBodyItemList;
+
+const OWNER_MENU = [
+  perfil,
+  sales,
+  users,
+  buses,
+  travels,
+  reports,
+  branchOffices,
+];
 
 const GENERAL_ADMINISTRATOR_MENU = [
+  perfil,
   sales,
   users,
   buses,
@@ -137,6 +165,7 @@ const GENERAL_ADMINISTRATOR_MENU = [
 ]; //  o const GENERAL_ADMINISTRATOR_MENU = OWNER_MENU;
 
 const BRANCH_MANAGER_MENU = [
+  perfil,
   sales,
   users,
   buses,
@@ -145,6 +174,7 @@ const BRANCH_MANAGER_MENU = [
 ];
 
 const SECRETARY_MENU = [
+  perfil,
   sales,
   { ...users, children: [users.children[1]] }, // solo se mostrara el item de "lista de usuarios"
   { ...buses, children: [buses.children[1]] }, // solo se mostrara el item de "lista de buses"
@@ -153,11 +183,12 @@ const SECRETARY_MENU = [
 ];
 
 const TICKET_HOLDER_MENU = [
+  perfil,
   sales,
   { ...reports, children: [reports.children[0]] }, // solo se mostrara el item de "lista de ventas"
 ];
 
-const DRIVER_MENU = [reports];
+const DRIVER_MENU = [perfil, reports];
 
 export const getMenuBodyItemList = (charge) => {
   let menuBodyItemList;

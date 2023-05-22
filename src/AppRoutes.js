@@ -48,6 +48,7 @@ import { ChangeBranchConnection } from './components/ChangeBranchConnection/Chan
 
 // others test:
 import { SettlementFormsDataTableCopy } from './components/Reports/TravelList/SettlementFormsDataTableCopy/SettlementFormsDataTableCopy';
+import { UserProfile } from './components/Users/UserProfile/UserProfile.jsx';
 
 const AppRoutes = () => {
   return (
@@ -114,6 +115,12 @@ const AppRoutes = () => {
                           />
 
                           {/* <Route exact path="/tickets" component={Tickets} /> */}
+
+                          <Route
+                            exact
+                            path="/perfil/mi-perfil/"
+                            component={UserProfile}
+                          />
 
                           <Route
                             exact
