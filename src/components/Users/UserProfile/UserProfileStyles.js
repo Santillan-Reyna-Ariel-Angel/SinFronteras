@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import ProfileIcon from './../../../sources/img/usuario-multiple.png'; //../../sources/img/LogoSF2.png
 
 export const Background = styled.div`
   //Se usan los 3 o se usara margin:
@@ -50,21 +51,27 @@ export const BodyContainer = styled.form`
   border-radius: 0px 0px 0px 0px; //en vista: 0px 0px 10px 10px; en <BasicDialog/> : 0px 0px 0px 0px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  grid-template-areas: 'InputNames InputSurnames' 'InputCi InputAddress' 'InputMobile InputEmail' 'InputCharge InputCharge' 'BtnRegistrer BtnRegistrer';
+  grid-template-areas: 'ProfileIconStyle ProfileIconStyle' 'FullNameAndChargeText FullNameAndChargeText' 'InputCi InputAddress' 'InputMobile InputEmail' 'BtnRegistrer BtnRegistrer';
 `;
 
-export const InputNames = styled.div`
-  grid-area: InputNames;
-  .input {
-    width: 100%;
-  }
+export const ProfileIconStyle = styled.div`
+  grid-area: ProfileIconStyle;
+  width: 90px;
+  height: 90px;
+  margin: -15px auto; /* Centra horizontalmente */
+  //text-align: center; /* Centra verticalmente */
+  background: url(${ProfileIcon});
+  background-position: center;
+  object-fit: cover;
+  background-size: contain;
+  background-repeat: no-repeat;
 `;
-export const InputSurnames = styled.div`
-  grid-area: InputSurnames;
 
-  .input {
-    width: 100%;
-  }
+export const FullNameAndChargeText = styled.div`
+  grid-area: FullNameAndChargeText;
+  text-align: center;
+  font-size: larger;
+  font-weight: bold;
 `;
 
 export const InputCi = styled.div`
@@ -96,14 +103,6 @@ export const InputEmail = styled.div`
 
   .input {
     width: 100%;
-  }
-`;
-
-export const InputCharge = styled.div`
-  grid-area: InputCharge;
-
-  .input {
-    width: 100%; // 50%;
   }
 `;
 

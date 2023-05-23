@@ -15,9 +15,8 @@ import {
   InputCi,
   InputEmail,
   InputMobile,
-  InputNames,
-  InputSurnames,
-  InputCharge,
+  ProfileIconStyle,
+  FullNameAndChargeText,
   BtnRegistrer,
 } from './UserProfileStyles';
 //Contexts:
@@ -122,24 +121,14 @@ export const UserProfile = () => {
           </HeaderTitle>
         </HeaderContainer>
         <BodyContainer>
-          <InputNames>
-            {muiTextField({
-              ClassName: 'input',
-              Label: 'Nombres',
-              Name: 'names',
-              Value: basicInformation.names,
-              Disabled: true,
-            })}
-          </InputNames>
-          <InputSurnames>
-            {muiTextField({
-              ClassName: 'input',
-              Label: 'Apellidos',
-              Name: 'surnames',
-              Value: basicInformation.surnames,
-              Disabled: true,
-            })}
-          </InputSurnames>
+          <ProfileIconStyle />
+
+          <FullNameAndChargeText>
+            <span>{`${basicInformation.surnames} ${basicInformation.names}`}</span>
+            <br />
+            <span>{`(${basicInformation.charge}) `}</span>
+          </FullNameAndChargeText>
+
           <InputCi>
             {muiTextField({
               ClassName: 'input',
@@ -150,6 +139,7 @@ export const UserProfile = () => {
               Disabled: true,
             })}
           </InputCi>
+
           <InputAddress>
             {muiTextField({
               ClassName: 'input',
@@ -176,16 +166,6 @@ export const UserProfile = () => {
               Value: basicInformation.email,
             })}
           </InputEmail>
-
-          <InputCharge>
-            {muiTextField({
-              ClassName: 'input',
-              Label: 'Cargo',
-              Name: 'charge',
-              Value: basicInformation.charge,
-              Disabled: true,
-            })}
-          </InputCharge>
 
           {/*Boton Registrar:   */}
           <BtnRegistrer>
