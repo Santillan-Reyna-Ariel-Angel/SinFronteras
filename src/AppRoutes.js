@@ -49,6 +49,7 @@ import { ChangeBranchConnection } from './components/ChangeBranchConnection/Chan
 // others test:
 import { SettlementFormsDataTableCopy } from './components/Reports/TravelList/SettlementFormsDataTableCopy/SettlementFormsDataTableCopy';
 import { UserProfile } from './components/Users/UserProfile/UserProfile.jsx';
+import { ChangePassword } from './components/Users/ChangePassword/ChangePassword';
 
 const AppRoutes = () => {
   return (
@@ -120,6 +121,12 @@ const AppRoutes = () => {
                             exact
                             path="/perfil/mi-perfil/"
                             component={UserProfile}
+                          />
+
+                          <Route
+                            exact
+                            path="/perfil/cambiar-contraseña"
+                            component={ChangePassword}
                           />
 
                           <Route

@@ -170,7 +170,7 @@ export const UserProfile = () => {
           {/*Boton Registrar:   */}
           <BtnRegistrer>
             <PlainModalButton
-              primaryBtnText="registrar"
+              primaryBtnText="actualizar"
               dialogTitle="MI PERFIL"
               dialogText={`Esta seguro de actualizar sus datos de perfil ?`}
               closeBtnText="atras"

@@ -22,6 +22,7 @@ import ManageAccountsRoundedIcon from '@mui/icons-material/ManageAccountsRounded
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded';
 //contraseña:
 // import AdminPanelSettingsRoundedIcon from '@mui/icons-material/AdminPanelSettingsRounded';
+// import LockResetRoundedIcon from '@mui/icons-material/LockResetRounded';
 
 const menuBodyItemList = [
   {
@@ -136,6 +137,11 @@ const menuBodyItemList = [
       {
         path: '/perfil/mi-perfil',
         title: 'Mi perfil',
+        icon: <PersonRoundedIcon />,
+      },
+      {
+        path: '/perfil/cambiar-contraseña',
+        title: 'Seguridad',
         icon: <PersonRoundedIcon />,
       },
     ],
