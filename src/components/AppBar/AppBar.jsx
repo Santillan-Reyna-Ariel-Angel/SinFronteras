@@ -1,5 +1,6 @@
 import React, { useState, useContext } from 'react';
 import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
@@ -23,8 +24,12 @@ import { ContextUserData } from './../../contexts/ContextUserData';
 import { ContextAllBranchOffices } from './../../contexts/ContextAllBranchOffices';
 //Components
 import { ControlMenu } from './ControlMenu/ControlMenu';
+//others:
+import { useHistory } from 'react-router-dom';
 
 export default function PrimarySearchAppBar() {
+  const history = useHistory();
+
   // ContextUserData:
   const userData = useContext(ContextUserData);
   // console.log("userData", userData);
@@ -83,6 +88,11 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
+  const goProfile = () => {
+    //redirigir a perfil:
+    history.push('/perfil/mi-perfil');
+  };
+
   const menuId = 'primary-search-account-menu';
   const UserProfileMenu = (
     <Menu
@@ -100,7 +110,11 @@ export default function PrimarySearchAppBar() {
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Button variant="text" color="inherit" onClick={goProfile}>
+          Perfil
+        </Button>
+      </MenuItem>
       <MenuItem onClick={handleMenuClose}>{DialogSingOff()}</MenuItem>
     </Menu>
   );
