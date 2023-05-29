@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 //MUI-general:
 import {
   TextField,
@@ -36,7 +36,6 @@ export const ChangePassword = () => {
 
   // dataChangePassword:
   let defaultDataChangePassword = {
-    identificationNumber: identificationNumber ? identificationNumber : '',
     password: '',
     newPassword: '',
     confirmNewPassword: '',
@@ -72,15 +71,20 @@ export const ChangePassword = () => {
     }
   };
 
+  useEffect(() => {
+    const responseValidate = validatePasswords();
+    setIsDataValidate(responseValidate);
+  }, [dataChangePassword]);
+
   const listenDataChangePassword = (event) => {
     setDataChangePassword({
       ...dataChangePassword,
       [event.target.name]: event.target.value,
     });
 
-    let responseValidate = validatePasswords();
-    console.log('responseValidate', responseValidate);
-    setIsDataValidate(responseValidate);
+    // let responseValidate = validatePasswords();
+    // console.log('responseValidate', responseValidate);
+    // setIsDataValidate(responseValidate);
   };
 
   //Data and Functions MUI:
@@ -116,7 +120,7 @@ export const ChangePassword = () => {
 
   //componentDefaultData:
   const componentDefaultData = () => {
-    setDataChangePassword(defaultDataChangePassword); // tenemos que mantener la ultima informacion introducida por el usuario
+    setDataChangePassword(defaultDataChangePassword);
   };
 
   return (
@@ -170,6 +174,7 @@ export const ChangePassword = () => {
               continueBtnText="si"
               functionToExecute={changePassword}
               functionParameters={{
+                identificationNumber,
                 dataChangePassword,
               }}
               thirdFunctionToExecute={componentDefaultData}
