@@ -140,7 +140,7 @@ const menuBodyItemList = [
         icon: <PersonRoundedIcon />,
       },
       {
-        path: '/perfil/cambiar-contraseña',
+        path: '/perfil/cambiar-contrasenia', // NO USAR Ñ o la ruta no se pone en focus
         title: 'Seguridad',
         icon: <PersonRoundedIcon />,
       },

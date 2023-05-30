@@ -111,7 +111,7 @@ const AppRoutes = () => {
                           <Route exact path="/principal" component={Home} />
                           <Route
                             exact
-                            path="/recuperar-contraseña"
+                            path="/recuperar-contrasenia"
                             component={RecoverPassword}
                           />
 
@@ -125,7 +125,7 @@ const AppRoutes = () => {
 
                           <Route
                             exact
-                            path="/perfil/cambiar-contraseña"
+                            path="/perfil/cambiar-contrasenia"
                             component={ChangePassword}
                           />
 
