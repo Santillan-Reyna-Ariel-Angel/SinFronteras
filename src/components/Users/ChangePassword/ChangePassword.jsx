@@ -26,6 +26,7 @@ import { changePassword } from './ChangePasswordFunctios';
 //Others:
 // import { handleClose } from './../../DialogBasic/DialogBasic';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
+import { verifyPasswordSync } from './../../globalFunctions';
 
 export const ChangePassword = () => {
   //ContextAllUserData:
@@ -56,8 +57,15 @@ export const ChangePassword = () => {
       dataChangePassword.newPassword !== '' &&
       dataChangePassword.confirmNewPassword !== ''
     ) {
-      const currentPass =
-        dataChangePassword.password === password ? true : false;
+      // Validadcion de contraseña actual (hash) :
+      const passwordInput = dataChangePassword.password;
+      const hashedPassword = password;
+      // IMPORTANTE: passwordInput!=="", sino da error la funcion verifyPasswordSync()
+      const isMatch = verifyPasswordSync({ passwordInput, hashedPassword });
+      console.log('*****La contraseña coincide:', isMatch);
+
+      const currentPass = isMatch;
+
       const newPass =
         dataChangePassword.newPassword === dataChangePassword.confirmNewPassword
           ? true

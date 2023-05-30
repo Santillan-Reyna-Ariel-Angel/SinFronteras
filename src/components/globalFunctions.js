@@ -1,3 +1,5 @@
+import bcrypt from 'bcryptjs';
+
 export const uuid = () => {
   return Math.random().toString(16).slice(2);
 };
@@ -115,3 +117,28 @@ export const getNextDate_ddMMYYYY = (dateString) => {
     .padStart(2, '0')}/${nextYear.toString()}`;
 };
 // console.log(getNextDate_ddMMYYYY('17/04/2023')); // "18/04/2023"
+
+export const isPromisePending = (promise) => {
+  return promise instanceof Promise && typeof promise.then === 'function';
+};
+
+// Función para encriptar una contraseña de forma sincrónica
+export const encryptPasswordSync = (password) => {
+  // Generar un salt (valor aleatorio) para añadir entropía al proceso de cifrado
+  const salt = bcrypt.genSaltSync(10);
+
+  // Generar el hash de la contraseña utilizando el salt generado
+  const hash = bcrypt.hashSync(password, salt);
+
+  // Devolver el hash cifrado
+  return hash;
+};
+
+// Función para verificar si una contraseña coincide con un hash de forma sincrónica
+export const verifyPasswordSync = ({ passwordInput, hashedPassword }) => {
+  // Comparar la contraseña con el hash utilizando la función compareSync de bcryptjs
+  const isMatch = bcrypt.compareSync(passwordInput, hashedPassword);
+
+  // Devolver true si la contraseña coincide con el hash, o false en caso contrario
+  return isMatch;
+};
