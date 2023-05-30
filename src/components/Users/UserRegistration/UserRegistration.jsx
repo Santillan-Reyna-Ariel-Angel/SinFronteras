@@ -63,7 +63,10 @@ import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 
 const filter = createFilterOptions();
 
-const UserRegistration = ({ identificationNumber = '' }) => {
+const UserRegistration = ({
+  identificationNumber = '',
+  isDataUpdate = false,
+}) => {
   console.log('identificationNumber Prop: ', identificationNumber);
 
   //ContextAllUserData:
@@ -629,6 +632,7 @@ const UserRegistration = ({ identificationNumber = '' }) => {
                 branchOffice,
                 charge,
                 status,
+                isDataUpdate,
               }}
               thirdFunctionToExecute={componentDefaultData}
             />

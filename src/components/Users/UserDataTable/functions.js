@@ -23,6 +23,7 @@ export const getDataTableNecesary = ({ allUserDataList }) => {
             componentView={
               <UserRegistration
                 identificationNumber={userData.identificationNumber}
+                isDataUpdate={true}
               />
             }
           />

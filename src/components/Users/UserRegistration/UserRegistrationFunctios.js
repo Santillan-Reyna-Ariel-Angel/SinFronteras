@@ -11,6 +11,7 @@ export const saveUser = ({
   branchOffice,
   charge,
   status,
+  isDataUpdate,
 }) => {
   // basicInformation:
   const { names, surnames, identificationNumber, address, mobile, email } =
@@ -25,20 +26,45 @@ export const saveUser = ({
   const encryptedPassword_Sync = encryptPasswordSync(identificationNumber);
   console.log('Contraseña encriptada:', encryptedPassword_Sync);
 
-  /*cod new fire v9:*/
-  update(ref(fire_db, `users/${identificationNumber}/`), {
-    address,
-    branchNumberOrCode,
-    branchOfficeName, // posiblemente se usara
-    charge: chargeOfType,
-    dateOfBirth: formattedDate,
-    email,
-    identificationNumber,
-    mobile,
-    names,
-    password: encryptedPassword_Sync,
-    sex,
-    status: statusType,
-    surnames,
-  });
+  if (isDataUpdate === false) {
+    //Se Crea el usuario:
+
+    /*cod new fire v9:*/
+    update(ref(fire_db, `users/${identificationNumber}/`), {
+      address,
+      branchNumberOrCode,
+      branchOfficeName, // posiblemente se usara
+      charge: chargeOfType,
+      dateOfBirth: formattedDate,
+      email,
+      identificationNumber,
+      mobile,
+      names,
+      password: encryptedPassword_Sync,
+      sex,
+      status: statusType,
+      surnames,
+    });
+    console.log('Se creo el usuario: ', identificationNumber);
+  } else {
+    //Los datos se actualizan (NO CAMBIAR PASSWORD):
+
+    /*cod new fire v9:*/
+    update(ref(fire_db, `users/${identificationNumber}/`), {
+      address,
+      branchNumberOrCode,
+      branchOfficeName, // posiblemente se usara
+      charge: chargeOfType,
+      dateOfBirth: formattedDate,
+      email,
+      identificationNumber,
+      mobile,
+      names,
+      // password: encryptedPassword_Sync,
+      sex,
+      status: statusType,
+      surnames,
+    });
+    console.log('Se actualizo el usuario: ', identificationNumber);
+  }
 };
