@@ -62,7 +62,7 @@ export const ChangePassword = () => {
       const hashedPassword = password;
       // IMPORTANTE: passwordInput!=="", sino da error la funcion verifyPasswordSync()
       const isMatch = verifyPasswordSync({ passwordInput, hashedPassword });
-      console.log('*****La contraseña coincide:', isMatch);
+      console.log('La contraseña coincide:', isMatch);
 
       const currentPass = isMatch;
 

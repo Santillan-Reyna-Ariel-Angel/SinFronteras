@@ -12,11 +12,11 @@ export const changePassword = ({
   // dataChangePassword:
   const { confirmNewPassword } = dataChangePassword;
 
-  const encryptedPasswordSy = encryptPasswordSync(confirmNewPassword);
-  console.log('Contraseña encriptada:', encryptedPasswordSy);
+  const encryptedPassword_Sync = encryptPasswordSync(confirmNewPassword);
+  console.log('Contraseña encriptada:', encryptedPassword_Sync);
 
   /*cod new fire v9:*/
   update(ref(fire_db, `users/${identificationNumber}/`), {
-    password: encryptedPasswordSy,
+    password: encryptedPassword_Sync,
   });
 };
