@@ -1,6 +1,6 @@
 import { encryptPasswordSync, verifyPasswordSync } from './globalFunctions.js';
 
-let passwordInput = '80000004';
+let passwordInput = '71010001';
 
 let hashedPassword = encryptPasswordSync(passwordInput);
 // console.log('hashedPassword: ', hashedPassword);
