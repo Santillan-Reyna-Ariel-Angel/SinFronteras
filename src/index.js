@@ -1,13 +1,14 @@
+//React 18:
 import React, { Suspense } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client'; //import ReactDOM from 'react-dom';
 //Archivo de rutas
 import AppRoutes from './AppRoutes';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Suspense fallback={'Cargando datos...'}>
-      <AppRoutes />
-    </Suspense>
-  </React.StrictMode>,
-  document.getElementById('root')
+const container = document.getElementById('root');
+const root = createRoot(container);
+
+root.render(
+  <Suspense fallback={'Cargando datos...'}>
+    <AppRoutes />
+  </Suspense>
 );
