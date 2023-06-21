@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 //Estilos:
 import {
@@ -12,53 +12,46 @@ import {
 } from './loginStyles';
 import { TextField, Button } from '@mui/material';
 //context:
-import { ContextAllUserData } from './../../contexts/ContextAllUserData';
+import { ContextAllUserDataForLogin } from './../../contexts/ContextAllUserDataForLogin';
 // Others:
 import { validateUserAccess } from './loginFunctions';
-import { saveDataSessionStorage } from './../../contexts/saveDataSessionStorage';
-
-//EventosFirebase;
-import { Auth } from '../../events/firebaseEvents';
+// import { saveDataSessionStorage } from './../../contexts/saveDataSessionStorage';
+//EventosFirebase:
+// import { Auth } from '../../events/firebaseEvents';
 
 const Login = () => {
-  sessionStorage.setItem('userEmail', 'dueño@gmail.com');
-
-  // ContextAllUserData:
-  const allUserData = useContext(ContextAllUserData);
-  console.log('allUserData', allUserData);
+  // ContextAllUserDataForLogin:
+  const allUserDataForLogin = useContext(ContextAllUserDataForLogin);
+  // console.log('allUserDataForLogin', allUserDataForLogin);
   // json to array:
-  let allUserDataList = [];
-  for (let i in allUserData) allUserDataList.push(allUserData[i]);
-  console.log('allUserDataList', allUserDataList);
+  let allUserDataForLoginList = [];
+  for (let i in allUserDataForLogin)
+    allUserDataForLoginList.push(allUserDataForLogin[i]);
+  // console.log('allUserDataForLoginList', allUserDataForLoginList);
 
-  // const [allUserDataListState, setAllUserDataListState] =
-  //   useState(allUserDataList);
+  // const history = useHistory(); // este hook sirve para redirigir a otra pagina
 
-  // const history = useHistory();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [credentialError, setCredentialError] = useState(false);
 
   const sendLogin = async () => {
-    ////////////////
-
     let isValidateUserAccess = validateUserAccess({
-      allUserDataList,
+      allUserDataList: allUserDataForLoginList,
       email,
       passwordInput: password,
     });
     console.log('isValidateUserAccess: ', isValidateUserAccess);
 
-    ///////////////////
-
+    //OTRA FORMA DE VALIDAR EL ACCESO:
     // console.log("sendLogin:", email, password);
     // const accessToken = await Auth(email, password);
     // console.log('****accessToken:', accessToken);
+    // if (accessToken !== null && accessToken !== undefined){...}
 
-    // if (accessToken !== null && accessToken !== undefined)
     if (isValidateUserAccess) {
       sessionStorage.setItem('userEmail', email);
-      // saveDataSessionStorage({ dataName: 'userEmail', newDataValue: email });
+      // saveDataSessionStorage({ dataName: 'userEmail', newDataValue: email }); //NO FUNCIONA, al parecer al recargar(window.location.assign) se pierden los datos.
 
       if (email === 'dueño@gmail.com' || email === 'admgeneral@gmail.com') {
         window.location.assign('/conectar-sucursal'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
@@ -74,15 +67,6 @@ const Login = () => {
       setCredentialError(true);
     }
   };
-
-  ///new code:
-  // useEffect(() => {
-  //   if (email !== '') {
-  //     console.log('sesion email', email);
-  //     // sessionStorage.setItem('userEmail', email);
-  //     saveDataSessionStorage({ dataName: 'userEmail', newDataValue: email });
-  //   }
-  // }, [email]);
 
   return (
     <>
@@ -114,7 +98,7 @@ const Login = () => {
             />
           </InputPassword>
           <TextRecoverPassword>
-            <Link className="link" to="/recuperar-contraseña">
+            <Link className="link" to="/recuperar-contrasenia">
               {credentialError ? 'Olvidaste tu contraseña?' : ''}
             </Link>
           </TextRecoverPassword>

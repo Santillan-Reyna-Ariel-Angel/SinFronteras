@@ -20,10 +20,6 @@ export const validateUserAccess = ({
 
     let isValidUser = isEmailValid && isPasswordValid;
 
-    if (isValidUser) {
-      sessionStorage.setItem('userEmail', email);
-    }
-
     return isValidUser;
   }
 };

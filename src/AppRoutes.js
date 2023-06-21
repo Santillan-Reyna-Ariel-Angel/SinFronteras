@@ -37,6 +37,7 @@ import { ProviderGeneralCompanyData } from './contexts/ContextGeneralCompanyData
 import { ProviderBranchTripsMade } from './contexts/ContextBranchTripsMade';
 import { ProviderCompanyBuses } from './contexts/ContextCompanyBuses';
 import { ProviderAllUserData } from './contexts/ContextAllUserData';
+import { ProviderAllUserDataForLogin } from './contexts/ContextAllUserDataForLogin';
 //ComponentsGenerals:
 // import { DialogBasic } from './components/DialogBasic/DialogBasic';
 //Components Test:
@@ -61,149 +62,155 @@ const AppRoutes = () => {
               <ProviderBranchTripsMade>
                 <ProviderCompanyBuses>
                   <ProviderAllUserData>
-                    <BrowserRouter>
-                      <Switch>
-                        <Route
-                          exact
-                          path="/"
-                          component={() => <Redirect to="/acceso" />}
-                        />
-                        <Route exact path="/acceso" component={Login} />
-                        <Route
-                          exact
-                          path="/conectar-sucursal"
-                          component={ChangeBranchConnection}
-                        />
-
-                        <Route
-                          exact
-                          path="/pasajes-vendidos"
-                          component={TicketsSold} // componente en pre-produccion y ruta para pruebas visualizadas
-                        />
-                        <Route
-                          exact
-                          path="/tickets-component"
-                          component={ReactToPrintComponent}
-                        />
-                        <Route
-                          exact
-                          path="/pasajes-imprimir" // o /pasajes/imprimir-pasaje o /boletos/imprimir-boleto
-                          component={PrintTicketsSold} // se usa con otro componente en pre-produccion y ruta inaccesible
-                        />
-                        <Route exact path="/send-email" component={SendEmail} />
-                        <Route
-                          exact
-                          path="/send-email2"
-                          component={SendEmail2}
-                        />
-                        <Route
-                          exact
-                          path="/send-email3"
-                          component={SendEmail3}
-                        />
-
-                        {/* COMPONENTES DE PRUEBA SIN MENU NI CABECERA: */}
-                        <Route exact path="/tickets1" component={Tickets1} />
-                        <Route exact path="/tickets2" component={Tickets2} />
-
-                        {/* Layout */}
-                        <Layout>
-                          <Route exact path="/principal" component={Home} />
+                    <ProviderAllUserDataForLogin>
+                      <BrowserRouter>
+                        <Switch>
                           <Route
                             exact
-                            path="/recuperar-contrasenia"
-                            component={RecoverPassword}
+                            path="/"
+                            component={() => <Redirect to="/acceso" />}
                           />
-
-                          {/* <Route exact path="/tickets" component={Tickets} /> */}
-
+                          <Route exact path="/acceso" component={Login} />
                           <Route
                             exact
-                            path="/perfil/mi-perfil/"
-                            component={UserProfile}
+                            path="/conectar-sucursal"
+                            component={ChangeBranchConnection}
                           />
 
                           <Route
                             exact
-                            path="/perfil/cambiar-contrasenia"
-                            component={ChangePassword}
-                          />
-
-                          <Route
-                            exact
-                            path="/ventas/pasajes/"
-                            component={Sales}
+                            path="/pasajes-vendidos"
+                            component={TicketsSold} // componente en pre-produccion y ruta para pruebas visualizadas
                           />
                           <Route
                             exact
-                            path="/personal/registro-de-usuarios/"
-                            component={UserRegistration}
+                            path="/tickets-component"
+                            component={ReactToPrintComponent}
                           />
-
                           <Route
                             exact
-                            path="/personal/lista-de-usuarios/"
-                            component={UserDataTable}
+                            path="/pasajes-imprimir" // o /pasajes/imprimir-pasaje o /boletos/imprimir-boleto
+                            component={PrintTicketsSold} // se usa con otro componente en pre-produccion y ruta inaccesible
                           />
-
                           <Route
                             exact
-                            path="/buses/registro-de-buses/"
-                            component={BusRegistration}
+                            path="/send-email"
+                            component={SendEmail}
                           />
-
                           <Route
                             exact
-                            path="/buses/lista-de-buses/"
-                            component={BusList}
+                            path="/send-email2"
+                            component={SendEmail2}
                           />
-
                           <Route
                             exact
-                            path="/sucursales/registro-de-sucursales/"
-                            component={BranchRegistration}
+                            path="/send-email3"
+                            component={SendEmail3}
                           />
 
-                          <Route
-                            exact
-                            path="/viajes/programar-viaje/"
-                            component={TravelRegistration}
-                          />
+                          {/* COMPONENTES DE PRUEBA SIN MENU NI CABECERA: */}
+                          <Route exact path="/tickets1" component={Tickets1} />
+                          <Route exact path="/tickets2" component={Tickets2} />
 
-                          <Route
-                            exact
-                            path="/viajes/registrar-destinos/"
-                            component={RegisterDestination}
-                          />
+                          {/* Layout */}
+                          <Layout>
+                            <Route exact path="/principal" component={Home} />
+                            <Route
+                              exact
+                              path="/recuperar-contrasenia"
+                              component={RecoverPassword}
+                            />
 
-                          <Route
-                            exact
-                            path="/reportes/lista-de-ventas/"
-                            component={TicketsSoldDataTable}
-                          />
+                            {/* <Route exact path="/tickets" component={Tickets} /> */}
 
-                          <Route
-                            exact
-                            path="/reportes/lista-de-viajes/"
-                            component={SettlementFormsDataTable}
-                          />
+                            <Route
+                              exact
+                              path="/perfil/mi-perfil/"
+                              component={UserProfile}
+                            />
 
-                          {/* Route for Tests: */}
+                            <Route
+                              exact
+                              path="/perfil/cambiar-contrasenia"
+                              component={ChangePassword}
+                            />
 
-                          <Route
-                            exact
-                            path="/test-component2/"
-                            component={SettlementForm}
-                          />
+                            <Route
+                              exact
+                              path="/ventas/pasajes/"
+                              component={Sales}
+                            />
+                            <Route
+                              exact
+                              path="/personal/registro-de-usuarios/"
+                              component={UserRegistration}
+                            />
 
-                          <Route
-                            exact
-                            path="/test-component3/"
-                            component={SettlementFormsDataTableCopy}
-                          />
-                        </Layout>
-                      </Switch>
-                    </BrowserRouter>
+                            <Route
+                              exact
+                              path="/personal/lista-de-usuarios/"
+                              component={UserDataTable}
+                            />
+
+                            <Route
+                              exact
+                              path="/buses/registro-de-buses/"
+                              component={BusRegistration}
+                            />
+
+                            <Route
+                              exact
+                              path="/buses/lista-de-buses/"
+                              component={BusList}
+                            />
+
+                            <Route
+                              exact
+                              path="/sucursales/registro-de-sucursales/"
+                              component={BranchRegistration}
+                            />
+
+                            <Route
+                              exact
+                              path="/viajes/programar-viaje/"
+                              component={TravelRegistration}
+                            />
+
+                            <Route
+                              exact
+                              path="/viajes/registrar-destinos/"
+                              component={RegisterDestination}
+                            />
+
+                            <Route
+                              exact
+                              path="/reportes/lista-de-ventas/"
+                              component={TicketsSoldDataTable}
+                            />
+
+                            <Route
+                              exact
+                              path="/reportes/lista-de-viajes/"
+                              component={SettlementFormsDataTable}
+                            />
+
+                            {/* Route for Tests: */}
+
+                            <Route
+                              exact
+                              path="/test-component2/"
+                              component={SettlementForm}
+                            />
+
+                            <Route
+                              exact
+                              path="/test-component3/"
+                              component={SettlementFormsDataTableCopy}
+                            />
+                          </Layout>
+                        </Switch>
+                      </BrowserRouter>
+                    </ProviderAllUserDataForLogin>
                   </ProviderAllUserData>
                 </ProviderCompanyBuses>
               </ProviderBranchTripsMade>
