@@ -14,7 +14,7 @@ import { TextField, Button } from '@mui/material';
 //context:
 import { ContextAllUserDataForLogin } from './../../contexts/ContextAllUserDataForLogin';
 // Others:
-import { validateUserAccess } from './loginFunctions';
+import { validateUserAccess, redirectToPageByCharge } from './loginFunctions';
 // import { saveDataSessionStorage } from './../../contexts/saveDataSessionStorage';
 //EventosFirebase:
 // import { Auth } from '../../events/firebaseEvents';
@@ -28,8 +28,6 @@ const Login = () => {
   for (let i in allUserDataForLogin)
     allUserDataForLoginList.push(allUserDataForLogin[i]);
   // console.log('allUserDataForLoginList', allUserDataForLoginList);
-
-  // const history = useHistory(); // este hook sirve para redirigir a otra pagina
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -52,16 +50,8 @@ const Login = () => {
     if (isValidateUserAccess) {
       sessionStorage.setItem('userEmail', email);
       // saveDataSessionStorage({ dataName: 'userEmail', newDataValue: email }); //NO FUNCIONA, al parecer al recargar(window.location.assign) se pierden los datos.
+      redirectToPageByCharge({ allUserDataForLoginList, email });
 
-      if (email === 'dueño@gmail.com' || email === 'admgeneral@gmail.com') {
-        window.location.assign('/conectar-sucursal'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
-      } else {
-        if (email.includes('chofer')) {
-          window.location.assign('/reportes/lista-de-ventas'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
-        } else {
-          window.location.assign('/ventas/pasajes'); //añade la nueva URL a la historia del navegador y la redirecciona cargando la pagina(necesario para firebase)
-        }
-      }
       setCredentialError(false);
     } else {
       setCredentialError(true);
