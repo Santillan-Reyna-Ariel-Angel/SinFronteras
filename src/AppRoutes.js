@@ -51,6 +51,7 @@ import { ChangeBranchConnection } from './components/ChangeBranchConnection/Chan
 import { SettlementFormsDataTableCopy } from './components/Reports/TravelList/SettlementFormsDataTableCopy/SettlementFormsDataTableCopy';
 import { UserProfile } from './components/Users/UserProfile/UserProfile.jsx';
 import { ChangePassword } from './components/Users/ChangePassword/ChangePassword';
+import { PdfGenerate } from './components/Reports/PdfGenerate/PdfGenerate';
 
 const AppRoutes = () => {
   return (
@@ -206,6 +207,12 @@ const AppRoutes = () => {
                               exact
                               path="/test-component3/"
                               component={SettlementFormsDataTableCopy}
+                            />
+
+                            <Route
+                              exact
+                              path="/test-component4/"
+                              component={PdfGenerate}
                             />
                           </Layout>
                         </Switch>

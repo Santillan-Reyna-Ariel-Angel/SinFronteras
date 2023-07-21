@@ -24,6 +24,7 @@
     "dotenv": "^16.0.1",
     "firebase": "9.9.1",
     "js-codemod": "^7.0.0",
+    "jspdf": "^2.5.1",
     "mui-datatables": "^4.2.2",
     "node-fetch": "^3.2.6",
     "nodemailer": "^6.7.5",
