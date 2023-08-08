@@ -130,8 +130,19 @@ export const TicketsSoldDataTable = () => {
       label: 'Hora Viaje',
     },
 
+    // {
+    //   name: 'btnTicket',
+    //   label: 'Detalles',
+    //   options: {
+    //     filter: false,
+    //     sort: false,
+    //     print: false, //Esto deberia hacer que se omita esta columna para la impresion
+    //   },
+    // },
+
+    //Boton v2:
     {
-      name: 'btnTicket',
+      name: 'btnTicketv2',
       label: 'Detalles',
       options: {
         filter: false,

@@ -1,10 +1,11 @@
-import { PrintTicketsSold } from './../TicketsSold/PrintTicketsSold';
+// import { PrintTicketsSold } from './../TicketsSold/PrintTicketsSold';
 import { DialogBasic } from './../../../DialogBasic/DialogBasic';
 import {
   dateFormat,
   getNextDate_ddMMYYYY,
   travelKeyGlobal,
 } from './../../../globalFunctions';
+import { PdfTicket } from '../../PdfGenerate/PdfTicket';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -79,10 +80,16 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
         departureTime,
         busEnrollment,
         //boton "ticket" de la tabla "LISTA DE PASAJES VENDIDOS":
-        btnTicket: (
+        // btnTicket: (
+        //   <DialogBasic
+        //     primaryBtnText="ticket"
+        //     componentView={<PrintTicketsSold ticketDataProps={passenger} />}
+        //   />
+        // ),
+        btnTicketv2: (
           <DialogBasic
             primaryBtnText="ticket"
-            componentView={<PrintTicketsSold ticketDataProps={passenger} />}
+            componentView={<PdfTicket ticketDataProps={passenger} />}
           />
         ),
       };
