@@ -1,11 +1,12 @@
 import { DialogBasic } from '../../../DialogBasic/DialogBasic';
 import { TravelExpenses } from '../../../Travels/TravelExpenses/TravelExpenses';
-import { PrintSettlementForm } from '../SettlementForm/PrintSettlementForm';
+// import { PrintSettlementForm } from '../SettlementForm/PrintSettlementForm';
 import {
   dateFormat,
   //  travelKeyGlobal
   getNextDate_ddMMYYYY,
 } from './../../../globalFunctions';
+import { PdfSettlementForms } from './../../PdfGenerate/PdfSettlementForms';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -73,11 +74,21 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
           }
         />
       ),
-      btnSettlementForm: (
+      // btnSettlementForm: (
+      //   <DialogBasic
+      //     primaryBtnText="ver planilla"
+      //     componentView={
+      //       <PrintSettlementForm settlementFormData={settlementData} />
+      //     }
+      //   />
+      // ),
+
+      //new boton:
+      btnSettlementFormv2: (
         <DialogBasic
           primaryBtnText="ver planilla"
           componentView={
-            <PrintSettlementForm settlementFormData={settlementData} />
+            <PdfSettlementForms settlementFormsProps={settlementData} />
           }
         />
       ),

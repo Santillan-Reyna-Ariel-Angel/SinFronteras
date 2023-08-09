@@ -48,7 +48,6 @@ import { Tickets2 } from './components/ComponentTest/EmptyPage/Tickets/Tickets2/
 import { ChangeBranchConnection } from './components/ChangeBranchConnection/ChangeBranchConnection.jsx';
 
 // others test:
-import { SettlementFormsDataTableCopy } from './components/Reports/TravelList/SettlementFormsDataTableCopy/SettlementFormsDataTableCopy';
 import { UserProfile } from './components/Users/UserProfile/UserProfile.jsx';
 import { ChangePassword } from './components/Users/ChangePassword/ChangePassword';
 import { PdfGenerate } from './components/Reports/PdfGenerate/PdfGenerate';
@@ -201,12 +200,6 @@ const AppRoutes = () => {
                               exact
                               path="/test-component2/"
                               component={SettlementForm}
-                            />
-
-                            <Route
-                              exact
-                              path="/test-component3/"
-                              component={SettlementFormsDataTableCopy}
                             />
 
                             <Route

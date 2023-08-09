@@ -230,8 +230,19 @@ export const SettlementFormsDataTable = () => {
         print: false, // Esto deberia hacer que se omita esta columna para la impresion
       },
     },
+    // {
+    //   name: 'btnSettlementForm',
+    //   label: 'Planilla Liquidacion',
+    //   options: {
+    //     filter: false,
+    //     sort: false,
+    //     print: false, // Esto deberia hacer que se omita esta columna para la impresion
+    //   },
+    // },
+
+    //new boton:
     {
-      name: 'btnSettlementForm',
+      name: 'btnSettlementFormv2',
       label: 'Planilla Liquidacion',
       options: {
         filter: false,

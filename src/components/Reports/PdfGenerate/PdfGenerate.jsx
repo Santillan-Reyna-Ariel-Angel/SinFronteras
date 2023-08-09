@@ -57,7 +57,7 @@ export const PdfGenerate = () => {
               src={embedSrc}
               type="application/pdf"
               width="100%"
-              height="750px"
+              height="90%"
               style={{ display: embedSrc ? 'block' : 'none' }}
             />
           )}

@@ -1,21 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalStyle } from './PdfGenerateStyles';
-import { generarPlanillasPasajes } from './js/generar-pdfs.js';
+import { generarPlanillasLiquidacion } from './js/generar-pdfs.js';
 
-export const PdfTicket = ({ ticketDataProps }) => {
-  const ticketsListOfList = [[ticketDataProps]]; //Necesario que sea una lista de listas
+export const PdfSettlementForms = ({ settlementFormsProps }) => {
+  const settlementFormsList = [settlementFormsProps];
 
   const [embedSrc, setEmbedSrc] = useState('');
 
   useEffect(() => {
-    const handlePlanillasPasajes = () => {
+    const handlePlanillasLiquidacion = () => {
       setTimeout(() => {
-        const srcEmbed = generarPlanillasPasajes(ticketsListOfList);
+        const srcEmbed = generarPlanillasLiquidacion(settlementFormsList);
         setEmbedSrc(srcEmbed);
       }, 500);
     };
 
-    handlePlanillasPasajes(); // Llamada inicial
+    handlePlanillasLiquidacion(); // Llamada inicial
   }, []); // El array vacío hace que useEffect se ejecute solo una vez al montar el componente
 
   return (
