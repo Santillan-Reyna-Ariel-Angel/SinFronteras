@@ -3,7 +3,10 @@ import { GlobalStyle } from './PdfGenerateStyles';
 import { generarPlanillasPasajes } from './js/generar-pdfs.js';
 
 export const PdfTicket = ({ ticketDataProps }) => {
-  const ticketsListOfList = [[ticketDataProps]]; //Necesario que sea una lista de listas
+  //Es necesario que "ticketsListOfList" sea una lista de listas:
+  const ticketsListOfList = Array.isArray(ticketDataProps)
+    ? [ticketDataProps] // si ticketDataProps es un array, solo se necesita 1 [] para que sea una lista de listas
+    : [[ticketDataProps]];
 
   const [embedSrc, setEmbedSrc] = useState('');
 

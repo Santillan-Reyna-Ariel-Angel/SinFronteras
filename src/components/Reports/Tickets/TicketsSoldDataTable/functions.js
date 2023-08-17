@@ -58,27 +58,11 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
     let buyer = sale.buyer;
 
     let dataNecesary = sale.passengersList.map((passenger) => {
-      let {
-        passengerFullName,
-        identificationNumber,
-        seatId,
-        // ticketNumber,
-        destiny,
-        travelDate,
-        departureTime,
-        busEnrollment,
-      } = passenger;
+      // console.log('functions passenger', passenger);
 
       let passengerData = {
         buyer,
-        passengerFullName,
-        identificationNumber,
-        seatId,
-        // ticketNumber,
-        destiny,
-        travelDate,
-        departureTime,
-        busEnrollment,
+        ...passenger,
         //boton "ticket" de la tabla "LISTA DE PASAJES VENDIDOS":
         // btnTicket: (
         //   <DialogBasic
@@ -102,7 +86,7 @@ export const dataTableNecesary = ({ ticketsSoldByBuyerAux }) => {
     return dataNecesary;
   });
 
-  console.log('dataTableNecesary', dataTableNecesary);
+  // console.log('dataTableNecesary', dataTableNecesary);
 
   return dataTableNecesary;
 };

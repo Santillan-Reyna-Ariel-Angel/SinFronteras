@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-
+import React, { useContext, useState } from 'react';
 //MUI:
 // Manejo de Tablas:
 import MUIDataTable from 'mui-datatables';
@@ -19,6 +18,8 @@ import { ContextBranchOffice } from './../../../../contexts/ContextBranchOffice'
 //Firebase Functions:
 //States:
 //Components:
+import { DialogBasic } from './../../../DialogBasic/DialogBasic';
+import { PdfTicket } from './../../PdfGenerate/PdfTicket';
 //Others:
 import {
   billingContactList_x_everyTravel,
@@ -65,7 +66,7 @@ export const TicketsSoldDataTable = () => {
 
   //Datos necesarios para llenar la tabla:
   const data = dataTableNecesary({ ticketsSoldByBuyerAux });
-  console.log('data', data);
+  // console.log('data', data);
 
   let travelKeysList_yesterdayAndTodayTrips =
     getTravelKeysList_yesterdayAndTodayTrips({
@@ -83,6 +84,9 @@ export const TicketsSoldDataTable = () => {
     travelKeysList_yesterdayAndTodayTrips,
   });
   console.log('filteredDataByUserRole', filteredDataByUserRole);
+
+  const [rowsSelectedState, setRowsSelectedState] = useState([]);
+  const [rowsIndexList, setRowsIndexList] = useState([]);
 
   const columns = [
     {
@@ -163,8 +167,7 @@ export const TicketsSoldDataTable = () => {
     rowsPerPageOptions: [5, 10, 15, 20, 30, 50, 100], //numero de filas(registros) por paginas
     searchOpen: true,
     // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
-    // selectableRows: 'none', //single, multiple //indica si las filas pueden ser selecionadas
-    selectableRowsHideCheckboxes: true, //muestra o no los check box
+    selectableRowsHideCheckboxes: false, //muestra o no los check box
     tableBodyHeight: 'auto', // "50px", "100%"
     // viewColumns: false, // func para mostrar/oculta columnas
     elevation: 0, //ancho de sombrea de la tabla (0-24)
@@ -172,6 +175,21 @@ export const TicketsSoldDataTable = () => {
 
     //CAMBIAR IDIOMA:
     textLabels: { ...MUI_DATA_TABLE___TEXT_LABELS_ES },
+
+    // MANEJAR CHECKS DE DATA TABLE:
+    rowsSelected: rowsIndexList, // [0, 1] marca los checkbox de las filas selecionadas
+    selectableRowsHeader: true, //muestra o no el checkbox de la cabecera
+    selectToolbarPlacement: 'none', // "replace" | "above" | "none" // posicion de la barra de herramientas de selecion
+    selectableRows: 'multiple', //single, multiple //indica si las filas pueden ser selecionadas
+    selectableRowsOnClick: false, //seleciona la fila al hacer click en cualquier parte de la fila
+    onRowSelectionChange: (rowsSelected, allRowsSelected) => {
+      const indexList = allRowsSelected.map((row) => row.dataIndex);
+      // console.log('indexList', indexList);
+      setRowsIndexList(indexList);
+      const dataSelected = allRowsSelected.map((row) => data[row.dataIndex]);
+      // console.log('dataSelected:', dataSelected);
+      setRowsSelectedState(dataSelected);
+    },
   };
 
   return (
@@ -190,6 +208,12 @@ export const TicketsSoldDataTable = () => {
           </CacheProvider>
         </BodyContainer>
       </Background>
+
+      {console.log('rowsSelectedState', rowsSelectedState)}
+      <DialogBasic
+        primaryBtnText="ticket"
+        componentView={<PdfTicket ticketDataProps={rowsSelectedState} />}
+      />
     </>
   );
 };
