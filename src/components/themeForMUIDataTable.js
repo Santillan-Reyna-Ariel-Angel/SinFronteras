@@ -43,7 +43,24 @@ export const getThemeForMUIDataTable = () =>
         },
       },
 
-      //Cabecera Table:
+      // COLUMNA DE  CHECKBOX'S:
+      MUIDataTableSelectCell: {
+        styleOverrides: {
+          root: {
+            backgroundColor: '#051e34', //   #051e34 #00bdb2 #9ca3af
+          },
+          // headerCell: {
+          //   // Este es la cabecera de  la columna de los checkbox
+          //   backgroundColor: '#051e34', //   #051e34 #00bdb2 #9ca3af
+          // },
+          checkboxRoot: {
+            // Este es el color del borde del checkbox
+            color: 'white',
+          },
+        },
+      },
+
+      //Cabecera Table (titulos de columnas):
       MUIDataTableHeadCell: {
         //Aqui controlaremos el color de la cabecera
         styleOverrides: {

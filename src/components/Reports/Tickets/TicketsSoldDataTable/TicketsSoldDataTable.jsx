@@ -88,6 +88,8 @@ export const TicketsSoldDataTable = () => {
   const [rowsSelectedState, setRowsSelectedState] = useState([]);
   const [rowsIndexList, setRowsIndexList] = useState([]);
 
+  console.log('rowsSelectedState', rowsSelectedState);
+
   const columns = [
     {
       name: 'buyer',
@@ -190,6 +192,17 @@ export const TicketsSoldDataTable = () => {
       // console.log('dataSelected:', dataSelected);
       setRowsSelectedState(dataSelected);
     },
+
+    print: false, //NO ES NECESARIO POR QUE TENEMOS UN BOTON PARA IMPRIMIR en "customToolbar"
+    //customToolbar: Nos permite añadir un componente personalizado a la barra de herramientas.
+    customToolbar: () => {
+      return (
+        <DialogBasic
+          primaryBtnText="imprimir seleccionados"
+          componentView={<PdfTicket ticketDataProps={rowsSelectedState} />}
+        />
+      );
+    },
   };
 
   return (
@@ -208,12 +221,6 @@ export const TicketsSoldDataTable = () => {
           </CacheProvider>
         </BodyContainer>
       </Background>
-
-      {console.log('rowsSelectedState', rowsSelectedState)}
-      <DialogBasic
-        primaryBtnText="ticket"
-        componentView={<PdfTicket ticketDataProps={rowsSelectedState} />}
-      />
     </>
   );
 };
