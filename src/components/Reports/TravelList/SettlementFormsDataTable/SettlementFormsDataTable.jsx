@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 // MUI:
 // Manejo de Tablas:
@@ -20,6 +20,8 @@ import { ContextUserData } from './../../../../contexts/ContextUserData';
 //Firebase Functions:
 //States:
 //Components:
+import { DialogBasic } from './../../../DialogBasic/DialogBasic';
+import { PdfSettlementForms } from './../../PdfGenerate/PdfSettlementForms';
 //Others:
 import {
   billingContactList_x_everyTravel,
@@ -182,6 +184,11 @@ export const SettlementFormsDataTable = () => {
   });
   console.log('filteredDataByUserRole', filteredDataByUserRole);
 
+  const [rowsSelectedState, setRowsSelectedState] = useState([]);
+  const [rowsIndexList, setRowsIndexList] = useState([]);
+
+  console.log('rowsSelectedState', rowsSelectedState);
+
   const columns = [
     // {
     //   name: 'formCode',
@@ -276,8 +283,6 @@ export const SettlementFormsDataTable = () => {
     rowsPerPageOptions: [5, 10, 15, 20, 30, 50, 100], //numero de filas(registros) por paginas
     searchOpen: true,
     // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
-    // selectableRows: 'none', //single, multiple //indica si las filas pueden ser selecionadas
-    selectableRowsHideCheckboxes: true, //muestra o no los check box
     tableBodyHeight: 'auto', // "50px", "100%"
     // viewColumns: false, // func para mostrar/oculta columnas
     elevation: 0, //ancho de sombrea de la tabla (0-24)
@@ -285,6 +290,39 @@ export const SettlementFormsDataTable = () => {
 
     //CAMBIAR IDIOMA:
     textLabels: { ...MUI_DATA_TABLE___TEXT_LABELS_ES },
+
+    // MANEJAR CHECKS DE DATA TABLE:
+    selectableRowsHideCheckboxes: false, //muestra o no los check box
+    rowsSelected: rowsIndexList, // [0, 1] marca los checkbox de las filas selecionadas
+    selectableRowsHeader: true, //muestra o no el checkbox de la cabecera
+    selectToolbarPlacement: 'none', // "replace" | "above" | "none" // posicion de la barra de herramientas de selecion
+    selectableRows: 'multiple', //single, multiple //indica si las filas pueden ser selecionadas
+    selectableRowsOnClick: false, //seleciona la fila al hacer click en cualquier parte de la fila
+    onRowSelectionChange: (rowsSelected, allRowsSelected) => {
+      const indexList = allRowsSelected.map((row) => row.dataIndex);
+      // console.log('indexList', indexList);
+      setRowsIndexList(indexList);
+
+      //Se utiliza "newSettlementDataList" envez de "data", por que "data" NO TIENE todos los datos necesarios para el pdf
+      const dataSelected = allRowsSelected.map(
+        (row) => newSettlementDataList[row.dataIndex]
+      );
+      // console.log('dataSelected:', dataSelected);
+      setRowsSelectedState(dataSelected);
+    },
+
+    print: false, //NO ES NECESARIO POR QUE TENEMOS UN BOTON PARA IMPRIMIR en "customToolbar"
+    //customToolbar: Nos permite añadir un componente personalizado a la barra de herramientas.
+    customToolbar: () => {
+      return (
+        <DialogBasic
+          primaryBtnText="imprimir seleccionados"
+          componentView={
+            <PdfSettlementForms settlementFormsProps={rowsSelectedState} />
+          }
+        />
+      );
+    },
   };
 
   return (

@@ -3,7 +3,12 @@ import { GlobalStyle } from './PdfGenerateStyles';
 import { generarPlanillasLiquidacion } from './js/generar-pdfs.js';
 
 export const PdfSettlementForms = ({ settlementFormsProps }) => {
-  const settlementFormsList = [settlementFormsProps];
+  // Es necesario que "settlementFormsList" sea un array:
+  //  *si se presiona el boton de cada fila "settlementFormsProps" llega como "obejeto"
+  //  *si se imprime en masa "settlementFormsProps" llega como un "array"
+  const settlementFormsList = Array.isArray(settlementFormsProps)
+    ? settlementFormsProps
+    : [settlementFormsProps];
 
   const [embedSrc, setEmbedSrc] = useState('');
 

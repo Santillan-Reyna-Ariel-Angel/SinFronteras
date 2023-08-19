@@ -169,7 +169,6 @@ export const TicketsSoldDataTable = () => {
     rowsPerPageOptions: [5, 10, 15, 20, 30, 50, 100], //numero de filas(registros) por paginas
     searchOpen: true,
     // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
-    selectableRowsHideCheckboxes: false, //muestra o no los check box
     tableBodyHeight: 'auto', // "50px", "100%"
     // viewColumns: false, // func para mostrar/oculta columnas
     elevation: 0, //ancho de sombrea de la tabla (0-24)
@@ -179,6 +178,7 @@ export const TicketsSoldDataTable = () => {
     textLabels: { ...MUI_DATA_TABLE___TEXT_LABELS_ES },
 
     // MANEJAR CHECKS DE DATA TABLE:
+    selectableRowsHideCheckboxes: false, //muestra o no los check box
     rowsSelected: rowsIndexList, // [0, 1] marca los checkbox de las filas selecionadas
     selectableRowsHeader: true, //muestra o no el checkbox de la cabecera
     selectToolbarPlacement: 'none', // "replace" | "above" | "none" // posicion de la barra de herramientas de selecion
