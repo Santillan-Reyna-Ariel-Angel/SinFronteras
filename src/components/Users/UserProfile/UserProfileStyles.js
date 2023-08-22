@@ -25,7 +25,7 @@ export const HeaderContainer = styled.div`
   grid-template-areas: 'HeaderTitle';
 
   color: white;
-  border-radius: 0px 0px 0px 0px; //en vista: 10px 10px 0px 0px; en <BasicDialog/> : 0px 0px 0px 0px;
+  border-radius: 10px 10px 0px 0px; //en vista: 10px 10px 0px 0px; en <BasicDialog/> : 0px 0px 0px 0px;
   background: #051e34;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
@@ -48,7 +48,7 @@ export const BodyContainer = styled.form`
   padding: 15px 20px;
   //sombreado:
   border: 4px solid #051e34; //contorno
-  border-radius: 0px 0px 0px 0px; //en vista: 0px 0px 10px 10px; en <BasicDialog/> : 0px 0px 0px 0px;
+  border-radius: 0px 0px 10px 10px; //en vista: 0px 0px 10px 10px; en <BasicDialog/> : 0px 0px 0px 0px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'ProfileIconStyle ProfileIconStyle' 'FullNameAndChargeText FullNameAndChargeText' 'InputCi InputAddress' 'InputMobile InputEmail' 'BtnRegistrer BtnRegistrer';

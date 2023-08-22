@@ -5,6 +5,7 @@ import NoTransferRoundedIcon from '@mui/icons-material/NoTransferRounded';
 // import WatchLaterRoundedIcon from "@mui/icons-material/WatchLaterRounded";
 import QueryBuilderRoundedIcon from '@mui/icons-material/QueryBuilderRounded';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 //Styles:
 import {
   Background,
@@ -155,69 +156,75 @@ const TravelCards = ({ travelSearchData }) => {
   return (
     <>
       {/* Se verifica si existe 1 o mas viajes en el array travelCardsListAux, de ser asi se genera la tarjeta con los datos, caso contrario se muestra una tarjeta indicando que no se encontraron viajes*/}
-      {travelCardsListAux.length >= 1 ? (
-        travelCardsListAux.map((travelItem) => {
-          return (
-            <>
-              <Background>
-                <Container>
-                  <RouteStyle>
-                    <span>{`${travelItem.localityOfOrigin} => ${travelItem.destinationLocation}`}</span>
-                  </RouteStyle>
-                </Container>
-                <ContainerCardBody>
-                  <BusStyle>
-                    <DirectionsBusRoundedIcon />
-                  </BusStyle>
-                  <TextDepartureTimeStyle>
-                    <div>
-                      <QueryBuilderRoundedIcon sx={{ marginRight: '2px' }} />
-                      <span>{`Salida`}</span>
-                    </div>
-                  </TextDepartureTimeStyle>
-                  <BtnSeeBusStyle>
-                    <Button
-                      variant="contained"
-                      color={showSeatMap ? 'error' : 'success'}
-                      endIcon={
-                        showSeatMap ? (
-                          <NoTransferRoundedIcon />
-                        ) : (
-                          <DirectionsBusRoundedIcon />
-                        )
-                      }
-                      onClick={() => setShowSeatMap(!showSeatMap)}
-                    >
-                      {showSeatMap ? 'Ocultar' : 'Ver'}
-                    </Button>
-                  </BtnSeeBusStyle>
-                  <TypeOfBusStyle>
-                    <span>{`${travelItem.typeOfBus}`}</span>
-                  </TypeOfBusStyle>
-                  <DepartureTimeStyle>
-                    <span>{`${travelItem.departureTime}`}</span>
-                  </DepartureTimeStyle>
-                </ContainerCardBody>
-              </Background>
-            </>
-          );
-        })
-      ) : (
-        // Cuando No se encuentren viajes:
-        <Background>
-          <Container>
-            <RouteStyle>
-              <span>{`${origin} => ${destination}`}</span>
-            </RouteStyle>
-          </Container>
-          <ContainerCardBody>
-            <TypeOfBusStyle>
-              <span>No se encontraron viajes, intente con otra fecha.</span>
-            </TypeOfBusStyle>
-          </ContainerCardBody>
-        </Background>
-      )}
-
+      <Stack
+        direction="row"
+        justifyContent="center"
+        alignItems="baseline"
+        spacing={1}
+      >
+        {travelCardsListAux.length >= 1 ? (
+          travelCardsListAux.map((travelItem) => {
+            return (
+              <>
+                <Background>
+                  <Container>
+                    <RouteStyle>
+                      <span>{`${travelItem.localityOfOrigin} => ${travelItem.destinationLocation}`}</span>
+                    </RouteStyle>
+                  </Container>
+                  <ContainerCardBody>
+                    <BusStyle>
+                      <DirectionsBusRoundedIcon />
+                    </BusStyle>
+                    <TextDepartureTimeStyle>
+                      <div>
+                        <QueryBuilderRoundedIcon sx={{ marginRight: '2px' }} />
+                        <span>{`Salida`}</span>
+                      </div>
+                    </TextDepartureTimeStyle>
+                    <BtnSeeBusStyle>
+                      <Button
+                        variant="contained"
+                        color={showSeatMap ? 'error' : 'success'}
+                        endIcon={
+                          showSeatMap ? (
+                            <NoTransferRoundedIcon />
+                          ) : (
+                            <DirectionsBusRoundedIcon />
+                          )
+                        }
+                        onClick={() => setShowSeatMap(!showSeatMap)}
+                      >
+                        {showSeatMap ? 'Ocultar' : 'Ver'}
+                      </Button>
+                    </BtnSeeBusStyle>
+                    <TypeOfBusStyle>
+                      <span>{`${travelItem.typeOfBus}`}</span>
+                    </TypeOfBusStyle>
+                    <DepartureTimeStyle>
+                      <span>{`${travelItem.departureTime}`}</span>
+                    </DepartureTimeStyle>
+                  </ContainerCardBody>
+                </Background>
+              </>
+            );
+          })
+        ) : (
+          // Cuando No se encuentren viajes:
+          <Background>
+            <Container>
+              <RouteStyle>
+                <span>{`${origin} => ${destination}`}</span>
+              </RouteStyle>
+            </Container>
+            <ContainerCardBody>
+              <TypeOfBusStyle>
+                <span>No se encontraron viajes, intente con otra fecha.</span>
+              </TypeOfBusStyle>
+            </ContainerCardBody>
+          </Background>
+        )}
+      </Stack>
       {/* Mapa de asientos del Bus: */}
       {travelCardsListAux.length >= 1 && showSeatMap === true ? (
         <BusSeatMap dataBusTravel={dataOfTheSelectedTravelBus} />
