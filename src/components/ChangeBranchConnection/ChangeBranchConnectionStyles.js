@@ -1,17 +1,15 @@
 import styled from 'styled-components';
 
 export const Background = styled.div`
-  //Se usan los 4 o se usara margin:
   display: grid;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+
   align-content: center; //junta los elementos vertical
   justify-content: center; //centrea los elementos orizontalmente
-  width: 100%; //opcional para llevarlo al medio de la pantalla
-
-  /* left: 0; */
-  /* top: 0; */
-  /* grid-template-columns: auto; */
-  //new:
-  margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background>
 `;
 export const HeaderContainer = styled.div`
   display: grid;
