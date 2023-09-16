@@ -52,7 +52,8 @@ const TravelCards = ({ travelSearchData }) => {
   let { identificationNumber: identificationNumberUser } = userData;
 
   //Variable al cual se asignara los datos del bus seleccionado:
-  let dataOfTheSelectedTravelBus = {};
+  const [dataBusTravelIndex, setDataBusTravelIndex] = useState(0); // "" o 0
+  let dataOfTheSelectedTravelBusListAux = [];
 
   //travelCardsList recuperara info del viaje que coincida con el destino y la fecha de salida ({} para no coincidentes):
   let travelCardsList = Object.keys(travels).map((travelKey) => {
@@ -69,7 +70,8 @@ const TravelCards = ({ travelSearchData }) => {
       destinationLocation === destination &&
       travelDate === selectedTravelDate
     ) {
-      dataOfTheSelectedTravelBus = travels[travelKey];
+      dataOfTheSelectedTravelBusListAux.push(travels[travelKey]);
+
       let travelData = {
         localityOfOrigin,
         destinationLocation,
@@ -92,7 +94,10 @@ const TravelCards = ({ travelSearchData }) => {
   });
   // console.log('travelCardsListAux', travelCardsListAux);
 
-  // console.log('dataOfTheSelectedTravelBus: ', dataOfTheSelectedTravelBus);
+  console.log(
+    'dataOfTheSelectedTravelBusListAux: ',
+    dataOfTheSelectedTravelBusListAux
+  );
 
   //Estado que controla ver o no el mapa de asientos del bus:
   [showSeatMap, setShowSeatMap] = useState(false);
@@ -101,14 +106,18 @@ const TravelCards = ({ travelSearchData }) => {
   //Crear getSelectSeats:
   const getSelectSeats = () => {
     //Recuperando solo los asientos Selecionados del viaje en concreto:
-    // console.log('dataOfTheSelectedTravelBus', dataOfTheSelectedTravelBus);
     let selectedSeatsId = [];
-    if (Object.keys(dataOfTheSelectedTravelBus).length !== 0) {
+    if (dataOfTheSelectedTravelBusListAux.length !== 0) {
+      // Object.keys(dataOfTheSelectedTravelBusListAux[dataBusTravelIndex]).length !== 0
+      // si el {} no esta vacio pasa AHORA: si dataOfTheSelectedTravelBusListAux no esta vacio pasa (dataOfTheSelectedTravelBusListAux!==[])
+
       let {
         bus: { enrollment: busEnrollment },
         travelDate,
         departureTime,
-      } = dataOfTheSelectedTravelBus ? dataOfTheSelectedTravelBus : {};
+      } = dataOfTheSelectedTravelBusListAux.length !== 0
+        ? dataOfTheSelectedTravelBusListAux[dataBusTravelIndex]
+        : {};
 
       let travelKeyAux = travelKey({
         travelDate,
@@ -147,11 +156,17 @@ const TravelCards = ({ travelSearchData }) => {
     selectedSeatsToDelete.map((seatId) =>
       removeOccupiedSeat({
         branchNumber,
-        dataBusTravel: dataOfTheSelectedTravelBus,
+        dataBusTravel: dataOfTheSelectedTravelBusListAux[dataBusTravelIndex],
         seatId,
       })
     );
   }
+
+  console.log('dataBusTravelIndex', dataBusTravelIndex);
+  console.log(
+    'dataOfTheSelectedTravelBusListAux',
+    dataOfTheSelectedTravelBusListAux
+  );
 
   return (
     <>
@@ -163,10 +178,10 @@ const TravelCards = ({ travelSearchData }) => {
         spacing={1}
       >
         {travelCardsListAux.length >= 1 ? (
-          travelCardsListAux.map((travelItem) => {
+          travelCardsListAux.map((travelItem, index) => {
             return (
               <>
-                <Background>
+                <Background key={index}>
                   <Container>
                     <RouteStyle>
                       <span>{`${travelItem.localityOfOrigin} => ${travelItem.destinationLocation}`}</span>
@@ -185,17 +200,26 @@ const TravelCards = ({ travelSearchData }) => {
                     <BtnSeeBusStyle>
                       <Button
                         variant="contained"
-                        color={showSeatMap ? 'error' : 'success'}
+                        color={
+                          showSeatMap && index === dataBusTravelIndex
+                            ? 'error'
+                            : 'success'
+                        }
                         endIcon={
-                          showSeatMap ? (
+                          showSeatMap && index === dataBusTravelIndex ? (
                             <NoTransferRoundedIcon />
                           ) : (
                             <DirectionsBusRoundedIcon />
                           )
                         }
-                        onClick={() => setShowSeatMap(!showSeatMap)}
+                        onClick={() => [
+                          setShowSeatMap(!showSeatMap),
+                          setDataBusTravelIndex(index),
+                        ]}
                       >
-                        {showSeatMap ? 'Ocultar' : 'Ver'}
+                        {showSeatMap && index === dataBusTravelIndex
+                          ? 'Ocultar'
+                          : 'Ver'}
                       </Button>
                     </BtnSeeBusStyle>
                     <TypeOfBusStyle>
@@ -227,7 +251,9 @@ const TravelCards = ({ travelSearchData }) => {
       </Stack>
       {/* Mapa de asientos del Bus: */}
       {travelCardsListAux.length >= 1 && showSeatMap === true ? (
-        <BusSeatMap dataBusTravel={dataOfTheSelectedTravelBus} />
+        <BusSeatMap
+          dataBusTravel={dataOfTheSelectedTravelBusListAux[dataBusTravelIndex]}
+        />
       ) : null}
     </>
   );
