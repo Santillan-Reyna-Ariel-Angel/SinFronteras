@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import backgroundImage from "./../../sources/img/Flota2.jpg";
-import Logo from "./../../sources/img/LogoSF2.png";
+import styled from 'styled-components';
+import backgroundImage from './../../sources/img/Flota2.jpg';
+import Logo from './../../sources/img/LogoSF2.png';
 
 export const Background = styled.div`
   display: grid;
@@ -30,8 +30,8 @@ export const Container = styled.form`
   grid-template-rows: auto auto auto;
   border-radius: 20px;
   grid-template-areas:
-    "Logo InputUser InputUser"
-    "Logo InputP InputP" "Logo RecoverPassword Button";
+    'Logo InputUser InputUser'
+    'Logo InputP InputP' 'Logo RecoverPassword Button';
   /* background: #00bdb440;
   backdrop-filter: blur(22px); */
   background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%);
@@ -45,10 +45,24 @@ export const Container = styled.form`
     padding: 10px 15px;
 
     grid-template-areas:
-      "Logo Logo"
-      "InputUser InputUser"
-      "InputP InputP"
-      "RecoverPassword Button";
+      'Logo Logo'
+      'InputUser InputUser'
+      'InputP InputP'
+      'RecoverPassword Button';
+  }
+
+  @media screen and (max-width: 360px) {
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    grid-template-columns: 120px 120px;
+    grid-template-rows: 100px 1fr 1fr auto;
+    padding: 10px 15px;
+
+    grid-template-areas:
+      'Logo Logo'
+      'InputUser InputUser'
+      'InputP InputP'
+      'RecoverPassword Button';
   }
 `;
 
