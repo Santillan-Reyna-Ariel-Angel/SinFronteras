@@ -24,6 +24,11 @@ export const HeaderContainer = styled.div`
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   overflow: hidden;
+
+  @media screen and (max-width: 360px) {
+    grid-template-columns: 250px;
+    justify-content: center;
+  }
 `;
 
 export const HeaderTitle = styled.div`
@@ -48,6 +53,10 @@ export const BodyContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'CurrentConnectionText' 'ChangeConnectionText' 'ChangeConnectionStyle' 'Btn';
   /* overflow: hidden; */
+
+  @media screen and (max-width: 360px) {
+    grid-template-columns: 250px;
+  }
 `;
 
 export const CurrentConnectionText = styled.div`
