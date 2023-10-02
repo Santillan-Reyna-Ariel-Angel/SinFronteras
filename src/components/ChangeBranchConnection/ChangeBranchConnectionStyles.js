@@ -25,7 +25,7 @@ export const HeaderContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   overflow: hidden;
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: 250px;
     justify-content: center;
   }
@@ -54,7 +54,7 @@ export const BodyContainer = styled.div`
   grid-template-areas: 'CurrentConnectionText' 'ChangeConnectionText' 'ChangeConnectionStyle' 'Btn';
   /* overflow: hidden; */
 
-  @media screen and (max-width: 360px) {
+  @media screen and (max-width: 768px) {
     grid-template-columns: 250px;
   }
 `;

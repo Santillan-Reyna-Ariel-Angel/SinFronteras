@@ -39,20 +39,7 @@ export const Container = styled.form`
   box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.7);
 
   @media screen and (max-width: 768px) {
-    grid-column-gap: 20px;
-    grid-template-columns: 180px 100px;
-    grid-template-rows: 160px 1fr 1fr auto;
-    padding: 10px 15px;
-
-    grid-template-areas:
-      'Logo Logo'
-      'InputUser InputUser'
-      'InputP InputP'
-      'RecoverPassword Button';
-  }
-
-  @media screen and (max-width: 360px) {
-    grid-column-gap: 10px;
+    grid-column-gap: 0px;
     grid-row-gap: 10px;
     grid-template-columns: 120px 120px;
     grid-template-rows: 100px 1fr 1fr auto;
