@@ -28,9 +28,14 @@ import { PassengerRegistrationTable } from '../../PassengerRegistrationTable/Pas
 //Others:
 import { travelKey } from '../../Events/Functions/TripsMadeGenerateKeys';
 import { createSeats } from './Functions';
+import { useMediaQuery } from '@mui/material';
+
 const label = { inputProps: { 'aria-label': 'Checkbox demo' } }; //Usado en Check
 
 const BusSeatMap = ({ dataBusTravel }) => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)');
+  console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   // console.log('***dataBusTravel', dataBusTravel);
 
   //ContextBranchOffice:
@@ -209,21 +214,31 @@ const BusSeatMap = ({ dataBusTravel }) => {
                     {...label}
                     icon={
                       <EventSeatRoundedIcon
-                        // fontSize="small"
+                        fontSize={isScreenMaxW_768 ? 'small' : undefined} //small=38x38
                         sx={{
                           transform: 'rotate(90deg)',
                           color: coloringSeat(seatNumber),
+                          //breakpoint:
+                          [`@media screen and (max-width: 768px)`]: {
+                            // fontSize: 'medium', //small=31x31 -  medium=34x34
+                          },
                         }}
                       />
                     }
                     checkedIcon={
                       <EventSeatRoundedIcon
-                        // fontSize="small"
+                        fontSize={isScreenMaxW_768 ? 'small' : undefined} //small=38x38
                         sx={{ transform: 'rotate(90deg)', color: 'primary' }} //Modificar para cambiar el color de los asientos selecionados
                       />
                     }
                     onChange={selectOrDeselectSeat}
-                    sx={{ margin: '-16px 0px 0px 0px' }}
+                    sx={{
+                      margin: '-16px 0px 0px 0px',
+                      //breakpoint:
+                      [`@media screen and (max-width: 768px)`]: {
+                        margin: '-14px 0px 0px 0px',
+                      },
+                    }}
                     disabled={
                       coloringSeat(seatNumber).length !== 0 ? true : false //Si !==0 es true, el asiento esta selecionado(se inhabilita para los demas) o vendido(se inhabilita para todos).
                     }
@@ -242,6 +257,17 @@ const BusSeatMap = ({ dataBusTravel }) => {
                   //     : '',
                   // borderBottomRightRadius:
                   //   i === arraySeats.length - 1 && indice === 0 ? '15px' : '',
+
+                  '.MuiTypography-root': {
+                    fontWeight: 'bold',
+                  },
+
+                  //breakpoint:
+                  [`@media screen and (max-width: 768px)`]: {
+                    '.MuiTypography-root': {
+                      fontSize: '12px',
+                    },
+                  },
                 }}
               />
             </Tooltip>
