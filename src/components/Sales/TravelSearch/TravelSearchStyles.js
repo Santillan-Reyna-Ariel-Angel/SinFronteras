@@ -24,7 +24,7 @@ export const Container = styled.form`
 
   @media screen and (max-width: 768px) {
     grid-row-gap: 10px;
-    grid-template-columns: 200px;
+    grid-template-columns: 180px;
     grid-template-areas:
       'Origin'
       'Destination'

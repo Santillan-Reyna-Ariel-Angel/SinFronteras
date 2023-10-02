@@ -3,9 +3,13 @@ import styled from 'styled-components';
 export const Background = styled.div`
   left: 0;
   top: 0;
-  /* margin-top: 40px; */
   max-width: fit-content;
   min-width: fit-content;
+
+  @media screen and (max-width: 768px) {
+    max-width: 222px;
+    min-width: fit-content;
+  }
 `;
 
 export const Container = styled.div`
@@ -28,6 +32,10 @@ export const RouteStyle = styled.div`
   text-align: center;
   padding: 5px 0px;
   font-size: larger;
+
+  @media screen and (max-width: 768px) {
+    padding: 0px 0px; // controla el padig del titulo de la tarjeta
+  }
 `;
 
 export const ContainerCardBody = styled.div`
@@ -43,6 +51,10 @@ export const ContainerCardBody = styled.div`
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   overflow: hidden;
+
+  @media screen and (max-width: 768px) {
+    padding: 3px 5px; // controla el padding del cuerpo de la tarjeta
+  }
 `;
 
 export const BusStyle = styled.div`
