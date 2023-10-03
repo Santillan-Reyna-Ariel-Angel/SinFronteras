@@ -352,6 +352,13 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                   name="ciOrNit"
                   value={billingContactInformation.ciOrNit}
                   onChange={handleInputChangeCiOrNit}
+                  sx={{
+                    '.MuiInputBase-root': {
+                      fontSize: 14,
+                      // color: 'red',
+                      // fontWeight: 'bold',
+                    },
+                  }}
                 />
               )}
             />
@@ -366,6 +373,13 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
               name="nameOrSocialReason"
               value={billingContactInformation.nameOrSocialReason}
               onChange={inputChangeNameOrSocialReason}
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: 14,
+                  // color: 'red',
+                  // fontWeight: 'bold',
+                },
+              }}
             />
           </InputNameOrSocialReason>
           <InputEmail>
@@ -378,6 +392,13 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
               // error={true}
               value={billingContactInformation.email}
               onChange={handleInputChangeEmail}
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: 14,
+                  // color: 'red',
+                  // fontWeight: 'bold',
+                },
+              }}
             />
           </InputEmail>
           <InputCountryCode>
@@ -407,6 +428,13 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                       [event.target.name]: event.target.value,
                     }))
                   }
+                  sx={{
+                    '.MuiInputBase-root': {
+                      fontSize: 14,
+                      // color: 'red',
+                      // fontWeight: 'bold',
+                    },
+                  }}
                 />
               )}
             />
@@ -426,6 +454,13 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                   [event.target.name]: event.target.value,
                 }))
               }
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: 14,
+                  // color: 'red',
+                  // fontWeight: 'bold',
+                },
+              }}
             />
           </InputMobile>
           <Btn>

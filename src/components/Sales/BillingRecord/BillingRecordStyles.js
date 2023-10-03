@@ -28,6 +28,10 @@ export const HeaderTitle = styled.div`
   text-align: center;
   padding: 5px 0px;
   font-size: larger;
+
+  @media screen and (max-width: 768px) {
+    padding: 4px 0px 0px 0px;
+  }
 `;
 
 export const BodyContainer = styled.div`
@@ -45,6 +49,13 @@ export const BodyContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'InvoiceCheckbox InvoiceCheckbox' 'InputCiOrNit InputCiOrNit' 'InputNameOrSocialReason InputNameOrSocialReason' 'InputEmail InputEmail' 'InputCountryCode InputMobile' 'Btn Btn';
   /* overflow: hidden; */
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 150px 115px;
+    grid-row-gap: 10px;
+    grid-column-gap: 5px;
+    padding: 8px 10px;
+  }
 `;
 
 export const InvoiceCheckbox = styled.div`

@@ -7,7 +7,7 @@ import { DataGrid, esES } from '@mui/x-data-grid'; // *esEs: idioma español que
 //Components:
 import { BillingRecord } from '../BillingRecord/BillingRecord';
 //Others:
-import { useMediaQuery } from '@mui/material';
+// import { useMediaQuery } from '@mui/material';
 
 const PassengerRegistrationTable = ({
   passengersDataTable,
@@ -15,7 +15,7 @@ const PassengerRegistrationTable = ({
   seatPrices,
   dataBusTravel,
 }) => {
-  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)');
+  // const isScreenMaxW_768 = useMediaQuery('(max-width:768px)');
   // console.log('isScreenMaxW_768', isScreenMaxW_768);
 
   let { minimalPrice, maximumPrice } = seatPrices;
