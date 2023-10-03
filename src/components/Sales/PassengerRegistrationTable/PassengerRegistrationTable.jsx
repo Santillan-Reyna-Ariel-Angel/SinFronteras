@@ -6,6 +6,8 @@ import { DataGrid, esES } from '@mui/x-data-grid'; // *esEs: idioma español que
 // import { Background, Container } from './PassengerRegistrationTableStyles';
 //Components:
 import { BillingRecord } from '../BillingRecord/BillingRecord';
+//Others:
+import { useMediaQuery } from '@mui/material';
 
 const PassengerRegistrationTable = ({
   passengersDataTable,
@@ -13,12 +15,19 @@ const PassengerRegistrationTable = ({
   seatPrices,
   dataBusTravel,
 }) => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)');
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   let { minimalPrice, maximumPrice } = seatPrices;
 
   //Data necesary for  DataGrid:
   // Nota: Precio tendria que ser editable?
   const columns = [
-    { field: 'id', headerName: 'N# Asiento', width: 104 },
+    {
+      field: 'id',
+      headerName: 'Asiento',
+      width: 82,
+    },
     {
       field: 'seatPrice',
       headerName: 'Precio',
@@ -28,7 +37,7 @@ const PassengerRegistrationTable = ({
     {
       field: 'typeOfDocument',
       headerName: 'Documento',
-      width: 130,
+      width: 128,
       editable: true,
     },
     {
@@ -166,8 +175,8 @@ const PassengerRegistrationTable = ({
           // disableSelectionOnClick //seleciona la fila al hacer click en un celda
           // autoPageSize={true}
         />
-        {/* Verificacion de Campos Vacios: */}
-        {emptyFields !== [] &&
+        {/* Verificacion de Campos NO Vacios: */}
+        {emptyFields.length !== 0 &&
         emptyFields[0] !== undefined &&
         emptyFields[0] !== null ? (
           <>

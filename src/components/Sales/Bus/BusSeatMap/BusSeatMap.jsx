@@ -34,7 +34,7 @@ const label = { inputProps: { 'aria-label': 'Checkbox demo' } }; //Usado en Chec
 
 const BusSeatMap = ({ dataBusTravel }) => {
   const isScreenMaxW_768 = useMediaQuery('(max-width:768px)');
-  console.log('isScreenMaxW_768', isScreenMaxW_768);
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
 
   // console.log('***dataBusTravel', dataBusTravel);
 
