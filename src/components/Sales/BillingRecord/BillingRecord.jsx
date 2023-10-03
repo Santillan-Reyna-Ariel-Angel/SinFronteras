@@ -37,6 +37,7 @@ import { generateTicketNumber } from './Functions';
 import { getSalesIncome } from './getSalesIncome';
 import { getTravelIncomeBd } from './getTravelIncomeBd';
 import { getSumIncomeFromBdAndSale } from './getSumIncomeFromBdAndSale';
+import { Css_TextField_Select } from './../../constantData';
 
 const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   // console.log('***passengersDataTable', passengersDataTable);
@@ -352,11 +353,10 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                   name="ciOrNit"
                   value={billingContactInformation.ciOrNit}
                   onChange={handleInputChangeCiOrNit}
+                  size="small"
                   sx={{
                     '.MuiInputBase-root': {
-                      fontSize: 14,
-                      // color: 'red',
-                      // fontWeight: 'bold',
+                      fontSize: Css_TextField_Select.fontSize,
                     },
                   }}
                 />
@@ -373,15 +373,15 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
               name="nameOrSocialReason"
               value={billingContactInformation.nameOrSocialReason}
               onChange={inputChangeNameOrSocialReason}
+              size="small"
               sx={{
                 '.MuiInputBase-root': {
-                  fontSize: 14,
-                  // color: 'red',
-                  // fontWeight: 'bold',
+                  fontSize: Css_TextField_Select.fontSize,
                 },
               }}
             />
           </InputNameOrSocialReason>
+
           <InputEmail>
             <TextField
               className="input"
@@ -392,15 +392,15 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
               // error={true}
               value={billingContactInformation.email}
               onChange={handleInputChangeEmail}
+              size="small"
               sx={{
                 '.MuiInputBase-root': {
-                  fontSize: 14,
-                  // color: 'red',
-                  // fontWeight: 'bold',
+                  fontSize: Css_TextField_Select.fontSize,
                 },
               }}
             />
           </InputEmail>
+
           <InputCountryCode>
             <Autocomplete
               value={billingContactInformation.countryCode}
@@ -428,11 +428,10 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                       [event.target.name]: event.target.value,
                     }))
                   }
+                  size="small"
                   sx={{
                     '.MuiInputBase-root': {
-                      fontSize: 14,
-                      // color: 'red',
-                      // fontWeight: 'bold',
+                      fontSize: Css_TextField_Select.fontSize,
                     },
                   }}
                 />
@@ -454,11 +453,10 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
                   [event.target.name]: event.target.value,
                 }))
               }
+              size="small"
               sx={{
                 '.MuiInputBase-root': {
-                  fontSize: 14,
-                  // color: 'red',
-                  // fontWeight: 'bold',
+                  fontSize: Css_TextField_Select.fontSize,
                 },
               }}
             />
