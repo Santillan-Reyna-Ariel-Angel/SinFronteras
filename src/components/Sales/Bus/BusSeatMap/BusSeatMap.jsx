@@ -247,7 +247,8 @@ const BusSeatMap = ({ dataBusTravel }) => {
                 label={seatNumber}
                 labelPlacement="top"
                 sx={{
-                  margin: '0px -12px -10px 0px',
+                  margin: '0px -5px 0px 0px', // CONTROLA EL MARGIN ENTRE CADA ASIENTO
+                  padding: '0px 0px 0px 0px',
                   // backgroundColor: 'red',
                   // borderTopRightRadius:
                   //   i === arraySeats.length - 1 &&
@@ -260,10 +261,12 @@ const BusSeatMap = ({ dataBusTravel }) => {
 
                   '.MuiTypography-root': {
                     fontWeight: 'bold',
+                    fontSize: '14px',
                   },
 
                   //breakpoint:
                   [`@media screen and (max-width: 768px)`]: {
+                    margin: '0px -12px 0px 0px', // CONTROLA EL MARGIN ENTRE CADA ASIENTO
                     '.MuiTypography-root': {
                       fontSize: '12px',
                     },
