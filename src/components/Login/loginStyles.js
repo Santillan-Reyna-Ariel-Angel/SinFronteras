@@ -23,10 +23,10 @@ export const Background = styled.div`
 
 export const Container = styled.form`
   display: grid;
-  padding: 25px 30px;
-  grid-column-gap: 15px;
-  grid-row-gap: 17px;
-  grid-template-columns: 160px 200px auto;
+  padding: 20px 25px 20px 15px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: 115px 200px auto;
   grid-template-rows: auto auto auto;
   border-radius: 20px;
   grid-template-areas:
@@ -37,11 +37,12 @@ export const Container = styled.form`
   background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%);
 
   box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.7);
+  border: 4px solid #051e34; //contorno
 
   @media screen and (max-width: 768px) {
     grid-column-gap: 0px;
     grid-row-gap: 10px;
-    grid-template-columns: 120px 120px;
+    grid-template-columns: 115px 115px;
     grid-template-rows: 100px 1fr 1fr auto;
     padding: 10px 15px;
 

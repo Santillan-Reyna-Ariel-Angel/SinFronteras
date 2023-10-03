@@ -44,3 +44,25 @@ export const MUI_DATA_TABLE___TEXT_LABELS_ES = {
     deleteAria: 'Eliminar filas seleccionadas',
   },
 };
+
+// FOR Css_TextField_Select:
+export const Css_TextField_Select = {
+  fontSize: 14,
+  // fontFamily: 'Times New Roman',
+  fontWeight: 'bold',
+  // color: 'red',
+};
+//NOTA: Para usarlo en un TextField o Select, se debe usar de la siguiente manera:
+// <TextField>
+// sx={{
+//   '.MuiInputBase-root': {
+//     fontSize: Css_TextField_Select.fontSize,
+//   },
+// }}
+
+// <Select>
+// sx={{
+//   '.MuiSelect-select': {
+//     fontSize: Css_TextField_Select.fontSize,
+//   },
+// }}

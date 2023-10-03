@@ -1,5 +1,4 @@
 import React, { useContext, useState } from 'react';
-
 // MUI:
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 //Styles:
@@ -14,7 +13,6 @@ import {
   Btn,
 } from './ChangeBranchConnectionStyles';
 import { PlainModalButton } from '../PlainModalButton/PlainModalButton';
-
 //Contexts:
 import { ContextUserData } from '../../contexts/ContextUserData';
 import { ContextAllBranchOffices } from '../../contexts/ContextAllBranchOffices';
@@ -23,6 +21,7 @@ import { updateUserBranch } from './updateUserBranch';
 //States:
 //Components:
 //Others:
+import { Css_TextField_Select } from './../constantData';
 
 export const ChangeBranchConnection = () => {
   //ContextUserData:
@@ -118,6 +117,12 @@ export const ChangeBranchConnection = () => {
                 value={currentBranch.selectOption}
                 name="branchData"
                 onChange={(event) => updateBranchData(event)}
+                size="small"
+                sx={{
+                  '.MuiSelect-select': {
+                    fontSize: Css_TextField_Select.fontSize,
+                  },
+                }}
               >
                 {selectOptionsList.map((selectOption, index) => (
                   <MenuItem key={index} value={selectOption}>

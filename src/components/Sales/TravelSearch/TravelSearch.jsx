@@ -14,7 +14,6 @@ import {
   InputOrigin,
   InputDestination,
   InputDate,
-  // ButtonSearch,
 } from './TravelSearchStyles';
 //Contexts:
 import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
@@ -22,6 +21,7 @@ import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
 import { TravelCards } from './../TravelCards/TravelCards';
 //Others:
 import { dateFormat } from '../../globalFunctions';
+import { Css_TextField_Select } from './../../constantData';
 
 const TravelSearch = () => {
   //ContextBranchOffice:
@@ -132,6 +132,14 @@ const TravelSearch = () => {
                   {...params}
                   label="Origen"
                   variant="outlined"
+                  size="small"
+                  sx={{
+                    [`@media screen and (max-width: 768px)`]: {
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize,
+                      },
+                    },
+                  }}
                 />
               )}
             />
@@ -151,6 +159,14 @@ const TravelSearch = () => {
                   {...params}
                   label="Destino"
                   variant="outlined"
+                  size="small"
+                  sx={{
+                    [`@media screen and (max-width: 768px)`]: {
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize,
+                      },
+                    },
+                  }}
                 />
               )}
             />
@@ -174,6 +190,14 @@ const TravelSearch = () => {
                     className="input"
                     {...params}
                     // helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
+                    size="small"
+                    sx={{
+                      [`@media screen and (max-width: 768px)`]: {
+                        '.MuiInputBase-root': {
+                          fontSize: Css_TextField_Select.fontSize,
+                        },
+                      },
+                    }}
                   />
                 )}
               />

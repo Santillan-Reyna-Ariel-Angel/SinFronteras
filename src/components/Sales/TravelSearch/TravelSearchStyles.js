@@ -10,11 +10,11 @@ export const Container = styled.form`
   display: grid;
   padding: 15px 15px;
   grid-column-gap: 5px;
-  grid-template-columns: 200px 200px 150px auto;
+  grid-template-columns: 200px 200px 150px;
   grid-template-rows: auto;
   border: 4px solid #051e34; //contorno
   border-radius: 10px;
-  grid-template-areas: 'Origin Destination Date BtnSearch';
+  grid-template-areas: 'Origin Destination Date';
 
   /* background: #ffffff2e; */
   background: #00bdb2;
@@ -23,13 +23,14 @@ export const Container = styled.form`
   overflow: hidden;
 
   @media screen and (max-width: 768px) {
+    padding: 12px 10px;
     grid-row-gap: 10px;
-    grid-template-columns: 180px;
+    grid-column-gap: 0px;
+    grid-template-columns: 175px;
     grid-template-areas:
       'Origin'
       'Destination'
-      'Date'
-      'BtnSearch';
+      'Date';
   }
 `;
 
@@ -49,15 +50,6 @@ export const InputDestination = styled.div`
 
 export const InputDate = styled.div`
   grid-area: Date;
-  .input {
-    width: 100%;
-  }
-`;
-
-export const ButtonSearch = styled.div`
-  grid-area: BtnSearch;
-  align-self: center;
-  justify-self: center;
   .input {
     width: 100%;
   }

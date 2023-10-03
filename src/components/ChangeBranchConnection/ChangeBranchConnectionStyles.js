@@ -44,7 +44,7 @@ export const BodyContainer = styled.div`
   grid-template-columns: 300px;
   grid-template-rows: auto;
   grid-row-gap: 15px;
-  grid-column-gap: 10px;
+  grid-column-gap: 0px;
   padding: 15px 20px;
   //sombreado:
   border: 4px solid #051e34; //contorno
@@ -56,6 +56,8 @@ export const BodyContainer = styled.div`
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 250px;
+    grid-row-gap: 10px;
+    padding: 10px 15px;
   }
 `;
 

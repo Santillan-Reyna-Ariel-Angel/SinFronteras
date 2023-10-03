@@ -18,6 +18,7 @@ import { validateUserAccess, redirectToPageByCharge } from './loginFunctions';
 // import { saveDataSessionStorage } from './../../contexts/saveDataSessionStorage';
 //EventosFirebase:
 // import { Auth } from '../../events/firebaseEvents';
+import { Css_TextField_Select } from './../constantData';
 
 const Login = () => {
   // ContextAllUserDataForLogin:
@@ -73,6 +74,12 @@ const Login = () => {
               label="Corrreo..."
               variant="outlined"
               onChange={(event) => setEmail(event.target.value)}
+              size="small"
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: Css_TextField_Select.fontSize,
+                },
+              }}
             />
           </InputUser>
           <InputPassword>
@@ -85,6 +92,12 @@ const Login = () => {
               label="Contraseña..."
               variant="outlined"
               onChange={(event) => setPassword(event.target.value)}
+              size="small"
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: Css_TextField_Select.fontSize,
+                },
+              }}
             />
           </InputPassword>
           <TextRecoverPassword>

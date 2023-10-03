@@ -54,7 +54,7 @@ export const BodyContainer = styled.div`
   font-size: large;
 
   @media screen and (max-width: 768px) {
-    grid-row-gap: 6px;
+    grid-row-gap: 8px;
     grid-column-gap: 8px;
     padding: 8px 12px;
   }

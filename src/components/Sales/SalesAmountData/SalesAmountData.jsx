@@ -16,6 +16,8 @@ import {
   TextAmountTotal,
   AmountTotal,
 } from './SalesAmountDataStyles';
+//Others:
+import { Css_TextField_Select } from './../../constantData.js';
 
 export let salesAmountData, setSalesAmountData;
 
@@ -116,6 +118,13 @@ const SalesAmountData = ({ passengersDataTable }) => {
                     })),
                     updateAmountTotal(event.target.value),
                   ]}
+                  size="small"
+                  sx={{
+                    '.MuiInputBase-root': {
+                      // fontSize: Css_TextField_Select.fontSize,
+                      fontWeight: 'bold',
+                    },
+                  }}
                 />
               </InputDiscount>
 
@@ -136,6 +145,12 @@ const SalesAmountData = ({ passengersDataTable }) => {
                       [event.target.name]: event.target.value,
                     }))
                   }
+                  size="small"
+                  sx={{
+                    '.MuiInputBase-root': {
+                      fontSize: Css_TextField_Select.fontSize,
+                    },
+                  }}
                 />
               </DiscountDescription>
             </>
