@@ -28,6 +28,10 @@ export const HeaderTitle = styled.div`
   text-align: center;
   padding: 5px 0px;
   font-size: larger;
+
+  @media screen and (max-width: 768px) {
+    padding: 4px 0px 0px 0px;
+  }
 `;
 
 export const BodyContainer = styled.div`
@@ -45,6 +49,15 @@ export const BodyContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'TextSubtotal Subtotal' 'DiscountCheckbox InputDiscount' 'DiscountDescription DiscountDescription' 'TextAmountTotal AmountTotal';
   /* overflow: hidden; */
+
+  /* font-family: 'Roboto', 'Helvetica', 'Arial', 'Times New Roman', sans-serif; */
+  font-size: large;
+
+  @media screen and (max-width: 768px) {
+    grid-row-gap: 6px;
+    grid-column-gap: 8px;
+    padding: 8px 12px;
+  }
 `;
 
 export const TextSubtotal = styled.div`

@@ -68,7 +68,10 @@ const SalesAmountData = ({ passengersDataTable }) => {
               className="check"
               control={
                 <Checkbox
-                  // sx={{ color: '#051E34' }}
+                  sx={{
+                    color: '#051E34',
+                    marginLeft: '-10px',
+                  }}
                   checked={salesAmountData.discountCheckbox}
                   onChange={(event) => [
                     setSalesAmountData((prevState) => ({
@@ -83,6 +86,12 @@ const SalesAmountData = ({ passengersDataTable }) => {
               }
               label="Descuento (Bs): "
               labelPlacement="start" //end, start
+              sx={{
+                '.MuiTypography-root': {
+                  fontFamily: 'Times New Roman',
+                  fontSize: 'large',
+                },
+              }}
             />
           </DiscountCheckbox>
 
