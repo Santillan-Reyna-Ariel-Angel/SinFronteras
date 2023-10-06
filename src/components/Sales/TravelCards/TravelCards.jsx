@@ -28,11 +28,15 @@ import { removeOccupiedSeat } from './../Events/Firebase/removeOccupiedSeat'; //
 import { BusSeatMap } from '../Bus/BusSeatMap/BusSeatMap';
 //Others:
 import { travelKey } from './../Events/Functions/TripsMadeGenerateKeys';
+import { useMediaQuery } from '@mui/material';
 
 //Variables del estado que controla ver o no el mapa del bus:
 export let showSeatMap, setShowSeatMap;
 
 const TravelCards = ({ travelSearchData }) => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   //Props:
   const { origin, destination, selectedTravelDate } = travelSearchData;
   //ContextBranchOffice:
@@ -172,7 +176,7 @@ const TravelCards = ({ travelSearchData }) => {
     <>
       {/* Se verifica si existe 1 o mas viajes en el array travelCardsListAux, de ser asi se genera la tarjeta con los datos, caso contrario se muestra una tarjeta indicando que no se encontraron viajes*/}
       <Stack
-        direction="row"
+        direction={isScreenMaxW_768 ? 'column' : 'row'}
         justifyContent="center"
         alignItems="baseline"
         spacing={1}
