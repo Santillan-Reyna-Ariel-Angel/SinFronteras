@@ -27,6 +27,7 @@ import { changePassword } from './ChangePasswordFunctios';
 // import { handleClose } from './../../DialogBasic/DialogBasic';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 import { verifyPasswordSync } from './../../globalFunctions';
+import { Css_TextField_Select } from './../../constantData';
 
 export const ChangePassword = () => {
   //ContextAllUserData:
@@ -121,6 +122,12 @@ export const ChangePassword = () => {
           disabled={Disabled}
           required
           inputProps={{ style: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
+          size="small"
+          sx={{
+            '.MuiInputBase-root': {
+              fontSize: Css_TextField_Select.fontSize,
+            },
+          }}
         />
       </>
     );

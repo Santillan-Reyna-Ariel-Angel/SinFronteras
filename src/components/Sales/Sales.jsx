@@ -13,8 +13,8 @@ const Sales = () => {
         <Stack
           direction="column"
           spacing={1} // or 1.25
-          alignItems="center"
-          justifyContent="flex-start"
+          alignItems="center" // Organiza  a lo vertical
+          justifyContent="flex-start" // Organiza  a lo horizontal
         >
           <TravelSearch />
         </Stack>

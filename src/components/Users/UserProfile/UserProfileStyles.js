@@ -41,7 +41,7 @@ export const HeaderTitle = styled.div`
 export const BodyContainer = styled.form`
   display: grid;
   background-color: #00bdb2;
-  grid-template-columns: 230px 230px; //  250px 250px  o  probar auto o xfr
+  grid-template-columns: 130px 200px; //  250px 250px  o  probar auto o xfr
   grid-template-rows: auto;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
@@ -52,6 +52,13 @@ export const BodyContainer = styled.form`
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'ProfileIconStyle ProfileIconStyle' 'FullNameAndChargeText FullNameAndChargeText' 'InputCi InputAddress' 'InputMobile InputEmail' 'BtnRegistrer BtnRegistrer';
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 190px; //o  probar auto o xfr
+    grid-column-gap: 0px;
+    padding: 15px 15px 10px 15px;
+    grid-template-areas: 'ProfileIconStyle ' 'FullNameAndChargeText' 'InputCi' ' InputAddress' 'InputMobile' ' InputEmail' ' BtnRegistrer';
+  }
 `;
 
 export const ProfileIconStyle = styled.div`

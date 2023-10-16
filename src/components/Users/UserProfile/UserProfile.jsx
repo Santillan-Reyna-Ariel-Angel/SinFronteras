@@ -4,6 +4,7 @@ import {
   TextField,
   //   Button,
 } from '@mui/material';
+// import Stack from '@mui/material/Stack';
 
 //Styles:
 import {
@@ -27,6 +28,7 @@ import { saveUserProfile } from './UserProfileFunctios';
 //Others:
 // import { handleClose } from './../../DialogBasic/DialogBasic';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
+import { Css_TextField_Select } from './../../constantData';
 
 export const UserProfile = () => {
   //ContextAllUserData:
@@ -105,6 +107,12 @@ export const UserProfile = () => {
           variant={Variant}
           disabled={Disabled}
           inputProps={{ style: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
+          size="small"
+          sx={{
+            '.MuiInputBase-root': {
+              fontSize: Css_TextField_Select.fontSize,
+            },
+          }}
         />
       </>
     );
@@ -115,6 +123,12 @@ export const UserProfile = () => {
       <Background>
         {/* <br />
         <br /> */}
+
+        {/* <Stack
+          direction="column"
+          // alignItems="center"
+          justifyContent="center"
+        > */}
         <HeaderContainer>
           <HeaderTitle>
             <span>MI PERFIL</span>
@@ -183,6 +197,7 @@ export const UserProfile = () => {
             />
           </BtnRegistrer>
         </BodyContainer>
+        {/* </Stack> */}
       </Background>
     </>
   );
