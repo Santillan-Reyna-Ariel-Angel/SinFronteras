@@ -129,7 +129,7 @@ export const UserDataTable = () => {
     // },
     rowsPerPage: 5, // Número de filas permitidas por página. Por defecto es 10
     rowsPerPageOptions: [5, 10, 15, 20, 30, 50, 100], //numero de filas(registros) por paginas
-    searchOpen: true,
+    searchOpen: false,
     // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
     // selectableRows: 'none', //single, multiple //indica si las filas pueden ser selecionadas
     selectableRowsHideCheckboxes: true, //muestra o no los check box
