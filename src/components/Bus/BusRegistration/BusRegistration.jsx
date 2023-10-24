@@ -248,13 +248,12 @@ export const BusRegistration = ({ busProp }) => {
           </StatusStyle>
 
           {/* Cant pisos: */}
-          <NumberOfFloorsText>
+          {/* <NumberOfFloorsText>
             <span>Numero de Pisos</span>
-          </NumberOfFloorsText>
+          </NumberOfFloorsText> */}
 
-          <NumberOfFloorsStyle>
+          {/* <NumberOfFloorsStyle>
             <FormControl>
-              {/* <FormLabel>Pisos:</FormLabel> */}
               <RadioGroup
                 row={true}
                 value={busData.numberOfFloors}
@@ -277,7 +276,7 @@ export const BusRegistration = ({ busProp }) => {
                 />
               </RadioGroup>
             </FormControl>
-          </NumberOfFloorsStyle>
+          </NumberOfFloorsStyle> */}
 
           {/* Servicios: */}
           <ServicesText>
@@ -295,6 +294,7 @@ export const BusRegistration = ({ busProp }) => {
                       checked={busData.services.bathroom}
                       onChange={changeServiceStatus}
                       name="bathroom"
+                      size="small"
                     />
                   }
                   label="Baño"
@@ -306,6 +306,7 @@ export const BusRegistration = ({ busProp }) => {
                       checked={busData.services.drinks}
                       onChange={changeServiceStatus}
                       name="drinks"
+                      size="small"
                     />
                   }
                   label="Bebidas"
@@ -317,6 +318,7 @@ export const BusRegistration = ({ busProp }) => {
                       checked={busData.services.tv}
                       onChange={changeServiceStatus}
                       name="tv"
+                      size="small"
                     />
                   }
                   label="Tv"

@@ -53,6 +53,13 @@ export const BodyContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'EnrollmentStyle FilingStyle' 'TypeOfBusStyle TypeOfSeatsStyle' 'NumberOfSeatsStyle StatusStyle' 'NumberOfFloorsText NumberOfFloorsText' 'NumberOfFloorsStyle NumberOfFloorsStyle' 'ServicesText ServicesText' 'ServicesStyle ServicesStyle' 'IdentificationNumberDriver IdentificationNumberDriver' 'Btn Btn';
   /* overflow: hidden; */
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 125px 160px; //o  probar auto o xfr
+    grid-row-gap: 10px;
+    grid-column-gap: 5px;
+    padding: 15px 15px 10px 15px;
+  }
 `;
 
 export const EnrollmentStyle = styled.div`

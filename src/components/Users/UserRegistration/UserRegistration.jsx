@@ -439,16 +439,12 @@ const UserRegistration = ({
               >
                 <FormControlLabel
                   value="hombre"
-                  control={
-                    <Radio size={isScreenMaxW_768 ? 'small' : 'medium'} />
-                  }
+                  control={<Radio size="small" />}
                   label="Hombre"
                 />
                 <FormControlLabel
                   value="mujer"
-                  control={
-                    <Radio size={isScreenMaxW_768 ? 'small' : 'medium'} />
-                  }
+                  control={<Radio size="small" />}
                   label="Mujer"
                 />
               </RadioGroup>
