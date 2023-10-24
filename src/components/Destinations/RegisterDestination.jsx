@@ -243,6 +243,7 @@ export const RegisterDestination = () => {
                         }),
                         defaultPricesData('normal'),
                       ]}
+                      size="small"
                     />
                   }
                   label="Bus Normal"
@@ -281,6 +282,16 @@ export const RegisterDestination = () => {
                         },
                       })
                     }
+                    size={isScreenMaxW_768 ? 'small' : 'medium'}
+                    sx={{
+                      //breakpoint:
+                      [`@media screen and (max-width: 768px)`]: {
+                        // For Select:
+                        '.MuiSelect-select': {
+                          fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                        },
+                      },
+                    }}
                   >
                     {typeOfSeatsList.map((typeOfSeat, index) => (
                       <MenuItem key={index} value={typeOfSeat}>
@@ -326,6 +337,16 @@ export const RegisterDestination = () => {
                       },
                     })
                   }
+                  size={isScreenMaxW_768 ? 'small' : 'medium'}
+                  sx={{
+                    //breakpoint:
+                    [`@media screen and (max-width: 768px)`]: {
+                      // For TextField:
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                      },
+                    },
+                  }}
                 />
               </NormalMinimalPrice>
 
@@ -364,6 +385,16 @@ export const RegisterDestination = () => {
                       },
                     })
                   }
+                  size={isScreenMaxW_768 ? 'small' : 'medium'}
+                  sx={{
+                    //breakpoint:
+                    [`@media screen and (max-width: 768px)`]: {
+                      // For TextField:
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                      },
+                    },
+                  }}
                 />
               </NormalMaximumPrice>
             </>
@@ -385,6 +416,7 @@ export const RegisterDestination = () => {
                         }),
                         defaultPricesData('leito'),
                       ]}
+                      size="small"
                     />
                   }
                   label="Bus Leito"
@@ -423,6 +455,16 @@ export const RegisterDestination = () => {
                         },
                       })
                     }
+                    size={isScreenMaxW_768 ? 'small' : 'medium'}
+                    sx={{
+                      //breakpoint:
+                      [`@media screen and (max-width: 768px)`]: {
+                        // For Select:
+                        '.MuiSelect-select': {
+                          fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                        },
+                      },
+                    }}
                   >
                     {typeOfSeatsList.map((typeOfSeat, index) => (
                       <MenuItem key={index} value={typeOfSeat}>
@@ -468,6 +510,16 @@ export const RegisterDestination = () => {
                       },
                     })
                   }
+                  size={isScreenMaxW_768 ? 'small' : 'medium'}
+                  sx={{
+                    //breakpoint:
+                    [`@media screen and (max-width: 768px)`]: {
+                      // For TextField:
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                      },
+                    },
+                  }}
                 />
               </LeitoMinimalPrice>
 
@@ -506,6 +558,16 @@ export const RegisterDestination = () => {
                       },
                     })
                   }
+                  size={isScreenMaxW_768 ? 'small' : 'medium'}
+                  sx={{
+                    //breakpoint:
+                    [`@media screen and (max-width: 768px)`]: {
+                      // For TextField:
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                      },
+                    },
+                  }}
                 />
               </LeitoMaximumPrice>
             </>
