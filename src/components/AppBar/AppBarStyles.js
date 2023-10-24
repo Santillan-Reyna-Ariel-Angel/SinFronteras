@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import Logo from "../../sources/img/LogoSF2.png";
+import styled from 'styled-components';
+import Logo from '../../sources/img/LogoSF2.png';
 export const LogoAppBar = styled.div`
   width: 70px;
   height: 70px;
@@ -10,4 +10,9 @@ export const LogoAppBar = styled.div`
   object-fit: cover;
   background-size: contain;
   background-repeat: no-repeat;
+
+  @media screen and (max-width: 768px) {
+    width: 45px;
+    height: 45px;
+  }
 `;
