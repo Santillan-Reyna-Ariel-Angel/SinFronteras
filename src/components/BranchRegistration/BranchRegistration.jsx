@@ -7,6 +7,8 @@ import {
   Select,
   TextField,
 } from '@mui/material/';
+import { useMediaQuery } from '@mui/material';
+
 // manejo de fechas:
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider, TimePicker } from '@mui/x-date-pickers/';
@@ -40,10 +42,13 @@ import { createBranch } from './Firebase/createBranch';
 //Components:
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
-import { DEPARTMENT_LIST } from './../constantData';
+import { DEPARTMENT_LIST, Css_TextField_Select } from './../constantData';
 import { timeFormat } from './../globalFunctions';
 
 export const BranchRegistration = () => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   const defaultBranchData = {
     department: '',
     locality: '',
@@ -101,6 +106,16 @@ export const BranchRegistration = () => {
                     [event.target.name]: event.target.value,
                   })
                 }
+                size={isScreenMaxW_768 ? 'small' : 'medium'}
+                sx={{
+                  //breakpoint:
+                  [`@media screen and (max-width: 768px)`]: {
+                    // For Select:
+                    '.MuiSelect-select': {
+                      fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                    },
+                  },
+                }}
               >
                 {DEPARTMENT_LIST.map((department, index) => (
                   <MenuItem key={index} value={department}>
@@ -125,6 +140,16 @@ export const BranchRegistration = () => {
                   [event.target.name]: event.target.value,
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </LocalityStyle>
 
@@ -142,6 +167,16 @@ export const BranchRegistration = () => {
                   [event.target.name]: event.target.value,
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </TerminalStyle>
 
@@ -159,6 +194,16 @@ export const BranchRegistration = () => {
                   [event.target.name]: event.target.value,
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </AddressStyle>
 
@@ -176,6 +221,16 @@ export const BranchRegistration = () => {
                   [event.target.name]: event.target.value,
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </BranchNameStyle>
 
@@ -193,6 +248,16 @@ export const BranchRegistration = () => {
                   [event.target.name]: event.target.value,
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </BranchNumberStyle>
 
@@ -227,7 +292,20 @@ export const BranchRegistration = () => {
                   });
                 }}
                 renderInput={(params) => (
-                  <TextField {...params} className="input" />
+                  <TextField
+                    {...params}
+                    className="input"
+                    size={isScreenMaxW_768 ? 'small' : 'medium'}
+                    sx={{
+                      //breakpoint:
+                      [`@media screen and (max-width: 768px)`]: {
+                        // For TextField:
+                        '.MuiInputBase-root': {
+                          fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                        },
+                      },
+                    }}
+                  />
                 )}
               />
             </LocalizationProvider>
@@ -257,7 +335,20 @@ export const BranchRegistration = () => {
                   });
                 }}
                 renderInput={(params) => (
-                  <TextField {...params} className="input" />
+                  <TextField
+                    {...params}
+                    className="input"
+                    size={isScreenMaxW_768 ? 'small' : 'medium'}
+                    sx={{
+                      //breakpoint:
+                      [`@media screen and (max-width: 768px)`]: {
+                        // For TextField:
+                        '.MuiInputBase-root': {
+                          fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                        },
+                      },
+                    }}
+                  />
                 )}
               />
             </LocalizationProvider>
@@ -285,6 +376,16 @@ export const BranchRegistration = () => {
                   },
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </TelephoneStyle>
 
@@ -306,6 +407,16 @@ export const BranchRegistration = () => {
                   },
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </CellphoneStyle>
 

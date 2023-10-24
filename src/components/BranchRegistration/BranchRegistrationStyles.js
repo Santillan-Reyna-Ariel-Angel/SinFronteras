@@ -50,6 +50,13 @@ export const BodyContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'DepartmentStyle LocalityStyle' 'TerminalStyle AddressStyle' 'BranchNameStyle BranchNumberStyle' 'AttentionScheduleText AttentionScheduleText' 'OpeningTimeStyle ClosingTimeStyle' 'BranchContactNumbersText BranchContactNumbersText' 'TelephoneStyle CellphoneStyle' 'Btn Btn';
   /* overflow: hidden; */
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 150px 150px;
+    grid-row-gap: 10px;
+    grid-column-gap: 5px;
+    padding: 15px 15px 10px 15px;
+  }
 `;
 
 export const DepartmentStyle = styled.div`
