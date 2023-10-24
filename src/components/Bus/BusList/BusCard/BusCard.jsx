@@ -79,7 +79,7 @@ export const BusCard = () => {
     <>
       {busesByUserRole.map((bus, index) => (
         <>
-          <Background>
+          <Background key={index}>
             <BodyContainer>
               <CheckboxBusIconStyle>
                 <Checkbox

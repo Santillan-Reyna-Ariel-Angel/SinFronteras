@@ -50,6 +50,10 @@ export const BodyContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'CardsBody';
   /* overflow: hidden; */
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 1fr 1fr;
+    padding: 10px 15px;
+  }
 `;
 
 export const CardsBody = styled.div`
