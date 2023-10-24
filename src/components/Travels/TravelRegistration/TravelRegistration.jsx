@@ -8,6 +8,8 @@ import {
   Select,
   TextField,
 } from '@mui/material/';
+import { useMediaQuery } from '@mui/material';
+
 // Manejo de fechas:
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import {
@@ -51,12 +53,15 @@ import {
   getDepartmentList,
   getLocationsList,
 } from './../Functions/functions';
-import { DEPARTMENT_LIST } from './../../constantData';
+import { DEPARTMENT_LIST, Css_TextField_Select } from './../../constantData';
 import { dateFormat, timeFormat } from './../../globalFunctions';
 
 const DatePicker_maxDate = new Date('2046-01-01'); // new Date('yyyy-mm-dd') - 1(dia), es la fecha que se establecera en el <DatePicker ... />
 
 export const TravelRegistration = () => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   //sessionStorage:
   const storedData = sessionStorage.getItem('branchOffice');
   let branchOffice_seStorage = storedData
@@ -239,6 +244,16 @@ export const TravelRegistration = () => {
                   [event.target.name]: event.target.value,
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For Select:
+                  '.MuiSelect-select': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             >
               {DEPARTMENT_LIST.map((department, index) => (
                 <MenuItem key={index} value={department}>
@@ -254,7 +269,7 @@ export const TravelRegistration = () => {
           <TextField
             className="input"
             name="localityOfOrigin"
-            label="Localidad origen"
+            label={isScreenMaxW_768 ? 'Loc. origen' : 'Localidad origen'}
             variant="outlined"
             value={travelData.localityOfOrigin}
             // disabled
@@ -264,6 +279,16 @@ export const TravelRegistration = () => {
                 [event.target.name]: event.target.value,
               })
             }
+            size={isScreenMaxW_768 ? 'small' : 'medium'}
+            sx={{
+              //breakpoint:
+              [`@media screen and (max-width: 768px)`]: {
+                // For TextField:
+                '.MuiInputBase-root': {
+                  fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                },
+              },
+            }}
           />
         </LocOriginStyle>
 
@@ -288,6 +313,16 @@ export const TravelRegistration = () => {
                   className="input"
                   {...params}
                   helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
+                  size={isScreenMaxW_768 ? 'small' : 'medium'}
+                  sx={{
+                    //breakpoint:
+                    [`@media screen and (max-width: 768px)`]: {
+                      // For TextField:
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                      },
+                    },
+                  }}
                 />
               )}
             />
@@ -309,7 +344,20 @@ export const TravelRegistration = () => {
                 });
               }}
               renderInput={(params) => (
-                <TextField {...params} className="input" />
+                <TextField
+                  {...params}
+                  className="input"
+                  size={isScreenMaxW_768 ? 'small' : 'medium'}
+                  sx={{
+                    //breakpoint:
+                    [`@media screen and (max-width: 768px)`]: {
+                      // For TextField:
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                      },
+                    },
+                  }}
+                />
               )}
             />
           </LocalizationProvider>
@@ -336,6 +384,16 @@ export const TravelRegistration = () => {
                   })
                 ),
               ]}
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For Select:
+                  '.MuiSelect-select': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             >
               {destinationDepartmentList.map((department, index) => (
                 <MenuItem key={index} value={department}>
@@ -349,7 +407,9 @@ export const TravelRegistration = () => {
         {/* Localidad destino: */}
         <LocDestinationStyle>
           <FormControl className="input">
-            <InputLabel>Localidad destino</InputLabel>
+            <InputLabel>
+              {isScreenMaxW_768 ? 'Loc. destino' : 'Localidad destino'}
+            </InputLabel>
             <Select
               value={travelData.destinationLocation}
               name="destinationLocation"
@@ -359,6 +419,16 @@ export const TravelRegistration = () => {
                   [event.target.name]: event.target.value,
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For Select:
+                  '.MuiSelect-select': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             >
               {destinationLocationList.map((location, index) => (
                 <MenuItem key={index} value={location}>
@@ -395,6 +465,16 @@ export const TravelRegistration = () => {
                   },
                 })),
               ]}
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For Select:
+                  '.MuiSelect-select': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             >
               {busEnrollmentsList.map((enrollment, index) => (
                 <MenuItem key={index} value={enrollment}>
@@ -424,6 +504,16 @@ export const TravelRegistration = () => {
                 }),
                 setFullNameDriver(event.target.value),
               ]}
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For Select:
+                  '.MuiSelect-select': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             >
               {fullNamesDriversList.map((identificationNumber, index) => (
                 <MenuItem key={index} value={identificationNumber}>
@@ -449,6 +539,16 @@ export const TravelRegistration = () => {
                 [event.target.name]: event.target.value,
               })
             }
+            size={isScreenMaxW_768 ? 'small' : 'medium'}
+            sx={{
+              //breakpoint:
+              [`@media screen and (max-width: 768px)`]: {
+                // For TextField:
+                '.MuiInputBase-root': {
+                  fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                },
+              },
+            }}
           />
         </LaneStyle>
 

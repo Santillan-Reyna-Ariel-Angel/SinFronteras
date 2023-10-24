@@ -50,6 +50,13 @@ export const BodyContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'DptOriginStyle LocOriginStyle' 'TravelDateStyle DepartureTimeStyle' 'DptDestinationStyle LocDestinationStyle' 'BusEnrollmentStyle BusEnrollmentStyle' 'IdNumberDriverStyle IdNumberDriverStyle' 'LaneStyle LaneStyle' 'Btn Btn';
   /* overflow: hidden; */
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 140px 140px;
+    grid-row-gap: 10px;
+    grid-column-gap: 5px;
+    padding: 15px 15px 10px 15px;
+  }
 `;
 
 export const DptOriginStyle = styled.div`
