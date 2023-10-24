@@ -41,7 +41,7 @@ export const HeaderTitle = styled.div`
 export const BodyContainer = styled.form`
   display: grid;
   background-color: #00bdb2;
-  grid-template-columns: 190px; //  o  probar auto o xfr
+  grid-template-columns: 210px; //  o  probar auto o xfr
   grid-template-rows: auto;
   grid-row-gap: 10px;
   grid-column-gap: 10px;
@@ -52,6 +52,11 @@ export const BodyContainer = styled.form`
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'PasswordIconStyle' 'CurrentPassword' 'NewPassword' 'ConfirmNewPassword' 'BtnRegistrer';
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 200px; //  o  probar auto o xfr
+    padding: 10px 15px;
+  }
 `;
 
 export const PasswordIconStyle = styled.div`
