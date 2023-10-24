@@ -10,6 +10,8 @@ import {
   FormGroup,
   Checkbox,
 } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
+
 //Styles:
 import {
   Background,
@@ -38,6 +40,7 @@ import { createDestination } from './Firebase/createDestination';
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
 //Others:
 import { uuid } from './functions';
+import { Css_TextField_Select } from './../constantData';
 
 const departmentsList = [
   'beni',
@@ -56,6 +59,9 @@ const typeOfSeatsList = ['normal', 'semi-cama', 'cama'];
 let llave = uuid(); // IMPORTANTE: Es necesario que la funcion uuid este fuera del componente, esto para que se cre una sola id por mas actualizaciones(renderizados del componente) tenga los estado.
 
 export const RegisterDestination = () => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   console.log('llave', llave);
 
   //ContextBranchOffice:
@@ -163,6 +169,16 @@ export const RegisterDestination = () => {
                     },
                   })
                 }
+                size={isScreenMaxW_768 ? 'small' : 'medium'}
+                sx={{
+                  //breakpoint:
+                  [`@media screen and (max-width: 768px)`]: {
+                    // For Select:
+                    '.MuiSelect-select': {
+                      fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                    },
+                  },
+                }}
               >
                 {departmentsList.map((department, index) => (
                   <MenuItem key={index} value={department}>
@@ -193,6 +209,16 @@ export const RegisterDestination = () => {
                   },
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </LocationStyle>
 
