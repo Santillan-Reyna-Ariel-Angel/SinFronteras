@@ -26,8 +26,12 @@ import { ContextAllBranchOffices } from './../../contexts/ContextAllBranchOffice
 import { ControlMenu } from './ControlMenu/ControlMenu';
 //others:
 import { useHistory } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
 
 export default function PrimarySearchAppBar() {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   const history = useHistory();
 
   // ContextUserData:
@@ -211,12 +215,14 @@ export default function PrimarySearchAppBar() {
           {/* TEXT QUE INDICA EN QUE SUCURSAL NOS ENCONTRAMOS: */}
           <span
             style={{
-              fontSize: 'larger',
-              // fontWeight: 'bold', // medium
+              fontSize: 'large', //medium, large
+              // fontWeight: 'bold',
               color: 'white',
             }}
           >
-            {`${branchDepartment} - ${branchLocation} - ${branchName}`}
+            {isScreenMaxW_768
+              ? branchName
+              : `${branchDepartment} - ${branchLocation} - ${branchName}`}
           </span>
 
           {/* Notificaciones escritorio */}
