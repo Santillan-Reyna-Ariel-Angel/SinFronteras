@@ -51,6 +51,13 @@ export const BodyContainer = styled.form`
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'InputNames InputSurnames' 'InputCi InputAddress' 'InputMobile InputEmail' 'InputSex InputDateOfBirdth' 'InputBranchOffice InputBranchOffice' 'InputCharge InputStatus' 'BtnRegistrer BtnRegistrer';
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 140px 140px; //o  probar auto o xfr
+    grid-column-gap: 5px;
+    padding: 15px 10px 15px 10px;
+    grid-template-areas: 'InputNames InputSurnames' 'InputCi InputMobile' 'InputAddress  InputAddress' 'InputEmail  InputEmail' 'InputSex InputDateOfBirdth' 'InputBranchOffice InputBranchOffice' 'InputCharge InputStatus' 'BtnRegistrer BtnRegistrer';
+  }
 `;
 
 export const InputNames = styled.div`

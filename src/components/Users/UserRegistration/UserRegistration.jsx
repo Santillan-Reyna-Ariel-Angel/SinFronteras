@@ -22,6 +22,7 @@ import {
   Autocomplete,
   createFilterOptions,
 } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 
 // manejo de fechas:
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -60,6 +61,7 @@ import { listOfCharges, stateList } from './data';
 import { dateFormat } from './../../globalFunctions';
 import { handleClose } from './../../DialogBasic/DialogBasic';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
+import { Css_TextField_Select } from './../../constantData';
 
 const filter = createFilterOptions();
 
@@ -68,6 +70,9 @@ const UserRegistration = ({
   isDataUpdate = false,
 }) => {
   console.log('identificationNumber Prop: ', identificationNumber);
+
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
 
   //ContextAllUserData:
   const allUserData = useContext(ContextAllUserData);
@@ -289,6 +294,15 @@ const UserRegistration = ({
           variant={Variant}
           disabled={Disabled}
           inputProps={{ style: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
+          size={isScreenMaxW_768 ? 'small' : 'medium'}
+          sx={{
+            //breakpoint:
+            [`@media screen and (max-width: 768px)`]: {
+              '.MuiInputBase-root': {
+                fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+              },
+            },
+          }}
         />
       </>
     );
@@ -397,6 +411,15 @@ const UserRegistration = ({
                     className="input"
                     {...params}
                     helperText={'Ej. 01/06/1985'} //Texto de ayuda (debajo del input)
+                    size={isScreenMaxW_768 ? 'small' : 'medium'}
+                    sx={{
+                      //breakpoint:
+                      [`@media screen and (max-width: 768px)`]: {
+                        '.MuiInputBase-root': {
+                          fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                        },
+                      },
+                    }}
                   />
                 )}
               />
@@ -416,12 +439,16 @@ const UserRegistration = ({
               >
                 <FormControlLabel
                   value="hombre"
-                  control={<Radio />}
+                  control={
+                    <Radio size={isScreenMaxW_768 ? 'small' : 'medium'} />
+                  }
                   label="Hombre"
                 />
                 <FormControlLabel
                   value="mujer"
-                  control={<Radio />}
+                  control={
+                    <Radio size={isScreenMaxW_768 ? 'small' : 'medium'} />
+                  }
                   label="Mujer"
                 />
               </RadioGroup>
@@ -436,6 +463,16 @@ const UserRegistration = ({
                 value={branchOffice.branchOfficeName}
                 name="branchOfficeName"
                 onChange={(event) => changeBranchOffice(event.target.value)}
+                size={isScreenMaxW_768 ? 'small' : 'medium'}
+                sx={{
+                  //breakpoint:
+                  [`@media screen and (max-width: 768px)`]: {
+                    // For Select:
+                    '.MuiSelect-select': {
+                      fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                    },
+                  },
+                }}
               >
                 {optionsBranchList.map((branch, index) => (
                   <MenuItem key={index} value={branch.name}>
@@ -499,7 +536,21 @@ const UserRegistration = ({
               freeSolo
               sx={{ input: { color: '#000000' } }} // Necesario si <DialogBasic/> llama a este componente
               renderInput={(params) => (
-                <TextField className="input" {...params} label="Cargo" />
+                <TextField
+                  className="input"
+                  {...params}
+                  label="Cargo"
+                  size={isScreenMaxW_768 ? 'small' : 'medium'}
+                  sx={{
+                    //breakpoint:
+                    [`@media screen and (max-width: 768px)`]: {
+                      // For TextField:
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                      },
+                    },
+                  }}
+                />
               )}
             />
             <Dialog open={openCharge} onClose={handleCloseCharge}>
@@ -584,7 +635,21 @@ const UserRegistration = ({
               freeSolo
               sx={{ input: { color: '#000000' } }} // Necesario si <DialogBasic/> llama a este componente
               renderInput={(params) => (
-                <TextField className="input" {...params} label="Estado" />
+                <TextField
+                  className="input"
+                  {...params}
+                  label="Estado"
+                  size={isScreenMaxW_768 ? 'small' : 'medium'}
+                  sx={{
+                    //breakpoint:
+                    [`@media screen and (max-width: 768px)`]: {
+                      // For TextField:
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                      },
+                    },
+                  }}
+                />
               )}
             />
             <Dialog open={openStatus} onClose={handleCloseStatus}>
