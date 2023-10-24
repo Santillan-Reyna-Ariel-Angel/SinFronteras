@@ -50,6 +50,11 @@ export const BodyContainer = styled.div`
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
   grid-template-areas: 'DepartmentStyle DepartmentStyle' 'LocationStyle LocationStyle' 'AssignPricesText AssignPricesText' 'NormalTypeOfBusCheck NormalSeatType' 'NormalMinimalPrice NormalMaximumPrice' 'LeitoTypeOfBusCheck LeitoSeatType' 'LeitoMinimalPrice LeitoMaximumPrice' 'Btn Btn';
   /* overflow: hidden; */
+
+  @media screen and (max-width: 768px) {
+    grid-template-columns: 120px 120px;
+    padding: 10px 15px;
+  }
 `;
 
 export const DepartmentStyle = styled.div`

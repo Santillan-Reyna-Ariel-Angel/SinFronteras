@@ -15,6 +15,7 @@ import {
   FormGroup,
   Checkbox,
 } from '@mui/material';
+import { useMediaQuery } from '@mui/material';
 
 //Styles:
 import {
@@ -43,6 +44,7 @@ import { create_update_Bus } from '../Firebase/create_update_Bus';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
 import { handleClose } from './../../DialogBasic/DialogBasic';
+import { Css_TextField_Select } from './../../constantData';
 
 const departmentsList = [
   '(B) beni',
@@ -57,6 +59,9 @@ const departmentsList = [
 ];
 
 export const BusRegistration = ({ busProp }) => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   console.log('busProp: ', busProp);
 
   let filingProp = busProp ? busProp.filing : '';
@@ -134,6 +139,16 @@ export const BusRegistration = ({ busProp }) => {
                   [event.target.name]: event.target.value,
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </EnrollmentStyle>
 
@@ -150,6 +165,16 @@ export const BusRegistration = ({ busProp }) => {
                     [event.target.name]: event.target.value,
                   })
                 }
+                size={isScreenMaxW_768 ? 'small' : 'medium'}
+                sx={{
+                  //breakpoint:
+                  [`@media screen and (max-width: 768px)`]: {
+                    // For Select:
+                    '.MuiSelect-select': {
+                      fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                    },
+                  },
+                }}
               >
                 {departmentsList.map((department, index) => (
                   <MenuItem key={index} value={department}>
@@ -173,6 +198,16 @@ export const BusRegistration = ({ busProp }) => {
                     [event.target.name]: event.target.value,
                   })
                 }
+                size={isScreenMaxW_768 ? 'small' : 'medium'}
+                sx={{
+                  //breakpoint:
+                  [`@media screen and (max-width: 768px)`]: {
+                    // For Select:
+                    '.MuiSelect-select': {
+                      fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                    },
+                  },
+                }}
               >
                 {typeOfBus.map((bus, index) => (
                   <MenuItem key={index} value={bus}>
@@ -196,6 +231,16 @@ export const BusRegistration = ({ busProp }) => {
                     [event.target.name]: event.target.value,
                   })
                 }
+                size={isScreenMaxW_768 ? 'small' : 'medium'}
+                sx={{
+                  //breakpoint:
+                  [`@media screen and (max-width: 768px)`]: {
+                    // For Select:
+                    '.MuiSelect-select': {
+                      fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                    },
+                  },
+                }}
               >
                 {typeOfSeatsList.map((typeOfSeat, index) => (
                   <MenuItem key={index} value={typeOfSeat}>
@@ -221,6 +266,16 @@ export const BusRegistration = ({ busProp }) => {
                   [event.target.name]: parseInt(event.target.value),
                 })
               }
+              size={isScreenMaxW_768 ? 'small' : 'medium'}
+              sx={{
+                //breakpoint:
+                [`@media screen and (max-width: 768px)`]: {
+                  // For TextField:
+                  '.MuiInputBase-root': {
+                    fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                  },
+                },
+              }}
             />
           </NumberOfSeatsStyle>
 
@@ -237,6 +292,16 @@ export const BusRegistration = ({ busProp }) => {
                     [event.target.name]: event.target.value,
                   })
                 }
+                size={isScreenMaxW_768 ? 'small' : 'medium'}
+                sx={{
+                  //breakpoint:
+                  [`@media screen and (max-width: 768px)`]: {
+                    // For Select:
+                    '.MuiSelect-select': {
+                      fontSize: Css_TextField_Select.fontSize, // 14 or Css_TextField_Select.fontSize
+                    },
+                  },
+                }}
               >
                 {statusList.map((status, index) => (
                   <MenuItem key={index} value={status}>
