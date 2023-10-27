@@ -68,7 +68,7 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
 
       btnExpenses: (
         <DialogBasic
-          primaryBtnText="actualizar egresos"
+          primaryBtnText="act. egresos"
           componentView={
             <TravelExpenses tripMadeKey={settlementData.formCode} />
           }

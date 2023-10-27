@@ -3,7 +3,10 @@ import styled from 'styled-components';
 export const Background = styled.div`
   //Se usan los 4 o se usara margin:
   display: grid;
-  align-content: center; //junta los elementos vertical
+  /* align-content: center; //junta los elementos vertical */
+  align-content: start;
+  margin-top: 3%;
+
   justify-content: center; //centrea los elementos orizontalmente
   width: 100%; //opcional para llevarlo al medio de la pantalla
 
@@ -11,7 +14,11 @@ export const Background = styled.div`
   top: 0;
   /* grid-template-columns: auto; */
   //new:
-  margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background>
+  /* margin-top: 40px; // si eliminamos esto tendremos que añadir 2 <br/> despues de <Background> */
+
+  @media screen and (max-width: 768px) {
+    margin-top: 10%;
+  }
 `;
 export const HeaderContainer = styled.div`
   display: grid;

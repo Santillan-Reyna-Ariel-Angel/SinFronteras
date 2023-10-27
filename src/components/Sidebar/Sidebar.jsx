@@ -105,7 +105,13 @@ export const Sidebar = () => {
                 },
               }}
             >
-              <FireNav component="nav" disablePadding>
+              <FireNav
+                component="nav"
+                disablePadding
+                style={{
+                  minHeight: window.innerWidth < 768 ? '110vh' : '90vh', // dueño=auto, secretario/boletero = 90vh, chofer a 110vh(movil)
+                }}
+              >
                 <Divider />
                 {/* Cabeza Menu: */}
                 <MenuHeader />

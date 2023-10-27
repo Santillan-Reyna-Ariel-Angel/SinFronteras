@@ -4,7 +4,10 @@ import ProfileIcon from './../../../sources/img/usuario-multiple.png'; //../../s
 export const Background = styled.div`
   //Se usan los 3 o se usara margin:
   display: grid;
-  align-content: center; //junta los elementos vertical
+  /* align-content: center; //junta los elementos vertical */
+  align-content: start;
+  margin-top: 10%;
+
   justify-content: center; //centrea los elementos
   width: 100%; //opcional para llevarlo al medio de la pantalla
 
@@ -15,11 +18,25 @@ export const Background = styled.div`
   //Note:
   /* En vista: si eliminamos margin-top, tendremos que añadir 2 <br/> despues de <Background> */
   /* En <DialogBasic /> : ya no es necesario margin-top */
-  /* margin-top: 40px; */
+  /* margin-top: 20px; */
+
+  //New:
+  /* display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  width: 100%;
+  left: 0;
+  top: 0;
+  margin-top: 5%;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center; */
 `;
 export const HeaderContainer = styled.div`
   display: grid;
-  padding: 0px 0px;
+  /* padding: 0px 0px; */
+  padding: 0px 10% 0px 10%;
   grid-template-columns: auto;
   grid-template-rows: auto;
   grid-template-areas: 'HeaderTitle';

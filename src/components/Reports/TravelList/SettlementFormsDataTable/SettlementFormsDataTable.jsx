@@ -210,23 +210,23 @@ export const SettlementFormsDataTable = () => {
     },
     {
       name: 'totalAmountIncome',
-      label: 'Total Ingreso',
+      label: 'T. Ingreso',
     },
     {
       name: 'totalExpenses',
-      label: 'Total Egreso',
+      label: 'T. Egreso',
     },
     {
       name: 'totalSettlement',
-      label: 'Total Liquidacion',
+      label: 'T. Liquidacion',
     },
     {
       name: 'travelDate',
-      label: 'Fecha Viaje',
+      label: 'F. Viaje',
     },
     {
       name: 'departureTime',
-      label: 'Hora Viaje',
+      label: 'Hr. Viaje',
     },
     {
       name: 'btnExpenses',
@@ -316,7 +316,7 @@ export const SettlementFormsDataTable = () => {
     customToolbar: () => {
       return (
         <DialogBasic
-          primaryBtnText="imprimir seleccionados"
+          primaryBtnText="imp. seleccionados"
           componentView={
             <PdfSettlementForms settlementFormsProps={rowsSelectedState} />
           }

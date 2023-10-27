@@ -129,11 +129,11 @@ export const TicketsSoldDataTable = () => {
     },
     {
       name: 'travelDate',
-      label: 'Fecha Viaje',
+      label: 'F. Viaje',
     },
     {
       name: 'departureTime',
-      label: 'Hora Viaje',
+      label: 'Hr. Viaje',
     },
 
     // {
@@ -198,7 +198,7 @@ export const TicketsSoldDataTable = () => {
     customToolbar: () => {
       return (
         <DialogBasic
-          primaryBtnText="imprimir seleccionados"
+          primaryBtnText="imp. seleccionados"
           componentView={<PdfTicket ticketDataProps={rowsSelectedState} />}
         />
       );
