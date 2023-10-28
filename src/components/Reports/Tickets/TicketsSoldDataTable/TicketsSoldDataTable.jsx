@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 //MUI:
+import { useMediaQuery } from '@mui/material';
 // Manejo de Tablas:
 import MUIDataTable from 'mui-datatables';
 import { ThemeProvider } from '@mui/material/styles';
@@ -33,6 +34,9 @@ import {
 import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../../constantData';
 
 export const TicketsSoldDataTable = () => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   //ContextCompanyBuses:
   const branchTripsMade = useContext(ContextBranchTripsMade);
   // console.log('branchTripsMade', branchTripsMade);
@@ -165,8 +169,8 @@ export const TicketsSoldDataTable = () => {
     // onRowClick: (rowData) => {
     //   console.log('rowData', rowData); // nos regresa info de la fila cliqueada
     // },
-    rowsPerPage: 5, // Número de filas permitidas por página. Por defecto es 10
-    rowsPerPageOptions: [5, 10, 15, 20, 30, 50, 100], //numero de filas(registros) por paginas
+    rowsPerPage: isScreenMaxW_768 ? 3 : 5, // Número de filas permitidas por página. Por defecto es 10
+    rowsPerPageOptions: isScreenMaxW_768 ? [3, 6, 9, 12] : [5, 10, 15], //numero de filas(registros) por paginas
     searchOpen: false,
     // searchAlwaysOpen: true, //se tendra el buscador siempre abierto(pero tabla el titulo de la tabla)
     tableBodyHeight: 'auto', // "50px", "100%"
