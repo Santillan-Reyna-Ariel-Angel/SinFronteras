@@ -9,6 +9,7 @@ export const Background = styled.div`
 
   justify-content: center; //centrea los elementos orizontalmente
   width: 100%; //opcional para llevarlo al medio de la pantalla
+  min-width: 410px;
 
   left: 0;
   top: 0;
@@ -36,6 +37,7 @@ export const BodyContainer = styled.div`
   /* box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7); */
   grid-template-areas: 'MuiDataTablesStyle';
   /* overflow: hidden; */
+  /* min-width: 400px; */
 `;
 
 export const MuiDataTablesStyle = styled.div`

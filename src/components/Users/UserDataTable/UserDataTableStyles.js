@@ -9,6 +9,7 @@ export const Background = styled.div`
   margin-bottom: 10%;
 
   justify-content: center; //centrea los elementos orizontalmente
+  min-width: 410px;
   width: 100%; //opcional para llevarlo al medio de la pantalla
 
   left: 0;
