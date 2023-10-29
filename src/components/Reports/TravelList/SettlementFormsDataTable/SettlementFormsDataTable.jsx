@@ -261,6 +261,17 @@ export const SettlementFormsDataTable = () => {
         print: false, // Esto deberia hacer que se omita esta columna para la impresion
       },
     },
+
+    // manifiesto test:
+    {
+      name: 'btnPassengerManifest',
+      label: 'Manif. Pasajeros',
+      options: {
+        filter: false,
+        sort: false,
+        print: false, // Esto deberia hacer que se omita esta columna para la impresion
+      },
+    },
   ];
 
   // FILTRAR COLUMNAS POR ROL DE USUARIO:

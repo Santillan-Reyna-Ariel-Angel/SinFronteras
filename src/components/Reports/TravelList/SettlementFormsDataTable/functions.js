@@ -7,6 +7,7 @@ import {
   getNextDate_ddMMYYYY,
 } from './../../../globalFunctions';
 import { PdfSettlementForms } from './../../PdfGenerate/PdfSettlementForms';
+import { PdfPassengerManifest } from './../../PdfGenerate/PdfPassengerManifest';
 
 //alternativa para unir array es usando concat(): const array3 = array1.concat(array2);
 
@@ -90,6 +91,14 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
           componentView={
             <PdfSettlementForms settlementFormsProps={settlementData} />
           }
+        />
+      ),
+
+      //new boton:
+      btnPassengerManifest: (
+        <DialogBasic
+          primaryBtnText=" pasajeros"
+          componentView={<PdfPassengerManifest passengerManifestProps={null} />}
         />
       ),
     };
