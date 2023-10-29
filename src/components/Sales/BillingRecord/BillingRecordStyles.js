@@ -53,6 +53,8 @@ export const BodyContainer = styled.div`
 
   /* overflow: hidden; */
 
+  margin-bottom: 10%;
+
   @media screen and (max-width: 768px) {
     grid-template-columns: 150px 115px;
     grid-row-gap: 10px;
