@@ -16,6 +16,8 @@ import { ContextUserData } from './../../../contexts/ContextUserData';
 //Firebase Functions:
 //States:
 //Components:
+import { DialogBasic } from './../../DialogBasic/DialogBasic';
+import { PdfUsersList } from './../../Reports/PdfGenerate/PdfUsersList';
 //Others:
 import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../constantData';
 import {
@@ -58,6 +60,10 @@ export const UserDataTable = () => {
       user.branchNumberOrCode === branchOffice?.branchInformation?.branchNumber
   );
   console.log('*****dataFilteredByBranch', dataFilteredByBranch);
+
+  let usuariosDataForImp = {
+    usersData: [...dataFilteredByBranch],
+  };
 
   const columns = [
     {
@@ -125,7 +131,7 @@ export const UserDataTable = () => {
 
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)
-    download: true, //opcion de descarga .csv
+    download: false, //opcion de descarga .csv
     downloadOptions: { filename: 'RegistroDeVentas.csv' },
     // jumpToPage: true, // para navegar a una paginas especifica
     // onRowClick: (rowData) => {
@@ -144,6 +150,19 @@ export const UserDataTable = () => {
 
     //CAMBIAR IDIOMA:
     textLabels: { ...MUI_DATA_TABLE___TEXT_LABELS_ES },
+
+    print: false, //NO ES NECESARIO POR QUE TENEMOS UN BOTON PARA IMPRIMIR en "customToolbar"
+    //customToolbar: Nos permite añadir un componente personalizado a la barra de herramientas.
+    customToolbar: () => {
+      return (
+        <DialogBasic
+          primaryBtnText="imp. usuarios"
+          componentView={
+            <PdfUsersList usuariosDataProps={usuariosDataForImp} />
+          }
+        />
+      );
+    },
   };
 
   return (
