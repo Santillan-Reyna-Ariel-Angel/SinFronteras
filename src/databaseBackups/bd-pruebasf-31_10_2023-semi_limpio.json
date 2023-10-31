@@ -1,0 +1,1321 @@
+{
+  "branchOffices": {
+    "code1": {
+      "branchInformation": {
+        "address": "av. marcelo quiroga N#300",
+        "attentionSchedule": {
+          "closingTime": "18:30",
+          "openingTime": "08:00"
+        },
+        "branchContactNumbers": {
+          "cellphone": 70707071,
+          "telephone": "64-64646"
+        },
+        "branchNumber": "code1",
+        "department": "chuquisaca",
+        "destinations": {
+          "code1": {
+            "destinationDepartment": "santa cruz",
+            "destinationLocation": "c. santa cruz",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          },
+          "code2": {
+            "destinationDepartment": "tarija",
+            "destinationLocation": "yacuiba",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          }
+        },
+        "emailsWithAccess": "s1secretario1@gmail.com",
+        "location": "sucre",
+        "name": "sucursal 1",
+        "terminal": "interprovincial"
+      },
+      "travels": {
+        "travel_30-10-2023_20-30_abc-123": {
+          "bus": {
+            "designatedBranch": "code1",
+            "enrollment": "abc-123",
+            "filing": "H",
+            "identificationNumberDriver": "80000001",
+            "numberOfFloors": 1,
+            "numberOfSeats": 36,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "normal",
+            "typeOfSeats": "normal"
+          },
+          "busEnrollment": "abc-123",
+          "departmentOfOrigin": "chuquisaca",
+          "departureTime": "20:30",
+          "destinationDepartment": "tarija",
+          "destinationLocation": "yacuiba",
+          "lane": "0",
+          "localityOfOrigin": "sucre",
+          "travelDate": "30/10/2023",
+          "travelStatus": "pendiente"
+        },
+        "travel_31-10-2023_20-30_bus-001": {
+          "bus": {
+            "designatedBranch": "code1",
+            "enrollment": "bus-001",
+            "filing": "H",
+            "identificationNumberDriver": "80000001",
+            "numberOfFloors": 1,
+            "numberOfSeats": 42,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "normal",
+            "typeOfSeats": "semi-cama"
+          },
+          "busEnrollment": "bus-001",
+          "departmentOfOrigin": "chuquisaca",
+          "departureTime": "20:30",
+          "destinationDepartment": "santa cruz",
+          "destinationLocation": "c. santa cruz",
+          "lane": "0",
+          "localityOfOrigin": "sucre",
+          "travelDate": "31/10/2023",
+          "travelStatus": "pendiente"
+        },
+        "travel_31-10-2023_21-15_bus-006": {
+          "bus": {
+            "designatedBranch": "code1",
+            "enrollment": "bus-006",
+            "filing": "H",
+            "identificationNumberDriver": "80000002",
+            "numberOfFloors": 1,
+            "numberOfSeats": 29,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "leito",
+            "typeOfSeats": "cama"
+          },
+          "busEnrollment": "bus-006",
+          "departmentOfOrigin": "chuquisaca",
+          "departureTime": "21:15",
+          "destinationDepartment": "tarija",
+          "destinationLocation": "yacuiba",
+          "lane": "0",
+          "localityOfOrigin": "sucre",
+          "travelDate": "31/10/2023",
+          "travelStatus": "pendiente"
+        }
+      }
+    },
+    "code2": {
+      "branchInformation": {
+        "address": "av. de los viajes N#300",
+        "attentionSchedule": {
+          "closingTime": "18:30",
+          "openingTime": "08:00"
+        },
+        "branchContactNumbers": {
+          "cellphone": 70707072,
+          "telephone": "64-64646"
+        },
+        "branchNumber": "code2",
+        "department": "santa cruz",
+        "destinations": {
+          "code1": {
+            "destinationDepartment": "chuquisaca",
+            "destinationLocation": "sucre",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          },
+          "code2": {
+            "destinationDepartment": "tarija",
+            "destinationLocation": "yacuiba",
+            "prices": {
+              "leito": {
+                "maximumPrice": 100,
+                "minimalPrice": 90,
+                "seatType": "cama",
+                "typeOfBus": "leito"
+              },
+              "normal": {
+                "maximumPrice": 60,
+                "minimalPrice": 50,
+                "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              }
+            }
+          }
+        },
+        "emailsWithAccess": "s2secretario1@gmail.com",
+        "location": "c. santa cruz",
+        "name": "sucursal 1",
+        "terminal": "interprovincial"
+      },
+      "travels": {
+        "code1": {
+          "bus": {
+            "designatedBranch": "code2",
+            "enrollment": "bus-002",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "numberOfFloors": 1,
+            "numberOfSeats": 43,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "normal",
+            "typeOfSeats": "semi-cama"
+          },
+          "busEnrollment": "bus-002",
+          "departmentOfOrigin": "santa cruz",
+          "departureTime": "21:30",
+          "destinationDepartment": "chuquisaca",
+          "destinationLocation": "sucre",
+          "lane": "0",
+          "localityOfOrigin": "c. santa cruz",
+          "travelDate": "30/04/2023",
+          "travelStatus": "pendiente"
+        },
+        "code2": {
+          "bus": {
+            "designatedBranch": "code2",
+            "enrollment": "bus-008",
+            "filing": "H",
+            "identificationNumberDriver": "",
+            "numberOfFloors": 2,
+            "numberOfSeats": 40,
+            "numberOfSeatsFirstFloor": 20,
+            "numberOfSeatsSecondFloor": 20,
+            "services": {
+              "bathroom": true,
+              "drinks": false,
+              "tv": true
+            },
+            "status": "activo",
+            "typeOfBus": "leito",
+            "typeOfSeats": "cama"
+          },
+          "busEnrollment": "bus-008",
+          "departmentOfOrigin": "santa cruz",
+          "departureTime": "20:30",
+          "destinationDepartment": "tarija",
+          "destinationLocation": "yacuiba",
+          "lane": "0",
+          "localityOfOrigin": "c. santa cruz",
+          "travelDate": "30/04/2023",
+          "travelStatus": "pendiente"
+        }
+      }
+    }
+  },
+  "companyBuses": {
+    "abc-123": {
+      "designatedBranch": "code1",
+      "enrollment": "abc-123",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 36,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "bus-001": {
+      "designatedBranch": "code1",
+      "enrollment": "bus-001",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 42,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "bus-002": {
+      "designatedBranch": "code2",
+      "enrollment": "bus-002",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 43,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "bus-003": {
+      "designatedBranch": "DISPONIBLE",
+      "enrollment": "bus-003",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 36,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    },
+    "bus-004": {
+      "designatedBranch": "DISPONIBLE",
+      "enrollment": "bus-004",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 27,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "bus-005": {
+      "designatedBranch": "DISPONIBLE",
+      "enrollment": "bus-005",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 26,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "bus-006": {
+      "designatedBranch": "code1",
+      "enrollment": "bus-006",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 29,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "bus-008": {
+      "designatedBranch": "code2",
+      "enrollment": "bus-008",
+      "filing": "H",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 2,
+      "numberOfSeats": 40,
+      "numberOfSeatsFirstFloor": 20,
+      "numberOfSeatsSecondFloor": 20,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "leito",
+      "typeOfSeats": "cama"
+    },
+    "bus-aux": {
+      "designatedBranch": "DISPONIBLE",
+      "enrollment": "bus-aux",
+      "filing": "C",
+      "identificationNumberDriver": "",
+      "numberOfFloors": 1,
+      "numberOfSeats": 39,
+      "services": {
+        "bathroom": true,
+        "drinks": false,
+        "tv": true
+      },
+      "status": "activo",
+      "typeOfBus": "normal",
+      "typeOfSeats": "semi-cama"
+    }
+  },
+  "generalCompanyData": {
+    "billingInformation": {
+      "authorizationCode": "7904006306693",
+      "dosingKey": "zZ7Z]xssKqkEf_6K9uH(EcV+%x+u[Cca9T%+_$kiLjT8(zr3T9b5Fx2xG-D+_EBS",
+      "legend": "Gracias por su compra, le deseamos un buen viaje.",
+      "nit": "1665979"
+    },
+    "companyName": "Sin Fronteras",
+    "country": "Bolivia",
+    "location": "Sucre",
+    "matrixHouse": "Sucre terminal interprovincial",
+    "telephone": "64-64646"
+  },
+  "tripsMade": {
+    "branch_code1": {
+      "travel_30-10-2023_20-30_abc-123": {
+        "identificationNumberDriver": "80000001",
+        "occupiedSeat": [
+          "vendido-61000000"
+        ],
+        "travelExpenses": {
+          "busEnrollment": "abc-123",
+          "expenses": {
+            "diesel": "",
+            "laborUnion": "",
+            "otherDescription": "",
+            "others": "",
+            "toll": "",
+            "viaticos": "",
+            "washed": ""
+          },
+          "totalExpenses": 0,
+          "tripMadeKey": "travel_30-10-2023_20-30_abc-123"
+        },
+        "travelIncome": {
+          "totalAmountDiscounts": 0,
+          "totalAmountIncome": 0,
+          "totalAmountTickets": 0
+        },
+        "tripMadeKey": "travel_30-10-2023_20-30_abc-123"
+      },
+      "travel_31-10-2023_20-30_bus-001": {
+        "identificationNumberDriver": "80000001",
+        "occupiedSeat": [
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-60000000",
+          "vendido-61000000",
+          "vendido-61000000",
+          "vendido-61000000",
+          "vendido-61000000",
+          "vendido-61000000",
+          "vendido-61000000",
+          "vendido-61000000",
+          "vendido-61000000"
+        ],
+        "passengers": {
+          "billingContact_30-10-2023_09-01_7481200": {
+            "billingContactInformation": {
+              "ciOrNit": "7481200",
+              "countryCode": "+591 (BO)",
+              "email": "loayza.mendoza.juanbernardo@gmail.com",
+              "mobile": "74859875",
+              "nameOrSocialReason": "Loayza Mendoza Juan Bernardo"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "120.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
+            },
+            "ticketsSalesData": {
+              "passenger_7481200": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7481200",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Loayza Mendoza Juan Bernardo",
+                "seatId": "1",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7481200",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_7481300": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7481300",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Loayza Mendoza Maria",
+                "seatId": "2",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7481300",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "09:01"
+          },
+          "billingContact_30-10-2023_09-34_6481100": {
+            "billingContactInformation": {
+              "ciOrNit": "6481100",
+              "countryCode": "+591 (BO)",
+              "email": "torrejo.gomez.juancarlos@gmail.com",
+              "mobile": "74859412",
+              "nameOrSocialReason": "Torrejon Gomez Juan Carlos"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": 120,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
+            },
+            "ticketsSalesData": {
+              "passenger_6481100": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "6481100",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Torrejon Gomez Juan Carlos",
+                "seatId": "3",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_6481100",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_6481110": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "6481110",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Cardona Garcia Fernando",
+                "seatId": "4",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_6481110",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "09:34"
+          },
+          "billingContact_30-10-2023_09-39_6491910": {
+            "billingContactInformation": {
+              "ciOrNit": "6491910",
+              "countryCode": "+591 (BO)",
+              "email": "mamani.quispe.alexander@gmail.com",
+              "mobile": "74859612",
+              "nameOrSocialReason": "Mamani quispe Alexander"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "120.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
+            },
+            "ticketsSalesData": {
+              "passenger_6491910": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "6491910",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Mamani quispe Alexander",
+                "seatId": "5",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_6491910",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_675478": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "675478",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Aguilar Sanchez Karen",
+                "seatId": "6",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_675478",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "09:39"
+          },
+          "billingContact_30-10-2023_09-49_7381100": {
+            "billingContactInformation": {
+              "ciOrNit": "7381100",
+              "countryCode": "+591 (BO)",
+              "email": "ayacuho.maria.belen@gmail.com",
+              "mobile": "74859678",
+              "nameOrSocialReason": "Ayacuho Maria Belen"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "120.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
+            },
+            "ticketsSalesData": {
+              "passenger_7381100": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7381100",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Ayacuho Maria Belen",
+                "seatId": "7",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7381100",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_7381200": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7381200",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Gonzales Canaviri Carla",
+                "seatId": "8",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7381200",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "09:49"
+          },
+          "billingContact_30-10-2023_10-00_7281900": {
+            "billingContactInformation": {
+              "ciOrNit": "7281900",
+              "countryCode": "+591 (BO)",
+              "email": "bustamante.javierangel@gmail.com",
+              "mobile": "71824598",
+              "nameOrSocialReason": "Bustamante Javier Angel"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "120.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
+            },
+            "ticketsSalesData": {
+              "passenger_7281900": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7281900",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Bustamante Javier Angel",
+                "seatId": "9",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7281900",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_7293500": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7293500",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Savedra Sanchez Marco",
+                "seatId": "10",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7293500",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "10:00"
+          },
+          "billingContact_30-10-2023_10-22_741285": {
+            "billingContactInformation": {
+              "ciOrNit": "741285",
+              "countryCode": "+591 (BO)",
+              "email": "colque.jhony@gmail.com",
+              "mobile": "70784241",
+              "nameOrSocialReason": "Colque Jhony"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "120.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
+            },
+            "ticketsSalesData": {
+              "passenger_741285": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "741285",
+                "issuingUser": "alcon rodrigues fabricio",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Colque Jhony",
+                "seatId": "11",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_741285",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_741289": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "741289",
+                "issuingUser": "alcon rodrigues fabricio",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Perez Juan",
+                "seatId": "12",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_741289",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "10:22"
+          },
+          "billingContact_30-10-2023_11-18_7475789": {
+            "billingContactInformation": {
+              "ciOrNit": "7475789",
+              "countryCode": "+591 (BO)",
+              "email": "loayzagomez.juan@gmail.com",
+              "mobile": "74859645",
+              "nameOrSocialReason": "Loayza Gomez Juan"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "120.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
+            },
+            "ticketsSalesData": {
+              "passenger_7475789": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7475789",
+                "issuingUser": "alcon rodrigues fabricio",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Loayza Gomez Juan",
+                "seatId": "13",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7475789",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_7945147": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7945147",
+                "issuingUser": "alcon rodrigues fabricio",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Quispe Pedro",
+                "seatId": "14",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7945147",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "11:18"
+          },
+          "billingContact_30-10-2023_11-56_74789625": {
+            "billingContactInformation": {
+              "ciOrNit": "74789625",
+              "countryCode": "+591 (BO)",
+              "email": "gomez.martin@gmail.com",
+              "mobile": "74857456",
+              "nameOrSocialReason": "gomez Martin"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "60.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 60
+            },
+            "ticketsSalesData": {
+              "passenger_74789625": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "74789625",
+                "issuingUser": "alcon rodrigues fabricio",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "gomez Martin",
+                "seatId": "15",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_74789625",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "11:56"
+          },
+          "billingContact_30-10-2023_12-32_71458695": {
+            "billingContactInformation": {
+              "ciOrNit": "71458695",
+              "countryCode": "+591 (BO)",
+              "email": "perex.gomez.juan@gmail.com",
+              "mobile": "78964512",
+              "nameOrSocialReason": "Perez Gomez Juan"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "60.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 60
+            },
+            "ticketsSalesData": {
+              "passenger_71458695": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "71458695",
+                "issuingUser": "alcon rodrigues fabricio",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Perez Gomez Juan",
+                "seatId": "16",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_71458695",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "12:32"
+          },
+          "billingContact_30-10-2023_15-37_74859612": {
+            "billingContactInformation": {
+              "ciOrNit": "74859612",
+              "countryCode": "+591 (BO)",
+              "email": "santillan@gmail.com",
+              "mobile": "67616016",
+              "nameOrSocialReason": "Santillan Ariel"
+            },
+            "saleDate": "30/10/2023",
+            "salesAmountData": {
+              "amountTotal": "120.00",
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
+            },
+            "ticketsSalesData": {
+              "passenger_74859612": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "74859612",
+                "issuingUser": "alcon rodrigues fabricio",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Santillan Ariel",
+                "seatId": "17",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_74859612",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_7489652": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "7489652",
+                "issuingUser": "alcon rodrigues fabricio",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Santillan Cristian",
+                "seatId": "18",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_30-10-2023_7489652",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              }
+            },
+            "timeOfSale": "15:37"
+          }
+        },
+        "travelExpenses": {
+          "busEnrollment": "bus-001",
+          "expenses": {
+            "diesel": "500",
+            "laborUnion": "",
+            "otherDescription": "",
+            "others": "",
+            "toll": "",
+            "viaticos": "",
+            "washed": ""
+          },
+          "totalExpenses": 500,
+          "tripMadeKey": "travel_31-10-2023_20-30_bus-001"
+        },
+        "travelIncome": {
+          "incomeTickets": [
+            {
+              "numTickets": 18,
+              "priceTicket": "60",
+              "totalPrice": 1080
+            }
+          ],
+          "totalAmountDiscounts": 0,
+          "totalAmountIncome": 1080,
+          "totalAmountTickets": 1080
+        },
+        "tripMadeKey": "travel_31-10-2023_20-30_bus-001"
+      },
+      "travel_31-10-2023_21-15_bus-006": {
+        "identificationNumberDriver": "80000002",
+        "occupiedSeat": [
+          "vendido-60000000",
+          "vendido-60000000"
+        ],
+        "passengers": {
+          "billingContact_31-10-2023_15-04_7481977": {
+            "billingContactInformation": {
+              "ciOrNit": "7481977",
+              "countryCode": "+591 (BO)",
+              "email": "juan.lemoine@gmail.com",
+              "mobile": "67616074",
+              "nameOrSocialReason": "Lemoine Juan"
+            },
+            "saleDate": "31/10/2023",
+            "salesAmountData": {
+              "amountTotal": 100,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 100
+            },
+            "ticketsSalesData": {
+              "passenger_7481977": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-006",
+                "companyName": "Sin Fronteras",
+                "departureTime": "21:15",
+                "destiny": "yacuiba",
+                "identificationNumber": "7481977",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Lemoine Juan",
+                "seatId": "1",
+                "seatPrice": 100,
+                "ticketNumber": "suc-code1_31-10-2023_7481977",
+                "travelDate": "31/10/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "cama"
+              }
+            },
+            "timeOfSale": "15:04"
+          }
+        },
+        "travelExpenses": {
+          "busEnrollment": "bus-006",
+          "expenses": {
+            "diesel": "",
+            "laborUnion": "",
+            "otherDescription": "",
+            "others": "",
+            "toll": "",
+            "viaticos": "",
+            "washed": ""
+          },
+          "totalExpenses": 0,
+          "tripMadeKey": "travel_31-10-2023_21-15_bus-006"
+        },
+        "travelIncome": {
+          "incomeTickets": [
+            {
+              "numTickets": 1,
+              "priceTicket": "100",
+              "totalPrice": 100
+            }
+          ],
+          "totalAmountDiscounts": 0,
+          "totalAmountIncome": 100,
+          "totalAmountTickets": 100
+        },
+        "tripMadeKey": "travel_31-10-2023_21-15_bus-006"
+      }
+    }
+  },
+  "users": {
+    "60000000": {
+      "address": "hernando siles 125",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursal 1",
+      "charge": "dueño",
+      "dateOfBirth": "15/01/1996",
+      "email": "dueño@gmail.com",
+      "identificationNumber": "60000000",
+      "mobile": "60069988",
+      "names": "ruben",
+      "password": "$2a$10$OoRU/KysbvDQAc5J0JCY..gSnNX0A7sKONSz1XF3CSiiAaxTdLmse",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "alcon"
+    },
+    "61000000": {
+      "address": "calle campero 593",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursal 1",
+      "charge": "adm-general",
+      "dateOfBirth": "",
+      "email": "admgeneral@gmail.com",
+      "identificationNumber": "61000000",
+      "mobile": 60616061,
+      "names": "fabricio",
+      "password": "$2a$10$TxJyd5a0z9k3Op4crwnIX.XlaGashrld03r3Ab2VBh.V7xL7dZphS",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "alcon rodrigues"
+    },
+    "71000000": {
+      "address": "calle hecheveria 593",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursal 1",
+      "charge": "adm-sucursal",
+      "dateOfBirth": "",
+      "email": "s1admsucursal@gmail.com",
+      "identificationNumber": "71000000",
+      "mobile": 61245061,
+      "names": "ariel angel",
+      "password": "$2a$10$9M1opaR1BrVpZbBM28XfKOdp3IRVaE3pbUbP6b6I.1psfPDpfE3H.",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan reyna"
+    },
+    "71010001": {
+      "address": "calle loa 593",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursal 1",
+      "charge": "secretaria(o)",
+      "dateOfBirth": "",
+      "email": "s1secretario1@gmail.com",
+      "identificationNumber": "71010001",
+      "mobile": 60616062,
+      "names": "cristian andres",
+      "password": "$2a$10$JZEwjmEnUjhsYwTMfBPtZePZ/JQ9eBt6vQKpNCaNkhoU8yjnAf1s2",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan reyna"
+    },
+    "71020001": {
+      "address": "calle vega 593",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursal 1",
+      "charge": "boletero(a)",
+      "dateOfBirth": "",
+      "email": "s1boletero1@gmail.com",
+      "identificationNumber": "71020001",
+      "mobile": 60616063,
+      "names": "javier angel",
+      "password": "$2a$10$rUT4zxM9pyzKKh6U8GEnCOvCbRZBYNvbF331cNweEXvM4NM8ett5S",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "santillan quispe"
+    },
+    "72000000": {
+      "address": "av gonzales 593",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "sucursal 1",
+      "charge": "adm-sucursal",
+      "dateOfBirth": "",
+      "email": "s2admsucursal@gmail.com",
+      "identificationNumber": "72000000",
+      "mobile": 61745473,
+      "names": "bryan",
+      "password": "$2a$10$uHTVm0VKu3tYLz2hSVcvpO2obGwaSIiDAQaMyWf/ACnQ50KPjHYSm",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "fernandez flores"
+    },
+    "72010001": {
+      "address": "calle bustamante 593",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "sucursal 1",
+      "charge": "secretaria(o)",
+      "dateOfBirth": "",
+      "email": "s2secretario1@gmail.com",
+      "identificationNumber": "72010001",
+      "mobile": 60616072,
+      "names": "paola andrea",
+      "password": "$2a$10$GxUD9pN72uzaqJLZmr9xuOUrTZLOskqvYSANDINZDyjG15vJOko16",
+      "sex": "mujer",
+      "status": "activo",
+      "surnames": "cabrera flores"
+    },
+    "72020001": {
+      "address": "calle estudiantes 593",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "sucursal 1",
+      "charge": "boletero(a)",
+      "dateOfBirth": "",
+      "email": "s2boletero1@gmail.com",
+      "identificationNumber": "72020001",
+      "mobile": 60616073,
+      "names": "erick",
+      "password": "$2a$10$96CCa6vW7Y9hWCu3GHaQhuSjzqC1t1gJXlo3yzMQTynMGOKkOdE5y",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "manzano"
+    },
+    "80000001": {
+      "address": "address branch",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "13/01/2000",
+      "email": "chofer1@gmail.com",
+      "identificationNumber": "80000001",
+      "mobile": 78965412,
+      "names": "ronal",
+      "password": "$2a$10$eIIzA1nTY6hcQuAhDcuLUeIwOk1.YLb1ZocrJDfjg08Mp3c/JAVJ6",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "quispe mamani"
+    },
+    "80000002": {
+      "address": "address branch",
+      "branchNumberOrCode": "code1",
+      "branchOfficeName": "sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "25/10/1982",
+      "email": "chofer2@gmail.com",
+      "identificationNumber": "80000002",
+      "mobile": 79456321,
+      "names": "juan",
+      "password": "$2a$10$yjMG4qFVE8QT3mPgNT.ceuwJ3Hm3/WiZ5Z2TCL2GElSt2zi43qwU2",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "flores quispe"
+    },
+    "80000003": {
+      "address": "address brach sucre",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "12/05/1987",
+      "email": "chofer3@gmail.com",
+      "identificationNumber": "80000003",
+      "mobile": 78951423,
+      "names": "luis fernando",
+      "password": "$2a$10$b.T7jp7xShF6vqLGa5yGvOXC1xYQmV8SxIbHDVE5YPIy/FfOm87aa",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "duran chavez"
+    },
+    "80000004": {
+      "address": "address branch",
+      "branchNumberOrCode": "code2",
+      "branchOfficeName": "sucursal 1",
+      "charge": "chofer",
+      "dateOfBirth": "25/10/1986",
+      "email": "chofer4@gmail.com",
+      "identificationNumber": "80000004",
+      "mobile": 74125896,
+      "names": "cesar",
+      "password": "$2a$10$/BCuakloj61R4RbBN0Esp.8yGFGiCKZigUXzBnsAIHYdp.zzCd5Lq",
+      "sex": "hombre",
+      "status": "activo",
+      "surnames": "hurtado gonzalez"
+    }
+  }
+}
