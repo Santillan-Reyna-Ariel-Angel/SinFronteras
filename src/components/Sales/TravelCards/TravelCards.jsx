@@ -68,6 +68,7 @@ const TravelCards = ({ travelSearchData }) => {
       bus: { typeOfBus },
       departureTime,
       travelDate,
+      busEnrollment, // Por si se desea añadir a la card
     } = travels[travelKey];
 
     if (
@@ -82,6 +83,7 @@ const TravelCards = ({ travelSearchData }) => {
         typeOfBus,
         departureTime,
         travelDate,
+        busEnrollment, // Por si se desea añadir a la card
       };
       return travelData;
     } else {
@@ -228,6 +230,7 @@ const TravelCards = ({ travelSearchData }) => {
                     </BtnSeeBusStyle>
                     <TypeOfBusStyle>
                       <span>{`${travelItem.typeOfBus}`}</span>
+                      {/* <span>{` ${travelItem.busEnrollment}`}</span> */}
                     </TypeOfBusStyle>
                     <DepartureTimeStyle>
                       <span>{`${travelItem.departureTime}`}</span>
