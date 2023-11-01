@@ -51,6 +51,7 @@ import { ChangeBranchConnection } from './components/ChangeBranchConnection/Chan
 import { UserProfile } from './components/Users/UserProfile/UserProfile.jsx';
 import { ChangePassword } from './components/Users/ChangePassword/ChangePassword';
 import { PdfGenerate } from './components/Reports/PdfGenerate/PdfGenerate';
+import { TicketReservation } from './components/TicketReservation/TicketReservation';
 
 const AppRoutes = () => {
   return (
@@ -206,6 +207,12 @@ const AppRoutes = () => {
                               exact
                               path="/test-component4/"
                               component={PdfGenerate}
+                            />
+
+                            <Route
+                              exact
+                              path="/component-test/"
+                              component={TicketReservation}
                             />
                           </Layout>
                         </Switch>
