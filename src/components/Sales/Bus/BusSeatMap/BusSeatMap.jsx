@@ -126,7 +126,7 @@ const BusSeatMap = ({ dataBusTravel }) => {
   let paintOccupiedSeats = whatOccupiedSeatsToPaint();
   // console.log('paintOccupiedSeats', paintOccupiedSeats);
 
-  //COLOREAR el asiento dependiedo de su estado(libre,preventa,vendido):
+  //COLOREAR el asiento dependiedo de su estado(libre,reservado,preventa,vendido):
   const coloringSeat = (seatNumber) => {
     let paintOccupiedSeat = paintOccupiedSeats.filter(
       (seat) => seat[0] === seatNumber.toString()
@@ -135,7 +135,12 @@ const BusSeatMap = ({ dataBusTravel }) => {
       // console.log('paintOccupiedSeat', paintOccupiedSeat);
       let seatState = paintOccupiedSeat[0][1];
       // console.log('seatState', seatState);
-      return seatState.includes('vendido') ? 'red' : 'yellow';
+      // return seatState.includes('vendido') ? 'red' : 'yellow'; // esto era sin reservas
+      return seatState.includes('vendido')
+        ? 'red'
+        : seatState.includes('preventa')
+        ? 'yellow'
+        : 'green'; // green para reservado
     } else {
       return '';
     }
@@ -194,12 +199,14 @@ const BusSeatMap = ({ dataBusTravel }) => {
                     {` ${seatPrices.minimalPrice} bs - ${seatPrices.maximumPrice} bs`}
                   </p>
                   <p>
-                    {/* //Si !==0 es true, el asiento esta selecionado o vendido. */}
+                    {/* //Si !==0 es true, el asiento esta en preventa(seleccionado por otro user), reservado o vendido. */}
                     Estado:
                     {coloringSeat(seatNumber).length !== 0
                       ? coloringSeat(seatNumber) === 'red'
                         ? ' Vendido'
-                        : ' Preventa'
+                        : coloringSeat(seatNumber) === 'yellow'
+                        ? ' Preventa'
+                        : ' Reservado'
                       : ' Libre'}
                   </p>
                 </>
@@ -240,6 +247,8 @@ const BusSeatMap = ({ dataBusTravel }) => {
                       },
                     }}
                     disabled={
+                      // coloringSeat(seatNumber) devuelve: "red"(vendido), "yellow"(preventa), "green"(reservado) o ""(asiento disponible)
+                      // Entonces si: coloringSeat(seatNumber).length !== 0 es true(el asiento tiene un color), se inhabilita el asiento.
                       coloringSeat(seatNumber).length !== 0 ? true : false //Si !==0 es true, el asiento esta selecionado(se inhabilita para los demas) o vendido(se inhabilita para todos).
                     }
                   />
