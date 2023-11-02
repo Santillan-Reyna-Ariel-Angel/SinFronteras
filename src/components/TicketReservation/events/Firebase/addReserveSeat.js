@@ -1,4 +1,8 @@
-import { set, ref } from 'firebase/database';
+import {
+  set,
+  // update,
+  ref,
+} from 'firebase/database';
 import { modulesFirebase } from '../../../../firebase-config.js';
 
 export const addReserveSeat = ({
@@ -6,7 +10,7 @@ export const addReserveSeat = ({
   travelKey,
   seatId,
   seatState,
-  identificationNumberUser,
+  userData,
 }) => {
   const { fire_db } = modulesFirebase;
 
@@ -16,15 +20,12 @@ export const addReserveSeat = ({
       fire_db,
       `tripsMade/branch_${branchNumber}/${travelKey}/occupiedSeat/${seatId}/`
     ),
-    `${seatState}-${identificationNumberUser}` //el valor que tendra cada asiento al crearse
+    `${seatState}-${userData.identificationNumber}` //el valor que tendra cada asiento al crearse
   );
 
-  // datos para nodo reservas:
-  // set(
-  //   ref(
-  //     fire_db,
-  //     `tripsMade/branch_${branchNumber}/${travelKey}/reserveSeats/${ciOrNit}/`
-  //   ),
-  //   {data}
+  //Actualiza el estado del asiento a "vendido" en la BD segun "seatId":
+  // update(
+  //   ref(fire_db, `tripsMade/branch_${branchNumber}/${travelKey}/occupiedSeat/`),
+  //   { [seatId]: `${seatState}-${userData.identificationNumber}` } //el valor al actualizar cada asiento
   // );
 };

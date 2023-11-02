@@ -41,10 +41,11 @@ export const TicketReservation = () => {
 
   //ContextUserData:
   const userData = useContext(ContextUserData);
-  let { identificationNumber: identificationNumberUser } = userData
+  let { identificationNumber, names, surnames } = userData
     ? userData
-    : { identificationNumber: '' };
-  console.log('identificationNumberUser:', identificationNumberUser);
+    : { identificationNumber: '', names: '', surnames: '' };
+  let userDataAux = { identificationNumber, names, surnames };
+  console.log('userDataAux:', userDataAux);
 
   const [selectedTravel, setSelectedTravel] = useState(null);
   console.log('selectedTravel:', selectedTravel);
@@ -111,7 +112,7 @@ export const TicketReservation = () => {
         travelKey: selectedTravel.travelKey,
         seatId: seat,
         seatState: 'reservado',
-        identificationNumberUser,
+        userData: userDataAux,
       })
     );
 
@@ -120,7 +121,7 @@ export const TicketReservation = () => {
       travelKey: selectedTravel.travelKey,
       buyerData,
       seats: seatsList,
-      identificationNumberUser,
+      userData: userDataAux,
     });
   };
 

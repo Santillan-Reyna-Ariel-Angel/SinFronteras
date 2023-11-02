@@ -6,7 +6,7 @@ export const addReservationData = ({
   travelKey,
   buyerData,
   seats,
-  identificationNumberUser,
+  userData,
 }) => {
   const { fire_db } = modulesFirebase;
 
@@ -19,7 +19,7 @@ export const addReservationData = ({
     {
       buyerData: buyerData,
       seats: seats,
-      identificationNumberUser: identificationNumberUser,
+      userData: userData,
     }
   );
 };
