@@ -141,6 +141,13 @@ const AppRoutes = () => {
                               path="/ventas/pasajes/"
                               component={Sales}
                             />
+
+                            <Route
+                              exact
+                              path="/ventas/reservas/"
+                              component={TicketReservation}
+                            />
+
                             <Route
                               exact
                               path="/personal/registro-de-usuarios/"
@@ -207,12 +214,6 @@ const AppRoutes = () => {
                               exact
                               path="/test-component4/"
                               component={PdfGenerate}
-                            />
-
-                            <Route
-                              exact
-                              path="/component-test/"
-                              component={TicketReservation}
                             />
                           </Layout>
                         </Switch>

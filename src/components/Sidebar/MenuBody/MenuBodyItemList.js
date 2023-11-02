@@ -35,6 +35,11 @@ const menuBodyItemList = [
         title: 'Pasajes',
         icon: <ConfirmationNumberRoundedIcon />,
       },
+      {
+        path: '/ventas/reservas',
+        title: 'Reservas',
+        icon: <ConfirmationNumberRoundedIcon />,
+      },
     ],
   },
   {
