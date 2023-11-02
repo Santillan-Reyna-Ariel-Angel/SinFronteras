@@ -18,12 +18,13 @@ export const addReserveSeat = ({
     ),
     `${seatState}-${identificationNumberUser}` //el valor que tendra cada asiento al crearse
   );
-};
 
-// addReserveSeat({
-//   branchNumber,
-//   dataBusTravel,
-//   seatId,
-//   seatState: 'preventa',
-//   identificationNumberUser,
-// });
+  // datos para nodo reservas:
+  // set(
+  //   ref(
+  //     fire_db,
+  //     `tripsMade/branch_${branchNumber}/${travelKey}/reserveSeats/${ciOrNit}/`
+  //   ),
+  //   {data}
+  // );
+};

@@ -9,6 +9,7 @@ import {
   BodyContainer,
   Travels,
   Seats,
+  BuyerId,
   FullNameBuyer,
   Btn,
 } from './TicketReservationStyles';
@@ -17,6 +18,8 @@ import { ContextBranchOffice } from './../../contexts/ContextBranchOffice';
 import { ContextUserData } from './../../contexts/ContextUserData';
 
 //Firebase Functions:
+import { addReserveSeat } from './events/Firebase/addReserveSeat';
+import { addReservationData } from './events/Firebase/addReservationData';
 //States:
 //Components:
 import { PlainModalButton } from './../PlainModalButton/PlainModalButton';
@@ -51,6 +54,7 @@ export const TicketReservation = () => {
 
   const buyerDataDefault = {
     fullName: '',
+    ciOrNit: '',
   };
 
   const [buyerData, setBuyerData] = useState(buyerDataDefault);
@@ -95,6 +99,35 @@ export const TicketReservation = () => {
     } else {
       return travel;
     }
+  };
+
+  const reserveSeats = ({ seats, selectedTravel }) => {
+    let seatsList = seats.split(',');
+    console.log('seatsList:', seatsList);
+
+    seatsList.forEach((seat) =>
+      addReserveSeat({
+        branchNumber,
+        travelKey: selectedTravel.travelKey,
+        seatId: seat,
+        seatState: 'reservado',
+        identificationNumberUser,
+      })
+    );
+
+    addReservationData({
+      branchNumber,
+      travelKey: selectedTravel.travelKey,
+      buyerData,
+      seats: seatsList,
+      identificationNumberUser,
+    });
+  };
+
+  const componentDefaultData = () => {
+    setSelectedTravel(null);
+    setSeats('');
+    setBuyerData(buyerDataDefault);
   };
 
   return (
@@ -161,10 +194,33 @@ export const TicketReservation = () => {
             />
           </Seats>
 
+          <BuyerId>
+            <TextField
+              value={buyerData.ciOrNit}
+              label="N# identificacion comprador"
+              variant="outlined"
+              type="number"
+              required
+              fullWidth
+              size="small"
+              onChange={(event) =>
+                setBuyerData({
+                  ...buyerData,
+                  ciOrNit: event.target.value,
+                })
+              }
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: Css_TextField_Select.fontSize,
+                },
+              }}
+            />
+          </BuyerId>
+
           <FullNameBuyer>
             <TextField
               value={buyerData.fullName}
-              label="Nombre comprador..."
+              label="Nombre comprador"
               variant="outlined"
               required
               fullWidth
@@ -191,13 +247,12 @@ export const TicketReservation = () => {
               dialogText={`Esta seguro de reservar estos asientos?`}
               closeBtnText="atras"
               continueBtnText="si"
-              //   functionToExecute={changePassword}
-              //   functionParameters={{
-              //     identificationNumber,
-              //     dataChangePassword,
-              //   }}
-              //   thirdFunctionToExecute={componentDefaultData}
-              //   disabledBtn={!isDataValidate}
+              functionToExecute={reserveSeats}
+              functionParameters={{
+                seats,
+                selectedTravel,
+              }}
+              thirdFunctionToExecute={componentDefaultData}
             />
           </Btn>
         </BodyContainer>

@@ -48,7 +48,7 @@ export const BodyContainer = styled.form`
   border-radius: 0px 0px 10px 10px; //en vista: 0px 0px 10px 10px; en <BasicDialog/> : 0px 0px 0px 0px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  grid-template-areas: 'Travels' 'Seats' 'FullNameBuyer' 'Btn';
+  grid-template-areas: 'Travels' 'Seats' 'BuyerId' 'FullNameBuyer' 'Btn';
 
   @media screen and (max-width: 768px) {
     /* grid-template-columns: 200px; //  o  probar auto o xfr */
@@ -70,6 +70,10 @@ export const Seats = styled.div`
   .input {
     width: 100%;
   }
+`;
+
+export const BuyerId = styled.div`
+  grid-area: BuyerId;
 `;
 
 export const FullNameBuyer = styled.div`
