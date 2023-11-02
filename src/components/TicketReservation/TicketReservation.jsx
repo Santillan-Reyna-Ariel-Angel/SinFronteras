@@ -104,9 +104,12 @@ export const TicketReservation = () => {
 
   const reserveSeats = ({ seats, selectedTravel }) => {
     let seatsList = seats.split(',');
-    console.log('seatsList:', seatsList);
 
-    seatsList.forEach((seat) =>
+    // IMPORTANTE PARA seatId: trim() para eliminar posibles espacios en blanco (derecha e izquierda) de cada asiento
+    let seatListAux = seatsList.map((seat) => seat.trim());
+    console.log('seatListAux:', seatListAux);
+
+    seatListAux.forEach((seat) =>
       addReserveSeat({
         branchNumber,
         travelKey: selectedTravel.travelKey,
@@ -120,7 +123,7 @@ export const TicketReservation = () => {
       branchNumber,
       travelKey: selectedTravel.travelKey,
       buyerData,
-      seats: seatsList,
+      seats: seatListAux,
       userData: userDataAux,
     });
   };

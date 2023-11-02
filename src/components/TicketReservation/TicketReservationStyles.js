@@ -51,8 +51,8 @@ export const BodyContainer = styled.form`
   grid-template-areas: 'Travels' 'Seats' 'BuyerId' 'FullNameBuyer' 'Btn';
 
   @media screen and (max-width: 768px) {
-    /* grid-template-columns: 200px; //  o  probar auto o xfr */
-    /* padding: 10px 15px; */
+    grid-template-columns: 250px; //  o  probar auto o xfr
+    padding: 10px 15px;
   }
 `;
 
