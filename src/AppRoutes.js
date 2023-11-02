@@ -51,7 +51,7 @@ import { ChangeBranchConnection } from './components/ChangeBranchConnection/Chan
 import { UserProfile } from './components/Users/UserProfile/UserProfile.jsx';
 import { ChangePassword } from './components/Users/ChangePassword/ChangePassword';
 import { PdfGenerate } from './components/Reports/PdfGenerate/PdfGenerate';
-import { TicketReservation } from './components/TicketReservation/TicketReservation';
+import { TicketReservation } from './components/Reservations/TicketReservation/TicketReservation';
 
 const AppRoutes = () => {
   return (

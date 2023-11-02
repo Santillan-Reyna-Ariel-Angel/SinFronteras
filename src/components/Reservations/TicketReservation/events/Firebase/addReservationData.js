@@ -1,5 +1,5 @@
 import { set, ref } from 'firebase/database';
-import { modulesFirebase } from '../../../../firebase-config.js';
+import { modulesFirebase } from '../../../../../firebase-config.js';
 
 export const addReservationData = ({
   branchNumber,
