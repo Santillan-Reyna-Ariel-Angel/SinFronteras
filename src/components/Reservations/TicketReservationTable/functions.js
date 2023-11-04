@@ -1,51 +1,63 @@
 import { DialogBasic } from '../../DialogBasic/DialogBasic';
-import { UserRegistration } from './../UserRegistration/UserRegistration';
+// import { UserRegistration } from './../UserRegistration/UserRegistration';
 import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
-import { deleteUser } from './../UserRegistration/Firebase/deleteUser';
+// import { deleteUser } from './../UserRegistration/Firebase/deleteUser';
 
-export const getDataTableNecesary = ({ allUserDataList }) => {
-  if (allUserDataList.length === 0) {
+export const getDataTableNecesary = ({ reserveSeatsList }) => {
+  // console.log('reserveSeatsList', reserveSeatsList);
+  if (reserveSeatsList.length === 0) {
     return [];
   } else {
-    let dataTableNecesary = allUserDataList.map((userData) => {
-      return {
-        identificationNumber: userData.identificationNumber,
-        userFullName: `${userData.surnames} ${userData.names}`,
-        charge: userData.charge,
-        branchNumberOrCode: userData.branchNumberOrCode,
-        branchOfficeName: userData.branchOfficeName,
-        mobile: userData.mobile,
-        status: userData.status,
+    let dataTableNecesary = reserveSeatsList.map((reserveSeat) => {
+      let buyerIdList = Object.keys(reserveSeat);
+      // console.log('buyerIdList', buyerIdList);
 
-        btnEdit: (
-          <DialogBasic
-            primaryBtnText="editar"
-            componentView={
-              <UserRegistration
-                identificationNumber={userData.identificationNumber}
-                isDataUpdate={true}
-              />
-            }
-          />
-        ),
+      let dataTableNecesaryAux = buyerIdList.map((buyerId) => {
+        return {
+          identificationNumberUser:
+            reserveSeat[buyerId].userData.identificationNumber,
+          userFullName: `${reserveSeat[buyerId].userData.surnames} ${reserveSeat[buyerId].userData.names}`,
+          identificationNumberBuyer: reserveSeat[buyerId].buyerData.ciOrNit,
+          buyerFullName: reserveSeat[buyerId].buyerData.fullName,
+          reserveSeats: reserveSeat[buyerId].seats.join(' , '),
 
-        btnDelete: (
-          <PlainModalButton
-            primaryBtnText="Eliminar"
-            dialogTitle="Lista de usuarios"
-            dialogText={`Esta seguro de eliminar al usuario ${userData.surnames} ${userData.names}?`}
-            closeBtnText="cancelar"
-            continueBtnText="si"
-            functionToExecute={deleteUser}
-            functionParameters={userData.identificationNumber}
-            primaryBtnColor="error"
-          />
-        ),
-      };
+          // btnEdit: (
+          //   <DialogBasic
+          //     primaryBtnText="editar"
+          //     componentView={
+          //       <UserRegistration
+          //         identificationNumber={userData.identificationNumber}
+          //         isDataUpdate={true}
+          //       />
+          //     }
+          //   />
+          // ),
+
+          // btnDelete: (
+          //   <PlainModalButton
+          //     primaryBtnText="Eliminar"
+          //     dialogTitle="Lista de usuarios"
+          //     dialogText={`Esta seguro de eliminar al usuario ${userData.surnames} ${userData.names}?`}
+          //     closeBtnText="cancelar"
+          //     continueBtnText="si"
+          //     functionToExecute={deleteUser}
+          //     functionParameters={userData.identificationNumber}
+          //     primaryBtnColor="error"
+          //   />
+          // ),
+        };
+      });
+
+      return dataTableNecesaryAux;
     });
-    // console.log('dataTableNecesary', dataTableNecesary);
 
-    return dataTableNecesary;
+    // dataTableNecesary:
+    //  * sale como un array  de arrays.
+    //  * flat(1) aplana(convierte) el array de arrays en un solo array.
+
+    // console.log('dataTableNecesary', dataTableNecesary.flat(1));
+
+    return dataTableNecesary.flat(1);
   }
 };
 

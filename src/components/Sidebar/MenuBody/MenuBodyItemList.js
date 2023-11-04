@@ -40,6 +40,11 @@ const menuBodyItemList = [
         title: 'Reservas',
         icon: <ConfirmationNumberRoundedIcon />,
       },
+      {
+        path: '/ventas/lista-de-reservas',
+        title: 'Lista de reservas',
+        icon: <FormatListNumberedRoundedIcon />,
+      },
     ],
   },
   {

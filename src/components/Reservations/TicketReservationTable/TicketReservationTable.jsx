@@ -13,6 +13,7 @@ import { Background, BodyContainer } from './TicketReservationTableStyles';
 import { ContextAllUserData } from '../../../contexts/ContextAllUserData';
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextUserData } from './../../../contexts/ContextUserData';
+import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 //Firebase Functions:
 //States:
 //Components:
@@ -32,43 +33,43 @@ export const TicketReservationTable = () => {
   const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
   // console.log('isScreenMaxW_768', isScreenMaxW_768);
 
-  //ContextAllUserData:
-  const allUserData = useContext(ContextAllUserData);
-  console.log('allUserData', allUserData);
+  // ContextBranchTripsMade:
+  const branchTripsMade = useContext(ContextBranchTripsMade);
+  // console.log('branchTripsMade', branchTripsMade);
 
-  //ContextBranchOffice:
-  const branchOffice = useContext(ContextBranchOffice);
+  let tripMadeKeyList =
+    branchTripsMade !== undefined && branchTripsMade !== null
+      ? Object.keys(branchTripsMade)
+      : [];
+  // console.log('tripMadeKeyList', tripMadeKeyList);
 
-  //ContextUserData:
-  const userData = useContext(ContextUserData);
-  const { charge } = userData ? userData : {};
-  console.log('charge', charge);
+  let reserveSeatsList = tripMadeKeyList
+    .map((tripMadeKey) =>
+      branchTripsMade[tripMadeKey].reserveSeats
+        ? branchTripsMade[tripMadeKey].reserveSeats
+        : 'emptyReserveSeats'
+    )
+    .filter((reserveSeats) => reserveSeats !== 'emptyReserveSeats');
 
-  const userCanUpdate = rolesAndPermissions[charge]?.usuarios?.actualizar;
-  const userCanDelete = rolesAndPermissions[charge]?.usuarios?.eliminar;
+  console.log('reserveSeatsList', reserveSeatsList);
 
-  // json to array:
-  let allUserDataList = [];
-  for (let i in allUserData) allUserDataList.push(allUserData[i]);
-  console.log('allUserDataList', allUserDataList);
-
-  const data = getDataTableNecesary({ allUserDataList });
+  const data = getDataTableNecesary({ reserveSeatsList });
   console.log('data', data);
 
-  const dataFilteredByBranch = data.filter(
-    (user) =>
-      user.branchNumberOrCode === branchOffice?.branchInformation?.branchNumber
-  );
-  console.log('*****dataFilteredByBranch', dataFilteredByBranch);
+  // const dataFilteredByBranch = data.filter(
+  //   (user) =>
+  //     user.branchNumberOrCode === branchOffice?.branchInformation?.branchNumber
+  // );
+  // console.log('*****dataFilteredByBranch', dataFilteredByBranch);
 
-  let usuariosDataForImp = {
-    usersData: [...dataFilteredByBranch],
-  };
+  // let usuariosDataForImp = {
+  //   usersData: [...dataFilteredByBranch],
+  // };
 
   const columns = [
     {
-      name: 'identificationNumber',
-      label: 'CI',
+      name: 'identificationNumberUser',
+      label: 'Usuario CI',
       //   options: {
       //     filter: false, // func para filtrar por la columna
       //     //sort: false, //funcionalidad para odernar la columna
@@ -78,56 +79,39 @@ export const TicketReservationTable = () => {
     },
     {
       name: 'userFullName',
-      label: 'Nombre Completo',
+      label: 'Nombre usuario',
     },
     {
-      name: 'charge',
-      label: 'Cargo',
+      name: 'identificationNumberBuyer',
+      label: 'CI comprador',
     },
     {
-      name: 'branchOfficeName',
-      label: 'Sucursal',
+      name: 'buyerFullName',
+      label: 'Nombre comprador',
     },
     {
-      name: 'mobile',
-      label: 'Celular',
+      name: 'reserveSeats',
+      label: 'Asientos',
     },
-    {
-      name: 'status',
-      label: 'Estado',
-    },
-    {
-      name: 'btnEdit',
-      label: 'Editar',
-      options: {
-        filter: false, // func para filtrar por la columna
-        sort: false, //funcionalidad para odernar la columna
-        print: false, //Esto deberia hacer que se omita esta columna para la impresion
-      },
-    },
-    {
-      name: 'btnDelete',
-      label: 'Eliminar',
-      options: {
-        filter: false, // func para filtrar por la columna
-        sort: false, //funcionalidad para odernar la columna
-        print: false, //Esto deberia hacer que se omita esta columna para la impresion
-      },
-    },
+    // {
+    //   name: 'btnEdit',
+    //   label: 'Editar',
+    //   options: {
+    //     filter: false, // func para filtrar por la columna
+    //     sort: false, //funcionalidad para odernar la columna
+    //     print: false, //Esto deberia hacer que se omita esta columna para la impresion
+    //   },
+    // },
+    // {
+    //   name: 'btnDelete',
+    //   label: 'Eliminar',
+    //   options: {
+    //     filter: false, // func para filtrar por la columna
+    //     sort: false, //funcionalidad para odernar la columna
+    //     print: false, //Esto deberia hacer que se omita esta columna para la impresion
+    //   },
+    // },
   ];
-
-  // FILTRAR COLUMNAS POR ROL DE USUARIO:
-  // let columnsByUserRole = getColumnsByUserRole({ charge, columns });
-
-  let columns_isEditResponse = userCanUpdate
-    ? columns
-    : isEdit({ charge, columns });
-
-  let columns_isDeleteResponse = userCanDelete
-    ? columns_isEditResponse
-    : isDelete({ charge, columns_isEditResponse });
-
-  let filteredColumnsByUserRole = columns_isDeleteResponse;
 
   const options = {
     filterType: 'multiselect', //cuadroDialogo filtro: checkbox , multiselect(movil bien), dropdown(movil regular)
@@ -153,16 +137,16 @@ export const TicketReservationTable = () => {
 
     print: false, //NO ES NECESARIO POR QUE TENEMOS UN BOTON PARA IMPRIMIR en "customToolbar"
     //customToolbar: Nos permite añadir un componente personalizado a la barra de herramientas.
-    customToolbar: () => {
-      return (
-        <DialogBasic
-          primaryBtnText="imp. usuarios"
-          componentView={
-            <PdfUsersList usuariosDataProps={usuariosDataForImp} />
-          }
-        />
-      );
-    },
+    // customToolbar: () => {
+    //   return (
+    //     <DialogBasic
+    //       primaryBtnText="imp. usuarios"
+    //       componentView={
+    //         <PdfUsersList usuariosDataProps={usuariosDataForImp} />
+    //       }
+    //     />
+    //   );
+    // },
   };
 
   return (
@@ -172,9 +156,9 @@ export const TicketReservationTable = () => {
           <CacheProvider value={muiCache}>
             <ThemeProvider theme={getThemeForMUIDataTable()}>
               <MUIDataTable
-                title={'LISTA DE USUARIOS '}
-                data={dataFilteredByBranch}
-                columns={filteredColumnsByUserRole} // columns // columnsByUserRole
+                title={'LISTA DE RESERVAS '}
+                data={data} //dataFilteredByBranch
+                columns={columns} // columns // columnsByUserRole , filteredColumnsByUserRole
                 options={options}
               />
             </ThemeProvider>

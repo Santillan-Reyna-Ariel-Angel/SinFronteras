@@ -52,6 +52,7 @@ import { UserProfile } from './components/Users/UserProfile/UserProfile.jsx';
 import { ChangePassword } from './components/Users/ChangePassword/ChangePassword';
 import { PdfGenerate } from './components/Reports/PdfGenerate/PdfGenerate';
 import { TicketReservation } from './components/Reservations/TicketReservation/TicketReservation';
+import { TicketReservationTable } from './components/Reservations/TicketReservationTable/TicketReservationTable';
 
 const AppRoutes = () => {
   return (
@@ -146,6 +147,12 @@ const AppRoutes = () => {
                               exact
                               path="/ventas/reservas/"
                               component={TicketReservation}
+                            />
+
+                            <Route
+                              exact
+                              path="/ventas/lista-de-reservas/"
+                              component={TicketReservationTable}
                             />
 
                             <Route
