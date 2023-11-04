@@ -10,24 +10,17 @@ import { muiCache, getThemeForMUIDataTable } from '../../themeForMUIDataTable';
 //Styles:
 import { Background, BodyContainer } from './TicketReservationTableStyles';
 //Contexts:
-import { ContextAllUserData } from '../../../contexts/ContextAllUserData';
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextUserData } from './../../../contexts/ContextUserData';
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 //Firebase Functions:
 //States:
 //Components:
-import { DialogBasic } from './../../DialogBasic/DialogBasic';
-import { PdfUsersList } from './../../Reports/PdfGenerate/PdfUsersList';
+// import { DialogBasic } from './../../DialogBasic/DialogBasic';
+// import { PdfUsersList } from './../../Reports/PdfGenerate/PdfUsersList';
 //Others:
 import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../constantData';
-import {
-  getDataTableNecesary,
-  // getColumnsByUserRole,
-  isEdit,
-  isDelete,
-} from './functions';
-import { rolesAndPermissions } from './../../rolesAndPermissions';
+import { getDataTableNecesary, getReserveSeatsByUser } from './functions';
 
 export const TicketReservationTable = () => {
   const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
@@ -38,8 +31,14 @@ export const TicketReservationTable = () => {
   const {
     branchInformation: { branchNumber },
   } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
+  // console.log('branchNumber', branchNumber);
 
-  console.log('branchNumber', branchNumber);
+  //ContextUserData:
+  const userData = useContext(ContextUserData);
+  const { identificationNumber } = userData
+    ? userData
+    : { identificationNumber: '' };
+  // console.log('identificationNumber', identificationNumber);
 
   // ContextBranchTripsMade:
   const branchTripsMade = useContext(ContextBranchTripsMade);
@@ -58,21 +57,16 @@ export const TicketReservationTable = () => {
         : 'emptyReserveSeats'
     )
     .filter((reserveSeats) => reserveSeats !== 'emptyReserveSeats');
-
-  console.log('reserveSeatsList', reserveSeatsList);
+  // console.log('reserveSeatsList', reserveSeatsList);
 
   const data = getDataTableNecesary({ reserveSeatsList, branchNumber });
   console.log('data', data);
 
-  // const dataFilteredByBranch = data.filter(
-  //   (user) =>
-  //     user.branchNumberOrCode === branchOffice?.branchInformation?.branchNumber
-  // );
-  // console.log('*****dataFilteredByBranch', dataFilteredByBranch);
-
-  // let usuariosDataForImp = {
-  //   usersData: [...dataFilteredByBranch],
-  // };
+  const dataFilteredByUser = getReserveSeatsByUser({
+    data,
+    identificationNumber,
+  });
+  console.log('dataFilteredByUser', dataFilteredByUser);
 
   const columns = [
     {
@@ -165,7 +159,7 @@ export const TicketReservationTable = () => {
             <ThemeProvider theme={getThemeForMUIDataTable()}>
               <MUIDataTable
                 title={'LISTA DE RESERVAS '}
-                data={data} //dataFilteredByBranch
+                data={dataFilteredByUser} //dataFilteredByUser, data
                 columns={columns} // columns // columnsByUserRole , filteredColumnsByUserRole
                 options={options}
               />

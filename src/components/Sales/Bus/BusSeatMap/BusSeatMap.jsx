@@ -140,7 +140,7 @@ const BusSeatMap = ({ dataBusTravel }) => {
         ? 'red'
         : seatState.includes('preventa')
         ? 'yellow'
-        : 'green'; // green para reservado
+        : 'purple'; // purple para reservado
     } else {
       return '';
     }
@@ -247,7 +247,7 @@ const BusSeatMap = ({ dataBusTravel }) => {
                       },
                     }}
                     disabled={
-                      // coloringSeat(seatNumber) devuelve: "red"(vendido), "yellow"(preventa), "green"(reservado) o ""(asiento disponible)
+                      // coloringSeat(seatNumber) devuelve: "red"(vendido), "yellow"(preventa), "purple"(reservado) o ""(asiento disponible)
                       // Entonces si: coloringSeat(seatNumber).length !== 0 es true(el asiento tiene un color), se inhabilita el asiento.
                       coloringSeat(seatNumber).length !== 0 ? true : false //Si !==0 es true, el asiento esta selecionado(se inhabilita para los demas) o vendido(se inhabilita para todos).
                     }

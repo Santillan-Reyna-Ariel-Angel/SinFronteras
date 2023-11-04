@@ -1,7 +1,5 @@
-import { DialogBasic } from '../../DialogBasic/DialogBasic';
-// import { UserRegistration } from './../UserRegistration/UserRegistration';
+// import { DialogBasic } from '../../DialogBasic/DialogBasic';
 import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
-// import { deleteUser } from './../UserRegistration/Firebase/deleteUser';
 import { removeReservation } from './../events/Firebase/removeReservation';
 
 export const getDataTableNecesary = ({ reserveSeatsList, branchNumber }) => {
@@ -68,62 +66,70 @@ export const getDataTableNecesary = ({ reserveSeatsList, branchNumber }) => {
   }
 };
 
-export const getColumnsByUserRole = ({ charge, columns }) => {
-  let columnsFilteredByUserRole = [];
+export const getReserveSeatsByUser = ({ data, identificationNumber }) => {
+  let reserveSeatsByUser = data.filter(
+    (reserve) => reserve.identificationNumberUser === identificationNumber
+  );
 
-  if (
-    charge === 'dueño' ||
-    charge === 'adm-general' ||
-    charge === 'adm-sucursal'
-  ) {
-    columnsFilteredByUserRole = columns;
-  }
-
-  if (charge === 'secretaria(o)') {
-    columnsFilteredByUserRole = columns.filter(
-      (column) => column.name !== 'btnEdit' && column.name !== 'btnDelete'
-    );
-  }
-
-  return columnsFilteredByUserRole;
+  return reserveSeatsByUser;
 };
 
-export const isEdit = ({ charge, columns }) => {
-  let columnsFilteredByUserRole = [];
+// export const getColumnsByUserRole = ({ charge, columns }) => {
+//   let columnsFilteredByUserRole = [];
 
-  if (
-    charge === 'dueño' ||
-    charge === 'adm-general' ||
-    charge === 'adm-sucursal'
-  ) {
-    columnsFilteredByUserRole = columns;
-  }
+//   if (
+//     charge === 'dueño' ||
+//     charge === 'adm-general' ||
+//     charge === 'adm-sucursal'
+//   ) {
+//     columnsFilteredByUserRole = columns;
+//   }
 
-  if (charge === 'secretaria(o)') {
-    columnsFilteredByUserRole = columns.filter(
-      (column) => column.name !== 'btnEdit'
-    );
-  }
+//   if (charge === 'secretaria(o)') {
+//     columnsFilteredByUserRole = columns.filter(
+//       (column) => column.name !== 'btnEdit' && column.name !== 'btnDelete'
+//     );
+//   }
 
-  return columnsFilteredByUserRole;
-};
+//   return columnsFilteredByUserRole;
+// };
 
-export const isDelete = ({ charge, columns_isEditResponse }) => {
-  let columnsFilteredByUserRole = [];
+// export const isEdit = ({ charge, columns }) => {
+//   let columnsFilteredByUserRole = [];
 
-  if (
-    charge === 'dueño' ||
-    charge === 'adm-general' ||
-    charge === 'adm-sucursal'
-  ) {
-    columnsFilteredByUserRole = columns_isEditResponse;
-  }
+//   if (
+//     charge === 'dueño' ||
+//     charge === 'adm-general' ||
+//     charge === 'adm-sucursal'
+//   ) {
+//     columnsFilteredByUserRole = columns;
+//   }
 
-  if (charge === 'secretaria(o)') {
-    columnsFilteredByUserRole = columns_isEditResponse.filter(
-      (column) => column.name !== 'btnDelete'
-    );
-  }
+//   if (charge === 'secretaria(o)') {
+//     columnsFilteredByUserRole = columns.filter(
+//       (column) => column.name !== 'btnEdit'
+//     );
+//   }
 
-  return columnsFilteredByUserRole;
-};
+//   return columnsFilteredByUserRole;
+// };
+
+// export const isDelete = ({ charge, columns_isEditResponse }) => {
+//   let columnsFilteredByUserRole = [];
+
+//   if (
+//     charge === 'dueño' ||
+//     charge === 'adm-general' ||
+//     charge === 'adm-sucursal'
+//   ) {
+//     columnsFilteredByUserRole = columns_isEditResponse;
+//   }
+
+//   if (charge === 'secretaria(o)') {
+//     columnsFilteredByUserRole = columns_isEditResponse.filter(
+//       (column) => column.name !== 'btnDelete'
+//     );
+//   }
+
+//   return columnsFilteredByUserRole;
+// };
