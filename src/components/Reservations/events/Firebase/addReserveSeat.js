@@ -3,7 +3,7 @@ import {
   // update,
   ref,
 } from 'firebase/database';
-import { modulesFirebase } from '../../../../../firebase-config.js';
+import { modulesFirebase } from './../../../../firebase-config.js';
 
 export const addReserveSeat = ({
   branchNumber,

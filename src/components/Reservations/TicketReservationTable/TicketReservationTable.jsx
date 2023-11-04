@@ -33,6 +33,14 @@ export const TicketReservationTable = () => {
   const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
   // console.log('isScreenMaxW_768', isScreenMaxW_768);
 
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  const {
+    branchInformation: { branchNumber },
+  } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
+
+  console.log('branchNumber', branchNumber);
+
   // ContextBranchTripsMade:
   const branchTripsMade = useContext(ContextBranchTripsMade);
   // console.log('branchTripsMade', branchTripsMade);
@@ -53,7 +61,7 @@ export const TicketReservationTable = () => {
 
   console.log('reserveSeatsList', reserveSeatsList);
 
-  const data = getDataTableNecesary({ reserveSeatsList });
+  const data = getDataTableNecesary({ reserveSeatsList, branchNumber });
   console.log('data', data);
 
   // const dataFilteredByBranch = data.filter(
@@ -102,15 +110,15 @@ export const TicketReservationTable = () => {
     //     print: false, //Esto deberia hacer que se omita esta columna para la impresion
     //   },
     // },
-    // {
-    //   name: 'btnDelete',
-    //   label: 'Eliminar',
-    //   options: {
-    //     filter: false, // func para filtrar por la columna
-    //     sort: false, //funcionalidad para odernar la columna
-    //     print: false, //Esto deberia hacer que se omita esta columna para la impresion
-    //   },
-    // },
+    {
+      name: 'btnDelete',
+      label: 'Eliminar',
+      options: {
+        filter: false, // func para filtrar por la columna
+        sort: false, //funcionalidad para odernar la columna
+        print: false, //Esto deberia hacer que se omita esta columna para la impresion
+      },
+    },
   ];
 
   const options = {

@@ -2,8 +2,9 @@ import { DialogBasic } from '../../DialogBasic/DialogBasic';
 // import { UserRegistration } from './../UserRegistration/UserRegistration';
 import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
 // import { deleteUser } from './../UserRegistration/Firebase/deleteUser';
+import { removeReservation } from './../events/Firebase/removeReservation';
 
-export const getDataTableNecesary = ({ reserveSeatsList }) => {
+export const getDataTableNecesary = ({ reserveSeatsList, branchNumber }) => {
   // console.log('reserveSeatsList', reserveSeatsList);
   if (reserveSeatsList.length === 0) {
     return [];
@@ -20,6 +21,7 @@ export const getDataTableNecesary = ({ reserveSeatsList }) => {
           identificationNumberBuyer: reserveSeat[buyerId].buyerData.ciOrNit,
           buyerFullName: reserveSeat[buyerId].buyerData.fullName,
           reserveSeats: reserveSeat[buyerId].seats.join(' , '),
+          travelKey: reserveSeat[buyerId].tripMadeKey,
 
           // btnEdit: (
           //   <DialogBasic
@@ -33,18 +35,23 @@ export const getDataTableNecesary = ({ reserveSeatsList }) => {
           //   />
           // ),
 
-          // btnDelete: (
-          //   <PlainModalButton
-          //     primaryBtnText="Eliminar"
-          //     dialogTitle="Lista de usuarios"
-          //     dialogText={`Esta seguro de eliminar al usuario ${userData.surnames} ${userData.names}?`}
-          //     closeBtnText="cancelar"
-          //     continueBtnText="si"
-          //     functionToExecute={deleteUser}
-          //     functionParameters={userData.identificationNumber}
-          //     primaryBtnColor="error"
-          //   />
-          // ),
+          btnDelete: (
+            <PlainModalButton
+              primaryBtnText="Eliminar"
+              dialogTitle="Lista de reservas"
+              dialogText={`Esta seguro de eliminar esta reserva?`}
+              closeBtnText="cancelar"
+              continueBtnText="si"
+              functionToExecute={removeReservation}
+              functionParameters={{
+                branchNumber,
+                travelKey: reserveSeat[buyerId].tripMadeKey,
+                seatsList: reserveSeat[buyerId].seats,
+                buyerId: reserveSeat[buyerId].buyerData.ciOrNit,
+              }}
+              primaryBtnColor="error"
+            />
+          ),
         };
       });
 

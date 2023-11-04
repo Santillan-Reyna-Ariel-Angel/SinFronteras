@@ -18,8 +18,8 @@ import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
 import { ContextUserData } from '../../../contexts/ContextUserData';
 
 //Firebase Functions:
-import { addReserveSeat } from './events/Firebase/addReserveSeat';
-import { addReservationData } from './events/Firebase/addReservationData';
+import { addReserveSeat } from './../events/Firebase/addReserveSeat';
+import { addReservationData } from './../events/Firebase/addReservationData';
 //States:
 //Components:
 import { PlainModalButton } from '../../PlainModalButton/PlainModalButton';
