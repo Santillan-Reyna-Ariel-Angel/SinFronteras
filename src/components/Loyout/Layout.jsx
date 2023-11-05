@@ -1,19 +1,47 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PrimarySearchAppBar from './../AppBar/AppBar.jsx';
 import { Sidebar } from './../Sidebar/Sidebar';
 import Box from '@mui/material/Box';
 //Estilos:
 import { Background } from './LayoutStyles';
+//Contexts:
+import { ContextBranchOffice } from './../../contexts/ContextBranchOffice.js';
+import { ContextBranchTripsMade } from './../../contexts/ContextBranchTripsMade.js';
 //Others:
-// import { programarTarea } from './functions.js';
+import { getDataForRemoveReservations } from './functions.js';
 
 export const Layout = (props) => {
-  // const fechaDeseada = '05/11/2023'; // Formato "dd/MM/yyyy"
-  // const horaDeseada = Number('08'); // Hora
-  // const minutosDeseados = Number('55'); // Minutos
-  // const segundosDeseados = 0; // Segundos
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  const {
+    branchInformation: { branchNumber },
+  } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
+  console.log('branchNumber', branchNumber);
 
-  // programarTarea(fechaDeseada, horaDeseada, minutosDeseados, segundosDeseados);
+  // ContextBranchTripsMade:
+  const branchTripsMade = useContext(ContextBranchTripsMade);
+  // console.log('branchTripsMade', branchTripsMade);
+
+  let tripMadeKeyList =
+    branchTripsMade !== undefined && branchTripsMade !== null
+      ? Object.keys(branchTripsMade)
+      : [];
+  // console.log('tripMadeKeyList', tripMadeKeyList);
+
+  let reserveSeatsList = tripMadeKeyList
+    .map((tripMadeKey) =>
+      branchTripsMade[tripMadeKey].reserveSeats
+        ? branchTripsMade[tripMadeKey].reserveSeats
+        : 'emptyReserveSeats'
+    )
+    .filter((reserveSeats) => reserveSeats !== 'emptyReserveSeats');
+  // console.log('reserveSeatsList', reserveSeatsList);
+
+  const dataForRemoveReservations = getDataForRemoveReservations({
+    reserveSeatsList,
+    branchNumber,
+  });
+  console.log('dataForRemoveReservations:', dataForRemoveReservations);
 
   return (
     <>

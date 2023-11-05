@@ -1,5 +1,5 @@
 import bcrypt from 'bcryptjs';
-import { format } from 'date-fns';
+import { format, addMinutes } from 'date-fns';
 
 export const uuid = () => {
   return Math.random().toString(16).slice(2);
@@ -155,4 +155,24 @@ export const currentDateTime_ddMMyyyy_HHmm = () => {
   console.log('currentDateTimeFormatted', currentDateTimeFormatted);
 
   return currentDateTimeFormatted;
+};
+
+export const addMinutesToCurrentDateTime = (minutesToAdd) => {
+  // Fecha y hora de la creación de la reserva:
+  let currentDateTime = new Date();
+
+  // Convierte el valor de minutos a un número entero
+  const minutes = parseInt(minutesToAdd, 10);
+
+  // Suma los minutos a la fecha y hora actual
+  const newDateTime = addMinutes(currentDateTime, minutes);
+
+  // Formatea la nueva fecha en el formato "dd/MM/yyyy HH:mm"
+  const newDateTimeFormatted = format(newDateTime, 'dd/MM/yyyy HH:mm', {
+    awareOfUnicodeTokens: true,
+  });
+
+  // console.log('newDateTimeFormatted', newDateTimeFormatted);
+
+  return newDateTimeFormatted;
 };

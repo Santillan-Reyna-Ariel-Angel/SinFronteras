@@ -23,3 +23,41 @@ export const programarTarea = (fecha, hora, minutos, segundos) => {
 // const segundosDeseados = 0; // Segundos
 
 // programarTarea(fechaDeseada, horaDeseada, minutosDeseados, segundosDeseados);
+
+export const getDataForRemoveReservations = ({
+  reserveSeatsList,
+  branchNumber,
+}) => {
+  let data = reserveSeatsList.map((reserveSeats) => {
+    let buyerIdList = Object.keys(reserveSeats);
+
+    let dataAux = buyerIdList.map((buyerId) => {
+      let {
+        tripMadeKey,
+        seats,
+        buyerData: {
+          ciOrNit,
+          reservationCreationDateTime,
+          reservationTimeLimitDateTime,
+        },
+      } = reserveSeats[buyerId];
+
+      return {
+        branchNumber,
+        travelKey: tripMadeKey,
+        seatsList: seats,
+        buyerId: ciOrNit,
+        reservationCreationDateTime,
+        reservationTimeLimitDateTime,
+      };
+    });
+
+    return dataAux;
+  });
+
+  // data sale como array de arrays, por lo que se debe aplanar:
+  let dataFlat = data.flat(1);
+  // console.log(' dataFlat', dataFlat);
+
+  return dataFlat;
+};

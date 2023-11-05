@@ -1,6 +1,9 @@
 import { set, ref } from 'firebase/database';
 import { modulesFirebase } from './../../../../firebase-config.js';
-import { currentDateTime_ddMMyyyy_HHmm } from './../../../globalFunctions.js';
+import {
+  currentDateTime_ddMMyyyy_HHmm,
+  addMinutesToCurrentDateTime,
+} from './../../../globalFunctions.js';
 
 export const addReservationData = ({
   branchNumber,
@@ -12,6 +15,9 @@ export const addReservationData = ({
   const { fire_db } = modulesFirebase;
 
   let reservationCreationDateTime = currentDateTime_ddMMyyyy_HHmm();
+  let reservationTimeLimitDateTime = addMinutesToCurrentDateTime(
+    buyerData.reservationTime
+  );
 
   // Datos para nodo reservas:
   set(
@@ -23,6 +29,7 @@ export const addReservationData = ({
       buyerData: {
         ...buyerData,
         reservationCreationDateTime,
+        reservationTimeLimitDateTime,
       },
       seats: seats,
       userData: userData,
