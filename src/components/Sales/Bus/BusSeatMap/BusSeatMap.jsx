@@ -142,7 +142,7 @@ const BusSeatMap = ({ dataBusTravel }) => {
         ? 'yellow'
         : 'purple'; // purple para reservado
     } else {
-      return '';
+      return ''; // '' para libre y color por defecto. Si se cambia a un color, se debe controlar ese color en: tooltip(estado)  y disabled(Checkbox) del asiento.
     }
   };
 

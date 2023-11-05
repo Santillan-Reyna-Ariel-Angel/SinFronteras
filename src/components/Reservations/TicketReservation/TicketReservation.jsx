@@ -9,6 +9,7 @@ import {
   BodyContainer,
   Travels,
   Seats,
+  ReservationTime,
   BuyerId,
   FullNameBuyer,
   Btn,
@@ -56,6 +57,7 @@ export const TicketReservation = () => {
   const buyerDataDefault = {
     fullName: '',
     ciOrNit: '',
+    reservationTime: '',
   };
 
   const [buyerData, setBuyerData] = useState(buyerDataDefault);
@@ -197,6 +199,30 @@ export const TicketReservation = () => {
               }}
             />
           </Seats>
+
+          <ReservationTime>
+            <TextField
+              value={buyerData.reservationTime}
+              label="Tiempo de reserva (min)"
+              variant="outlined"
+              type="number"
+              required
+              fullWidth
+              size="small"
+              helperText="60=1hr, 120=2hrs, 180=3hrs"
+              onChange={(event) =>
+                setBuyerData({
+                  ...buyerData,
+                  reservationTime: event.target.value,
+                })
+              }
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: Css_TextField_Select.fontSize,
+                },
+              }}
+            />
+          </ReservationTime>
 
           <BuyerId>
             <TextField

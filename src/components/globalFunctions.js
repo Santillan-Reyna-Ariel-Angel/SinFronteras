@@ -1,4 +1,5 @@
 import bcrypt from 'bcryptjs';
+import { format } from 'date-fns';
 
 export const uuid = () => {
   return Math.random().toString(16).slice(2);
@@ -141,4 +142,17 @@ export const verifyPasswordSync = ({ passwordInput, hashedPassword }) => {
 
   // Devolver true si la contraseña coincide con el hash, o false en caso contrario
   return isMatch;
+};
+
+export const currentDateTime_ddMMyyyy_HHmm = () => {
+  //Fecha y hora de la creación de la reserva:
+  let currentDateTime = new Date();
+
+  // Formatea la fecha en el formato "dd/MM/yyyy hh:mm"
+  const currentDateTimeFormatted = format(currentDateTime, 'dd/MM/yyyy HH:mm', {
+    awareOfUnicodeTokens: true,
+  });
+  console.log('currentDateTimeFormatted', currentDateTimeFormatted);
+
+  return currentDateTimeFormatted;
 };
