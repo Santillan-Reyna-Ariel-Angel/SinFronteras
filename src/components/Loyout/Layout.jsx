@@ -8,7 +8,7 @@ import { Background } from './LayoutStyles';
 import { ContextBranchOffice } from './../../contexts/ContextBranchOffice.js';
 import { ContextBranchTripsMade } from './../../contexts/ContextBranchTripsMade.js';
 //Others:
-import { getDataForRemoveReservations } from './functions.js';
+import { getDataForRemoveReservations, programarTarea } from './functions.js';
 
 export const Layout = (props) => {
   //ContextBranchOffice:
@@ -16,7 +16,7 @@ export const Layout = (props) => {
   const {
     branchInformation: { branchNumber },
   } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
-  console.log('branchNumber', branchNumber);
+  // console.log('branchNumber', branchNumber);
 
   // ContextBranchTripsMade:
   const branchTripsMade = useContext(ContextBranchTripsMade);
@@ -42,6 +42,16 @@ export const Layout = (props) => {
     branchNumber,
   });
   console.log('dataForRemoveReservations:', dataForRemoveReservations);
+
+  //SI EXISTEN RESERVAS, SE PROGRAMA LA TAREA PARA ELIMINARLAS SEGUN SU PLAZO:
+  if (dataForRemoveReservations.length !== 0) {
+    dataForRemoveReservations.forEach((reservation) => {
+      let { reservationTimeLimitDateTime } = reservation;
+      let [fecha, hora] = reservationTimeLimitDateTime.split(' ');
+      // console.log('fecha', fecha, 'hora', hora);
+      programarTarea({ fecha, hora, reservationData: reservation });
+    });
+  }
 
   return (
     <>

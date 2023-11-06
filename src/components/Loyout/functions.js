@@ -1,28 +1,38 @@
-const ejecutarTarea = () => {
-  console.log('La función se ha ejecutado a la hora y fecha determinada.');
+import { removeReservation } from './../Reservations/events/Firebase/removeReservation';
+
+const ejecutarTarea = (reservationData) => {
+  console.log('***reservationData: ', reservationData);
+  let { branchNumber, travelKey, seatsList, buyerId } = reservationData;
+
+  removeReservation({
+    branchNumber,
+    travelKey,
+    seatsList,
+    buyerId,
+  });
 };
 
-export const programarTarea = (fecha, hora, minutos, segundos) => {
-  const ahora = new Date();
+export const programarTarea = ({ fecha, hora, reservationData }) => {
+  const currentDateTime = new Date();
 
-  // Parsea la fecha deseada y establece la hora, minutos y segundos
+  // Parsea la fecha deseada en formato "dd/MM/yyyy"
   const [dia, mes, anio] = fecha.split('/').map(Number);
-  const fechaDeseada = new Date(anio, mes - 1, dia, hora, minutos, segundos);
 
-  const tiempoEspera = fechaDeseada - ahora;
+  // Parsea la hora en formato "HH:mm"
+  const [hr, min] = hora.split(':').map(Number);
+
+  const reserveDateTime = new Date(anio, mes - 1, dia, hr, min);
+
+  const tiempoEspera = reserveDateTime - currentDateTime;
 
   console.log('tiempoEspera: ', tiempoEspera);
-
-  // Programa la ejecución de la función a la fecha y hora deseada. tiempoEspera debe estar en milisegundos
-  setTimeout(ejecutarTarea, tiempoEspera);
+  if (tiempoEspera >= 0) {
+    // Programa la ejecución de la función a la fecha y hora deseada. tiempoEspera debe estar en milisegundos
+    setTimeout(ejecutarTarea, tiempoEspera, reservationData);
+  } else {
+    console.log('La fecha y hora de la reserva ya han pasado.');
+  }
 };
-
-// const fechaDeseada = '01/01/2023'; // Formato "dd/MM/yyyy"
-// const horaDeseada = Number('14'); // Hora
-// const minutosDeseados = Number('30'); // Minutos
-// const segundosDeseados = 0; // Segundos
-
-// programarTarea(fechaDeseada, horaDeseada, minutosDeseados, segundosDeseados);
 
 export const getDataForRemoveReservations = ({
   reserveSeatsList,

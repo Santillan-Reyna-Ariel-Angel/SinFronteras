@@ -19,14 +19,6 @@ export const removeReservation = ({
     );
   });
 
-  //Eliminar asiento en BD segun "seatId":
-  // remove(
-  //   ref(
-  //     fire_db,
-  //     `tripsMade/branch_${branchNumber}/${travelKey}/occupiedSeat/${seatId}/`
-  //   )
-  // );
-
   //Eliminar del nodo reserveSeats
   remove(
     ref(
@@ -35,5 +27,3 @@ export const removeReservation = ({
     )
   );
 };
-
-//removeReservation({});
