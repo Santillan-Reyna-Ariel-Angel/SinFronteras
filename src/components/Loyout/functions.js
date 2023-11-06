@@ -31,6 +31,8 @@ export const programarTarea = ({ fecha, hora, reservationData }) => {
     setTimeout(ejecutarTarea, tiempoEspera, reservationData);
   } else {
     console.log('La fecha y hora de la reserva ya han pasado.');
+    //Se elimina la reserva que ya paso su plazo(A los 5seg. Se hace esto por que el servidor no esta 24/7 )
+    setTimeout(ejecutarTarea, 5000, reservationData);
   }
 };
 
