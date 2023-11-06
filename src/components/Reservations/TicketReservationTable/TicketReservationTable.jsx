@@ -70,15 +70,19 @@ export const TicketReservationTable = () => {
 
   const columns = [
     {
-      name: 'identificationNumberUser',
-      label: 'Usuario CI',
-      //   options: {
-      //     filter: false, // func para filtrar por la columna
-      //     //sort: false, //funcionalidad para odernar la columna
-      //     // searchable: false, // se indica si text de la columna podra encontrarse por el buscador
-      //     // viewColumns: false, // func para añadir/quitar a la lista de columnas(de la barra de herramientas)
-      //   },
+      name: 'travelInfo',
+      label: 'Inf. Viaje',
     },
+    // {
+    //   name: 'identificationNumberUser',
+    //   label: 'CI Usuario',
+    //   //   options: {
+    //   //     filter: false, // func para filtrar por la columna
+    //   //     //sort: false, //funcionalidad para odernar la columna
+    //   //     // searchable: false, // se indica si text de la columna podra encontrarse por el buscador
+    //   //     // viewColumns: false, // func para añadir/quitar a la lista de columnas(de la barra de herramientas)
+    //   //   },
+    // },
     {
       name: 'userFullName',
       label: 'Nombre usuario',

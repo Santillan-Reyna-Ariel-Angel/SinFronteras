@@ -20,6 +20,7 @@ export const getDataTableNecesary = ({ reserveSeatsList, branchNumber }) => {
           buyerFullName: reserveSeat[buyerId].buyerData.fullName,
           reserveSeats: reserveSeat[buyerId].seats.join(' , '),
           travelKey: reserveSeat[buyerId].tripMadeKey,
+          travelInfo: reserveSeat[buyerId].travelInfo,
 
           // btnEdit: (
           //   <DialogBasic

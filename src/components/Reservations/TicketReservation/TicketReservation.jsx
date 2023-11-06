@@ -127,6 +127,7 @@ export const TicketReservation = () => {
       buyerData,
       seats: seatListAux,
       userData: userDataAux,
+      travelInfo: selectedTravel.valueForSelect,
     });
   };
 
