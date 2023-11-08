@@ -37,6 +37,7 @@ import { updateTravelExpenses } from '../Firebase/updateTravelExpenses';
 import { PlainModalButton } from './../../PlainModalButton/PlainModalButton';
 //Others:
 import { handleClose } from './../../DialogBasic/DialogBasic';
+import { Css_TextField_Select } from './../../constantData';
 
 export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
   console.log('tripMadeKeyProp', tripMadeKeyProp);
@@ -193,6 +194,13 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                   }),
                   setEnrollmentSelectableOption(event.target.value),
                 ]}
+                sx={{
+                  '.MuiSelect-select': {
+                    // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                    color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                    backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                  },
+                }}
               >
                 {necessaryKeys.map((key, index) => (
                   <MenuItem key={index} value={key.selectableOption}>
@@ -222,6 +230,13 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                   },
                 })),
               ]}
+              sx={{
+                '.MuiInputBase-root': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+              }}
             />
           </DieselStyle>
 
@@ -243,6 +258,13 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                   },
                 }),
               ]}
+              sx={{
+                '.MuiInputBase-root': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+              }}
             />
           </TollStyle>
 
@@ -264,6 +286,13 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                   },
                 }),
               ]}
+              sx={{
+                '.MuiInputBase-root': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+              }}
             />
           </ViaticosStyle>
 
@@ -285,6 +314,13 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                   },
                 }),
               ]}
+              sx={{
+                '.MuiInputBase-root': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+              }}
             />
           </WashedStyle>
 
@@ -306,6 +342,13 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                   },
                 }),
               ]}
+              sx={{
+                '.MuiInputBase-root': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+              }}
             />
           </LaborUnionStyle>
 
@@ -327,6 +370,13 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                   },
                 }),
               ]}
+              sx={{
+                '.MuiInputBase-root': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+              }}
             />
           </OthersStyle>
 
@@ -351,6 +401,13 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                   },
                 }))
               }
+              sx={{
+                '.MuiInputBase-root': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+              }}
             />
           </OtherDescriptionStyle>
 

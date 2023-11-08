@@ -296,6 +296,11 @@ const UserRegistration = ({
           inputProps={{ style: { color: 'black' } }} // Necesario si <DialogBasic/> llama a este componente
           size={isScreenMaxW_768 ? 'small' : 'medium'}
           sx={{
+            '.MuiInputBase-root': {
+              // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+              color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+              backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+            },
             //breakpoint:
             [`@media screen and (max-width: 768px)`]: {
               '.MuiInputBase-root': {
@@ -413,6 +418,11 @@ const UserRegistration = ({
                     helperText={'Ej. 01/06/1985'} //Texto de ayuda (debajo del input)
                     size={isScreenMaxW_768 ? 'small' : 'medium'}
                     sx={{
+                      '.MuiInputBase-root': {
+                        // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                        color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                        backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                      },
                       //breakpoint:
                       [`@media screen and (max-width: 768px)`]: {
                         '.MuiInputBase-root': {
@@ -461,6 +471,11 @@ const UserRegistration = ({
                 onChange={(event) => changeBranchOffice(event.target.value)}
                 size={isScreenMaxW_768 ? 'small' : 'medium'}
                 sx={{
+                  '.MuiSelect-select': {
+                    // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                    color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                    backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                  },
                   //breakpoint:
                   [`@media screen and (max-width: 768px)`]: {
                     // For Select:
@@ -538,6 +553,11 @@ const UserRegistration = ({
                   label="Cargo"
                   size={isScreenMaxW_768 ? 'small' : 'medium'}
                   sx={{
+                    '.MuiInputBase-root': {
+                      // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                      color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                      backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                    },
                     //breakpoint:
                     [`@media screen and (max-width: 768px)`]: {
                       // For TextField:
@@ -637,6 +657,11 @@ const UserRegistration = ({
                   label="Estado"
                   size={isScreenMaxW_768 ? 'small' : 'medium'}
                   sx={{
+                    '.MuiInputBase-root': {
+                      // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                      color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                      backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                    },
                     //breakpoint:
                     [`@media screen and (max-width: 768px)`]: {
                       // For TextField:

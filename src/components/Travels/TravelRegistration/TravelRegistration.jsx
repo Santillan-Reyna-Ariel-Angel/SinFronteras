@@ -246,6 +246,11 @@ export const TravelRegistration = () => {
               }
               size={isScreenMaxW_768 ? 'small' : 'medium'}
               sx={{
+                '.MuiSelect-select': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
                 //breakpoint:
                 [`@media screen and (max-width: 768px)`]: {
                   // For Select:
@@ -281,6 +286,11 @@ export const TravelRegistration = () => {
             }
             size={isScreenMaxW_768 ? 'small' : 'medium'}
             sx={{
+              '.MuiInputBase-root': {
+                // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+              },
               //breakpoint:
               [`@media screen and (max-width: 768px)`]: {
                 // For TextField:
@@ -315,6 +325,11 @@ export const TravelRegistration = () => {
                   helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
                   size={isScreenMaxW_768 ? 'small' : 'medium'}
                   sx={{
+                    '.MuiInputBase-root': {
+                      // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                      color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                      backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                    },
                     //breakpoint:
                     [`@media screen and (max-width: 768px)`]: {
                       // For TextField:
@@ -349,6 +364,11 @@ export const TravelRegistration = () => {
                   className="input"
                   size={isScreenMaxW_768 ? 'small' : 'medium'}
                   sx={{
+                    '.MuiInputBase-root': {
+                      // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                      color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                      backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                    },
                     //breakpoint:
                     [`@media screen and (max-width: 768px)`]: {
                       // For TextField:
@@ -386,6 +406,11 @@ export const TravelRegistration = () => {
               ]}
               size={isScreenMaxW_768 ? 'small' : 'medium'}
               sx={{
+                '.MuiSelect-select': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
                 //breakpoint:
                 [`@media screen and (max-width: 768px)`]: {
                   // For Select:
@@ -421,6 +446,11 @@ export const TravelRegistration = () => {
               }
               size={isScreenMaxW_768 ? 'small' : 'medium'}
               sx={{
+                '.MuiSelect-select': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
                 //breakpoint:
                 [`@media screen and (max-width: 768px)`]: {
                   // For Select:
@@ -467,6 +497,11 @@ export const TravelRegistration = () => {
               ]}
               size={isScreenMaxW_768 ? 'small' : 'medium'}
               sx={{
+                '.MuiSelect-select': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
                 //breakpoint:
                 [`@media screen and (max-width: 768px)`]: {
                   // For Select:
@@ -506,6 +541,11 @@ export const TravelRegistration = () => {
               ]}
               size={isScreenMaxW_768 ? 'small' : 'medium'}
               sx={{
+                '.MuiSelect-select': {
+                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
                 //breakpoint:
                 [`@media screen and (max-width: 768px)`]: {
                   // For Select:
@@ -541,6 +581,11 @@ export const TravelRegistration = () => {
             }
             size={isScreenMaxW_768 ? 'small' : 'medium'}
             sx={{
+              '.MuiInputBase-root': {
+                // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+              },
               //breakpoint:
               [`@media screen and (max-width: 768px)`]: {
                 // For TextField:
