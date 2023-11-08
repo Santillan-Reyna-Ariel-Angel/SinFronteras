@@ -32,10 +32,10 @@ export const Container = styled.form`
   grid-template-areas:
     'Logo InputUser InputUser'
     'Logo InputP InputP' 'Logo RecoverPassword Button';
-  /* background: #00bdb440;
-  backdrop-filter: blur(22px); */
-  background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%);
-
+  /* background: #00bdb440; */
+  /* backdrop-filter: blur(22px); */
+  /* background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%); */
+  background-color: #00bdb2;
   box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.7);
   border: 4px solid #051e34; //contorno
 

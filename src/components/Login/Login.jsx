@@ -71,13 +71,20 @@ const Login = () => {
               id="user"
               className="input"
               required
-              label="Corrreo..."
+              label="Correo..."
               variant="outlined"
               onChange={(event) => setEmail(event.target.value)}
               size="small"
               sx={{
                 '.MuiInputBase-root': {
                   fontSize: Css_TextField_Select.fontSize,
+                  // fontWeight: Css_TextField_Select.fontWeight, // o 500
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+                '& label': {
+                  // color: 'black', // Cambia el color de la propiedad "label"
+                  // opacity: 1, // Cambia la opacidad de la etiqueta (valores entre 0 y 1(default))
                 },
               }}
             />
@@ -96,6 +103,8 @@ const Login = () => {
               sx={{
                 '.MuiInputBase-root': {
                   fontSize: Css_TextField_Select.fontSize,
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                 },
               }}
             />

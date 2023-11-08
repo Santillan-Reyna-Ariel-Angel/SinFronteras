@@ -47,11 +47,52 @@ export const MUI_DATA_TABLE___TEXT_LABELS_ES = {
 
 // FOR Css_TextField_Select:
 export const Css_TextField_Select = {
-  fontSize: 14,
   // fontFamily: 'Times New Roman',
-  fontWeight: 'bold',
-  // color: 'red',
+  fontSize: 14,
+  fontWeight: 'bold', // bold, 500
+  color: 'black', // Cambia el color del texto que se escribe en el TextField
+  backgroundColor: 'rgba(255, 255, 255, 0.4)', // Cambia el color de fondo del TextField
 };
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// VALUES: font-weight
+/* <font-weight-absolute> keyword values */
+// font-weight: normal;
+// font-weight: bold;
+
+/* <font-weight-absolute> numeric values [1,1000] */
+// font-weight: 100;
+// font-weight: 200;
+// font-weight: 300;
+// font-weight: 400; /* normal */
+// font-weight: 500;
+// font-weight: 600;
+// font-weight: 700; /* bold */
+// font-weight: 800;
+// font-weight: 900;
+// sx={{
+//   '.MuiInputBase-root': {
+//     fontSize: Css_TextField_Select.fontSize,
+//     // fontWeight: Css_TextField_Select.fontWeight,
+//     // backgroundColor: 'white', // Cambia el color de fondo del TextField
+//     color: 'blue', // Cambia el color del texto que se escribe
+//     fontWeight: 500,
+//     // border: '1px solid #007bff', // '1px solid rgba(0, 0, 0, 0.2)' NO FUNCIONA BIEN CUANDO SE HACE CLICK EN EL TEXTFIELD
+//   },
+//   '& label': {
+//     // color: 'black', // Cambia el color de la propiedad "label"
+//     // opacity: 1, // Cambia la opacidad de la etiqueta (valores entre 0 y 1(default))
+//   },
+//   '& .Mui-focused': {
+//     // NO USAR MUCHO ESTA PROPIEDAD, YA QUE NO CAMBIA COMO SE ESPERAN LAS COSAS
+//     // Establece estilos adicionales cuando el TextField está enfocado
+//     // color: 'green',
+//     // border: '1px solid #ff00b3', // Cambia el color del borde al estar enfocado
+//   },
+// }}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 //NOTA: Para usarlo en un TextField o Select, se debe usar de la siguiente manera:
 // <TextField>
 // sx={{
