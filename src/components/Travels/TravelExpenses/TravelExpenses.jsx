@@ -196,7 +196,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
                 ]}
                 sx={{
                   '.MuiSelect-select': {
-                    // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                    fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                    fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
                     color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
                     backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                   },
@@ -232,7 +233,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               ]}
               sx={{
                 '.MuiInputBase-root': {
-                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
                   color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
                   backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                 },
@@ -260,7 +262,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               ]}
               sx={{
                 '.MuiInputBase-root': {
-                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
                   color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
                   backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                 },
@@ -288,7 +291,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               ]}
               sx={{
                 '.MuiInputBase-root': {
-                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
                   color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
                   backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                 },
@@ -316,7 +320,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               ]}
               sx={{
                 '.MuiInputBase-root': {
-                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
                   color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
                   backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                 },
@@ -344,7 +349,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               ]}
               sx={{
                 '.MuiInputBase-root': {
-                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
                   color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
                   backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                 },
@@ -372,7 +378,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               ]}
               sx={{
                 '.MuiInputBase-root': {
-                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
                   color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
                   backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                 },
@@ -403,7 +410,8 @@ export const TravelExpenses = ({ tripMadeKey: tripMadeKeyProp }) => {
               }
               sx={{
                 '.MuiInputBase-root': {
-                  // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
                   color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
                   backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                 },
