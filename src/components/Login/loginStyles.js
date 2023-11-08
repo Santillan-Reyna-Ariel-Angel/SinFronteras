@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import backgroundImage from './../../sources/img/Flota2.jpg';
 import Logo from './../../sources/img/LogoSF2.png';
+import { globalColors } from './../constantData';
 
 export const Background = styled.div`
   display: grid;
@@ -35,9 +36,11 @@ export const Container = styled.form`
   /* background: #00bdb440; */
   /* backdrop-filter: blur(22px); */
   /* background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%); */
-  background-color: #00bdb2;
+  /* background-color: #00bdb2;  */
   box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.7);
-  border: 4px solid #051e34; //contorno
+  /* border: 4px solid #051e34; //contorno */
+  background-color: ${globalColors.background};
+  border: 4px solid ${globalColors.border};
 
   @media screen and (max-width: 768px) {
     grid-column-gap: 0px;

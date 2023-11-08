@@ -45,6 +45,11 @@ export const MUI_DATA_TABLE___TEXT_LABELS_ES = {
   },
 };
 
+export const globalColors = {
+  background: '#00bdb2', // verde turqueza
+  border: '#051e34', //contornos azul oscuro
+};
+
 // FOR Css_TextField_Select:
 export const Css_TextField_Select = {
   // fontFamily: 'Times New Roman',
