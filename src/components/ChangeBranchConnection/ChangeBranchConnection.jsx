@@ -121,6 +121,9 @@ export const ChangeBranchConnection = () => {
                 sx={{
                   '.MuiSelect-select': {
                     fontSize: Css_TextField_Select.fontSize,
+                    // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                    color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                    backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
                   },
                 }}
               >

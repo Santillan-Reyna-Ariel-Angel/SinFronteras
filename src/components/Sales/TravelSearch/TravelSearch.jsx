@@ -134,6 +134,11 @@ const TravelSearch = () => {
                   variant="outlined"
                   size="small"
                   sx={{
+                    '.MuiInputBase-root': {
+                      // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                      color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                      backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                    },
                     [`@media screen and (max-width: 768px)`]: {
                       '.MuiInputBase-root': {
                         fontSize: Css_TextField_Select.fontSize,
@@ -161,6 +166,11 @@ const TravelSearch = () => {
                   variant="outlined"
                   size="small"
                   sx={{
+                    '.MuiInputBase-root': {
+                      // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                      color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                      backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                    },
                     [`@media screen and (max-width: 768px)`]: {
                       '.MuiInputBase-root': {
                         fontSize: Css_TextField_Select.fontSize,
@@ -192,6 +202,11 @@ const TravelSearch = () => {
                     // helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
                     size="small"
                     sx={{
+                      '.MuiInputBase-root': {
+                        // fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768, // o 500
+                        color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                        backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                      },
                       [`@media screen and (max-width: 768px)`]: {
                         '.MuiInputBase-root': {
                           fontSize: Css_TextField_Select.fontSize,
