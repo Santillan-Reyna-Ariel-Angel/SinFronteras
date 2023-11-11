@@ -58,7 +58,7 @@ export const Css_TextField_Select = {
   fontWeight: 'bold', // normal(400),  500,  bold(700)
   fontWeighScreenUpperW_768: '400', // normal(400),  500,  bold(700)
   color: 'black', // Cambia el color del texto que se escribe en el TextField/ combinaciones: amarillo, blanco, rojo, negro
-  backgroundColor: 'rgba(255, 255, 255, 0.4)', //  Cambia el color de fondo del TextField. ""=>transparente
+  backgroundColor: 'rgba(255, 255, 255, 0.8)', //  Cambia el color de fondo del TextField. ""=>transparente
 };
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
