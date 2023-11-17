@@ -12,6 +12,7 @@ import {
   ReservationTime,
   BuyerId,
   FullNameBuyer,
+  WarningText,
   Btn,
 } from './TicketReservationStyles';
 //Contexts:
@@ -69,6 +70,7 @@ export const TicketReservation = () => {
   const [buyerData, setBuyerData] = useState(buyerDataDefault);
   console.log('buyerData:', buyerData);
 
+  const [warningMessage, setWarningMessage] = useState(false);
   let occupiedSeatList = [];
   if (selectedTravel !== null) {
     const seatsObj =
@@ -122,6 +124,25 @@ export const TicketReservation = () => {
     }
   };
 
+  const componentDefaultData = () => {
+    setSelectedTravel(null);
+    setSeats('');
+    setBuyerData(buyerDataDefault);
+  };
+
+  const verificarDisponibilidad = (seatListAux) => {
+    const coincidencias = seatListAux.map((seat) =>
+      occupiedSeatList.includes(seat)
+    );
+    console.log('coincidencias:', coincidencias); // si existe un true, significa que un asiento ya no esta disponible
+
+    // IMPORTANTE: every() devuelve true si todos los elementos del array cumplen con la condicion
+    const asientosDisponibles = coincidencias.every(
+      (elemento) => elemento === false // se verifica que todos los asientos esten disponibles
+    );
+    return asientosDisponibles; // true si todos los asientos estan disponibles para la reserva
+  };
+
   const reserveSeats = ({ seats, selectedTravel }) => {
     let seatsList = seats.split(',');
 
@@ -129,30 +150,35 @@ export const TicketReservation = () => {
     let seatListAux = seatsList.map((seat) => seat.trim());
     console.log('seatListAux:', seatListAux);
 
-    seatListAux.forEach((seat) =>
-      addReserveSeat({
+    const asientosDisponibles = verificarDisponibilidad(seatListAux);
+
+    console.log('asientosDisponibles:', asientosDisponibles); // true si todos los asientos estan disponibles para la reserva
+
+    if (asientosDisponibles === true) {
+      seatListAux.forEach((seat) =>
+        addReserveSeat({
+          branchNumber,
+          travelKey: selectedTravel.travelKey,
+          seatId: seat,
+          seatState: 'reservado',
+          userData: userDataAux,
+        })
+      );
+
+      addReservationData({
         branchNumber,
         travelKey: selectedTravel.travelKey,
-        seatId: seat,
-        seatState: 'reservado',
+        buyerData,
+        seats: seatListAux,
         userData: userDataAux,
-      })
-    );
+        travelInfo: selectedTravel.valueForSelect,
+      });
 
-    addReservationData({
-      branchNumber,
-      travelKey: selectedTravel.travelKey,
-      buyerData,
-      seats: seatListAux,
-      userData: userDataAux,
-      travelInfo: selectedTravel.valueForSelect,
-    });
-  };
-
-  const componentDefaultData = () => {
-    setSelectedTravel(null);
-    setSeats('');
-    setBuyerData(buyerDataDefault);
+      setWarningMessage(false);
+      componentDefaultData();
+    } else {
+      setWarningMessage(true);
+    }
   };
 
   return (
@@ -259,6 +285,13 @@ export const TicketReservation = () => {
             />
           </ReservationTime>
 
+          <WarningText>
+            <span>
+              {warningMessage
+                ? 'Uno o varios asientos ya no estan disponibles, verifique nuevamente.'
+                : ''}
+            </span>
+          </WarningText>
           <BuyerId>
             <TextField
               value={buyerData.ciOrNit}
@@ -323,7 +356,7 @@ export const TicketReservation = () => {
                 seats,
                 selectedTravel,
               }}
-              thirdFunctionToExecute={componentDefaultData}
+              // thirdFunctionToExecute={componentDefaultData}
             />
           </Btn>
         </BodyContainer>

@@ -48,7 +48,7 @@ export const BodyContainer = styled.form`
   border-radius: 0px 0px 10px 10px; //en vista: 0px 0px 10px 10px; en <BasicDialog/> : 0px 0px 0px 0px;
   backdrop-filter: blur(18px);
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.7);
-  grid-template-areas: 'Travels' 'Seats' 'ReservationTime' 'BuyerId' 'FullNameBuyer' 'Btn';
+  grid-template-areas: 'Travels' 'Seats' 'ReservationTime' 'BuyerId' 'FullNameBuyer' 'WarningText' 'Btn';
 
   @media screen and (max-width: 768px) {
     grid-template-columns: 250px; //  o  probar auto o xfr
@@ -83,6 +83,14 @@ export const BuyerId = styled.div`
 export const FullNameBuyer = styled.div`
   grid-area: FullNameBuyer;
 `;
+
+export const WarningText = styled.div`
+  grid-area: WarningText;
+  text-align: center;
+  color: red;
+  font-weight: bold;
+`;
+
 export const Btn = styled.div`
   grid-area: Btn;
   justify-self: center;
