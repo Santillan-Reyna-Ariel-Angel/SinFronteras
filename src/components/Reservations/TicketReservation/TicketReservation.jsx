@@ -17,6 +17,7 @@ import {
 //Contexts:
 import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
 import { ContextUserData } from '../../../contexts/ContextUserData';
+import { ContextBranchTripsMade } from '../../../contexts/ContextBranchTripsMade';
 
 //Firebase Functions:
 import { addReserveSeat } from './../events/Firebase/addReserveSeat';
@@ -48,6 +49,11 @@ export const TicketReservation = () => {
   let userDataAux = { identificationNumber, names, surnames };
   console.log('userDataAux:', userDataAux);
 
+  //ContextBranchTripsMade:
+  const branchTripsMade = useContext(ContextBranchTripsMade);
+  const branchTripsMadeAux = branchTripsMade ? branchTripsMade : {};
+  console.log('branchTripsMadeAux:', branchTripsMadeAux);
+
   const [selectedTravel, setSelectedTravel] = useState(null);
   console.log('selectedTravel:', selectedTravel);
 
@@ -62,6 +68,18 @@ export const TicketReservation = () => {
 
   const [buyerData, setBuyerData] = useState(buyerDataDefault);
   console.log('buyerData:', buyerData);
+
+  let occupiedSeatList = [];
+  if (selectedTravel !== null) {
+    const seatsObj =
+      Object.keys(branchTripsMadeAux).length !== 0
+        ? branchTripsMadeAux[selectedTravel.travelKey].occupiedSeat
+        : {};
+    const seatsList =
+      Object.keys(seatsObj).length !== 0 ? Object.keys(seatsObj) : [];
+    occupiedSeatList = seatsList;
+  }
+  console.log('occupiedSeatList:', occupiedSeatList);
 
   let travelDataList = Object.keys(travels).map((travelKey) => {
     let {
