@@ -57,39 +57,12 @@
         "terminal": "interprovincial"
       },
       "travels": {
-        "code1": {
-          "bus": {
-            "designatedBranch": "code1",
-            "enrollment": "bus-006",
-            "filing": "H",
-            "identificationNumberDriver": "",
-            "numberOfFloors": 1,
-            "numberOfSeats": 29,
-            "services": {
-              "bathroom": true,
-              "drinks": false,
-              "tv": true
-            },
-            "status": "activo",
-            "typeOfBus": "leito",
-            "typeOfSeats": "cama"
-          },
-          "busEnrollment": "bus-006",
-          "departmentOfOrigin": "chuquisaca",
-          "departureTime": "21:30",
-          "destinationDepartment": "santa cruz",
-          "destinationLocation": "c. santa cruz",
-          "lane": "0",
-          "localityOfOrigin": "sucre",
-          "travelDate": "30/04/2023",
-          "travelStatus": "pendiente"
-        },
-        "code2": {
+        "travel_21-11-2023_20-30_bus-001": {
           "bus": {
             "designatedBranch": "code1",
             "enrollment": "bus-001",
             "filing": "H",
-            "identificationNumberDriver": "",
+            "identificationNumberDriver": "80000001",
             "numberOfFloors": 1,
             "numberOfSeats": 42,
             "services": {
@@ -104,11 +77,11 @@
           "busEnrollment": "bus-001",
           "departmentOfOrigin": "chuquisaca",
           "departureTime": "20:30",
-          "destinationDepartment": "tarija",
-          "destinationLocation": "yacuiba",
+          "destinationDepartment": "santa cruz",
+          "destinationLocation": "c. santa cruz",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "30/04/2023",
+          "travelDate": "21/11/2023",
           "travelStatus": "pendiente"
         }
       }
@@ -230,22 +203,6 @@
     }
   },
   "companyBuses": {
-    "8965-KUM": {
-      "designatedBranch": "DISPONIBLE",
-      "enrollment": "8965-KUM",
-      "filing": "O",
-      "identificationNumberDriver": "",
-      "numberOfFloors": 1,
-      "numberOfSeats": 40,
-      "services": {
-        "bathroom": true,
-        "drinks": false,
-        "tv": true
-      },
-      "status": "activo",
-      "typeOfBus": "leito",
-      "typeOfSeats": "cama"
-    },
     "bus-001": {
       "designatedBranch": "code1",
       "enrollment": "bus-001",
@@ -295,7 +252,7 @@
       "typeOfSeats": "semi-cama"
     },
     "bus-004": {
-      "designatedBranch": "code1",
+      "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-004",
       "filing": "H",
       "identificationNumberDriver": "",
@@ -392,161 +349,109 @@
   },
   "tripsMade": {
     "branch_code1": {
-      "travel_30-04-2023_20-30_bus-001": {
+      "travel_21-11-2023_20-30_bus-001": {
+        "identificationNumberDriver": "80000001",
         "occupiedSeat": {
-          "0": "vendido-71010001",
-          "7": "vendido-71010001"
+          "0": "vendido-60000000",
+          "6": "vendido-60000000",
+          "10": "vendido-60000000",
+          "23": "preventa-71010001"
         },
         "passengers": {
-          "billingContact_10-03-2023_16-31_7481801": {
+          "billingContact_17-11-2023_14-33_748597": {
             "billingContactInformation": {
-              "ciOrNit": "7481801",
+              "ciOrNit": "748597",
               "countryCode": "+591 (BO)",
-              "email": "marco@gmail.com",
-              "mobile": "7896354",
-              "nameOrSocialReason": "Salinas Guzman Marco Antonio"
+              "email": "melendres@gmail.com",
+              "mobile": "74859123",
+              "nameOrSocialReason": "Melendres Juan"
             },
-            "saleDate": "10/03/2023",
+            "saleDate": "17/11/2023",
             "salesAmountData": {
-              "amountTotal": "30.00",
-              "description": "Familia",
-              "discount": 25,
-              "discountCheckbox": true,
-              "subtotal": 55
+              "amountTotal": 120,
+              "description": "",
+              "discount": "",
+              "discountCheckbox": false,
+              "subtotal": 120
             },
             "ticketsSalesData": {
-              "passenger_7481801": {
+              "passenger_748597": {
                 "branchNumber": "code1",
                 "branchPhone": "64-64646",
                 "busEnrollment": "bus-001",
                 "companyName": "Sin Fronteras",
                 "departureTime": "20:30",
-                "destiny": "yacuiba",
-                "identificationNumber": "7481801",
-                "issuingUser": "santillan reyna cristian andres",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "748597",
+                "issuingUser": "alcon ruben",
                 "lane": "0",
                 "legend": "Gracias por su compra, le deseamos un buen viaje.",
                 "origin": "sucre",
-                "passengerFullName": "Salinas Guzman Marco Antonio",
-                "seatId": "7",
-                "seatPrice": 55,
-                "ticketNumber": "suc-code1_15-01-2023_7481801",
-                "travelDate": "30/04/2023",
+                "passengerFullName": "Melendres Juan",
+                "seatId": "10",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_17-11-2023_748597",
+                "travelDate": "21/11/2023",
+                "typeOfDocument": "Carnet Identidad",
+                "typeOfSeat": "semi-cama"
+              },
+              "passenger_789645": {
+                "branchNumber": "code1",
+                "branchPhone": "64-64646",
+                "busEnrollment": "bus-001",
+                "companyName": "Sin Fronteras",
+                "departureTime": "20:30",
+                "destiny": "c. santa cruz",
+                "identificationNumber": "789645",
+                "issuingUser": "alcon ruben",
+                "lane": "0",
+                "legend": "Gracias por su compra, le deseamos un buen viaje.",
+                "origin": "sucre",
+                "passengerFullName": "Ferrufino Patricia",
+                "seatId": "6",
+                "seatPrice": 60,
+                "ticketNumber": "suc-code1_17-11-2023_789645",
+                "travelDate": "21/11/2023",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "semi-cama"
               }
             },
-            "timeOfSale": "16:31"
+            "timeOfSale": "14:33"
           }
         },
         "travelExpenses": {
           "busEnrollment": "bus-001",
           "expenses": {
-            "diesel": "500",
-            "laborUnion": "10",
-            "otherDescription": "Se compro jabon liquido alcohol",
-            "others": "10",
-            "toll": "10",
-            "viaticos": "150",
-            "washed": "50"
-          },
-          "totalExpenses": 730,
-          "tripMadeKey": "travel_30-04-2023_20-30_bus-001"
-        },
-        "travelIncome": {
-          "incomeTickets": [
-            {
-              "numTickets": 1,
-              "priceTicket": "55",
-              "totalPrice": 55
-            }
-          ],
-          "totalAmountDiscounts": 25,
-          "totalAmountIncome": 30,
-          "totalAmountTickets": 55
-        },
-        "tripMadeKey": "travel_30-04-2023_20-30_bus-001"
-      },
-      "travel_30-04-2023_21-30_bus-006": {
-        "occupiedSeat": {
-          "0": "vendido-71010001",
-          "7": "vendido-71010001"
-        },
-        "passengers": {
-          "billingContact_10-03-2023_16-22_7481901": {
-            "billingContactInformation": {
-              "ciOrNit": "7481901",
-              "countryCode": "+591 (BO)",
-              "email": "javier@gmail.com",
-              "mobile": "67611515",
-              "nameOrSocialReason": "Santillan Quispe Javier Angel"
-            },
-            "saleDate": "10/03/2023",
-            "salesAmountData": {
-              "amountTotal": 100,
-              "description": "",
-              "discount": "",
-              "discountCheckbox": false,
-              "subtotal": 100
-            },
-            "ticketsSalesData": {
-              "passenger_7481901": {
-                "branchNumber": "code1",
-                "branchPhone": "64-64646",
-                "busEnrollment": "bus-006",
-                "companyName": "Sin Fronteras",
-                "departureTime": "21:30",
-                "destiny": "c. santa cruz",
-                "identificationNumber": "7481901",
-                "issuingUser": "santillan reyna cristian andres",
-                "lane": "0",
-                "legend": "Gracias por su compra, le deseamos un buen viaje.",
-                "origin": "sucre",
-                "passengerFullName": "Santillan Quispe Javier Angel",
-                "seatId": "7",
-                "seatPrice": 100,
-                "ticketNumber": "suc-code1_15-01-2023_7481901",
-                "travelDate": "30/04/2023",
-                "typeOfDocument": "Carnet Identidad",
-                "typeOfSeat": "cama"
-              }
-            },
-            "timeOfSale": "16:22"
-          }
-        },
-        "travelExpenses": {
-          "busEnrollment": "bus-006",
-          "expenses": {
-            "diesel": "350",
-            "laborUnion": "10",
+            "diesel": "",
+            "laborUnion": "",
             "otherDescription": "",
-            "others": "0",
-            "toll": "10",
-            "viaticos": "130",
-            "washed": "50"
+            "others": "",
+            "toll": "",
+            "viaticos": "",
+            "washed": ""
           },
-          "totalExpenses": 550,
-          "tripMadeKey": "travel_30-04-2023_21-30_bus-006"
+          "totalExpenses": 0,
+          "tripMadeKey": "travel_21-11-2023_20-30_bus-001"
         },
         "travelIncome": {
           "incomeTickets": [
             {
-              "numTickets": 1,
-              "priceTicket": "100",
-              "totalPrice": 100
+              "numTickets": 2,
+              "priceTicket": "60",
+              "totalPrice": 120
             }
           ],
           "totalAmountDiscounts": 0,
-          "totalAmountIncome": 100,
-          "totalAmountTickets": 100
+          "totalAmountIncome": 120,
+          "totalAmountTickets": 120
         },
-        "tripMadeKey": "travel_30-04-2023_21-30_bus-006"
+        "tripMadeKey": "travel_21-11-2023_20-30_bus-001"
       }
     }
   },
   "users": {
     "60000000": {
-      "address": "hernando siles 50",
+      "address": "hernando siles 125",
       "branchNumberOrCode": "code1",
       "branchOfficeName": "sucursal 1",
       "charge": "dueño",
@@ -555,7 +460,7 @@
       "identificationNumber": "60000000",
       "mobile": "60069988",
       "names": "ruben",
-      "password": "$2a$10$DQ4PkFgaW.MlnR07mzB/ieOaM1uYIJEzUGetJc60x7GdhJ3Ura8Na",
+      "password": "$2a$10$OoRU/KysbvDQAc5J0JCY..gSnNX0A7sKONSz1XF3CSiiAaxTdLmse",
       "sex": "hombre",
       "status": "activo",
       "surnames": "alcon"
@@ -600,7 +505,7 @@
       "identificationNumber": "71010001",
       "mobile": 60616062,
       "names": "cristian andres",
-      "password": "$2a$10$luvM2fBkNcvVOxcYKxHtV.HaZ/QhMPeB9BmSbMkgYB4fo.3kMuxKW",
+      "password": "$2a$10$JZEwjmEnUjhsYwTMfBPtZePZ/JQ9eBt6vQKpNCaNkhoU8yjnAf1s2",
       "sex": "hombre",
       "status": "activo",
       "surnames": "santillan reyna"
