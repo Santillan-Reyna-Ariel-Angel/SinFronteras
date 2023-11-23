@@ -19,15 +19,21 @@
             "destinationLocation": "c. santa cruz",
             "prices": {
               "leito": {
-                "maximumPrice": 106,
-                "minimalPrice": 170,
+                "maximumPrice": 170,
+                "minimalPrice": 106,
                 "seatType": "cama",
                 "typeOfBus": "leito"
               },
               "normal": {
-                "maximumPrice": 86,
-                "minimalPrice": 126,
+                "maximumPrice": 126,
+                "minimalPrice": 86,
                 "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              },
+              "normal": {
+                "maximumPrice": 96,
+                "minimalPrice": 76,
+                "seatType": "normal",
                 "typeOfBus": "normal"
               }
             }
@@ -37,15 +43,21 @@
             "destinationLocation": "yacuiba",
             "prices": {
               "leito": {
-                "maximumPrice": 100,
-                "minimalPrice": 90,
+                "maximumPrice": 130,
+                "minimalPrice": 120,
                 "seatType": "cama",
                 "typeOfBus": "leito"
               },
               "normal": {
-                "maximumPrice": 80,
-                "minimalPrice": 70,
+                "maximumPrice": 110,
+                "minimalPrice": 100,
                 "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              },
+              "normal": {
+                "maximumPrice": 99,
+                "minimalPrice": 79,
+                "seatType": "normal",
                 "typeOfBus": "normal"
               }
             }
@@ -115,6 +127,12 @@
                 "minimalPrice": 116,
                 "seatType": "semi-cama",
                 "typeOfBus": "normal"
+              },
+              "normal": {
+                "maximumPrice": 96,
+                "minimalPrice": 86,
+                "seatType": "normal",
+                "typeOfBus": "normal"
               }
             }
           },
@@ -132,6 +150,12 @@
                 "maximumPrice": 91,
                 "minimalPrice": 81,
                 "seatType": "semi-cama",
+                "typeOfBus": "normal"
+              },
+              "normal": {
+                "maximumPrice": 61,
+                "minimalPrice": 51,
+                "seatType": "normal",
                 "typeOfBus": "normal"
               }
             }

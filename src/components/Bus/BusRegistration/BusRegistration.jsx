@@ -100,6 +100,24 @@ export const BusRegistration = ({ busProp }) => {
 
   const typeOfSeatsList = ['normal', 'semi-cama', 'cama'];
 
+  // const typeOfSeatsList_busNormal = ['semi-cama'];
+  // const typeOfSeatsList_busLeito = ['cama'];
+
+  // const selectOptions = () => {
+  //   let typeOfSeatsList = [];
+  //   if (busData.typeOfBus === '') {
+  //     typeOfSeatsList = [''];
+  //   }
+  //   if (busData.typeOfBus === 'normal') {
+  //     typeOfSeatsList = typeOfSeatsList_busNormal;
+  //   }
+  //   if (busData.typeOfBus === 'leito') {
+  //     typeOfSeatsList = typeOfSeatsList_busLeito;
+  //   }
+
+  //   console.log('selectOptions', typeOfSeatsList);
+  // };
+
   const changeServiceStatus = (event) => {
     setBusData({
       ...busData,

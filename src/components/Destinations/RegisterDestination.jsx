@@ -55,6 +55,9 @@ const departmentsList = [
 ];
 // const typeOfBus = ['normal', 'leito'];
 const typeOfSeatsList = ['normal', 'semi-cama', 'cama'];
+//Crear 1 lista independiente de asientos para cada tipo de bus, esto pra evitar error en BD:
+const typeOfSeatsList_busNormal = ['semi-cama'];
+const typeOfSeatsList_busLeito = ['cama'];
 
 let llave = uuid(); // IMPORTANTE: Es necesario que la funcion uuid este fuera del componente, esto para que se cre una sola id por mas actualizaciones(renderizados del componente) tenga los estado.
 
@@ -313,6 +316,7 @@ export const RegisterDestination = () => {
                     }}
                   >
                     {typeOfSeatsList.map((typeOfSeat, index) => (
+                      //typeOfSeatsList_busNormal.map()
                       <MenuItem key={index} value={typeOfSeat}>
                         {typeOfSeat}
                       </MenuItem>
@@ -507,6 +511,7 @@ export const RegisterDestination = () => {
                     }}
                   >
                     {typeOfSeatsList.map((typeOfSeat, index) => (
+                      //typeOfSeatsList_busLeito.map()
                       <MenuItem key={index} value={typeOfSeat}>
                         {typeOfSeat}
                       </MenuItem>
