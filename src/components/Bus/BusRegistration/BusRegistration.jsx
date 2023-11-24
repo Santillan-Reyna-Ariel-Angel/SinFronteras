@@ -98,7 +98,10 @@ export const BusRegistration = ({ busProp }) => {
 
   const statusList = ['activo', 'inactivo', 'en mantenimiento'];
 
-  const [typeOfSeatsListByBus, setTypeOfSeatsListByBus] = useState([]);
+  let typeOfSeatsListByBus_Default = busProp ? [busProp.typeOfSeats] : []; // NECESARIO si los datos vienen por busProp (Boton editar de la lista de buses)
+  const [typeOfSeatsListByBus, setTypeOfSeatsListByBus] = useState(
+    typeOfSeatsListByBus_Default
+  ); // useState([])
   console.log('typeOfSeatsListByBus: ', typeOfSeatsListByBus);
 
   const getTypeOfSeatsList = (value) => {
