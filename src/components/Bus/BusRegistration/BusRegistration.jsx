@@ -7,8 +7,8 @@ import {
   MenuItem,
   Select,
   //numberOfFloors:
-  Radio,
-  RadioGroup,
+  // Radio,
+  // RadioGroup,
   FormControlLabel,
   // FormLabel,
   //Services:
@@ -29,8 +29,8 @@ import {
   TypeOfSeatsStyle,
   NumberOfSeatsStyle,
   StatusStyle,
-  NumberOfFloorsText,
-  NumberOfFloorsStyle,
+  // NumberOfFloorsText,
+  // NumberOfFloorsStyle,
   ServicesText,
   ServicesStyle,
   // IdentificationNumberDriver,
@@ -98,25 +98,22 @@ export const BusRegistration = ({ busProp }) => {
 
   const statusList = ['activo', 'inactivo', 'en mantenimiento'];
 
-  const typeOfSeatsList = ['normal', 'semi-cama', 'cama'];
+  const [typeOfSeatsListByBus, setTypeOfSeatsListByBus] = useState([]);
+  console.log('typeOfSeatsListByBus: ', typeOfSeatsListByBus);
 
-  // const typeOfSeatsList_busNormal = ['semi-cama'];
-  // const typeOfSeatsList_busLeito = ['cama'];
+  const getTypeOfSeatsList = (value) => {
+    let typeOfSeatsListAux = [];
 
-  // const selectOptions = () => {
-  //   let typeOfSeatsList = [];
-  //   if (busData.typeOfBus === '') {
-  //     typeOfSeatsList = [''];
-  //   }
-  //   if (busData.typeOfBus === 'normal') {
-  //     typeOfSeatsList = typeOfSeatsList_busNormal;
-  //   }
-  //   if (busData.typeOfBus === 'leito') {
-  //     typeOfSeatsList = typeOfSeatsList_busLeito;
-  //   }
+    if (value === 'normal') {
+      typeOfSeatsListAux = ['semi-cama']; // Array de tipo de asientos para bus normal
+    }
+    if (value === 'leito') {
+      typeOfSeatsListAux = ['cama']; // Array de tipo de asientos para bus leito
+    }
 
-  //   console.log('selectOptions', typeOfSeatsList);
-  // };
+    console.log('typeOfSeatsListAux', typeOfSeatsListAux);
+    return typeOfSeatsListAux;
+  };
 
   const changeServiceStatus = (event) => {
     setBusData({
@@ -222,12 +219,16 @@ export const BusRegistration = ({ busProp }) => {
               <Select
                 value={busData.typeOfBus}
                 name="typeOfBus"
-                onChange={(event) =>
+                onChange={(event) => [
                   setBusData({
                     ...busData,
+                    typeOfSeats: '', // para evitar warnings
                     [event.target.name]: event.target.value,
-                  })
-                }
+                  }),
+                  setTypeOfSeatsListByBus(
+                    getTypeOfSeatsList(event.target.value)
+                  ),
+                ]}
                 size={isScreenMaxW_768 ? 'small' : 'medium'}
                 sx={{
                   '.MuiSelect-select': {
@@ -284,7 +285,7 @@ export const BusRegistration = ({ busProp }) => {
                   },
                 }}
               >
-                {typeOfSeatsList.map((typeOfSeat, index) => (
+                {typeOfSeatsListByBus.map((typeOfSeat, index) => (
                   <MenuItem key={index} value={typeOfSeat}>
                     {typeOfSeat}
                   </MenuItem>
