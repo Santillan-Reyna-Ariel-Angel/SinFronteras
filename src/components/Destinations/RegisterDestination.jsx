@@ -54,7 +54,7 @@ const departmentsList = [
   'tarija',
 ];
 // const typeOfBus = ['normal', 'leito'];
-const typeOfSeatsList = ['normal', 'semi-cama', 'cama'];
+// const typeOfSeatsList = ['normal', 'semi-cama', 'cama'];
 //Crear 1 lista independiente de asientos para cada tipo de bus, esto pra evitar error en BD:
 const typeOfSeatsList_busNormal = ['semi-cama'];
 const typeOfSeatsList_busLeito = ['cama'];
@@ -315,8 +315,8 @@ export const RegisterDestination = () => {
                       },
                     }}
                   >
-                    {typeOfSeatsList.map((typeOfSeat, index) => (
-                      //typeOfSeatsList_busNormal.map()
+                    {typeOfSeatsList_busNormal.map((typeOfSeat, index) => (
+                      //typeOfSeatsList_busNormal.map() or typeOfSeatsList.map()
                       <MenuItem key={index} value={typeOfSeat}>
                         {typeOfSeat}
                       </MenuItem>
@@ -510,8 +510,8 @@ export const RegisterDestination = () => {
                       },
                     }}
                   >
-                    {typeOfSeatsList.map((typeOfSeat, index) => (
-                      //typeOfSeatsList_busLeito.map()
+                    {typeOfSeatsList_busLeito.map((typeOfSeat, index) => (
+                      //typeOfSeatsList_busLeito.map() or typeOfSeatsList.map()
                       <MenuItem key={index} value={typeOfSeat}>
                         {typeOfSeat}
                       </MenuItem>
