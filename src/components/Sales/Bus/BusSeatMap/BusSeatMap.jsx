@@ -19,6 +19,7 @@ import {
 import { ContextBranchOffice } from '../../../../contexts/ContextBranchOffice';
 import { ContextBranchTripsMade } from '../../../../contexts/ContextBranchTripsMade';
 import { ContextUserData } from '../../../../contexts/ContextUserData';
+import { ContextCompanyBuses } from './../../../../contexts/ContextCompanyBuses';
 //Firebase Functions:
 import { addOccupiedSeat } from '../../Events/Firebase/addOccupiedSeat.js'; //addOccupiedSeat In BD:
 import { removeOccupiedSeat } from '../../Events/Firebase/removeOccupiedSeat.js'; //removeOccupiedSeat IN BD:
@@ -53,14 +54,34 @@ const BusSeatMap = ({ dataBusTravel }) => {
   const userData = useContext(ContextUserData);
   let { identificationNumber: identificationNumberUser } = userData;
 
+  //ContextCompanyBuses:
+  const companyBuses = useContext(ContextCompanyBuses);
+  let companyBusesAux = companyBuses ? companyBuses : {};
+  console.log('companyBusesAux', companyBusesAux);
+
+  const findBus = (busEnrollment) => {
+    let busCurrent = companyBusesAux[busEnrollment];
+    // console.log('busCurrent', busCurrent);
+    return busCurrent;
+  };
+
   //Props:
   //Tambien se podria extraer: numberOfFloors
   const {
-    bus: { typeOfBus, numberOfSeats, typeOfSeats, enrollment: busEnrollment },
+    // bus: { typeOfBus, numberOfSeats, typeOfSeats, enrollment: busEnrollment }, // Estos datos se sacaran de companyBuses
     destinationLocation,
     travelDate,
     departureTime,
+    busEnrollment,
   } = dataBusTravel ? dataBusTravel : {};
+
+  let bus = findBus(busEnrollment);
+  const {
+    typeOfBus,
+    numberOfSeats,
+    typeOfSeats,
+    // enrollment: busEnrollment, // Esto se saca de dataBusTravel
+  } = bus;
 
   const pricesAux = Object.keys(destinations).map((key) => {
     if (destinations[key].destinationLocation === destinationLocation) {

@@ -54,6 +54,8 @@ export const createTripSchedule = ({
   //Enviar Datos a BD:
   set(ref(fire_db, `branchOffices/${branchNumber}/travels/${travelKeyAux}/`), {
     ...travelData, // se hace una copia de todos los datos
+    identificationNumberDriver, // ! Añadir esto para poder eliminar el nodo "bus" de travels/travelKey/bus en la sucursal
+    bus: {}, // ! Firebase eliminara el nodo vacio "bus:{}" de travels/travelKeyAux/bus en la sucursal, de esta manera ya no necesitamos destructurar todos los datos de travelData
     // numberOfSeats: travelData.bus.numberOfSeats, // Posteriormente considerar asietos de 1er y 2do piso
   });
 

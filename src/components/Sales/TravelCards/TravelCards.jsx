@@ -22,6 +22,7 @@ import {
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
 import { ContextUserData } from './../../../contexts/ContextUserData';
+import { ContextCompanyBuses } from './../../../contexts/ContextCompanyBuses';
 //Firebase Functions:
 import { removeOccupiedSeat } from './../Events/Firebase/removeOccupiedSeat'; //removeOccupiedSeat IN BD
 //Components:
@@ -55,6 +56,17 @@ const TravelCards = ({ travelSearchData }) => {
   const userData = useContext(ContextUserData);
   let { identificationNumber: identificationNumberUser } = userData;
 
+  //ContextCompanyBuses:
+  const companyBuses = useContext(ContextCompanyBuses);
+  let companyBusesAux = companyBuses ? companyBuses : {};
+  // console.log('companyBusesAux', companyBusesAux);
+
+  const findBus = (busEnrollment) => {
+    let busCurrent = companyBusesAux[busEnrollment];
+    // console.log('busCurrent', busCurrent);
+    return busCurrent;
+  };
+
   //Variable al cual se asignara los datos del bus seleccionado:
   const [dataBusTravelIndex, setDataBusTravelIndex] = useState(0); // "" o 0
   let dataOfTheSelectedTravelBusListAux = [];
@@ -65,11 +77,15 @@ const TravelCards = ({ travelSearchData }) => {
     let {
       localityOfOrigin,
       destinationLocation,
-      bus: { typeOfBus },
+      // bus: { typeOfBus }, //Sacar de  companyBusesAux
       departureTime,
       travelDate,
       busEnrollment, // Por si se desea añadir a la card
     } = travels[travelKey];
+
+    //Extraer typeOfBus de  companyBusesAux:
+    let bus = findBus(busEnrollment);
+    let { typeOfBus } = bus;
 
     if (
       destinationLocation === destination &&
@@ -118,12 +134,14 @@ const TravelCards = ({ travelSearchData }) => {
       // si el {} no esta vacio pasa AHORA: si dataOfTheSelectedTravelBusListAux no esta vacio pasa (dataOfTheSelectedTravelBusListAux!==[])
 
       let {
-        bus: { enrollment: busEnrollment },
+        // bus: { enrollment: busEnrollment },  // busEnrollment se saca directamente de dataBusTravel
+        busEnrollment,
         travelDate,
         departureTime,
-      } = dataOfTheSelectedTravelBusListAux.length !== 0
-        ? dataOfTheSelectedTravelBusListAux[dataBusTravelIndex]
-        : {};
+      } =
+        dataOfTheSelectedTravelBusListAux.length !== 0
+          ? dataOfTheSelectedTravelBusListAux[dataBusTravelIndex]
+          : {};
 
       let travelKeyAux = travelKey({
         travelDate,

@@ -21,6 +21,7 @@ import { ContextGeneralCompanyData } from './../../../contexts/ContextGeneralCom
 import { ContextBranchOffice } from './../../../contexts/ContextBranchOffice';
 import { ContextUserData } from './../../../contexts/ContextUserData';
 import { ContextBranchTripsMade } from './../../../contexts/ContextBranchTripsMade';
+import { ContextCompanyBuses } from './../../../contexts/ContextCompanyBuses';
 //Firebase Functions:
 import { saveTripsMade } from './../Events/Firebase/saveTripsMade';
 import { updateOccupiedSeat } from './../Events/Firebase/updateOccupiedSeat';
@@ -71,6 +72,17 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
   const branchTripsMade = useContext(ContextBranchTripsMade);
   // console.log('branchTripsMade', branchTripsMade);
 
+  //ContextCompanyBuses:
+  const companyBuses = useContext(ContextCompanyBuses);
+  let companyBusesAux = companyBuses ? companyBuses : {};
+  console.log('companyBusesAux', companyBusesAux);
+
+  const findBus = (busEnrollment) => {
+    let busCurrent = companyBusesAux[busEnrollment];
+    // console.log('busCurrent', busCurrent);
+    return busCurrent;
+  };
+
   //Props dataBusTravel:
   let {
     localityOfOrigin,
@@ -78,8 +90,13 @@ const BillingRecord = ({ passengersDataTable, dataBusTravel }) => {
     travelDate,
     departureTime,
     lane,
-    bus: { typeOfSeats, enrollment },
+    // bus: { typeOfSeats, enrollment }, // busEnrollment se saca directamente de dataBusTravel
+    busEnrollment,
   } = dataBusTravel;
+
+  //Extraer datos necesarios del bus:
+  let bus = findBus(busEnrollment);
+  let { typeOfSeats, enrollment } = bus;
 
   let ticketsSalesData = passengersDataTable.map((ticketSold) => {
     let identificationNumber = ticketSold.identificationNumber;

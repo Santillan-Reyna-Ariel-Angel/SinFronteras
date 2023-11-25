@@ -103,9 +103,11 @@ export const getTravelKeysList_yesterdayAndTodayTrips = ({
   }); // esto es mucho mejor que usar: todayDate.toLocaleDateString();
   // console.log('formattedTodayDate: ', formattedTodayDate);
 
+  // ! Se cambio travel.bus.identificationNumberDriver === identificationNumber   a  travel.identificationNumberDriver === identificationNumber
+  // ! para eso se creo identificationNumberDriver al programar o registrar un viaje
   let travelsFiltered = travelsList.filter(
     (travel) =>
-      travel.bus.identificationNumberDriver === identificationNumber &&
+      travel.identificationNumberDriver === identificationNumber &&
       (travel.travelDate === formattedTodayDate ||
         getNextDate_ddMMYYYY(travel.travelDate) === formattedTodayDate) //filtramos los viajes DEL DIA ANTERIOR Y DEL DIA ACTUAL
   );

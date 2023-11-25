@@ -74,9 +74,8 @@ export const BusRegistration = ({ busProp }) => {
     designatedBranch: busProp ? busProp.designatedBranch : 'DISPONIBLE', //Necesario para listar buses por branch
     enrollment: busProp ? busProp.enrollment : '', //bus-001
     filing: busProp ? departamentoFiltrado[0] : '', //"H"  hacer coincidor con el formato
-    identificationNumberDriver: busProp
-      ? busProp.identificationNumberDriver
-      : '',
+    // ! No es neceario identificationNumberDriver para crear/editar un nuevo bus
+    // identificationNumberDriver: busProp  ? busProp.identificationNumberDriver  : '',
     numberOfFloors: busProp ? busProp.numberOfFloors : 1,
     numberOfSeats: busProp ? busProp.numberOfSeats : 0, //multiplo de 3(1 piso) y 4 (2 pisos)
     services: busProp

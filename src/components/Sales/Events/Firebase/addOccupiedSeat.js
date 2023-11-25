@@ -13,7 +13,8 @@ export const addOccupiedSeat = ({
   let {
     travelDate,
     departureTime,
-    bus: { enrollment: busEnrollment },
+    //  bus: { enrollment: busEnrollment }, // busEnrollment se saca directamente de dataBusTravel
+    busEnrollment,
   } = dataBusTravel;
 
   // travelKeyAux = 'travel_31-7-2022_21-30_bus-006';
