@@ -29,12 +29,6 @@
                 "minimalPrice": 86,
                 "seatType": "semi-cama",
                 "typeOfBus": "normal"
-              },
-              "normal": {
-                "maximumPrice": 96,
-                "minimalPrice": 76,
-                "seatType": "normal",
-                "typeOfBus": "normal"
               }
             }
           },
@@ -53,12 +47,6 @@
                 "minimalPrice": 100,
                 "seatType": "semi-cama",
                 "typeOfBus": "normal"
-              },
-              "normal": {
-                "maximumPrice": 99,
-                "minimalPrice": 79,
-                "seatType": "normal",
-                "typeOfBus": "normal"
               }
             }
           }
@@ -69,31 +57,16 @@
         "terminal": "interprovincial"
       },
       "travels": {
-        "travel_21-11-2023_20-30_bus-001": {
-          "bus": {
-            "designatedBranch": "code1",
-            "enrollment": "bus-001",
-            "filing": "H",
-            "identificationNumberDriver": "80000001",
-            "numberOfFloors": 1,
-            "numberOfSeats": 42,
-            "services": {
-              "bathroom": true,
-              "drinks": false,
-              "tv": true
-            },
-            "status": "activo",
-            "typeOfBus": "normal",
-            "typeOfSeats": "semi-cama"
-          },
+        "travel_27-11-2023_20-30_bus-001": {
           "busEnrollment": "bus-001",
           "departmentOfOrigin": "chuquisaca",
           "departureTime": "20:30",
-          "destinationDepartment": "santa cruz",
-          "destinationLocation": "c. santa cruz",
+          "destinationDepartment": "tarija",
+          "destinationLocation": "yacuiba",
+          "identificationNumberDriver": "80000001",
           "lane": "0",
           "localityOfOrigin": "sucre",
-          "travelDate": "21/11/2023",
+          "travelDate": "27/11/2023",
           "travelStatus": "pendiente"
         }
       }
@@ -127,12 +100,6 @@
                 "minimalPrice": 116,
                 "seatType": "semi-cama",
                 "typeOfBus": "normal"
-              },
-              "normal": {
-                "maximumPrice": 96,
-                "minimalPrice": 86,
-                "seatType": "normal",
-                "typeOfBus": "normal"
               }
             }
           },
@@ -150,12 +117,6 @@
                 "maximumPrice": 91,
                 "minimalPrice": 81,
                 "seatType": "semi-cama",
-                "typeOfBus": "normal"
-              },
-              "normal": {
-                "maximumPrice": 61,
-                "minimalPrice": 51,
-                "seatType": "normal",
                 "typeOfBus": "normal"
               }
             }
@@ -231,7 +192,6 @@
       "designatedBranch": "code1",
       "enrollment": "bus-001",
       "filing": "H",
-      "identificationNumberDriver": "",
       "numberOfFloors": 1,
       "numberOfSeats": 42,
       "services": {
@@ -247,7 +207,6 @@
       "designatedBranch": "code2",
       "enrollment": "bus-002",
       "filing": "H",
-      "identificationNumberDriver": "",
       "numberOfFloors": 1,
       "numberOfSeats": 43,
       "services": {
@@ -263,7 +222,6 @@
       "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-003",
       "filing": "H",
-      "identificationNumberDriver": "",
       "numberOfFloors": 1,
       "numberOfSeats": 36,
       "services": {
@@ -279,7 +237,6 @@
       "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-004",
       "filing": "H",
-      "identificationNumberDriver": "",
       "numberOfFloors": 1,
       "numberOfSeats": 27,
       "services": {
@@ -295,7 +252,6 @@
       "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-005",
       "filing": "H",
-      "identificationNumberDriver": "",
       "numberOfFloors": 1,
       "numberOfSeats": 26,
       "services": {
@@ -311,7 +267,6 @@
       "designatedBranch": "code1",
       "enrollment": "bus-006",
       "filing": "H",
-      "identificationNumberDriver": "",
       "numberOfFloors": 1,
       "numberOfSeats": 29,
       "services": {
@@ -327,7 +282,6 @@
       "designatedBranch": "code2",
       "enrollment": "bus-008",
       "filing": "H",
-      "identificationNumberDriver": "",
       "numberOfFloors": 2,
       "numberOfSeats": 40,
       "numberOfSeatsFirstFloor": 20,
@@ -345,7 +299,6 @@
       "designatedBranch": "DISPONIBLE",
       "enrollment": "bus-aux",
       "filing": "C",
-      "identificationNumberDriver": "",
       "numberOfFloors": 1,
       "numberOfSeats": 39,
       "services": {
@@ -373,74 +326,52 @@
   },
   "tripsMade": {
     "branch_code1": {
-      "travel_21-11-2023_20-30_bus-001": {
+      "travel_27-11-2023_20-30_bus-001": {
         "identificationNumberDriver": "80000001",
         "occupiedSeat": {
           "0": "vendido-60000000",
-          "6": "vendido-60000000",
-          "10": "vendido-60000000",
-          "23": "preventa-71010001"
+          "15": "vendido-60000000"
         },
         "passengers": {
-          "billingContact_17-11-2023_14-33_748597": {
+          "billingContact_25-11-2023_10-59_748596": {
             "billingContactInformation": {
-              "ciOrNit": "748597",
+              "ciOrNit": "748596",
               "countryCode": "+591 (BO)",
-              "email": "melendres@gmail.com",
-              "mobile": "74859123",
-              "nameOrSocialReason": "Melendres Juan"
+              "email": "peralta@gmail.com",
+              "mobile": "67616016",
+              "nameOrSocialReason": "Peralta Miguel"
             },
-            "saleDate": "17/11/2023",
+            "saleDate": "25/11/2023",
             "salesAmountData": {
-              "amountTotal": 120,
+              "amountTotal": 110,
               "description": "",
               "discount": "",
               "discountCheckbox": false,
-              "subtotal": 120
+              "subtotal": 110
             },
             "ticketsSalesData": {
-              "passenger_748597": {
+              "passenger_748596": {
                 "branchNumber": "code1",
                 "branchPhone": "64-64646",
                 "busEnrollment": "bus-001",
                 "companyName": "Sin Fronteras",
                 "departureTime": "20:30",
-                "destiny": "c. santa cruz",
-                "identificationNumber": "748597",
+                "destiny": "yacuiba",
+                "identificationNumber": "748596",
                 "issuingUser": "alcon ruben",
                 "lane": "0",
                 "legend": "Gracias por su compra, le deseamos un buen viaje.",
                 "origin": "sucre",
-                "passengerFullName": "Melendres Juan",
-                "seatId": "10",
-                "seatPrice": 60,
-                "ticketNumber": "suc-code1_17-11-2023_748597",
-                "travelDate": "21/11/2023",
-                "typeOfDocument": "Carnet Identidad",
-                "typeOfSeat": "semi-cama"
-              },
-              "passenger_789645": {
-                "branchNumber": "code1",
-                "branchPhone": "64-64646",
-                "busEnrollment": "bus-001",
-                "companyName": "Sin Fronteras",
-                "departureTime": "20:30",
-                "destiny": "c. santa cruz",
-                "identificationNumber": "789645",
-                "issuingUser": "alcon ruben",
-                "lane": "0",
-                "legend": "Gracias por su compra, le deseamos un buen viaje.",
-                "origin": "sucre",
-                "passengerFullName": "Ferrufino Patricia",
-                "seatId": "6",
-                "seatPrice": 60,
-                "ticketNumber": "suc-code1_17-11-2023_789645",
-                "travelDate": "21/11/2023",
+                "passengerFullName": "Peralta Miguel",
+                "seatId": "15",
+                "seatPrice": 110,
+                "ticketNumber": "suc-code1_25-11-2023_748596",
+                "travelDate": "27/11/2023",
                 "typeOfDocument": "Carnet Identidad",
                 "typeOfSeat": "semi-cama"
               }
             },
-            "timeOfSale": "14:33"
+            "timeOfSale": "10:59"
           }
         },
         "travelExpenses": {
@@ -455,21 +386,21 @@
             "washed": ""
           },
           "totalExpenses": 0,
-          "tripMadeKey": "travel_21-11-2023_20-30_bus-001"
+          "tripMadeKey": "travel_27-11-2023_20-30_bus-001"
         },
         "travelIncome": {
           "incomeTickets": [
             {
-              "numTickets": 2,
-              "priceTicket": "60",
-              "totalPrice": 120
+              "numTickets": 1,
+              "priceTicket": "110",
+              "totalPrice": 110
             }
           ],
           "totalAmountDiscounts": 0,
-          "totalAmountIncome": 120,
-          "totalAmountTickets": 120
+          "totalAmountIncome": 110,
+          "totalAmountTickets": 110
         },
-        "tripMadeKey": "travel_21-11-2023_20-30_bus-001"
+        "tripMadeKey": "travel_27-11-2023_20-30_bus-001"
       }
     }
   },
