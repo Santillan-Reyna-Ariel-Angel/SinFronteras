@@ -98,7 +98,11 @@ export const getDataTableNecesary = ({ newSettlementDataList }) => {
       btnPassengerManifest: (
         <DialogBasic
           primaryBtnText=" pasajeros"
-          componentView={<PdfPassengerManifest passengerManifestProps={null} />}
+          componentView={
+            <PdfPassengerManifest
+              passengerManifestProps={settlementData.manifestDataForPdf}
+            />
+          }
         />
       ),
     };
@@ -163,4 +167,63 @@ export const getFilteredColumnsByUserRole = ({ charge, columns }) => {
   }
 
   return columnsFilteredByUserRole;
+};
+
+export const getManifestDataForPdf = ({
+  tripMadeKey,
+  passengers,
+  fullNameDriver,
+}) => {
+  // Datos para la cabecera (headerData):
+  let busEnrollment = '';
+  let origin = '';
+  let destiny = '';
+  let travelDate = '';
+  let departureTime = '';
+
+  // Extraer las claves del objeto passengers
+  const passengersKeyList = Object.keys(passengers);
+
+  // Usar map para transformar los datos
+  const dataTable_ListOfLists = passengersKeyList.map((key) => {
+    const ticketsSalesDataKeysList = Object.keys(
+      passengers[key].ticketsSalesData
+    );
+
+    let ticketDataList = ticketsSalesDataKeysList.map((passengerKey) => {
+      const ticketData = passengers[key].ticketsSalesData[passengerKey];
+
+      busEnrollment = ticketData.busEnrollment;
+      origin = ticketData.origin;
+      destiny = ticketData.destiny;
+      travelDate = ticketData.travelDate;
+      departureTime = ticketData.departureTime;
+
+      return {
+        ticketNumber: ticketData.ticketNumber,
+        passengerFullName: ticketData.passengerFullName,
+        identificationNumber: ticketData.identificationNumber,
+        typeOfDocument: ticketData.typeOfDocument,
+        seatId: ticketData.seatId,
+      };
+    });
+
+    // console.log('ticketDataList', ticketDataList);
+    return ticketDataList;
+  });
+
+  // console.log('dataTable_ListOfLists', dataTable_ListOfLists);
+  return {
+    headerData: {
+      tripMadeKey,
+      busEnrollment,
+      fullNameDriver,
+      origin,
+      destiny,
+      travelDate,
+      departureTime,
+      numberOfPassengers: `${dataTable_ListOfLists.flat(1).length}`,
+    },
+    dataTable: dataTable_ListOfLists.flat(1),
+  };
 };

@@ -17,6 +17,7 @@ import './../../../print-global-styles.css'; // IMPORTANTE: Se importa los estil
 //Contexts:
 import { ContextBranchTripsMade } from '../../../../contexts/ContextBranchTripsMade';
 import { ContextUserData } from './../../../../contexts/ContextUserData';
+import { ContextAllUserData } from './../../../../contexts/ContextAllUserData';
 
 //Firebase Functions:
 //States:
@@ -32,6 +33,7 @@ import {
   travelKey,
   getFilteredDataByUserRole,
   getFilteredColumnsByUserRole,
+  getManifestDataForPdf,
 } from './functions';
 import { MUI_DATA_TABLE___TEXT_LABELS_ES } from '../../../constantData';
 import { rolesAndPermissions } from './../../../rolesAndPermissions';
@@ -87,6 +89,11 @@ export const SettlementFormsDataTable = () => {
   //ContextUserData:
   const userData = useContext(ContextUserData);
   const { charge, identificationNumber } = userData ? userData : {};
+
+  //ContextAllUserData:
+  const allUserData = useContext(ContextAllUserData);
+  const allUserDataAux = allUserData ? allUserData : {};
+  // console.log('allUserDataAux', allUserDataAux);
 
   // json to array:
   let branchTripsMadeArray = [];
@@ -162,7 +169,22 @@ export const SettlementFormsDataTable = () => {
       travelIncome,
       travelExpenses: { totalExpenses },
       identificationNumberDriver = '',
+      //newData for Manifest:
+      passengers,
+      tripMadeKey,
     } = tripMade[0];
+
+    //New Data for Manifest:
+    //   Datos del conductor:
+    let { names, surnames } = allUserDataAux[identificationNumberDriver];
+    let fullNameDriver = `${names} ${surnames}`;
+
+    let manifestDataForPdf = getManifestDataForPdf({
+      tripMadeKey,
+      passengers,
+      fullNameDriver,
+    });
+    // console.log('manifestDataForPdf', manifestDataForPdf);
 
     //crear funcion para crear: totalSettlement y adicionarlo dentro del obj
     let totalSettlement =
@@ -173,6 +195,7 @@ export const SettlementFormsDataTable = () => {
       ...settlementData,
       travelIncome,
       identificationNumberDriver,
+      manifestDataForPdf,
     };
   });
   console.log('newSettlementDataList', newSettlementDataList);
