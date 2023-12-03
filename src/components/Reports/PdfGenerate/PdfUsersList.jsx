@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { GlobalStyle } from './PdfGenerateStyles';
+import { useMediaQuery } from '@mui/material';
 import { generarListaUsuarios } from './js/generar-pdfs.js';
 import usuariosData from './data/usuarios.data.json';
 
 export const PdfUsersList = ({ usuariosDataProps }) => {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
   // Es necesario que "passengerManifestList" sea un array:
   //  *si se presiona el boton de cada fila "usuariosDataProps" llega como "obejeto"
   //  *si se imprime en masa "usuariosDataProps" llega como un "array"
@@ -35,7 +39,7 @@ export const PdfUsersList = ({ usuariosDataProps }) => {
           id="js-embed"
           src={embedSrc}
           type="application/pdf"
-          width="100%"
+          width={isScreenMaxW_768 ? '100%' : '600px'} //100% , 425px, 450px, 600px
           height="96%"
           style={{ display: embedSrc ? 'block' : 'none' }}
         />
