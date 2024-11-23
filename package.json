@@ -3,6 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "16.20.2"
+  },
   "dependencies": {
     "@date-io/date-fns": "^2.11.0",
     "@emotion/react": "^11.4.1",
