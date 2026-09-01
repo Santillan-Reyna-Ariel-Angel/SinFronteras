@@ -1,0 +1,101 @@
+import React from 'react';
+//Styles:
+import {
+  Background,
+  BodyContainer,
+  LogoContainer,
+  GeneralInformation,
+  Route,
+  PassengerInformation,
+  BusInformation,
+  LogoPng,
+  CompanyName,
+  Legend,
+} from './Tickets1Styles';
+//Others:
+import { dataForPassengerTickets } from './../datos'; //Importando cantidad de pasajeros:
+
+const Tickets1 = ({ data }) => {
+  const dataDefault = dataForPassengerTickets ? dataForPassengerTickets : [];
+  return (
+    <>
+      {dataDefault
+        ? dataDefault.map((data) => (
+            <>
+              <Background>
+                <BodyContainer>
+                  <LogoContainer>
+                    <LogoPng />
+                    <CompanyName>
+                      <span>{data.companyName}</span>
+                    </CompanyName>
+                  </LogoContainer>
+                  <GeneralInformation>
+                    <p>
+                      <span>Sucursal: </span>
+                      {data.branchNumber}
+                    </p>
+                    <p>
+                      <span>Ticket: </span>
+                      {data.ticketNumber}
+                    </p>
+                    <p>
+                      <span>Emitido por: </span>
+                      {data.issuingUser}
+                    </p>
+                    <p>
+                      <span>Teléfono: </span>
+                      {data.branchPhone}
+                    </p>
+                  </GeneralInformation>
+                  <Route>
+                    <span>
+                      {data.origin} - {data.destiny}
+                    </span>
+                  </Route>
+                  <PassengerInformation>
+                    <p>
+                      <span>Fecha: </span>
+                      {data.travelDate}
+                    </p>
+                    <p>
+                      <span>Hora de salida: </span>
+                      {data.departureTime}
+                    </p>
+                    <p>
+                      <span>Carril: </span>
+                      {data.lane}
+                    </p>
+                    <p>
+                      <span>Pasajero: </span>
+                      {data.passengerFullName}
+                    </p>
+                    <p>
+                      <span>Ci: </span>
+                      {data.identificationNumber}
+                    </p>
+                  </PassengerInformation>
+                  <BusInformation>
+                    <p>
+                      <span>Asiento: </span>
+                      <p className="seat">{data.seatId}</p>
+                      <p className="typeSeat">{data.typeOfSeat}</p>
+                    </p>
+                    <p className="price">
+                      <span>Precio: </span>
+                      {data.seatPrice} Bs
+                    </p>
+                  </BusInformation>
+                  <Legend>
+                    <p>{data.legend}</p>
+                  </Legend>
+                </BodyContainer>
+              </Background>
+            </>
+          ))
+        : null}
+    </>
+  );
+};
+
+export { Tickets1 };

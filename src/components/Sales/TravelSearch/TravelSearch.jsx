@@ -1,26 +1,32 @@
 import React, { useState, useContext, useEffect } from 'react';
-import TextField from '@mui/material/TextField';
-import Autocomplete from '@mui/material/Autocomplete';
-//fecha
+//MUI:
+import { TextField, Autocomplete } from '@mui/material/';
+// manejo de fechas:
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
-//Context branchOffice
-import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
-//Estilos
+import { DatePicker, LocalizationProvider } from '@mui/x-date-pickers/';
+// idioma del calentario:
+import { es } from 'date-fns/locale';
+
+//Styles:
 import {
   Background,
   Container,
   InputOrigin,
   InputDestination,
   InputDate,
-  // ButtonSearch,
 } from './TravelSearchStyles';
-//Compoenetes
-import TravelCards from './../TravelCards/TravelCards';
+//Contexts:
+import { ContextBranchOffice } from '../../../contexts/ContextBranchOffice';
+//Components:
+import { TravelCards } from './../TravelCards/TravelCards';
+//Others:
+import { dateFormat } from '../../globalFunctions';
+import { Css_TextField_Select } from './../../constantData';
+
 const TravelSearch = () => {
+  //ContextBranchOffice:
   const branchOffice = useContext(ContextBranchOffice);
-  // console.log("branchOfficeInTravelSearch", branchOffice);
+  // console.log('branchOfficeInTravelSearch', branchOffice);
 
   const { branchInformation } = branchOffice
     ? branchOffice
@@ -28,8 +34,9 @@ const TravelSearch = () => {
   let { destinations, location } = branchInformation;
   // console.log("destinations", destinations,"location", location);
 
-  const [origin, setOrigin] = useState(''); //problema
+  const [origin, setOrigin] = useState(''); //problema (Es necesario actualizar la pagina)
   // console.log(origin, "origin");
+
   useEffect(() => {
     setOrigin(location);
     // console.log(origin, "<<<---<<");
@@ -44,19 +51,35 @@ const TravelSearch = () => {
       })
     : [];
   // console.log("destinationsArray", destinationsArray);
+
   const [destination, setDestination] = useState(
     destinationsArray[0] ? destinationsArray[0] : ''
   );
   // console.log("destination", destination);
 
-  // //fecha
+  //Fecha de viaje:
   const [travelDate, setTravelDate] = useState(new Date());
-  const formattedTravelDate = travelDate.toLocaleDateString();
+  const formattedTravelDate = dateFormat({
+    date: travelDate,
+    format: 'dd/mm/yyyy',
+  }); // esto es mucho mejor que usar: travelDate.toLocaleDateString();
 
-  // console.log("travelDate: ", travelDate);
+  // console.log('travelDate: ', travelDate);
   console.log('formattedTravelDate: ', formattedTravelDate);
 
-  function recoverTripData() {
+  const changeDate = (inputDate) => {
+    let isErrorDate =
+      inputDate === null || inputDate === '' || isNaN(inputDate) ? true : false;
+
+    if (isErrorDate === true) {
+      setTravelDate(null);
+    } else {
+      setTravelDate(inputDate);
+    }
+  };
+
+  //Recuperar TravelCards que coincidan con el origen, destino y fecha de viaje:
+  function recoverTravelCards() {
     if (
       origin !== '' &&
       destination !== '' &&
@@ -68,15 +91,6 @@ const TravelSearch = () => {
       destination !== null &&
       formattedTravelDate !== null
     ) {
-      // console.log(
-      //   'origin:',
-      //   origin,
-      //   '| destination:',
-      //   destination,
-      //   '| formattedTravelDate:',
-      //   formattedTravelDate
-      // );
-
       return (
         <TravelCards
           travelSearchData={{
@@ -118,6 +132,21 @@ const TravelSearch = () => {
                   {...params}
                   label="Origen"
                   variant="outlined"
+                  size="small"
+                  sx={{
+                    '.MuiInputBase-root': {
+                      fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                      fontWeight:
+                        Css_TextField_Select.fontWeighScreenUpperW_768,
+                      color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                      backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                    },
+                    [`@media screen and (max-width: 768px)`]: {
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize,
+                      },
+                    },
+                  }}
                 />
               )}
             />
@@ -137,30 +166,71 @@ const TravelSearch = () => {
                   {...params}
                   label="Destino"
                   variant="outlined"
+                  size="small"
+                  sx={{
+                    '.MuiInputBase-root': {
+                      fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                      fontWeight:
+                        Css_TextField_Select.fontWeighScreenUpperW_768,
+                      color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                      backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                    },
+                    [`@media screen and (max-width: 768px)`]: {
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSize,
+                      },
+                    },
+                  }}
                 />
               )}
             />
           </InputDestination>
           <InputDate>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <LocalizationProvider
+              dateAdapter={AdapterDateFns}
+              adapterLocale={es}
+            >
               <DatePicker
                 label="Fecha de viaje"
                 value={travelDate}
                 minDate={new Date()}
+                inputFormat="dd/MM/yyyy" //IMPORTANTE formato de fecha
                 onChange={(newValue) => {
-                  setTravelDate(newValue);
+                  // setTravelDate(newValue);
+                  changeDate(newValue);
                 }}
                 renderInput={(params) => (
-                  <TextField className="input" {...params} />
+                  <TextField
+                    className="input"
+                    {...params}
+                    // helperText={'Ej. 21/09/2022'} //Texto de ayuda (debajo del input)
+                    size="small"
+                    sx={{
+                      '.MuiInputBase-root': {
+                        fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                        fontWeight:
+                          Css_TextField_Select.fontWeighScreenUpperW_768,
+                        color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                        backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                      },
+                      [`@media screen and (max-width: 768px)`]: {
+                        '.MuiInputBase-root': {
+                          fontSize: Css_TextField_Select.fontSize,
+                        },
+                      },
+                    }}
+                  />
                 )}
               />
             </LocalizationProvider>
           </InputDate>
         </Container>
       </Background>
-      {recoverTripData()}
+
+      {/* Mostrar travelCards: */}
+      {recoverTravelCards()}
     </>
   );
 };
 
-export default TravelSearch;
+export { TravelSearch };

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
+import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 
 export default function DialogSingOff() {
   const history = useHistory();
@@ -17,8 +17,8 @@ export default function DialogSingOff() {
 
   const handleCloseYes = () => {
     setOpen(false);
-    sessionStorage.removeItem("userEmail");
-    history.push("/acceso");
+    sessionStorage.removeItem('userEmail');
+    history.push('/acceso');
   };
 
   const handleCloseBack = () => {
@@ -37,7 +37,7 @@ export default function DialogSingOff() {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Realmente desea cerrar sesion?"}
+          {'Realmente desea cerrar sesion?'}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">

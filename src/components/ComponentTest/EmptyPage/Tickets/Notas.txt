@@ -1,0 +1,5 @@
+Componentes considerados a eliminar:
+*Por que solo son vista del en el navegador:
+>Tickets
+>Tickets2
+

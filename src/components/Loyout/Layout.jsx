@@ -1,10 +1,58 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import PrimarySearchAppBar from './../AppBar/AppBar.jsx';
-import CustomizedList from './../Sidebar/Sidebar';
+import { Sidebar } from './../Sidebar/Sidebar';
 import Box from '@mui/material/Box';
 //Estilos:
 import { Background } from './LayoutStyles';
-const Layout = (props) => {
+//Contexts:
+import { ContextBranchOffice } from './../../contexts/ContextBranchOffice.js';
+import { ContextBranchTripsMade } from './../../contexts/ContextBranchTripsMade.js';
+//Others:
+import { getDataForRemoveReservations, programarTarea } from './functions.js';
+
+export const Layout = (props) => {
+  //ContextBranchOffice:
+  const branchOffice = useContext(ContextBranchOffice);
+  const {
+    branchInformation: { branchNumber },
+  } = branchOffice ? branchOffice : { branchInformation: { branchNumber: '' } };
+  // console.log('branchNumber', branchNumber);
+
+  // ContextBranchTripsMade:
+  const branchTripsMade = useContext(ContextBranchTripsMade);
+  // console.log('branchTripsMade', branchTripsMade);
+
+  let tripMadeKeyList =
+    branchTripsMade !== undefined && branchTripsMade !== null
+      ? Object.keys(branchTripsMade)
+      : [];
+  // console.log('tripMadeKeyList', tripMadeKeyList);
+
+  let reserveSeatsList = tripMadeKeyList
+    .map((tripMadeKey) =>
+      branchTripsMade[tripMadeKey].reserveSeats
+        ? branchTripsMade[tripMadeKey].reserveSeats
+        : 'emptyReserveSeats'
+    )
+    .filter((reserveSeats) => reserveSeats !== 'emptyReserveSeats');
+  // console.log('reserveSeatsList', reserveSeatsList);
+
+  const dataForRemoveReservations = getDataForRemoveReservations({
+    reserveSeatsList,
+    branchNumber,
+  });
+  console.log('dataForRemoveReservations:', dataForRemoveReservations);
+
+  //SI EXISTEN RESERVAS, SE PROGRAMA LA TAREA PARA ELIMINARLAS SEGUN SU PLAZO:
+  if (dataForRemoveReservations.length !== 0) {
+    dataForRemoveReservations.forEach((reservation) => {
+      let { reservationTimeLimitDateTime } = reservation;
+      let [fecha, hora] = reservationTimeLimitDateTime.split(' ');
+      // console.log('fecha', fecha, 'hora', hora);
+      programarTarea({ fecha, hora, reservationData: reservation });
+    });
+  }
+
   return (
     <>
       <Background>
@@ -20,12 +68,10 @@ const Layout = (props) => {
             // bgcolor: "background.paper",
           }}
         >
-          {CustomizedList()}
+          {Sidebar()}
           {props.children}
         </Box>
       </Background>
     </>
   );
 };
-
-export default Layout;

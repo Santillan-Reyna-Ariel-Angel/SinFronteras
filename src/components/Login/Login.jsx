@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import React, { useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 //Estilos:
 import {
   Background,
@@ -11,27 +11,54 @@ import {
   TextRecoverPassword,
 } from './loginStyles';
 import { TextField, Button } from '@mui/material';
-
-//EventosFirebase;
-import { Auth } from '../../events/firebaseEvents';
+//context:
+import { ContextAllUserDataForLogin } from './../../contexts/ContextAllUserDataForLogin';
+// Others:
+import { validateUserAccess, redirectToPageByCharge } from './loginFunctions';
+// import { saveDataSessionStorage } from './../../contexts/saveDataSessionStorage';
+//EventosFirebase:
+// import { Auth } from '../../events/firebaseEvents';
+import { Css_TextField_Select } from './../constantData';
 
 const Login = () => {
-  const history = useHistory();
+  // ContextAllUserDataForLogin:
+  const allUserDataForLogin = useContext(ContextAllUserDataForLogin);
+  // console.log('allUserDataForLogin', allUserDataForLogin);
+  // json to array:
+  let allUserDataForLoginList = [];
+  for (let i in allUserDataForLogin)
+    allUserDataForLoginList.push(allUserDataForLogin[i]);
+  // console.log('allUserDataForLoginList', allUserDataForLoginList);
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [credentialError, setCredentialError] = useState(false);
 
   const sendLogin = async () => {
+    let isValidateUserAccess = validateUserAccess({
+      allUserDataList: allUserDataForLoginList,
+      email,
+      passwordInput: password,
+    });
+    console.log('isValidateUserAccess: ', isValidateUserAccess);
+
+    //OTRA FORMA DE VALIDAR EL ACCESO:
     // console.log("sendLogin:", email, password);
-    const accessToken = await Auth(email, password);
-    if (accessToken !== null) {
+    // const accessToken = await Auth(email, password);
+    // console.log('****accessToken:', accessToken);
+    // if (accessToken !== null && accessToken !== undefined){...}
+
+    if (isValidateUserAccess) {
       sessionStorage.setItem('userEmail', email);
-      history.push('/principal');
+      // saveDataSessionStorage({ dataName: 'userEmail', newDataValue: email }); //NO FUNCIONA, al parecer al recargar(window.location.assign) se pierden los datos.
+      redirectToPageByCharge({ allUserDataForLoginList, email });
+
       setCredentialError(false);
     } else {
       setCredentialError(true);
     }
   };
+
   return (
     <>
       <Background>
@@ -44,9 +71,22 @@ const Login = () => {
               id="user"
               className="input"
               required
-              label="Corrreo..."
+              label="Correo..."
               variant="outlined"
               onChange={(event) => setEmail(event.target.value)}
+              size="small"
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+                '& label': {
+                  // color: 'black', // Cambia el color de la propiedad "label"
+                  // opacity: 1, // Cambia la opacidad de la etiqueta (valores entre 0 y 1(default))
+                },
+              }}
             />
           </InputUser>
           <InputPassword>
@@ -59,10 +99,19 @@ const Login = () => {
               label="Contraseña..."
               variant="outlined"
               onChange={(event) => setPassword(event.target.value)}
+              size="small"
+              sx={{
+                '.MuiInputBase-root': {
+                  fontSize: Css_TextField_Select.fontSizeScreenUpperW_768,
+                  fontWeight: Css_TextField_Select.fontWeighScreenUpperW_768,
+                  color: Css_TextField_Select.color, // Cambia el color del texto que se escribe en el TextField
+                  backgroundColor: Css_TextField_Select.backgroundColor, // Cambia el color de fondo del TextField
+                },
+              }}
             />
           </InputPassword>
           <TextRecoverPassword>
-            <Link className="link" to="/recuperar-contraseña">
+            <Link className="link" to="/recuperar-contrasenia">
               {credentialError ? 'Olvidaste tu contraseña?' : ''}
             </Link>
           </TextRecoverPassword>

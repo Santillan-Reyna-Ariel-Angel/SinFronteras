@@ -1,0 +1,7 @@
+Componente que genera pdf y es vista en el navegador:
+>TicketsSold
+>datos.js es para probar TicketsSold
+
+(09/08/2023) New Compoenet PdfGenerate(with pdfJs):
+> Solo se necesita la carpeta : "TicketsSoldDataTable". Ya no es necesario la carpeta "TicketsSold"
+> Solo se necesita la carpeta : "SettlementFormsDataTable".

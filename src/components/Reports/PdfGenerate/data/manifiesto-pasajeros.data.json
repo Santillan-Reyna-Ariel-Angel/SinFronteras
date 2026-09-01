@@ -1,0 +1,112 @@
+{
+  "headerData": {
+    "tripMadeKey": "travel_03-09-2023_21-30_1241-KDS",
+    "busEnrollment": "1241-KDS",
+    "fullNameDriver": "Américo Ortuño",
+    "origin": "Sucre",
+    "destiny": "Santa cruz",
+    "travelDate": "2023-09-03",
+    "departureTime": "21:30",
+    "numberOfPassengers": "14"
+  },
+  "dataTable": [
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7481700",
+      "passengerFullName": "Santillan Reyna Ariel Angel",
+      "identificationNumber": "7481700",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "25"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7481400",
+      "passengerFullName": "Santillan Reyna Andres",
+      "identificationNumber": "7481400",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "7"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7481500",
+      "passengerFullName": "Diego Rios Perez",
+      "identificationNumber": "7481500",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "8"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7481600",
+      "passengerFullName": "Paola Guzman Arce",
+      "identificationNumber": "7481600",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "9"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7481700",
+      "passengerFullName": "Luis Perez Rodriguez",
+      "identificationNumber": "7481700",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "10"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7481800",
+      "passengerFullName": "Maria Torres Gomez",
+      "identificationNumber": "7481800",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "11"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7481900",
+      "passengerFullName": "Juan Ramirez Castillo",
+      "identificationNumber": "7481900",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "12"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7482000",
+      "passengerFullName": "Liliana Cruz Chavez",
+      "identificationNumber": "7482000",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "13"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7482100",
+      "passengerFullName": "Miguel Soto Morales",
+      "identificationNumber": "7482100",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "14"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7482200",
+      "passengerFullName": "Ana Martinez Paredes",
+      "identificationNumber": "7482200",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "15"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7482300",
+      "passengerFullName": "Pedro Lopez Silva",
+      "identificationNumber": "7482300",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "16"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7482400",
+      "passengerFullName": "Carla Mendoza Rojas",
+      "identificationNumber": "7482400",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "17"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7482500",
+      "passengerFullName": "Javier Castro Vargas",
+      "identificationNumber": "7482500",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "18"
+    },
+    {
+      "ticketNumber": "suc-code1_15-01-2023_7482600",
+      "passengerFullName": "Lorena Ortega Navarro",
+      "identificationNumber": "7482600",
+      "typeOfDocument": "Carnet Identidad",
+      "seatId": "19"
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+import React from 'react';
+//Styles:
+import {
+  Background,
+  BodyContainer,
+  LogoContainer,
+  GeneralInformation,
+  Route,
+  PassengerInformation,
+  BusInformation,
+  LogoPng,
+  CompanyName,
+  Legend,
+} from './TicketsSoldStyles';
+//Others:
+import { dataForPassengerTickets } from '../datos'; //Importando cantidad de pasajeros
+
+export const TicketsSold = React.forwardRef((props, ref) => {
+  // Este componente tiene el logo mas pequeño:
+  // const ticketData = dataForPassengerTickets ? dataForPassengerTickets : [];
+
+  let { ticketDataProps } = props;
+  // console.log('ticketDataProps', ticketDataProps);
+
+  const ticketData = ticketDataProps
+    ? [ticketDataProps]
+    : dataForPassengerTickets;
+
+  console.log('ticketData', ticketData);
+
+  return (
+    <div ref={ref}>
+      {ticketData
+        ? ticketData.map((data, index) => (
+            <div key={index}>
+              <Background>
+                <BodyContainer>
+                  <LogoContainer>
+                    <LogoPng />
+                    <CompanyName>
+                      <span>{data.companyName}</span>
+                    </CompanyName>
+                  </LogoContainer>
+                  <GeneralInformation>
+                    <p>
+                      <span>Sucursal: </span>
+                      {data.branchNumber}
+                    </p>
+                    <p>
+                      <span>Ticket: </span>
+                      {data.ticketNumber}
+                    </p>
+                    <p>
+                      <span>Emitido por: </span>
+                      {data.issuingUser}
+                    </p>
+                    <p>
+                      <span>Teléfono: </span>
+                      {data.branchPhone}
+                    </p>
+                  </GeneralInformation>
+                  <Route>
+                    <span>
+                      {data.origin} - {data.destiny}
+                    </span>
+                  </Route>
+                  <PassengerInformation>
+                    <p>
+                      <span>Fecha: </span>
+                      {data.travelDate}
+                    </p>
+                    <p>
+                      <span>Hora de salida: </span>
+                      {data.departureTime}
+                    </p>
+                    <p>
+                      <span>Carril: </span>
+                      {data.lane}
+                    </p>
+                    <p>
+                      <span>Pasajero: </span>
+                      {data.passengerFullName}
+                    </p>
+                    <p>
+                      <span>Ci: </span>
+                      {data.identificationNumber}
+                    </p>
+                  </PassengerInformation>
+                  <BusInformation>
+                    <p>
+                      <span>Asiento: </span>
+                      <p className="seat">{data.seatId}</p>
+                      <p className="typeSeat">{data.typeOfSeat}</p>
+                    </p>
+                    <p className="price">
+                      <span>Precio: </span>
+                      {data.seatPrice} Bs
+                    </p>
+                  </BusInformation>
+                  <Legend>
+                    <p>{data.legend}</p>
+                  </Legend>
+                </BodyContainer>
+              </Background>
+
+              {(index + 1) % 3 === 0 ? (
+                <>
+                  <div
+                    style={{
+                      // marginTop: '1rem',
+                      marginTop: '10px', //Si aumentamos no hay diferencia en el pdf
+                      display: 'block',
+                      pageBreakBefore: 'auto',
+                    }}
+                  />
+                </>
+              ) : null}
+            </div>
+          ))
+        : null}
+    </div>
+  );
+});

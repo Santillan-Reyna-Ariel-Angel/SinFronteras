@@ -1,34 +1,74 @@
-import React, { useState, useContext } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
-import MenuItem from "@mui/material/MenuItem";
-import Menu from "@mui/material/Menu";
+import React, { useState, useContext } from 'react';
+import AppBar from '@mui/material/AppBar';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+// import Badge from '@mui/material/Badge';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
 // import MenuIcon from "@mui/icons-material/Menu";
-import MailIcon from "@mui/icons-material/Mail";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import MoreIcon from "@mui/icons-material/MoreVert";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import DialogSingOff from "./DialogSingOff/DialogSingOff";
+// import MailIcon from '@mui/icons-material/Mail';
+// import NotificationsIcon from '@mui/icons-material/Notifications';
+import MoreIcon from '@mui/icons-material/MoreVert';
+import Avatar from '@mui/material/Avatar';
+// import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import DialogSingOff from './DialogSingOff/DialogSingOff';
 //Estilos propios
-import { LogoAppBar } from "./AppBarStyles";
+import { LogoAppBar } from './AppBarStyles';
 //src-images
-import ProfilePicture from "../../sources/img/PerfilFake.jpg";
+import ProfilePicture2 from '../../sources/img/PerfilFake5_1976D2.png';
 //Context UserData
-import { ContextUserData } from "./../../contexts/ContextUserData";
+import { ContextUserData } from './../../contexts/ContextUserData';
+import { ContextAllBranchOffices } from './../../contexts/ContextAllBranchOffices';
+//Components
+import { ControlMenu } from './ControlMenu/ControlMenu';
+//others:
+import { useHistory } from 'react-router-dom';
+import { useMediaQuery } from '@mui/material';
 
 export default function PrimarySearchAppBar() {
+  const isScreenMaxW_768 = useMediaQuery('(max-width:768px)'); // useMediaQuery para verificar si la pantalla es de 768px o menos
+  // console.log('isScreenMaxW_768', isScreenMaxW_768);
+
+  const history = useHistory();
+
+  // ContextUserData:
   const userData = useContext(ContextUserData);
   // console.log("userData", userData);
-  const { names } = userData ? userData : { names: "" };
+  const { names, branchNumberOrCode } = userData ? userData : { names: '' };
   // console.log("names", names);
 
-  const messagesCant = 25;
-  const notificationsCant = 35;
+  //ContextAllBranchOffices:
+  const allBranchOffices = useContext(ContextAllBranchOffices);
+  // console.log('allBranchOffices', allBranchOffices);
+
+  // json to array:
+  let allBranchOfficesArray = [];
+  for (let i in allBranchOffices)
+    allBranchOfficesArray.push(allBranchOffices[i].branchInformation);
+  // console.log('allBranchOfficesArray', allBranchOfficesArray);
+
+  const branchOffice = allBranchOfficesArray.filter(
+    (branchOffice) => branchOffice.branchNumber === branchNumberOrCode
+  );
+  // console.log('branchOffice', branchOffice[0]);
+
+  let {
+    department: branchDepartment,
+    location: branchLocation,
+    name: branchName,
+  } = branchOffice[0] !== undefined
+    ? branchOffice[0]
+    : { department: '', location: '', name: '' };
+
+  console.log(
+    `branchDepartment: ${branchDepartment}, branchLocation: ${branchLocation}, BranchName: ${branchName}`
+  );
+
+  // const messagesCant = 25;
+  // const notificationsCant = 35;
   const [anchorEl, setAnchorEl] = useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = useState(null);
 
@@ -52,63 +92,75 @@ export default function PrimarySearchAppBar() {
     setMobileMoreAnchorEl(event.currentTarget);
   };
 
-  const menuId = "primary-search-account-menu";
+  const goProfile = () => {
+    //redirigir a perfil:
+    history.push('/perfil/mi-perfil');
+  };
+
+  const menuId = 'primary-search-account-menu';
   const UserProfileMenu = (
     <Menu
       anchorEl={anchorEl}
       anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: 'top',
+        horizontal: 'right',
       }}
       id={menuId}
       keepMounted
       transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: 'top',
+        horizontal: 'right',
       }}
       open={isMenuOpen}
       onClose={handleMenuClose}
     >
-      <MenuItem onClick={handleMenuClose}>Perfil</MenuItem>
+      <MenuItem onClick={handleMenuClose}>
+        <Button variant="text" color="inherit" onClick={goProfile}>
+          Perfil
+        </Button>
+      </MenuItem>
       <MenuItem onClick={handleMenuClose}>{DialogSingOff()}</MenuItem>
     </Menu>
   );
 
-  const mobileMenuId = "primary-search-account-menu-mobile";
+  const mobileMenuId = 'primary-search-account-menu-mobile';
 
   //   Vista Movil
   const renderMobileMenu = (
     <Menu
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: 'top',
+        horizontal: 'right',
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
-        vertical: "top",
-        horizontal: "right",
+        vertical: 'top',
+        horizontal: 'right',
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
+      {/* Los <MenuItem> son como botones: */}
+      {/* <MenuItem>
         <IconButton size="large" aria-label="messages" color="inherit">
           <Badge badgeContent={messagesCant} color="error">
             <MailIcon />
           </Badge>
         </IconButton>
         <p>Mensajes</p>
-      </MenuItem>
-      <MenuItem>
+      </MenuItem> */}
+
+      {/* <MenuItem>
         <IconButton size="large" aria-label="notifications" color="inherit">
           <Badge badgeContent={notificationsCant} color="error">
             <NotificationsIcon />
           </Badge>
         </IconButton>
         <p>Notificaciones</p>
-      </MenuItem>
+      </MenuItem> */}
+
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
@@ -118,9 +170,9 @@ export default function PrimarySearchAppBar() {
           color="inherit"
         >
           <Avatar
-            alt="Travis Howard"
-            src={ProfilePicture}
-            sx={{ ml: "-10px" }}
+            alt="Usuario" // Travis Howard
+            src={ProfilePicture2}
+            sx={{ ml: '-10px' }}
           />
         </IconButton>
         <p>{names}</p>
@@ -129,8 +181,9 @@ export default function PrimarySearchAppBar() {
   );
 
   return (
+    // <Box sx={{ flexGrow: 1 }}> podria dar solucion a la altura del sidebar
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" sx={{ backgroundColor: "#051E34" }}>
+      <AppBar position="static" sx={{ backgroundColor: '#051E34' }}>
         <Toolbar>
           {/* icono menu(amburguesa) */}
           {/* <IconButton
@@ -145,28 +198,46 @@ export default function PrimarySearchAppBar() {
 
           <LogoAppBar />
 
+          <ControlMenu />
+
           <Box sx={{ flexGrow: 1 }} />
-          <Button variant="primary" color="" size="small">
+          {/* Botones(tentativo a eliminar) */}
+          {/* <Button variant="primary" color="" size="small">
             Estadisticas
-          </Button>
-          <Button variant="primary" color="" size="small">
+          </Button> */}
+          {/* <Button variant="primary" color="" size="small">
             proveedores
-          </Button>
-          <Button variant="primary" color="" size="small">
+          </Button> */}
+          {/* <Button variant="primary" color="" size="small">
             Reportes
-          </Button>
+          </Button> */}
+
+          {/* TEXT QUE INDICA EN QUE SUCURSAL NOS ENCONTRAMOS: */}
+          <span
+            style={{
+              fontSize: 'large', //medium, large
+              // fontWeight: 'bold',
+              color: 'white',
+            }}
+          >
+            {isScreenMaxW_768
+              ? branchName
+              : `${branchDepartment} - ${branchLocation} - ${branchName}`}
+          </span>
+
           {/* Notificaciones escritorio */}
-          <Box sx={{ display: { xs: "none", md: "flex" } }}>
-            <IconButton size="large" aria-label="messages" color="inherit">
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+            {/* <IconButton size="large" aria-label="messages" color="inherit">
               <Badge badgeContent={messagesCant} color="error">
                 <MailIcon />
               </Badge>
-            </IconButton>
-            <IconButton size="large" aria-label="notifications" color="inherit">
+            </IconButton> */}
+            {/* <IconButton size="large" aria-label="notifications" color="inherit">
               <Badge badgeContent={notificationsCant} color="error">
                 <NotificationsIcon />
               </Badge>
-            </IconButton>
+            </IconButton> */}
+
             <IconButton
               size="large"
               edge="end"
@@ -176,13 +247,17 @@ export default function PrimarySearchAppBar() {
               onClick={handleProfileMenuOpen}
               color="inherit"
             >
-              <Typography variant="subtitle2" sx={{ mr: "5px" }}>
+              <Typography variant="subtitle2" sx={{ mr: '5px' }}>
                 {names}
               </Typography>
-              <Avatar alt="Travis Howard" src={ProfilePicture} />
+              <Avatar
+                alt="Usuario" //Travis Howard
+                src={ProfilePicture2}
+              />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: "flex", md: "none" } }}>
+
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="show more"

@@ -1,6 +1,7 @@
-import styled from "styled-components";
-import backgroundImage from "./../../sources/img/Flota2.jpg";
-import Logo from "./../../sources/img/LogoSF2.png";
+import styled from 'styled-components';
+import backgroundImage from './../../sources/img/Flota2.jpg';
+import Logo from './../../sources/img/LogoSF2.png';
+import { globalColors } from './../constantData';
 
 export const Background = styled.div`
   display: grid;
@@ -23,32 +24,36 @@ export const Background = styled.div`
 
 export const Container = styled.form`
   display: grid;
-  padding: 25px 30px;
-  grid-column-gap: 15px;
-  grid-row-gap: 17px;
-  grid-template-columns: 160px 200px auto;
+  padding: 20px 25px 20px 15px;
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
+  grid-template-columns: 115px 200px auto;
   grid-template-rows: auto auto auto;
   border-radius: 20px;
   grid-template-areas:
-    "Logo InputUser InputUser"
-    "Logo InputP InputP" "Logo RecoverPassword Button";
-  /* background: #00bdb440;
-  backdrop-filter: blur(22px); */
-  background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%);
-
+    'Logo InputUser InputUser'
+    'Logo InputP InputP' 'Logo RecoverPassword Button';
+  /* background: #00bdb440; */
+  /* backdrop-filter: blur(22px); */
+  /* background: radial-gradient(circle, #9ca3af, #00bdb2, black 155%); */
+  /* background-color: #00bdb2;  */
   box-shadow: 10px 7px 5px rgba(0, 0, 0, 0.7);
+  /* border: 4px solid #051e34; //contorno */
+  background-color: ${globalColors.background};
+  border: 4px solid ${globalColors.border};
 
   @media screen and (max-width: 768px) {
-    grid-column-gap: 20px;
-    grid-template-columns: 180px 100px;
-    grid-template-rows: 160px 1fr 1fr auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 10px;
+    grid-template-columns: 115px 115px;
+    grid-template-rows: 100px 1fr 1fr auto;
     padding: 10px 15px;
 
     grid-template-areas:
-      "Logo Logo"
-      "InputUser InputUser"
-      "InputP InputP"
-      "RecoverPassword Button";
+      'Logo Logo'
+      'InputUser InputUser'
+      'InputP InputP'
+      'RecoverPassword Button';
   }
 `;
 
